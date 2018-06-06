@@ -1,7 +1,7 @@
 ---
 title: "My R Codes For Data Analysis"
 subtitle: "In this repository I am going to collect `R codes` for data analysis."
-author: "Serdar Balcı, MD, Pathologist"
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
 date: '`r format(Sys.Date())`'
 output: 
   html_notebook: 

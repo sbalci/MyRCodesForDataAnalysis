@@ -2707,7 +2707,7 @@ $(document).ready(function () {
 </style>
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("MyRCodesForDataAnalysis.Rmd");
+  window.initializeSourceEmbed("codes.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
@@ -2828,22 +2828,24 @@ div.tocify {
 
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis.</em></h3>
-<h4 class="author"><em>Serdar Balcı, MD, Pathologist</em></h4>
+<h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
 <h4 class="date"><em>2018-06-06</em></h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
+<div id="getting-data-into-r" class="section level1">
+<h1><span class="header-section-number">1</span> Getting Data into R</h1>
+</div>
+<div id="analysis" class="section level1">
+<h1><span class="header-section-number">2</span> Analysis</h1>
 <hr />
-<div id="feedback" class="section level1">
-<h1><span class="header-section-number">1</span> Feedback</h1>
-<p><a href="https://github.com/sbalci">Serdar Balcı, MD, Pathologist</a> would like to hear your feedback: <a href="https://goo.gl/forms/YjGZ5DHgtPlR1RnB3" class="uri">https://goo.gl/forms/YjGZ5DHgtPlR1RnB3</a></p>
 <p>This document will be continiously updated and the last update was on 2018-06-06.</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4iCmF1dGhvcjogIlNlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdCIKZGF0ZTogJ2ByIGZvcm1hdChTeXMuRGF0ZSgpKWAnCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazogCiAgICBmaWdfY2FwdGlvbjogeWVzCiAgICBoaWdobGlnaHQ6IGthdGUKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6IAogICAgY29kZV9mb2xkaW5nOiBoaWRlCiAgICBkZl9wcmludDoga2FibGUKICAgIGtlZXBfbWQ6IHllcwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBjZXJ1bGVhbgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCiAgICBoaWdobGlnaHQ6IGthdGUKLS0tCgoKCi0tLQoKCiMgRmVlZGJhY2sKCltTZXJkYXIgQmFsY8SxLCBNRCwgUGF0aG9sb2dpc3RdKGh0dHBzOi8vZ2l0aHViLmNvbS9zYmFsY2kpIHdvdWxkIGxpa2UgdG8gaGVhciB5b3VyIGZlZWRiYWNrOiBodHRwczovL2dvby5nbC9mb3Jtcy9ZakdaNURIZ3RQbFIxUm5CMwoKVGhpcyBkb2N1bWVudCB3aWxsIGJlIGNvbnRpbmlvdXNseSB1cGRhdGVkIGFuZCB0aGUgbGFzdCB1cGRhdGUgd2FzIG9uIGByIFN5cy5EYXRlKClgLg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4iCmF1dGhvcjogIltTZXJkYXIgQmFsY8SxLCBNRCwgUGF0aG9sb2dpc3RdKGh0dHBzOi8vd3d3LnNlcmRhcmJhbGNpLmNvbS8pIgpkYXRlOiAnYHIgZm9ybWF0KFN5cy5EYXRlKCkpYCcKb3V0cHV0OiAKICBodG1sX25vdGVib29rOiAKICAgIGZpZ19jYXB0aW9uOiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBjZXJ1bGVhbgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCiAgaHRtbF9kb2N1bWVudDogCiAgICBjb2RlX2ZvbGRpbmc6IGhpZGUKICAgIGRmX3ByaW50OiBrYWJsZQogICAga2VlcF9tZDogeWVzCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcwogICAgdGhlbWU6IGNlcnVsZWFuCiAgICB0b2M6IHllcwogICAgdG9jX2Zsb2F0OiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQotLS0KCiMgR2V0dGluZyBEYXRhIGludG8gUgoKCiMgQW5hbHlzaXMKCgoKCi0tLQpUaGlzIGRvY3VtZW50IHdpbGwgYmUgY29udGluaW91c2x5IHVwZGF0ZWQgYW5kIHRoZSBsYXN0IHVwZGF0ZSB3YXMgb24gYHIgU3lzLkRhdGUoKWAu</div>
 
 
 </div>
