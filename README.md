@@ -7,7 +7,7 @@ In this repository I am going to collect `R codes` for data analysis.
 
 # See the Codes here:
 
-
+[https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html)
 
 
 # Feedback
