@@ -37,6 +37,12 @@ library(tidyverse)
 
 ## Import SPSS File
 
+```{r}
+library(haven)
+data <- read_sav("data.sav")
+```
+
+
 ## Prepare Data for Analysis
 
 ### SPSS labels
@@ -80,6 +86,16 @@ names(mydata) <- VariableLabels$colname
 ```
 
 
+### SPSS'te numeric tanımlanmış ve veri değerleri olan sütunlar, labelled
+
+```{r}
+??labelled
+?haven::labelled
+EDT256$tanı <- as_factor(EDT256$tanı, labels = "values")
+```
+
+
+
 # make names
 
 turkce karakter donusumu
@@ -112,27 +128,24 @@ purrr::map(df, to.plain)
 
 #### veriye ID ekleme
 
+genelde verilerde ID sütun unutuluyor. Bazı analizlerde ise ID sütunu mutlaka gerekiyor. Hem datayı yeniden düzenlediğinizde olguları karıştırmamak için hem de bazı paketlerde hatalarla karşılaşmamak için her veri setine ID eklenmesini öneririm.
+
+
 ```{r}
 df <- tibble::rowid_to_column(df, "subject")
 ```
 
 
+### gerekli sütunları seçme
+
+```{r}
+data <- data %>%
+    select(subject, tani, starts_with("klinik"))
+```
 
 
-<!-- # gerekli paketi yükleme -->
-<!-- library(tidyverse) -->
-<!-- library(haven) -->
-<!-- # dosyayı yükleme -->
-<!-- EDT256 <- read_sav("EDT256.sav") -->
 
 
-
-<!-- # gerekli sütunları seçme -->
-<!-- EDT256 <- EDT256 %>% -->
-<!--     select(subject, tanı, starts_with("beck")) -->
-
-<!-- # değişken değerlerini yeniden atama -->
-<!-- EDT256$tanı <- as_factor(EDT256$tanı, labels = "values") -->
 
 <!-- # yatay veriyi uzun hale getirme -->
 <!-- EDT256_new <- EDT256 %>% -->
@@ -205,12 +218,6 @@ df <- tibble::rowid_to_column(df, "subject")
 <!--        lwd = c(2,2), -->
 <!--        col = c("grey",2),cex = 0.7) -->
 <!-- dev.off() -->
-
-
-
-
-
-
 
 
 
