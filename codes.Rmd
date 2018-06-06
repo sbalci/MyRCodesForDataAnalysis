@@ -119,92 +119,92 @@ df <- tibble::rowid_to_column(df, "subject")
 
 
 
-# gerekli paketi yükleme
-library(tidyverse)
-library(haven)
-# dosyayı yükleme
-EDT256 <- read_sav("EDT256.sav")
+<!-- # gerekli paketi yükleme -->
+<!-- library(tidyverse) -->
+<!-- library(haven) -->
+<!-- # dosyayı yükleme -->
+<!-- EDT256 <- read_sav("EDT256.sav") -->
 
 
 
-# gerekli sütunları seçme
-EDT256 <- EDT256 %>%
-    select(subject, tanı, starts_with("beck"))
+<!-- # gerekli sütunları seçme -->
+<!-- EDT256 <- EDT256 %>% -->
+<!--     select(subject, tanı, starts_with("beck")) -->
 
-# değişken değerlerini yeniden atama
-EDT256$tanı <- as_factor(EDT256$tanı, labels = "values")
+<!-- # değişken değerlerini yeniden atama -->
+<!-- EDT256$tanı <- as_factor(EDT256$tanı, labels = "values") -->
 
-# yatay veriyi uzun hale getirme
-EDT256_new <- EDT256 %>%
-    gather(- c("subject","tanı"), key = zaman, value = beck_int_score)
+<!-- # yatay veriyi uzun hale getirme -->
+<!-- EDT256_new <- EDT256 %>% -->
+<!--     gather(- c("subject","tanı"), key = zaman, value = beck_int_score) -->
 
 
-# değişkenleri rakamsal hale getirme
-EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_P")] <- 0
-EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A1")] <- 1
-EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A2")] <- 2
+<!-- # değişkenleri rakamsal hale getirme -->
+<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_P")] <- 0 -->
+<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A1")] <- 1 -->
+<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A2")] <- 2 -->
 
-# değişken değerlerini atama 
-EDT256_new$zaman <- factor(EDT256_new$zaman, levels = c(0,1,2),
-                           labels = c("Tedavi Öncesi", "T. Sonrası 1. Hafta",
-                                      "T. Sonrası 2. Hafta"))
+<!-- # değişken değerlerini atama  -->
+<!-- EDT256_new$zaman <- factor(EDT256_new$zaman, levels = c(0,1,2), -->
+<!--                            labels = c("Tedavi Öncesi", "T. Sonrası 1. Hafta", -->
+<!--                                       "T. Sonrası 2. Hafta")) -->
 
 
-# nparLD analizi
+<!-- # nparLD analizi -->
 
-# gerekli paketi yükleme
-library(nparLD)
+<!-- # gerekli paketi yükleme -->
+<!-- library(nparLD) -->
 
-# model oluşturma
-modelEDT256 <- nparLD(beck_int_score ~ tanı * zaman, data = EDT256_new,
-                      subject = "subject",
-                      plot.CI = TRUE, show.covariance = TRUE)
+<!-- # model oluşturma -->
+<!-- modelEDT256 <- nparLD(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
+<!--                       subject = "subject", -->
+<!--                       plot.CI = TRUE, show.covariance = TRUE) -->
 
-# model sonucunu yazdır
-out <- capture.output(modelEDT256)
-cat("EDT256 Model", out, file = "EDT256.txt", sep = "\n", append=TRUE)
+<!-- # model sonucunu yazdır -->
+<!-- out <- capture.output(modelEDT256) -->
+<!-- cat("EDT256 Model", out, file = "EDT256.txt", sep = "\n", append=TRUE) -->
 
-# model grafiği
-plot(modelEDT256)
+<!-- # model grafiği -->
+<!-- plot(modelEDT256) -->
 
-# plot sonucunu yazdır
-out2 <- capture.output(plot(modelEDT256))
-cat("\n","EDT256 Plot", out2, file = "EDT256.txt", sep = "\n", append = TRUE)
+<!-- # plot sonucunu yazdır -->
+<!-- out2 <- capture.output(plot(modelEDT256)) -->
+<!-- cat("\n","EDT256 Plot", out2, file = "EDT256.txt", sep = "\n", append = TRUE) -->
 
-# grafiği yazdır
-jpeg('modelEDT256.jpeg')
-plot(modelEDT256)
-dev.off()
+<!-- # grafiği yazdır -->
+<!-- jpeg('modelEDT256.jpeg') -->
+<!-- plot(modelEDT256) -->
+<!-- dev.off() -->
 
-# model özeti
-summary(modelEDT256)
+<!-- # model özeti -->
+<!-- summary(modelEDT256) -->
 
-# model özeti sonucunu yazdır
-out3 <- capture.output(modelEDT256)
-cat("\n","EDT256 summary", out3, file = "EDT256.txt", sep = "\n", append=TRUE)
+<!-- # model özeti sonucunu yazdır -->
+<!-- out3 <- capture.output(modelEDT256) -->
+<!-- cat("\n","EDT256 summary", out3, file = "EDT256.txt", sep = "\n", append=TRUE) -->
 
 
-# ek olarak boxplot oluşturma
-boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new,
-        names = FALSE,col = c("grey",2),lwd = 2)
-axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3)
-axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3)
-axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3)
-legend(5,35,c("Tanı 1","Tanı 2"),
-       lwd = c(2,2),
-       col = c("grey",2),cex = 0.7)
+<!-- # ek olarak boxplot oluşturma -->
+<!-- boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
+<!--         names = FALSE,col = c("grey",2),lwd = 2) -->
+<!-- axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3) -->
+<!-- axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3) -->
+<!-- axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3) -->
+<!-- legend(5,35,c("Tanı 1","Tanı 2"), -->
+<!--        lwd = c(2,2), -->
+<!--        col = c("grey",2),cex = 0.7) -->
 
-# boxplot yazdır
-jpeg('boxplotEDT256.jpeg')
-boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new,
-        names = FALSE,col = c("grey",2),lwd = 2)
-axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3)
-axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3)
-axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3)
-legend(5,35,c("Tanı 1","Tanı 2"),
-       lwd = c(2,2),
-       col = c("grey",2),cex = 0.7)
-dev.off()
+<!-- # boxplot yazdır -->
+<!-- jpeg('boxplotEDT256.jpeg') -->
+<!-- boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
+<!--         names = FALSE,col = c("grey",2),lwd = 2) -->
+<!-- axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3) -->
+<!-- axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3) -->
+<!-- axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3) -->
+<!-- legend(5,35,c("Tanı 1","Tanı 2"), -->
+<!--        lwd = c(2,2), -->
+<!--        col = c("grey",2),cex = 0.7) -->
+<!-- dev.off() -->
 
 
 
@@ -215,112 +215,112 @@ dev.off()
 
 
 
-# Analysis
+<!-- # Analysis -->
 
-## Survival Analysis
+<!-- ## Survival Analysis -->
 
-https://github.com/datacamp/tutorial
+<!-- https://github.com/datacamp/tutorial -->
 
-Based on https://www.datacamp.com/community/tutorials/survival-analysis-R
+<!-- Based on https://www.datacamp.com/community/tutorials/survival-analysis-R -->
 
 
-```{r}
-library(tutorial)
-library(survival)
-library(survminer)
-library(tidyverse)
-library(jmv)
-```
+<!-- ```{r} -->
+<!-- library(tutorial) -->
+<!-- library(survival) -->
+<!-- library(survminer) -->
+<!-- library(tidyverse) -->
+<!-- library(jmv) -->
+<!-- ``` -->
 
 
-```{r}
-data(ovarian)
-glimpse(ovarian)
-help(ovarian)
-```
+<!-- ```{r} -->
+<!-- data(ovarian) -->
+<!-- glimpse(ovarian) -->
+<!-- help(ovarian) -->
+<!-- ``` -->
 
 
-```{r}
-summary(ovarian)
-```
+<!-- ```{r} -->
+<!-- summary(ovarian) -->
+<!-- ``` -->
 
 
-```{r}
-varOvarian <- names(ovarian)
+<!-- ```{r} -->
+<!-- varOvarian <- names(ovarian) -->
 
-ovarian2 <- ovarian %>% 
-    map_df(as.factor)
+<!-- ovarian2 <- ovarian %>%  -->
+<!--     map_df(as.factor) -->
 
-jmv::descriptives(ovarian, varOvarian, freq = TRUE)
+<!-- jmv::descriptives(ovarian, varOvarian, freq = TRUE) -->
 
-jmv::descriptives(ovarian2, varOvarian, freq = TRUE)
+<!-- jmv::descriptives(ovarian2, varOvarian, freq = TRUE) -->
 
-```
+<!-- ``` -->
 
 
-```{r}
-# Dichotomize age and change data labels
-ovarian$rx <- factor(ovarian$rx, 
-                     levels = c("1", "2"), 
-                     labels = c("A", "B"))
-ovarian$resid.ds <- factor(ovarian$resid.ds, 
-                           levels = c("1", "2"), 
-                           labels = c("no", "yes"))
-ovarian$ecog.ps <- factor(ovarian$ecog.ps, 
-                          levels = c("1", "2"), 
-                          labels = c("good", "bad"))
+<!-- ```{r} -->
+<!-- # Dichotomize age and change data labels -->
+<!-- ovarian$rx <- factor(ovarian$rx,  -->
+<!--                      levels = c("1", "2"),  -->
+<!--                      labels = c("A", "B")) -->
+<!-- ovarian$resid.ds <- factor(ovarian$resid.ds,  -->
+<!--                            levels = c("1", "2"),  -->
+<!--                            labels = c("no", "yes")) -->
+<!-- ovarian$ecog.ps <- factor(ovarian$ecog.ps,  -->
+<!--                           levels = c("1", "2"),  -->
+<!--                           labels = c("good", "bad")) -->
 
-jmv::descriptives(ovarian, varOvarian, freq = TRUE)
+<!-- jmv::descriptives(ovarian, varOvarian, freq = TRUE) -->
 
-```
+<!-- ``` -->
 
 
-```{r}
-# Data seems to be bimodal
-hist(ovarian$age)
-```
+<!-- ```{r} -->
+<!-- # Data seems to be bimodal -->
+<!-- hist(ovarian$age) -->
+<!-- ``` -->
 
 
-```{r}
-ovarian <- ovarian %>% mutate(age_group = ifelse(age >= 50, "old", "young"))
-ovarian$age_group <- factor(ovarian$age_group)
+<!-- ```{r} -->
+<!-- ovarian <- ovarian %>% mutate(age_group = ifelse(age >= 50, "old", "young")) -->
+<!-- ovarian$age_group <- factor(ovarian$age_group) -->
 
-varOvarian <- names(ovarian)
+<!-- varOvarian <- names(ovarian) -->
 
-jmv::descriptives(ovarian, varOvarian, freq = TRUE)
-```
+<!-- jmv::descriptives(ovarian, varOvarian, freq = TRUE) -->
+<!-- ``` -->
 
 
-```{r}
-# Fit survival data using the Kaplan-Meier method
-surv_object <- Surv(time = ovarian$futime, event = ovarian$fustat)
-surv_object
-```
+<!-- ```{r} -->
+<!-- # Fit survival data using the Kaplan-Meier method -->
+<!-- surv_object <- Surv(time = ovarian$futime, event = ovarian$fustat) -->
+<!-- surv_object -->
+<!-- ``` -->
 
-```{r}
-fit1 <- survfit(surv_object ~ rx, data = ovarian)
-summary(fit1)
-```
+<!-- ```{r} -->
+<!-- fit1 <- survfit(surv_object ~ rx, data = ovarian) -->
+<!-- summary(fit1) -->
+<!-- ``` -->
 
 
-```{r}
-ggsurvplot(fit1, data = ovarian, pval = TRUE)
-```
+<!-- ```{r} -->
+<!-- ggsurvplot(fit1, data = ovarian, pval = TRUE) -->
+<!-- ``` -->
 
 
-```{r}
-# Examine prdictive value of residual disease status
-fit2 <- survfit(surv_object ~ resid.ds, data = ovarian)
-ggsurvplot(fit2, data = ovarian, pval = TRUE)
-```
+<!-- ```{r} -->
+<!-- # Examine prdictive value of residual disease status -->
+<!-- fit2 <- survfit(surv_object ~ resid.ds, data = ovarian) -->
+<!-- ggsurvplot(fit2, data = ovarian, pval = TRUE) -->
+<!-- ``` -->
 
-```{r}
-# Fit a Cox proportional hazards model
-fit.coxph <- coxph(surv_object ~ rx + resid.ds + age_group + ecog.ps, 
-                   data = ovarian)
-ggforest(fit.coxph, data = ovarian) +
-    geom_errorbar(na.rm = TRUE)
-```
+<!-- ```{r} -->
+<!-- # Fit a Cox proportional hazards model -->
+<!-- fit.coxph <- coxph(surv_object ~ rx + resid.ds + age_group + ecog.ps,  -->
+<!--                    data = ovarian) -->
+<!-- ggforest(fit.coxph, data = ovarian) + -->
+<!--     geom_errorbar(na.rm = TRUE) -->
+<!-- ``` -->
 
 
 
@@ -387,181 +387,181 @@ aa_fit <-aareg(Surv(time, status) ~ trt + celltype +
 aa_fit
 
 
-#summary(aa_fit)  # provides a more complete summary of results
-autoplot(aa_fit)
+<!-- #summary(aa_fit)  # provides a more complete summary of results -->
+<!-- autoplot(aa_fit) -->
 
 
-# ranger model
-r_fit <- ranger(Surv(time, status) ~ trt + celltype + 
-                    karno + diagtime + age + prior,
-                data = vet,
-                mtry = 4,
-                importance = "permutation",
-                splitrule = "extratrees",
-                verbose = TRUE)
+<!-- # ranger model -->
+<!-- r_fit <- ranger(Surv(time, status) ~ trt + celltype +  -->
+<!--                     karno + diagtime + age + prior, -->
+<!--                 data = vet, -->
+<!--                 mtry = 4, -->
+<!--                 importance = "permutation", -->
+<!--                 splitrule = "extratrees", -->
+<!--                 verbose = TRUE) -->
 
 
-# Average the survival models
-death_times <- r_fit$unique.death.times 
-surv_prob <- data.frame(r_fit$survival)
-avg_prob <- sapply(surv_prob,mean)
+<!-- # Average the survival models -->
+<!-- death_times <- r_fit$unique.death.times  -->
+<!-- surv_prob <- data.frame(r_fit$survival) -->
+<!-- avg_prob <- sapply(surv_prob,mean) -->
 
-# Plot the survival models for each patient
-plot(r_fit$unique.death.times,r_fit$survival[1,], 
-     type = "l", 
-     ylim = c(0,1),
-     col = "red",
-     xlab = "Days",
-     ylab = "survival",
-     main = "Patient Survival Curves")
+<!-- # Plot the survival models for each patient -->
+<!-- plot(r_fit$unique.death.times,r_fit$survival[1,],  -->
+<!--      type = "l",  -->
+<!--      ylim = c(0,1), -->
+<!--      col = "red", -->
+<!--      xlab = "Days", -->
+<!--      ylab = "survival", -->
+<!--      main = "Patient Survival Curves") -->
 
-#
-cols <- colors()
-for (n in sample(c(2:dim(vet)[1]), 20)){
-    lines(r_fit$unique.death.times, r_fit$survival[n,], type = "l", col = cols[n])
-}
-lines(death_times, avg_prob, lwd = 2)
-legend(500, 0.7, legend = c('Average = black'))
-
-
-vi <- data.frame(sort(round(r_fit$variable.importance, 4), decreasing = TRUE))
-names(vi) <- "importance"
-head(vi)
+<!-- # -->
+<!-- cols <- colors() -->
+<!-- for (n in sample(c(2:dim(vet)[1]), 20)){ -->
+<!--     lines(r_fit$unique.death.times, r_fit$survival[n,], type = "l", col = cols[n]) -->
+<!-- } -->
+<!-- lines(death_times, avg_prob, lwd = 2) -->
+<!-- legend(500, 0.7, legend = c('Average = black')) -->
 
 
-cat("Prediction Error = 1 - Harrell's c-index = ", r_fit$prediction.error)
+<!-- vi <- data.frame(sort(round(r_fit$variable.importance, 4), decreasing = TRUE)) -->
+<!-- names(vi) <- "importance" -->
+<!-- head(vi) -->
 
 
-# Set up for ggplot
-kmi <- rep("KM",length(km_fit$time))
-km_df <- data.frame(km_fit$time,km_fit$surv,kmi)
-names(km_df) <- c("Time","Surv","Model")
-
-coxi <- rep("Cox",length(cox_fit$time))
-cox_df <- data.frame(cox_fit$time,cox_fit$surv,coxi)
-names(cox_df) <- c("Time","Surv","Model")
-
-rfi <- rep("RF",length(r_fit$unique.death.times))
-rf_df <- data.frame(r_fit$unique.death.times,avg_prob,rfi)
-names(rf_df) <- c("Time","Surv","Model")
-
-plot_df <- rbind(km_df,cox_df,rf_df)
-
-p <- ggplot(plot_df, aes(x = Time, y = Surv, color = Model))
-p + geom_line()
+<!-- cat("Prediction Error = 1 - Harrell's c-index = ", r_fit$prediction.error) -->
 
 
+<!-- # Set up for ggplot -->
+<!-- kmi <- rep("KM",length(km_fit$time)) -->
+<!-- km_df <- data.frame(km_fit$time,km_fit$surv,kmi) -->
+<!-- names(km_df) <- c("Time","Surv","Model") -->
 
+<!-- coxi <- rep("Cox",length(cox_fit$time)) -->
+<!-- cox_df <- data.frame(cox_fit$time,cox_fit$surv,coxi) -->
+<!-- names(cox_df) <- c("Time","Surv","Model") -->
 
-############
+<!-- rfi <- rep("RF",length(r_fit$unique.death.times)) -->
+<!-- rf_df <- data.frame(r_fit$unique.death.times,avg_prob,rfi) -->
+<!-- names(rf_df) <- c("Time","Surv","Model") -->
+
+<!-- plot_df <- rbind(km_df,cox_df,rf_df) -->
+
+<!-- p <- ggplot(plot_df, aes(x = Time, y = Surv, color = Model)) -->
+<!-- p + geom_line() -->
 
 
 
 
-
-install.packages("OIsurv")
-library(OIsurv)
-
-library(help=KMsurv)
-
-data(aids)
-glimpse(aids)
-
-
-data(tongue)
-
-glimpse(tongue)
-
-my.surv.object <- Surv(tongue$time[tongue$type==1], tongue$delta[tongue$type==1])
-
-my.surv.object
-
-data(psych)
-
-my.surv.object2 <- Surv(psych$age, psych$age+psych$time, psych$death)
-
-my.surv.object2
-
-
-
-```{r}
-library("survival")
-fit <- survfit(Surv(time,status)
-~ sex, data = lung)
-class(fit)
-## [1] "survfit"
-library("survminer")
-ggsurvplot(fit, data = lung)
-```
-
-
-```{r}
-ggsurvplot(fit, data = lung, fun = "event")
-
-```
-
-
-```{r}
-ggsurvplot(fit, data = lung, fun = "cumhaz")
-```
-
-```{r}
-ggsurvplot(fit, data = lung,
-conf.int = TRUE,
-pval = TRUE,
-fun = "pct",
-risk.table = TRUE,
-tables.height = 0.3,
-size = 0.8,
-linetype = "strata",
-palette = c("#E7B800",
-"#2E9FDF"),
-legend = "top",
-legend.title = "Sex",
-legend.labs = c("Male",
-"Female"),
-cex = 0.2
-)
-```
-
-```{r}
-library("survival")
-fit <- coxph(Surv(time, status) ~ sex + age, data = lung)
-ftest <- cox.zph(fit)
-ftest
-```
-
-```{r}
-library("survminer")
-ggcoxzph(ftest)
-```
-
-
-```{r}
-library("survival")
-library("survminer")
-fit <- coxph(Surv(time, status) ~
-sex + age, data = lung)
-
-```
+<!-- ############ -->
 
 
 
 
-```{r}
-ggcoxdiagnostics(fit,
-type = "deviance",
-ox.scale = "linear.predictions")
 
-```
+<!-- install.packages("OIsurv") -->
+<!-- library(OIsurv) -->
+
+<!-- library(help=KMsurv) -->
+
+<!-- data(aids) -->
+<!-- glimpse(aids) -->
+
+
+<!-- data(tongue) -->
+
+<!-- glimpse(tongue) -->
+
+<!-- my.surv.object <- Surv(tongue$time[tongue$type==1], tongue$delta[tongue$type==1]) -->
+
+<!-- my.surv.object -->
+
+<!-- data(psych) -->
+
+<!-- my.surv.object2 <- Surv(psych$age, psych$age+psych$time, psych$death) -->
+
+<!-- my.surv.object2 -->
 
 
 
-```{r}
-ggcoxdiagnostics(fit,
-type = "schoenfeld",
-ox.scale = "time")
-```
+<!-- ```{r} -->
+<!-- library("survival") -->
+<!-- fit <- survfit(Surv(time,status) -->
+<!-- ~ sex, data = lung) -->
+<!-- class(fit) -->
+<!-- ## [1] "survfit" -->
+<!-- library("survminer") -->
+<!-- ggsurvplot(fit, data = lung) -->
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- ggsurvplot(fit, data = lung, fun = "event") -->
+
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- ggsurvplot(fit, data = lung, fun = "cumhaz") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- ggsurvplot(fit, data = lung, -->
+<!-- conf.int = TRUE, -->
+<!-- pval = TRUE, -->
+<!-- fun = "pct", -->
+<!-- risk.table = TRUE, -->
+<!-- tables.height = 0.3, -->
+<!-- size = 0.8, -->
+<!-- linetype = "strata", -->
+<!-- palette = c("#E7B800", -->
+<!-- "#2E9FDF"), -->
+<!-- legend = "top", -->
+<!-- legend.title = "Sex", -->
+<!-- legend.labs = c("Male", -->
+<!-- "Female"), -->
+<!-- cex = 0.2 -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- library("survival") -->
+<!-- fit <- coxph(Surv(time, status) ~ sex + age, data = lung) -->
+<!-- ftest <- cox.zph(fit) -->
+<!-- ftest -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- library("survminer") -->
+<!-- ggcoxzph(ftest) -->
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- library("survival") -->
+<!-- library("survminer") -->
+<!-- fit <- coxph(Surv(time, status) ~ -->
+<!-- sex + age, data = lung) -->
+
+<!-- ``` -->
+
+
+
+
+<!-- ```{r} -->
+<!-- ggcoxdiagnostics(fit, -->
+<!-- type = "deviance", -->
+<!-- ox.scale = "linear.predictions") -->
+
+<!-- ``` -->
+
+
+
+<!-- ```{r} -->
+<!-- ggcoxdiagnostics(fit, -->
+<!-- type = "schoenfeld", -->
+<!-- ox.scale = "time") -->
+<!-- ``` -->
 
 
 
@@ -709,37 +709,37 @@ names(sheetlist) <- columnNames2
 
 
 
-# "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)"
+<!-- # "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)" -->
 
-deneme <- sheetlist %>% 
-    select(starts_with("Respondant"), starts_with("GRADE"))
-
-
+<!-- deneme <- sheetlist %>%  -->
+<!--     select(starts_with("Respondant"), starts_with("GRADE")) -->
 
 
 
 
 
-# deneme[deneme=="HIGH"] <- 3
-# deneme[deneme=="HIGH (focal)"] <- 3
-# deneme[deneme=="MODERATE"] <- 2
-# deneme[deneme=="LOW"] <- 1
-# 
-# deneme <- as.data.frame(deneme)
-# 
-# row.names(deneme) <- deneme$Respondant
-# 
-# deneme <- deneme[-1]
-# 
-# deneme[is.na(deneme)] <- 1
-# 
-# deneme <- map_df(deneme, as.matrix)
-# 
-# glimpse(deneme)
-# 
-# heatmap(deneme)
 
-write_csv(deneme, "deneme.csv")
+
+<!-- # deneme[deneme=="HIGH"] <- 3 -->
+<!-- # deneme[deneme=="HIGH (focal)"] <- 3 -->
+<!-- # deneme[deneme=="MODERATE"] <- 2 -->
+<!-- # deneme[deneme=="LOW"] <- 1 -->
+<!-- #  -->
+<!-- # deneme <- as.data.frame(deneme) -->
+<!-- #  -->
+<!-- # row.names(deneme) <- deneme$Respondant -->
+<!-- #  -->
+<!-- # deneme <- deneme[-1] -->
+<!-- #  -->
+<!-- # deneme[is.na(deneme)] <- 1 -->
+<!-- #  -->
+<!-- # deneme <- map_df(deneme, as.matrix) -->
+<!-- #  -->
+<!-- # glimpse(deneme) -->
+<!-- #  -->
+<!-- # heatmap(deneme) -->
+
+<!-- write_csv(deneme, "deneme.csv") -->
 
 
 
