@@ -37,12 +37,6 @@ library(tidyverse)
 
 ## Import SPSS File
 
-```{r}
-library(haven)
-data <- read_sav("data.sav")
-```
-
-
 ## Prepare Data for Analysis
 
 ### SPSS labels
@@ -86,16 +80,6 @@ names(mydata) <- VariableLabels$colname
 ```
 
 
-### SPSS'te numeric tanımlanmış ve veri değerleri olan sütunlar, labelled
-
-```{r}
-??labelled
-?haven::labelled
-EDT256$tanı <- as_factor(EDT256$tanı, labels = "values")
-```
-
-
-
 # make names
 
 turkce karakter donusumu
@@ -128,96 +112,105 @@ purrr::map(df, to.plain)
 
 #### veriye ID ekleme
 
-genelde verilerde ID sütun unutuluyor. Bazı analizlerde ise ID sütunu mutlaka gerekiyor. Hem datayı yeniden düzenlediğinizde olguları karıştırmamak için hem de bazı paketlerde hatalarla karşılaşmamak için her veri setine ID eklenmesini öneririm.
-
-
 ```{r}
 df <- tibble::rowid_to_column(df, "subject")
 ```
 
 
-### gerekli sütunları seçme
-
-```{r}
-data <- data %>%
-    select(subject, tani, starts_with("klinik"))
-```
 
 
+# gerekli paketi yükleme
+library(tidyverse)
+library(haven)
+# dosyayı yükleme
+EDT256 <- read_sav("EDT256.sav")
 
 
 
-<!-- # yatay veriyi uzun hale getirme -->
-<!-- EDT256_new <- EDT256 %>% -->
-<!--     gather(- c("subject","tanı"), key = zaman, value = beck_int_score) -->
+# gerekli sütunları seçme
+EDT256 <- EDT256 %>%
+    select(subject, tanı, starts_with("beck"))
+
+# değişken değerlerini yeniden atama
+EDT256$tanı <- as_factor(EDT256$tanı, labels = "values")
+
+# yatay veriyi uzun hale getirme
+EDT256_new <- EDT256 %>%
+    gather(- c("subject","tanı"), key = zaman, value = beck_int_score)
 
 
-<!-- # değişkenleri rakamsal hale getirme -->
-<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_P")] <- 0 -->
-<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A1")] <- 1 -->
-<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A2")] <- 2 -->
+# değişkenleri rakamsal hale getirme
+EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_P")] <- 0
+EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A1")] <- 1
+EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A2")] <- 2
 
-<!-- # değişken değerlerini atama  -->
-<!-- EDT256_new$zaman <- factor(EDT256_new$zaman, levels = c(0,1,2), -->
-<!--                            labels = c("Tedavi Öncesi", "T. Sonrası 1. Hafta", -->
-<!--                                       "T. Sonrası 2. Hafta")) -->
-
-
-<!-- # nparLD analizi -->
-
-<!-- # gerekli paketi yükleme -->
-<!-- library(nparLD) -->
-
-<!-- # model oluşturma -->
-<!-- modelEDT256 <- nparLD(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
-<!--                       subject = "subject", -->
-<!--                       plot.CI = TRUE, show.covariance = TRUE) -->
-
-<!-- # model sonucunu yazdır -->
-<!-- out <- capture.output(modelEDT256) -->
-<!-- cat("EDT256 Model", out, file = "EDT256.txt", sep = "\n", append=TRUE) -->
-
-<!-- # model grafiği -->
-<!-- plot(modelEDT256) -->
-
-<!-- # plot sonucunu yazdır -->
-<!-- out2 <- capture.output(plot(modelEDT256)) -->
-<!-- cat("\n","EDT256 Plot", out2, file = "EDT256.txt", sep = "\n", append = TRUE) -->
-
-<!-- # grafiği yazdır -->
-<!-- jpeg('modelEDT256.jpeg') -->
-<!-- plot(modelEDT256) -->
-<!-- dev.off() -->
-
-<!-- # model özeti -->
-<!-- summary(modelEDT256) -->
-
-<!-- # model özeti sonucunu yazdır -->
-<!-- out3 <- capture.output(modelEDT256) -->
-<!-- cat("\n","EDT256 summary", out3, file = "EDT256.txt", sep = "\n", append=TRUE) -->
+# değişken değerlerini atama 
+EDT256_new$zaman <- factor(EDT256_new$zaman, levels = c(0,1,2),
+                           labels = c("Tedavi Öncesi", "T. Sonrası 1. Hafta",
+                                      "T. Sonrası 2. Hafta"))
 
 
-<!-- # ek olarak boxplot oluşturma -->
-<!-- boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
-<!--         names = FALSE,col = c("grey",2),lwd = 2) -->
-<!-- axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3) -->
-<!-- axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3) -->
-<!-- axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3) -->
-<!-- legend(5,35,c("Tanı 1","Tanı 2"), -->
-<!--        lwd = c(2,2), -->
-<!--        col = c("grey",2),cex = 0.7) -->
+# nparLD analizi
 
-<!-- # boxplot yazdır -->
-<!-- jpeg('boxplotEDT256.jpeg') -->
-<!-- boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
-<!--         names = FALSE,col = c("grey",2),lwd = 2) -->
-<!-- axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3) -->
-<!-- axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3) -->
-<!-- axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3) -->
-<!-- legend(5,35,c("Tanı 1","Tanı 2"), -->
-<!--        lwd = c(2,2), -->
-<!--        col = c("grey",2),cex = 0.7) -->
-<!-- dev.off() -->
+# gerekli paketi yükleme
+library(nparLD)
+
+# model oluşturma
+modelEDT256 <- nparLD(beck_int_score ~ tanı * zaman, data = EDT256_new,
+                      subject = "subject",
+                      plot.CI = TRUE, show.covariance = TRUE)
+
+# model sonucunu yazdır
+out <- capture.output(modelEDT256)
+cat("EDT256 Model", out, file = "EDT256.txt", sep = "\n", append=TRUE)
+
+# model grafiği
+plot(modelEDT256)
+
+# plot sonucunu yazdır
+out2 <- capture.output(plot(modelEDT256))
+cat("\n","EDT256 Plot", out2, file = "EDT256.txt", sep = "\n", append = TRUE)
+
+# grafiği yazdır
+jpeg('modelEDT256.jpeg')
+plot(modelEDT256)
+dev.off()
+
+# model özeti
+summary(modelEDT256)
+
+# model özeti sonucunu yazdır
+out3 <- capture.output(modelEDT256)
+cat("\n","EDT256 summary", out3, file = "EDT256.txt", sep = "\n", append=TRUE)
+
+
+# ek olarak boxplot oluşturma
+boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new,
+        names = FALSE,col = c("grey",2),lwd = 2)
+axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3)
+axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3)
+axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3)
+legend(5,35,c("Tanı 1","Tanı 2"),
+       lwd = c(2,2),
+       col = c("grey",2),cex = 0.7)
+
+# boxplot yazdır
+jpeg('boxplotEDT256.jpeg')
+boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new,
+        names = FALSE,col = c("grey",2),lwd = 2)
+axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3)
+axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3)
+axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3)
+legend(5,35,c("Tanı 1","Tanı 2"),
+       lwd = c(2,2),
+       col = c("grey",2),cex = 0.7)
+dev.off()
+
+
+
+
+
+
 
 
 
@@ -394,11 +387,11 @@ aa_fit <-aareg(Surv(time, status) ~ trt + celltype +
 aa_fit
 
 
-summary(aa_fit)  # provides a more complete summary of results
+#summary(aa_fit)  # provides a more complete summary of results
 autoplot(aa_fit)
 
 
-ranger model
+# ranger model
 r_fit <- ranger(Surv(time, status) ~ trt + celltype + 
                     karno + diagtime + age + prior,
                 data = vet,
@@ -408,12 +401,12 @@ r_fit <- ranger(Surv(time, status) ~ trt + celltype +
                 verbose = TRUE)
 
 
-Average the survival models
+# Average the survival models
 death_times <- r_fit$unique.death.times 
 surv_prob <- data.frame(r_fit$survival)
 avg_prob <- sapply(surv_prob,mean)
 
-Plot the survival models for each patient
+# Plot the survival models for each patient
 plot(r_fit$unique.death.times,r_fit$survival[1,], 
      type = "l", 
      ylim = c(0,1),
@@ -422,7 +415,7 @@ plot(r_fit$unique.death.times,r_fit$survival[1,],
      ylab = "survival",
      main = "Patient Survival Curves")
 
-
+#
 cols <- colors()
 for (n in sample(c(2:dim(vet)[1]), 20)){
     lines(r_fit$unique.death.times, r_fit$survival[n,], type = "l", col = cols[n])
@@ -439,7 +432,7 @@ head(vi)
 cat("Prediction Error = 1 - Harrell's c-index = ", r_fit$prediction.error)
 
 
-Set up for ggplot
+# Set up for ggplot
 kmi <- rep("KM",length(km_fit$time))
 km_df <- data.frame(km_fit$time,km_fit$surv,kmi)
 names(km_df) <- c("Time","Surv","Model")
@@ -587,172 +580,172 @@ ox.scale = "time")
 
 
 
-<!-- # Packages -->
+# Packages
 
-<!-- ## tangram -->
+## tangram
 
-<!-- https://github.com/spgarbet/tangram -->
-<!-- http://htmlpreview.github.io/?https://github.com/spgarbet/tg/blob/master/vignettes/example.html -->
+https://github.com/spgarbet/tangram
+http://htmlpreview.github.io/?https://github.com/spgarbet/tg/blob/master/vignettes/example.html
 
-<!-- library(tangram) -->
-<!-- library(Hmisc) -->
-<!-- getHdata(pbc) -->
-<!-- View(pbc) -->
-<!-- table <- tangram(drug ~ bili + albumin + stage + protime + sex + age + spiders, data = pbc) -->
+library(tangram)
+library(Hmisc)
+getHdata(pbc)
+View(pbc)
+table <- tangram(drug ~ bili + albumin + stage + protime + sex + age + spiders, data = pbc)
 
-<!-- table -->
-<!-- html5(table) -->
-<!-- latex(table) -->
-<!-- index(table) -->
+table
+html5(table)
+latex(table)
+index(table)
 
-<!-- write( -->
-<!-- html5(tangram("drug ~ bili[2] + albumin + stage::Categorical + protime + sex + age + spiders", pbc, msd=TRUE, quant=seq(0, 1, 0.25)), -->
-<!--       fragment=TRUE, inline="hmisc.css", caption = "HTML5 Table Hmisc Style", id="tbl2"), -->
-<!-- "tangram1.html") -->
+write(
+html5(tangram("drug ~ bili[2] + albumin + stage::Categorical + protime + sex + age + spiders", pbc, msd=TRUE, quant=seq(0, 1, 0.25)),
+      fragment=TRUE, inline="hmisc.css", caption = "HTML5 Table Hmisc Style", id="tbl2"),
+"tangram1.html")
 
-<!-- write( -->
-<!-- html5(tangram("drug ~ bili[2] + albumin + stage::Categorical + protime + sex + age + spiders", pbc), -->
-<!--       fragment=TRUE, inline="nejm.css", caption = "HTML5 Table NEJM Style", id="tbl3"), -->
-<!-- "tangram_nejm.html") -->
-
-
-<!-- tbl <- tangram("drug ~ bili[2] + albumin + stage::Categorical[1] + protime + sex[1] + age + spiders[1]",  -->
-<!--                data=pbc, -->
-<!--                pformat = 5) -->
-<!-- write(html5(tbl, -->
-<!--       fragment=TRUE, -->
-<!--       inline="lancet.css", -->
-<!--       caption = "HTML5 Table Lancet Style", id="tbl4" -->
-<!-- ), -->
-<!-- "tangram_lancet.html") -->
-
-<!-- index(tangram("drug ~ bili + albumin + stage::Categorical + protime + sex + age + spiders", pbc))[1:20,] -->
+write(
+html5(tangram("drug ~ bili[2] + albumin + stage::Categorical + protime + sex + age + spiders", pbc),
+      fragment=TRUE, inline="nejm.css", caption = "HTML5 Table NEJM Style", id="tbl3"),
+"tangram_nejm.html")
 
 
-<!-- library(readxl) -->
-<!-- MDL307_Data <- read_excel("MDL307 - Data.xlsx") -->
+tbl <- tangram("drug ~ bili[2] + albumin + stage::Categorical[1] + protime + sex[1] + age + spiders[1]", 
+               data=pbc,
+               pformat = 5)
+write(html5(tbl,
+      fragment=TRUE,
+      inline="lancet.css",
+      caption = "HTML5 Table Lancet Style", id="tbl4"
+),
+"tangram_lancet.html")
 
-<!-- MDL307_Data <- as.data.frame(MDL307_Data) -->
-
-<!-- names(MDL307_Data) -->
-
-<!-- View(MDL307_Data) -->
-
-<!-- MDL307_Data$biyokimyasalrekurrens <- as.factor(MDL307_Data$biyokimyasalrekurrens) -->
-<!-- levels(MDL307_Data$biyokimyasalrekurrens)[1] <- "yok" -->
-<!-- levels(MDL307_Data$biyokimyasalrekurrens)[2] <- "var" -->
-
-<!-- collist <- c("gleasonskor", -->
-<!--                  "tersiyer", -->
-<!--                  "kribriform", -->
-<!--                  "cerrahisinir", -->
-<!--                  "ekstaprostatik", -->
-<!--                  "lenfnodu", -->
-<!--                  "seminalvezikul" -->
-<!--                  ) -->
+index(tangram("drug ~ bili + albumin + stage::Categorical + protime + sex + age + spiders", pbc))[1:20,]
 
 
-<!-- MDL307_Data[collist] <- lapply(MDL307_Data[collist], as.factor) -->
+library(readxl)
+MDL307_Data <- read_excel("MDL307 - Data.xlsx")
+
+MDL307_Data <- as.data.frame(MDL307_Data)
+
+names(MDL307_Data)
+
+View(MDL307_Data)
+
+MDL307_Data$biyokimyasalrekurrens <- as.factor(MDL307_Data$biyokimyasalrekurrens)
+levels(MDL307_Data$biyokimyasalrekurrens)[1] <- "yok"
+levels(MDL307_Data$biyokimyasalrekurrens)[2] <- "var"
+
+collist <- c("gleasonskor",
+                 "tersiyer",
+                 "kribriform",
+                 "cerrahisinir",
+                 "ekstaprostatik",
+                 "lenfnodu",
+                 "seminalvezikul"
+                 )
 
 
-<!-- table <- tangram(biyokimyasalrekurrens ~ yas + -->
-<!--                  gleasonskor + -->
-<!--                  tersiyer + -->
-<!--                  kribriform + -->
-<!--                  kribriformyuzde + -->
-<!--                  cerrahisinir + -->
-<!--                  ekstaprostatik + -->
-<!--                  lenfnodu + -->
-<!--                  seminalvezikul + -->
-<!--                  biyokimyasalrekurrens, -->
-<!--                  data = MDL307_Data) -->
-<!-- table -->
+MDL307_Data[collist] <- lapply(MDL307_Data[collist], as.factor)
 
 
-
-
-
-<!-- # sheets -->
-
-<!-- library(tidyverse) -->
-<!-- library(readxl) -->
-
-
-<!-- path <- "ICPN_RAW.xls" -->
-<!-- sheetlist <- path %>%  -->
-<!--     excel_sheets() %>%  -->
-<!--     set_names() %>%  -->
-<!--     map(read_excel, skip = 1, path = path) -->
-
-<!-- sheetlist <- sheetlist[-29] -->
-
-
-<!-- sheetlist <- sheetlist %>% -->
-<!--     reduce(left_join, by = "Respondant", .id = "id", suffix = c("1","2")) -->
-
-<!-- names(sheetlist) -->
-
-<!-- columnNames <- c( -->
-<!--     "ID", -->
-<!--     "DX", -->
-<!--     "y/n", -->
-<!--     "~plastic", -->
-<!--     "WHO- 2010 classification", -->
-<!--     "GRADE", -->
-<!--     "INVASIVE CA", -->
-<!--     "CELL LINEAGE", -->
-<!--     "IPMN Lineage (PRE/MIN)", -->
-<!--     "experience with this invasion", -->
-<!--     "COMMENTS" -->
-<!-- ) -->
-
-<!-- columnNumbers <- rep(c(1:28), each = 11) -->
-
-<!-- columnNames2 <- paste(columnNames, columnNumbers, sep = "") -->
-
-<!-- columnNames2 <- c("Respondant", columnNames2) -->
-
-<!-- names(sheetlist) <- columnNames2 -->
-
-
-
-<!-- # "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)" -->
-
-<!-- deneme <- sheetlist %>%  -->
-<!--     select(starts_with("Respondant"), starts_with("GRADE")) -->
+table <- tangram(biyokimyasalrekurrens ~ yas +
+                 gleasonskor +
+                 tersiyer +
+                 kribriform +
+                 kribriformyuzde +
+                 cerrahisinir +
+                 ekstaprostatik +
+                 lenfnodu +
+                 seminalvezikul +
+                 biyokimyasalrekurrens,
+                 data = MDL307_Data)
+table
 
 
 
 
 
+# sheets
+
+library(tidyverse)
+library(readxl)
 
 
-<!-- # deneme[deneme=="HIGH"] <- 3 -->
-<!-- # deneme[deneme=="HIGH (focal)"] <- 3 -->
-<!-- # deneme[deneme=="MODERATE"] <- 2 -->
-<!-- # deneme[deneme=="LOW"] <- 1 -->
-<!-- #  -->
-<!-- # deneme <- as.data.frame(deneme) -->
-<!-- #  -->
-<!-- # row.names(deneme) <- deneme$Respondant -->
-<!-- #  -->
-<!-- # deneme <- deneme[-1] -->
-<!-- #  -->
-<!-- # deneme[is.na(deneme)] <- 1 -->
-<!-- #  -->
-<!-- # deneme <- map_df(deneme, as.matrix) -->
-<!-- #  -->
-<!-- # glimpse(deneme) -->
+path <- "ICPN_RAW.xls"
+sheetlist <- path %>% 
+    excel_sheets() %>% 
+    set_names() %>% 
+    map(read_excel, skip = 1, path = path)
 
-<!-- heatmap(deneme) -->
-
-<!-- write_csv(deneme, "deneme.csv") -->
+sheetlist <- sheetlist[-29]
 
 
+sheetlist <- sheetlist %>%
+    reduce(left_join, by = "Respondant", .id = "id", suffix = c("1","2"))
+
+names(sheetlist)
+
+columnNames <- c(
+    "ID",
+    "DX",
+    "y/n",
+    "~plastic",
+    "WHO- 2010 classification",
+    "GRADE",
+    "INVASIVE CA",
+    "CELL LINEAGE",
+    "IPMN Lineage (PRE/MIN)",
+    "experience with this invasion",
+    "COMMENTS"
+)
+
+columnNumbers <- rep(c(1:28), each = 11)
+
+columnNames2 <- paste(columnNames, columnNumbers, sep = "")
+
+columnNames2 <- c("Respondant", columnNames2)
+
+names(sheetlist) <- columnNames2
 
 
 
-<!-- file.choose() -->
+# "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)"
+
+deneme <- sheetlist %>% 
+    select(starts_with("Respondant"), starts_with("GRADE"))
+
+
+
+
+
+
+
+# deneme[deneme=="HIGH"] <- 3
+# deneme[deneme=="HIGH (focal)"] <- 3
+# deneme[deneme=="MODERATE"] <- 2
+# deneme[deneme=="LOW"] <- 1
+# 
+# deneme <- as.data.frame(deneme)
+# 
+# row.names(deneme) <- deneme$Respondant
+# 
+# deneme <- deneme[-1]
+# 
+# deneme[is.na(deneme)] <- 1
+# 
+# deneme <- map_df(deneme, as.matrix)
+# 
+# glimpse(deneme)
+# 
+# heatmap(deneme)
+
+write_csv(deneme, "deneme.csv")
+
+
+
+
+
+file.choose()
 
 
 ---
