@@ -1,0 +1,192 @@
+---
+title: "PBPath Journal Watch"
+subtitle: "Recent Articles from PubMed"
+author: "Serdar Balcı, MD, Pathologist"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    code_folding: hide
+    highlight: kate
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    fig_caption: yes
+  html_document: 
+    df_print: kable
+    number_sections: yes
+    toc: yes
+---
+
+
+# Analysis of Recent Pancreas Related Articles
+
+Pancreas Journals
+https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=pancreas
+
+Pathology Journals
+
+Member List
+
+DOI Link
+PubMed Link
+Journal Link
+Altmetric API
+Dimensions API
+
+
+USCAP abstracts vs publication
+
+Member list vs worldmap
+
+
+
+
+```{r load required packages}
+# load required packages
+library(tidyverse)
+library(knitr)
+library(rstudioapi)
+```
+
+    
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, tidy = TRUE)
+```
+
+
+
+```{r}
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query 'pancreas[Title/Abstract]) AND pathology' -datetype EDAT -min 2018/05/01 -max 3000 | \
+efetch -format xml | \
+xtract -pattern PubmedArticle -element MedlineCitation/PMID \
+-block ArticleId -if ArticleId@IdType -equals doi -element ArticleId &> myquery.txt")
+Sys.sleep(1)
+repeat{
+    Sys.sleep(0.1)
+    if(rstudioapi::terminalBusy(myTerm) == FALSE){
+        print("Code Executed")
+        break
+    }
+}
+```
+
+
+```{r}
+readLines("myquery.txt")
+```
+
+
+
+Pathology Journal ISSN List was retrieved from [In Cites Clarivate](https://jcr.incites.thomsonreuters.com/), and Journal Data Filtered as follows: `JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categories: 'PATHOLOGY' Selected Category Scheme: WoS`
+
+```{r Get ISSN List from data downloaded from WoS}
+# Get ISSN List from data downloaded from WoS
+ISSNList <- JournalHomeGrid <- read_csv("data/JournalHomeGrid.csv",
+                                        skip = 1) %>%
+    select(ISSN) %>%
+    filter(!is.na(ISSN)) %>%
+    t() %>%
+    paste("OR ", collapse = "") # add OR between ISSN List
+
+ISSNList <- gsub(" OR $","" ,ISSNList) # to remove last OR
+```
+
+Data is retrieved from PubMed via E-direct.
+
+PubMed collection from National Library of Medicine (https://www.ncbi.nlm.nih.gov/pubmed/), has the most comprehensive information about peer reviewed articles in medicine.
+The API (https://dataguide.nlm.nih.gov/) is available for getting and fetching data from the server.
+
+The query for PubMed is generated as "ISSN List AND keywords" like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
+
+
+```{r Generate Search Formula For Pathology Journals AND Countries}
+# Generate Search Formula For Pathology Journals AND Countries
+searchformulaTR <- paste("'",ISSNList,"'", " AND ", "Turkey[Affiliation]")
+searchformulaDE <- paste("'",ISSNList,"'", " AND ", "Germany[Affiliation]")
+searchformulaJP <- paste("'",ISSNList,"'", " AND ", "Japan[Affiliation]")
+```
+
+
+
+From the fetched data articles are grouped by country and keywords.
+
+```{r Articles per countries per year}
+# Articles per countries per year
+tableTR <- table(YearPubmed(fetchTurkey)) %>%
+    as_tibble() %>%
+    rename(Turkey = n, Year = Var1)
+
+tableDE <- table(YearPubmed(fetchGermany)) %>%
+    as_tibble() %>%
+    rename(Germany = n, Year = Var1)
+
+tableJP <- table(YearPubmed(fetchJapan)) %>%
+    as_tibble() %>%
+    rename(Japan = n, Year = Var1)
+
+# Join Tables
+articles_per_year_table <- list(
+    tableTR,
+    tableDE,
+    tableJP
+) %>%
+    reduce(left_join, by = "Year", .id = "id")
+
+```
+
+
+```{r Prepare table for output}
+# Prepare table for output
+articles_per_year <- articles_per_year_table %>%
+    gather(Country, n, 2:4)
+
+articles_per_year$Country <- factor(articles_per_year$Country,
+                                    levels =c("Japan", "Germany", "Turkey"))
+```
+
+
+**Result:**
+
+
+```{r Print the Table of Articles per year per country, echo=FALSE}
+# Print the Table of Articles per year, per country
+knitr::kable(articles_per_year_table, caption = "Table of Articles per year, per country")
+```
+
+mapgraph
+
+
+
+And the figure below shows this data in a line graph.
+
+
+---
+
+
+
+
+# Feedback
+
+[Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
+
+This document will be continiously updated and the last update was on `r Sys.Date()`.
+
+---
+
+# Back to Main Menu
+
+[Main Page for Bibliographic Analysis](https://sbalci.github.io/pubmed/BibliographicStudies.html)
+
+
+
+
+
+
+
+
+
+
+
+
