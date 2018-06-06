@@ -1,0 +1,34 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis."
+author: "Serdar Balcı, MD, Pathologist"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+
+---
+
+
+# Feedback
+
+[Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
+
+This document will be continiously updated and the last update was on `r Sys.Date()`.
