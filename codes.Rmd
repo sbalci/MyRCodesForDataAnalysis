@@ -29,6 +29,8 @@ Load required packages
 library(tidyverse)
 ```
 
+file.choose()
+
 ## Import using RStudio
 
 
@@ -662,10 +664,21 @@ table <- tangram(biyokimyasalrekurrens ~ yas +
 table
 
 
+## SemiCompRisks
+
+install.packages("SemiCompRisks")
+library(SemiCompRisks)
+data(BMT)
+
+## smcure
+
+install.packages("smcure")
+library(smcure)
+data(e1684)
 
 
 
-# sheets
+# Sheets
 
 library(tidyverse)
 library(readxl)
@@ -741,11 +754,59 @@ names(sheetlist) <- columnNames2
 
 <!-- write_csv(deneme, "deneme.csv") -->
 
+# Tables
+
+
+```{r}
+library(xtable)
+xtable(BMT)
+```
 
 
 
 
-file.choose()
+```{r}
+library(kableExtra)
+kable(BMT)
+```
+
+
+```{r display results as table}
+
+require(rhandsontable)
+rhandsontable(BMT)
+
+```
+
+
+# Flipping Coin
+
+```{r}
+rbinom(n = 1, size = 1, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 10, size = 1, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 1, size = 10, prob = 0.5)
+```
+
+
+```{r}
+rbinom(n = 100, size = 100, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 10, size = 10, prob = 0.3)
+```
+
+
+
+https://www.datacamp.com/community/tutorials/r-formula-tutorial
+typeof()
+
 
 
 ---
