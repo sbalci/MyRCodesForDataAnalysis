@@ -29,7 +29,7 @@ Load required packages
 library(tidyverse)
 ```
 
-file.choose()
+
 
 ## Import using RStudio
 
@@ -38,6 +38,18 @@ file.choose()
 
 
 ## Import SPSS File
+
+
+## Export to SPSS, while keeping labels
+
+R'da `factor` olan label verdiğiniz değişkenleri `SPSS` ya da diğer istatistik programlarına aktardığınızda bu tanımlamaları korumak işimize yarar. Bunun için `foreign` paketi ile bir `txt` dosyası ve bir `sps` dosyası oluşturuyoruz. SPSS'te `sps` dosyasını açıp kodu çalıştırarak tekrar atanan değerler geri yükleniyor.
+
+
+```{r}
+library(foreign)
+write.foreign(mydata, "mydata.txt", "mydata.sps",   package = "SPSS")
+```
+
 
 ## Prepare Data for Analysis
 
@@ -331,7 +343,7 @@ df <- tibble::rowid_to_column(df, "subject")
 
 # Survival Analysis in R
 
-https://rviews.rstudio.com/2017/09/25/survival-analysis-with-r/?mkt_tok=eyJpIjoiWm1Zd1pqRmlaVGc0WXpGaiIsInQiOiIwalwvV2VRWmtwTUY4alFxR3pqaWp0MzdheHRXTlBabHRlaTlcL28xUE1iWFV4M0dLT0hkUjFycVphYXRBeEJsQ2tXNXA3eEVTam5FdUVOaHRkYkpZdWg3eDR4eTQ4M2FFNE05cDFQV3A4UUFBaGxuRkZBSVRlTmRBTDlERFhxZWh2In0%3D
+https://rviews.rstudio.com/2017/09/25/survival-analysis-with-r/
 
 library(survival)
 library(ranger)
@@ -816,3 +828,128 @@ typeof()
 This document will be continiously updated and the last update was on `r Sys.Date()`.
 
 [Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: [feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)
+
+
+
+---
+
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+```{r}
+path <- "ICPN_RAW.xls"
+icpn <- path %>% 
+    excel_sheets() %>% 
+    set_names() %>%
+    map(read_excel, skip = 1, path = path)
+
+icpn <- icpn[-29]
+
+icpn <- icpn %>% 
+    reduce(left_join, by = "Respondant")
+
+# names(icpn)
+
+namesColumn <- make.names(names(read_excel(path, skip = 1)))
+
+namesColumn <- namesColumn[-1]
+
+# length(names(icpn))
+# length(namesColumn)
+
+names(icpn) <- c("Respondant", paste(namesColumn, rep(1:28, each = 11), sep = ""))
+
+
+```
+
+
+
+
+
+
+
+```{r}
+# glimpse(icpn)
+
+icpn$country <- icpn$ID1
+
+icpn <- icpn %>% 
+    select(-starts_with("X.plastic")) %>% 
+    select(-starts_with("COMMENTS")) %>% 
+    select(-starts_with("ID"))
+
+# glimpse(icpn)
+
+```
+
+<!--
+```{r}
+jmv::descriptives(vars = names(select(icpn, starts_with("DX"))
+                               ), data = icpn, freq = TRUE, n = FALSE, missing = FALSE, mean = FALSE, median = FALSE, min = FALSE, max = FALSE)
+
+```
+-->
+
+
+```{r}
+icpn %>% 
+    select(starts_with("y.n")) %>% 
+    gather() %>% 
+    select(value) %>% 
+    unique()
+
+
+```
+
+```{r}
+
+# recode invasion N = 0, Y = 1
+namesYN <- icpn %>% 
+    select(starts_with("y.n")) %>% 
+    names()
+
+
+
+icpn <- icpn %>% 
+     mutate_at(namesYN, funs(recode(., `N` = 0, `Y` = 1, .default = 999))) %>% 
+     mutate_at(.vars = namesYN, 
+            .funs = funs(ifelse(. == 999, NA, .)))
+
+icpn <- icpn %>% 
+     mutate_at(namesYN, funs(as.character)) %>% 
+    mutate_at(namesYN, funs(factor(.,
+                                    levels = c(0,1), 
+                                    labels = c("no", "invasion")
+                                    )))
+
+```
+
+
+WHOclass <- icpn %>% 
+    select(starts_with("WHO..2010.classification")) %>% 
+    gather() %>% 
+    select(value) %>% 
+    unique()
+    
+    
+    
+write(lineage$value, "lineage.txt", sep = "\n")
+
+write(paste("'", readLines("lineage.txt"), "'", " =   ,", sep = ""), "lineage2.txt")
+
+
+icpn <- icpn %>%
+    select(-starts_with("DX"))
+    
+
+file.choose()
+
+
+
+
+
+

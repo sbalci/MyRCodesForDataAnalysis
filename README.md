@@ -6,6 +6,8 @@ In this repository I am going to collect `R codes` for data analysis. The title 
 
 **My aim** is to collect all the codes one needs, where one starts with an excel or spss file and then end with the most common analysis used in histopathology papers : _[example table](https://media.nature.com/original/nature-assets/modpathol/journal/v31/n1/extref/modpathol2017106x4.docx)_
 
+There are plenty of ways to do an analysis in `R`, which is great but also confusing for the newbies. I will collect the codes here so that I can refer later and then update them as I learn more.
+
 
 **See the Codes here:**
 
