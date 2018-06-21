@@ -748,8 +748,8 @@ https://cran.r-project.org/web/packages/flextable/vignettes/overview.html
 
 ```{r}
 library(flextable)
+library(officer)
 ```
-
 
 ```{r}
 data <- iris[c(1:3, 51:53, 101:104),]
@@ -763,6 +763,89 @@ data
 flextable::regulartable(data)
 
 ```
+
+```{r}
+myft <- regulartable(
+  head(mtcars), 
+  col_keys = c("am", "carb", "gear", "mpg", "drat" ))
+myft
+```
+
+```{r}
+myft <- theme_vanilla(myft)
+myft
+```
+
+```{r}
+myft <- merge_v(myft, j = c("am", "carb") )
+myft
+```
+
+```{r}
+myft <- set_header_labels( myft, carb = "# carb." )
+myft <- width(myft, width = .75) # set width of all columns to .75 in
+myft
+```
+
+```{r}
+myft <- autofit(myft)
+myft
+```
+
+```{r}
+myft <- italic(myft, j = 1)
+myft <- bg(myft, bg = "#C90000", part = "header")
+myft <- color(myft, color = "white", part = "header")
+myft
+```
+
+
+```{r}
+myft <- color(myft, ~ drat > 3.5, ~ drat, color = "red")
+myft <- bold(myft, ~ drat > 3.5, ~ drat, bold = TRUE)
+myft <- autofit(myft)
+
+myft
+```
+
+```{r}
+library(officer)
+
+
+ft <- regulartable(head(mtcars))
+ft <- theme_booktabs(ft)
+ft <- autofit(ft)
+
+ppt <- read_pptx()
+ppt <- add_slide(ppt, layout = "Title and Content", master = "Office Theme")
+ppt <- ph_with_flextable(ppt, value = ft, type = "body") 
+
+print(ppt, target = "output/example.pptx")
+
+# https://view.officeapps.live.com/op/view.aspx?src=https://davidgohel.github.io/flextable/articles/assets/pptx/example.pptx
+
+```
+
+```{r}
+doc <- read_docx()
+doc <- body_add_flextable(doc, value = ft)
+print(doc, target = "output/example.docx")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -903,7 +986,7 @@ http://htmlpreview.github.io/?https://github.com/spgarbet/tg/blob/master/vignett
 
 ### - other
 ####   - gtable
-#### sjtlm
+#### - sjtlm
 https://strengejacke.github.io/sjPlot/articles/sjtlm.html
 
 
@@ -1746,7 +1829,6 @@ http://gallery.htmlwidgets.org/
 
 https://togaware.com/onepager/
 
-https://twitter.com/thosjleeper/status/1003227915981553664?s=12
 
 https://twitter.com/serdarbalci/status/996805588192518144?s=12
 
