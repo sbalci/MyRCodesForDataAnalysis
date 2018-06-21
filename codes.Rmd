@@ -1,6 +1,6 @@
 ---
 title: "My R Codes For Data Analysis"
-subtitle: "In this repository I am going to collect `R codes` for data analysis."
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
 author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
 date: '`r format(Sys.Date())`'
 output: 
@@ -22,25 +22,111 @@ output:
     highlight: kate
 ---
 
-# Getting Data into R
-
-Load required packages
+- Load required packages
+- Gerekli paketleri yükle 
 ```{r load required packages 1, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
 
 
 
-## Import using RStudio
+# Getting Data into R / Veriyi R'a yükleme
+
+## Import Data
+
+### Import using RStudio
 
 
-## Import Excel File
+### Import Excel File
+
+#### Sheets
+
+<!-- # Sheets -->
+
+<!-- library(tidyverse) -->
+<!-- library(readxl) -->
 
 
-## Import SPSS File
+<!-- path <- "ICPN_RAW.xls" -->
+<!-- sheetlist <- path %>%  -->
+<!--     excel_sheets() %>%  -->
+<!--     set_names() %>%  -->
+<!--     map(read_excel, skip = 1, path = path) -->
+
+<!-- sheetlist <- sheetlist[-29] -->
 
 
-## Export to SPSS, while keeping labels
+<!-- sheetlist <- sheetlist %>% -->
+<!--     reduce(left_join, by = "Respondant", .id = "id", suffix = c("1","2")) -->
+
+<!-- names(sheetlist) -->
+
+<!-- columnNames <- c( -->
+<!--     "ID", -->
+<!--     "DX", -->
+<!--     "y/n", -->
+<!--     "~plastic", -->
+<!--     "WHO- 2010 classification", -->
+<!--     "GRADE", -->
+<!--     "INVASIVE CA", -->
+<!--     "CELL LINEAGE", -->
+<!--     "IPMN Lineage (PRE/MIN)", -->
+<!--     "experience with this invasion", -->
+<!--     "COMMENTS" -->
+<!-- ) -->
+
+<!-- columnNumbers <- rep(c(1:28), each = 11) -->
+
+<!-- columnNames2 <- paste(columnNames, columnNumbers, sep = "") -->
+
+<!-- columnNames2 <- c("Respondant", columnNames2) -->
+
+<!-- names(sheetlist) <- columnNames2 -->
+
+
+
+<!-- # "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)" -->
+
+<!-- deneme <- sheetlist %>%  -->
+<!--     select(starts_with("Respondant"), starts_with("GRADE")) -->
+
+
+
+
+
+
+
+<!-- # deneme[deneme=="HIGH"] <- 3 -->
+<!-- # deneme[deneme=="HIGH (focal)"] <- 3 -->
+<!-- # deneme[deneme=="MODERATE"] <- 2 -->
+<!-- # deneme[deneme=="LOW"] <- 1 -->
+<!-- #  -->
+<!-- # deneme <- as.data.frame(deneme) -->
+<!-- #  -->
+<!-- # row.names(deneme) <- deneme$Respondant -->
+<!-- #  -->
+<!-- # deneme <- deneme[-1] -->
+<!-- #  -->
+<!-- # deneme[is.na(deneme)] <- 1 -->
+<!-- #  -->
+<!-- # deneme <- map_df(deneme, as.matrix) -->
+<!-- #  -->
+<!-- # glimpse(deneme) -->
+<!-- #  -->
+<!-- # heatmap(deneme) -->
+
+<!-- write_csv(deneme, "deneme.csv") -->
+
+
+
+
+
+
+### Import SPSS File
+
+## Export Data
+
+### Export to SPSS, while keeping labels
 
 R'da `factor` olan label verdiğiniz değişkenleri `SPSS` ya da diğer istatistik programlarına aktardığınızda bu tanımlamaları korumak işimize yarar. Bunun için `foreign` paketi ile bir `txt` dosyası ve bir `sps` dosyası oluşturuyoruz. SPSS'te `sps` dosyasını açıp kodu çalıştırarak tekrar atanan değerler geri yükleniyor.
 
@@ -51,9 +137,11 @@ write.foreign(mydata, "mydata.txt", "mydata.sps",   package = "SPSS")
 ```
 
 
-## Prepare Data for Analysis
 
-### SPSS labels
+
+## Prepare Data for Analysis / Veriyi Analiz için hazırlamak
+
+### Keep SPSS labels
 
 ```{r}
 library(foreign) # foreign paketi yükleniyor
@@ -94,7 +182,7 @@ names(mydata) <- VariableLabels$colname
 ```
 
 
-# make names
+### Make both computer and human readible variable names
 
 turkce karakter donusumu
 
@@ -123,8 +211,9 @@ purrr::map(df, to.plain)
 
 ```
 
+### Anonimisation
 
-#### veriye ID ekleme
+### Add subject ID to the data / veriye ID ekleme
 
 ```{r}
 df <- tibble::rowid_to_column(df, "subject")
@@ -337,11 +426,28 @@ df <- tibble::rowid_to_column(df, "subject")
 <!-- ``` -->
 
 
+## File organization best practices
+
+This page summarises how to organize files and analysis before everything gets jumbled up:
+[Setting up a reproducible data analysis workflow in R](https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html)
+
+Basically they suggest:
+- using a project and project folder in RStudio for each analysis
+- using `packrat` as much as possible
 
 
 
+# Analysis
 
-# Survival Analysis in R
+## Descriptive Statistics
+
+
+## Inferential Statistics
+
+### Compare Means
+
+
+## Survival Analysis in R
 
 https://rviews.rstudio.com/2017/09/25/survival-analysis-with-r/
 
@@ -594,44 +700,113 @@ https://rviews.rstudio.com/2017/09/25/survival-analysis-with-r/
 
 
 
-# Packages
-
-http://graphtweets.john-coene.com/index.html
-
-https://twitter.com/dataandme/status/1009145303390441472?s=12
-
-https://twitter.com/hafenstats/status/1007757939619184640?s=12
-
-https://twitter.com/cimentadaj/status/1009114169310896128?s=12
-
-https://twitter.com/derfredo/status/1008929418033627136?s=12
-
-https://togaware.com/onepager/
-
-https://twitter.com/ingorohlfing/status/1005090325025546241?s=12
-
-https://twitter.com/tripartio/status/1009012715963273217?s=12
-
-https://twitter.com/thosjleeper/status/1003227915981553664?s=12
-
-https://twitter.com/serdarbalci/status/996805588192518144?s=12
-
-https://twitter.com/dataandme/status/1006720064526213121?s=12
-
-https://twitter.com/kirkdborne/status/1005981319669665792?s=12
-
-https://twitter.com/mitchoharawild/status/1007297976711110659?s=12
-
-https://twitter.com/mf_viz/status/1004954297962917891?s=12
 
 
+# Reporting
+
+## Use R Markdown
+https://andrewbtran.github.io/NICAR/2018/workflow/docs/02-rmarkdown.html
+
+## Tables
+
+
+```{r}
+library(xtable)
+xtable(BMT)
+```
+
+
+```{r}
+library(kableExtra)
+kable(BMT)
+```
+
+
+```{r display results as table}
+
+require(rhandsontable)
+rhandsontable(BMT)
+
+```
+
+## tttable
+
+https://github.com/leeper/tttable
 
 
 
-## tangram
 
-<!-- https://github.com/spgarbet/tangram -->
-<!-- http://htmlpreview.github.io/?https://github.com/spgarbet/tg/blob/master/vignettes/example.html -->
+
+
+
+### - renderers
+
+####  - xtable
+####  - flextable
+
+https://cran.r-project.org/web/packages/flextable/vignettes/overview.html
+
+```{r}
+library(flextable)
+```
+
+
+```{r}
+data <- iris[c(1:3, 51:53, 101:104),]
+
+data
+
+```
+
+
+```{r}
+flextable::regulartable(data)
+
+```
+
+
+
+
+
+####  - rtf
+####  - knitr::kable()
+####  - formatttable
+####  - knitLatex
+####  - htmlTable
+####  - psytabs
+####  - SortableHTMLTables
+####  - tablaxlsx
+####  - table1xls
+####  - tableHTML
+####  - TableMonster
+####  - texreg
+####  - ztable
+####  - apaStyle
+####  - apaTables
+####  - apsrtable
+####  - DT
+
+### - higher-level functionality
+####   - janitor
+####   - huxtable
+####   - tables
+####   - stargazer
+####   - pixiedust
+####   - reporttools
+####   - rtable
+####   - summarytools
+####   - tab
+####   - tableone
+####   - carpenter
+####   - dtables
+####   - etable
+
+####   - tangram
+tangram (grammar of tables)
+
+https://github.com/spgarbet/tangram
+http://htmlpreview.github.io/?https://github.com/spgarbet/tg/blob/master/vignettes/example.html
+
 
 <!-- library(tangram) -->
 <!-- library(Hmisc) -->
@@ -722,134 +897,95 @@ https://twitter.com/mf_viz/status/1004954297962917891?s=12
 
 
 
-<!-- # Sheets -->
 
-<!-- library(tidyverse) -->
-<!-- library(readxl) -->
+### - pivots
+####   - rpivotttable
 
-
-<!-- path <- "ICPN_RAW.xls" -->
-<!-- sheetlist <- path %>%  -->
-<!--     excel_sheets() %>%  -->
-<!--     set_names() %>%  -->
-<!--     map(read_excel, skip = 1, path = path) -->
-
-<!-- sheetlist <- sheetlist[-29] -->
-
-
-<!-- sheetlist <- sheetlist %>% -->
-<!--     reduce(left_join, by = "Respondant", .id = "id", suffix = c("1","2")) -->
-
-<!-- names(sheetlist) -->
-
-<!-- columnNames <- c( -->
-<!--     "ID", -->
-<!--     "DX", -->
-<!--     "y/n", -->
-<!--     "~plastic", -->
-<!--     "WHO- 2010 classification", -->
-<!--     "GRADE", -->
-<!--     "INVASIVE CA", -->
-<!--     "CELL LINEAGE", -->
-<!--     "IPMN Lineage (PRE/MIN)", -->
-<!--     "experience with this invasion", -->
-<!--     "COMMENTS" -->
-<!-- ) -->
-
-<!-- columnNumbers <- rep(c(1:28), each = 11) -->
-
-<!-- columnNames2 <- paste(columnNames, columnNumbers, sep = "") -->
-
-<!-- columnNames2 <- c("Respondant", columnNames2) -->
-
-<!-- names(sheetlist) <- columnNames2 -->
-
-
-
-<!-- # "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)" -->
-
-<!-- deneme <- sheetlist %>%  -->
-<!--     select(starts_with("Respondant"), starts_with("GRADE")) -->
+### - other
+####   - gtable
+#### sjtlm
+https://strengejacke.github.io/sjPlot/articles/sjtlm.html
 
 
 
 
 
 
+## Describe results of analysis
 
-<!-- # deneme[deneme=="HIGH"] <- 3 -->
-<!-- # deneme[deneme=="HIGH (focal)"] <- 3 -->
-<!-- # deneme[deneme=="MODERATE"] <- 2 -->
-<!-- # deneme[deneme=="LOW"] <- 1 -->
-<!-- #  -->
-<!-- # deneme <- as.data.frame(deneme) -->
-<!-- #  -->
-<!-- # row.names(deneme) <- deneme$Respondant -->
-<!-- #  -->
-<!-- # deneme <- deneme[-1] -->
-<!-- #  -->
-<!-- # deneme[is.na(deneme)] <- 1 -->
-<!-- #  -->
-<!-- # deneme <- map_df(deneme, as.matrix) -->
-<!-- #  -->
-<!-- # glimpse(deneme) -->
-<!-- #  -->
-<!-- # heatmap(deneme) -->
+Copy/paste t-tests Directly to Manuscripts: https://neuropsychology.github.io/psycho.R//2018/06/19/analyze_ttest.html
 
-<!-- write_csv(deneme, "deneme.csv") -->
+https://github.com/neuropsychology/psycho.R
 
-# Tables
-
-
+    
 ```{r}
-library(xtable)
-xtable(BMT)
-```
+# Load packages
+library(tidyverse)
 
-
-
-
-```{r}
-library(kableExtra)
-kable(BMT)
-```
-
-
-```{r display results as table}
-
-require(rhandsontable)
-rhandsontable(BMT)
+# devtools::install_github("neuropsychology/psycho.R")  # Install the latest psycho version
+library(psycho)
 
 ```
 
-
-# Flipping Coin
-
 ```{r}
-rbinom(n = 1, size = 1, prob = 0.5)
+df <- psycho::affective  # Load the data
+
+df
 ```
 
 ```{r}
-rbinom(n = 10, size = 1, prob = 0.5)
-```
 
-```{r}
-rbinom(n = 1, size = 10, prob = 0.5)
+results <- t.test(df$Age ~ df$Sex)  # Perform a simple t-test
+results
 ```
 
 
 ```{r}
-rbinom(n = 100, size = 100, prob = 0.5)
+psycho::analyze(results)
+
+```
+
+
+```{r}
+t.test(df$Adjusting ~ df$Sex,
+       var.equal=TRUE, 
+       conf.level = .90) %>% 
+  psycho::analyze()
 ```
 
 ```{r}
-rbinom(n = 10, size = 10, prob = 0.3)
+
+result <- t.test(df$Adjusting, 
+       mu = 0,
+       conf.level = .90) %>% 
+      psycho::analyze(result)
+
+```
+
+```{r}
+
+t.test(df$Adjusting ~ df$Sex) %>% 
+  psycho::analyze() %>% 
+  summary()
+
 ```
 
 
-# Twitter Analysis With R
 
-## API connection
+
+# Backup Analysis and Data
+
+https://andrewbtran.github.io/NICAR/2018/workflow/docs/03-integrating_github.html
+
+
+
+
+
+# Text Analysis Sentiment Analysis
+
+## Twitter Analysis With R
+
+### API connection
 
 http://rtweet.info/
 https://apps.twitter.com/
@@ -895,7 +1031,7 @@ create_token(
 ```
 
 
-## Search Tweets
+### Search Tweets
 
 ```{r}
 ## search for 18000 tweets using the hashtag
@@ -967,7 +1103,7 @@ with(rt1, points(lng, lat, pch = 20, cex = .75, col = rgb(0, .3, .7, .75)))
 
 
 
-## Stream Tweets
+### Stream Tweets
 
 ```{r}
 ## random sample for 30 seconds (default)
@@ -1019,7 +1155,7 @@ djt
 
 
 
-## Twitter connections and user information
+### Twitter connections and user information
 
 
 ```{r}
@@ -1132,7 +1268,7 @@ head(path_usrs)
 
 ```
 
-## Twitter Trends
+### Twitter Trends
 
 
 ```{r}
@@ -1167,7 +1303,7 @@ tweets_data(famous_tweeters)
 ```
 
 
-## Post tweet via R
+### Post tweet via R
 
 
 
@@ -1175,7 +1311,7 @@ tweets_data(famous_tweeters)
 post_tweet("my first rtweet #rstats, let us see if it works :) http://rtweet.info/")
 ```
 
-## Follow via R
+### Follow via R
 
 
 ```{r}
@@ -1203,7 +1339,7 @@ vignette("FAQ", package = "rtweet")
 
 
 
-## Election Analysis on Twitter
+### Election Analysis on Twitter
 
 
 ```{r}
@@ -1300,14 +1436,9 @@ rt %>%
 
 
 
-## Graphing Tweets
+### Graphing Tweets
 
-
-
-
-  
-
-
+http://graphtweets.john-coene.com/index.html
 
 ```{r}
 install.packages("graphTweets") # CRAN release v0.4
@@ -1316,36 +1447,322 @@ library(igraph) # for plot
 ```
 
 
+```{r}
+# tweets <- rtweet::search_tweets("rstats")
+
+tweets <- rtweet::search_tweets("#pathologists")
+
+```
 
 
-tweets <- rtweet::search_tweets("rstats")
-
+```{r}
 tweets %>% 
     gt_edges(text, screen_name, status_id) %>% 
     gt_graph() %>% 
     plot()
 
+```
+
+
+```{r}
+tweets %>% 
+  gt_edges(text, screen_name, status_id) %>% 
+  gt_graph() -> graph
+
+class(graph)
+
+```
+
+```{r}
+graph
+```
+
+```{r}
+tweets %>% 
+  gt_edges(text, screen_name, status_id) %>% 
+  gt_collect() -> edges
+
+names(edges)
+
+```
+
+```{r}
+edges
+```
+
+
+```{r}
+tweets %>% 
+  gt_edges(text, screen_name, status_id) %>% 
+  gt_nodes() %>% 
+  gt_collect() -> graph
+
+graph
+```
+
+
+
+```{r}
+lapply(graph, nrow) # number of edges and nodes
+```
+
+
+```{r}
+lapply(graph, names) # names of data.frames returned
+```
+
+```{r}
+tweets %>% 
+  gt_edges(text, screen_name, status_id) %>% 
+  gt_nodes(meta = TRUE) %>% 
+  gt_collect() -> graph
+
+graph
+
+# lapply(graph, names) # names of data.frames returned
+```
+
+```{r}
+tweets %>% 
+  gt_edges(text, screen_name, status_id, datetime = "created_at") %>% 
+  gt_nodes(meta = TRUE) %>% 
+  gt_collect() -> graph
+
+graph
+
+```
+
+
+```{r}
+# install.packages("sigmajs")
+library(dplyr)
+library(sigmajs) # for plots
+
+tweets %>% 
+  gt_edges(text, screen_name, status_id, datetime = "created_at") %>% 
+  gt_nodes(meta = TRUE) %>% 
+  gt_collect() -> gt
+
+nodes <- gt$nodes %>% 
+  mutate(
+    id = nodes,
+    label = ifelse(is.na(name), nodes, name),
+    size = n_edges,
+    color = "#1967be"
+  ) 
+
+edges <- gt$edges %>% 
+  mutate(
+    id = 1:n()
+  )
+
+sigmajs() %>% 
+  sg_force_start() %>% 
+  sg_nodes(nodes, id, label, size, color) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_force_stop(10000)
+```
+
+
+```{r}
+library(igraph)
+
+tweets %>% 
+  gt_edges(text, screen_name, status_id) %>% 
+  gt_graph() -> g
+
+# communities
+wc <- walktrap.community(g)
+V(g)$color <- membership(wc)
+
+# plot
+# tons of arrguments because defaults are awful
+plot(g, 
+     layout = igraph::layout.fruchterman.reingold(g), 
+     vertex.color = V(g)$color,
+     vertex.label.family = "sans",
+     vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0),
+     vertex.size = igraph::degree(g), 
+     edge.arrow.size = 0.2, 
+     edge.arrow.width = 0.3, edge.width = 1,
+     edge.color = hsv(h = 1, s = .59, v = .91, alpha = 0.7),
+     vertex.frame.color="#fcfcfc")
+```
+
+
+
+```{r}
+tweets %>% 
+  gt_edges(text, screen_name, status_id, "created_at") %>% 
+  gt_nodes() %>% 
+  gt_dyn() %>% 
+  gt_collect() -> net
+```
+
+
+```{r}
+knitr::kable(head(net$edges))
+
+```
+
+```{r}
+knitr::kable(head(net$nodes))
+
+```
+
+```{r}
+library(sigmajs)
+
+# convert to numeric & rescale
+edges <- net$edges %>% 
+  dplyr::mutate( 
+    id = 1:n(),
+    created_at = as.numeric(created_at),
+    created_at = (created_at - min(created_at)) / (max(created_at) - min(created_at)),
+    created_at = created_at * 5000
+  )
+
+nodes <- net$nodes %>% 
+  dplyr::mutate(
+    id = source,
+    size = n_edges
+  )
+
+mx <- max(edges$created_at) + 500
+
+sigmajs() %>% 
+  sg_force_start() %>% 
+  sg_nodes(nodes, id, size) %>% 
+  sg_add_edges(edges, created_at, id, source, target, 
+               cumsum = FALSE, refresh = FALSE) %>% 
+  sg_force_stop(delay = mx) %>% 
+  sg_settings(defaultNodeColor = "#1967be")
+```
+
+---
+
+# Bibliography
+
+## Google Scholar
+
+### scholar
+Analyse citation data from Google Scholar: https://github.com/jkeirstead/scholar/
+
+
+### coauthornetwork
+Exploring Google Scholar coauthorship: https://cimentadaj.github.io/blog/2018-06-19-exploring-google-scholar-coauthorship/exploring-google-scholar-coauthorship/
+
+```{r}
+# devtools::install_github("cimentadaj/coauthornetwork")
+library(coauthornetwork)
+```
+
+
+```{r}
+network <- grab_network("citations?user=q40DcqYAAAAJ&hl=en")
+network
+```
+
+
+
+```{r}
+plot_coauthors(grab_network("citations?user=q40DcqYAAAAJ&hl=en", n_coauthors = 15), size_labels = 2)
+
+```
+
+
+```{r}
+plot_coauthors(grab_network("citations?user=RJNKLHgAAAAJ&hl=en", n_coauthors = 15), size_labels = 2)
+
+```
+
+
+```{r}
+plot_coauthors(grab_network("citations?user=VYE2H0wAAAAJ&hl=en", n_coauthors = 15), size_labels = 2)
+
+```
+
+
+```{r}
+plot_coauthors(grab_network("citations?user=joN_UxsAAAAJ&hl=en", n_coauthors = 15), size_labels = 1)
+
+```
+
+
+
+---
+
+# Miscellaneous
+
+## Formulas
+https://www.datacamp.com/community/tutorials/r-formula-tutorial
+
+typeof()
+
+## Flipping Coin
+
+```{r}
+rbinom(n = 1, size = 1, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 10, size = 1, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 1, size = 10, prob = 0.5)
+```
+
+
+```{r}
+rbinom(n = 100, size = 100, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 10, size = 10, prob = 0.3)
+```
 
 
 
 
-
-# Decision Trees
+## Decision Trees
 
 https://www.datacamp.com/community/tutorials/decision-trees-R
 
 
+---
+
+# Packages
+
+- htmlwidgets for R
+
+http://www.htmlwidgets.org/
+
+http://gallery.htmlwidgets.org/
+
+- 
 
 
 
+https://togaware.com/onepager/
 
-<!-- https://www.datacamp.com/community/tutorials/r-formula-tutorial -->
+https://twitter.com/thosjleeper/status/1003227915981553664?s=12
 
+https://twitter.com/serdarbalci/status/996805588192518144?s=12
 
+https://twitter.com/dataandme/status/1006720064526213121?s=12
 
-<!-- typeof() -->
+https://twitter.com/kirkdborne/status/1005981319669665792?s=12
 
+https://twitter.com/mitchoharawild/status/1007297976711110659?s=12
 
+https://twitter.com/mf_viz/status/1004954297962917891?s=12
+
+https://github.com/cmap/morpheus.R
+
+https://github.com/talgalili/heatmaply/
+
+https://github.com/rstudio/d3heatmap
 
 
 
@@ -1355,9 +1772,11 @@ https://www.datacamp.com/community/tutorials/decision-trees-R
 
 # Feedback
 
-This document will be continiously updated and the last update was on `r Sys.Date()`.
+- This document will be continiously updated and the last update was on `r Sys.Date()`.
 
-[Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: [feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)
+- [Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: [feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)
+
+- See [https://sbalci.github.io/](https://sbalci.github.io/) for other analysis.
 
 
 
