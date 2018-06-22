@@ -1,3 +1,8 @@
+install.packages("formattable")
+
+
+
+
 install.packages("devtools")
 library("devtools")
 install_github("neuropsychology/psycho.R")
