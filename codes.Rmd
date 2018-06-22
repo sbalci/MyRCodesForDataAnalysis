@@ -870,6 +870,230 @@ print(doc, target = "output/example.docx")
 ####  - DT
 
 ### - higher-level functionality
+
+#### - finalfit
+
+https://github.com/ewenharrison/finalfit
+
+http://www.datasurg.net/2018/05/16/elegant-regression-results-tables-and-plots-the-finalfit-package/
+
+
+```{r}
+# devtools::install_github("ewenharrison/finalfit")
+# install.packages("rstan")
+# install.packages("boot")
+
+library(tidyverse)
+library(finalfit)
+library(rstan)
+library(boot)
+
+```
+
+```{r}
+# Load example dataset, modified version of survival::colon
+data(colon_s)
+
+
+
+colon_s2$age <- as.numeric(colon_s$age)
+colon_s2$age.factor <- as_factor(colon_s$age.factor)
+colon_s2$sex.factor <- as_factor(colon_s$sex.factor)
+colon_s2$obstruct.factor <- as_factor(colon_s$obstruct.factor)
+colon_s2$perfor.factor <- as_factor(colon_s$perfor.factor)
+colon_s2$mort_5yr <- as_factor(colon_s$mort_5yr)
+colon_s2$hospital <- as_factor(colon_s$hospital)
+colon_s2$status <- as.numeric(colon_s$status)
+colon_s2$time <- as.numeric(colon_s$time)
+colon_s2
+
+
+```
+
+
+```{r}
+# Table 1 - Patient demographics by variable of interest ----
+explanatory = c("age", "age.factor", 
+  "sex.factor", "obstruct.factor")
+dependent = "perfor.factor" # Bowel perforation
+table <- colon_s2 %>%
+  summary_factorlist(dependent, explanatory,
+  p=TRUE, add_dependent_label=TRUE, total_col = TRUE)
+
+print.AsIs(table)
+
+
+
+```
+
+```{r}
+# Table 2 - 5 yr mortality ----
+explanatory = c("age.factor", 
+  "sex.factor",
+  "obstruct.factor")
+dependent = 'mort_5yr'
+table <- colon_s %>%
+  summary_factorlist(dependent, explanatory, 
+  p=TRUE, add_dependent_label=TRUE)
+
+print.AsIs(table)
+
+```
+
+
+```{r results='asis'}
+knitr::kable(table, row.names=FALSE, 
+    align=c("l", "l", "r", "r", "r", "r"))
+```
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = 'mort_5yr'
+table_surv <- colon_s2 %>%
+  finalfit(dependent, explanatory)
+```
+
+```{r results='asis'}
+knitr::kable(table_surv, row.names = FALSE, 
+    align = c("l", "l", "r", "r", "r", "r"))
+```
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", 
+  "obstruct.factor")
+dependent = 'mort_5yr'
+colon_s2 %>%
+  finalfit(dependent, explanatory, 
+  explanatory_multi)
+```
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", "obstruct.factor")
+random_effect = "hospital"
+dependent = 'mort_5yr'
+colon_s2 %>%
+  finalfit(dependent, explanatory, 
+  explanatory_multi, random_effect)
+```
+
+```{r}
+
+explanatory = c("age.factor", "sex.factor", 
+"obstruct.factor", "perfor.factor")
+dependent = "Surv(time, status)"
+colon_s2 %>%
+  finalfit(dependent, explanatory)
+```
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = 'mort_5yr'
+table7 <- colon_s2 %>%
+  finalfit(dependent, explanatory, 
+  metrics=TRUE)
+```
+
+```{r, echo=FALSE, results="asis"}
+knitr::kable(table7[[1]], row.names=FALSE, align=c("l", "l", "r", "r", "r"))
+knitr::kable(table7[[2]], row.names=FALSE)
+```
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", "obstruct.factor")
+random_effect = "hospital"
+dependent = 'mort_5yr'
+
+# Separate tables
+colon_s2 %>%
+  summary_factorlist(dependent, 
+  explanatory, fit_id=TRUE) -> example.summary
+
+colon_s2 %>%
+  glmuni(dependent, explanatory) %>%
+  fit2df(estimate_suffix=" (univariable)") -> example.univariable
+
+colon_s2 %>%
+  glmmulti(dependent, explanatory) %>%
+  fit2df(estimate_suffix=" (multivariable)") -> example.multivariable
+
+colon_s2 %>%
+  glmmixed(dependent, explanatory, random_effect) %>%
+  fit2df(estimate_suffix=" (multilevel)") -> example.multilevel
+
+# Pipe together
+example.summary %>%
+  finalfit_merge(example.univariable) %>%
+  finalfit_merge(example.multivariable) %>%
+  finalfit_merge(example.multilevel) %>%
+  select(-c(fit_id, index)) %>% # remove unnecessary columns
+  dependent_label(colon_s2, dependent, prefix="") # place dependent variable label
+```
+
+
+```{r}
+# OR plot
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = 'mort_5yr'
+colon_s2 %>%
+  or_plot(dependent, explanatory)
+# Previously fitted models (`glmmulti()` or 
+# `glmmixed()`) can be provided directly to `glmfit`
+```
+
+
+```{r}
+# HR plot
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = "Surv(time, status)"
+colon_s2 %>%
+  hr_plot(dependent, explanatory, dependent_label = "Survival")
+# Previously fitted models (`coxphmulti`) can be provided directly using `coxfit`
+```
+
+
+```{r}
+# KM plot
+explanatory = c("perfor.factor")
+dependent = "Surv(time, status)"
+
+plotKM <- colon_s2 %>%
+  surv_plot(dependent, explanatory, 
+  xlab = "Time (days)", pval = TRUE, legend = "none")
+
+plotKM
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ####   - janitor
 ####   - huxtable
 ####   - tables
@@ -1815,24 +2039,9 @@ https://www.datacamp.com/community/tutorials/decision-trees-R
 
 ---
 
-# Packages
-
-- htmlwidgets for R
-
-http://www.htmlwidgets.org/
-
-http://gallery.htmlwidgets.org/
-
-- 
+# Packages to be tested
 
 
-
-https://togaware.com/onepager/
-
-
-https://twitter.com/serdarbalci/status/996805588192518144?s=12
-
-https://twitter.com/dataandme/status/1006720064526213121?s=12
 
 https://twitter.com/kirkdborne/status/1005981319669665792?s=12
 
@@ -1846,8 +2055,19 @@ https://github.com/talgalili/heatmaply/
 
 https://github.com/rstudio/d3heatmap
 
+---
 
+# General Resources
 
+- One Page R
+
+https://togaware.com/onepager/
+
+- htmlwidgets for R
+
+http://www.htmlwidgets.org/
+
+http://gallery.htmlwidgets.org/
 
 
 ---
