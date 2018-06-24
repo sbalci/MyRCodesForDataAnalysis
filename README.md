@@ -22,8 +22,6 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
 
 
 
----
-
 
 # Getting Data into R / Veriyi R'a yükleme
 - Import Data
