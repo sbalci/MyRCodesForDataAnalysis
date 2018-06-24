@@ -28,6 +28,15 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
 
 
 # Getting Data into R / Veriyi R'a yükleme
+- Import Data
+    - Import using RStudio
+    - Import CSV File
+    - Import TXT File
+    - Import Excel File
+        - Import Sheets
+    - Import SPSS File
+- Export Data
+    - Export to SPSS, while keeping labels
 
 # Prepare Data for Analysis / Veriyi Analiz için hazırlamak
 

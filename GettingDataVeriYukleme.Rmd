@@ -1,6 +1,6 @@
 ---
 title: "My R Codes For Data Analysis"
-subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+subtitle: "Getting Data into R"
 author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
 date: '`r format(Sys.Date())`'
 output: 
@@ -21,19 +21,9 @@ output:
     toc: yes
     toc_float: yes
     highlight: kate
-
-
-
-
 ---
 
-
-
-
 # Getting Data into R / Veriyi R'a yükleme
-
-
-
 
 ## Import Data
 
@@ -56,7 +46,7 @@ ebola
 
 ### Import Excel File
 
-#### Sheets
+#### Import Sheets
 
 <!-- # Sheets -->
 
@@ -141,7 +131,7 @@ ebola
 
 ### Import SPSS File
 
-## Export Data
+# Export Data
 
 ### Export to SPSS, while keeping labels
 

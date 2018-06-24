@@ -1,6 +1,6 @@
 ---
 title: "My R Codes For Data Analysis"
-subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+subtitle: "Survival Analysis"
 author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
 date: '`r format(Sys.Date())`'
 output: 
