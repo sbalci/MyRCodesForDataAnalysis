@@ -1,4 +1,9 @@
-# My R Codes For Data Analysis
+---
+title: My R Codes For Data Analysis
+output: 
+  html_document: 
+    number_sections: yes
+---
 
 In this repository I am going to collect `R codes` for data analysis. The title says "My R Codes" but I am only the collector. I will try to refer the original sources as far as I can.
 [Serdar Balci, MD, Pathologist](https://www.serdarbalci.com/)
@@ -24,17 +29,13 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
 
 # Getting Data into R / Veriyi R'a yükleme
 
-
 # Prepare Data for Analysis / Veriyi Analiz için hazırlamak
 
-
 # File organization best practices
-
 
 # Analysis
 
 ## Descriptive Statistics
-
 
 ## Hypothesis Testing
 
@@ -42,69 +43,50 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
 
 ### Compare Proportions
 
-
-
-
-
-
-
-
 ## Survival Analysis in R
 
+# Reporting
+
+## Use R Markdown
+
+## Tables
+
+## Autoreport
+
+# Backup Analysis and Data
+
+## GitHub
 
 
+# Text Analysis Sentiment Analysis
 
+## Twitter Analysis With R
 
+# Bibliography
 
+## Google Scholar
+### Scholar
+### Coauthor 
 
 # Miscellaneous
 
 ## Formulas
 
-
-
-
 ## Flipping Coin
-
-
-
 
 ## Decision Trees
 
-Karar ağacı kodları için tıklayın: 
-
-
-
-
-
-
----
+Karar ağacı kodları için tıklayın:
 
 # General Resources
 
-
-
----
 # Package List
 
 See package list here: 
 
----
-
 # Data List
 
-
-
----
-
-
-
-
-
-
 # Feedback
-
-
 - This document will be continiously updated and the last update was on `r Sys.Date()`.
 
 [Yours truly](https://github.com/sbalci) would like to hear your feedback: _[feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_

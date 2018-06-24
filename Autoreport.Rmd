@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## Describe results of analysis
+
+Copy/paste t-tests Directly to Manuscripts: https://neuropsychology.github.io/psycho.R//2018/06/19/analyze_ttest.html
+
+https://github.com/neuropsychology/psycho.R
+
+    
+```{r}
+# Load packages
+library(tidyverse)
+
+# devtools::install_github("neuropsychology/psycho.R")  # Install the latest psycho version
+library(psycho)
+
+```
+
+```{r}
+df <- psycho::affective  # Load the data
+
+df
+```
+
+```{r}
+
+results <- t.test(df$Age ~ df$Sex)  # Perform a simple t-test
+results
+```
+
+
+```{r}
+psycho::analyze(results)
+
+```
+
+
+```{r}
+t.test(df$Adjusting ~ df$Sex,
+       var.equal=TRUE, 
+       conf.level = .90) %>% 
+  psycho::analyze()
+```
+
+```{r}
+
+t.test(df$Adjusting, 
+       mu = 0,
+       conf.level = .90) %>% 
+      psycho::analyze()
+
+```
+
+```{r}
+
+t.test(df$Adjusting ~ df$Sex) %>% 
+  psycho::analyze() %>% 
+  summary()
+
+```
+
+
+

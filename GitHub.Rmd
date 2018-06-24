@@ -1,0 +1,20 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+https://andrewbtran.github.io/NICAR/2018/workflow/docs/03-integrating_github.html
+
+https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/
+
+http://r-bio.github.io/intro-git-rstudio/
+
+https://stackoverflow.com/questions/41688164/using-rstudio-to-make-pull-requests-in-git
+
+https://bookdown.org/rdpeng/RProgDA/version-control-and-github.html
+
+https://www.r-bloggers.com/rstudio-and-github/
+
+http://happygitwithr.com/fork.html
+
