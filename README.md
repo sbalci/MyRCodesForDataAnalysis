@@ -1,5 +1,6 @@
 ---
-output: html_document
+output: 
+  html_document:
 ---
 
 In this repository I am going to collect `R codes` for data analysis. The title says "My R Codes" but I am only the collector. I will try to refer the original sources as far as I can.
