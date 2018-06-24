@@ -1,0 +1,29 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## Flipping Coin
+
+
+```{r}
+rbinom(n = 1, size = 1, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 10, size = 1, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 1, size = 10, prob = 0.5)
+```
+
+
+```{r}
+rbinom(n = 100, size = 100, prob = 0.5)
+```
+
+```{r}
+rbinom(n = 10, size = 10, prob = 0.3)
+```
+

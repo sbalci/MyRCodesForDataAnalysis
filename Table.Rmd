@@ -1,0 +1,731 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+## Tables
+
+```{r}
+library(xtable)
+xtable(BMT)
+```
+
+
+```{r}
+library(kableExtra)
+kable(BMT)
+```
+
+
+```{r display results as table}
+
+require(rhandsontable)
+rhandsontable(BMT)
+
+```
+
+## tttable
+
+https://github.com/leeper/tttable
+
+
+
+
+
+
+
+### - renderers
+
+####  - xtable
+
+https://rdrr.io/cran/xtable/man/xtable.html
+
+
+
+
+
+
+
+
+
+
+####  - flextable
+
+https://cran.r-project.org/web/packages/flextable/vignettes/overview.html
+
+```{r}
+library(flextable)
+library(officer)
+```
+
+```{r}
+data <- iris[c(1:3, 51:53, 101:104),]
+
+data
+
+```
+
+
+```{r}
+flextable::regulartable(data)
+
+```
+
+```{r}
+myft <- regulartable(
+  head(mtcars), 
+  col_keys = c("am", "carb", "gear", "mpg", "drat" ))
+myft
+```
+
+```{r}
+myft <- theme_vanilla(myft)
+myft
+```
+
+```{r}
+myft <- merge_v(myft, j = c("am", "carb") )
+myft
+```
+
+```{r}
+myft <- set_header_labels( myft, carb = "# carb." )
+myft <- width(myft, width = .75) # set width of all columns to .75 in
+myft
+```
+
+```{r}
+myft <- autofit(myft)
+myft
+```
+
+```{r}
+myft <- italic(myft, j = 1)
+myft <- bg(myft, bg = "#C90000", part = "header")
+myft <- color(myft, color = "white", part = "header")
+myft
+```
+
+
+```{r}
+myft <- color(myft, ~ drat > 3.5, ~ drat, color = "red")
+myft <- bold(myft, ~ drat > 3.5, ~ drat, bold = TRUE)
+myft <- autofit(myft)
+
+myft
+```
+
+```{r}
+library(officer)
+
+
+ft <- regulartable(head(mtcars))
+ft <- theme_booktabs(ft)
+ft <- autofit(ft)
+
+ppt <- read_pptx()
+ppt <- add_slide(ppt, layout = "Title and Content", master = "Office Theme")
+ppt <- ph_with_flextable(ppt, value = ft, type = "body") 
+
+print(ppt, target = "output/example.pptx")
+
+# https://view.officeapps.live.com/op/view.aspx?src=https://davidgohel.github.io/flextable/articles/assets/pptx/example.pptx
+
+```
+
+
+
+
+
+```{r}
+doc <- read_docx()
+doc <- body_add_flextable(doc, value = ft)
+print(doc, target = "output/example.docx")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####  - knitr::kable()
+
+
+####  - formatttable
+
+```{r}
+library(formattable)
+
+p <- percent(c(0.1, 0.02, 0.03, 0.12))
+p
+p + 0.05
+max(p)
+
+```
+
+```{r}
+balance <- accounting(c(1000, 500, 200, -150, 0, 1200))
+balance
+
+balance + 1000
+
+```
+
+
+```{r}
+p <- data.frame(
+  id = c(1, 2, 3, 4, 5), 
+  name = c("A1", "A2", "B1", "B2", "C1"),
+  balance = accounting(c(52500, 36150, 25000, 18300, 7600), format = "d"),
+  growth = percent(c(0.3, 0.3, 0.1, 0.15, 0.15), format = "d"),
+  ready = formattable(c(TRUE, TRUE, FALSE, FALSE, TRUE), "yes", "no"))
+p
+print.AsIs(p)
+```
+
+```{r}
+df <- data.frame(
+  id = 1:10,
+  name = c("Bob", "Ashley", "James", "David", "Jenny", 
+    "Hans", "Leo", "John", "Emily", "Lee"), 
+  age = c(28, 27, 30, 28, 29, 29, 27, 27, 31, 30),
+  grade = c("C", "A", "A", "C", "B", "B", "B", "A", "C", "C"),
+  test1_score = c(8.9, 9.5, 9.6, 8.9, 9.1, 9.3, 9.3, 9.9, 8.5, 8.6),
+  test2_score = c(9.1, 9.1, 9.2, 9.1, 8.9, 8.5, 9.2, 9.3, 9.1, 8.8),
+  final_score = c(9, 9.3, 9.4, 9, 9, 8.9, 9.25, 9.6, 8.8, 8.7),
+  registered = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
+  stringsAsFactors = FALSE)
+```
+
+
+
+
+
+
+
+
+
+```{r}
+
+
+library(formattable)
+
+formattable(df, list(
+  age = color_tile("white", "orange"),
+  grade = formatter("span", style = x ~ ifelse(x == "A", 
+    style(color = "green", font.weight = "bold"), NA)),
+  area(col = c(test1_score, test2_score)) ~ normalize_bar("pink", 0.2),
+  final_score = formatter("span",
+    style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
+    x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
+  registered = formatter("span",
+    style = x ~ style(color = ifelse(x, "green", "red")),
+    x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Yes", "No")))
+))
+```
+
+
+
+####  - knitLatex
+
+
+
+####  - htmlTable
+
+
+####  - psytabs
+
+
+####  - SortableHTMLTables
+
+
+####  - tablaxlsx
+
+
+####  - table1xls
+
+
+####  - tableHTML
+
+
+####  - TableMonster
+
+
+####  - texreg
+
+
+####  - ztable
+
+
+####  - apaStyle
+
+
+####  - apaTables
+
+
+####  - apsrtable
+
+
+####  - DT
+
+### - higher-level functionality
+
+#### - finalfit
+
+
+
+
+https://github.com/ewenharrison/finalfit
+
+http://www.datasurg.net/2018/05/16/elegant-regression-results-tables-and-plots-the-finalfit-package/
+
+
+```{r}
+# devtools::install_github("ewenharrison/finalfit")
+# install.packages("rstan")
+# install.packages("boot")
+
+library(tidyverse)
+library(finalfit)
+library(rstan)
+library(boot)
+
+```
+
+
+
+
+```{r}
+# Load example dataset, modified version of survival::colon
+data(colon_s)
+
+
+
+colon_s2$age <- as.numeric(colon_s$age)
+colon_s2$age.factor <- as_factor(colon_s$age.factor)
+colon_s2$sex.factor <- as_factor(colon_s$sex.factor)
+colon_s2$obstruct.factor <- as_factor(colon_s$obstruct.factor)
+colon_s2$perfor.factor <- as_factor(colon_s$perfor.factor)
+colon_s2$mort_5yr <- as_factor(colon_s$mort_5yr)
+colon_s2$hospital <- as_factor(colon_s$hospital)
+colon_s2$status <- as.numeric(colon_s$status)
+colon_s2$time <- as.numeric(colon_s$time)
+colon_s2
+
+
+```
+
+
+```{r}
+# Table 1 - Patient demographics by variable of interest ----
+explanatory = c("age", "age.factor", 
+  "sex.factor", "obstruct.factor")
+dependent = "perfor.factor" # Bowel perforation
+table <- colon_s2 %>%
+  summary_factorlist(dependent, explanatory,
+  p=TRUE, add_dependent_label=TRUE, total_col = TRUE)
+
+print.AsIs(table)
+
+
+
+```
+
+
+
+
+```{r}
+# Table 2 - 5 yr mortality ----
+explanatory = c("age.factor", 
+  "sex.factor",
+  "obstruct.factor")
+dependent = 'mort_5yr'
+table <- colon_s %>%
+  summary_factorlist(dependent, explanatory, 
+  p=TRUE, add_dependent_label=TRUE)
+
+print.AsIs(table)
+
+```
+
+
+
+
+```{r results='asis'}
+knitr::kable(table, row.names=FALSE, 
+    align=c("l", "l", "r", "r", "r", "r"))
+```
+
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = 'mort_5yr'
+table_surv <- colon_s2 %>%
+  finalfit(dependent, explanatory)
+```
+
+
+
+
+```{r results='asis'}
+knitr::kable(table_surv, row.names = FALSE, 
+    align = c("l", "l", "r", "r", "r", "r"))
+```
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", 
+  "obstruct.factor")
+dependent = 'mort_5yr'
+colon_s2 %>%
+  finalfit(dependent, explanatory, 
+  explanatory_multi)
+```
+
+
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", "obstruct.factor")
+random_effect = "hospital"
+dependent = 'mort_5yr'
+colon_s2 %>%
+  finalfit(dependent, explanatory, 
+  explanatory_multi, random_effect)
+```
+
+
+
+
+```{r}
+
+explanatory = c("age.factor", "sex.factor", 
+"obstruct.factor", "perfor.factor")
+dependent = "Surv(time, status)"
+colon_s2 %>%
+  finalfit(dependent, explanatory)
+```
+
+
+
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = 'mort_5yr'
+table7 <- colon_s2 %>%
+  finalfit(dependent, explanatory, 
+  metrics=TRUE)
+```
+
+
+
+
+
+```{r, echo=FALSE, results="asis"}
+knitr::kable(table7[[1]], row.names=FALSE, align=c("l", "l", "r", "r", "r"))
+knitr::kable(table7[[2]], row.names=FALSE)
+```
+
+
+
+
+
+```{r}
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", "obstruct.factor")
+random_effect = "hospital"
+dependent = 'mort_5yr'
+
+# Separate tables
+colon_s2 %>%
+  summary_factorlist(dependent, 
+  explanatory, fit_id=TRUE) -> example.summary
+
+colon_s2 %>%
+  glmuni(dependent, explanatory) %>%
+  fit2df(estimate_suffix=" (univariable)") -> example.univariable
+
+colon_s2 %>%
+  glmmulti(dependent, explanatory) %>%
+  fit2df(estimate_suffix=" (multivariable)") -> example.multivariable
+
+colon_s2 %>%
+  glmmixed(dependent, explanatory, random_effect) %>%
+  fit2df(estimate_suffix=" (multilevel)") -> example.multilevel
+
+# Pipe together
+example.summary %>%
+  finalfit_merge(example.univariable) %>%
+  finalfit_merge(example.multivariable) %>%
+  finalfit_merge(example.multilevel) %>%
+  select(-c(fit_id, index)) %>% # remove unnecessary columns
+  dependent_label(colon_s2, dependent, prefix="") # place dependent variable label
+```
+
+
+
+
+
+
+
+```{r fig.height=5, fig.width=6}
+# OR plot
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = 'mort_5yr'
+colon_s2 %>%
+  or_plot(dependent, explanatory)
+# Previously fitted models (`glmmulti()` or 
+# `glmmixed()`) can be provided directly to `glmfit`
+```
+
+
+```{r fig.height=5, fig.width=6}
+# HR plot
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+dependent = "Surv(time, status)"
+colon_s2 %>%
+  hr_plot(dependent, explanatory, dependent_label = "Survival")
+# Previously fitted models (`coxphmulti`) can be provided directly using `coxfit`
+```
+
+
+```{r}
+# KM plot
+explanatory = c("perfor.factor")
+dependent = "Surv(time, status)"
+
+plotKM <- colon_s2 %>%
+  surv_plot(dependent, explanatory, 
+  xlab = "Time (days)", pval = TRUE, legend = "none")
+
+plotKM
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####   - janitor
+
+
+####   - huxtable
+
+
+####   - tables
+
+
+####   - stargazer
+
+
+####   - pixiedust
+
+
+####   - reporttools
+
+
+####   - rtable
+
+
+####   - summarytools
+
+
+####   - tab
+
+
+####   - tableone
+
+
+####   - carpenter
+
+
+####   - dtables
+
+
+####   - etable
+
+####   - tangram
+tangram (grammar of tables)
+
+https://github.com/spgarbet/tangram
+http://htmlpreview.github.io/?https://github.com/spgarbet/tg/blob/master/vignettes/example.html
+
+https://github.com/spgarbet/tangram/issues/36
+
+
+<!-- library(tangram) -->
+<!-- library(Hmisc) -->
+<!-- getHdata(pbc) -->
+<!-- View(pbc) -->
+<!-- table <- tangram(drug ~ bili + albumin + stage + protime + sex + age + spiders, data = pbc) -->
+
+<!-- table -->
+<!-- html5(table) -->
+<!-- latex(table) -->
+<!-- index(table) -->
+
+<!-- write( -->
+<!-- html5(tangram("drug ~ bili[2] + albumin + stage::Categorical + protime + sex + age + spiders", pbc, msd=TRUE, quant=seq(0, 1, 0.25)), -->
+<!--       fragment=TRUE, inline="hmisc.css", caption = "HTML5 Table Hmisc Style", id="tbl2"), -->
+<!-- "tangram1.html") -->
+
+<!-- write( -->
+<!-- html5(tangram("drug ~ bili[2] + albumin + stage::Categorical + protime + sex + age + spiders", pbc), -->
+<!--       fragment=TRUE, inline="nejm.css", caption = "HTML5 Table NEJM Style", id="tbl3"), -->
+<!-- "tangram_nejm.html") -->
+
+
+<!-- tbl <- tangram("drug ~ bili[2] + albumin + stage::Categorical[1] + protime + sex[1] + age + spiders[1]",  -->
+<!--                data=pbc, -->
+<!--                pformat = 5) -->
+<!-- write(html5(tbl, -->
+<!--       fragment=TRUE, -->
+<!--       inline="lancet.css", -->
+<!--       caption = "HTML5 Table Lancet Style", id="tbl4" -->
+<!-- ), -->
+<!-- "tangram_lancet.html") -->
+
+<!-- index(tangram("drug ~ bili + albumin + stage::Categorical + protime + sex + age + spiders", pbc))[1:20,] -->
+
+
+<!-- library(readxl) -->
+<!-- MDL307_Data <- read_excel("MDL307 - Data.xlsx") -->
+
+<!-- MDL307_Data <- as.data.frame(MDL307_Data) -->
+
+<!-- names(MDL307_Data) -->
+
+<!-- View(MDL307_Data) -->
+
+<!-- MDL307_Data$biyokimyasalrekurrens <- as.factor(MDL307_Data$biyokimyasalrekurrens) -->
+<!-- levels(MDL307_Data$biyokimyasalrekurrens)[1] <- "yok" -->
+<!-- levels(MDL307_Data$biyokimyasalrekurrens)[2] <- "var" -->
+
+<!-- collist <- c("gleasonskor", -->
+<!--                  "tersiyer", -->
+<!--                  "kribriform", -->
+<!--                  "cerrahisinir", -->
+<!--                  "ekstaprostatik", -->
+<!--                  "lenfnodu", -->
+<!--                  "seminalvezikul" -->
+<!--                  ) -->
+
+
+<!-- MDL307_Data[collist] <- lapply(MDL307_Data[collist], as.factor) -->
+
+
+<!-- table <- tangram(biyokimyasalrekurrens ~ yas + -->
+<!--                  gleasonskor + -->
+<!--                  tersiyer + -->
+<!--                  kribriform + -->
+<!--                  kribriformyuzde + -->
+<!--                  cerrahisinir + -->
+<!--                  ekstaprostatik + -->
+<!--                  lenfnodu + -->
+<!--                  seminalvezikul + -->
+<!--                  biyokimyasalrekurrens, -->
+<!--                  data = MDL307_Data) -->
+<!-- table -->
+
+
+<!-- ## SemiCompRisks -->
+
+<!-- install.packages("SemiCompRisks") -->
+<!-- library(SemiCompRisks) -->
+<!-- data(BMT) -->
+
+<!-- ## smcure -->
+
+<!-- install.packages("smcure") -->
+<!-- library(smcure) -->
+<!-- data(e1684) -->
+
+
+
+
+### - pivots
+
+
+####   - rpivotttable
+
+### - other
+
+
+####   - gtable
+
+
+#### - sjtlm
+https://strengejacke.github.io/sjPlot/articles/sjtlm.html
+
+
+#### - arsenal::tableby
+
+https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
+
+
+
+

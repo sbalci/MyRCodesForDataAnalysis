@@ -1,0 +1,338 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+# Prepare Data for Analysis / Veriyi Analiz için hazırlamak
+
+### Keep SPSS labels
+
+```{r}
+library(foreign) # foreign paketi yükleniyor
+```
+
+read.spss komutu ile değer etiketlerini almasını ve bunu liste olarak değil de data.frame olarak kaydetmesini istiyoruz
+
+```{r}
+mydata <- read.spss("mydata.sav", use.value.labels = TRUE, to.data.frame = TRUE)
+```
+
+aktardığımız data.frame'in özellikleri (attr) içinde değişkenlerin etiketleri var, bunları dışarı çıkartıyoruz
+
+```{r}
+VariableLabels <- as.data.frame(attr(mydata, "variable.labels"))
+```
+
+
+elde ettiğimiz data.frame'deki satır isimleri değişkenlerin isimleri oluyor, karşılarında da değişken etiketleri var
+satır isimlerini de dışarı çıkartıyoruz
+
+```{r}
+VariableLabels$original <- rownames(VariableLabels)
+```
+
+Değişken etiketi olanları etiketleri ile diğerlerini olduğu gibi saklıyoruz  
+
+```{r}
+VariableLabels$label[VariableLabels$label ==""] <- NA 
+VariableLabels$colname <- VariableLabels$original
+VariableLabels$colname[!is.na(VariableLabels$label)] <- as.vector(VariableLabels$label[!is.na(VariableLabels$label)])
+```
+
+son olarak da data.frame'deki sütun isimlerini değiştiriyoruz
+
+```{r}
+names(mydata) <- VariableLabels$colname
+```
+
+
+### Make both computer and human readible variable names
+
+turkce karakter donusumu
+
+```{r turkce karakter donusumu}
+# https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r/
+
+to.plain <- function(s) {
+        # 1 character substitutions
+    old1 <- "çğşıüöÇĞŞİÖÜ"
+    new1 <- "cgsiuocgsiou"
+    s1 <- chartr(old1, new1, s)
+    # 2 character substitutions
+    old2 <- c("œ", "ß", "æ", "ø")
+    new2 <- c("oe", "ss", "ae", "oe")
+    s2 <- s1
+    for(i in seq_along(old2)) s2 <- gsub(old2[i], new2[i], s2, fixed = TRUE)
+    s2
+}
+
+
+df$source=as.vector(sapply(df$source,to.plain))
+
+make.names(tolower(names(df)))
+to.plain(names(df))
+
+purrr::map(df, to.plain)
+
+```
+
+### Anonimisation
+
+### Add subject ID to the data / veriye ID ekleme
+
+```{r}
+df <- tibble::rowid_to_column(df, "subject")
+```
+
+
+
+
+
+## Data reorganization
+
+```{r}
+scabies <- read.csv(file = "http://datacompass.lshtm.ac.uk/607/2/S1-Dataset_CSV.csv", header = TRUE, sep = ",")
+
+scabies$gender == "male"
+
+scabies$age[scabies$gender == "male"]
+
+mean(scabies$age[scabies$gender == "male"])
+
+
+scabies %>% 
+    filter(gender == "male") %>% 
+    summarise_at("age" ,mean) 
+
+
+```
+
+
+
+```{r}
+
+scabies$agegroups <- as.factor(cut(scabies$age, c(0,10,20,Inf), labels = c("0-10","11-20","21+"), include.lowest = TRUE)) 
+
+scabies$house_cat <- as.factor(cut(scabies$house_inhabitants, c(0,5,10,Inf), labels = c("0-5","6-10","10+"), include.lowest = TRUE))
+
+
+table(scabies$house_cat, scabies$house_inhabitants)
+
+```
+
+```{r}
+ebola$status <- as.numeric(ebola$status) 
+
+```
+
+
+```{r}
+ebola$transmission <- recode(ebola$transmission, syringe = "needle")
+
+```
+
+```{r}
+scabies$house_cat <- relevel(scabies$house_cat, ref = "0-5")
+#Make 0-5 household size the baseline group
+```
+
+
+
+
+
+```{r}
+df <- data.frame(month=rep(1:3,2),
+                 student=rep(c("Amy", "Bob"), each=3),
+                 A=c(9, 7, 6, 8, 6, 9),
+                 B=c(6, 7, 8, 5, 6, 7))
+#Here we have a where each student is on a different row for each month
+#The students took two tests A and B. 
+#For each student/month combination we have a value for A and a value for B
+
+df2 <- gather(df,test,score,A:B)
+#Make a new datatable df2
+#Have a column called "test". 
+#This will have the value either A or B as these are the names of the columns we specified.
+#Have a column called "score". 
+#This will have the value previously in column A or B respectively for each row
+
+df2
+```
+
+
+```{r}
+#Now we have a single row for each combination of month/student/test 
+#Their score is in the score column
+
+df3 <- spread(df2,test,score)
+#Make a new datatable df3
+#Make a column for each unique value in the test variable.
+#Name each of these columns based on that unique value
+#Under each column put the corresponding value that was in the score column
+
+df3
+```
+
+```{r}
+dt3 <- expandRows(dt, 2)
+#Expand the original datatable. Replicate each row by the value in column 2. 
+dt3
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- # gerekli paketi yükleme -->
+<!-- library(tidyverse) -->
+<!-- library(haven) -->
+<!-- # dosyayı yükleme -->
+<!-- EDT256 <- read_sav("EDT256.sav") -->
+
+
+
+<!-- # gerekli sütunları seçme -->
+<!-- EDT256 <- EDT256 %>% -->
+<!--     select(subject, tanı, starts_with("beck")) -->
+
+<!-- # değişken değerlerini yeniden atama -->
+<!-- EDT256$tanı <- as_factor(EDT256$tanı, labels = "values") -->
+
+<!-- # yatay veriyi uzun hale getirme -->
+<!-- EDT256_new <- EDT256 %>% -->
+<!--     gather(- c("subject","tanı"), key = zaman, value = beck_int_score) -->
+
+
+<!-- # değişkenleri rakamsal hale getirme -->
+<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_P")] <- 0 -->
+<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A1")] <- 1 -->
+<!-- EDT256_new$zaman[which(EDT256_new$zaman == "beck_int_A2")] <- 2 -->
+
+<!-- # değişken değerlerini atama  -->
+<!-- EDT256_new$zaman <- factor(EDT256_new$zaman, levels = c(0,1,2), -->
+<!--                            labels = c("Tedavi Öncesi", "T. Sonrası 1. Hafta", -->
+<!--                                       "T. Sonrası 2. Hafta")) -->
+
+
+<!-- # nparLD analizi -->
+
+<!-- # gerekli paketi yükleme -->
+<!-- library(nparLD) -->
+
+<!-- # model oluşturma -->
+<!-- modelEDT256 <- nparLD(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
+<!--                       subject = "subject", -->
+<!--                       plot.CI = TRUE, show.covariance = TRUE) -->
+
+<!-- # model sonucunu yazdır -->
+<!-- out <- capture.output(modelEDT256) -->
+<!-- cat("EDT256 Model", out, file = "EDT256.txt", sep = "\n", append=TRUE) -->
+
+<!-- # model grafiği -->
+<!-- plot(modelEDT256) -->
+
+<!-- # plot sonucunu yazdır -->
+<!-- out2 <- capture.output(plot(modelEDT256)) -->
+<!-- cat("\n","EDT256 Plot", out2, file = "EDT256.txt", sep = "\n", append = TRUE) -->
+
+<!-- # grafiği yazdır -->
+<!-- jpeg('modelEDT256.jpeg') -->
+<!-- plot(modelEDT256) -->
+<!-- dev.off() -->
+
+<!-- # model özeti -->
+<!-- summary(modelEDT256) -->
+
+<!-- # model özeti sonucunu yazdır -->
+<!-- out3 <- capture.output(modelEDT256) -->
+<!-- cat("\n","EDT256 summary", out3, file = "EDT256.txt", sep = "\n", append=TRUE) -->
+
+
+<!-- # ek olarak boxplot oluşturma -->
+<!-- boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
+<!--         names = FALSE,col = c("grey",2),lwd = 2) -->
+<!-- axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3) -->
+<!-- axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3) -->
+<!-- axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3) -->
+<!-- legend(5,35,c("Tanı 1","Tanı 2"), -->
+<!--        lwd = c(2,2), -->
+<!--        col = c("grey",2),cex = 0.7) -->
+
+<!-- # boxplot yazdır -->
+<!-- jpeg('boxplotEDT256.jpeg') -->
+<!-- boxplot(beck_int_score ~ tanı * zaman, data = EDT256_new, -->
+<!--         names = FALSE,col = c("grey",2),lwd = 2) -->
+<!-- axis(1,at = 1.5,labels = "Tedavi Öncesi",font = 2,cex = 3) -->
+<!-- axis(1,at = 3.5,labels = "T. Sonrası 1. Hafta",font = 2,cex = 3) -->
+<!-- axis(1,at = 5.5,labels = "T. Sonrası 2. Hafta",font = 2,cex = 3) -->
+<!-- legend(5,35,c("Tanı 1","Tanı 2"), -->
+<!--        lwd = c(2,2), -->
+<!--        col = c("grey",2),cex = 0.7) -->
+<!-- dev.off() -->
+
+
+
+
+
+
+
+
+

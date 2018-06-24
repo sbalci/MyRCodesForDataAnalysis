@@ -1,0 +1,13 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## Formulas
+
+https://www.datacamp.com/community/tutorials/r-formula-tutorial
+
+
+typeof()
+
+

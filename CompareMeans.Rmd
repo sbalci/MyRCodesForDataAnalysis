@@ -1,0 +1,40 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+### Compare Means
+
+```{r}
+t.test(scabies$age[scabies$gender=="male"],scabies$age[scabies$gender=="female"])
+
+```
+
+```{r}
+test <- t.test(scabies$age[scabies$gender=="male"],scabies$age[scabies$gender=="female"])
+psycho::analyze(test)
+```
+
+
+

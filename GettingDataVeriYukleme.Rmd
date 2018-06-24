@@ -1,0 +1,158 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+
+
+
+
+---
+
+
+
+
+# Getting Data into R / Veriyi R'a yükleme
+
+
+
+
+## Import Data
+
+### Import using RStudio
+
+### Import CSV File
+
+```{r}
+scabies <- read.csv(file = "http://datacompass.lshtm.ac.uk/607/2/S1-Dataset_CSV.csv", header = TRUE, sep = ",")
+scabies
+```
+
+### Import TXT File
+
+```{r}
+ebola <- read.csv(file = "http://datacompass.lshtm.ac.uk/608/1/mmc1.txt", header = TRUE, sep = ",")
+ebola
+```
+
+
+### Import Excel File
+
+#### Sheets
+
+<!-- # Sheets -->
+
+<!-- library(tidyverse) -->
+<!-- library(readxl) -->
+
+
+<!-- path <- "ICPN_RAW.xls" -->
+<!-- sheetlist <- path %>%  -->
+<!--     excel_sheets() %>%  -->
+<!--     set_names() %>%  -->
+<!--     map(read_excel, skip = 1, path = path) -->
+
+<!-- sheetlist <- sheetlist[-29] -->
+
+
+<!-- sheetlist <- sheetlist %>% -->
+<!--     reduce(left_join, by = "Respondant", .id = "id", suffix = c("1","2")) -->
+
+<!-- names(sheetlist) -->
+
+<!-- columnNames <- c( -->
+<!--     "ID", -->
+<!--     "DX", -->
+<!--     "y/n", -->
+<!--     "~plastic", -->
+<!--     "WHO- 2010 classification", -->
+<!--     "GRADE", -->
+<!--     "INVASIVE CA", -->
+<!--     "CELL LINEAGE", -->
+<!--     "IPMN Lineage (PRE/MIN)", -->
+<!--     "experience with this invasion", -->
+<!--     "COMMENTS" -->
+<!-- ) -->
+
+<!-- columnNumbers <- rep(c(1:28), each = 11) -->
+
+<!-- columnNames2 <- paste(columnNames, columnNumbers, sep = "") -->
+
+<!-- columnNames2 <- c("Respondant", columnNames2) -->
+
+<!-- names(sheetlist) <- columnNames2 -->
+
+
+
+<!-- # "Respondant"	"ID"	"y/n"	"WHO- 2010 classification"	"GRADE"	"INVASIVE CA"	"CELL LINEAGE"	"IPMN Lineage (PRE/MIN)" -->
+
+<!-- deneme <- sheetlist %>%  -->
+<!--     select(starts_with("Respondant"), starts_with("GRADE")) -->
+
+
+
+
+
+
+
+<!-- # deneme[deneme=="HIGH"] <- 3 -->
+<!-- # deneme[deneme=="HIGH (focal)"] <- 3 -->
+<!-- # deneme[deneme=="MODERATE"] <- 2 -->
+<!-- # deneme[deneme=="LOW"] <- 1 -->
+<!-- #  -->
+<!-- # deneme <- as.data.frame(deneme) -->
+<!-- #  -->
+<!-- # row.names(deneme) <- deneme$Respondant -->
+<!-- #  -->
+<!-- # deneme <- deneme[-1] -->
+<!-- #  -->
+<!-- # deneme[is.na(deneme)] <- 1 -->
+<!-- #  -->
+<!-- # deneme <- map_df(deneme, as.matrix) -->
+<!-- #  -->
+<!-- # glimpse(deneme) -->
+<!-- #  -->
+<!-- # heatmap(deneme) -->
+
+<!-- write_csv(deneme, "deneme.csv") -->
+
+
+
+
+
+
+### Import SPSS File
+
+## Export Data
+
+### Export to SPSS, while keeping labels
+
+R'da `factor` olan label verdiğiniz değişkenleri `SPSS` ya da diğer istatistik programlarına aktardığınızda bu tanımlamaları korumak işimize yarar. Bunun için `foreign` paketi ile bir `txt` dosyası ve bir `sps` dosyası oluşturuyoruz. SPSS'te `sps` dosyasını açıp kodu çalıştırarak tekrar atanan değerler geri yükleniyor.
+
+
+```{r}
+library(foreign)
+write.foreign(mydata, "mydata.txt", "mydata.sps",   package = "SPSS")
+```
+
+
+
+

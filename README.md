@@ -11,9 +11,102 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 **See the Codes here:**
 
-_[https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html)_
+See https://sbalci.github.io/MyRCodesForDataAnalysis/ for R codes I am collecting.
+
+See the Codes here:
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
+
+
+
+---
+
+
+# Getting Data into R / Veriyi R'a yükleme
+
+
+# Prepare Data for Analysis / Veriyi Analiz için hazırlamak
+
+
+# File organization best practices
+
+
+# Analysis
+
+## Descriptive Statistics
+
+
+## Hypothesis Testing
+
+### Compare Means
+
+### Compare Proportions
+
+
+
+
+
+
+
+
+## Survival Analysis in R
+
+
+
+
+
+
+
+# Miscellaneous
+
+## Formulas
+
+
+
+
+## Flipping Coin
+
+
+
+
+## Decision Trees
+
+Karar ağacı kodları için tıklayın: 
+
+
+
+
+
+
+---
+
+# General Resources
+
+
+
+---
+# Package List
+
+See package list here: 
+
+---
+
+# Data List
+
+
+
+---
+
+
+
+
 
 
 # Feedback
 
+
+- This document will be continiously updated and the last update was on `r Sys.Date()`.
+
 [Yours truly](https://github.com/sbalci) would like to hear your feedback: _[feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
+
+- See [https://sbalci.github.io/](https://sbalci.github.io/) for other analysis.

@@ -1,0 +1,21 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+# General Resources
+
+- One Page R
+
+https://togaware.com/onepager/
+
+- htmlwidgets for R
+
+http://www.htmlwidgets.org/
+
+http://gallery.htmlwidgets.org/
+
+- Learning R for Clinical Epidemiologists
+
+http://rpubs.com/michaelmarks/R-Clin-Epi
