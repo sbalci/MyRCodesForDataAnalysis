@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 ```
 
 
----
+
 
 
 **Load required packages**
@@ -54,10 +54,6 @@ knitr::opts_chunk$set(
 library(tidyverse)
 ```
 
-
-
-
----
 
 
 
@@ -1494,57 +1490,6 @@ library(tidyverse)
 <!-- #I've broken the data down in to several facets based on the village -->
 <!-- gg_histo_by_village -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-
-
-
----
-
-
-
-
-
----
 
 # Packages to be studied
 
