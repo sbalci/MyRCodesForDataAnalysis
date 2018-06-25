@@ -657,3 +657,10 @@ sigmajs() %>%
   sg_force_stop(delay = mx) %>% 
   sg_settings(defaultNodeColor = "#1967be")
 ```
+
+
+
+
+# A Shiny App with rtweet
+
+https://aj17.shinyapps.io/twitteranalytics/

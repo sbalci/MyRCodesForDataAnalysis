@@ -1,0 +1,33 @@
+---
+title: "Hypothesis Testing"
+output: html_notebook
+---
+
+# Hypothesis Testing
+
+## Test Selection
+
+### Statkat
+
+https://statkat.com/
+
+https://statkat.com/stattest_overview.php
+
+
+#### Jamovi Statkat module
+
+https://blog.jamovi.org/2018/06/25/statkat.html
+
+```{r}
+library(jmv)
+library(Statkat)
+```
+
+```{r}
+
+Statkat::correlational(
+    data = data,
+    dep = "len",
+    independents = "supp")
+```
+

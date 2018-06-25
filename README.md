@@ -13,6 +13,9 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 **See the Codes below:**
 
 # Getting Data into R / Veriyi R'a yükleme
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/GettingDataVeriYukleme.nb.html
+
 - Import Data
     - Import using RStudio
     - Import CSV File
@@ -23,27 +26,68 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 - Export Data
     - Export to SPSS, while keeping labels
 
+
 # Prepare Data for Analysis / Veriyi Analiz için hazırlamak
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/PrepareData.nb.html
+
+## data.table
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/datatable.nb.html
+
 # File organization best practices
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/FileOrganization.nb.html
 
 # Analysis
 
 ## Descriptive Statistics
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/DescriptiveStatistics.nb.html
+
 ## Hypothesis Testing
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/HypothesisTesting.nb.html
 
 ### Compare Means
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/CompareMeans.nb.html
+
 ### Compare Proportions
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/CompareProportions.nb.html
 
 ## Survival Analysis in R
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/SurvivalAnalysis.nb.html
+
+## Other Analysis
+
+### Decision Trees
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/DecisionTreeKararAgaci.nb.html
+
+### Clustering
+
+### K Means Clustering
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/KMeansClustering.nb.html
+
+### Hierarchical Clustering
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/HierarchicalClustering.nb.html
+
 # Reporting
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html
 
 ## Use R Markdown
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html
+
 ## Tables
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html
 
 ## Autoreport
 
@@ -51,34 +95,45 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 ## GitHub
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/GitHub.nb.html
 
 # Text Analysis Sentiment Analysis
 
 ## Twitter Analysis With R
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/Twitter.nb.html
+
 # Bibliography
 
 ## Google Scholar
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/GoogleScholar.nb.html
+
 ### Scholar
+
 ### Coauthor 
 
 # Miscellaneous
 
 ## Formulas
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/Formulas.nb.html
+
 ## Flipping Coin
 
-## Decision Trees
-
-Karar ağacı kodları için tıklayın:
+https://sbalci.github.io/MyRCodesForDataAnalysis/FlippingCoin.nb.html
 
 # General Resources
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/GeneralResources.nb.html
 
 # Package List
 
 See package list here: 
 
 # Data List
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html
 
 # Feedback
 - This document will be continiously updated and the last update was on `r Sys.Date()`.

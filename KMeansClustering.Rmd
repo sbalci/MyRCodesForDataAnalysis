@@ -1,0 +1,11 @@
+---
+title: "K Means Clustering"
+output: html_notebook
+---
+
+
+https://datascienceplus.com/k-means-clustering-in-r/
+
+
+
+
