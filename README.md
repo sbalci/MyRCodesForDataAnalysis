@@ -136,6 +136,6 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 # Feedback
 
-[Yours truly](https://github.com/sbalci) would like to hear your feedback: _[feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
+- [Yours truly](https://github.com/sbalci) would like to hear your feedback: _[feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
 
 - See [https://sbalci.github.io/](https://sbalci.github.io/) for other analysis.

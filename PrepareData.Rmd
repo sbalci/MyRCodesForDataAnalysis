@@ -26,6 +26,12 @@ output:
 
 # Prepare Data for Analysis / Veriyi Analiz için hazırlamak
 
+## The Quartz guide to bad data
+
+>    An exhaustive reference to problems seen in real-world data along with suggestions on how to resolve them.
+
+https://github.com/Quartz/bad-data-guide
+
 ### Keep SPSS labels
 
 ```{r}

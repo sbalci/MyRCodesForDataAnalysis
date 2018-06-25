@@ -154,15 +154,42 @@ DT[1:5,.(V4.Sum = sum(V4)),
 DT[,.N,by = V1]
 ```
 
+## Adding/Updating Columns By Reference in j Using :=
+
+```{r}
+DT[,V1:=round(exp(V1),2)]
+DT
+```
+
+
+```{r}
+DT[,V5:=round(exp(V1),2)]
+DT
+```
+
+
+```{r}
+DT[,c("V1","V2"):=list(round(exp(V1),2),
+                       LETTERS[4:6])]
+DT
+```
 
 
 
+```{r}
+DT[,':='(V1=round(exp(V1),2),
+         V2=LETTERS[4:6])][]
+```
 
 
+```{r}
+DT[,V1:=NULL]
+DT
+```
 
-
-
-
+```{r}
+DT[,c("V1","V2"):=NULL][]
+```
 
 
 

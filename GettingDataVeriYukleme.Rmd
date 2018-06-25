@@ -131,6 +131,50 @@ ebola
 
 ### Import SPSS File
 
+### Keep SPSS labels
+
+```{r}
+library(foreign) # foreign paketi yükleniyor
+```
+
+read.spss komutu ile değer etiketlerini almasını ve bunu liste olarak değil de data.frame olarak kaydetmesini istiyoruz
+
+```{r}
+mydata <- read.spss("mydata.sav", use.value.labels = TRUE, to.data.frame = TRUE)
+```
+
+aktardığımız data.frame'in özellikleri (attr) içinde değişkenlerin etiketleri var, bunları dışarı çıkartıyoruz
+
+```{r}
+VariableLabels <- as.data.frame(attr(mydata, "variable.labels"))
+```
+
+
+elde ettiğimiz data.frame'deki satır isimleri değişkenlerin isimleri oluyor, karşılarında da değişken etiketleri var
+satır isimlerini de dışarı çıkartıyoruz
+
+```{r}
+VariableLabels$original <- rownames(VariableLabels)
+```
+
+Değişken etiketi olanları etiketleri ile diğerlerini olduğu gibi saklıyoruz  
+
+```{r}
+VariableLabels$label[VariableLabels$label ==""] <- NA 
+VariableLabels$colname <- VariableLabels$original
+VariableLabels$colname[!is.na(VariableLabels$label)] <- as.vector(VariableLabels$label[!is.na(VariableLabels$label)])
+```
+
+son olarak da data.frame'deki sütun isimlerini değiştiriyoruz
+
+```{r}
+names(mydata) <- VariableLabels$colname
+```
+
+
+
+
+
 # Export Data
 
 ### Export to SPSS, while keeping labels
