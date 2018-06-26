@@ -117,6 +117,16 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 # Bibliography
 
+Other Bibliographic Studies: https://sbalci.github.io/ResearchOnBibliography/
+
+## PubMed
+
+### RISmed 
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/RISmed.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/RISmed.nb.html)
+
+
+
 ## Google Scholar
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/GoogleScholar.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/GoogleScholar.nb.html)
@@ -141,7 +151,9 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 # Package List
 
- 
+[https://sbalci.github.io/MyRCodesForDataAnalysis/RPackagesUsed.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/RPackagesUsed.nb.html)
+
+
 
 # Data List
 
