@@ -76,9 +76,19 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/HierarchicalClustering.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/HierarchicalClustering.nb.html)
 
+# Graphs Plots
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/VisualisationGraphsPlots.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/VisualisationGraphsPlots.nb.html)
+
+
+
+## Sankey Diagrams
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/SankeyDiagrams.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/SankeyDiagrams.nb.html)
+
 # Reporting
 
-[https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html)
+
 
 ## Use R Markdown
 
@@ -89,6 +99,9 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html)
 
 ## Autoreport
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html)
+
 
 # Backup Analysis and Data
 

@@ -5,6 +5,8 @@ output: html_notebook
 
 # cheat sheet
 
+
+
 https://www.datacamp.com/community/tutorials/data-table-cheat-sheet
 
 https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Sheet_R.pdf
@@ -190,6 +192,138 @@ DT
 ```{r}
 DT[,c("V1","V2"):=NULL][]
 ```
+
+
+```{r}
+Cols.chosen = c("A", "B")
+DT[,Cols.Chosen:=NULL]
+```
+
+```{r}
+Cols.chosen = c("A", "B")
+DT[,(Cols.Chosen):=NULL]
+```
+
+
+## Indexing And Keys
+
+
+```{r}
+setkey(DT,V2)
+```
+
+
+```{r}
+DT["A"]
+```
+
+
+```{r}
+DT[c("A","C")]
+```
+
+
+
+```{r}
+DT["A",mult="first"]
+```
+
+
+```{r}
+DT["A",mult="last"]
+```
+
+
+```{r}
+DT[c("A","D")]
+```
+
+
+```{r}
+DT[c("A","D"),nomatch=0]
+```
+
+
+```{r}
+DT[c("A","C"),sum(V4)]
+```
+
+
+```{r}
+DT[c("A","C"),
+   sum(V4),
+   by=.EACHI]
+```
+
+
+```{r}
+setkey(DT,V1,V2)
+```
+
+
+```{r}
+DT[.(2,"C")]
+```
+
+
+```{r}
+DT[.(2,c("A","C"))]
+```
+
+
+## Advanced Data Table Operations
+
+
+
+## .SD & .SDcols
+
+
+## Chaining
+
+
+## set()-Family
+
+### set()
+
+### setnames()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
