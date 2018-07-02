@@ -27,6 +27,7 @@ output:
 # Data List
 
 - Learning Clinical Epidemiology with R
+
 http://datacompass.lshtm.ac.uk/599/
 
 - ISLR
@@ -36,18 +37,30 @@ data(package = "ISLR")
 ```
 
 - acs
-Download, Manipulate, and Present American Community Survey and Decennial Data from the US Census
+
+Download, Manipulate, and Present American Community Survey and Decennial 
+
+Data from the US Census
+
 https://cran.r-project.org/web/packages/acs/index.html
 
 - eurostat
+
 Tools for Eurostat Open Data
+
 https://cran.r-project.org/web/packages/eurostat/index.html
 
 - Rilostat
+
 https://github.com/ilostat/Rilostat
 
 - OECD
+
 https://cran.r-project.org/web/packages/OECD/vignettes/oecd_vignette_main.pdf
 
+- gapminder
 
+Factfulness: Building Gapminder Income Mountains
+
+http://staff.math.su.se/hoehle/blog/2018/07/02/factfulness.html
 

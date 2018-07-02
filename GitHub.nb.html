@@ -1722,20 +1722,19 @@ rstudioapi::terminalSend(gitTerm, gitCommand)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ29tbWl0TWVzc2FnZSA8LSBwYXN0ZShcInVwZGF0ZWQgb24gXCIsIFN5cy50aW1lKCksIHNlcCA9IFwiXCIpXG53ZCA8LSBnZXR3ZCgpXG5naXRDb21tYW5kIDwtIHBhc3RlKFwiY2RcIiwgd2QsIFwiIFxcbiBnaXQgYWRkIC4gXFxuIGdpdCBjb21taXQgLS1tZXNzYWdlICdcIiwgQ29tbWl0TWVzc2FnZSwgXCInIFxcbiBnaXQgcHVzaCBvcmlnaW4gbWFzdGVyIFxcblwiLCBzZXAgPSBcIlwiKVxuc3lzdGVtKGNvbW1hbmQgPSBnaXRDb21tYW5kLCBpbnRlcm4gPSBUUlVFKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ29tbWl0TWVzc2FnZSA8LSBwYXN0ZShcInVwZGF0ZWQgb24gXCIsIFN5cy50aW1lKCksIHNlcCA9IFwiXCIpXG53ZCA8LSBnZXR3ZCgpXG5naXRDb21tYW5kIDwtIHBhc3RlKFwiY2QgXCIsIHdkLCBcIiBcXG4gZ2l0IGFkZCAuIFxcbiBnaXQgY29tbWl0IC0tbWVzc2FnZSAnXCIsIENvbW1pdE1lc3NhZ2UsIFwiJyBcXG4gZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcXG5cIiwgc2VwID0gXCJcIilcbnN5c3RlbShjb21tYW5kID0gZ2l0Q29tbWFuZCwgaW50ZXJuID0gVFJVRSlcbmBgYCJ9 -->
 <pre class="r"><code>CommitMessage &lt;- paste(&quot;updated on &quot;, Sys.time(), sep = &quot;&quot;)
 wd &lt;- getwd()
-gitCommand &lt;- paste(&quot;cd&quot;, wd, &quot; \n git add . \n git commit --message '&quot;, CommitMessage, &quot;' \n git push origin master \n&quot;, sep = &quot;&quot;)
+gitCommand &lt;- paste(&quot;cd &quot;, wd, &quot; \n git add . \n git commit --message '&quot;, CommitMessage, &quot;' \n git push origin master \n&quot;, sep = &quot;&quot;)
 system(command = gitCommand, intern = TRUE)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoic2g6IGNkL1VzZXJzL3NlcmRhcmJhbGNpb2xkL1JlcFRlbXBsYXRlcy9NeVJDb2Rlc0ZvckRhdGFBbmFseXNpczogTm8gc3VjaCBmaWxlIG9yIGRpcmVjdG9yeVxuVG8gaHR0cHM6Ly9naXRodWIuY29tL3NiYWxjaS9NeVJDb2Rlc0ZvckRhdGFBbmFseXNpcy5naXRcbiAgIDVkYWQ0ZWIuLjdlMjRlZjAgIG1hc3RlciAtPiBtYXN0ZXJcbiJ9 -->
-<pre><code>sh: cd/Users/serdarbalciold/RepTemplates/MyRCodesForDataAnalysis: No such file or directory
-To https://github.com/sbalci/MyRCodesForDataAnalysis.git
-   5dad4eb..7e24ef0  master -&gt; master</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiVG8gaHR0cHM6Ly9naXRodWIuY29tL3NiYWxjaS9NeVJDb2Rlc0ZvckRhdGFBbmFseXNpcy5naXRcbiAgIDdlMjRlZjAuLjllYjQwOWYgIG1hc3RlciAtPiBtYXN0ZXJcbiJ9 -->
+<pre><code>To https://github.com/sbalci/MyRCodesForDataAnalysis.git
+   7e24ef0..9eb409f  master -&gt; master</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiW21hc3RlciA3ZTI0ZWYwXSB1cGRhdGVkIG9uIDIwMTgtMDctMDIgMTc6NDE6NDRcIiAgIFxuWzJdIFwiIDIgZmlsZXMgY2hhbmdlZCwgMjcgaW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSlcIlxuIn0= -->
-<pre><code>[1] &quot;[master 7e24ef0] updated on 2018-07-02 17:41:44&quot;   
-[2] &quot; 2 files changed, 27 insertions(+), 7 deletions(-)&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiW21hc3RlciA5ZWI0MDlmXSB1cGRhdGVkIG9uIDIwMTgtMDctMDIgMTc6NDI6MTVcIiAgIFxuWzJdIFwiIDIgZmlsZXMgY2hhbmdlZCwgMTEgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSlcIlxuIn0= -->
+<pre><code>[1] &quot;[master 9eb409f] updated on 2018-07-02 17:42:15&quot;   
+[2] &quot; 2 files changed, 11 insertions(+), 2 deletions(-)&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
