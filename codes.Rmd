@@ -1491,46 +1491,5 @@ library(tidyverse)
 <!-- gg_histo_by_village -->
 
 
-# Packages to be studied
-
-https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#installation
-
-https://cran.r-project.org/web/packages/expss/vignettes/tables-with-labels.html
-
-https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html
-
-https://github.com/benjaminrich/table1
-
-https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html
-
-https://twitter.com/mitchoharawild/status/1007297976711110659?s=12
-
-https://twitter.com/mf_viz/status/1004954297962917891?s=12
-
-https://github.com/cmap/morpheus.R
-
-https://github.com/talgalili/heatmaply/
-
-https://github.com/rstudio/d3heatmap
-
-http://worksmarter.pl/en/post/webscraping-case-study-1/
-
-http://worksmarter.pl/en/post/job-automation-r-1/
-
-http://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/
-
-https://www.r-bloggers.com/how-to-plot-with-ggiraph/
-
-https://www.r-bloggers.com/understanding-pca-using-stack-overflow-data/
-
-https://www.r-bloggers.com/beautiful-and-powerful-correlation-tables-in-r/
-
-http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0188299
-
-https://github.com/trinker/reports
-
-
-
-
 
 

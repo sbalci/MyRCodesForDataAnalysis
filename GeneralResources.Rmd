@@ -1,10 +1,8 @@
 ---
-title: "R Notebook"
+title: "General Resources"
 output: html_notebook
 ---
 
-
-# General Resources
 
 - One Page R
 
@@ -19,3 +17,7 @@ http://gallery.htmlwidgets.org/
 - Learning R for Clinical Epidemiologists
 
 http://rpubs.com/michaelmarks/R-Clin-Epi
+
+- r-tutor
+
+http://www.r-tutor.com/

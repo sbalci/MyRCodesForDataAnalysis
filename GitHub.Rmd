@@ -18,3 +18,17 @@ https://www.r-bloggers.com/rstudio-and-github/
 
 http://happygitwithr.com/fork.html
 
+
+
+```{r}
+require(rstudioapi)
+CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+wd <- getwd()
+gitCommand <- paste("cd", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+Sys.sleep(time = 1)
+gitTerm <- rstudioapi::terminalCreate(show = FALSE)
+Sys.sleep(time = 1)
+rstudioapi::terminalSend(gitTerm, gitCommand)
+```
+
+

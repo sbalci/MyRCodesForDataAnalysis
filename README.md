@@ -117,7 +117,7 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 # Bibliography
 
-Other Bibliographic Studies: https://sbalci.github.io/ResearchOnBibliography/
+Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](https://sbalci.github.io/ResearchOnBibliography/)
 
 ## PubMed
 

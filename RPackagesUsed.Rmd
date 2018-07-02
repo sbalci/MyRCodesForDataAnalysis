@@ -3,66 +3,239 @@ title: "R Packages Used"
 output: html_notebook
 ---
 
-install.packages("formattable")
+```{r setup, cache = F, warning = FALSE}
 
-install.packages("conflicted")
+knitr::opts_chunk$set(
+	error = TRUE,
+	message = FALSE,
+	warning = FALSE,
+	eval = FALSE,
+	include = TRUE
+)
+```
 
 
 
+## Packages to be studied
+
+https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html####installation
+
+https://cran.r-project.org/web/packages/expss/vignettes/tables-with-labels.html
+
+https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html
+
+https://github.com/benjaminrich/table1
+
+https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html
+
+https://twitter.com/mitchoharawild/status/1007297976711110659?s=12
+
+https://twitter.com/mf_viz/status/1004954297962917891?s=12
+
+https://github.com/cmap/morpheus.R
+
+https://github.com/talgalili/heatmaply/
+
+https://github.com/rstudio/d3heatmap
+
+http://worksmarter.pl/en/post/webscraping-case-study-1/
+
+http://worksmarter.pl/en/post/job-automation-r-1/
+
+http://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/
+
+https://www.r-bloggers.com/how-to-plot-with-ggiraph/
+
+https://www.r-bloggers.com/understanding-pca-using-stack-overflow-data/
+
+https://www.r-bloggers.com/beautiful-and-powerful-correlation-tables-in-r/
+
+http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0188299
+
+https://github.com/trinker/reports
+
+Animated Directional Chord Diagrams
+https://guyabel.com/post/animated-directional-chord-diagrams/
+
+
+modelDown: a website generator for your predictive models
+http://smarterpoland.pl/index.php/2018/06/modeldown-a-website-generator-for-your-predictive-models/
+
+
+
+## chromoMap
+
+An R package for Interactive visualization and mapping of human chromosomes
+
+https://cran.r-project.org/web/packages/chromoMap/vignettes/chromoMap.html
+
+## tabplot
+
+Tableplot, a Visualization of Large Datasets
+
+https://cran.r-project.org/web/packages/tabplot/index.html
+
+https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-vignette.html
+
+https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-timings.html
+
+## treemap
+
+Treemap Visualization
+
+https://cran.r-project.org/web/packages/treemap/index.html
+
+## VIM
+
+Visualization and Imputation of Missing Values
+
+https://cran.r-project.org/web/packages/VIM/index.html
+
+## survey
+
+https://cran.r-project.org/web/packages/survey/index.html
+
+## tidytext
+
+https://cran.r-project.org/web/packages/tidytext/index.html
+
+https://cran.r-project.org/web/packages/tidytext/vignettes/tf_idf.html
+
+https://cran.r-project.org/web/packages/tidytext/vignettes/tidying_casting.html
+
+https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html
+
+https://cran.r-project.org/web/packages/tidytext/vignettes/topic_modeling.html
+
+
+## rapport  an R templating system
+
+http://rapport-package.info/
+
+## ztable
+
+https://github.com/cardiomoon/ztable
+
+## texreg
+
+https://cran.r-project.org/web/packages/texreg/vignettes/texreg.pdf
+
+## SortableHTMLTables
+
+https://cran.r-project.org/web/packages/SortableHTMLTables/index.html
+
+## hwriter
+
+https://cran.r-project.org/web/packages/hwriter/vignettes/hwriter.pdf
+
+## HTMLUtils
+
+https://cran.r-project.org/web/packages/HTMLUtils/index.html
+
+## htmlTable
+https://cran.r-project.org/web/packages/htmlTable/index.html
+
+## formattable
+
+https://cran.r-project.org/web/packages/formattable/index.html
+
+## DT
+
+DT: An R interface to the DataTables library
+
+https://rstudio.github.io/DT/
+
+## stargazer
+
+Well-Formatted Regression and Summary Statistics Tables
+
+https://cran.r-project.org/web/packages/stargazer/index.html
+
+
+
+
+## conflicted
+
+## psycho
+
+```{r, eval=FALSE, include=TRUE}
 install.packages("devtools")
 library("devtools")
 install_github("neuropsychology/psycho.R")
 library("psycho")
-
-install.packages("styler")
-
+```
 
 
+## styler
 
-## Data Manipulation##
-install.packages("tidyverse")
-# tidyverse contains many packages for data manipulation, graphs etc
-install.packages("splitstackshape")
-# Really nice syntax for expanding datasets
+## tidyverse
 
-# Basic Epi
+## splitstackshape
+
+## epiR
+
+Basic Epi
+
 install.packages("epiR")
-# Some useful epitools especially 2*2 tables and stratified MH Odds
+
+## lmtest
+
+Some useful epitools especially 2*2 tables and stratified MH Odds
+
 install.packages("lmtest")
-# for doing likelihood ratio tests between models
 
-# Poisson & Cox Regression & Survival Analysis
-install.packages("Epi")
-# Tools for Lexis Models
+## popEpi
+
 install.packages("popEpi")
-# Extra tools to go with 'Epi' and make nice rate tables
+
+## Extra tools to go with 'Epi' and make nice rate tables
+
+## survival
+
 install.packages("survival")
-# for survial analysis, kaplan-meier plots and cox regression
+
+for survial analysis, kaplan-meier plots and cox regression
+
+## survminer
+
 install.packages("survminer")
-# Really nice KM plots!
 
-# Random-Effects Modeks
+Really nice KM plots!
+
+## Random-Effects Modeks
+
 install.packages("lme4")
-# For fitting random-effects models
-install.packages("sjstats")
-# For intraclass correlation coeffiecients from Random-effects models
 
-# Multiple Imputation
+install.packages("sjstats")
+
+
+## Multiple Imputation
+
 install.packages("mice")
-# For multiple imputation
+
 
 install.packages("arsenal")
-# Really nice summmary tables
 
-# Complex survey data analysis
+## Really nice summmary tables
+
+## Complex survey data analysis
+
 install.packages("survey")
-# For handling complex survey data
-install.packages("ICC")
-# Alternative methods for ICC calculation from survey data
 
-# Meta-analysis
+## For handling complex survey data
+
+install.packages("ICC")
+
+
+## Alternative methods for ICC calculation from survey data
+
+## Meta-analysis
+
 install.packages("meta")
+
+
 install.packages("metafor")
+
 
 install.packages("workflowr")
 
@@ -76,40 +249,1081 @@ install.packages("tangram")
 devtools::install_github("lbusett/insert_table")
 
 
-
-## Obtain names of all packages on CRAN
+```{r}
+#### Obtain names of all packages on CRAN
 names.available.packages <- rownames(available.packages())
 
-## Extract packages names that contain Rcmdr
+#### Extract packages names that contain Rcmdr
 Rcmdr.related.packages <- names.available.packages[grep("Rcmdr", names.available.packages)]
 Rcmdr.related.packages
 
-## Install these packages
+#### Install these packages
 install.packages(pkgs = Rcmdr.related.packages)
+```
 
 
 
-
-
-
-
-
-
-
+```{r}
 usePackage <- function(p) {
   if (!is.element(p, installed.packages()[, 1])) {
     install.packages(p, dep = TRUE)
   }
   require(p, character.only = TRUE)
 }
+```
 
 
+
+```{r}
 file.edit("~/Desktop/foo/.Rprofile")
-# This opens up a script window, within which you can enter in your library commands
+## This opens up a script window, within which you can enter in your library commands
 library(ggplot2)
 library(scales)
 library(plyr)
 library(reshape2)
+```
+
+
+
+
+
+
+## abind
+
+
+
+## acepack
+
+
+
+## AlgDesign
+
+
+
+## AnnotationDbi
+
+
+
+## aplpack
+
+
+
+## arm
+
+
+
+## assertthat
+
+
+
+## backports
+
+
+
+## base
+
+
+
+## base64enc
+
+
+
+## BCA
+
+
+
+## BH
+
+
+
+## BiasedUrn
+
+
+
+## bindr
+
+
+
+## bindrcpp
+
+
+
+## Biobase
+
+
+
+## BiocGenerics
+
+
+
+## BiocInstaller
+
+
+
+## bit
+
+
+
+## bit64
+
+
+
+## bitops
+
+
+
+## blob
+
+
+
+## boot
+
+
+
+## broom
+
+
+
+## BsMD
+
+
+
+## ca
+
+
+
+## car
+
+
+
+## caTools
+
+
+
+## cellranger
+
+
+
+## checkmate
+
+
+
+## class
+
+
+
+## cluster
+
+
+
+## clv
+
+
+
+## coda
+
+
+
+## codetools
+
+
+
+## coin
+
+
+
+## colorspace
+
+
+
+## combinat
+
+
+
+## compiler
+
+
+
+## conf.design
+
+
+
+## curl
+
+
+
+## data.table
+
+
+
+## datasets
+
+
+
+## date
+
+
+
+## DBI
+
+
+
+## deldir
+
+
+
+## depthTools
+
+
+
+## DiceDesign
+
+
+
+## dichromat
+
+
+
+## digest
+
+
+
+## DoE.base
+
+
+
+## DoE.wrapper
+
+
+
+## doParallel
+
+
+
+## dplyr
+
+
+
+## e1071
+
+
+
+## effects
+
+
+
+## ENmisc
+
+
+
+## epiR
+
+
+
+## estimability
+
+
+
+## evaluate
+
+
+
+## ez
+
+
+
+## flexclust
+
+
+
+## forcats
+
+
+
+## foreach
+
+
+
+## foreign
+
+
+
+## formatR
+
+
+
+## Formula
+
+
+
+## fracdiff
+
+
+
+## FrF2
+
+
+
+## gdata
+
+
+
+## ggplot2
+
+http://www.cookbook-r.com/Graphs/
+
+### ggplot2 extensions
+
+http://www.ggplot2-exts.org/gallery/
+
+http://corybrunson.github.io/ggalluvial/
+
+http://www.sthda.com/english/rpkgs/survminer/
+
+## ggthemes
+
+
+
+## ggvis
+
+
+
+## glue
+
+
+
+## goftest
+
+
+
+## graphics
+
+
+
+## grDevices
+
+
+
+## grid
+
+
+
+## gridBase
+
+
+
+## gridExtra
+
+
+
+## gtable
+
+
+
+## gtools
+
+
+
+## haven
+
+
+
+## highr
+
+
+
+## Hmisc
+
+
+
+## hms
+
+
+
+## htmlTable
+
+
+
+## htmltools
+
+
+
+## htmlwidgets
+
+
+
+## httpuv
+
+
+
+## httr
+
+
+
+## igraph
+
+
+
+## IRanges
+
+
+
+## irlba
+
+
+
+## iterators
+
+
+
+## jsonlite
+
+
+
+## KernSmooth
+
+
+
+## knitr
+
+
+
+## labeling
+
+
+
+## lattice
+
+
+
+## latticeExtra
+
+
+
+## lazyeval
+
+
+
+## leaps
+
+
+
+## lhs
+
+
+
+## lme4
+
+
+
+## lmtest
+
+
+
+## lsmeans
+
+
+
+## lubridate
+
+
+
+## magrittr
+
+
+
+## markdown
+
+
+
+## MASS
+
+
+
+## Matrix
+
+
+
+## matrixcalc
+
+
+
+## MatrixModels
+
+
+
+## memoise
+
+
+
+## methods
+
+
+
+## mgcv
+
+
+
+## mi
+
+
+
+## mime
+
+
+
+## minqa
+
+
+
+## mnormt
+
+
+
+## modelr
+
+
+
+## modeltools
+
+
+
+## multcomp
+
+
+
+## munsell
+
+
+
+## mvtnorm
+
+
+
+## nlme
+
+
+
+## nloptr
+
+
+
+## NLP
+
+
+
+## NMF
+
+
+
+## nnet
+
+
+
+## nortest
+
+
+
+## openssl
+
+
+
+## ordinal
+
+
+
+## orloca
+
+
+
+## orloca.es
+
+
+
+## parallel
+
+
+
+## pbkrtest
+
+
+
+## pkgconfig
+
+
+
+## pkgmaker
+
+
+
+## plogr
+
+
+
+## plyr
+
+
+
+## polyclip
+
+
+
+## psych
+
+
+
+## purrr
+
+
+
+## quadprog
+
+
+
+## quantmod
+
+
+
+## quantreg
+
+
+
+## R2HTML
+
+
+
+## R6
+
+
+
+## randtests
+
+
+
+## Rcmdr
+
+
+
+## RcmdrMisc
+
+
+
+## RcmdrPlugin.BCA
+
+
+
+## RcmdrPlugin.coin
+
+
+
+## RcmdrPlugin.depthTools
+
+
+
+## RcmdrPlugin.DoE
+
+
+
+## RcmdrPlugin.doex
+
+
+
+## RcmdrPlugin.EACSPIR
+
+
+
+## RcmdrPlugin.EBM
+
+
+
+## RcmdrPlugin.epack
+
+
+
+## RcmdrPlugin.EZR
+
+
+
+## RcmdrPlugin.KMggplot2
+
+
+
+## RcmdrPlugin.mosaic
+
+
+
+## RcmdrPlugin.MPAStats
+
+
+
+## RcmdrPlugin.orloca
+
+
+
+## RcmdrPlugin.plotByGroup
+
+
+
+## RcmdrPlugin.qual
+
+
+
+## RcmdrPlugin.SCDA
+
+## RcmdrPlugin.sampling
+
+Tools for sampling in Official Statistical Surveys
+
+https://cran.r-project.org/web/packages/RcmdrPlugin.sampling/index.html
+
+
+## RcmdrPlugin.seeg
+
+
+
+## RcmdrPlugin.SLC
+
+
+
+## RcmdrPlugin.SM
+
+
+
+## RcmdrPlugin.steepness
+
+
+
+## RcmdrPlugin.survival
+
+
+
+## RcmdrPlugin.TeachingDemos
+
+
+
+## RcmdrPlugin.temis
+
+
+
+## RcmdrPlugin.UCA
+
+
+
+## RColorBrewer
+
+
+
+## Rcpp
+
+
+
+## RcppArmadillo
+
+
+
+## RcppEigen
+
+
+
+## readr
+
+
+
+## readxl
+
+
+
+## registry
+
+
+
+## relimp
+
+
+
+## rematch
+
+
+
+## reshape
+
+
+
+## reshape2
+
+
+
+## rgl
+
+
+
+## RISmed
+
+
+
+## rJava
+
+
+
+## rlang
+
+
+
+## rmarkdown
+
+
+
+## RMySQL
+
+
+
+## rngtools
+
+
+
+## rpart
+
+
+
+## rpart.plot
+
+
+
+## rprojroot
+
+
+
+## rsm
+
+
+
+## RSQLite
+
+
+
+## rvest
+
+
+
+## S4Vectors
+
+
+
+## sandwich
+
+
+
+## scales
+
+
+
+## scatterplot3d
+
+
+
+## SCMA
+
+
+
+## SCRT
+
+
+
+## SCVA
+
+
+
+## seeg
+
+
+
+## selectr
+
+
+
+## sem
+
+
+
+## sfsmisc
+
+
+
+## sgeostat
+
+
+
+## shiny
+
+
+
+## shinythemes
+
+
+
+## slam
+
+
+
+## SLC
+
+
+
+## sourcetools
+
+
+
+## SparseM
+
+
+
+## spatial
+
+
+
+## spatstat
+
+
+
+## spatstat.utils
+
+
+
+## splines
+
+
+
+## stats
+
+
+
+## stats4
+
+
+
+## steepness
+
+
+
+## stringi
+
+
+
+## stringr
+
+
+
+## survival
+
+
+
+## tcltk
+
+
+
+## tcltk2
+
+
+
+## TeachingDemos
+
+
+
+## tensor
+
+
+
+## TH.data
+
+
+
+## tibble
+
+
+
+## tidyr
+
+
+
+## tidyverse
+
+
+
+## timeDate
+
+
+
+## tkrplot
+
+
+
+## tm
+
+
+
+## tools
+
+
+
+## tseries
+
+
+
+## TTR
+
+
+
+## ucminf
+
+
+
+## utils
+
+
+
+## vcd
+
+
+
+## viridis
+
+
+
+## viridisLite
+
+
+
+## XLConnect
+
+
+
+## XLConnectJars
+
+
+
+## xml2
+
+
+
+## xtable
+
+
+
+## xts
+
+
+
+## yaml
+
+
+
+## zoo
+
+
+
+
+
+
 
 
 
@@ -120,9 +1334,13 @@ library(reshape2)
 
 
 install.packages("stargazer")
+
 install.packages("pander")
+
 install.packages("tables")
+
 install.packages("ascii")
+
 install.packages("xtable")
 
 devtools::install_github("hadley/dplyr")
@@ -136,6 +1354,7 @@ install.packages("alluvial")
 vignette("databases", package = "dplyr")
 
 install.packages("robustbase")
+
 install.packages("insuranceData")
 
 install.packages("Lahman")
@@ -151,16 +1370,22 @@ install.packages("openxlsx")
 devtools::install_github("kassambara/r2excel")
 
 install.packages("WriteXLS")
+
 install.packages("XLConnect")
+
 library(XLConnect)
 
 
+```{r}
 if (!require(wordcloud)) {
   install.packages("wordcloud")
   library(wordcloud)
 }
+```
 
 
+
+```{r}
 installed <- as.data.frame(installed.packages())
 write.csv(installed, "installed_previously.csv")
 
@@ -174,180 +1399,14 @@ install.packages(toInstall)
 packagelist <- installed.packages()
 class(packagelist)
 packagelist[, 1]
-
-# AlgDesign                         BCA                   BiasedUrn
-# "AlgDesign"                       "BCA"                 "BiasedUrn"
-# BsMD                          ca                         clv
-# "BsMD"                        "ca"                       "clv"
-# coin                    combinat                 conf.design
-# "coin"                  "combinat"               "conf.design"
-# date                      deldir                  depthTools
-# "date"                    "deldir"                "depthTools"
-# DiceDesign                    DoE.base                 DoE.wrapper
-# "DiceDesign"                  "DoE.base"               "DoE.wrapper"
-# doParallel                      ENmisc                        epiR
-# "doParallel"                    "ENmisc"                      "epiR"
-# estimability                          ez                   flexclust
-# "estimability"                        "ez"                 "flexclust"
-# foreach                    fracdiff                        FrF2
-# "foreach"                  "fracdiff"                      "FrF2"
-# ggthemes                     goftest                    gridBase
-# "ggthemes"                   "goftest"                  "gridBase"
-# igraph                       irlba                   iterators
-# "igraph"                     "irlba"                 "iterators"
-# lhs                     lsmeans                  modeltools
-# "lhs"                   "lsmeans"                "modeltools"
-# NLP                         NMF                     ordinal
-# "NLP"                       "NMF"                   "ordinal"
-# orloca                   orloca.es                    pkgmaker
-# "orloca"                 "orloca.es"                  "pkgmaker"
-# polyclip                    quadprog                    quantmod
-# "polyclip"                  "quadprog"                  "quantmod"
-# R2HTML                   randtests             RcmdrPlugin.BCA
-# "R2HTML"                 "randtests"           "RcmdrPlugin.BCA"
-# RcmdrPlugin.coin      RcmdrPlugin.depthTools             RcmdrPlugin.DoE
-# "RcmdrPlugin.coin"    "RcmdrPlugin.depthTools"           "RcmdrPlugin.DoE"
-# RcmdrPlugin.doex         RcmdrPlugin.EACSPIR             RcmdrPlugin.EBM
-# "RcmdrPlugin.doex"       "RcmdrPlugin.EACSPIR"           "RcmdrPlugin.EBM"
-# RcmdrPlugin.epack             RcmdrPlugin.EZR       RcmdrPlugin.KMggplot2
-# "RcmdrPlugin.epack"           "RcmdrPlugin.EZR"     "RcmdrPlugin.KMggplot2"
-# RcmdrPlugin.mosaic        RcmdrPlugin.MPAStats          RcmdrPlugin.orloca
-# "RcmdrPlugin.mosaic"      "RcmdrPlugin.MPAStats"        "RcmdrPlugin.orloca"
-# RcmdrPlugin.plotByGroup            RcmdrPlugin.qual            RcmdrPlugin.SCDA
-# "RcmdrPlugin.plotByGroup"          "RcmdrPlugin.qual"          "RcmdrPlugin.SCDA"
-# RcmdrPlugin.seeg             RcmdrPlugin.SLC              RcmdrPlugin.SM
-# "RcmdrPlugin.seeg"           "RcmdrPlugin.SLC"            "RcmdrPlugin.SM"
-# RcmdrPlugin.steepness        RcmdrPlugin.survival   RcmdrPlugin.TeachingDemos
-# "RcmdrPlugin.steepness"      "RcmdrPlugin.survival" "RcmdrPlugin.TeachingDemos"
-# RcmdrPlugin.temis             RcmdrPlugin.UCA               RcppArmadillo
-# "RcmdrPlugin.temis"           "RcmdrPlugin.UCA"             "RcppArmadillo"
-# registry                     reshape                    rngtools
-# "registry"                   "reshape"                  "rngtools"
-# rpart.plot                         rsm               scatterplot3d
-# "rpart.plot"                       "rsm"             "scatterplot3d"
-# SCMA                        SCRT                        SCVA
-# "SCMA"                      "SCRT"                      "SCVA"
-# seeg                     sfsmisc                    sgeostat
-# "seeg"                   "sfsmisc"                  "sgeostat"
-# slam                         SLC                    spatstat
-# "slam"                       "SLC"                  "spatstat"
-# spatstat.utils                   steepness               TeachingDemos
-# "spatstat.utils"                 "steepness"             "TeachingDemos"
-# tensor                    timeDate                     tkrplot
-# "tensor"                  "timeDate"                   "tkrplot"
-# tm                     tseries                         TTR
-# "tm"                   "tseries"                       "TTR"
-# ucminf                         vcd                         xts
-# "ucminf"                       "vcd"                       "xts"
-# abind                     acepack               AnnotationDbi
-# "abind"                   "acepack"             "AnnotationDbi"
-# aplpack                         arm                  assertthat
-# "aplpack"                       "arm"                "assertthat"
-# backports                        base                   base64enc
-# "backports"                      "base"                 "base64enc"
-# BH                       bindr                    bindrcpp
-# "BH"                     "bindr"                  "bindrcpp"
-# Biobase                BiocGenerics               BiocInstaller
-# "Biobase"              "BiocGenerics"             "BiocInstaller"
-# bit                       bit64                      bitops
-# "bit"                     "bit64"                    "bitops"
-# blob                        boot                       broom
-# "blob"                      "boot"                     "broom"
-# car                     caTools                  cellranger
-# "car"                   "caTools"                "cellranger"
-# checkmate                       class                     cluster
-# "checkmate"                     "class"                   "cluster"
-# coda                   codetools                  colorspace
-# "coda"                 "codetools"                "colorspace"
-# compiler                        curl                  data.table
-# "compiler"                      "curl"                "data.table"
-# datasets                         DBI                   dichromat
-# "datasets"                       "DBI"                 "dichromat"
-# digest                       dplyr                       e1071
-# "digest"                     "dplyr"                     "e1071"
-# effects                    evaluate                     forcats
-# "effects"                  "evaluate"                   "forcats"
-# foreign                     formatR                     Formula
-# "foreign"                   "formatR"                   "Formula"
-# gdata                     ggplot2                       ggvis
-# "gdata"                   "ggplot2"                     "ggvis"
-# glue                    graphics                   grDevices
-# "glue"                  "graphics"                 "grDevices"
-# grid                   gridExtra                      gtable
-# "grid"                 "gridExtra"                    "gtable"
-# gtools                       haven                       highr
-# "gtools"                     "haven"                     "highr"
-# Hmisc                         hms                   htmlTable
-# "Hmisc"                       "hms"                 "htmlTable"
-# htmltools                 htmlwidgets                      httpuv
-# "htmltools"               "htmlwidgets"                    "httpuv"
-# httr                     IRanges                    jsonlite
-# "httr"                   "IRanges"                  "jsonlite"
-# KernSmooth                       knitr                    labeling
-# "KernSmooth"                     "knitr"                  "labeling"
-# lattice                latticeExtra                    lazyeval
-# "lattice"              "latticeExtra"                  "lazyeval"
-# leaps                        lme4                      lmtest
-# "leaps"                      "lme4"                    "lmtest"
-# lubridate                    magrittr                    markdown
-# "lubridate"                  "magrittr"                  "markdown"
-# MASS                      Matrix                  matrixcalc
-# "MASS"                    "Matrix"                "matrixcalc"
-# MatrixModels                     memoise                     methods
-# "MatrixModels"                   "memoise"                   "methods"
-# mgcv                          mi                        mime
-# "mgcv"                        "mi"                      "mime"
-# minqa                      mnormt                      modelr
-# "minqa"                    "mnormt"                    "modelr"
-# multcomp                     munsell                     mvtnorm
-# "multcomp"                   "munsell"                   "mvtnorm"
-# nlme                      nloptr                        nnet
-# "nlme"                    "nloptr"                      "nnet"
-# nortest                     openssl                    parallel
-# "nortest"                   "openssl"                  "parallel"
-# pbkrtest                   pkgconfig                       plogr
-# "pbkrtest"                 "pkgconfig"                     "plogr"
-# plyr                       psych                       purrr
-# "plyr"                     "psych"                     "purrr"
-# quantreg                          R6                       Rcmdr
-# "quantreg"                        "R6"                     "Rcmdr"
-# RcmdrMisc                RColorBrewer                        Rcpp
-# "RcmdrMisc"              "RColorBrewer"                      "Rcpp"
-# RcppEigen                       readr                      readxl
-# "RcppEigen"                     "readr"                    "readxl"
-# relimp                     rematch                    reshape2
-# "relimp"                   "rematch"                  "reshape2"
-# rgl                      RISmed                       rJava
-# "rgl"                    "RISmed"                     "rJava"
-# rlang                   rmarkdown                      RMySQL
-# "rlang"                 "rmarkdown"                    "RMySQL"
-# rpart                   rprojroot                     RSQLite
-# "rpart"                 "rprojroot"                   "RSQLite"
-# rvest                   S4Vectors                    sandwich
-# "rvest"                 "S4Vectors"                  "sandwich"
-# scales                     selectr                         sem
-# "scales"                   "selectr"                       "sem"
-# shiny                 shinythemes                 sourcetools
-# "shiny"               "shinythemes"               "sourcetools"
-# SparseM                     spatial                     splines
-# "SparseM"                   "spatial"                   "splines"
-# stats                      stats4                     stringi
-# "stats"                    "stats4"                   "stringi"
-# stringr                    survival                       tcltk
-# "stringr"                  "survival"                     "tcltk"
-# tcltk2                     TH.data                      tibble
-# "tcltk2"                   "TH.data"                    "tibble"
-# tidyr                   tidyverse                       tools
-# "tidyr"                 "tidyverse"                     "tools"
-# utils                     viridis                 viridisLite
-# "utils"                   "viridis"               "viridisLite"
-# XLConnect               XLConnectJars                        xml2
-# "XLConnect"             "XLConnectJars"                      "xml2"
-# xtable                        yaml                         zoo
-# "xtable"                      "yaml"                       "zoo"
+```
 
 
 
+
+## Rcmdr
+
+```{r}
 install.packages("Rcmdr")
 install.packages("RcmdrPlugin.BCA")
 install.packages("RcmdrPlugin.coin")
@@ -378,30 +1437,44 @@ install.packages("RcmdrPlugin.survival")
 install.packages("RcmdrPlugin.TeachingDemos")
 install.packages("RcmdrPlugin.temis")
 install.packages("RcmdrPlugin.UCA")
+```
 
+
+```{r}
 source("https://bioconductor.org/biocLite.R")
 biocLite()
+```
+
 
 install.packages("tidyverse")
+
 install.packages("devtools")
 
 devtools::install_github("hadley/colformat")
+
 devtools::install_github("ropenscilabs/skimr")
 
 install.packages("hflights")
+
 install.packages("dbplyr")
+
 install.packages("xlsx")
 
 require(devtools)
+
 install_github("ProjectMOSAIC/mosaic")
 
 install.packages("jmv")
 
-install.packages("tm")
+
 install.packages("wordcloud")
+
 install.packages("https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz", repos = NULL)
+
 install.packages("SnowballC")
+
 install.packages("RColorBrewer")
+
 install.packages("tidytext")
 
 install.packages("packrat")
@@ -409,28 +1482,37 @@ install.packages("packrat")
 install.packages("testthat")
 
 install.packages("prettydoc")
+
 install.packages("rmdformats")
 
 install.packages(c("fivethirtyeight", "tidyverse", "knitr", "kableExtra", "ggthemes"))
 
 library(devtools)
+
 install_github("SPSStoR", username = "lebebr01")
+
 library(SPSStoR)
 
 
-
+```{r}
 ip <- installed.packages()
 pkgs.to.remove <- ip[!(ip[, "Priority"] %in% c("base", "recommended")), 1]
 sapply(pkgs.to.remove, remove.packages)
 sapply(pkgs.to.remove, install.packages)
+```
 
 
 
 
+```{r}
 install.packages("devtools")
 devtools::install_github("AndreaCirilloAC/updateR")
 library(updateR)
-updateR(admin_password = "") # Where "PASSWORD" stands for your system password
+updateR(admin_password = "") ## Where "PASSWORD" stands for your system password
+
+```
+
+
 
 
 
@@ -454,33 +1536,130 @@ install.packages("xplain")
 
 
 
-```{r remove all user installed packages in R}
-# How to remove all user installed packages in R
-# https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/
+```{r remove all user installed packages in R, eval=FALSE, include=TRUE}
+## How to remove all user installed packages in R
+## https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/
 
-# create a list of all installed packages
+## create a list of all installed packages
 ip <- as.data.frame(installed.packages())
 head(ip)
-# if you use MRO, make sure that no packages in this library will be removed
+## if you use MRO, make sure that no packages in this library will be removed
 ip <- subset(ip, !grepl("MRO", ip$LibPath))
-# we don't want to remove base or recommended packages either\
+## we don't want to remove base or recommended packages either\
 ip <- ip[!(ip[,"Priority"] %in% c("base", "recommended")),]
-# determine the library where the packages are installed
+## determine the library where the packages are installed
 path.lib <- unique(ip$LibPath)
-# create a vector with all the names of the packages you want to remove
+## create a vector with all the names of the packages you want to remove
 pkgs.to.remove <- ip[,1]
 head(pkgs.to.remove)
-# remove the packages
+## remove the packages
 sapply(pkgs.to.remove, remove.packages, lib = path.lib)
 ```
 
 
+## Schedule R Script
+
+library(knitr)
+
+library(markdown)
+ 
+
+knit("SchedulePubMedAnalysis.Rmd")
+
+markdownToHTML("SchedulePubMedAnalysis.md", "docs/SchedulePubMedAnalysis.html")
+
+setwd("~")
+
+file.choose()
+
+library(rmarkdown)
+
+
+Preperation Packages Schedule R Script
+
+ https://github.com/jkeirstead/scholar
+
+ http://rogiersbart.blogspot.com.tr/2015/05/put-google-scholar-citations-on-your.html
+
+ http://tuxette.nathalievilla.org/?p=1682
+
+ https://github.com/sunitj/scholar
+
+ https://tgmstat.wordpress.com/2013/09/11/schedule-rscript-with-cron/
+
+ https://github.com/ropensci/git2r
+     
+
+ library(knitr)
+
+ library(markdown)
+ 
+ install.packages('data.table')
+
+ install.packages('knitr')
+
+ install.packages('miniUI')
+
+ install.packages('shiny')
+
+ install.packages('shinyFiles')
+ 
+ install.packages("taskscheduleR", repos = "http://www.datatailor.be/rcube", type = "source")
+ 
+ devtools::install_github("bnosac/cronR")
+
+ install.packages('scholar')
+ 
+ 
+ install.packages("git2r")
+
+
+## flatxml
+
+http://www.zuckarelli.de/flatxml/articles/example/example.html
+
+```{r}
+xmldata <- flatxml::fxml_importXMLFlat("data/PathologyTurkey.xml")
+
+```
+
+
+## roomba
+
+General purpose API response tidier
+
+https://github.com/ropenscilabs/roomba/
+
+```{r}
+roomba::shiny_roomba()
+```
 
 
 
+## tufterhandout
 
+Tufte-style html document format for rmarkdown
 
+https://cran.r-project.org/web/packages/tufterhandout/index.html
 
+```{r}
+## install.packages("tufterhandout")
+library(tufterhandout)
+```
+
+## papeR
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html)
+
+## tm
+
+install.packages("tm")
+
+https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf
+
+---
+
+https://atom.io/packages/hydrogen
 
 
 

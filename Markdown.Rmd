@@ -4,4 +4,9 @@ output: html_notebook
 ---
 
 ## Use R Markdown
+
 https://andrewbtran.github.io/NICAR/2018/workflow/docs/02-rmarkdown.html
+
+- Troubleshooting in R Markdown
+
+https://smithcollege-sds.github.io/sds-public/rmarkdown_problems.html

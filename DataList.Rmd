@@ -35,5 +35,19 @@ http://datacompass.lshtm.ac.uk/599/
 data(package = "ISLR")
 ```
 
+- acs
+Download, Manipulate, and Present American Community Survey and Decennial Data from the US Census
+https://cran.r-project.org/web/packages/acs/index.html
+
+- eurostat
+Tools for Eurostat Open Data
+https://cran.r-project.org/web/packages/eurostat/index.html
+
+- Rilostat
+https://github.com/ilostat/Rilostat
+
+- OECD
+https://cran.r-project.org/web/packages/OECD/vignettes/oecd_vignette_main.pdf
+
 
 

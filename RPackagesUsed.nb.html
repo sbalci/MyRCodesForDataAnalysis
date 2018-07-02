@@ -1699,598 +1699,1158 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<p>install.packages(“formattable”)</p>
-<p>install.packages(“conflicted”)</p>
-<p>install.packages(“devtools”) library(“devtools”) install_github(“neuropsychology/psycho.R”) library(“psycho”)</p>
-<p>install.packages(“styler”)</p>
-<div id="data-manipulation" class="section level2">
-<h2>Data Manipulation</h2>
-<p>install.packages(“tidyverse”) # tidyverse contains many packages for data manipulation, graphs etc install.packages(“splitstackshape”) # Really nice syntax for expanding datasets</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5rbml0cjo6b3B0c19jaHVuayRzZXQoXG5cdGVycm9yID0gVFJVRSxcblx0bWVzc2FnZSA9IEZBTFNFLFxuXHR3YXJuaW5nID0gRkFMU0UsXG5cdGV2YWwgPSBGQUxTRSxcblx0aW5jbHVkZSA9IFRSVUVcbilcbmBgYCJ9 -->
+<pre class="r"><code>
+knitr::opts_chunk$set(
+    error = TRUE,
+    message = FALSE,
+    warning = FALSE,
+    eval = FALSE,
+    include = TRUE
+)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="packages-to-be-studied" class="section level2">
+<h2>Packages to be studied</h2>
+<p><a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html####installation" class="uri">https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html####installation</a></p>
+<p><a href="https://cran.r-project.org/web/packages/expss/vignettes/tables-with-labels.html" class="uri">https://cran.r-project.org/web/packages/expss/vignettes/tables-with-labels.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html" class="uri">https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html</a></p>
+<p><a href="https://github.com/benjaminrich/table1" class="uri">https://github.com/benjaminrich/table1</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html" class="uri">https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html</a></p>
+<p><a href="https://twitter.com/mitchoharawild/status/1007297976711110659?s=12" class="uri">https://twitter.com/mitchoharawild/status/1007297976711110659?s=12</a></p>
+<p><a href="https://twitter.com/mf_viz/status/1004954297962917891?s=12" class="uri">https://twitter.com/mf_viz/status/1004954297962917891?s=12</a></p>
+<p><a href="https://github.com/cmap/morpheus.R" class="uri">https://github.com/cmap/morpheus.R</a></p>
+<p><a href="https://github.com/talgalili/heatmaply/" class="uri">https://github.com/talgalili/heatmaply/</a></p>
+<p><a href="https://github.com/rstudio/d3heatmap" class="uri">https://github.com/rstudio/d3heatmap</a></p>
+<p><a href="http://worksmarter.pl/en/post/webscraping-case-study-1/" class="uri">http://worksmarter.pl/en/post/webscraping-case-study-1/</a></p>
+<p><a href="http://worksmarter.pl/en/post/job-automation-r-1/" class="uri">http://worksmarter.pl/en/post/job-automation-r-1/</a></p>
+<p><a href="http://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/" class="uri">http://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/</a></p>
+<p><a href="https://www.r-bloggers.com/how-to-plot-with-ggiraph/" class="uri">https://www.r-bloggers.com/how-to-plot-with-ggiraph/</a></p>
+<p><a href="https://www.r-bloggers.com/understanding-pca-using-stack-overflow-data/" class="uri">https://www.r-bloggers.com/understanding-pca-using-stack-overflow-data/</a></p>
+<p><a href="https://www.r-bloggers.com/beautiful-and-powerful-correlation-tables-in-r/" class="uri">https://www.r-bloggers.com/beautiful-and-powerful-correlation-tables-in-r/</a></p>
+<p><a href="http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0188299">http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0188299</a></p>
+<p><a href="https://github.com/trinker/reports" class="uri">https://github.com/trinker/reports</a></p>
+<p>Animated Directional Chord Diagrams <a href="https://guyabel.com/post/animated-directional-chord-diagrams/" class="uri">https://guyabel.com/post/animated-directional-chord-diagrams/</a></p>
+<p>modelDown: a website generator for your predictive models <a href="http://smarterpoland.pl/index.php/2018/06/modeldown-a-website-generator-for-your-predictive-models/" class="uri">http://smarterpoland.pl/index.php/2018/06/modeldown-a-website-generator-for-your-predictive-models/</a></p>
 </div>
-<div id="basic-epi" class="section level1">
-<h1>Basic Epi</h1>
-<p>install.packages(“epiR”) # Some useful epitools especially 2*2 tables and stratified MH Odds install.packages(“lmtest”) # for doing likelihood ratio tests between models</p>
+<div id="chromomap" class="section level2">
+<h2>chromoMap</h2>
+<p>An R package for Interactive visualization and mapping of human chromosomes</p>
+<p><a href="https://cran.r-project.org/web/packages/chromoMap/vignettes/chromoMap.html" class="uri">https://cran.r-project.org/web/packages/chromoMap/vignettes/chromoMap.html</a></p>
 </div>
-<div id="poisson-cox-regression-survival-analysis" class="section level1">
-<h1>Poisson &amp; Cox Regression &amp; Survival Analysis</h1>
-<p>install.packages(“Epi”) # Tools for Lexis Models install.packages(“popEpi”) # Extra tools to go with ‘Epi’ and make nice rate tables install.packages(“survival”) # for survial analysis, kaplan-meier plots and cox regression install.packages(“survminer”) # Really nice KM plots!</p>
+<div id="tabplot" class="section level2">
+<h2>tabplot</h2>
+<p>Tableplot, a Visualization of Large Datasets</p>
+<p><a href="https://cran.r-project.org/web/packages/tabplot/index.html" class="uri">https://cran.r-project.org/web/packages/tabplot/index.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-vignette.html" class="uri">https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-vignette.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-timings.html" class="uri">https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-timings.html</a></p>
 </div>
-<div id="random-effects-modeks" class="section level1">
-<h1>Random-Effects Modeks</h1>
-<p>install.packages(“lme4”) # For fitting random-effects models install.packages(“sjstats”) # For intraclass correlation coeffiecients from Random-effects models</p>
+<div id="treemap" class="section level2">
+<h2>treemap</h2>
+<p>Treemap Visualization</p>
+<p><a href="https://cran.r-project.org/web/packages/treemap/index.html" class="uri">https://cran.r-project.org/web/packages/treemap/index.html</a></p>
 </div>
-<div id="multiple-imputation" class="section level1">
-<h1>Multiple Imputation</h1>
-<p>install.packages(“mice”) # For multiple imputation</p>
-<p>install.packages(“arsenal”) # Really nice summmary tables</p>
+<div id="vim" class="section level2">
+<h2>VIM</h2>
+<p>Visualization and Imputation of Missing Values</p>
+<p><a href="https://cran.r-project.org/web/packages/VIM/index.html" class="uri">https://cran.r-project.org/web/packages/VIM/index.html</a></p>
 </div>
-<div id="complex-survey-data-analysis" class="section level1">
-<h1>Complex survey data analysis</h1>
-<p>install.packages(“survey”) # For handling complex survey data install.packages(“ICC”) # Alternative methods for ICC calculation from survey data</p>
+<div id="survey" class="section level2">
+<h2>survey</h2>
+<p><a href="https://cran.r-project.org/web/packages/survey/index.html" class="uri">https://cran.r-project.org/web/packages/survey/index.html</a></p>
 </div>
-<div id="meta-analysis" class="section level1">
-<h1>Meta-analysis</h1>
-<p>install.packages(“meta”) install.packages(“metafor”)</p>
+<div id="tidytext" class="section level2">
+<h2>tidytext</h2>
+<p><a href="https://cran.r-project.org/web/packages/tidytext/index.html" class="uri">https://cran.r-project.org/web/packages/tidytext/index.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tidytext/vignettes/tf_idf.html" class="uri">https://cran.r-project.org/web/packages/tidytext/vignettes/tf_idf.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tidytext/vignettes/tidying_casting.html" class="uri">https://cran.r-project.org/web/packages/tidytext/vignettes/tidying_casting.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html" class="uri">https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/tidytext/vignettes/topic_modeling.html" class="uri">https://cran.r-project.org/web/packages/tidytext/vignettes/topic_modeling.html</a></p>
+</div>
+<div id="rapport-an-r-templating-system" class="section level2">
+<h2>rapport an R templating system</h2>
+<p><a href="http://rapport-package.info/" class="uri">http://rapport-package.info/</a></p>
+</div>
+<div id="ztable" class="section level2">
+<h2>ztable</h2>
+<p><a href="https://github.com/cardiomoon/ztable" class="uri">https://github.com/cardiomoon/ztable</a></p>
+</div>
+<div id="texreg" class="section level2">
+<h2>texreg</h2>
+<p><a href="https://cran.r-project.org/web/packages/texreg/vignettes/texreg.pdf" class="uri">https://cran.r-project.org/web/packages/texreg/vignettes/texreg.pdf</a></p>
+</div>
+<div id="sortablehtmltables" class="section level2">
+<h2>SortableHTMLTables</h2>
+<p><a href="https://cran.r-project.org/web/packages/SortableHTMLTables/index.html" class="uri">https://cran.r-project.org/web/packages/SortableHTMLTables/index.html</a></p>
+</div>
+<div id="hwriter" class="section level2">
+<h2>hwriter</h2>
+<p><a href="https://cran.r-project.org/web/packages/hwriter/vignettes/hwriter.pdf" class="uri">https://cran.r-project.org/web/packages/hwriter/vignettes/hwriter.pdf</a></p>
+</div>
+<div id="htmlutils" class="section level2">
+<h2>HTMLUtils</h2>
+<p><a href="https://cran.r-project.org/web/packages/HTMLUtils/index.html" class="uri">https://cran.r-project.org/web/packages/HTMLUtils/index.html</a></p>
+</div>
+<div id="htmltable" class="section level2">
+<h2>htmlTable</h2>
+<p><a href="https://cran.r-project.org/web/packages/htmlTable/index.html" class="uri">https://cran.r-project.org/web/packages/htmlTable/index.html</a></p>
+</div>
+<div id="formattable" class="section level2">
+<h2>formattable</h2>
+<p><a href="https://cran.r-project.org/web/packages/formattable/index.html" class="uri">https://cran.r-project.org/web/packages/formattable/index.html</a></p>
+</div>
+<div id="dt" class="section level2">
+<h2>DT</h2>
+<p>DT: An R interface to the DataTables library</p>
+<p><a href="https://rstudio.github.io/DT/" class="uri">https://rstudio.github.io/DT/</a></p>
+</div>
+<div id="stargazer" class="section level2">
+<h2>stargazer</h2>
+<p>Well-Formatted Regression and Summary Statistics Tables</p>
+<p><a href="https://cran.r-project.org/web/packages/stargazer/index.html" class="uri">https://cran.r-project.org/web/packages/stargazer/index.html</a></p>
+</div>
+<div id="conflicted" class="section level2">
+<h2>conflicted</h2>
+</div>
+<div id="psycho" class="section level2">
+<h2>psycho</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImluc3RhbGwucGFja2FnZXMoXCJkZXZ0b29sc1wiKSIsImxpYnJhcnkoXCJkZXZ0b29sc1wiKSIsImluc3RhbGxfZ2l0aHViKFwibmV1cm9wc3ljaG9sb2d5L3BzeWNoby5SXCIpIiwibGlicmFyeShcInBzeWNob1wiKSJdfQ== -->
+<pre class="r"><code>install.packages(&quot;devtools&quot;)
+library(&quot;devtools&quot;)
+install_github(&quot;neuropsychology/psycho.R&quot;)
+library(&quot;psycho&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="styler" class="section level2">
+<h2>styler</h2>
+</div>
+<div id="tidyverse" class="section level2">
+<h2>tidyverse</h2>
+</div>
+<div id="splitstackshape" class="section level2">
+<h2>splitstackshape</h2>
+</div>
+<div id="epir" class="section level2">
+<h2>epiR</h2>
+<p>Basic Epi</p>
+<p>install.packages(“epiR”)</p>
+</div>
+<div id="lmtest" class="section level2">
+<h2>lmtest</h2>
+<p>Some useful epitools especially 2*2 tables and stratified MH Odds</p>
+<p>install.packages(“lmtest”)</p>
+</div>
+<div id="popepi" class="section level2">
+<h2>popEpi</h2>
+<p>install.packages(“popEpi”)</p>
+</div>
+<div id="extra-tools-to-go-with-epi-and-make-nice-rate-tables" class="section level2">
+<h2>Extra tools to go with ‘Epi’ and make nice rate tables</h2>
+</div>
+<div id="survival" class="section level2">
+<h2>survival</h2>
+<p>install.packages(“survival”)</p>
+<p>for survial analysis, kaplan-meier plots and cox regression</p>
+</div>
+<div id="survminer" class="section level2">
+<h2>survminer</h2>
+<p>install.packages(“survminer”)</p>
+<p>Really nice KM plots!</p>
+</div>
+<div id="random-effects-modeks" class="section level2">
+<h2>Random-Effects Modeks</h2>
+<p>install.packages(“lme4”)</p>
+<p>install.packages(“sjstats”)</p>
+</div>
+<div id="multiple-imputation" class="section level2">
+<h2>Multiple Imputation</h2>
+<p>install.packages(“mice”)</p>
+<p>install.packages(“arsenal”)</p>
+</div>
+<div id="really-nice-summmary-tables" class="section level2">
+<h2>Really nice summmary tables</h2>
+</div>
+<div id="complex-survey-data-analysis" class="section level2">
+<h2>Complex survey data analysis</h2>
+<p>install.packages(“survey”)</p>
+</div>
+<div id="for-handling-complex-survey-data" class="section level2">
+<h2>For handling complex survey data</h2>
+<p>install.packages(“ICC”)</p>
+</div>
+<div id="alternative-methods-for-icc-calculation-from-survey-data" class="section level2">
+<h2>Alternative methods for ICC calculation from survey data</h2>
+</div>
+<div id="meta-analysis" class="section level2">
+<h2>Meta-analysis</h2>
+<p>install.packages(“meta”)</p>
+<p>install.packages(“metafor”)</p>
 <p>install.packages(“workflowr”)</p>
 <p>install.packages(“DiagrammeR”)</p>
 <p>install.packages(“tangram”)</p>
 <p>devtools::install_github(“lbusett/insert_table”)</p>
-<div id="obtain-names-of-all-packages-on-cran" class="section level2">
-<h2>Obtain names of all packages on CRAN</h2>
-<p>names.available.packages &lt;- rownames(available.packages())</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMjIyBPYnRhaW4gbmFtZXMgb2YgYWxsIHBhY2thZ2VzIG9uIENSQU5cbm5hbWVzLmF2YWlsYWJsZS5wYWNrYWdlcyA8LSByb3duYW1lcyhhdmFpbGFibGUucGFja2FnZXMoKSlcblxuIyMjIyBFeHRyYWN0IHBhY2thZ2VzIG5hbWVzIHRoYXQgY29udGFpbiBSY21kclxuUmNtZHIucmVsYXRlZC5wYWNrYWdlcyA8LSBuYW1lcy5hdmFpbGFibGUucGFja2FnZXNbZ3JlcChcIlJjbWRyXCIsIG5hbWVzLmF2YWlsYWJsZS5wYWNrYWdlcyldXG5SY21kci5yZWxhdGVkLnBhY2thZ2VzXG5cbiMjIyMgSW5zdGFsbCB0aGVzZSBwYWNrYWdlc1xuaW5zdGFsbC5wYWNrYWdlcyhwa2dzID0gUmNtZHIucmVsYXRlZC5wYWNrYWdlcylcbmBgYCJ9 -->
+<pre class="r"><code>#### Obtain names of all packages on CRAN
+names.available.packages &lt;- rownames(available.packages())
+
+#### Extract packages names that contain Rcmdr
+Rcmdr.related.packages &lt;- names.available.packages[grep(&quot;Rcmdr&quot;, names.available.packages)]
+Rcmdr.related.packages
+
+#### Install these packages
+install.packages(pkgs = Rcmdr.related.packages)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXNlUGFja2FnZSA8LSBmdW5jdGlvbihwKSB7XG4gIGlmICghaXMuZWxlbWVudChwLCBpbnN0YWxsZWQucGFja2FnZXMoKVssIDFdKSkge1xuICAgIGluc3RhbGwucGFja2FnZXMocCwgZGVwID0gVFJVRSlcbiAgfVxuICByZXF1aXJlKHAsIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbn1cbmBgYCJ9 -->
+<pre class="r"><code>usePackage &lt;- function(p) {
+  if (!is.element(p, installed.packages()[, 1])) {
+    install.packages(p, dep = TRUE)
+  }
+  require(p, character.only = TRUE)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmlsZS5lZGl0KFwifi9EZXNrdG9wL2Zvby8uUnByb2ZpbGVcIilcbiMjIFRoaXMgb3BlbnMgdXAgYSBzY3JpcHQgd2luZG93LCB3aXRoaW4gd2hpY2ggeW91IGNhbiBlbnRlciBpbiB5b3VyIGxpYnJhcnkgY29tbWFuZHNcbmxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoc2NhbGVzKVxubGlicmFyeShwbHlyKVxubGlicmFyeShyZXNoYXBlMilcbmBgYCJ9 -->
+<pre class="r"><code>file.edit(&quot;~/Desktop/foo/.Rprofile&quot;)
+## This opens up a script window, within which you can enter in your library commands
+library(ggplot2)
+library(scales)
+library(plyr)
+library(reshape2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
-<div id="extract-packages-names-that-contain-rcmdr" class="section level2">
-<h2>Extract packages names that contain Rcmdr</h2>
-<p>Rcmdr.related.packages &lt;- names.available.packages[grep(“Rcmdr”, names.available.packages)] Rcmdr.related.packages</p>
+<div id="abind" class="section level2">
+<h2>abind</h2>
 </div>
-<div id="install-these-packages" class="section level2">
-<h2>Install these packages</h2>
-<p>install.packages(pkgs = Rcmdr.related.packages)</p>
-<p>usePackage &lt;- function(p) { if (!is.element(p, installed.packages()[, 1])) { install.packages(p, dep = TRUE) } require(p, character.only = TRUE) }</p>
-<p>file.edit(“~/Desktop/foo/.Rprofile”) # This opens up a script window, within which you can enter in your library commands library(ggplot2) library(scales) library(plyr) library(reshape2)</p>
-<p>install.packages(“stargazer”) install.packages(“pander”) install.packages(“tables”) install.packages(“ascii”) install.packages(“xtable”)</p>
+<div id="acepack" class="section level2">
+<h2>acepack</h2>
+</div>
+<div id="algdesign" class="section level2">
+<h2>AlgDesign</h2>
+</div>
+<div id="annotationdbi" class="section level2">
+<h2>AnnotationDbi</h2>
+</div>
+<div id="aplpack" class="section level2">
+<h2>aplpack</h2>
+</div>
+<div id="arm" class="section level2">
+<h2>arm</h2>
+</div>
+<div id="assertthat" class="section level2">
+<h2>assertthat</h2>
+</div>
+<div id="backports" class="section level2">
+<h2>backports</h2>
+</div>
+<div id="base" class="section level2">
+<h2>base</h2>
+</div>
+<div id="base64enc" class="section level2">
+<h2>base64enc</h2>
+</div>
+<div id="bca" class="section level2">
+<h2>BCA</h2>
+</div>
+<div id="bh" class="section level2">
+<h2>BH</h2>
+</div>
+<div id="biasedurn" class="section level2">
+<h2>BiasedUrn</h2>
+</div>
+<div id="bindr" class="section level2">
+<h2>bindr</h2>
+</div>
+<div id="bindrcpp" class="section level2">
+<h2>bindrcpp</h2>
+</div>
+<div id="biobase" class="section level2">
+<h2>Biobase</h2>
+</div>
+<div id="biocgenerics" class="section level2">
+<h2>BiocGenerics</h2>
+</div>
+<div id="biocinstaller" class="section level2">
+<h2>BiocInstaller</h2>
+</div>
+<div id="bit" class="section level2">
+<h2>bit</h2>
+</div>
+<div id="bit64" class="section level2">
+<h2>bit64</h2>
+</div>
+<div id="bitops" class="section level2">
+<h2>bitops</h2>
+</div>
+<div id="blob" class="section level2">
+<h2>blob</h2>
+</div>
+<div id="boot" class="section level2">
+<h2>boot</h2>
+</div>
+<div id="broom" class="section level2">
+<h2>broom</h2>
+</div>
+<div id="bsmd" class="section level2">
+<h2>BsMD</h2>
+</div>
+<div id="ca" class="section level2">
+<h2>ca</h2>
+</div>
+<div id="car" class="section level2">
+<h2>car</h2>
+</div>
+<div id="catools" class="section level2">
+<h2>caTools</h2>
+</div>
+<div id="cellranger" class="section level2">
+<h2>cellranger</h2>
+</div>
+<div id="checkmate" class="section level2">
+<h2>checkmate</h2>
+</div>
+<div id="class" class="section level2">
+<h2>class</h2>
+</div>
+<div id="cluster" class="section level2">
+<h2>cluster</h2>
+</div>
+<div id="clv" class="section level2">
+<h2>clv</h2>
+</div>
+<div id="coda" class="section level2">
+<h2>coda</h2>
+</div>
+<div id="codetools" class="section level2">
+<h2>codetools</h2>
+</div>
+<div id="coin" class="section level2">
+<h2>coin</h2>
+</div>
+<div id="colorspace" class="section level2">
+<h2>colorspace</h2>
+</div>
+<div id="combinat" class="section level2">
+<h2>combinat</h2>
+</div>
+<div id="compiler" class="section level2">
+<h2>compiler</h2>
+</div>
+<div id="conf.design" class="section level2">
+<h2>conf.design</h2>
+</div>
+<div id="curl" class="section level2">
+<h2>curl</h2>
+</div>
+<div id="data.table" class="section level2">
+<h2>data.table</h2>
+</div>
+<div id="datasets" class="section level2">
+<h2>datasets</h2>
+</div>
+<div id="date" class="section level2">
+<h2>date</h2>
+</div>
+<div id="dbi" class="section level2">
+<h2>DBI</h2>
+</div>
+<div id="deldir" class="section level2">
+<h2>deldir</h2>
+</div>
+<div id="depthtools" class="section level2">
+<h2>depthTools</h2>
+</div>
+<div id="dicedesign" class="section level2">
+<h2>DiceDesign</h2>
+</div>
+<div id="dichromat" class="section level2">
+<h2>dichromat</h2>
+</div>
+<div id="digest" class="section level2">
+<h2>digest</h2>
+</div>
+<div id="doe.base" class="section level2">
+<h2>DoE.base</h2>
+</div>
+<div id="doe.wrapper" class="section level2">
+<h2>DoE.wrapper</h2>
+</div>
+<div id="doparallel" class="section level2">
+<h2>doParallel</h2>
+</div>
+<div id="dplyr" class="section level2">
+<h2>dplyr</h2>
+</div>
+<div id="e1071" class="section level2">
+<h2>e1071</h2>
+</div>
+<div id="effects" class="section level2">
+<h2>effects</h2>
+</div>
+<div id="enmisc" class="section level2">
+<h2>ENmisc</h2>
+</div>
+<div id="epir-1" class="section level2">
+<h2>epiR</h2>
+</div>
+<div id="estimability" class="section level2">
+<h2>estimability</h2>
+</div>
+<div id="evaluate" class="section level2">
+<h2>evaluate</h2>
+</div>
+<div id="ez" class="section level2">
+<h2>ez</h2>
+</div>
+<div id="flexclust" class="section level2">
+<h2>flexclust</h2>
+</div>
+<div id="forcats" class="section level2">
+<h2>forcats</h2>
+</div>
+<div id="foreach" class="section level2">
+<h2>foreach</h2>
+</div>
+<div id="foreign" class="section level2">
+<h2>foreign</h2>
+</div>
+<div id="formatr" class="section level2">
+<h2>formatR</h2>
+</div>
+<div id="formula" class="section level2">
+<h2>Formula</h2>
+</div>
+<div id="fracdiff" class="section level2">
+<h2>fracdiff</h2>
+</div>
+<div id="frf2" class="section level2">
+<h2>FrF2</h2>
+</div>
+<div id="gdata" class="section level2">
+<h2>gdata</h2>
+</div>
+<div id="ggplot2" class="section level2">
+<h2>ggplot2</h2>
+<p><a href="http://www.cookbook-r.com/Graphs/" class="uri">http://www.cookbook-r.com/Graphs/</a></p>
+<div id="ggplot2-extensions" class="section level3">
+<h3>ggplot2 extensions</h3>
+<p><a href="http://www.ggplot2-exts.org/gallery/" class="uri">http://www.ggplot2-exts.org/gallery/</a></p>
+<p><a href="http://corybrunson.github.io/ggalluvial/" class="uri">http://corybrunson.github.io/ggalluvial/</a></p>
+<p><a href="http://www.sthda.com/english/rpkgs/survminer/" class="uri">http://www.sthda.com/english/rpkgs/survminer/</a></p>
+</div>
+</div>
+<div id="ggthemes" class="section level2">
+<h2>ggthemes</h2>
+</div>
+<div id="ggvis" class="section level2">
+<h2>ggvis</h2>
+</div>
+<div id="glue" class="section level2">
+<h2>glue</h2>
+</div>
+<div id="goftest" class="section level2">
+<h2>goftest</h2>
+</div>
+<div id="graphics" class="section level2">
+<h2>graphics</h2>
+</div>
+<div id="grdevices" class="section level2">
+<h2>grDevices</h2>
+</div>
+<div id="grid" class="section level2">
+<h2>grid</h2>
+</div>
+<div id="gridbase" class="section level2">
+<h2>gridBase</h2>
+</div>
+<div id="gridextra" class="section level2">
+<h2>gridExtra</h2>
+</div>
+<div id="gtable" class="section level2">
+<h2>gtable</h2>
+</div>
+<div id="gtools" class="section level2">
+<h2>gtools</h2>
+</div>
+<div id="haven" class="section level2">
+<h2>haven</h2>
+</div>
+<div id="highr" class="section level2">
+<h2>highr</h2>
+</div>
+<div id="hmisc" class="section level2">
+<h2>Hmisc</h2>
+</div>
+<div id="hms" class="section level2">
+<h2>hms</h2>
+</div>
+<div id="htmltable-1" class="section level2">
+<h2>htmlTable</h2>
+</div>
+<div id="htmltools" class="section level2">
+<h2>htmltools</h2>
+</div>
+<div id="htmlwidgets" class="section level2">
+<h2>htmlwidgets</h2>
+</div>
+<div id="httpuv" class="section level2">
+<h2>httpuv</h2>
+</div>
+<div id="httr" class="section level2">
+<h2>httr</h2>
+</div>
+<div id="igraph" class="section level2">
+<h2>igraph</h2>
+</div>
+<div id="iranges" class="section level2">
+<h2>IRanges</h2>
+</div>
+<div id="irlba" class="section level2">
+<h2>irlba</h2>
+</div>
+<div id="iterators" class="section level2">
+<h2>iterators</h2>
+</div>
+<div id="jsonlite" class="section level2">
+<h2>jsonlite</h2>
+</div>
+<div id="kernsmooth" class="section level2">
+<h2>KernSmooth</h2>
+</div>
+<div id="knitr" class="section level2">
+<h2>knitr</h2>
+</div>
+<div id="labeling" class="section level2">
+<h2>labeling</h2>
+</div>
+<div id="lattice" class="section level2">
+<h2>lattice</h2>
+</div>
+<div id="latticeextra" class="section level2">
+<h2>latticeExtra</h2>
+</div>
+<div id="lazyeval" class="section level2">
+<h2>lazyeval</h2>
+</div>
+<div id="leaps" class="section level2">
+<h2>leaps</h2>
+</div>
+<div id="lhs" class="section level2">
+<h2>lhs</h2>
+</div>
+<div id="lme4" class="section level2">
+<h2>lme4</h2>
+</div>
+<div id="lmtest-1" class="section level2">
+<h2>lmtest</h2>
+</div>
+<div id="lsmeans" class="section level2">
+<h2>lsmeans</h2>
+</div>
+<div id="lubridate" class="section level2">
+<h2>lubridate</h2>
+</div>
+<div id="magrittr" class="section level2">
+<h2>magrittr</h2>
+</div>
+<div id="markdown" class="section level2">
+<h2>markdown</h2>
+</div>
+<div id="mass" class="section level2">
+<h2>MASS</h2>
+</div>
+<div id="matrix" class="section level2">
+<h2>Matrix</h2>
+</div>
+<div id="matrixcalc" class="section level2">
+<h2>matrixcalc</h2>
+</div>
+<div id="matrixmodels" class="section level2">
+<h2>MatrixModels</h2>
+</div>
+<div id="memoise" class="section level2">
+<h2>memoise</h2>
+</div>
+<div id="methods" class="section level2">
+<h2>methods</h2>
+</div>
+<div id="mgcv" class="section level2">
+<h2>mgcv</h2>
+</div>
+<div id="mi" class="section level2">
+<h2>mi</h2>
+</div>
+<div id="mime" class="section level2">
+<h2>mime</h2>
+</div>
+<div id="minqa" class="section level2">
+<h2>minqa</h2>
+</div>
+<div id="mnormt" class="section level2">
+<h2>mnormt</h2>
+</div>
+<div id="modelr" class="section level2">
+<h2>modelr</h2>
+</div>
+<div id="modeltools" class="section level2">
+<h2>modeltools</h2>
+</div>
+<div id="multcomp" class="section level2">
+<h2>multcomp</h2>
+</div>
+<div id="munsell" class="section level2">
+<h2>munsell</h2>
+</div>
+<div id="mvtnorm" class="section level2">
+<h2>mvtnorm</h2>
+</div>
+<div id="nlme" class="section level2">
+<h2>nlme</h2>
+</div>
+<div id="nloptr" class="section level2">
+<h2>nloptr</h2>
+</div>
+<div id="nlp" class="section level2">
+<h2>NLP</h2>
+</div>
+<div id="nmf" class="section level2">
+<h2>NMF</h2>
+</div>
+<div id="nnet" class="section level2">
+<h2>nnet</h2>
+</div>
+<div id="nortest" class="section level2">
+<h2>nortest</h2>
+</div>
+<div id="openssl" class="section level2">
+<h2>openssl</h2>
+</div>
+<div id="ordinal" class="section level2">
+<h2>ordinal</h2>
+</div>
+<div id="orloca" class="section level2">
+<h2>orloca</h2>
+</div>
+<div id="orloca.es" class="section level2">
+<h2>orloca.es</h2>
+</div>
+<div id="parallel" class="section level2">
+<h2>parallel</h2>
+</div>
+<div id="pbkrtest" class="section level2">
+<h2>pbkrtest</h2>
+</div>
+<div id="pkgconfig" class="section level2">
+<h2>pkgconfig</h2>
+</div>
+<div id="pkgmaker" class="section level2">
+<h2>pkgmaker</h2>
+</div>
+<div id="plogr" class="section level2">
+<h2>plogr</h2>
+</div>
+<div id="plyr" class="section level2">
+<h2>plyr</h2>
+</div>
+<div id="polyclip" class="section level2">
+<h2>polyclip</h2>
+</div>
+<div id="psych" class="section level2">
+<h2>psych</h2>
+</div>
+<div id="purrr" class="section level2">
+<h2>purrr</h2>
+</div>
+<div id="quadprog" class="section level2">
+<h2>quadprog</h2>
+</div>
+<div id="quantmod" class="section level2">
+<h2>quantmod</h2>
+</div>
+<div id="quantreg" class="section level2">
+<h2>quantreg</h2>
+</div>
+<div id="r2html" class="section level2">
+<h2>R2HTML</h2>
+</div>
+<div id="r6" class="section level2">
+<h2>R6</h2>
+</div>
+<div id="randtests" class="section level2">
+<h2>randtests</h2>
+</div>
+<div id="rcmdr" class="section level2">
+<h2>Rcmdr</h2>
+</div>
+<div id="rcmdrmisc" class="section level2">
+<h2>RcmdrMisc</h2>
+</div>
+<div id="rcmdrplugin.bca" class="section level2">
+<h2>RcmdrPlugin.BCA</h2>
+</div>
+<div id="rcmdrplugin.coin" class="section level2">
+<h2>RcmdrPlugin.coin</h2>
+</div>
+<div id="rcmdrplugin.depthtools" class="section level2">
+<h2>RcmdrPlugin.depthTools</h2>
+</div>
+<div id="rcmdrplugin.doe" class="section level2">
+<h2>RcmdrPlugin.DoE</h2>
+</div>
+<div id="rcmdrplugin.doex" class="section level2">
+<h2>RcmdrPlugin.doex</h2>
+</div>
+<div id="rcmdrplugin.eacspir" class="section level2">
+<h2>RcmdrPlugin.EACSPIR</h2>
+</div>
+<div id="rcmdrplugin.ebm" class="section level2">
+<h2>RcmdrPlugin.EBM</h2>
+</div>
+<div id="rcmdrplugin.epack" class="section level2">
+<h2>RcmdrPlugin.epack</h2>
+</div>
+<div id="rcmdrplugin.ezr" class="section level2">
+<h2>RcmdrPlugin.EZR</h2>
+</div>
+<div id="rcmdrplugin.kmggplot2" class="section level2">
+<h2>RcmdrPlugin.KMggplot2</h2>
+</div>
+<div id="rcmdrplugin.mosaic" class="section level2">
+<h2>RcmdrPlugin.mosaic</h2>
+</div>
+<div id="rcmdrplugin.mpastats" class="section level2">
+<h2>RcmdrPlugin.MPAStats</h2>
+</div>
+<div id="rcmdrplugin.orloca" class="section level2">
+<h2>RcmdrPlugin.orloca</h2>
+</div>
+<div id="rcmdrplugin.plotbygroup" class="section level2">
+<h2>RcmdrPlugin.plotByGroup</h2>
+</div>
+<div id="rcmdrplugin.qual" class="section level2">
+<h2>RcmdrPlugin.qual</h2>
+</div>
+<div id="rcmdrplugin.scda" class="section level2">
+<h2>RcmdrPlugin.SCDA</h2>
+</div>
+<div id="rcmdrplugin.sampling" class="section level2">
+<h2>RcmdrPlugin.sampling</h2>
+<p>Tools for sampling in Official Statistical Surveys</p>
+<p><a href="https://cran.r-project.org/web/packages/RcmdrPlugin.sampling/index.html" class="uri">https://cran.r-project.org/web/packages/RcmdrPlugin.sampling/index.html</a></p>
+</div>
+<div id="rcmdrplugin.seeg" class="section level2">
+<h2>RcmdrPlugin.seeg</h2>
+</div>
+<div id="rcmdrplugin.slc" class="section level2">
+<h2>RcmdrPlugin.SLC</h2>
+</div>
+<div id="rcmdrplugin.sm" class="section level2">
+<h2>RcmdrPlugin.SM</h2>
+</div>
+<div id="rcmdrplugin.steepness" class="section level2">
+<h2>RcmdrPlugin.steepness</h2>
+</div>
+<div id="rcmdrplugin.survival" class="section level2">
+<h2>RcmdrPlugin.survival</h2>
+</div>
+<div id="rcmdrplugin.teachingdemos" class="section level2">
+<h2>RcmdrPlugin.TeachingDemos</h2>
+</div>
+<div id="rcmdrplugin.temis" class="section level2">
+<h2>RcmdrPlugin.temis</h2>
+</div>
+<div id="rcmdrplugin.uca" class="section level2">
+<h2>RcmdrPlugin.UCA</h2>
+</div>
+<div id="rcolorbrewer" class="section level2">
+<h2>RColorBrewer</h2>
+</div>
+<div id="rcpp" class="section level2">
+<h2>Rcpp</h2>
+</div>
+<div id="rcpparmadillo" class="section level2">
+<h2>RcppArmadillo</h2>
+</div>
+<div id="rcppeigen" class="section level2">
+<h2>RcppEigen</h2>
+</div>
+<div id="readr" class="section level2">
+<h2>readr</h2>
+</div>
+<div id="readxl" class="section level2">
+<h2>readxl</h2>
+</div>
+<div id="registry" class="section level2">
+<h2>registry</h2>
+</div>
+<div id="relimp" class="section level2">
+<h2>relimp</h2>
+</div>
+<div id="rematch" class="section level2">
+<h2>rematch</h2>
+</div>
+<div id="reshape" class="section level2">
+<h2>reshape</h2>
+</div>
+<div id="reshape2" class="section level2">
+<h2>reshape2</h2>
+</div>
+<div id="rgl" class="section level2">
+<h2>rgl</h2>
+</div>
+<div id="rismed" class="section level2">
+<h2>RISmed</h2>
+</div>
+<div id="rjava" class="section level2">
+<h2>rJava</h2>
+</div>
+<div id="rlang" class="section level2">
+<h2>rlang</h2>
+</div>
+<div id="rmarkdown" class="section level2">
+<h2>rmarkdown</h2>
+</div>
+<div id="rmysql" class="section level2">
+<h2>RMySQL</h2>
+</div>
+<div id="rngtools" class="section level2">
+<h2>rngtools</h2>
+</div>
+<div id="rpart" class="section level2">
+<h2>rpart</h2>
+</div>
+<div id="rpart.plot" class="section level2">
+<h2>rpart.plot</h2>
+</div>
+<div id="rprojroot" class="section level2">
+<h2>rprojroot</h2>
+</div>
+<div id="rsm" class="section level2">
+<h2>rsm</h2>
+</div>
+<div id="rsqlite" class="section level2">
+<h2>RSQLite</h2>
+</div>
+<div id="rvest" class="section level2">
+<h2>rvest</h2>
+</div>
+<div id="s4vectors" class="section level2">
+<h2>S4Vectors</h2>
+</div>
+<div id="sandwich" class="section level2">
+<h2>sandwich</h2>
+</div>
+<div id="scales" class="section level2">
+<h2>scales</h2>
+</div>
+<div id="scatterplot3d" class="section level2">
+<h2>scatterplot3d</h2>
+</div>
+<div id="scma" class="section level2">
+<h2>SCMA</h2>
+</div>
+<div id="scrt" class="section level2">
+<h2>SCRT</h2>
+</div>
+<div id="scva" class="section level2">
+<h2>SCVA</h2>
+</div>
+<div id="seeg" class="section level2">
+<h2>seeg</h2>
+</div>
+<div id="selectr" class="section level2">
+<h2>selectr</h2>
+</div>
+<div id="sem" class="section level2">
+<h2>sem</h2>
+</div>
+<div id="sfsmisc" class="section level2">
+<h2>sfsmisc</h2>
+</div>
+<div id="sgeostat" class="section level2">
+<h2>sgeostat</h2>
+</div>
+<div id="shiny" class="section level2">
+<h2>shiny</h2>
+</div>
+<div id="shinythemes" class="section level2">
+<h2>shinythemes</h2>
+</div>
+<div id="slam" class="section level2">
+<h2>slam</h2>
+</div>
+<div id="slc" class="section level2">
+<h2>SLC</h2>
+</div>
+<div id="sourcetools" class="section level2">
+<h2>sourcetools</h2>
+</div>
+<div id="sparsem" class="section level2">
+<h2>SparseM</h2>
+</div>
+<div id="spatial" class="section level2">
+<h2>spatial</h2>
+</div>
+<div id="spatstat" class="section level2">
+<h2>spatstat</h2>
+</div>
+<div id="spatstat.utils" class="section level2">
+<h2>spatstat.utils</h2>
+</div>
+<div id="splines" class="section level2">
+<h2>splines</h2>
+</div>
+<div id="stats" class="section level2">
+<h2>stats</h2>
+</div>
+<div id="stats4" class="section level2">
+<h2>stats4</h2>
+</div>
+<div id="steepness" class="section level2">
+<h2>steepness</h2>
+</div>
+<div id="stringi" class="section level2">
+<h2>stringi</h2>
+</div>
+<div id="stringr" class="section level2">
+<h2>stringr</h2>
+</div>
+<div id="survival-1" class="section level2">
+<h2>survival</h2>
+</div>
+<div id="tcltk" class="section level2">
+<h2>tcltk</h2>
+</div>
+<div id="tcltk2" class="section level2">
+<h2>tcltk2</h2>
+</div>
+<div id="teachingdemos" class="section level2">
+<h2>TeachingDemos</h2>
+</div>
+<div id="tensor" class="section level2">
+<h2>tensor</h2>
+</div>
+<div id="th.data" class="section level2">
+<h2>TH.data</h2>
+</div>
+<div id="tibble" class="section level2">
+<h2>tibble</h2>
+</div>
+<div id="tidyr" class="section level2">
+<h2>tidyr</h2>
+</div>
+<div id="tidyverse-1" class="section level2">
+<h2>tidyverse</h2>
+</div>
+<div id="timedate" class="section level2">
+<h2>timeDate</h2>
+</div>
+<div id="tkrplot" class="section level2">
+<h2>tkrplot</h2>
+</div>
+<div id="tm" class="section level2">
+<h2>tm</h2>
+</div>
+<div id="tools" class="section level2">
+<h2>tools</h2>
+</div>
+<div id="tseries" class="section level2">
+<h2>tseries</h2>
+</div>
+<div id="ttr" class="section level2">
+<h2>TTR</h2>
+</div>
+<div id="ucminf" class="section level2">
+<h2>ucminf</h2>
+</div>
+<div id="utils" class="section level2">
+<h2>utils</h2>
+</div>
+<div id="vcd" class="section level2">
+<h2>vcd</h2>
+</div>
+<div id="viridis" class="section level2">
+<h2>viridis</h2>
+</div>
+<div id="viridislite" class="section level2">
+<h2>viridisLite</h2>
+</div>
+<div id="xlconnect" class="section level2">
+<h2>XLConnect</h2>
+</div>
+<div id="xlconnectjars" class="section level2">
+<h2>XLConnectJars</h2>
+</div>
+<div id="xml2" class="section level2">
+<h2>xml2</h2>
+</div>
+<div id="xtable" class="section level2">
+<h2>xtable</h2>
+</div>
+<div id="xts" class="section level2">
+<h2>xts</h2>
+</div>
+<div id="yaml" class="section level2">
+<h2>yaml</h2>
+</div>
+<div id="zoo" class="section level2">
+<h2>zoo</h2>
+<p>install.packages(“stargazer”)</p>
+<p>install.packages(“pander”)</p>
+<p>install.packages(“tables”)</p>
+<p>install.packages(“ascii”)</p>
+<p>install.packages(“xtable”)</p>
 <p>devtools::install_github(“hadley/dplyr”)</p>
 <p>install.packages(“gapminder”)</p>
 <p>install.packages(“alluvial”)</p>
 <p>vignette(“databases”, package = “dplyr”)</p>
-<p>install.packages(“robustbase”) install.packages(“insuranceData”)</p>
+<p>install.packages(“robustbase”)</p>
+<p>install.packages(“insuranceData”)</p>
 <p>install.packages(“Lahman”)</p>
 <p>install.packages(“tidyverse”)</p>
 <p>install.packages(“qdap”)</p>
 <p>install.packages(“openxlsx”)</p>
 <p>devtools::install_github(“kassambara/r2excel”)</p>
-<p>install.packages(“WriteXLS”) install.packages(“XLConnect”) library(XLConnect)</p>
-<p>if (!require(wordcloud)) { install.packages(“wordcloud”) library(wordcloud) }</p>
-<p>installed &lt;- as.data.frame(installed.packages()) write.csv(installed, “installed_previously.csv”)</p>
-<p>installedPreviously &lt;- read.csv(“installed_previously.csv”) baseR &lt;- as.data.frame(installed.packages()) toInstall &lt;- setdiff(installedPreviously, baseR)</p>
-<p>install.packages(toInstall)</p>
-<p>packagelist &lt;- installed.packages() class(packagelist) packagelist[, 1]</p>
-</div>
-</div>
-<div id="algdesign-bca-biasedurn" class="section level1">
-<h1>AlgDesign BCA BiasedUrn</h1>
-</div>
-<div id="algdesign-bca-biasedurn-1" class="section level1">
-<h1>“AlgDesign” “BCA” “BiasedUrn”</h1>
-</div>
-<div id="bsmd-ca-clv" class="section level1">
-<h1>BsMD ca clv</h1>
-</div>
-<div id="bsmd-ca-clv-1" class="section level1">
-<h1>“BsMD” “ca” “clv”</h1>
-</div>
-<div id="coin-combinat-conf.design" class="section level1">
-<h1>coin combinat conf.design</h1>
-</div>
-<div id="coin-combinat-conf.design-1" class="section level1">
-<h1>“coin” “combinat” “conf.design”</h1>
-</div>
-<div id="date-deldir-depthtools" class="section level1">
-<h1>date deldir depthTools</h1>
-</div>
-<div id="date-deldir-depthtools-1" class="section level1">
-<h1>“date” “deldir” “depthTools”</h1>
-</div>
-<div id="dicedesign-doe.base-doe.wrapper" class="section level1">
-<h1>DiceDesign DoE.base DoE.wrapper</h1>
-</div>
-<div id="dicedesign-doe.base-doe.wrapper-1" class="section level1">
-<h1>“DiceDesign” “DoE.base” “DoE.wrapper”</h1>
-</div>
-<div id="doparallel-enmisc-epir" class="section level1">
-<h1>doParallel ENmisc epiR</h1>
-</div>
-<div id="doparallel-enmisc-epir-1" class="section level1">
-<h1>“doParallel” “ENmisc” “epiR”</h1>
-</div>
-<div id="estimability-ez-flexclust" class="section level1">
-<h1>estimability ez flexclust</h1>
-</div>
-<div id="estimability-ez-flexclust-1" class="section level1">
-<h1>“estimability” “ez” “flexclust”</h1>
-</div>
-<div id="foreach-fracdiff-frf2" class="section level1">
-<h1>foreach fracdiff FrF2</h1>
-</div>
-<div id="foreach-fracdiff-frf2-1" class="section level1">
-<h1>“foreach” “fracdiff” “FrF2”</h1>
-</div>
-<div id="ggthemes-goftest-gridbase" class="section level1">
-<h1>ggthemes goftest gridBase</h1>
-</div>
-<div id="ggthemes-goftest-gridbase-1" class="section level1">
-<h1>“ggthemes” “goftest” “gridBase”</h1>
-</div>
-<div id="igraph-irlba-iterators" class="section level1">
-<h1>igraph irlba iterators</h1>
-</div>
-<div id="igraph-irlba-iterators-1" class="section level1">
-<h1>“igraph” “irlba” “iterators”</h1>
-</div>
-<div id="lhs-lsmeans-modeltools" class="section level1">
-<h1>lhs lsmeans modeltools</h1>
-</div>
-<div id="lhs-lsmeans-modeltools-1" class="section level1">
-<h1>“lhs” “lsmeans” “modeltools”</h1>
-</div>
-<div id="nlp-nmf-ordinal" class="section level1">
-<h1>NLP NMF ordinal</h1>
-</div>
-<div id="nlp-nmf-ordinal-1" class="section level1">
-<h1>“NLP” “NMF” “ordinal”</h1>
-</div>
-<div id="orloca-orloca.es-pkgmaker" class="section level1">
-<h1>orloca orloca.es pkgmaker</h1>
-</div>
-<div id="orloca-orloca.es-pkgmaker-1" class="section level1">
-<h1>“orloca” “orloca.es” “pkgmaker”</h1>
-</div>
-<div id="polyclip-quadprog-quantmod" class="section level1">
-<h1>polyclip quadprog quantmod</h1>
-</div>
-<div id="polyclip-quadprog-quantmod-1" class="section level1">
-<h1>“polyclip” “quadprog” “quantmod”</h1>
-</div>
-<div id="r2html-randtests-rcmdrplugin.bca" class="section level1">
-<h1>R2HTML randtests RcmdrPlugin.BCA</h1>
-</div>
-<div id="r2html-randtests-rcmdrplugin.bca-1" class="section level1">
-<h1>“R2HTML” “randtests” “RcmdrPlugin.BCA”</h1>
-</div>
-<div id="rcmdrplugin.coin-rcmdrplugin.depthtools-rcmdrplugin.doe" class="section level1">
-<h1>RcmdrPlugin.coin RcmdrPlugin.depthTools RcmdrPlugin.DoE</h1>
-</div>
-<div id="rcmdrplugin.coin-rcmdrplugin.depthtools-rcmdrplugin.doe-1" class="section level1">
-<h1>“RcmdrPlugin.coin” “RcmdrPlugin.depthTools” “RcmdrPlugin.DoE”</h1>
-</div>
-<div id="rcmdrplugin.doex-rcmdrplugin.eacspir-rcmdrplugin.ebm" class="section level1">
-<h1>RcmdrPlugin.doex RcmdrPlugin.EACSPIR RcmdrPlugin.EBM</h1>
-</div>
-<div id="rcmdrplugin.doex-rcmdrplugin.eacspir-rcmdrplugin.ebm-1" class="section level1">
-<h1>“RcmdrPlugin.doex” “RcmdrPlugin.EACSPIR” “RcmdrPlugin.EBM”</h1>
-</div>
-<div id="rcmdrplugin.epack-rcmdrplugin.ezr-rcmdrplugin.kmggplot2" class="section level1">
-<h1>RcmdrPlugin.epack RcmdrPlugin.EZR RcmdrPlugin.KMggplot2</h1>
-</div>
-<div id="rcmdrplugin.epack-rcmdrplugin.ezr-rcmdrplugin.kmggplot2-1" class="section level1">
-<h1>“RcmdrPlugin.epack” “RcmdrPlugin.EZR” “RcmdrPlugin.KMggplot2”</h1>
-</div>
-<div id="rcmdrplugin.mosaic-rcmdrplugin.mpastats-rcmdrplugin.orloca" class="section level1">
-<h1>RcmdrPlugin.mosaic RcmdrPlugin.MPAStats RcmdrPlugin.orloca</h1>
-</div>
-<div id="rcmdrplugin.mosaic-rcmdrplugin.mpastats-rcmdrplugin.orloca-1" class="section level1">
-<h1>“RcmdrPlugin.mosaic” “RcmdrPlugin.MPAStats” “RcmdrPlugin.orloca”</h1>
-</div>
-<div id="rcmdrplugin.plotbygroup-rcmdrplugin.qual-rcmdrplugin.scda" class="section level1">
-<h1>RcmdrPlugin.plotByGroup RcmdrPlugin.qual RcmdrPlugin.SCDA</h1>
-</div>
-<div id="rcmdrplugin.plotbygroup-rcmdrplugin.qual-rcmdrplugin.scda-1" class="section level1">
-<h1>“RcmdrPlugin.plotByGroup” “RcmdrPlugin.qual” “RcmdrPlugin.SCDA”</h1>
-</div>
-<div id="rcmdrplugin.seeg-rcmdrplugin.slc-rcmdrplugin.sm" class="section level1">
-<h1>RcmdrPlugin.seeg RcmdrPlugin.SLC RcmdrPlugin.SM</h1>
-</div>
-<div id="rcmdrplugin.seeg-rcmdrplugin.slc-rcmdrplugin.sm-1" class="section level1">
-<h1>“RcmdrPlugin.seeg” “RcmdrPlugin.SLC” “RcmdrPlugin.SM”</h1>
-</div>
-<div id="rcmdrplugin.steepness-rcmdrplugin.survival-rcmdrplugin.teachingdemos" class="section level1">
-<h1>RcmdrPlugin.steepness RcmdrPlugin.survival RcmdrPlugin.TeachingDemos</h1>
-</div>
-<div id="rcmdrplugin.steepness-rcmdrplugin.survival-rcmdrplugin.teachingdemos-1" class="section level1">
-<h1>“RcmdrPlugin.steepness” “RcmdrPlugin.survival” “RcmdrPlugin.TeachingDemos”</h1>
-</div>
-<div id="rcmdrplugin.temis-rcmdrplugin.uca-rcpparmadillo" class="section level1">
-<h1>RcmdrPlugin.temis RcmdrPlugin.UCA RcppArmadillo</h1>
-</div>
-<div id="rcmdrplugin.temis-rcmdrplugin.uca-rcpparmadillo-1" class="section level1">
-<h1>“RcmdrPlugin.temis” “RcmdrPlugin.UCA” “RcppArmadillo”</h1>
-</div>
-<div id="registry-reshape-rngtools" class="section level1">
-<h1>registry reshape rngtools</h1>
-</div>
-<div id="registry-reshape-rngtools-1" class="section level1">
-<h1>“registry” “reshape” “rngtools”</h1>
-</div>
-<div id="rpart.plot-rsm-scatterplot3d" class="section level1">
-<h1>rpart.plot rsm scatterplot3d</h1>
-</div>
-<div id="rpart.plot-rsm-scatterplot3d-1" class="section level1">
-<h1>“rpart.plot” “rsm” “scatterplot3d”</h1>
-</div>
-<div id="scma-scrt-scva" class="section level1">
-<h1>SCMA SCRT SCVA</h1>
-</div>
-<div id="scma-scrt-scva-1" class="section level1">
-<h1>“SCMA” “SCRT” “SCVA”</h1>
-</div>
-<div id="seeg-sfsmisc-sgeostat" class="section level1">
-<h1>seeg sfsmisc sgeostat</h1>
-</div>
-<div id="seeg-sfsmisc-sgeostat-1" class="section level1">
-<h1>“seeg” “sfsmisc” “sgeostat”</h1>
-</div>
-<div id="slam-slc-spatstat" class="section level1">
-<h1>slam SLC spatstat</h1>
-</div>
-<div id="slam-slc-spatstat-1" class="section level1">
-<h1>“slam” “SLC” “spatstat”</h1>
-</div>
-<div id="spatstat.utils-steepness-teachingdemos" class="section level1">
-<h1>spatstat.utils steepness TeachingDemos</h1>
-</div>
-<div id="spatstat.utils-steepness-teachingdemos-1" class="section level1">
-<h1>“spatstat.utils” “steepness” “TeachingDemos”</h1>
-</div>
-<div id="tensor-timedate-tkrplot" class="section level1">
-<h1>tensor timeDate tkrplot</h1>
-</div>
-<div id="tensor-timedate-tkrplot-1" class="section level1">
-<h1>“tensor” “timeDate” “tkrplot”</h1>
-</div>
-<div id="tm-tseries-ttr" class="section level1">
-<h1>tm tseries TTR</h1>
-</div>
-<div id="tm-tseries-ttr-1" class="section level1">
-<h1>“tm” “tseries” “TTR”</h1>
-</div>
-<div id="ucminf-vcd-xts" class="section level1">
-<h1>ucminf vcd xts</h1>
-</div>
-<div id="ucminf-vcd-xts-1" class="section level1">
-<h1>“ucminf” “vcd” “xts”</h1>
-</div>
-<div id="abind-acepack-annotationdbi" class="section level1">
-<h1>abind acepack AnnotationDbi</h1>
-</div>
-<div id="abind-acepack-annotationdbi-1" class="section level1">
-<h1>“abind” “acepack” “AnnotationDbi”</h1>
-</div>
-<div id="aplpack-arm-assertthat" class="section level1">
-<h1>aplpack arm assertthat</h1>
-</div>
-<div id="aplpack-arm-assertthat-1" class="section level1">
-<h1>“aplpack” “arm” “assertthat”</h1>
-</div>
-<div id="backports-base-base64enc" class="section level1">
-<h1>backports base base64enc</h1>
-</div>
-<div id="backports-base-base64enc-1" class="section level1">
-<h1>“backports” “base” “base64enc”</h1>
-</div>
-<div id="bh-bindr-bindrcpp" class="section level1">
-<h1>BH bindr bindrcpp</h1>
-</div>
-<div id="bh-bindr-bindrcpp-1" class="section level1">
-<h1>“BH” “bindr” “bindrcpp”</h1>
-</div>
-<div id="biobase-biocgenerics-biocinstaller" class="section level1">
-<h1>Biobase BiocGenerics BiocInstaller</h1>
-</div>
-<div id="biobase-biocgenerics-biocinstaller-1" class="section level1">
-<h1>“Biobase” “BiocGenerics” “BiocInstaller”</h1>
-</div>
-<div id="bit-bit64-bitops" class="section level1">
-<h1>bit bit64 bitops</h1>
-</div>
-<div id="bit-bit64-bitops-1" class="section level1">
-<h1>“bit” “bit64” “bitops”</h1>
-</div>
-<div id="blob-boot-broom" class="section level1">
-<h1>blob boot broom</h1>
-</div>
-<div id="blob-boot-broom-1" class="section level1">
-<h1>“blob” “boot” “broom”</h1>
-</div>
-<div id="car-catools-cellranger" class="section level1">
-<h1>car caTools cellranger</h1>
-</div>
-<div id="car-catools-cellranger-1" class="section level1">
-<h1>“car” “caTools” “cellranger”</h1>
-</div>
-<div id="checkmate-class-cluster" class="section level1">
-<h1>checkmate class cluster</h1>
-</div>
-<div id="checkmate-class-cluster-1" class="section level1">
-<h1>“checkmate” “class” “cluster”</h1>
-</div>
-<div id="coda-codetools-colorspace" class="section level1">
-<h1>coda codetools colorspace</h1>
-</div>
-<div id="coda-codetools-colorspace-1" class="section level1">
-<h1>“coda” “codetools” “colorspace”</h1>
-</div>
-<div id="compiler-curl-data.table" class="section level1">
-<h1>compiler curl data.table</h1>
-</div>
-<div id="compiler-curl-data.table-1" class="section level1">
-<h1>“compiler” “curl” “data.table”</h1>
-</div>
-<div id="datasets-dbi-dichromat" class="section level1">
-<h1>datasets DBI dichromat</h1>
-</div>
-<div id="datasets-dbi-dichromat-1" class="section level1">
-<h1>“datasets” “DBI” “dichromat”</h1>
-</div>
-<div id="digest-dplyr-e1071" class="section level1">
-<h1>digest dplyr e1071</h1>
-</div>
-<div id="digest-dplyr-e1071-1" class="section level1">
-<h1>“digest” “dplyr” “e1071”</h1>
-</div>
-<div id="effects-evaluate-forcats" class="section level1">
-<h1>effects evaluate forcats</h1>
-</div>
-<div id="effects-evaluate-forcats-1" class="section level1">
-<h1>“effects” “evaluate” “forcats”</h1>
-</div>
-<div id="foreign-formatr-formula" class="section level1">
-<h1>foreign formatR Formula</h1>
-</div>
-<div id="foreign-formatr-formula-1" class="section level1">
-<h1>“foreign” “formatR” “Formula”</h1>
-</div>
-<div id="gdata-ggplot2-ggvis" class="section level1">
-<h1>gdata ggplot2 ggvis</h1>
-</div>
-<div id="gdata-ggplot2-ggvis-1" class="section level1">
-<h1>“gdata” “ggplot2” “ggvis”</h1>
-</div>
-<div id="glue-graphics-grdevices" class="section level1">
-<h1>glue graphics grDevices</h1>
-</div>
-<div id="glue-graphics-grdevices-1" class="section level1">
-<h1>“glue” “graphics” “grDevices”</h1>
-</div>
-<div id="grid-gridextra-gtable" class="section level1">
-<h1>grid gridExtra gtable</h1>
-</div>
-<div id="grid-gridextra-gtable-1" class="section level1">
-<h1>“grid” “gridExtra” “gtable”</h1>
-</div>
-<div id="gtools-haven-highr" class="section level1">
-<h1>gtools haven highr</h1>
-</div>
-<div id="gtools-haven-highr-1" class="section level1">
-<h1>“gtools” “haven” “highr”</h1>
-</div>
-<div id="hmisc-hms-htmltable" class="section level1">
-<h1>Hmisc hms htmlTable</h1>
-</div>
-<div id="hmisc-hms-htmltable-1" class="section level1">
-<h1>“Hmisc” “hms” “htmlTable”</h1>
-</div>
-<div id="htmltools-htmlwidgets-httpuv" class="section level1">
-<h1>htmltools htmlwidgets httpuv</h1>
-</div>
-<div id="htmltools-htmlwidgets-httpuv-1" class="section level1">
-<h1>“htmltools” “htmlwidgets” “httpuv”</h1>
-</div>
-<div id="httr-iranges-jsonlite" class="section level1">
-<h1>httr IRanges jsonlite</h1>
-</div>
-<div id="httr-iranges-jsonlite-1" class="section level1">
-<h1>“httr” “IRanges” “jsonlite”</h1>
-</div>
-<div id="kernsmooth-knitr-labeling" class="section level1">
-<h1>KernSmooth knitr labeling</h1>
-</div>
-<div id="kernsmooth-knitr-labeling-1" class="section level1">
-<h1>“KernSmooth” “knitr” “labeling”</h1>
-</div>
-<div id="lattice-latticeextra-lazyeval" class="section level1">
-<h1>lattice latticeExtra lazyeval</h1>
-</div>
-<div id="lattice-latticeextra-lazyeval-1" class="section level1">
-<h1>“lattice” “latticeExtra” “lazyeval”</h1>
-</div>
-<div id="leaps-lme4-lmtest" class="section level1">
-<h1>leaps lme4 lmtest</h1>
-</div>
-<div id="leaps-lme4-lmtest-1" class="section level1">
-<h1>“leaps” “lme4” “lmtest”</h1>
-</div>
-<div id="lubridate-magrittr-markdown" class="section level1">
-<h1>lubridate magrittr markdown</h1>
-</div>
-<div id="lubridate-magrittr-markdown-1" class="section level1">
-<h1>“lubridate” “magrittr” “markdown”</h1>
-</div>
-<div id="mass-matrix-matrixcalc" class="section level1">
-<h1>MASS Matrix matrixcalc</h1>
-</div>
-<div id="mass-matrix-matrixcalc-1" class="section level1">
-<h1>“MASS” “Matrix” “matrixcalc”</h1>
-</div>
-<div id="matrixmodels-memoise-methods" class="section level1">
-<h1>MatrixModels memoise methods</h1>
-</div>
-<div id="matrixmodels-memoise-methods-1" class="section level1">
-<h1>“MatrixModels” “memoise” “methods”</h1>
-</div>
-<div id="mgcv-mi-mime" class="section level1">
-<h1>mgcv mi mime</h1>
-</div>
-<div id="mgcv-mi-mime-1" class="section level1">
-<h1>“mgcv” “mi” “mime”</h1>
-</div>
-<div id="minqa-mnormt-modelr" class="section level1">
-<h1>minqa mnormt modelr</h1>
-</div>
-<div id="minqa-mnormt-modelr-1" class="section level1">
-<h1>“minqa” “mnormt” “modelr”</h1>
-</div>
-<div id="multcomp-munsell-mvtnorm" class="section level1">
-<h1>multcomp munsell mvtnorm</h1>
-</div>
-<div id="multcomp-munsell-mvtnorm-1" class="section level1">
-<h1>“multcomp” “munsell” “mvtnorm”</h1>
-</div>
-<div id="nlme-nloptr-nnet" class="section level1">
-<h1>nlme nloptr nnet</h1>
-</div>
-<div id="nlme-nloptr-nnet-1" class="section level1">
-<h1>“nlme” “nloptr” “nnet”</h1>
-</div>
-<div id="nortest-openssl-parallel" class="section level1">
-<h1>nortest openssl parallel</h1>
-</div>
-<div id="nortest-openssl-parallel-1" class="section level1">
-<h1>“nortest” “openssl” “parallel”</h1>
-</div>
-<div id="pbkrtest-pkgconfig-plogr" class="section level1">
-<h1>pbkrtest pkgconfig plogr</h1>
-</div>
-<div id="pbkrtest-pkgconfig-plogr-1" class="section level1">
-<h1>“pbkrtest” “pkgconfig” “plogr”</h1>
-</div>
-<div id="plyr-psych-purrr" class="section level1">
-<h1>plyr psych purrr</h1>
-</div>
-<div id="plyr-psych-purrr-1" class="section level1">
-<h1>“plyr” “psych” “purrr”</h1>
-</div>
-<div id="quantreg-r6-rcmdr" class="section level1">
-<h1>quantreg R6 Rcmdr</h1>
-</div>
-<div id="quantreg-r6-rcmdr-1" class="section level1">
-<h1>“quantreg” “R6” “Rcmdr”</h1>
-</div>
-<div id="rcmdrmisc-rcolorbrewer-rcpp" class="section level1">
-<h1>RcmdrMisc RColorBrewer Rcpp</h1>
-</div>
-<div id="rcmdrmisc-rcolorbrewer-rcpp-1" class="section level1">
-<h1>“RcmdrMisc” “RColorBrewer” “Rcpp”</h1>
-</div>
-<div id="rcppeigen-readr-readxl" class="section level1">
-<h1>RcppEigen readr readxl</h1>
-</div>
-<div id="rcppeigen-readr-readxl-1" class="section level1">
-<h1>“RcppEigen” “readr” “readxl”</h1>
-</div>
-<div id="relimp-rematch-reshape2" class="section level1">
-<h1>relimp rematch reshape2</h1>
-</div>
-<div id="relimp-rematch-reshape2-1" class="section level1">
-<h1>“relimp” “rematch” “reshape2”</h1>
-</div>
-<div id="rgl-rismed-rjava" class="section level1">
-<h1>rgl RISmed rJava</h1>
-</div>
-<div id="rgl-rismed-rjava-1" class="section level1">
-<h1>“rgl” “RISmed” “rJava”</h1>
-</div>
-<div id="rlang-rmarkdown-rmysql" class="section level1">
-<h1>rlang rmarkdown RMySQL</h1>
-</div>
-<div id="rlang-rmarkdown-rmysql-1" class="section level1">
-<h1>“rlang” “rmarkdown” “RMySQL”</h1>
-</div>
-<div id="rpart-rprojroot-rsqlite" class="section level1">
-<h1>rpart rprojroot RSQLite</h1>
-</div>
-<div id="rpart-rprojroot-rsqlite-1" class="section level1">
-<h1>“rpart” “rprojroot” “RSQLite”</h1>
-</div>
-<div id="rvest-s4vectors-sandwich" class="section level1">
-<h1>rvest S4Vectors sandwich</h1>
-</div>
-<div id="rvest-s4vectors-sandwich-1" class="section level1">
-<h1>“rvest” “S4Vectors” “sandwich”</h1>
-</div>
-<div id="scales-selectr-sem" class="section level1">
-<h1>scales selectr sem</h1>
-</div>
-<div id="scales-selectr-sem-1" class="section level1">
-<h1>“scales” “selectr” “sem”</h1>
-</div>
-<div id="shiny-shinythemes-sourcetools" class="section level1">
-<h1>shiny shinythemes sourcetools</h1>
-</div>
-<div id="shiny-shinythemes-sourcetools-1" class="section level1">
-<h1>“shiny” “shinythemes” “sourcetools”</h1>
-</div>
-<div id="sparsem-spatial-splines" class="section level1">
-<h1>SparseM spatial splines</h1>
-</div>
-<div id="sparsem-spatial-splines-1" class="section level1">
-<h1>“SparseM” “spatial” “splines”</h1>
-</div>
-<div id="stats-stats4-stringi" class="section level1">
-<h1>stats stats4 stringi</h1>
-</div>
-<div id="stats-stats4-stringi-1" class="section level1">
-<h1>“stats” “stats4” “stringi”</h1>
-</div>
-<div id="stringr-survival-tcltk" class="section level1">
-<h1>stringr survival tcltk</h1>
-</div>
-<div id="stringr-survival-tcltk-1" class="section level1">
-<h1>“stringr” “survival” “tcltk”</h1>
-</div>
-<div id="tcltk2-th.data-tibble" class="section level1">
-<h1>tcltk2 TH.data tibble</h1>
-</div>
-<div id="tcltk2-th.data-tibble-1" class="section level1">
-<h1>“tcltk2” “TH.data” “tibble”</h1>
-</div>
-<div id="tidyr-tidyverse-tools" class="section level1">
-<h1>tidyr tidyverse tools</h1>
-</div>
-<div id="tidyr-tidyverse-tools-1" class="section level1">
-<h1>“tidyr” “tidyverse” “tools”</h1>
-</div>
-<div id="utils-viridis-viridislite" class="section level1">
-<h1>utils viridis viridisLite</h1>
-</div>
-<div id="utils-viridis-viridislite-1" class="section level1">
-<h1>“utils” “viridis” “viridisLite”</h1>
-</div>
-<div id="xlconnect-xlconnectjars-xml2" class="section level1">
-<h1>XLConnect XLConnectJars xml2</h1>
-</div>
-<div id="xlconnect-xlconnectjars-xml2-1" class="section level1">
-<h1>“XLConnect” “XLConnectJars” “xml2”</h1>
-</div>
-<div id="xtable-yaml-zoo" class="section level1">
-<h1>xtable yaml zoo</h1>
-</div>
-<div id="xtable-yaml-zoo-1" class="section level1">
-<h1>“xtable” “yaml” “zoo”</h1>
-<p>install.packages(“Rcmdr”) install.packages(“RcmdrPlugin.BCA”) install.packages(“RcmdrPlugin.coin”) install.packages(“RcmdrPlugin.depthTools”) install.packages(“RcmdrPlugin.doBy”) install.packages(“RcmdrPlugin.DoE”) install.packages(“RcmdrPlugin.doex”) install.packages(“RcmdrPlugin.EACSPIR”) install.packages(“RcmdrPlugin.EBM”) install.packages(“RcmdrPlugin.epack”) install.packages(“RcmdrPlugin.EZR”) install.packages(“RcmdrPlugin.HH”) install.packages(“RcmdrPlugin.IPSUR”) install.packages(“RcmdrPlugin.KMggplot2”) install.packages(“RcmdrPlugin.mosaic”) install.packages(“RcmdrPlugin.MPAStats”) install.packages(“RcmdrPlugin.orloca”) install.packages(“RcmdrPlugin.plotByGroup”) install.packages(“RcmdrPlugin.qcc”) install.packages(“RcmdrPlugin.qual”) install.packages(“RcmdrPlugin.SCDA”) install.packages(“RcmdrPlugin.seeg”) install.packages(“RcmdrPlugin.SLC”) install.packages(“RcmdrPlugin.SM”) install.packages(“RcmdrPlugin.StatisticalURV”) install.packages(“RcmdrPlugin.steepness”) install.packages(“RcmdrPlugin.survival”) install.packages(“RcmdrPlugin.TeachingDemos”) install.packages(“RcmdrPlugin.temis”) install.packages(“RcmdrPlugin.UCA”)</p>
-<p>source(“<a href="https://bioconductor.org/biocLite.R" class="uri">https://bioconductor.org/biocLite.R</a>”) biocLite()</p>
-<p>install.packages(“tidyverse”) install.packages(“devtools”)</p>
-<p>devtools::install_github(“hadley/colformat”) devtools::install_github(“ropenscilabs/skimr”)</p>
-<p>install.packages(“hflights”) install.packages(“dbplyr”) install.packages(“xlsx”)</p>
-<p>require(devtools) install_github(“ProjectMOSAIC/mosaic”)</p>
+<p>install.packages(“WriteXLS”)</p>
+<p>install.packages(“XLConnect”)</p>
+<p>library(XLConnect)</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKCFyZXF1aXJlKHdvcmRjbG91ZCkpIHtcbiAgaW5zdGFsbC5wYWNrYWdlcyhcIndvcmRjbG91ZFwiKVxuICBsaWJyYXJ5KHdvcmRjbG91ZClcbn1cbmBgYCJ9 -->
+<pre class="r"><code>if (!require(wordcloud)) {
+  install.packages(&quot;wordcloud&quot;)
+  library(wordcloud)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbGVkIDwtIGFzLmRhdGEuZnJhbWUoaW5zdGFsbGVkLnBhY2thZ2VzKCkpXG53cml0ZS5jc3YoaW5zdGFsbGVkLCBcImluc3RhbGxlZF9wcmV2aW91c2x5LmNzdlwiKVxuXG5pbnN0YWxsZWRQcmV2aW91c2x5IDwtIHJlYWQuY3N2KFwiaW5zdGFsbGVkX3ByZXZpb3VzbHkuY3N2XCIpXG5iYXNlUiA8LSBhcy5kYXRhLmZyYW1lKGluc3RhbGxlZC5wYWNrYWdlcygpKVxudG9JbnN0YWxsIDwtIHNldGRpZmYoaW5zdGFsbGVkUHJldmlvdXNseSwgYmFzZVIpXG5cbmluc3RhbGwucGFja2FnZXModG9JbnN0YWxsKVxuXG5cbnBhY2thZ2VsaXN0IDwtIGluc3RhbGxlZC5wYWNrYWdlcygpXG5jbGFzcyhwYWNrYWdlbGlzdClcbnBhY2thZ2VsaXN0WywgMV1cbmBgYCJ9 -->
+<pre class="r"><code>installed &lt;- as.data.frame(installed.packages())
+write.csv(installed, &quot;installed_previously.csv&quot;)
+
+installedPreviously &lt;- read.csv(&quot;installed_previously.csv&quot;)
+baseR &lt;- as.data.frame(installed.packages())
+toInstall &lt;- setdiff(installedPreviously, baseR)
+
+install.packages(toInstall)
+
+
+packagelist &lt;- installed.packages()
+class(packagelist)
+packagelist[, 1]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="rcmdr-1" class="section level2">
+<h2>Rcmdr</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uQkNBXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uY29pblwiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLmRlcHRoVG9vbHNcIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5kb0J5XCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uRG9FXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uZG9leFwiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLkVBQ1NQSVJcIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5FQk1cIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5lcGFja1wiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLkVaUlwiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLkhIXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uSVBTVVJcIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5LTWdncGxvdDJcIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5tb3NhaWNcIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5NUEFTdGF0c1wiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLm9ybG9jYVwiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLnBsb3RCeUdyb3VwXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4ucWNjXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4ucXVhbFwiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLlNDREFcIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5zZWVnXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uU0xDXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uU01cIilcbmluc3RhbGwucGFja2FnZXMoXCJSY21kclBsdWdpbi5TdGF0aXN0aWNhbFVSVlwiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLnN0ZWVwbmVzc1wiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLnN1cnZpdmFsXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uVGVhY2hpbmdEZW1vc1wiKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJjbWRyUGx1Z2luLnRlbWlzXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiUmNtZHJQbHVnaW4uVUNBXCIpXG5gYGAifQ== -->
+<pre class="r"><code>install.packages(&quot;Rcmdr&quot;)
+install.packages(&quot;RcmdrPlugin.BCA&quot;)
+install.packages(&quot;RcmdrPlugin.coin&quot;)
+install.packages(&quot;RcmdrPlugin.depthTools&quot;)
+install.packages(&quot;RcmdrPlugin.doBy&quot;)
+install.packages(&quot;RcmdrPlugin.DoE&quot;)
+install.packages(&quot;RcmdrPlugin.doex&quot;)
+install.packages(&quot;RcmdrPlugin.EACSPIR&quot;)
+install.packages(&quot;RcmdrPlugin.EBM&quot;)
+install.packages(&quot;RcmdrPlugin.epack&quot;)
+install.packages(&quot;RcmdrPlugin.EZR&quot;)
+install.packages(&quot;RcmdrPlugin.HH&quot;)
+install.packages(&quot;RcmdrPlugin.IPSUR&quot;)
+install.packages(&quot;RcmdrPlugin.KMggplot2&quot;)
+install.packages(&quot;RcmdrPlugin.mosaic&quot;)
+install.packages(&quot;RcmdrPlugin.MPAStats&quot;)
+install.packages(&quot;RcmdrPlugin.orloca&quot;)
+install.packages(&quot;RcmdrPlugin.plotByGroup&quot;)
+install.packages(&quot;RcmdrPlugin.qcc&quot;)
+install.packages(&quot;RcmdrPlugin.qual&quot;)
+install.packages(&quot;RcmdrPlugin.SCDA&quot;)
+install.packages(&quot;RcmdrPlugin.seeg&quot;)
+install.packages(&quot;RcmdrPlugin.SLC&quot;)
+install.packages(&quot;RcmdrPlugin.SM&quot;)
+install.packages(&quot;RcmdrPlugin.StatisticalURV&quot;)
+install.packages(&quot;RcmdrPlugin.steepness&quot;)
+install.packages(&quot;RcmdrPlugin.survival&quot;)
+install.packages(&quot;RcmdrPlugin.TeachingDemos&quot;)
+install.packages(&quot;RcmdrPlugin.temis&quot;)
+install.packages(&quot;RcmdrPlugin.UCA&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiaHR0cHM6Ly9iaW9jb25kdWN0b3Iub3JnL2Jpb2NMaXRlLlJcIilcbmJpb2NMaXRlKClcbmBgYCJ9 -->
+<pre class="r"><code>source(&quot;https://bioconductor.org/biocLite.R&quot;)
+biocLite()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>install.packages(“tidyverse”)</p>
+<p>install.packages(“devtools”)</p>
+<p>devtools::install_github(“hadley/colformat”)</p>
+<p>devtools::install_github(“ropenscilabs/skimr”)</p>
+<p>install.packages(“hflights”)</p>
+<p>install.packages(“dbplyr”)</p>
+<p>install.packages(“xlsx”)</p>
+<p>require(devtools)</p>
+<p>install_github(“ProjectMOSAIC/mosaic”)</p>
 <p>install.packages(“jmv”)</p>
-<p>install.packages(“tm”) install.packages(“wordcloud”) install.packages(“<a href="https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz" class="uri">https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz</a>”, repos = NULL) install.packages(“SnowballC”) install.packages(“RColorBrewer”) install.packages(“tidytext”)</p>
+<p>install.packages(“wordcloud”)</p>
+<p>install.packages(“<a href="https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz" class="uri">https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz</a>”, repos = NULL)</p>
+<p>install.packages(“SnowballC”)</p>
+<p>install.packages(“RColorBrewer”)</p>
+<p>install.packages(“tidytext”)</p>
 <p>install.packages(“packrat”)</p>
 <p>install.packages(“testthat”)</p>
-<p>install.packages(“prettydoc”) install.packages(“rmdformats”)</p>
+<p>install.packages(“prettydoc”)</p>
+<p>install.packages(“rmdformats”)</p>
 <p>install.packages(c(“fivethirtyeight”, “tidyverse”, “knitr”, “kableExtra”, “ggthemes”))</p>
-<p>library(devtools) install_github(“SPSStoR”, username = “lebebr01”) library(SPSStoR)</p>
-<p>ip &lt;- installed.packages() pkgs.to.remove &lt;- ip[!(ip[, “Priority”] %in% c(“base”, “recommended”)), 1] sapply(pkgs.to.remove, remove.packages) sapply(pkgs.to.remove, install.packages)</p>
-<p>install.packages(“devtools”) devtools::install_github(“AndreaCirilloAC/updateR”) library(updateR) updateR(admin_password = &quot;“) # Where”PASSWORD&quot; stands for your system password</p>
+<p>library(devtools)</p>
+<p>install_github(“SPSStoR”, username = “lebebr01”)</p>
+<p>library(SPSStoR)</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXAgPC0gaW5zdGFsbGVkLnBhY2thZ2VzKClcbnBrZ3MudG8ucmVtb3ZlIDwtIGlwWyEoaXBbLCBcIlByaW9yaXR5XCJdICVpbiUgYyhcImJhc2VcIiwgXCJyZWNvbW1lbmRlZFwiKSksIDFdXG5zYXBwbHkocGtncy50by5yZW1vdmUsIHJlbW92ZS5wYWNrYWdlcylcbnNhcHBseShwa2dzLnRvLnJlbW92ZSwgaW5zdGFsbC5wYWNrYWdlcylcbmBgYCJ9 -->
+<pre class="r"><code>ip &lt;- installed.packages()
+pkgs.to.remove &lt;- ip[!(ip[, &quot;Priority&quot;] %in% c(&quot;base&quot;, &quot;recommended&quot;)), 1]
+sapply(pkgs.to.remove, remove.packages)
+sapply(pkgs.to.remove, install.packages)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG5kZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJBbmRyZWFDaXJpbGxvQUMvdXBkYXRlUlwiKVxubGlicmFyeSh1cGRhdGVSKVxudXBkYXRlUihhZG1pbl9wYXNzd29yZCA9IFwiXCIpICMjIFdoZXJlIFwiUEFTU1dPUkRcIiBzdGFuZHMgZm9yIHlvdXIgc3lzdGVtIHBhc3N3b3JkXG5cbmBgYCJ9 -->
+<pre class="r"><code>install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;AndreaCirilloAC/updateR&quot;)
+library(updateR)
+updateR(admin_password = &quot;&quot;) ## Where &quot;PASSWORD&quot; stands for your system password
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p>survival</p>
 <p>survminer</p>
 <p>install.packages(“tutorial”)</p>
@@ -2299,31 +2859,107 @@ $(document).ready(function () {
 <p>install.packages(“xplain”)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBIb3cgdG8gcmVtb3ZlIGFsbCB1c2VyIGluc3RhbGxlZCBwYWNrYWdlcyBpbiBSXG4jIGh0dHBzOi8vd3d3LnItYmxvZ2dlcnMuY29tL2hvdy10by1yZW1vdmUtYWxsLXVzZXItaW5zdGFsbGVkLXBhY2thZ2VzLWluLXIvXG5cbiMgY3JlYXRlIGEgbGlzdCBvZiBhbGwgaW5zdGFsbGVkIHBhY2thZ2VzXG5pcCA8LSBhcy5kYXRhLmZyYW1lKGluc3RhbGxlZC5wYWNrYWdlcygpKVxuaGVhZChpcClcbiMgaWYgeW91IHVzZSBNUk8sIG1ha2Ugc3VyZSB0aGF0IG5vIHBhY2thZ2VzIGluIHRoaXMgbGlicmFyeSB3aWxsIGJlIHJlbW92ZWRcbmlwIDwtIHN1YnNldChpcCwgIWdyZXBsKFwiTVJPXCIsIGlwJExpYlBhdGgpKVxuIyB3ZSBkb24ndCB3YW50IHRvIHJlbW92ZSBiYXNlIG9yIHJlY29tbWVuZGVkIHBhY2thZ2VzIGVpdGhlclxcXG5pcCA8LSBpcFshKGlwWyxcIlByaW9yaXR5XCJdICVpbiUgYyhcImJhc2VcIiwgXCJyZWNvbW1lbmRlZFwiKSksXVxuIyBkZXRlcm1pbmUgdGhlIGxpYnJhcnkgd2hlcmUgdGhlIHBhY2thZ2VzIGFyZSBpbnN0YWxsZWRcbnBhdGgubGliIDwtIHVuaXF1ZShpcCRMaWJQYXRoKVxuIyBjcmVhdGUgYSB2ZWN0b3Igd2l0aCBhbGwgdGhlIG5hbWVzIG9mIHRoZSBwYWNrYWdlcyB5b3Ugd2FudCB0byByZW1vdmVcbnBrZ3MudG8ucmVtb3ZlIDwtIGlwWywxXVxuaGVhZChwa2dzLnRvLnJlbW92ZSlcbiMgcmVtb3ZlIHRoZSBwYWNrYWdlc1xuc2FwcGx5KHBrZ3MudG8ucmVtb3ZlLCByZW1vdmUucGFja2FnZXMsIGxpYiA9IHBhdGgubGliKVxuYGBgIn0= -->
-<pre class="r"><code># How to remove all user installed packages in R
-# https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/
+<!-- rnb-source-begin eyJkYXRhIjpbIiMjIEhvdyB0byByZW1vdmUgYWxsIHVzZXIgaW5zdGFsbGVkIHBhY2thZ2VzIGluIFIiLCIjIyBodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9ob3ctdG8tcmVtb3ZlLWFsbC11c2VyLWluc3RhbGxlZC1wYWNrYWdlcy1pbi1yLyIsIiIsIiMjIGNyZWF0ZSBhIGxpc3Qgb2YgYWxsIGluc3RhbGxlZCBwYWNrYWdlcyIsImlwIDwtIGFzLmRhdGEuZnJhbWUoaW5zdGFsbGVkLnBhY2thZ2VzKCkpIiwiaGVhZChpcCkiLCIjIyBpZiB5b3UgdXNlIE1STywgbWFrZSBzdXJlIHRoYXQgbm8gcGFja2FnZXMgaW4gdGhpcyBsaWJyYXJ5IHdpbGwgYmUgcmVtb3ZlZCIsImlwIDwtIHN1YnNldChpcCwgIWdyZXBsKFwiTVJPXCIsIGlwJExpYlBhdGgpKSIsIiMjIHdlIGRvbid0IHdhbnQgdG8gcmVtb3ZlIGJhc2Ugb3IgcmVjb21tZW5kZWQgcGFja2FnZXMgZWl0aGVyXFwiLCJpcCA8LSBpcFshKGlwWyxcIlByaW9yaXR5XCJdICVpbiUgYyhcImJhc2VcIiwgXCJyZWNvbW1lbmRlZFwiKSksXSIsIiMjIGRldGVybWluZSB0aGUgbGlicmFyeSB3aGVyZSB0aGUgcGFja2FnZXMgYXJlIGluc3RhbGxlZCIsInBhdGgubGliIDwtIHVuaXF1ZShpcCRMaWJQYXRoKSIsIiMjIGNyZWF0ZSBhIHZlY3RvciB3aXRoIGFsbCB0aGUgbmFtZXMgb2YgdGhlIHBhY2thZ2VzIHlvdSB3YW50IHRvIHJlbW92ZSIsInBrZ3MudG8ucmVtb3ZlIDwtIGlwWywxXSIsImhlYWQocGtncy50by5yZW1vdmUpIiwiIyMgcmVtb3ZlIHRoZSBwYWNrYWdlcyIsInNhcHBseShwa2dzLnRvLnJlbW92ZSwgcmVtb3ZlLnBhY2thZ2VzLCBsaWIgPSBwYXRoLmxpYikiXX0= -->
+<pre class="r"><code>## How to remove all user installed packages in R
+## https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/
 
-# create a list of all installed packages
+## create a list of all installed packages
 ip &lt;- as.data.frame(installed.packages())
 head(ip)
-# if you use MRO, make sure that no packages in this library will be removed
+## if you use MRO, make sure that no packages in this library will be removed
 ip &lt;- subset(ip, !grepl(&quot;MRO&quot;, ip$LibPath))
-# we don't want to remove base or recommended packages either\
+## we don't want to remove base or recommended packages either\
 ip &lt;- ip[!(ip[,&quot;Priority&quot;] %in% c(&quot;base&quot;, &quot;recommended&quot;)),]
-# determine the library where the packages are installed
+## determine the library where the packages are installed
 path.lib &lt;- unique(ip$LibPath)
-# create a vector with all the names of the packages you want to remove
+## create a vector with all the names of the packages you want to remove
 pkgs.to.remove &lt;- ip[,1]
 head(pkgs.to.remove)
-# remove the packages
+## remove the packages
 sapply(pkgs.to.remove, remove.packages, lib = path.lib)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="schedule-r-script" class="section level2">
+<h2>Schedule R Script</h2>
+<p>library(knitr)</p>
+<p>library(markdown)</p>
+<p>knit(“SchedulePubMedAnalysis.Rmd”)</p>
+<p>markdownToHTML(“SchedulePubMedAnalysis.md”, “docs/SchedulePubMedAnalysis.html”)</p>
+<p>setwd(“~”)</p>
+<p>file.choose()</p>
+<p>library(rmarkdown)</p>
+<p>Preperation Packages Schedule R Script</p>
+<p><a href="https://github.com/jkeirstead/scholar" class="uri">https://github.com/jkeirstead/scholar</a></p>
+<p><a href="http://rogiersbart.blogspot.com.tr/2015/05/put-google-scholar-citations-on-your.html" class="uri">http://rogiersbart.blogspot.com.tr/2015/05/put-google-scholar-citations-on-your.html</a></p>
+<p><a href="http://tuxette.nathalievilla.org/?p=1682" class="uri">http://tuxette.nathalievilla.org/?p=1682</a></p>
+<p><a href="https://github.com/sunitj/scholar" class="uri">https://github.com/sunitj/scholar</a></p>
+<p><a href="https://tgmstat.wordpress.com/2013/09/11/schedule-rscript-with-cron/" class="uri">https://tgmstat.wordpress.com/2013/09/11/schedule-rscript-with-cron/</a></p>
+<p><a href="https://github.com/ropensci/git2r" class="uri">https://github.com/ropensci/git2r</a></p>
+<p>library(knitr)</p>
+<p>library(markdown)</p>
+<p>install.packages(‘data.table’)</p>
+<p>install.packages(‘knitr’)</p>
+<p>install.packages(‘miniUI’)</p>
+<p>install.packages(‘shiny’)</p>
+<p>install.packages(‘shinyFiles’)</p>
+<p>install.packages(“taskscheduleR”, repos = “<a href="http://www.datatailor.be/rcube" class="uri">http://www.datatailor.be/rcube</a>”, type = “source”)</p>
+<p>devtools::install_github(“bnosac/cronR”)</p>
+<p>install.packages(‘scholar’)</p>
+<p>install.packages(“git2r”)</p>
+</div>
+<div id="flatxml" class="section level2">
+<h2>flatxml</h2>
+<p><a href="http://www.zuckarelli.de/flatxml/articles/example/example.html" class="uri">http://www.zuckarelli.de/flatxml/articles/example/example.html</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueG1sZGF0YSA8LSBmbGF0eG1sOjpmeG1sX2ltcG9ydFhNTEZsYXQoXCJkYXRhL1BhdGhvbG9neVR1cmtleS54bWxcIilcblxuYGBgIn0= -->
+<pre class="r"><code>xmldata &lt;- flatxml::fxml_importXMLFlat(&quot;data/PathologyTurkey.xml&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="roomba" class="section level2">
+<h2>roomba</h2>
+<p>General purpose API response tidier</p>
+<p><a href="https://github.com/ropenscilabs/roomba/" class="uri">https://github.com/ropenscilabs/roomba/</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm9vbWJhOjpzaGlueV9yb29tYmEoKVxuYGBgIn0= -->
+<pre class="r"><code>roomba::shiny_roomba()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="tufterhandout" class="section level2">
+<h2>tufterhandout</h2>
+<p>Tufte-style html document format for rmarkdown</p>
+<p><a href="https://cran.r-project.org/web/packages/tufterhandout/index.html" class="uri">https://cran.r-project.org/web/packages/tufterhandout/index.html</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgaW5zdGFsbC5wYWNrYWdlcyhcInR1ZnRlcmhhbmRvdXRcIilcbmxpYnJhcnkodHVmdGVyaGFuZG91dClcbmBgYCJ9 -->
+<pre class="r"><code>## install.packages(&quot;tufterhandout&quot;)
+library(tufterhandout)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="paper" class="section level2">
+<h2>papeR</h2>
+<p><a href="https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html" class="uri">https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html</a></p>
+</div>
+<div id="tm-1" class="section level2">
+<h2>tm</h2>
+<p>install.packages(“tm”)</p>
+<p><a href="https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf" class="uri">https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf</a></p>
+<hr />
+<p><a href="https://atom.io/packages/hydrogen" class="uri">https://atom.io/packages/hydrogen</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBQYWNrYWdlcyBVc2VkIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgppbnN0YWxsLnBhY2thZ2VzKCJmb3JtYXR0YWJsZSIpCgppbnN0YWxsLnBhY2thZ2VzKCJjb25mbGljdGVkIikKCgoKaW5zdGFsbC5wYWNrYWdlcygiZGV2dG9vbHMiKQpsaWJyYXJ5KCJkZXZ0b29scyIpCmluc3RhbGxfZ2l0aHViKCJuZXVyb3BzeWNob2xvZ3kvcHN5Y2hvLlIiKQpsaWJyYXJ5KCJwc3ljaG8iKQoKaW5zdGFsbC5wYWNrYWdlcygic3R5bGVyIikKCgoKCiMjIERhdGEgTWFuaXB1bGF0aW9uIyMKaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIikKIyB0aWR5dmVyc2UgY29udGFpbnMgbWFueSBwYWNrYWdlcyBmb3IgZGF0YSBtYW5pcHVsYXRpb24sIGdyYXBocyBldGMKaW5zdGFsbC5wYWNrYWdlcygic3BsaXRzdGFja3NoYXBlIikKIyBSZWFsbHkgbmljZSBzeW50YXggZm9yIGV4cGFuZGluZyBkYXRhc2V0cwoKIyBCYXNpYyBFcGkKaW5zdGFsbC5wYWNrYWdlcygiZXBpUiIpCiMgU29tZSB1c2VmdWwgZXBpdG9vbHMgZXNwZWNpYWxseSAyKjIgdGFibGVzIGFuZCBzdHJhdGlmaWVkIE1IIE9kZHMKaW5zdGFsbC5wYWNrYWdlcygibG10ZXN0IikKIyBmb3IgZG9pbmcgbGlrZWxpaG9vZCByYXRpbyB0ZXN0cyBiZXR3ZWVuIG1vZGVscwoKIyBQb2lzc29uICYgQ294IFJlZ3Jlc3Npb24gJiBTdXJ2aXZhbCBBbmFseXNpcwppbnN0YWxsLnBhY2thZ2VzKCJFcGkiKQojIFRvb2xzIGZvciBMZXhpcyBNb2RlbHMKaW5zdGFsbC5wYWNrYWdlcygicG9wRXBpIikKIyBFeHRyYSB0b29scyB0byBnbyB3aXRoICdFcGknIGFuZCBtYWtlIG5pY2UgcmF0ZSB0YWJsZXMKaW5zdGFsbC5wYWNrYWdlcygic3Vydml2YWwiKQojIGZvciBzdXJ2aWFsIGFuYWx5c2lzLCBrYXBsYW4tbWVpZXIgcGxvdHMgYW5kIGNveCByZWdyZXNzaW9uCmluc3RhbGwucGFja2FnZXMoInN1cnZtaW5lciIpCiMgUmVhbGx5IG5pY2UgS00gcGxvdHMhCgojIFJhbmRvbS1FZmZlY3RzIE1vZGVrcwppbnN0YWxsLnBhY2thZ2VzKCJsbWU0IikKIyBGb3IgZml0dGluZyByYW5kb20tZWZmZWN0cyBtb2RlbHMKaW5zdGFsbC5wYWNrYWdlcygic2pzdGF0cyIpCiMgRm9yIGludHJhY2xhc3MgY29ycmVsYXRpb24gY29lZmZpZWNpZW50cyBmcm9tIFJhbmRvbS1lZmZlY3RzIG1vZGVscwoKIyBNdWx0aXBsZSBJbXB1dGF0aW9uCmluc3RhbGwucGFja2FnZXMoIm1pY2UiKQojIEZvciBtdWx0aXBsZSBpbXB1dGF0aW9uCgppbnN0YWxsLnBhY2thZ2VzKCJhcnNlbmFsIikKIyBSZWFsbHkgbmljZSBzdW1tbWFyeSB0YWJsZXMKCiMgQ29tcGxleCBzdXJ2ZXkgZGF0YSBhbmFseXNpcwppbnN0YWxsLnBhY2thZ2VzKCJzdXJ2ZXkiKQojIEZvciBoYW5kbGluZyBjb21wbGV4IHN1cnZleSBkYXRhCmluc3RhbGwucGFja2FnZXMoIklDQyIpCiMgQWx0ZXJuYXRpdmUgbWV0aG9kcyBmb3IgSUNDIGNhbGN1bGF0aW9uIGZyb20gc3VydmV5IGRhdGEKCiMgTWV0YS1hbmFseXNpcwppbnN0YWxsLnBhY2thZ2VzKCJtZXRhIikKaW5zdGFsbC5wYWNrYWdlcygibWV0YWZvciIpCgppbnN0YWxsLnBhY2thZ2VzKCJ3b3JrZmxvd3IiKQoKCmluc3RhbGwucGFja2FnZXMoIkRpYWdyYW1tZVIiKQoKCmluc3RhbGwucGFja2FnZXMoInRhbmdyYW0iKQoKCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigibGJ1c2V0dC9pbnNlcnRfdGFibGUiKQoKCgojIyBPYnRhaW4gbmFtZXMgb2YgYWxsIHBhY2thZ2VzIG9uIENSQU4KbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzIDwtIHJvd25hbWVzKGF2YWlsYWJsZS5wYWNrYWdlcygpKQoKIyMgRXh0cmFjdCBwYWNrYWdlcyBuYW1lcyB0aGF0IGNvbnRhaW4gUmNtZHIKUmNtZHIucmVsYXRlZC5wYWNrYWdlcyA8LSBuYW1lcy5hdmFpbGFibGUucGFja2FnZXNbZ3JlcCgiUmNtZHIiLCBuYW1lcy5hdmFpbGFibGUucGFja2FnZXMpXQpSY21kci5yZWxhdGVkLnBhY2thZ2VzCgojIyBJbnN0YWxsIHRoZXNlIHBhY2thZ2VzCmluc3RhbGwucGFja2FnZXMocGtncyA9IFJjbWRyLnJlbGF0ZWQucGFja2FnZXMpCgoKCgoKCgoKCgp1c2VQYWNrYWdlIDwtIGZ1bmN0aW9uKHApIHsKICBpZiAoIWlzLmVsZW1lbnQocCwgaW5zdGFsbGVkLnBhY2thZ2VzKClbLCAxXSkpIHsKICAgIGluc3RhbGwucGFja2FnZXMocCwgZGVwID0gVFJVRSkKICB9CiAgcmVxdWlyZShwLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpCn0KCgpmaWxlLmVkaXQoIn4vRGVza3RvcC9mb28vLlJwcm9maWxlIikKIyBUaGlzIG9wZW5zIHVwIGEgc2NyaXB0IHdpbmRvdywgd2l0aGluIHdoaWNoIHlvdSBjYW4gZW50ZXIgaW4geW91ciBsaWJyYXJ5IGNvbW1hbmRzCmxpYnJhcnkoZ2dwbG90MikKbGlicmFyeShzY2FsZXMpCmxpYnJhcnkocGx5cikKbGlicmFyeShyZXNoYXBlMikKCgoKCgoKCgoKaW5zdGFsbC5wYWNrYWdlcygic3RhcmdhemVyIikKaW5zdGFsbC5wYWNrYWdlcygicGFuZGVyIikKaW5zdGFsbC5wYWNrYWdlcygidGFibGVzIikKaW5zdGFsbC5wYWNrYWdlcygiYXNjaWkiKQppbnN0YWxsLnBhY2thZ2VzKCJ4dGFibGUiKQoKZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJoYWRsZXkvZHBseXIiKQoKCmluc3RhbGwucGFja2FnZXMoImdhcG1pbmRlciIpCgppbnN0YWxsLnBhY2thZ2VzKCJhbGx1dmlhbCIpCgoKdmlnbmV0dGUoImRhdGFiYXNlcyIsIHBhY2thZ2UgPSAiZHBseXIiKQoKaW5zdGFsbC5wYWNrYWdlcygicm9idXN0YmFzZSIpCmluc3RhbGwucGFja2FnZXMoImluc3VyYW5jZURhdGEiKQoKaW5zdGFsbC5wYWNrYWdlcygiTGFobWFuIikKCgppbnN0YWxsLnBhY2thZ2VzKCJ0aWR5dmVyc2UiKQoKaW5zdGFsbC5wYWNrYWdlcygicWRhcCIpCgppbnN0YWxsLnBhY2thZ2VzKCJvcGVueGxzeCIpCgoKZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJrYXNzYW1iYXJhL3IyZXhjZWwiKQoKaW5zdGFsbC5wYWNrYWdlcygiV3JpdGVYTFMiKQppbnN0YWxsLnBhY2thZ2VzKCJYTENvbm5lY3QiKQpsaWJyYXJ5KFhMQ29ubmVjdCkKCgppZiAoIXJlcXVpcmUod29yZGNsb3VkKSkgewogIGluc3RhbGwucGFja2FnZXMoIndvcmRjbG91ZCIpCiAgbGlicmFyeSh3b3JkY2xvdWQpCn0KCgppbnN0YWxsZWQgPC0gYXMuZGF0YS5mcmFtZShpbnN0YWxsZWQucGFja2FnZXMoKSkKd3JpdGUuY3N2KGluc3RhbGxlZCwgImluc3RhbGxlZF9wcmV2aW91c2x5LmNzdiIpCgppbnN0YWxsZWRQcmV2aW91c2x5IDwtIHJlYWQuY3N2KCJpbnN0YWxsZWRfcHJldmlvdXNseS5jc3YiKQpiYXNlUiA8LSBhcy5kYXRhLmZyYW1lKGluc3RhbGxlZC5wYWNrYWdlcygpKQp0b0luc3RhbGwgPC0gc2V0ZGlmZihpbnN0YWxsZWRQcmV2aW91c2x5LCBiYXNlUikKCmluc3RhbGwucGFja2FnZXModG9JbnN0YWxsKQoKCnBhY2thZ2VsaXN0IDwtIGluc3RhbGxlZC5wYWNrYWdlcygpCmNsYXNzKHBhY2thZ2VsaXN0KQpwYWNrYWdlbGlzdFssIDFdCgojIEFsZ0Rlc2lnbiAgICAgICAgICAgICAgICAgICAgICAgICBCQ0EgICAgICAgICAgICAgICAgICAgQmlhc2VkVXJuCiMgIkFsZ0Rlc2lnbiIgICAgICAgICAgICAgICAgICAgICAgICJCQ0EiICAgICAgICAgICAgICAgICAiQmlhc2VkVXJuIgojIEJzTUQgICAgICAgICAgICAgICAgICAgICAgICAgIGNhICAgICAgICAgICAgICAgICAgICAgICAgIGNsdgojICJCc01EIiAgICAgICAgICAgICAgICAgICAgICAgICJjYSIgICAgICAgICAgICAgICAgICAgICAgICJjbHYiCiMgY29pbiAgICAgICAgICAgICAgICAgICAgY29tYmluYXQgICAgICAgICAgICAgICAgIGNvbmYuZGVzaWduCiMgImNvaW4iICAgICAgICAgICAgICAgICAgImNvbWJpbmF0IiAgICAgICAgICAgICAgICJjb25mLmRlc2lnbiIKIyBkYXRlICAgICAgICAgICAgICAgICAgICAgIGRlbGRpciAgICAgICAgICAgICAgICAgIGRlcHRoVG9vbHMKIyAiZGF0ZSIgICAgICAgICAgICAgICAgICAgICJkZWxkaXIiICAgICAgICAgICAgICAgICJkZXB0aFRvb2xzIgojIERpY2VEZXNpZ24gICAgICAgICAgICAgICAgICAgIERvRS5iYXNlICAgICAgICAgICAgICAgICBEb0Uud3JhcHBlcgojICJEaWNlRGVzaWduIiAgICAgICAgICAgICAgICAgICJEb0UuYmFzZSIgICAgICAgICAgICAgICAiRG9FLndyYXBwZXIiCiMgZG9QYXJhbGxlbCAgICAgICAgICAgICAgICAgICAgICBFTm1pc2MgICAgICAgICAgICAgICAgICAgICAgICBlcGlSCiMgImRvUGFyYWxsZWwiICAgICAgICAgICAgICAgICAgICAiRU5taXNjIiAgICAgICAgICAgICAgICAgICAgICAiZXBpUiIKIyBlc3RpbWFiaWxpdHkgICAgICAgICAgICAgICAgICAgICAgICAgIGV6ICAgICAgICAgICAgICAgICAgIGZsZXhjbHVzdAojICJlc3RpbWFiaWxpdHkiICAgICAgICAgICAgICAgICAgICAgICAgImV6IiAgICAgICAgICAgICAgICAgImZsZXhjbHVzdCIKIyBmb3JlYWNoICAgICAgICAgICAgICAgICAgICBmcmFjZGlmZiAgICAgICAgICAgICAgICAgICAgICAgIEZyRjIKIyAiZm9yZWFjaCIgICAgICAgICAgICAgICAgICAiZnJhY2RpZmYiICAgICAgICAgICAgICAgICAgICAgICJGckYyIgojIGdndGhlbWVzICAgICAgICAgICAgICAgICAgICAgZ29mdGVzdCAgICAgICAgICAgICAgICAgICAgZ3JpZEJhc2UKIyAiZ2d0aGVtZXMiICAgICAgICAgICAgICAgICAgICJnb2Z0ZXN0IiAgICAgICAgICAgICAgICAgICJncmlkQmFzZSIKIyBpZ3JhcGggICAgICAgICAgICAgICAgICAgICAgIGlybGJhICAgICAgICAgICAgICAgICAgIGl0ZXJhdG9ycwojICJpZ3JhcGgiICAgICAgICAgICAgICAgICAgICAgImlybGJhIiAgICAgICAgICAgICAgICAgIml0ZXJhdG9ycyIKIyBsaHMgICAgICAgICAgICAgICAgICAgICBsc21lYW5zICAgICAgICAgICAgICAgICAgbW9kZWx0b29scwojICJsaHMiICAgICAgICAgICAgICAgICAgICJsc21lYW5zIiAgICAgICAgICAgICAgICAibW9kZWx0b29scyIKIyBOTFAgICAgICAgICAgICAgICAgICAgICAgICAgTk1GICAgICAgICAgICAgICAgICAgICAgb3JkaW5hbAojICJOTFAiICAgICAgICAgICAgICAgICAgICAgICAiTk1GIiAgICAgICAgICAgICAgICAgICAib3JkaW5hbCIKIyBvcmxvY2EgICAgICAgICAgICAgICAgICAgb3Jsb2NhLmVzICAgICAgICAgICAgICAgICAgICBwa2dtYWtlcgojICJvcmxvY2EiICAgICAgICAgICAgICAgICAib3Jsb2NhLmVzIiAgICAgICAgICAgICAgICAgICJwa2dtYWtlciIKIyBwb2x5Y2xpcCAgICAgICAgICAgICAgICAgICAgcXVhZHByb2cgICAgICAgICAgICAgICAgICAgIHF1YW50bW9kCiMgInBvbHljbGlwIiAgICAgICAgICAgICAgICAgICJxdWFkcHJvZyIgICAgICAgICAgICAgICAgICAicXVhbnRtb2QiCiMgUjJIVE1MICAgICAgICAgICAgICAgICAgIHJhbmR0ZXN0cyAgICAgICAgICAgICBSY21kclBsdWdpbi5CQ0EKIyAiUjJIVE1MIiAgICAgICAgICAgICAgICAgInJhbmR0ZXN0cyIgICAgICAgICAgICJSY21kclBsdWdpbi5CQ0EiCiMgUmNtZHJQbHVnaW4uY29pbiAgICAgIFJjbWRyUGx1Z2luLmRlcHRoVG9vbHMgICAgICAgICAgICAgUmNtZHJQbHVnaW4uRG9FCiMgIlJjbWRyUGx1Z2luLmNvaW4iICAgICJSY21kclBsdWdpbi5kZXB0aFRvb2xzIiAgICAgICAgICAgIlJjbWRyUGx1Z2luLkRvRSIKIyBSY21kclBsdWdpbi5kb2V4ICAgICAgICAgUmNtZHJQbHVnaW4uRUFDU1BJUiAgICAgICAgICAgICBSY21kclBsdWdpbi5FQk0KIyAiUmNtZHJQbHVnaW4uZG9leCIgICAgICAgIlJjbWRyUGx1Z2luLkVBQ1NQSVIiICAgICAgICAgICAiUmNtZHJQbHVnaW4uRUJNIgojIFJjbWRyUGx1Z2luLmVwYWNrICAgICAgICAgICAgIFJjbWRyUGx1Z2luLkVaUiAgICAgICBSY21kclBsdWdpbi5LTWdncGxvdDIKIyAiUmNtZHJQbHVnaW4uZXBhY2siICAgICAgICAgICAiUmNtZHJQbHVnaW4uRVpSIiAgICAgIlJjbWRyUGx1Z2luLktNZ2dwbG90MiIKIyBSY21kclBsdWdpbi5tb3NhaWMgICAgICAgIFJjbWRyUGx1Z2luLk1QQVN0YXRzICAgICAgICAgIFJjbWRyUGx1Z2luLm9ybG9jYQojICJSY21kclBsdWdpbi5tb3NhaWMiICAgICAgIlJjbWRyUGx1Z2luLk1QQVN0YXRzIiAgICAgICAgIlJjbWRyUGx1Z2luLm9ybG9jYSIKIyBSY21kclBsdWdpbi5wbG90QnlHcm91cCAgICAgICAgICAgIFJjbWRyUGx1Z2luLnF1YWwgICAgICAgICAgICBSY21kclBsdWdpbi5TQ0RBCiMgIlJjbWRyUGx1Z2luLnBsb3RCeUdyb3VwIiAgICAgICAgICAiUmNtZHJQbHVnaW4ucXVhbCIgICAgICAgICAgIlJjbWRyUGx1Z2luLlNDREEiCiMgUmNtZHJQbHVnaW4uc2VlZyAgICAgICAgICAgICBSY21kclBsdWdpbi5TTEMgICAgICAgICAgICAgIFJjbWRyUGx1Z2luLlNNCiMgIlJjbWRyUGx1Z2luLnNlZWciICAgICAgICAgICAiUmNtZHJQbHVnaW4uU0xDIiAgICAgICAgICAgICJSY21kclBsdWdpbi5TTSIKIyBSY21kclBsdWdpbi5zdGVlcG5lc3MgICAgICAgIFJjbWRyUGx1Z2luLnN1cnZpdmFsICAgUmNtZHJQbHVnaW4uVGVhY2hpbmdEZW1vcwojICJSY21kclBsdWdpbi5zdGVlcG5lc3MiICAgICAgIlJjbWRyUGx1Z2luLnN1cnZpdmFsIiAiUmNtZHJQbHVnaW4uVGVhY2hpbmdEZW1vcyIKIyBSY21kclBsdWdpbi50ZW1pcyAgICAgICAgICAgICBSY21kclBsdWdpbi5VQ0EgICAgICAgICAgICAgICBSY3BwQXJtYWRpbGxvCiMgIlJjbWRyUGx1Z2luLnRlbWlzIiAgICAgICAgICAgIlJjbWRyUGx1Z2luLlVDQSIgICAgICAgICAgICAgIlJjcHBBcm1hZGlsbG8iCiMgcmVnaXN0cnkgICAgICAgICAgICAgICAgICAgICByZXNoYXBlICAgICAgICAgICAgICAgICAgICBybmd0b29scwojICJyZWdpc3RyeSIgICAgICAgICAgICAgICAgICAgInJlc2hhcGUiICAgICAgICAgICAgICAgICAgInJuZ3Rvb2xzIgojIHJwYXJ0LnBsb3QgICAgICAgICAgICAgICAgICAgICAgICAgcnNtICAgICAgICAgICAgICAgc2NhdHRlcnBsb3QzZAojICJycGFydC5wbG90IiAgICAgICAgICAgICAgICAgICAgICAgInJzbSIgICAgICAgICAgICAgInNjYXR0ZXJwbG90M2QiCiMgU0NNQSAgICAgICAgICAgICAgICAgICAgICAgIFNDUlQgICAgICAgICAgICAgICAgICAgICAgICBTQ1ZBCiMgIlNDTUEiICAgICAgICAgICAgICAgICAgICAgICJTQ1JUIiAgICAgICAgICAgICAgICAgICAgICAiU0NWQSIKIyBzZWVnICAgICAgICAgICAgICAgICAgICAgc2ZzbWlzYyAgICAgICAgICAgICAgICAgICAgc2dlb3N0YXQKIyAic2VlZyIgICAgICAgICAgICAgICAgICAgInNmc21pc2MiICAgICAgICAgICAgICAgICAgInNnZW9zdGF0IgojIHNsYW0gICAgICAgICAgICAgICAgICAgICAgICAgU0xDICAgICAgICAgICAgICAgICAgICBzcGF0c3RhdAojICJzbGFtIiAgICAgICAgICAgICAgICAgICAgICAgIlNMQyIgICAgICAgICAgICAgICAgICAic3BhdHN0YXQiCiMgc3BhdHN0YXQudXRpbHMgICAgICAgICAgICAgICAgICAgc3RlZXBuZXNzICAgICAgICAgICAgICAgVGVhY2hpbmdEZW1vcwojICJzcGF0c3RhdC51dGlscyIgICAgICAgICAgICAgICAgICJzdGVlcG5lc3MiICAgICAgICAgICAgICJUZWFjaGluZ0RlbW9zIgojIHRlbnNvciAgICAgICAgICAgICAgICAgICAgdGltZURhdGUgICAgICAgICAgICAgICAgICAgICB0a3JwbG90CiMgInRlbnNvciIgICAgICAgICAgICAgICAgICAidGltZURhdGUiICAgICAgICAgICAgICAgICAgICJ0a3JwbG90IgojIHRtICAgICAgICAgICAgICAgICAgICAgdHNlcmllcyAgICAgICAgICAgICAgICAgICAgICAgICBUVFIKIyAidG0iICAgICAgICAgICAgICAgICAgICJ0c2VyaWVzIiAgICAgICAgICAgICAgICAgICAgICAgIlRUUiIKIyB1Y21pbmYgICAgICAgICAgICAgICAgICAgICAgICAgdmNkICAgICAgICAgICAgICAgICAgICAgICAgIHh0cwojICJ1Y21pbmYiICAgICAgICAgICAgICAgICAgICAgICAidmNkIiAgICAgICAgICAgICAgICAgICAgICAgInh0cyIKIyBhYmluZCAgICAgICAgICAgICAgICAgICAgIGFjZXBhY2sgICAgICAgICAgICAgICBBbm5vdGF0aW9uRGJpCiMgImFiaW5kIiAgICAgICAgICAgICAgICAgICAiYWNlcGFjayIgICAgICAgICAgICAgIkFubm90YXRpb25EYmkiCiMgYXBscGFjayAgICAgICAgICAgICAgICAgICAgICAgICBhcm0gICAgICAgICAgICAgICAgICBhc3NlcnR0aGF0CiMgImFwbHBhY2siICAgICAgICAgICAgICAgICAgICAgICAiYXJtIiAgICAgICAgICAgICAgICAiYXNzZXJ0dGhhdCIKIyBiYWNrcG9ydHMgICAgICAgICAgICAgICAgICAgICAgICBiYXNlICAgICAgICAgICAgICAgICAgIGJhc2U2NGVuYwojICJiYWNrcG9ydHMiICAgICAgICAgICAgICAgICAgICAgICJiYXNlIiAgICAgICAgICAgICAgICAgImJhc2U2NGVuYyIKIyBCSCAgICAgICAgICAgICAgICAgICAgICAgYmluZHIgICAgICAgICAgICAgICAgICAgIGJpbmRyY3BwCiMgIkJIIiAgICAgICAgICAgICAgICAgICAgICJiaW5kciIgICAgICAgICAgICAgICAgICAiYmluZHJjcHAiCiMgQmlvYmFzZSAgICAgICAgICAgICAgICBCaW9jR2VuZXJpY3MgICAgICAgICAgICAgICBCaW9jSW5zdGFsbGVyCiMgIkJpb2Jhc2UiICAgICAgICAgICAgICAiQmlvY0dlbmVyaWNzIiAgICAgICAgICAgICAiQmlvY0luc3RhbGxlciIKIyBiaXQgICAgICAgICAgICAgICAgICAgICAgIGJpdDY0ICAgICAgICAgICAgICAgICAgICAgIGJpdG9wcwojICJiaXQiICAgICAgICAgICAgICAgICAgICAgImJpdDY0IiAgICAgICAgICAgICAgICAgICAgImJpdG9wcyIKIyBibG9iICAgICAgICAgICAgICAgICAgICAgICAgYm9vdCAgICAgICAgICAgICAgICAgICAgICAgYnJvb20KIyAiYmxvYiIgICAgICAgICAgICAgICAgICAgICAgImJvb3QiICAgICAgICAgICAgICAgICAgICAgImJyb29tIgojIGNhciAgICAgICAgICAgICAgICAgICAgIGNhVG9vbHMgICAgICAgICAgICAgICAgICBjZWxscmFuZ2VyCiMgImNhciIgICAgICAgICAgICAgICAgICAgImNhVG9vbHMiICAgICAgICAgICAgICAgICJjZWxscmFuZ2VyIgojIGNoZWNrbWF0ZSAgICAgICAgICAgICAgICAgICAgICAgY2xhc3MgICAgICAgICAgICAgICAgICAgICBjbHVzdGVyCiMgImNoZWNrbWF0ZSIgICAgICAgICAgICAgICAgICAgICAiY2xhc3MiICAgICAgICAgICAgICAgICAgICJjbHVzdGVyIgojIGNvZGEgICAgICAgICAgICAgICAgICAgY29kZXRvb2xzICAgICAgICAgICAgICAgICAgY29sb3JzcGFjZQojICJjb2RhIiAgICAgICAgICAgICAgICAgImNvZGV0b29scyIgICAgICAgICAgICAgICAgImNvbG9yc3BhY2UiCiMgY29tcGlsZXIgICAgICAgICAgICAgICAgICAgICAgICBjdXJsICAgICAgICAgICAgICAgICAgZGF0YS50YWJsZQojICJjb21waWxlciIgICAgICAgICAgICAgICAgICAgICAgImN1cmwiICAgICAgICAgICAgICAgICJkYXRhLnRhYmxlIgojIGRhdGFzZXRzICAgICAgICAgICAgICAgICAgICAgICAgIERCSSAgICAgICAgICAgICAgICAgICBkaWNocm9tYXQKIyAiZGF0YXNldHMiICAgICAgICAgICAgICAgICAgICAgICAiREJJIiAgICAgICAgICAgICAgICAgImRpY2hyb21hdCIKIyBkaWdlc3QgICAgICAgICAgICAgICAgICAgICAgIGRwbHlyICAgICAgICAgICAgICAgICAgICAgICBlMTA3MQojICJkaWdlc3QiICAgICAgICAgICAgICAgICAgICAgImRwbHlyIiAgICAgICAgICAgICAgICAgICAgICJlMTA3MSIKIyBlZmZlY3RzICAgICAgICAgICAgICAgICAgICBldmFsdWF0ZSAgICAgICAgICAgICAgICAgICAgIGZvcmNhdHMKIyAiZWZmZWN0cyIgICAgICAgICAgICAgICAgICAiZXZhbHVhdGUiICAgICAgICAgICAgICAgICAgICJmb3JjYXRzIgojIGZvcmVpZ24gICAgICAgICAgICAgICAgICAgICBmb3JtYXRSICAgICAgICAgICAgICAgICAgICAgRm9ybXVsYQojICJmb3JlaWduIiAgICAgICAgICAgICAgICAgICAiZm9ybWF0UiIgICAgICAgICAgICAgICAgICAgIkZvcm11bGEiCiMgZ2RhdGEgICAgICAgICAgICAgICAgICAgICBnZ3Bsb3QyICAgICAgICAgICAgICAgICAgICAgICBnZ3ZpcwojICJnZGF0YSIgICAgICAgICAgICAgICAgICAgImdncGxvdDIiICAgICAgICAgICAgICAgICAgICAgImdndmlzIgojIGdsdWUgICAgICAgICAgICAgICAgICAgIGdyYXBoaWNzICAgICAgICAgICAgICAgICAgIGdyRGV2aWNlcwojICJnbHVlIiAgICAgICAgICAgICAgICAgICJncmFwaGljcyIgICAgICAgICAgICAgICAgICJnckRldmljZXMiCiMgZ3JpZCAgICAgICAgICAgICAgICAgICBncmlkRXh0cmEgICAgICAgICAgICAgICAgICAgICAgZ3RhYmxlCiMgImdyaWQiICAgICAgICAgICAgICAgICAiZ3JpZEV4dHJhIiAgICAgICAgICAgICAgICAgICAgImd0YWJsZSIKIyBndG9vbHMgICAgICAgICAgICAgICAgICAgICAgIGhhdmVuICAgICAgICAgICAgICAgICAgICAgICBoaWdocgojICJndG9vbHMiICAgICAgICAgICAgICAgICAgICAgImhhdmVuIiAgICAgICAgICAgICAgICAgICAgICJoaWdociIKIyBIbWlzYyAgICAgICAgICAgICAgICAgICAgICAgICBobXMgICAgICAgICAgICAgICAgICAgaHRtbFRhYmxlCiMgIkhtaXNjIiAgICAgICAgICAgICAgICAgICAgICAgImhtcyIgICAgICAgICAgICAgICAgICJodG1sVGFibGUiCiMgaHRtbHRvb2xzICAgICAgICAgICAgICAgICBodG1sd2lkZ2V0cyAgICAgICAgICAgICAgICAgICAgICBodHRwdXYKIyAiaHRtbHRvb2xzIiAgICAgICAgICAgICAgICJodG1sd2lkZ2V0cyIgICAgICAgICAgICAgICAgICAgICJodHRwdXYiCiMgaHR0ciAgICAgICAgICAgICAgICAgICAgIElSYW5nZXMgICAgICAgICAgICAgICAgICAgIGpzb25saXRlCiMgImh0dHIiICAgICAgICAgICAgICAgICAgICJJUmFuZ2VzIiAgICAgICAgICAgICAgICAgICJqc29ubGl0ZSIKIyBLZXJuU21vb3RoICAgICAgICAgICAgICAgICAgICAgICBrbml0ciAgICAgICAgICAgICAgICAgICAgbGFiZWxpbmcKIyAiS2VyblNtb290aCIgICAgICAgICAgICAgICAgICAgICAia25pdHIiICAgICAgICAgICAgICAgICAgImxhYmVsaW5nIgojIGxhdHRpY2UgICAgICAgICAgICAgICAgbGF0dGljZUV4dHJhICAgICAgICAgICAgICAgICAgICBsYXp5ZXZhbAojICJsYXR0aWNlIiAgICAgICAgICAgICAgImxhdHRpY2VFeHRyYSIgICAgICAgICAgICAgICAgICAibGF6eWV2YWwiCiMgbGVhcHMgICAgICAgICAgICAgICAgICAgICAgICBsbWU0ICAgICAgICAgICAgICAgICAgICAgIGxtdGVzdAojICJsZWFwcyIgICAgICAgICAgICAgICAgICAgICAgImxtZTQiICAgICAgICAgICAgICAgICAgICAibG10ZXN0IgojIGx1YnJpZGF0ZSAgICAgICAgICAgICAgICAgICAgbWFncml0dHIgICAgICAgICAgICAgICAgICAgIG1hcmtkb3duCiMgImx1YnJpZGF0ZSIgICAgICAgICAgICAgICAgICAibWFncml0dHIiICAgICAgICAgICAgICAgICAgIm1hcmtkb3duIgojIE1BU1MgICAgICAgICAgICAgICAgICAgICAgTWF0cml4ICAgICAgICAgICAgICAgICAgbWF0cml4Y2FsYwojICJNQVNTIiAgICAgICAgICAgICAgICAgICAgIk1hdHJpeCIgICAgICAgICAgICAgICAgIm1hdHJpeGNhbGMiCiMgTWF0cml4TW9kZWxzICAgICAgICAgICAgICAgICAgICAgbWVtb2lzZSAgICAgICAgICAgICAgICAgICAgIG1ldGhvZHMKIyAiTWF0cml4TW9kZWxzIiAgICAgICAgICAgICAgICAgICAibWVtb2lzZSIgICAgICAgICAgICAgICAgICAgIm1ldGhvZHMiCiMgbWdjdiAgICAgICAgICAgICAgICAgICAgICAgICAgbWkgICAgICAgICAgICAgICAgICAgICAgICBtaW1lCiMgIm1nY3YiICAgICAgICAgICAgICAgICAgICAgICAgIm1pIiAgICAgICAgICAgICAgICAgICAgICAibWltZSIKIyBtaW5xYSAgICAgICAgICAgICAgICAgICAgICBtbm9ybXQgICAgICAgICAgICAgICAgICAgICAgbW9kZWxyCiMgIm1pbnFhIiAgICAgICAgICAgICAgICAgICAgIm1ub3JtdCIgICAgICAgICAgICAgICAgICAgICJtb2RlbHIiCiMgbXVsdGNvbXAgICAgICAgICAgICAgICAgICAgICBtdW5zZWxsICAgICAgICAgICAgICAgICAgICAgbXZ0bm9ybQojICJtdWx0Y29tcCIgICAgICAgICAgICAgICAgICAgIm11bnNlbGwiICAgICAgICAgICAgICAgICAgICJtdnRub3JtIgojIG5sbWUgICAgICAgICAgICAgICAgICAgICAgbmxvcHRyICAgICAgICAgICAgICAgICAgICAgICAgbm5ldAojICJubG1lIiAgICAgICAgICAgICAgICAgICAgIm5sb3B0ciIgICAgICAgICAgICAgICAgICAgICAgIm5uZXQiCiMgbm9ydGVzdCAgICAgICAgICAgICAgICAgICAgIG9wZW5zc2wgICAgICAgICAgICAgICAgICAgIHBhcmFsbGVsCiMgIm5vcnRlc3QiICAgICAgICAgICAgICAgICAgICJvcGVuc3NsIiAgICAgICAgICAgICAgICAgICJwYXJhbGxlbCIKIyBwYmtydGVzdCAgICAgICAgICAgICAgICAgICBwa2djb25maWcgICAgICAgICAgICAgICAgICAgICAgIHBsb2dyCiMgInBia3J0ZXN0IiAgICAgICAgICAgICAgICAgInBrZ2NvbmZpZyIgICAgICAgICAgICAgICAgICAgICAicGxvZ3IiCiMgcGx5ciAgICAgICAgICAgICAgICAgICAgICAgcHN5Y2ggICAgICAgICAgICAgICAgICAgICAgIHB1cnJyCiMgInBseXIiICAgICAgICAgICAgICAgICAgICAgInBzeWNoIiAgICAgICAgICAgICAgICAgICAgICJwdXJyciIKIyBxdWFudHJlZyAgICAgICAgICAgICAgICAgICAgICAgICAgUjYgICAgICAgICAgICAgICAgICAgICAgIFJjbWRyCiMgInF1YW50cmVnIiAgICAgICAgICAgICAgICAgICAgICAgICJSNiIgICAgICAgICAgICAgICAgICAgICAiUmNtZHIiCiMgUmNtZHJNaXNjICAgICAgICAgICAgICAgIFJDb2xvckJyZXdlciAgICAgICAgICAgICAgICAgICAgICAgIFJjcHAKIyAiUmNtZHJNaXNjIiAgICAgICAgICAgICAgIlJDb2xvckJyZXdlciIgICAgICAgICAgICAgICAgICAgICAgIlJjcHAiCiMgUmNwcEVpZ2VuICAgICAgICAgICAgICAgICAgICAgICByZWFkciAgICAgICAgICAgICAgICAgICAgICByZWFkeGwKIyAiUmNwcEVpZ2VuIiAgICAgICAgICAgICAgICAgICAgICJyZWFkciIgICAgICAgICAgICAgICAgICAgICJyZWFkeGwiCiMgcmVsaW1wICAgICAgICAgICAgICAgICAgICAgcmVtYXRjaCAgICAgICAgICAgICAgICAgICAgcmVzaGFwZTIKIyAicmVsaW1wIiAgICAgICAgICAgICAgICAgICAicmVtYXRjaCIgICAgICAgICAgICAgICAgICAicmVzaGFwZTIiCiMgcmdsICAgICAgICAgICAgICAgICAgICAgIFJJU21lZCAgICAgICAgICAgICAgICAgICAgICAgckphdmEKIyAicmdsIiAgICAgICAgICAgICAgICAgICAgIlJJU21lZCIgICAgICAgICAgICAgICAgICAgICAickphdmEiCiMgcmxhbmcgICAgICAgICAgICAgICAgICAgcm1hcmtkb3duICAgICAgICAgICAgICAgICAgICAgIFJNeVNRTAojICJybGFuZyIgICAgICAgICAgICAgICAgICJybWFya2Rvd24iICAgICAgICAgICAgICAgICAgICAiUk15U1FMIgojIHJwYXJ0ICAgICAgICAgICAgICAgICAgIHJwcm9qcm9vdCAgICAgICAgICAgICAgICAgICAgIFJTUUxpdGUKIyAicnBhcnQiICAgICAgICAgICAgICAgICAicnByb2pyb290IiAgICAgICAgICAgICAgICAgICAiUlNRTGl0ZSIKIyBydmVzdCAgICAgICAgICAgICAgICAgICBTNFZlY3RvcnMgICAgICAgICAgICAgICAgICAgIHNhbmR3aWNoCiMgInJ2ZXN0IiAgICAgICAgICAgICAgICAgIlM0VmVjdG9ycyIgICAgICAgICAgICAgICAgICAic2FuZHdpY2giCiMgc2NhbGVzICAgICAgICAgICAgICAgICAgICAgc2VsZWN0ciAgICAgICAgICAgICAgICAgICAgICAgICBzZW0KIyAic2NhbGVzIiAgICAgICAgICAgICAgICAgICAic2VsZWN0ciIgICAgICAgICAgICAgICAgICAgICAgICJzZW0iCiMgc2hpbnkgICAgICAgICAgICAgICAgIHNoaW55dGhlbWVzICAgICAgICAgICAgICAgICBzb3VyY2V0b29scwojICJzaGlueSIgICAgICAgICAgICAgICAic2hpbnl0aGVtZXMiICAgICAgICAgICAgICAgInNvdXJjZXRvb2xzIgojIFNwYXJzZU0gICAgICAgICAgICAgICAgICAgICBzcGF0aWFsICAgICAgICAgICAgICAgICAgICAgc3BsaW5lcwojICJTcGFyc2VNIiAgICAgICAgICAgICAgICAgICAic3BhdGlhbCIgICAgICAgICAgICAgICAgICAgInNwbGluZXMiCiMgc3RhdHMgICAgICAgICAgICAgICAgICAgICAgc3RhdHM0ICAgICAgICAgICAgICAgICAgICAgc3RyaW5naQojICJzdGF0cyIgICAgICAgICAgICAgICAgICAgICJzdGF0czQiICAgICAgICAgICAgICAgICAgICJzdHJpbmdpIgojIHN0cmluZ3IgICAgICAgICAgICAgICAgICAgIHN1cnZpdmFsICAgICAgICAgICAgICAgICAgICAgICB0Y2x0awojICJzdHJpbmdyIiAgICAgICAgICAgICAgICAgICJzdXJ2aXZhbCIgICAgICAgICAgICAgICAgICAgICAidGNsdGsiCiMgdGNsdGsyICAgICAgICAgICAgICAgICAgICAgVEguZGF0YSAgICAgICAgICAgICAgICAgICAgICB0aWJibGUKIyAidGNsdGsyIiAgICAgICAgICAgICAgICAgICAiVEguZGF0YSIgICAgICAgICAgICAgICAgICAgICJ0aWJibGUiCiMgdGlkeXIgICAgICAgICAgICAgICAgICAgdGlkeXZlcnNlICAgICAgICAgICAgICAgICAgICAgICB0b29scwojICJ0aWR5ciIgICAgICAgICAgICAgICAgICJ0aWR5dmVyc2UiICAgICAgICAgICAgICAgICAgICAgInRvb2xzIgojIHV0aWxzICAgICAgICAgICAgICAgICAgICAgdmlyaWRpcyAgICAgICAgICAgICAgICAgdmlyaWRpc0xpdGUKIyAidXRpbHMiICAgICAgICAgICAgICAgICAgICJ2aXJpZGlzIiAgICAgICAgICAgICAgICJ2aXJpZGlzTGl0ZSIKIyBYTENvbm5lY3QgICAgICAgICAgICAgICBYTENvbm5lY3RKYXJzICAgICAgICAgICAgICAgICAgICAgICAgeG1sMgojICJYTENvbm5lY3QiICAgICAgICAgICAgICJYTENvbm5lY3RKYXJzIiAgICAgICAgICAgICAgICAgICAgICAieG1sMiIKIyB4dGFibGUgICAgICAgICAgICAgICAgICAgICAgICB5YW1sICAgICAgICAgICAgICAgICAgICAgICAgIHpvbwojICJ4dGFibGUiICAgICAgICAgICAgICAgICAgICAgICJ5YW1sIiAgICAgICAgICAgICAgICAgICAgICAgInpvbyIKCgoKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHIiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5CQ0EiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5jb2luIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uZGVwdGhUb29scyIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLmRvQnkiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5Eb0UiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5kb2V4IikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uRUFDU1BJUiIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLkVCTSIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLmVwYWNrIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uRVpSIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uSEgiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5JUFNVUiIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLktNZ2dwbG90MiIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLm1vc2FpYyIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLk1QQVN0YXRzIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4ub3Jsb2NhIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4ucGxvdEJ5R3JvdXAiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5xY2MiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5xdWFsIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uU0NEQSIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLnNlZWciKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5TTEMiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5TTSIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLlN0YXRpc3RpY2FsVVJWIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uc3RlZXBuZXNzIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uc3Vydml2YWwiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5UZWFjaGluZ0RlbW9zIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4udGVtaXMiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5VQ0EiKQoKc291cmNlKCJodHRwczovL2Jpb2NvbmR1Y3Rvci5vcmcvYmlvY0xpdGUuUiIpCmJpb2NMaXRlKCkKCmluc3RhbGwucGFja2FnZXMoInRpZHl2ZXJzZSIpCmluc3RhbGwucGFja2FnZXMoImRldnRvb2xzIikKCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiaGFkbGV5L2NvbGZvcm1hdCIpCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1Yigicm9wZW5zY2lsYWJzL3NraW1yIikKCmluc3RhbGwucGFja2FnZXMoImhmbGlnaHRzIikKaW5zdGFsbC5wYWNrYWdlcygiZGJwbHlyIikKaW5zdGFsbC5wYWNrYWdlcygieGxzeCIpCgpyZXF1aXJlKGRldnRvb2xzKQppbnN0YWxsX2dpdGh1YigiUHJvamVjdE1PU0FJQy9tb3NhaWMiKQoKaW5zdGFsbC5wYWNrYWdlcygiam12IikKCmluc3RhbGwucGFja2FnZXMoInRtIikKaW5zdGFsbC5wYWNrYWdlcygid29yZGNsb3VkIikKaW5zdGFsbC5wYWNrYWdlcygiaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvc3JjL2NvbnRyaWIvQXJjaGl2ZS90bS90bV8wLjYudGFyLmd6IiwgcmVwb3MgPSBOVUxMKQppbnN0YWxsLnBhY2thZ2VzKCJTbm93YmFsbEMiKQppbnN0YWxsLnBhY2thZ2VzKCJSQ29sb3JCcmV3ZXIiKQppbnN0YWxsLnBhY2thZ2VzKCJ0aWR5dGV4dCIpCgppbnN0YWxsLnBhY2thZ2VzKCJwYWNrcmF0IikKCmluc3RhbGwucGFja2FnZXMoInRlc3R0aGF0IikKCmluc3RhbGwucGFja2FnZXMoInByZXR0eWRvYyIpCmluc3RhbGwucGFja2FnZXMoInJtZGZvcm1hdHMiKQoKaW5zdGFsbC5wYWNrYWdlcyhjKCJmaXZldGhpcnR5ZWlnaHQiLCAidGlkeXZlcnNlIiwgImtuaXRyIiwgImthYmxlRXh0cmEiLCAiZ2d0aGVtZXMiKSkKCmxpYnJhcnkoZGV2dG9vbHMpCmluc3RhbGxfZ2l0aHViKCJTUFNTdG9SIiwgdXNlcm5hbWUgPSAibGViZWJyMDEiKQpsaWJyYXJ5KFNQU1N0b1IpCgoKCmlwIDwtIGluc3RhbGxlZC5wYWNrYWdlcygpCnBrZ3MudG8ucmVtb3ZlIDwtIGlwWyEoaXBbLCAiUHJpb3JpdHkiXSAlaW4lIGMoImJhc2UiLCAicmVjb21tZW5kZWQiKSksIDFdCnNhcHBseShwa2dzLnRvLnJlbW92ZSwgcmVtb3ZlLnBhY2thZ2VzKQpzYXBwbHkocGtncy50by5yZW1vdmUsIGluc3RhbGwucGFja2FnZXMpCgoKCgppbnN0YWxsLnBhY2thZ2VzKCJkZXZ0b29scyIpCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiQW5kcmVhQ2lyaWxsb0FDL3VwZGF0ZVIiKQpsaWJyYXJ5KHVwZGF0ZVIpCnVwZGF0ZVIoYWRtaW5fcGFzc3dvcmQgPSAiIikgIyBXaGVyZSAiUEFTU1dPUkQiIHN0YW5kcyBmb3IgeW91ciBzeXN0ZW0gcGFzc3dvcmQKCgoKCnN1cnZpdmFsCgpzdXJ2bWluZXIKCmluc3RhbGwucGFja2FnZXMoInR1dG9yaWFsIikKCgpkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoInJvbWFpbmZyYW5jb2lzL2hpZ2hsaWdodCIpCgppbnN0YWxsLnBhY2thZ2VzKCJoaWdociIsIHJlcG9zID0gImh0dHA6Ly9yZm9yZ2UubmV0IiwgdHlwZSA9ICJzb3VyY2UiKQoKCgppbnN0YWxsLnBhY2thZ2VzKCJ4cGxhaW4iKQoKCgoKCmBgYHtyIHJlbW92ZSBhbGwgdXNlciBpbnN0YWxsZWQgcGFja2FnZXMgaW4gUn0KIyBIb3cgdG8gcmVtb3ZlIGFsbCB1c2VyIGluc3RhbGxlZCBwYWNrYWdlcyBpbiBSCiMgaHR0cHM6Ly93d3cuci1ibG9nZ2Vycy5jb20vaG93LXRvLXJlbW92ZS1hbGwtdXNlci1pbnN0YWxsZWQtcGFja2FnZXMtaW4tci8KCiMgY3JlYXRlIGEgbGlzdCBvZiBhbGwgaW5zdGFsbGVkIHBhY2thZ2VzCmlwIDwtIGFzLmRhdGEuZnJhbWUoaW5zdGFsbGVkLnBhY2thZ2VzKCkpCmhlYWQoaXApCiMgaWYgeW91IHVzZSBNUk8sIG1ha2Ugc3VyZSB0aGF0IG5vIHBhY2thZ2VzIGluIHRoaXMgbGlicmFyeSB3aWxsIGJlIHJlbW92ZWQKaXAgPC0gc3Vic2V0KGlwLCAhZ3JlcGwoIk1STyIsIGlwJExpYlBhdGgpKQojIHdlIGRvbid0IHdhbnQgdG8gcmVtb3ZlIGJhc2Ugb3IgcmVjb21tZW5kZWQgcGFja2FnZXMgZWl0aGVyXAppcCA8LSBpcFshKGlwWywiUHJpb3JpdHkiXSAlaW4lIGMoImJhc2UiLCAicmVjb21tZW5kZWQiKSksXQojIGRldGVybWluZSB0aGUgbGlicmFyeSB3aGVyZSB0aGUgcGFja2FnZXMgYXJlIGluc3RhbGxlZApwYXRoLmxpYiA8LSB1bmlxdWUoaXAkTGliUGF0aCkKIyBjcmVhdGUgYSB2ZWN0b3Igd2l0aCBhbGwgdGhlIG5hbWVzIG9mIHRoZSBwYWNrYWdlcyB5b3Ugd2FudCB0byByZW1vdmUKcGtncy50by5yZW1vdmUgPC0gaXBbLDFdCmhlYWQocGtncy50by5yZW1vdmUpCiMgcmVtb3ZlIHRoZSBwYWNrYWdlcwpzYXBwbHkocGtncy50by5yZW1vdmUsIHJlbW92ZS5wYWNrYWdlcywgbGliID0gcGF0aC5saWIpCmBgYAoKCgoKCgoKCgoKCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBQYWNrYWdlcyBVc2VkIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7ciBzZXR1cCwgY2FjaGUgPSBGLCB3YXJuaW5nID0gRkFMU0V9Cgprbml0cjo6b3B0c19jaHVuayRzZXQoCgllcnJvciA9IFRSVUUsCgltZXNzYWdlID0gRkFMU0UsCgl3YXJuaW5nID0gRkFMU0UsCglldmFsID0gRkFMU0UsCglpbmNsdWRlID0gVFJVRQopCmBgYAoKCgojIyBQYWNrYWdlcyB0byBiZSBzdHVkaWVkCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMva2FibGVFeHRyYS92aWduZXR0ZXMvYXdlc29tZV90YWJsZV9pbl9odG1sLmh0bWwjIyMjaW5zdGFsbGF0aW9uCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvZXhwc3MvdmlnbmV0dGVzL3RhYmxlcy13aXRoLWxhYmVscy5odG1sCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvdGFidWxpemVyL3ZpZ25ldHRlcy90YWJ1bGl6ZXIuaHRtbAoKaHR0cHM6Ly9naXRodWIuY29tL2JlbmphbWlucmljaC90YWJsZTEKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy90YWJsZW9uZS92aWduZXR0ZXMvaW50cm9kdWN0aW9uLmh0bWwKCmh0dHBzOi8vdHdpdHRlci5jb20vbWl0Y2hvaGFyYXdpbGQvc3RhdHVzLzEwMDcyOTc5NzY3MTExMTA2NTk/cz0xMgoKaHR0cHM6Ly90d2l0dGVyLmNvbS9tZl92aXovc3RhdHVzLzEwMDQ5NTQyOTc5NjI5MTc4OTE/cz0xMgoKaHR0cHM6Ly9naXRodWIuY29tL2NtYXAvbW9ycGhldXMuUgoKaHR0cHM6Ly9naXRodWIuY29tL3RhbGdhbGlsaS9oZWF0bWFwbHkvCgpodHRwczovL2dpdGh1Yi5jb20vcnN0dWRpby9kM2hlYXRtYXAKCmh0dHA6Ly93b3Jrc21hcnRlci5wbC9lbi9wb3N0L3dlYnNjcmFwaW5nLWNhc2Utc3R1ZHktMS8KCmh0dHA6Ly93b3Jrc21hcnRlci5wbC9lbi9wb3N0L2pvYi1hdXRvbWF0aW9uLXItMS8KCmh0dHA6Ly93d3cuYnJvZHJpZ3Vlcy5jby9ibG9nLzIwMTgtMDYtMTAtc2NyYXBpbmdfcGRmcy8KCmh0dHBzOi8vd3d3LnItYmxvZ2dlcnMuY29tL2hvdy10by1wbG90LXdpdGgtZ2dpcmFwaC8KCmh0dHBzOi8vd3d3LnItYmxvZ2dlcnMuY29tL3VuZGVyc3RhbmRpbmctcGNhLXVzaW5nLXN0YWNrLW92ZXJmbG93LWRhdGEvCgpodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9iZWF1dGlmdWwtYW5kLXBvd2VyZnVsLWNvcnJlbGF0aW9uLXRhYmxlcy1pbi1yLwoKaHR0cDovL2pvdXJuYWxzLnBsb3Mub3JnL3Bsb3NvbmUvYXJ0aWNsZT9pZD0xMC4xMzcxJTJGam91cm5hbC5wb25lLjAxODgyOTkKCmh0dHBzOi8vZ2l0aHViLmNvbS90cmlua2VyL3JlcG9ydHMKCkFuaW1hdGVkIERpcmVjdGlvbmFsIENob3JkIERpYWdyYW1zCmh0dHBzOi8vZ3V5YWJlbC5jb20vcG9zdC9hbmltYXRlZC1kaXJlY3Rpb25hbC1jaG9yZC1kaWFncmFtcy8KCgptb2RlbERvd246IGEgd2Vic2l0ZSBnZW5lcmF0b3IgZm9yIHlvdXIgcHJlZGljdGl2ZSBtb2RlbHMKaHR0cDovL3NtYXJ0ZXJwb2xhbmQucGwvaW5kZXgucGhwLzIwMTgvMDYvbW9kZWxkb3duLWEtd2Vic2l0ZS1nZW5lcmF0b3ItZm9yLXlvdXItcHJlZGljdGl2ZS1tb2RlbHMvCgoKCiMjIGNocm9tb01hcAoKQW4gUiBwYWNrYWdlIGZvciBJbnRlcmFjdGl2ZSB2aXN1YWxpemF0aW9uIGFuZCBtYXBwaW5nIG9mIGh1bWFuIGNocm9tb3NvbWVzCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvY2hyb21vTWFwL3ZpZ25ldHRlcy9jaHJvbW9NYXAuaHRtbAoKIyMgdGFicGxvdAoKVGFibGVwbG90LCBhIFZpc3VhbGl6YXRpb24gb2YgTGFyZ2UgRGF0YXNldHMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy90YWJwbG90L2luZGV4Lmh0bWwKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy90YWJwbG90L3ZpZ25ldHRlcy90YWJwbG90LXZpZ25ldHRlLmh0bWwKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy90YWJwbG90L3ZpZ25ldHRlcy90YWJwbG90LXRpbWluZ3MuaHRtbAoKIyMgdHJlZW1hcAoKVHJlZW1hcCBWaXN1YWxpemF0aW9uCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvdHJlZW1hcC9pbmRleC5odG1sCgojIyBWSU0KClZpc3VhbGl6YXRpb24gYW5kIEltcHV0YXRpb24gb2YgTWlzc2luZyBWYWx1ZXMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9WSU0vaW5kZXguaHRtbAoKIyMgc3VydmV5CgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvc3VydmV5L2luZGV4Lmh0bWwKCiMjIHRpZHl0ZXh0CgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvdGlkeXRleHQvaW5kZXguaHRtbAoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3RpZHl0ZXh0L3ZpZ25ldHRlcy90Zl9pZGYuaHRtbAoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3RpZHl0ZXh0L3ZpZ25ldHRlcy90aWR5aW5nX2Nhc3RpbmcuaHRtbAoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3RpZHl0ZXh0L3ZpZ25ldHRlcy90aWR5dGV4dC5odG1sCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvdGlkeXRleHQvdmlnbmV0dGVzL3RvcGljX21vZGVsaW5nLmh0bWwKCgojIyByYXBwb3J0ICBhbiBSIHRlbXBsYXRpbmcgc3lzdGVtCgpodHRwOi8vcmFwcG9ydC1wYWNrYWdlLmluZm8vCgojIyB6dGFibGUKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYXJkaW9tb29uL3p0YWJsZQoKIyMgdGV4cmVnCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvdGV4cmVnL3ZpZ25ldHRlcy90ZXhyZWcucGRmCgojIyBTb3J0YWJsZUhUTUxUYWJsZXMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9Tb3J0YWJsZUhUTUxUYWJsZXMvaW5kZXguaHRtbAoKIyMgaHdyaXRlcgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2h3cml0ZXIvdmlnbmV0dGVzL2h3cml0ZXIucGRmCgojIyBIVE1MVXRpbHMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9IVE1MVXRpbHMvaW5kZXguaHRtbAoKIyMgaHRtbFRhYmxlCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9odG1sVGFibGUvaW5kZXguaHRtbAoKIyMgZm9ybWF0dGFibGUKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9mb3JtYXR0YWJsZS9pbmRleC5odG1sCgojIyBEVAoKRFQ6IEFuIFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhVGFibGVzIGxpYnJhcnkKCmh0dHBzOi8vcnN0dWRpby5naXRodWIuaW8vRFQvCgojIyBzdGFyZ2F6ZXIKCldlbGwtRm9ybWF0dGVkIFJlZ3Jlc3Npb24gYW5kIFN1bW1hcnkgU3RhdGlzdGljcyBUYWJsZXMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9zdGFyZ2F6ZXIvaW5kZXguaHRtbAoKCgoKIyMgY29uZmxpY3RlZAoKIyMgcHN5Y2hvCgpgYGB7ciwgZXZhbD1GQUxTRSwgaW5jbHVkZT1UUlVFfQppbnN0YWxsLnBhY2thZ2VzKCJkZXZ0b29scyIpCmxpYnJhcnkoImRldnRvb2xzIikKaW5zdGFsbF9naXRodWIoIm5ldXJvcHN5Y2hvbG9neS9wc3ljaG8uUiIpCmxpYnJhcnkoInBzeWNobyIpCmBgYAoKCiMjIHN0eWxlcgoKIyMgdGlkeXZlcnNlCgojIyBzcGxpdHN0YWNrc2hhcGUKCiMjIGVwaVIKCkJhc2ljIEVwaQoKaW5zdGFsbC5wYWNrYWdlcygiZXBpUiIpCgojIyBsbXRlc3QKClNvbWUgdXNlZnVsIGVwaXRvb2xzIGVzcGVjaWFsbHkgMioyIHRhYmxlcyBhbmQgc3RyYXRpZmllZCBNSCBPZGRzCgppbnN0YWxsLnBhY2thZ2VzKCJsbXRlc3QiKQoKIyMgcG9wRXBpCgppbnN0YWxsLnBhY2thZ2VzKCJwb3BFcGkiKQoKIyMgRXh0cmEgdG9vbHMgdG8gZ28gd2l0aCAnRXBpJyBhbmQgbWFrZSBuaWNlIHJhdGUgdGFibGVzCgojIyBzdXJ2aXZhbAoKaW5zdGFsbC5wYWNrYWdlcygic3Vydml2YWwiKQoKZm9yIHN1cnZpYWwgYW5hbHlzaXMsIGthcGxhbi1tZWllciBwbG90cyBhbmQgY294IHJlZ3Jlc3Npb24KCiMjIHN1cnZtaW5lcgoKaW5zdGFsbC5wYWNrYWdlcygic3Vydm1pbmVyIikKClJlYWxseSBuaWNlIEtNIHBsb3RzIQoKIyMgUmFuZG9tLUVmZmVjdHMgTW9kZWtzCgppbnN0YWxsLnBhY2thZ2VzKCJsbWU0IikKCmluc3RhbGwucGFja2FnZXMoInNqc3RhdHMiKQoKCiMjIE11bHRpcGxlIEltcHV0YXRpb24KCmluc3RhbGwucGFja2FnZXMoIm1pY2UiKQoKCmluc3RhbGwucGFja2FnZXMoImFyc2VuYWwiKQoKIyMgUmVhbGx5IG5pY2Ugc3VtbW1hcnkgdGFibGVzCgojIyBDb21wbGV4IHN1cnZleSBkYXRhIGFuYWx5c2lzCgppbnN0YWxsLnBhY2thZ2VzKCJzdXJ2ZXkiKQoKIyMgRm9yIGhhbmRsaW5nIGNvbXBsZXggc3VydmV5IGRhdGEKCmluc3RhbGwucGFja2FnZXMoIklDQyIpCgoKIyMgQWx0ZXJuYXRpdmUgbWV0aG9kcyBmb3IgSUNDIGNhbGN1bGF0aW9uIGZyb20gc3VydmV5IGRhdGEKCiMjIE1ldGEtYW5hbHlzaXMKCmluc3RhbGwucGFja2FnZXMoIm1ldGEiKQoKCmluc3RhbGwucGFja2FnZXMoIm1ldGFmb3IiKQoKCmluc3RhbGwucGFja2FnZXMoIndvcmtmbG93ciIpCgoKaW5zdGFsbC5wYWNrYWdlcygiRGlhZ3JhbW1lUiIpCgoKaW5zdGFsbC5wYWNrYWdlcygidGFuZ3JhbSIpCgoKZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJsYnVzZXR0L2luc2VydF90YWJsZSIpCgoKYGBge3J9CiMjIyMgT2J0YWluIG5hbWVzIG9mIGFsbCBwYWNrYWdlcyBvbiBDUkFOCm5hbWVzLmF2YWlsYWJsZS5wYWNrYWdlcyA8LSByb3duYW1lcyhhdmFpbGFibGUucGFja2FnZXMoKSkKCiMjIyMgRXh0cmFjdCBwYWNrYWdlcyBuYW1lcyB0aGF0IGNvbnRhaW4gUmNtZHIKUmNtZHIucmVsYXRlZC5wYWNrYWdlcyA8LSBuYW1lcy5hdmFpbGFibGUucGFja2FnZXNbZ3JlcCgiUmNtZHIiLCBuYW1lcy5hdmFpbGFibGUucGFja2FnZXMpXQpSY21kci5yZWxhdGVkLnBhY2thZ2VzCgojIyMjIEluc3RhbGwgdGhlc2UgcGFja2FnZXMKaW5zdGFsbC5wYWNrYWdlcyhwa2dzID0gUmNtZHIucmVsYXRlZC5wYWNrYWdlcykKYGBgCgoKCmBgYHtyfQp1c2VQYWNrYWdlIDwtIGZ1bmN0aW9uKHApIHsKICBpZiAoIWlzLmVsZW1lbnQocCwgaW5zdGFsbGVkLnBhY2thZ2VzKClbLCAxXSkpIHsKICAgIGluc3RhbGwucGFja2FnZXMocCwgZGVwID0gVFJVRSkKICB9CiAgcmVxdWlyZShwLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpCn0KYGBgCgoKCmBgYHtyfQpmaWxlLmVkaXQoIn4vRGVza3RvcC9mb28vLlJwcm9maWxlIikKIyMgVGhpcyBvcGVucyB1cCBhIHNjcmlwdCB3aW5kb3csIHdpdGhpbiB3aGljaCB5b3UgY2FuIGVudGVyIGluIHlvdXIgbGlicmFyeSBjb21tYW5kcwpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkoc2NhbGVzKQpsaWJyYXJ5KHBseXIpCmxpYnJhcnkocmVzaGFwZTIpCmBgYAoKCgoKCgojIyBhYmluZAoKCgojIyBhY2VwYWNrCgoKCiMjIEFsZ0Rlc2lnbgoKCgojIyBBbm5vdGF0aW9uRGJpCgoKCiMjIGFwbHBhY2sKCgoKIyMgYXJtCgoKCiMjIGFzc2VydHRoYXQKCgoKIyMgYmFja3BvcnRzCgoKCiMjIGJhc2UKCgoKIyMgYmFzZTY0ZW5jCgoKCiMjIEJDQQoKCgojIyBCSAoKCgojIyBCaWFzZWRVcm4KCgoKIyMgYmluZHIKCgoKIyMgYmluZHJjcHAKCgoKIyMgQmlvYmFzZQoKCgojIyBCaW9jR2VuZXJpY3MKCgoKIyMgQmlvY0luc3RhbGxlcgoKCgojIyBiaXQKCgoKIyMgYml0NjQKCgoKIyMgYml0b3BzCgoKCiMjIGJsb2IKCgoKIyMgYm9vdAoKCgojIyBicm9vbQoKCgojIyBCc01ECgoKCiMjIGNhCgoKCiMjIGNhcgoKCgojIyBjYVRvb2xzCgoKCiMjIGNlbGxyYW5nZXIKCgoKIyMgY2hlY2ttYXRlCgoKCiMjIGNsYXNzCgoKCiMjIGNsdXN0ZXIKCgoKIyMgY2x2CgoKCiMjIGNvZGEKCgoKIyMgY29kZXRvb2xzCgoKCiMjIGNvaW4KCgoKIyMgY29sb3JzcGFjZQoKCgojIyBjb21iaW5hdAoKCgojIyBjb21waWxlcgoKCgojIyBjb25mLmRlc2lnbgoKCgojIyBjdXJsCgoKCiMjIGRhdGEudGFibGUKCgoKIyMgZGF0YXNldHMKCgoKIyMgZGF0ZQoKCgojIyBEQkkKCgoKIyMgZGVsZGlyCgoKCiMjIGRlcHRoVG9vbHMKCgoKIyMgRGljZURlc2lnbgoKCgojIyBkaWNocm9tYXQKCgoKIyMgZGlnZXN0CgoKCiMjIERvRS5iYXNlCgoKCiMjIERvRS53cmFwcGVyCgoKCiMjIGRvUGFyYWxsZWwKCgoKIyMgZHBseXIKCgoKIyMgZTEwNzEKCgoKIyMgZWZmZWN0cwoKCgojIyBFTm1pc2MKCgoKIyMgZXBpUgoKCgojIyBlc3RpbWFiaWxpdHkKCgoKIyMgZXZhbHVhdGUKCgoKIyMgZXoKCgoKIyMgZmxleGNsdXN0CgoKCiMjIGZvcmNhdHMKCgoKIyMgZm9yZWFjaAoKCgojIyBmb3JlaWduCgoKCiMjIGZvcm1hdFIKCgoKIyMgRm9ybXVsYQoKCgojIyBmcmFjZGlmZgoKCgojIyBGckYyCgoKCiMjIGdkYXRhCgoKCiMjIGdncGxvdDIKCmh0dHA6Ly93d3cuY29va2Jvb2stci5jb20vR3JhcGhzLwoKIyMjIGdncGxvdDIgZXh0ZW5zaW9ucwoKaHR0cDovL3d3dy5nZ3Bsb3QyLWV4dHMub3JnL2dhbGxlcnkvCgpodHRwOi8vY29yeWJydW5zb24uZ2l0aHViLmlvL2dnYWxsdXZpYWwvCgpodHRwOi8vd3d3LnN0aGRhLmNvbS9lbmdsaXNoL3Jwa2dzL3N1cnZtaW5lci8KCiMjIGdndGhlbWVzCgoKCiMjIGdndmlzCgoKCiMjIGdsdWUKCgoKIyMgZ29mdGVzdAoKCgojIyBncmFwaGljcwoKCgojIyBnckRldmljZXMKCgoKIyMgZ3JpZAoKCgojIyBncmlkQmFzZQoKCgojIyBncmlkRXh0cmEKCgoKIyMgZ3RhYmxlCgoKCiMjIGd0b29scwoKCgojIyBoYXZlbgoKCgojIyBoaWdocgoKCgojIyBIbWlzYwoKCgojIyBobXMKCgoKIyMgaHRtbFRhYmxlCgoKCiMjIGh0bWx0b29scwoKCgojIyBodG1sd2lkZ2V0cwoKCgojIyBodHRwdXYKCgoKIyMgaHR0cgoKCgojIyBpZ3JhcGgKCgoKIyMgSVJhbmdlcwoKCgojIyBpcmxiYQoKCgojIyBpdGVyYXRvcnMKCgoKIyMganNvbmxpdGUKCgoKIyMgS2VyblNtb290aAoKCgojIyBrbml0cgoKCgojIyBsYWJlbGluZwoKCgojIyBsYXR0aWNlCgoKCiMjIGxhdHRpY2VFeHRyYQoKCgojIyBsYXp5ZXZhbAoKCgojIyBsZWFwcwoKCgojIyBsaHMKCgoKIyMgbG1lNAoKCgojIyBsbXRlc3QKCgoKIyMgbHNtZWFucwoKCgojIyBsdWJyaWRhdGUKCgoKIyMgbWFncml0dHIKCgoKIyMgbWFya2Rvd24KCgoKIyMgTUFTUwoKCgojIyBNYXRyaXgKCgoKIyMgbWF0cml4Y2FsYwoKCgojIyBNYXRyaXhNb2RlbHMKCgoKIyMgbWVtb2lzZQoKCgojIyBtZXRob2RzCgoKCiMjIG1nY3YKCgoKIyMgbWkKCgoKIyMgbWltZQoKCgojIyBtaW5xYQoKCgojIyBtbm9ybXQKCgoKIyMgbW9kZWxyCgoKCiMjIG1vZGVsdG9vbHMKCgoKIyMgbXVsdGNvbXAKCgoKIyMgbXVuc2VsbAoKCgojIyBtdnRub3JtCgoKCiMjIG5sbWUKCgoKIyMgbmxvcHRyCgoKCiMjIE5MUAoKCgojIyBOTUYKCgoKIyMgbm5ldAoKCgojIyBub3J0ZXN0CgoKCiMjIG9wZW5zc2wKCgoKIyMgb3JkaW5hbAoKCgojIyBvcmxvY2EKCgoKIyMgb3Jsb2NhLmVzCgoKCiMjIHBhcmFsbGVsCgoKCiMjIHBia3J0ZXN0CgoKCiMjIHBrZ2NvbmZpZwoKCgojIyBwa2dtYWtlcgoKCgojIyBwbG9ncgoKCgojIyBwbHlyCgoKCiMjIHBvbHljbGlwCgoKCiMjIHBzeWNoCgoKCiMjIHB1cnJyCgoKCiMjIHF1YWRwcm9nCgoKCiMjIHF1YW50bW9kCgoKCiMjIHF1YW50cmVnCgoKCiMjIFIySFRNTAoKCgojIyBSNgoKCgojIyByYW5kdGVzdHMKCgoKIyMgUmNtZHIKCgoKIyMgUmNtZHJNaXNjCgoKCiMjIFJjbWRyUGx1Z2luLkJDQQoKCgojIyBSY21kclBsdWdpbi5jb2luCgoKCiMjIFJjbWRyUGx1Z2luLmRlcHRoVG9vbHMKCgoKIyMgUmNtZHJQbHVnaW4uRG9FCgoKCiMjIFJjbWRyUGx1Z2luLmRvZXgKCgoKIyMgUmNtZHJQbHVnaW4uRUFDU1BJUgoKCgojIyBSY21kclBsdWdpbi5FQk0KCgoKIyMgUmNtZHJQbHVnaW4uZXBhY2sKCgoKIyMgUmNtZHJQbHVnaW4uRVpSCgoKCiMjIFJjbWRyUGx1Z2luLktNZ2dwbG90MgoKCgojIyBSY21kclBsdWdpbi5tb3NhaWMKCgoKIyMgUmNtZHJQbHVnaW4uTVBBU3RhdHMKCgoKIyMgUmNtZHJQbHVnaW4ub3Jsb2NhCgoKCiMjIFJjbWRyUGx1Z2luLnBsb3RCeUdyb3VwCgoKCiMjIFJjbWRyUGx1Z2luLnF1YWwKCgoKIyMgUmNtZHJQbHVnaW4uU0NEQQoKIyMgUmNtZHJQbHVnaW4uc2FtcGxpbmcKClRvb2xzIGZvciBzYW1wbGluZyBpbiBPZmZpY2lhbCBTdGF0aXN0aWNhbCBTdXJ2ZXlzCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvUmNtZHJQbHVnaW4uc2FtcGxpbmcvaW5kZXguaHRtbAoKCiMjIFJjbWRyUGx1Z2luLnNlZWcKCgoKIyMgUmNtZHJQbHVnaW4uU0xDCgoKCiMjIFJjbWRyUGx1Z2luLlNNCgoKCiMjIFJjbWRyUGx1Z2luLnN0ZWVwbmVzcwoKCgojIyBSY21kclBsdWdpbi5zdXJ2aXZhbAoKCgojIyBSY21kclBsdWdpbi5UZWFjaGluZ0RlbW9zCgoKCiMjIFJjbWRyUGx1Z2luLnRlbWlzCgoKCiMjIFJjbWRyUGx1Z2luLlVDQQoKCgojIyBSQ29sb3JCcmV3ZXIKCgoKIyMgUmNwcAoKCgojIyBSY3BwQXJtYWRpbGxvCgoKCiMjIFJjcHBFaWdlbgoKCgojIyByZWFkcgoKCgojIyByZWFkeGwKCgoKIyMgcmVnaXN0cnkKCgoKIyMgcmVsaW1wCgoKCiMjIHJlbWF0Y2gKCgoKIyMgcmVzaGFwZQoKCgojIyByZXNoYXBlMgoKCgojIyByZ2wKCgoKIyMgUklTbWVkCgoKCiMjIHJKYXZhCgoKCiMjIHJsYW5nCgoKCiMjIHJtYXJrZG93bgoKCgojIyBSTXlTUUwKCgoKIyMgcm5ndG9vbHMKCgoKIyMgcnBhcnQKCgoKIyMgcnBhcnQucGxvdAoKCgojIyBycHJvanJvb3QKCgoKIyMgcnNtCgoKCiMjIFJTUUxpdGUKCgoKIyMgcnZlc3QKCgoKIyMgUzRWZWN0b3JzCgoKCiMjIHNhbmR3aWNoCgoKCiMjIHNjYWxlcwoKCgojIyBzY2F0dGVycGxvdDNkCgoKCiMjIFNDTUEKCgoKIyMgU0NSVAoKCgojIyBTQ1ZBCgoKCiMjIHNlZWcKCgoKIyMgc2VsZWN0cgoKCgojIyBzZW0KCgoKIyMgc2ZzbWlzYwoKCgojIyBzZ2Vvc3RhdAoKCgojIyBzaGlueQoKCgojIyBzaGlueXRoZW1lcwoKCgojIyBzbGFtCgoKCiMjIFNMQwoKCgojIyBzb3VyY2V0b29scwoKCgojIyBTcGFyc2VNCgoKCiMjIHNwYXRpYWwKCgoKIyMgc3BhdHN0YXQKCgoKIyMgc3BhdHN0YXQudXRpbHMKCgoKIyMgc3BsaW5lcwoKCgojIyBzdGF0cwoKCgojIyBzdGF0czQKCgoKIyMgc3RlZXBuZXNzCgoKCiMjIHN0cmluZ2kKCgoKIyMgc3RyaW5ncgoKCgojIyBzdXJ2aXZhbAoKCgojIyB0Y2x0awoKCgojIyB0Y2x0azIKCgoKIyMgVGVhY2hpbmdEZW1vcwoKCgojIyB0ZW5zb3IKCgoKIyMgVEguZGF0YQoKCgojIyB0aWJibGUKCgoKIyMgdGlkeXIKCgoKIyMgdGlkeXZlcnNlCgoKCiMjIHRpbWVEYXRlCgoKCiMjIHRrcnBsb3QKCgoKIyMgdG0KCgoKIyMgdG9vbHMKCgoKIyMgdHNlcmllcwoKCgojIyBUVFIKCgoKIyMgdWNtaW5mCgoKCiMjIHV0aWxzCgoKCiMjIHZjZAoKCgojIyB2aXJpZGlzCgoKCiMjIHZpcmlkaXNMaXRlCgoKCiMjIFhMQ29ubmVjdAoKCgojIyBYTENvbm5lY3RKYXJzCgoKCiMjIHhtbDIKCgoKIyMgeHRhYmxlCgoKCiMjIHh0cwoKCgojIyB5YW1sCgoKCiMjIHpvbwoKCgoKCgoKCgoKCgoKCgppbnN0YWxsLnBhY2thZ2VzKCJzdGFyZ2F6ZXIiKQoKaW5zdGFsbC5wYWNrYWdlcygicGFuZGVyIikKCmluc3RhbGwucGFja2FnZXMoInRhYmxlcyIpCgppbnN0YWxsLnBhY2thZ2VzKCJhc2NpaSIpCgppbnN0YWxsLnBhY2thZ2VzKCJ4dGFibGUiKQoKZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJoYWRsZXkvZHBseXIiKQoKCmluc3RhbGwucGFja2FnZXMoImdhcG1pbmRlciIpCgppbnN0YWxsLnBhY2thZ2VzKCJhbGx1dmlhbCIpCgoKdmlnbmV0dGUoImRhdGFiYXNlcyIsIHBhY2thZ2UgPSAiZHBseXIiKQoKaW5zdGFsbC5wYWNrYWdlcygicm9idXN0YmFzZSIpCgppbnN0YWxsLnBhY2thZ2VzKCJpbnN1cmFuY2VEYXRhIikKCmluc3RhbGwucGFja2FnZXMoIkxhaG1hbiIpCgoKaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIikKCmluc3RhbGwucGFja2FnZXMoInFkYXAiKQoKaW5zdGFsbC5wYWNrYWdlcygib3Blbnhsc3giKQoKCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1Yigia2Fzc2FtYmFyYS9yMmV4Y2VsIikKCmluc3RhbGwucGFja2FnZXMoIldyaXRlWExTIikKCmluc3RhbGwucGFja2FnZXMoIlhMQ29ubmVjdCIpCgpsaWJyYXJ5KFhMQ29ubmVjdCkKCgpgYGB7cn0KaWYgKCFyZXF1aXJlKHdvcmRjbG91ZCkpIHsKICBpbnN0YWxsLnBhY2thZ2VzKCJ3b3JkY2xvdWQiKQogIGxpYnJhcnkod29yZGNsb3VkKQp9CmBgYAoKCgpgYGB7cn0KaW5zdGFsbGVkIDwtIGFzLmRhdGEuZnJhbWUoaW5zdGFsbGVkLnBhY2thZ2VzKCkpCndyaXRlLmNzdihpbnN0YWxsZWQsICJpbnN0YWxsZWRfcHJldmlvdXNseS5jc3YiKQoKaW5zdGFsbGVkUHJldmlvdXNseSA8LSByZWFkLmNzdigiaW5zdGFsbGVkX3ByZXZpb3VzbHkuY3N2IikKYmFzZVIgPC0gYXMuZGF0YS5mcmFtZShpbnN0YWxsZWQucGFja2FnZXMoKSkKdG9JbnN0YWxsIDwtIHNldGRpZmYoaW5zdGFsbGVkUHJldmlvdXNseSwgYmFzZVIpCgppbnN0YWxsLnBhY2thZ2VzKHRvSW5zdGFsbCkKCgpwYWNrYWdlbGlzdCA8LSBpbnN0YWxsZWQucGFja2FnZXMoKQpjbGFzcyhwYWNrYWdlbGlzdCkKcGFja2FnZWxpc3RbLCAxXQpgYGAKCgoKCiMjIFJjbWRyCgpgYGB7cn0KaW5zdGFsbC5wYWNrYWdlcygiUmNtZHIiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5CQ0EiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5jb2luIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uZGVwdGhUb29scyIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLmRvQnkiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5Eb0UiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5kb2V4IikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uRUFDU1BJUiIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLkVCTSIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLmVwYWNrIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uRVpSIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uSEgiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5JUFNVUiIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLktNZ2dwbG90MiIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLm1vc2FpYyIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLk1QQVN0YXRzIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4ub3Jsb2NhIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4ucGxvdEJ5R3JvdXAiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5xY2MiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5xdWFsIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uU0NEQSIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLnNlZWciKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5TTEMiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5TTSIpCmluc3RhbGwucGFja2FnZXMoIlJjbWRyUGx1Z2luLlN0YXRpc3RpY2FsVVJWIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uc3RlZXBuZXNzIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4uc3Vydml2YWwiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5UZWFjaGluZ0RlbW9zIikKaW5zdGFsbC5wYWNrYWdlcygiUmNtZHJQbHVnaW4udGVtaXMiKQppbnN0YWxsLnBhY2thZ2VzKCJSY21kclBsdWdpbi5VQ0EiKQpgYGAKCgpgYGB7cn0Kc291cmNlKCJodHRwczovL2Jpb2NvbmR1Y3Rvci5vcmcvYmlvY0xpdGUuUiIpCmJpb2NMaXRlKCkKYGBgCgoKaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIikKCmluc3RhbGwucGFja2FnZXMoImRldnRvb2xzIikKCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiaGFkbGV5L2NvbGZvcm1hdCIpCgpkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoInJvcGVuc2NpbGFicy9za2ltciIpCgppbnN0YWxsLnBhY2thZ2VzKCJoZmxpZ2h0cyIpCgppbnN0YWxsLnBhY2thZ2VzKCJkYnBseXIiKQoKaW5zdGFsbC5wYWNrYWdlcygieGxzeCIpCgpyZXF1aXJlKGRldnRvb2xzKQoKaW5zdGFsbF9naXRodWIoIlByb2plY3RNT1NBSUMvbW9zYWljIikKCmluc3RhbGwucGFja2FnZXMoImptdiIpCgoKaW5zdGFsbC5wYWNrYWdlcygid29yZGNsb3VkIikKCmluc3RhbGwucGFja2FnZXMoImh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL0FyY2hpdmUvdG0vdG1fMC42LnRhci5neiIsIHJlcG9zID0gTlVMTCkKCmluc3RhbGwucGFja2FnZXMoIlNub3diYWxsQyIpCgppbnN0YWxsLnBhY2thZ2VzKCJSQ29sb3JCcmV3ZXIiKQoKaW5zdGFsbC5wYWNrYWdlcygidGlkeXRleHQiKQoKaW5zdGFsbC5wYWNrYWdlcygicGFja3JhdCIpCgppbnN0YWxsLnBhY2thZ2VzKCJ0ZXN0dGhhdCIpCgppbnN0YWxsLnBhY2thZ2VzKCJwcmV0dHlkb2MiKQoKaW5zdGFsbC5wYWNrYWdlcygicm1kZm9ybWF0cyIpCgppbnN0YWxsLnBhY2thZ2VzKGMoImZpdmV0aGlydHllaWdodCIsICJ0aWR5dmVyc2UiLCAia25pdHIiLCAia2FibGVFeHRyYSIsICJnZ3RoZW1lcyIpKQoKbGlicmFyeShkZXZ0b29scykKCmluc3RhbGxfZ2l0aHViKCJTUFNTdG9SIiwgdXNlcm5hbWUgPSAibGViZWJyMDEiKQoKbGlicmFyeShTUFNTdG9SKQoKCmBgYHtyfQppcCA8LSBpbnN0YWxsZWQucGFja2FnZXMoKQpwa2dzLnRvLnJlbW92ZSA8LSBpcFshKGlwWywgIlByaW9yaXR5Il0gJWluJSBjKCJiYXNlIiwgInJlY29tbWVuZGVkIikpLCAxXQpzYXBwbHkocGtncy50by5yZW1vdmUsIHJlbW92ZS5wYWNrYWdlcykKc2FwcGx5KHBrZ3MudG8ucmVtb3ZlLCBpbnN0YWxsLnBhY2thZ2VzKQpgYGAKCgoKCmBgYHtyfQppbnN0YWxsLnBhY2thZ2VzKCJkZXZ0b29scyIpCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiQW5kcmVhQ2lyaWxsb0FDL3VwZGF0ZVIiKQpsaWJyYXJ5KHVwZGF0ZVIpCnVwZGF0ZVIoYWRtaW5fcGFzc3dvcmQgPSAiIikgIyMgV2hlcmUgIlBBU1NXT1JEIiBzdGFuZHMgZm9yIHlvdXIgc3lzdGVtIHBhc3N3b3JkCgpgYGAKCgoKCgoKc3Vydml2YWwKCnN1cnZtaW5lcgoKaW5zdGFsbC5wYWNrYWdlcygidHV0b3JpYWwiKQoKCmRldnRvb2xzOjppbnN0YWxsX2dpdGh1Yigicm9tYWluZnJhbmNvaXMvaGlnaGxpZ2h0IikKCmluc3RhbGwucGFja2FnZXMoImhpZ2hyIiwgcmVwb3MgPSAiaHR0cDovL3Jmb3JnZS5uZXQiLCB0eXBlID0gInNvdXJjZSIpCgoKCmluc3RhbGwucGFja2FnZXMoInhwbGFpbiIpCgoKCgoKYGBge3IgcmVtb3ZlIGFsbCB1c2VyIGluc3RhbGxlZCBwYWNrYWdlcyBpbiBSLCBldmFsPUZBTFNFLCBpbmNsdWRlPVRSVUV9CiMjIEhvdyB0byByZW1vdmUgYWxsIHVzZXIgaW5zdGFsbGVkIHBhY2thZ2VzIGluIFIKIyMgaHR0cHM6Ly93d3cuci1ibG9nZ2Vycy5jb20vaG93LXRvLXJlbW92ZS1hbGwtdXNlci1pbnN0YWxsZWQtcGFja2FnZXMtaW4tci8KCiMjIGNyZWF0ZSBhIGxpc3Qgb2YgYWxsIGluc3RhbGxlZCBwYWNrYWdlcwppcCA8LSBhcy5kYXRhLmZyYW1lKGluc3RhbGxlZC5wYWNrYWdlcygpKQpoZWFkKGlwKQojIyBpZiB5b3UgdXNlIE1STywgbWFrZSBzdXJlIHRoYXQgbm8gcGFja2FnZXMgaW4gdGhpcyBsaWJyYXJ5IHdpbGwgYmUgcmVtb3ZlZAppcCA8LSBzdWJzZXQoaXAsICFncmVwbCgiTVJPIiwgaXAkTGliUGF0aCkpCiMjIHdlIGRvbid0IHdhbnQgdG8gcmVtb3ZlIGJhc2Ugb3IgcmVjb21tZW5kZWQgcGFja2FnZXMgZWl0aGVyXAppcCA8LSBpcFshKGlwWywiUHJpb3JpdHkiXSAlaW4lIGMoImJhc2UiLCAicmVjb21tZW5kZWQiKSksXQojIyBkZXRlcm1pbmUgdGhlIGxpYnJhcnkgd2hlcmUgdGhlIHBhY2thZ2VzIGFyZSBpbnN0YWxsZWQKcGF0aC5saWIgPC0gdW5pcXVlKGlwJExpYlBhdGgpCiMjIGNyZWF0ZSBhIHZlY3RvciB3aXRoIGFsbCB0aGUgbmFtZXMgb2YgdGhlIHBhY2thZ2VzIHlvdSB3YW50IHRvIHJlbW92ZQpwa2dzLnRvLnJlbW92ZSA8LSBpcFssMV0KaGVhZChwa2dzLnRvLnJlbW92ZSkKIyMgcmVtb3ZlIHRoZSBwYWNrYWdlcwpzYXBwbHkocGtncy50by5yZW1vdmUsIHJlbW92ZS5wYWNrYWdlcywgbGliID0gcGF0aC5saWIpCmBgYAoKCiMjIFNjaGVkdWxlIFIgU2NyaXB0CgpsaWJyYXJ5KGtuaXRyKQoKbGlicmFyeShtYXJrZG93bikKIAoKa25pdCgiU2NoZWR1bGVQdWJNZWRBbmFseXNpcy5SbWQiKQoKbWFya2Rvd25Ub0hUTUwoIlNjaGVkdWxlUHViTWVkQW5hbHlzaXMubWQiLCAiZG9jcy9TY2hlZHVsZVB1Yk1lZEFuYWx5c2lzLmh0bWwiKQoKc2V0d2QoIn4iKQoKZmlsZS5jaG9vc2UoKQoKbGlicmFyeShybWFya2Rvd24pCgoKUHJlcGVyYXRpb24gUGFja2FnZXMgU2NoZWR1bGUgUiBTY3JpcHQKCiBodHRwczovL2dpdGh1Yi5jb20vamtlaXJzdGVhZC9zY2hvbGFyCgogaHR0cDovL3JvZ2llcnNiYXJ0LmJsb2dzcG90LmNvbS50ci8yMDE1LzA1L3B1dC1nb29nbGUtc2Nob2xhci1jaXRhdGlvbnMtb24teW91ci5odG1sCgogaHR0cDovL3R1eGV0dGUubmF0aGFsaWV2aWxsYS5vcmcvP3A9MTY4MgoKIGh0dHBzOi8vZ2l0aHViLmNvbS9zdW5pdGovc2Nob2xhcgoKIGh0dHBzOi8vdGdtc3RhdC53b3JkcHJlc3MuY29tLzIwMTMvMDkvMTEvc2NoZWR1bGUtcnNjcmlwdC13aXRoLWNyb24vCgogaHR0cHM6Ly9naXRodWIuY29tL3JvcGVuc2NpL2dpdDJyCiAgICAgCgogbGlicmFyeShrbml0cikKCiBsaWJyYXJ5KG1hcmtkb3duKQogCiBpbnN0YWxsLnBhY2thZ2VzKCdkYXRhLnRhYmxlJykKCiBpbnN0YWxsLnBhY2thZ2VzKCdrbml0cicpCgogaW5zdGFsbC5wYWNrYWdlcygnbWluaVVJJykKCiBpbnN0YWxsLnBhY2thZ2VzKCdzaGlueScpCgogaW5zdGFsbC5wYWNrYWdlcygnc2hpbnlGaWxlcycpCiAKIGluc3RhbGwucGFja2FnZXMoInRhc2tzY2hlZHVsZVIiLCByZXBvcyA9ICJodHRwOi8vd3d3LmRhdGF0YWlsb3IuYmUvcmN1YmUiLCB0eXBlID0gInNvdXJjZSIpCiAKIGRldnRvb2xzOjppbnN0YWxsX2dpdGh1YigiYm5vc2FjL2Nyb25SIikKCiBpbnN0YWxsLnBhY2thZ2VzKCdzY2hvbGFyJykKIAogCiBpbnN0YWxsLnBhY2thZ2VzKCJnaXQyciIpCgoKIyMgZmxhdHhtbAoKaHR0cDovL3d3dy56dWNrYXJlbGxpLmRlL2ZsYXR4bWwvYXJ0aWNsZXMvZXhhbXBsZS9leGFtcGxlLmh0bWwKCmBgYHtyfQp4bWxkYXRhIDwtIGZsYXR4bWw6OmZ4bWxfaW1wb3J0WE1MRmxhdCgiZGF0YS9QYXRob2xvZ3lUdXJrZXkueG1sIikKCmBgYAoKCiMjIHJvb21iYQoKR2VuZXJhbCBwdXJwb3NlIEFQSSByZXNwb25zZSB0aWRpZXIKCmh0dHBzOi8vZ2l0aHViLmNvbS9yb3BlbnNjaWxhYnMvcm9vbWJhLwoKYGBge3J9CnJvb21iYTo6c2hpbnlfcm9vbWJhKCkKYGBgCgoKCiMjIHR1ZnRlcmhhbmRvdXQKClR1ZnRlLXN0eWxlIGh0bWwgZG9jdW1lbnQgZm9ybWF0IGZvciBybWFya2Rvd24KCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy90dWZ0ZXJoYW5kb3V0L2luZGV4Lmh0bWwKCmBgYHtyfQojIyBpbnN0YWxsLnBhY2thZ2VzKCJ0dWZ0ZXJoYW5kb3V0IikKbGlicmFyeSh0dWZ0ZXJoYW5kb3V0KQpgYGAKCiMjIHBhcGVSCgpbaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvL015UkNvZGVzRm9yRGF0YUFuYWx5c2lzL3BhcGVSLm5iLmh0bWxdKGh0dHBzOi8vc2JhbGNpLmdpdGh1Yi5pby9NeVJDb2Rlc0ZvckRhdGFBbmFseXNpcy9wYXBlUi5uYi5odG1sKQoKIyMgdG0KCmluc3RhbGwucGFja2FnZXMoInRtIikKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy90bS92aWduZXR0ZXMvdG0ucGRmCgotLS0KCmh0dHBzOi8vYXRvbS5pby9wYWNrYWdlcy9oeWRyb2dlbgoKCgoKCgo=</div>
 
 
 
