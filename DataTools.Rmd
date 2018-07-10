@@ -1,0 +1,43 @@
+---
+title: "Data Tools"
+output: html_notebook
+---
+
+- Setup a Data Science Environment on your Computer
+https://www.datacamp.com/community/tutorials/setup-data-science-environment
+
+- Installations for Data Science. Anaconda, RStudio, Spark, TensorFlow, AWS (Amazon Web Services).
+
+https://medium.com/@GalarnykMichael
+
+https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows
+
+- Google Cloud for Data Science: Beginner's Guide
+https://www.datacamp.com/community/tutorials/google-cloud-data-science
+
+- Deep Learning With Jupyter Notebooks In The Cloud
+https://www.datacamp.com/community/tutorials/deep-learning-jupyter-aws
+
+https://www.datacamp.com/community/tutorials/homebrew-install-use
+
+
+
+
+
+
+system() function works when I use R from terminal but not from RStudio #2193
+
+https://github.com/rstudio/rstudio/issues/2193
+
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query '(diabetes AND pregnancy) AND (\"2017/01/01\"[PDAT] : \"2017/12/31\"[PDAT])' | efetch -format xml | xtract -pattern Grant -element Agency | sort-uniq-count-rank | head -n 10 > myquery.txt \n")
+Sys.sleep(1)
+repeat{
+    Sys.sleep(0.1)
+    if(rstudioapi::terminalBusy(myTerm) == FALSE){
+        print("Code Executed")
+        break
+    }
+}
+
+

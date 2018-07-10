@@ -115,6 +115,8 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Twitter.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Twitter.nb.html)
 
+## News
+
 # Bibliography
 
 Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](https://sbalci.github.io/ResearchOnBibliography/)
@@ -154,10 +156,13 @@ Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](
 [https://sbalci.github.io/MyRCodesForDataAnalysis/RPackagesUsed.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/RPackagesUsed.nb.html)
 
 
-
 # Data List
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html)
+
+# Data Tools
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/DataTools.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DataTools.nb.html)
 
 # Feedback
 

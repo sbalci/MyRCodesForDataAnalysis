@@ -6,5 +6,6 @@ output: html_notebook
 
 http://serialmentor.com/dataviz/
 
-
+You Can Design a Good Chart with R
+https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
 

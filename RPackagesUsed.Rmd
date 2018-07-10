@@ -18,6 +18,46 @@ knitr::opts_chunk$set(
 
 ## Packages to be studied
 
+
+```{r}
+packagefinder::findPackage(c("pubmed", "bibliography"))
+```
+
+https://cran.rstudio.com/web/packages/sys/
+
+# scales
+
+Scale Functions for Visualization
+
+https://cran.r-project.org/web/packages/scales/index.html
+
+```{r}
+paste0(round(.20394*100, 1), "%")
+scales::percent(.20394)
+```
+
+
+https://cran.r-project.org/web/packages/naniar/index.html
+
+https://hughjonesd.github.io/anim.plots/anim.plots.html
+
+You Can Design a Good Chart with R
+https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
+
+Bubble-grid-maps
+https://jschoeley.github.io/2018/06/30/bubble-grid-map.html
+
+Taking control of animations in R and demystifying them in the process 
+https://www.data-imaginist.com/2017/animating-the-logo/?utm_content=bufferd418f&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+ 
+https://cran.r-project.org/web/packages/rticles/rticles.pdf
+
+
+
+https://colinfay.me/build-api-wrapper-package-r/
+
+https://www.datacamp.com/community/tutorials/setup-data-science-environment
+
 https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html####installation
 
 https://cran.r-project.org/web/packages/expss/vignettes/tables-with-labels.html

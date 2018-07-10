@@ -575,6 +575,9 @@ plotKM
 
 ####   - huxtable
 
+https://hughjonesd.github.io/huxtable/design-principles.html
+
+
 
 ####   - tables
 

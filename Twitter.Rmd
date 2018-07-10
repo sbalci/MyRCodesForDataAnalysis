@@ -664,3 +664,25 @@ sigmajs() %>%
 # A Shiny App with rtweet
 
 https://aj17.shinyapps.io/twitteranalytics/
+
+
+```{r}
+library(blogdown)
+blogdown::shortcode('tweet', '1014492923981803521')
+```
+
+
+# Conference tweets
+
+https://twitter.com/APo_ORV/status/1016412207867973632
+
+https://twitter.com/grrrck/status/959137137118646272
+
+https://gadenbuie.shinyapps.io/rsconf_tweets/
+
+https://github.com/gadenbuie/rsconf_tweets
+
+https://behindbars.shinyapps.io/user2018/
+
+https://github.com/oliviergimenez/isec2018_tweet_analysis
+

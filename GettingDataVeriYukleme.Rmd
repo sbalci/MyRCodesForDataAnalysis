@@ -46,6 +46,21 @@ ebola
 
 ### Import Excel File
 
+my_data <- read_excel(file.choose())
+
+
+files <- list.files(pattern = ".xlsx")
+
+data_xlsx_df <- map_df(set_names(files), function(file) {
+  file %>% 
+    excel_sheets() %>% 
+    set_names() %>% 
+    map_df(
+      ~ read_xlsx(path = file, sheet = .x, range = "H3"),
+      .id = "sheet")
+}, .id = "file")
+
+
 #### Import Sheets
 
 <!-- # Sheets -->

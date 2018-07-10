@@ -93,6 +93,12 @@ to.plain <- function(s) {
     s2
 }
 
+names(df) <- make.names(to.plain(tolower(names(df))))
+
+names(df) <- names(df) %>% 
+    tolower() %>% 
+    to.plain() %>% 
+    make.names()
 
 df$source=as.vector(sapply(df$source,to.plain))
 
@@ -335,7 +341,51 @@ dt3
 <!-- dev.off() -->
 
 
+https://stackoverflow.com/questions/22353633/filter-for-complete-cases-in-data-frame-using-dplyr-case-wise-deletion
 
+
+df %>% na.omit
+or this:
+
+df %>% filter(complete.cases(.))
+or this:
+
+library(tidyr)
+df %>% drop_na
+If you want to filter based on one variable's missingness, use a conditional:
+
+df %>% filter(!is.na(x1))
+or
+
+df %>% drop_na(x1)
+Other answers indicate that of the solutions above na.omit is much slower but that has to be balanced against the fact that it returns and row indices of the omitted rows as the na.action attribute whereas the other solutions above do not.
+
+str(df %>% na.omit)
+'data.frame':   2 obs. of  2 variables:
+$ x1: num  1 2
+$ x2: num  1 2
+- attr(*, "na.action")= 'omit' Named int  3 4
+    ..- attr(*, "names")= chr  "3" "4"
+
+
+
+ozp <- veri %>% 
+    select(RaporNo, Hasta, cinsiyet, Yas,
+           ozp_parca, ozp_kaset, ozp_cap, ozp_tani, ozp_kod) %>% 
+    filter(!is.na(ozp_parca) | !is.na(ozp_kaset) | !is.na(ozp_cap) | !is.na(ozp_tani) | !is.na(ozp_kod)
+    )
+
+ozp2 <- veri %>% 
+    select(RaporNo, Hasta, cinsiyet, Yas,
+           ozp_parca, ozp_kaset, ozp_cap, ozp_tani, ozp_kod) %>% 
+    filter(complete.cases(ozp_parca, ozp_kaset, ozp_cap, ozp_tani, ozp_kod)
+    )
+
+ozp3 <- veri %>% 
+    select(RaporNo, Hasta, cinsiyet, Yas,
+           ozp_parca, ozp_kaset, ozp_cap, ozp_tani, ozp_kod) %>% 
+    na.omit(ozp_parca, ozp_kaset, ozp_cap, ozp_tani, ozp_kod)
+    
 
 
 
