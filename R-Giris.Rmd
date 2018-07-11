@@ -1,6 +1,14 @@
 ---
 title: "R ile analize başlarken"
-output: html_notebook
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
 author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 date: '`r format(Sys.Date())`'
 ---
@@ -57,7 +65,6 @@ install.packages("Rcmdr", dependencies = TRUE)
 require(tidyverse)
 require(jmv)
 require(questionr)
-library(Rcmdr)
 ```
 
 # R studio ile proje oluşturma
@@ -120,9 +127,12 @@ table()
 
 
 
-```{r}
+```{r echo=TRUE}
+library(readr)
+irisdata <- read_csv("data/iris.csv")
+
 jmv::descriptives(
-    data = data,
+    data = irisdata,
     vars = "Sepal.Length",
     splitBy = "Species",
     freq = TRUE,
@@ -146,9 +156,10 @@ jmv::descriptives(
 
 
 ```{r}
+install.packages("scatr")
 
 scatr::scat(
-    data = data,
+    data = irisdata,
     x = "Sepal.Length",
     y = "Sepal.Width",
     group = "Species",
@@ -160,5 +171,16 @@ scatr::scat(
 
 
 # Rcmdr
+
+```{r}
+library(Rcmdr)
+```
+
+
+# Sonraki Konular
+
+- RStudio ile GitHub
+- Hipotez testleri
+- R Markdown ve R Notebook ile tekrarlanabilir rapor
 
 

@@ -3,16 +3,16 @@ title: "R Packages Used"
 output: html_notebook
 ---
 
-```{r setup, cache = F, warning = FALSE}
+<!-- ```{r setup, cache = F, warning = FALSE} -->
 
-knitr::opts_chunk$set(
-	error = TRUE,
-	message = FALSE,
-	warning = FALSE,
-	eval = FALSE,
-	include = TRUE
-)
-```
+<!-- knitr::opts_chunk$set( -->
+<!-- 	error = TRUE, -->
+<!-- 	message = FALSE, -->
+<!-- 	warning = FALSE, -->
+<!-- 	eval = FALSE, -->
+<!-- 	include = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
 
 
