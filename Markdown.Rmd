@@ -16,8 +16,36 @@ https://smithcollege-sds.github.io/sds-public/rmarkdown_problems.html
 
 http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
 
-- Knitr overview
+- Knitr & R Markdown
 
 https://kbroman.org/knitr_knutshell/pages/overview.html
 
+https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
 
+https://kbroman.org/knitr_knutshell/pages/markdown.html
+
+ 
+- render markdown via code
+
+*inside R*
+```
+markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')
+```
+
+*command line*
+```
+R -e "markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')"
+```
+
+
+- pandoc Rstudio integration
+
+*command line*
+```
+export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
+```
+
+
+```
+R -e "rmarkdown::render('markdown_example.md')"
+```

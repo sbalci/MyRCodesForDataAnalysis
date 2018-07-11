@@ -18,6 +18,9 @@ https://www.r-bloggers.com/rstudio-and-github/
 
 http://happygitwithr.com/fork.html
 
+https://kbroman.org/github_tutorial/
+
+
 
 
 ```{r}

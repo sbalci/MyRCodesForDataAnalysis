@@ -1711,13 +1711,28 @@ $(document).ready(function () {
 </blockquote>
 <p><a href="http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html" class="uri">http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html</a></p>
 <ul>
-<li>Knitr overview</li>
+<li>Knitr &amp; R Markdown</li>
 </ul>
 <p><a href="https://kbroman.org/knitr_knutshell/pages/overview.html" class="uri">https://kbroman.org/knitr_knutshell/pages/overview.html</a></p>
+<p><a href="https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html" class="uri">https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html</a></p>
+<p><a href="https://kbroman.org/knitr_knutshell/pages/markdown.html" class="uri">https://kbroman.org/knitr_knutshell/pages/markdown.html</a></p>
+<ul>
+<li>render markdown via code</li>
+</ul>
+<p><em>inside R</em></p>
+<pre><code>markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')</code></pre>
+<p><em>command line</em></p>
+<pre><code>R -e &quot;markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')&quot;</code></pre>
+<ul>
+<li>pandoc Rstudio integration</li>
+</ul>
+<p><em>command line</em></p>
+<pre><code>export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc</code></pre>
+<pre><code>R -e &quot;rmarkdown::render('markdown_example.md')&quot;</code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyMgVXNlIFIgTWFya2Rvd24KCmh0dHBzOi8vYW5kcmV3YnRyYW4uZ2l0aHViLmlvL05JQ0FSLzIwMTgvd29ya2Zsb3cvZG9jcy8wMi1ybWFya2Rvd24uaHRtbAoKLSBUcm91Ymxlc2hvb3RpbmcgaW4gUiBNYXJrZG93bgoKaHR0cHM6Ly9zbWl0aGNvbGxlZ2Utc2RzLmdpdGh1Yi5pby9zZHMtcHVibGljL3JtYXJrZG93bl9wcm9ibGVtcy5odG1sCgo+IHtyIGdsb2JhbF9vcHRpb25zLCBpbmNsdWRlPUZBTFNFfQo+IGtuaXRyOjpvcHRzX2NodW5rJHNldChmaWcud2lkdGg9MTIsIGZpZy5oZWlnaHQ9OCwgZmlnLnBhdGg9J0ZpZ3MvJywgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSwgbWVzc2FnZT1GQUxTRSwgaW5jbHVkZSA9IEZBTFNFKQoKaHR0cDovL2ticm9tYW4ub3JnL2tuaXRyX2tudXRzaGVsbC9wYWdlcy9SbWFya2Rvd24uaHRtbAoKLSBLbml0ciBvdmVydmlldwoKaHR0cHM6Ly9rYnJvbWFuLm9yZy9rbml0cl9rbnV0c2hlbGwvcGFnZXMvb3ZlcnZpZXcuaHRtbAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyMgVXNlIFIgTWFya2Rvd24KCmh0dHBzOi8vYW5kcmV3YnRyYW4uZ2l0aHViLmlvL05JQ0FSLzIwMTgvd29ya2Zsb3cvZG9jcy8wMi1ybWFya2Rvd24uaHRtbAoKLSBUcm91Ymxlc2hvb3RpbmcgaW4gUiBNYXJrZG93bgoKaHR0cHM6Ly9zbWl0aGNvbGxlZ2Utc2RzLmdpdGh1Yi5pby9zZHMtcHVibGljL3JtYXJrZG93bl9wcm9ibGVtcy5odG1sCgo+IHtyIGdsb2JhbF9vcHRpb25zLCBpbmNsdWRlPUZBTFNFfQo+IGtuaXRyOjpvcHRzX2NodW5rJHNldChmaWcud2lkdGg9MTIsIGZpZy5oZWlnaHQ9OCwgZmlnLnBhdGg9J0ZpZ3MvJywgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSwgbWVzc2FnZT1GQUxTRSwgaW5jbHVkZSA9IEZBTFNFKQoKaHR0cDovL2ticm9tYW4ub3JnL2tuaXRyX2tudXRzaGVsbC9wYWdlcy9SbWFya2Rvd24uaHRtbAoKLSBLbml0ciAmIFIgTWFya2Rvd24KCmh0dHBzOi8va2Jyb21hbi5vcmcva25pdHJfa251dHNoZWxsL3BhZ2VzL292ZXJ2aWV3Lmh0bWwKCmh0dHBzOi8va2Jyb21hbi5vcmcva25pdHJfa251dHNoZWxsL3BhZ2VzL1JtYXJrZG93bi5odG1sCgpodHRwczovL2ticm9tYW4ub3JnL2tuaXRyX2tudXRzaGVsbC9wYWdlcy9tYXJrZG93bi5odG1sCgogCi0gcmVuZGVyIG1hcmtkb3duIHZpYSBjb2RlCgoqaW5zaWRlIFIqCmBgYAptYXJrZG93bjo6bWFya2Rvd25Ub0hUTUwoJ21hcmtkb3duX2V4YW1wbGUubWQnLCAnbWFya2Rvd25fZXhhbXBsZS5odG1sJykKYGBgCgoqY29tbWFuZCBsaW5lKgpgYGAKUiAtZSAibWFya2Rvd246Om1hcmtkb3duVG9IVE1MKCdtYXJrZG93bl9leGFtcGxlLm1kJywgJ21hcmtkb3duX2V4YW1wbGUuaHRtbCcpIgpgYGAKCgotIHBhbmRvYyBSc3R1ZGlvIGludGVncmF0aW9uCgoqY29tbWFuZCBsaW5lKgpgYGAKZXhwb3J0IFBBVEg9JFBBVEg6L0FwcGxpY2F0aW9ucy9SU3R1ZGlvLmFwcC9Db250ZW50cy9NYWNPUy9wYW5kb2MKYGBgCgoKYGBgClIgLWUgInJtYXJrZG93bjo6cmVuZGVyKCdtYXJrZG93bl9leGFtcGxlLm1kJykiCmBgYA==</div>
 
 
 
