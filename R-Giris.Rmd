@@ -82,6 +82,12 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 # Veriyi görüntüleme
 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Spreadsheet users using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>:  where&#39;s the data?<a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> users using spreadsheets:  where&#39;s the code?</p>&mdash; Leonard Kiefer (@lenkiefer) <a href="https://twitter.com/lenkiefer/status/1015587475580956672?ref_src=twsrc%5Etfw">July 7, 2018</a></blockquote>
+
+
+
+
+
 summary()
 View(data)
 data
