@@ -49,6 +49,7 @@ https://www.xquartz.org/
 
 https://support.apple.com/kb/dl1572
 
+---
 
 # R paket yükleme
 
@@ -61,17 +62,21 @@ install.packages("Rcmdr", dependencies = TRUE)
 ```
 
 
-```{r}
+```{r, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
 require(tidyverse)
 require(jmv)
 require(questionr)
 ```
+
+---
 
 # R studio ile proje oluşturma
 
 https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 
 ![](http://www.rstudio.com/images/docs/projects_new.png)
+
+---
 
 # RStudio ile veri yükleme
 
@@ -86,6 +91,8 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 ## csv
 
+
+---
 
 # Veriyi görüntüleme
 
@@ -133,6 +140,7 @@ str
 skimr::skim()
 ```
 
+---
 
 # Veriyi değiştirme
 
@@ -140,9 +148,20 @@ skimr::skim()
 
 ## Veriyi eklentilerle değiştirme
 
-# RStudio aracılığıyla recode
+![](figures/change_data.png)
 
-questionr paketi kullanılacak
+
+
+
+## RStudio aracılığıyla recode
+
+*questionr* paketi kullanılacak
+
+![](figures/level_recode.png)
+
+
+
+
 
 https://juba.github.io/questionr/articles/recoding_addins.html
 
@@ -160,6 +179,7 @@ https://juba.github.io/questionr/articles/recoding_addins.html
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_3.png)
 
 
+---
 
 # Basit tanımlayıcı istatistikler
 
@@ -215,6 +235,7 @@ scatr::scat(
 
 ```
 
+---
 
 # Rcmdr
 
@@ -223,6 +244,8 @@ library(Rcmdr)
 ```
 
 
+---
+
 # Sonraki Konular
 
 - RStudio ile GitHub
@@ -230,11 +253,14 @@ library(Rcmdr)
 - R Markdown ve R Notebook ile tekrarlanabilir rapor
 
 
+---
+
 # Diğer kodlar
 
 - Diğer kodlar için bakınız: [https://sbalci.github.io/](https://sbalci.github.io/)
 
 
+---
 
 # Geri Bildirim
 
