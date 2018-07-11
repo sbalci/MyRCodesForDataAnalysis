@@ -142,6 +142,11 @@ Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](
 
 # Miscellaneous
 
+## Power Analysis
+
+[https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html)
+
+
 ## Formulas
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Formulas.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Formulas.nb.html)
