@@ -1,15 +1,23 @@
 ---
-title: "R Giris"
+title: "R ile analize başlarken"
 output: html_notebook
 ---
 
+# R yükleme
+
+R
+RStudio
+X11
+Java OS
+
 # R paket yükleme
 ```{r}
-install.packages("tidyverse")
-install.packages("jmv")
-install.packages("questionr")
-install.packages("Rcmdr")
+install.packages("tidyverse", dependencies = TRUE)
+install.packages("jmv", dependencies = TRUE)
+install.packages("questionr", dependencies = TRUE)
+install.packages("Rcmdr", dependencies = TRUE)
 ```
+
 
 ```{r}
 require(tidyverse)
@@ -33,6 +41,7 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 # Veriyi görüntüleme
 
+summary()
 View(data)
 data
 head
