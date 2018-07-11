@@ -1708,7 +1708,7 @@ $(document).ready(function () {
 <p><a href="http://happygitwithr.com/fork.html" class="uri">http://happygitwithr.com/fork.html</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbInJlcXVpcmUocnN0dWRpb2FwaSkiLCJDb21taXRNZXNzYWdlIDwtIHBhc3RlKFwidXBkYXRlZCBvbiBcIiwgU3lzLnRpbWUoKSwgc2VwID0gXCJcIikiLCJ3ZCA8LSBnZXR3ZCgpIiwiZ2l0Q29tbWFuZCA8LSBwYXN0ZShcImNkXCIsIHdkLCBcIiBcXG4gZ2l0IGFkZCAuIFxcbiBnaXQgY29tbWl0IC0tbWVzc2FnZSAnXCIsIENvbW1pdE1lc3NhZ2UsIFwiJyBcXG4gZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcXG5cIiwgc2VwID0gXCJcIikiLCJTeXMuc2xlZXAodGltZSA9IDEpIiwiZ2l0VGVybSA8LSByc3R1ZGlvYXBpOjp0ZXJtaW5hbENyZWF0ZShzaG93ID0gRkFMU0UpIiwiU3lzLnNsZWVwKHRpbWUgPSAxKSIsInJzdHVkaW9hcGk6OnRlcm1pbmFsU2VuZChnaXRUZXJtLCBnaXRDb21tYW5kKSJdfQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShyc3R1ZGlvYXBpKVxuQ29tbWl0TWVzc2FnZSA8LSBwYXN0ZShcInVwZGF0ZWQgb24gXCIsIFN5cy50aW1lKCksIHNlcCA9IFwiXCIpXG53ZCA8LSBnZXR3ZCgpXG5naXRDb21tYW5kIDwtIHBhc3RlKFwiY2RcIiwgd2QsIFwiIFxcbiBnaXQgYWRkIC4gXFxuIGdpdCBjb21taXQgLS1tZXNzYWdlICdcIiwgQ29tbWl0TWVzc2FnZSwgXCInIFxcbiBnaXQgcHVzaCBvcmlnaW4gbWFzdGVyIFxcblwiLCBzZXAgPSBcIlwiKVxuU3lzLnNsZWVwKHRpbWUgPSAxKVxuZ2l0VGVybSA8LSByc3R1ZGlvYXBpOjp0ZXJtaW5hbENyZWF0ZShzaG93ID0gRkFMU0UpXG5TeXMuc2xlZXAodGltZSA9IDEpXG5yc3R1ZGlvYXBpOjp0ZXJtaW5hbFNlbmQoZ2l0VGVybSwgZ2l0Q29tbWFuZClcbmBgYCJ9 -->
 <pre class="r"><code>require(rstudioapi)
 CommitMessage &lt;- paste(&quot;updated on &quot;, Sys.time(), sep = &quot;&quot;)
 wd &lt;- getwd()
@@ -1722,7 +1722,7 @@ rstudioapi::terminalSend(gitTerm, gitCommand)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIkNvbW1pdE1lc3NhZ2UgPC0gcGFzdGUoXCJ1cGRhdGVkIG9uIFwiLCBTeXMudGltZSgpLCBzZXAgPSBcIlwiKSIsIndkIDwtIGdldHdkKCkiLCJnaXRDb21tYW5kIDwtIHBhc3RlKFwiY2QgXCIsIHdkLCBcIiBcXG4gZ2l0IGFkZCAuIFxcbiBnaXQgY29tbWl0IC0tbWVzc2FnZSAnXCIsIENvbW1pdE1lc3NhZ2UsIFwiJyBcXG4gZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcXG5cIiwgc2VwID0gXCJcIikiLCJzeXN0ZW0oY29tbWFuZCA9IGdpdENvbW1hbmQsIGludGVybiA9IFRSVUUpIl19 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ29tbWl0TWVzc2FnZSA8LSBwYXN0ZShcInVwZGF0ZWQgb24gXCIsIFN5cy50aW1lKCksIHNlcCA9IFwiXCIpXG53ZCA8LSBnZXR3ZCgpXG5naXRDb21tYW5kIDwtIHBhc3RlKFwiY2QgXCIsIHdkLCBcIiBcXG4gZ2l0IGFkZCAuIFxcbiBnaXQgY29tbWl0IC0tbWVzc2FnZSAnXCIsIENvbW1pdE1lc3NhZ2UsIFwiJyBcXG4gZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcXG5cIiwgc2VwID0gXCJcIilcbnN5c3RlbShjb21tYW5kID0gZ2l0Q29tbWFuZCwgaW50ZXJuID0gVFJVRSlcbmBgYCJ9 -->
 <pre class="r"><code>CommitMessage &lt;- paste(&quot;updated on &quot;, Sys.time(), sep = &quot;&quot;)
 wd &lt;- getwd()
 gitCommand &lt;- paste(&quot;cd &quot;, wd, &quot; \n git add . \n git commit --message '&quot;, CommitMessage, &quot;' \n git push origin master \n&quot;, sep = &quot;&quot;)

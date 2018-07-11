@@ -184,3 +184,13 @@ library(Rcmdr)
 - R Markdown ve R Notebook ile tekrarlanabilir rapor
 
 
+# Diğer kodlar
+
+- Diğer kodlar için bakınız: [https://sbalci.github.io/](https://sbalci.github.io/)
+
+
+
+# Geri Bildirim
+
+- Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
+
