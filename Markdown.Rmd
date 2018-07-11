@@ -16,4 +16,8 @@ https://smithcollege-sds.github.io/sds-public/rmarkdown_problems.html
 
 http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
 
+- Knitr overview
+
+https://kbroman.org/knitr_knutshell/pages/overview.html
+
 

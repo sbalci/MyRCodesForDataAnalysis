@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-06-24" />
+<meta name="date" content="2018-07-11" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -2929,7 +2929,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-06-24</em></h4>
+<h4 class="date"><em>2018-07-11</em></h4>
 
 </div>
 
@@ -2939,14 +2939,14 @@ div.tocify {
 <h2><span class="header-section-number">0.1</span> Descriptive Statistics</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKVxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKSJ9 -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUgPC0gRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKVxuXG5wYW5kZXI6OnBhbmRlcih0YWJsZSlcblxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjpbInRhYmxlIDwtIEVwaTo6c3RhdC50YWJsZShnZW5kZXIsbWVhbihhZ2UpLCBkYXRhID0gc2NhYmllcykiLCIiLCJwYW5kZXI6OnBhbmRlcih0YWJsZSkiXX0= -->
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">table &lt;-<span class="st"> </span>Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">pander<span class="op">::</span><span class="kw">pander</span>(table)</a></code></pre></div>
@@ -2955,7 +2955,7 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RhYnVsYXRlLCBieSBnZW5kZXIsIHRoZSBtZWFuIGFnZSBmcm9tIHRoZSBzY2FiaWVzIGRhdGFzZXRcblxuRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjpbIiNUYWJ1bGF0ZSwgYnkgZ2VuZGVyLCB0aGUgbWVhbiBhZ2UgZnJvbSB0aGUgc2NhYmllcyBkYXRhc2V0IiwiIiwiRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKSJdfQ== -->
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">#Tabulate, by gender, the mean age from the scabies dataset</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">list</span>(<span class="kw">mean</span>(age),<span class="kw">median</span>(age)), <span class="dt">data =</span> scabies)</a></code></pre></div>
@@ -2964,16 +2964,117 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeV9kYXRhIDwtIGFyc2VuYWw6OnRhYmxlYnkoZ2VuZGVyfmFnZStzY2FiaWVzX2luZmVzdGF0aW9uLGRhdGE9c2NhYmllcylcbnN1bW1hcnkoc3VtbWFyeV9kYXRhKVxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjpbInN1bW1hcnlfZGF0YSA8LSBhcnNlbmFsOjp0YWJsZWJ5KGdlbmRlcn5hZ2Urc2NhYmllc19pbmZlc3RhdGlvbixkYXRhPXNjYWJpZXMpIiwic3VtbWFyeShzdW1tYXJ5X2RhdGEpIl19 -->
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">summary_data &lt;-<span class="st"> </span>arsenal<span class="op">::</span><span class="kw">tableby</span>(gender<span class="op">~</span>age<span class="op">+</span>scabies_infestation,<span class="dt">data=</span>scabies)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">summary</span>(summary_data)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="skimr" class="section level2">
+<h2><span class="header-section-number">0.2</span> skimr</h2>
+<p><a href="https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html" class="uri">https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoicmVxdWlyZShza2ltcikifQ== -->
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">require</span>(skimr)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic3VtbWFyeShpcmlzKSJ9 -->
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">summary</span>(iris)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic3VtbWFyeShpcmlzJFNlcGFsLkxlbmd0aCkifQ== -->
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiZml2ZW51bShpcmlzJFNlcGFsLkxlbmd0aCkifQ== -->
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">fivenum</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic3VtbWFyeShpcmlzJFNwZWNpZXMpIn0= -->
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Species)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic2tpbShpcmlzKSJ9 -->
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">skim</span>(iris)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImlyaXNfcmVzdWx0cyA8LSBza2ltKGlyaXMpIiwic3RyKGlyaXNfcmVzdWx0cykiLCJpcmlzX3Jlc3VsdHMkdmFyaWFibGUiLCJpcmlzX3Jlc3VsdHMkdHlwZSJdfQ== -->
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">iris_results &lt;-<span class="st"> </span><span class="kw">skim</span>(iris)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">str</span>(iris_results)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">iris_results<span class="op">$</span>variable</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">iris_results<span class="op">$</span>type</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInNraW1yOjpza2ltKGlyaXMpICU+JSIsIiAgZHBseXI6OmZpbHRlcihzdGF0ID09IFwibWVhblwiKSJdfQ== -->
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">skimr<span class="op">::</span><span class="kw">skim</span>(iris) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stat <span class="op">==</span><span class="st"> &quot;mean&quot;</span>)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiaGVhZChpcmlzX3Jlc3VsdHMsIG49MTUpIn0= -->
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">head</span>(iris_results, <span class="dt">n=</span><span class="dv">15</span>)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIm10Y2FycyAlPiUiLCIgIGRwbHlyOjpncm91cF9ieShnZWFyKSAlPiUiLCIgIHNraW0oKSJdfQ== -->
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(gear) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">skim</span>()</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpIn0= -->
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">skim</span>(iris, Sepal.Length, Species)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic2tpbShpcmlzLCBzdGFydHNfd2l0aChcIlNlcGFsXCIpKSJ9 -->
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">skim</span>(iris, <span class="kw">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>))</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic2tpbShkYXRhc2V0czo6bHlueCkifQ== -->
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">skim</span>(datasets<span class="op">::</span>lynx)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKIyMgRGVzY3JpcHRpdmUgU3RhdGlzdGljcwoKCmBgYHtyfQpFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpgYGAKCmBgYHtyfQp0YWJsZSA8LSBFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpwYW5kZXI6OnBhbmRlcih0YWJsZSkKCgpgYGAKCmBgYHtyfQojVGFidWxhdGUsIGJ5IGdlbmRlciwgdGhlIG1lYW4gYWdlIGZyb20gdGhlIHNjYWJpZXMgZGF0YXNldAoKRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKQpgYGAKCmBgYHtyfQpzdW1tYXJ5X2RhdGEgPC0gYXJzZW5hbDo6dGFibGVieShnZW5kZXJ+YWdlK3NjYWJpZXNfaW5mZXN0YXRpb24sZGF0YT1zY2FiaWVzKQpzdW1tYXJ5KHN1bW1hcnlfZGF0YSkKCmBgYAoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKIyMgRGVzY3JpcHRpdmUgU3RhdGlzdGljcwoKCmBgYHtyfQpFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpgYGAKCmBgYHtyfQp0YWJsZSA8LSBFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpwYW5kZXI6OnBhbmRlcih0YWJsZSkKCgpgYGAKCmBgYHtyfQojVGFidWxhdGUsIGJ5IGdlbmRlciwgdGhlIG1lYW4gYWdlIGZyb20gdGhlIHNjYWJpZXMgZGF0YXNldAoKRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKQpgYGAKCmBgYHtyfQpzdW1tYXJ5X2RhdGEgPC0gYXJzZW5hbDo6dGFibGVieShnZW5kZXJ+YWdlK3NjYWJpZXNfaW5mZXN0YXRpb24sZGF0YT1zY2FiaWVzKQpzdW1tYXJ5KHN1bW1hcnlfZGF0YSkKCmBgYAoKCiMjIHNraW1yCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvc2tpbXIvdmlnbmV0dGVzL1VzaW5nX3NraW1yLmh0bWwKCmBgYHtyfQpyZXF1aXJlKHNraW1yKQpgYGAKCmBgYHtyfQpzdW1tYXJ5KGlyaXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoaXJpcyRTZXBhbC5MZW5ndGgpCmBgYAoKCmBgYHtyfQpmaXZlbnVtKGlyaXMkU2VwYWwuTGVuZ3RoKQpgYGAKCgpgYGB7cn0Kc3VtbWFyeShpcmlzJFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMpCmBgYAoKCmBgYHtyfQppcmlzX3Jlc3VsdHMgPC0gc2tpbShpcmlzKQpzdHIoaXJpc19yZXN1bHRzKQppcmlzX3Jlc3VsdHMkdmFyaWFibGUKaXJpc19yZXN1bHRzJHR5cGUKYGBgCgoKYGBge3J9CnNraW1yOjpza2ltKGlyaXMpICU+JQogIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSAibWVhbiIpCmBgYAoKYGBge3J9CmhlYWQoaXJpc19yZXN1bHRzLCBuPTE1KQpgYGAKCgoKYGBge3J9Cm10Y2FycyAlPiUKICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lCiAgc2tpbSgpCmBgYAoKCgpgYGB7cn0Kc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMsIHN0YXJ0c193aXRoKCJTZXBhbCIpKQpgYGAKCgoKYGBge3J9CnNraW0oZGF0YXNldHM6Omx5bngpCmBgYAoKCg==</div>
 
 
 </div>

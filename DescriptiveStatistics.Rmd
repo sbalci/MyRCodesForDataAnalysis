@@ -52,5 +52,78 @@ summary(summary_data)
 ```
 
 
+## skimr
+
+https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html
+
+```{r}
+require(skimr)
+```
+
+```{r}
+summary(iris)
+```
+
+```{r}
+summary(iris$Sepal.Length)
+```
+
+
+```{r}
+fivenum(iris$Sepal.Length)
+```
+
+
+```{r}
+summary(iris$Species)
+```
+
+
+```{r}
+skim(iris)
+```
+
+
+```{r}
+iris_results <- skim(iris)
+str(iris_results)
+iris_results$variable
+iris_results$type
+```
+
+
+```{r}
+skimr::skim(iris) %>%
+  dplyr::filter(stat == "mean")
+```
+
+```{r}
+head(iris_results, n=15)
+```
+
+
+
+```{r}
+mtcars %>%
+  dplyr::group_by(gear) %>%
+  skim()
+```
+
+
+
+```{r}
+skim(iris, Sepal.Length, Species)
+```
+
+
+```{r}
+skim(iris, starts_with("Sepal"))
+```
+
+
+
+```{r}
+skim(datasets::lynx)
+```
 
 

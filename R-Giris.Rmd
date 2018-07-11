@@ -1,0 +1,121 @@
+---
+title: "R Giris"
+output: html_notebook
+---
+
+# R paket yükleme
+```{r}
+install.packages("tidyverse")
+install.packages("jmv")
+install.packages("questionr")
+install.packages("Rcmdr")
+```
+
+```{r}
+require(tidyverse)
+require(jmv)
+require(questionr)
+library(Rcmdr)
+```
+
+# R studio ile proje oluşturma
+
+https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
+
+![](http://www.rstudio.com/images/docs/projects_new.png)
+
+# RStudio ile veri yükleme
+
+https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio
+
+![](https://support.rstudio.com/hc/en-us/article_attachments/206277618/data-import-overview.gif)
+
+
+# Veriyi görüntüleme
+
+View(data)
+data
+head
+tail
+glimpse
+str
+skim
+
+# Veriyi kod ile değiştirelim
+
+
+# RStudio aracılığıyla recode
+
+questionr paketi kullanılacak
+
+https://juba.github.io/questionr/articles/recoding_addins.html
+
+
+![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_1.png)
+
+
+
+
+![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_2.png)
+
+
+
+
+![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_3.png)
+
+
+
+# Basit tanımlayıcı istatistikler
+
+summary()
+mean
+median
+min
+max
+sd
+table()
+
+
+
+```{r}
+jmv::descriptives(
+    data = data,
+    vars = "Sepal.Length",
+    splitBy = "Species",
+    freq = TRUE,
+    hist = TRUE,
+    dens = TRUE,
+    bar = TRUE,
+    box = TRUE,
+    violin = TRUE,
+    dot = TRUE,
+    mode = TRUE,
+    sum = TRUE,
+    sd = TRUE,
+    variance = TRUE,
+    range = TRUE,
+    se = TRUE,
+    skew = TRUE,
+    kurt = TRUE,
+    quart = TRUE,
+    pcEqGr = TRUE)
+```
+
+
+```{r}
+
+scatr::scat(
+    data = data,
+    x = "Sepal.Length",
+    y = "Sepal.Width",
+    group = "Species",
+    marg = "dens",
+    line = "linear",
+    se = TRUE)
+
+```
+
+
+# Rcmdr
+
+
