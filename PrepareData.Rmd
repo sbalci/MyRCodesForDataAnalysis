@@ -32,6 +32,33 @@ output:
 
 https://github.com/Quartz/bad-data-guide
 
+
+## Kötü veri kılavuzu
+
+Kötü veri kılavuzu
+
+https://sbalci.github.io/Kotu-Veri-Kilavuzu/index.html
+
+## data organization organizing data in spreadsheets
+
+https://kbroman.org/dataorg/
+
+Daniel Kaplan. (2018) Teaching Stats for Data Science. The American Statistician 72:1, pages 89-96. 
+
+https://doi.org/10.1080/00031305.2017.1375989
+
+
+## Tidy Data
+
+Hadley Wickham.
+Tidy data.
+The Journal of Statistical Software, vol. 59, 2014.
+
+http://vita.had.co.nz/papers/tidy-data.html
+https://www.jstatsoft.org/article/view/v059i10
+http://dx.doi.org/10.18637/jss.v059.i10
+
+
 ### Keep SPSS labels
 
 ```{r}

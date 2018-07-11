@@ -16,6 +16,8 @@ output: html_notebook
 
 
 
+https://kbroman.org/pkg_primer/
+
 ## Packages to be studied
 
 

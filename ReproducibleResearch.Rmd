@@ -1,0 +1,15 @@
+---
+title: "Reproducible Research"
+output: html_notebook
+---
+
+
+
+- initial steps toward reproducible research
+
+https://kbroman.org/steps2rr/
+
+
+- Comments on reproducibility
+
+https://kbroman.org/knitr_knutshell/pages/reproducible.html

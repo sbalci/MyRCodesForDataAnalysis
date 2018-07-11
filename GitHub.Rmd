@@ -20,6 +20,8 @@ http://happygitwithr.com/fork.html
 
 https://kbroman.org/github_tutorial/
 
+https://kbroman.org/simple_site/
+
 
 
 

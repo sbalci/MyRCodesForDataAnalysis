@@ -23,6 +23,9 @@ output:
     highlight: kate
 ---
 
+- 
+
+https://kbroman.org/knitr_knutshell/pages/figs_tables.html
 
 ## Tables
 

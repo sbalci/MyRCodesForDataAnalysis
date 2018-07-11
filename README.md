@@ -88,11 +88,14 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 # Reporting
 
+## ReproducibleResearch
 
+[https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html)
 
 ## Use R Markdown
 
-[https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html)
+[https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html)
+
 
 ## Tables
 
