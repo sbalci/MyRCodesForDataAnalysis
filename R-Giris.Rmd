@@ -1,16 +1,50 @@
 ---
 title: "R ile analize başlarken"
 output: html_notebook
+author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
+date: '`r format(Sys.Date())`'
 ---
+
 
 # R yükleme
 
-R
-RStudio
-X11
-Java OS
+## R-project
+
+https://cran.r-project.org/
+
+
+## RStudio
+
+https://www.rstudio.com/
+
+https://www.rstudio.com/products/rstudio/download/
+
+### RStudio eklentileri
+
+- Discover and install useful RStudio addins
+
+https://cran.r-project.org/web/packages/addinslist/README.html
+
+https://rstudio.github.io/rstudioaddins/
+
+```{r}
+devtools::install_github("rstudio/addinexamples", type = "source")
+```
+
+
+## X11
+
+https://www.xquartz.org/
+
+
+## Java OS
+
+https://support.apple.com/kb/dl1572
+
 
 # R paket yükleme
+
+
 ```{r}
 install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
