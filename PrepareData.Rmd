@@ -59,6 +59,15 @@ https://www.jstatsoft.org/article/view/v059i10
 http://dx.doi.org/10.18637/jss.v059.i10
 
 
+## The Ten Commandments for a well-formatted database
+
+- The Ten Commandments for a well-formatted database
+
+https://rtask.thinkr.fr/blog/the-ten-commandments-for-a-well-formatted-database/
+
+
+## Software specific problems
+
 ### Keep SPSS labels
 
 ```{r}

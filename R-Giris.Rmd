@@ -51,6 +51,59 @@ https://support.apple.com/kb/dl1572
 
 ---
 
+# R paketleri
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I love the <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> community.<br>Someone is like, &quot;oh hey peeps, I saw a big need for this mundane but difficult task that I infrequently do, so I created a package that will literally scrape the last bits of peanut butter out of the jar for you. It&#39;s called pbplyr.&quot;<br>What a tribe.</p>&mdash; Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly_Data) <a href="https://twitter.com/Frankly_Data/status/1014189095294291968?ref_src=twsrc%5Etfw">July 3, 2018</a></blockquote>
+
+
+
+
+https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/
+
+![](https://blog.mitchelloharawild.com/blog/2018-07-11-user-2018-feature-wall_files/final.jpg)
+
+
+
+
+- Available CRAN Packages By Name
+https://cran.r-project.org/web/packages/available_packages_by_name.html
+
+- Bioconductor
+https://www.bioconductor.org
+
+
+
+
+# R için yardım
+
+- Vignette
+
+- RDocumentation
+https://www.rdocumentation.org
+
+- R Package Documentation
+https://rdrr.io/
+
+- GitHub
+
+- Stackoverflow
+
+- Google uygun anahtar kelime
+
+![](figures/Google-package-name.png)
+
+
+
+![](figures/Google-start-with-R.png)
+
+
+
+- Twitter
+
+https://twitter.com/hashtag/rstats?src=hash
+
+<a href="https://twitter.com/intent/tweet?button_hashtag=rstats&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #rstats</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 # R paket yükleme
 
 
@@ -242,6 +295,11 @@ scatr::scat(
 ```{r}
 library(Rcmdr)
 ```
+
+
+- A Comparative Review of the R Commander GUI for R
+
+http://r4stats.com/articles/software-reviews/r-commander/
 
 
 ---

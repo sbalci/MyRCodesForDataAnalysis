@@ -103,6 +103,8 @@ https://guyabel.com/post/animated-directional-chord-diagrams/
 modelDown: a website generator for your predictive models
 http://smarterpoland.pl/index.php/2018/06/modeldown-a-website-generator-for-your-predictive-models/
 
+# drake
+https://ropensci.github.io/drake/
 
 
 ## chromoMap
