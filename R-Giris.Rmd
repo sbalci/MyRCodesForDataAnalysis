@@ -123,6 +123,21 @@ https://rdrr.io/
 
 ![](figures/Google-start-with-R.png)
 
+- Awesome Cheatsheet
+https://github.com/detailyang/awesome-cheatsheet
+
+http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf
+
+https://www.rstudio.com/resources/cheatsheets/
+
+
+- Awesome R
+
+https://github.com/qinwf/awesome-R#readme
+
+https://awesome-r.com/
+
+
 
 
 - Twitter
