@@ -13,3 +13,7 @@ https://kbroman.org/steps2rr/
 - Comments on reproducibility
 
 https://kbroman.org/knitr_knutshell/pages/reproducible.html
+
+- Reproducible science in R
+
+https://grunwaldlab.github.io/Reproducible-science-in-R/index.html

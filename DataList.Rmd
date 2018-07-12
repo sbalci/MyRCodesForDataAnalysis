@@ -64,3 +64,7 @@ Factfulness: Building Gapminder Income Mountains
 
 http://staff.math.su.se/hoehle/blog/2018/07/02/factfulness.html
 
+- nycflights13
+
+- fivethirtyeight
+

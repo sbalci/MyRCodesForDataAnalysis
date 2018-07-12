@@ -42,6 +42,15 @@ scales::percent(.20394)
 ```
 
 
+# animation
+A Gallery of Animations in Statistics and Utilities to Create Animations
+https://cran.r-project.org/web/packages/animation/
+
+# gganimate
+A Grammar of Animated Graphics
+https://github.com/thomasp85/gganimate
+
+
 https://cran.r-project.org/web/packages/naniar/index.html
 
 https://hughjonesd.github.io/anim.plots/anim.plots.html

@@ -1,5 +1,5 @@
 ---
-title: "R ile analize başlarken"
+title: "R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans vermeye çalıştım.]"
 output: 
   html_notebook: 
     fig_caption: yes
@@ -9,7 +9,7 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
+author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 date: '`r format(Sys.Date())`'
 ---
 
@@ -20,17 +20,21 @@ date: '`r format(Sys.Date())`'
 
 https://cran.r-project.org/
 
-
+---
 
 [![](https://ismayc.github.io/talks/ness-infer/img/engine.png)](https://ismayc.github.io/talks/ness-infer/slide_deck.html#6)
 
-
+---
 
 ## RStudio
 
 https://www.rstudio.com/
 
 https://www.rstudio.com/products/rstudio/download/
+
+https://moderndive.com/2-getting-started.html
+
+---
 
 ### RStudio eklentileri
 
@@ -45,10 +49,13 @@ devtools::install_github("rstudio/addinexamples", type = "source")
 ```
 
 
+---
+
 ## X11
 
 https://www.xquartz.org/
 
+---
 
 ## Java OS
 
@@ -63,19 +70,19 @@ https://support.apple.com/kb/dl1572
 
 [![](https://ismayc.github.io/talks/ness-infer/img/appstore.png)](https://ismayc.github.io/talks/ness-infer/slide_deck.html#7)
 
+---
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I love the <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> community.<br>Someone is like, &quot;oh hey peeps, I saw a big need for this mundane but difficult task that I infrequently do, so I created a package that will literally scrape the last bits of peanut butter out of the jar for you. It&#39;s called pbplyr.&quot;<br>What a tribe.</p>&mdash; Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly_Data) <a href="https://twitter.com/Frankly_Data/status/1014189095294291968?ref_src=twsrc%5Etfw">July 3, 2018</a></blockquote>
 
-
+---
 
 
 
 https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/
 
-
-
 ![](https://blog.mitchelloharawild.com/blog/2018-07-11-user-2018-feature-wall_files/final.jpg)
 
+---
 
 ## Paketleri nereden bulabiliriz
 
@@ -86,16 +93,15 @@ https://cran.r-project.org/web/packages/available_packages_by_name.html
 https://www.bioconductor.org
 
 
-
+---
 
 ## R için yardım bulma
 
 
-```{r}
+```{r yardım}
 ?mean
 ??efetch
 ```
-
 
 
 
@@ -103,7 +109,7 @@ https://www.bioconductor.org
 
 ![](figures/vignette.png)
 
-
+---
 
 - RDocumentation
 https://www.rdocumentation.org
@@ -115,13 +121,19 @@ https://rdrr.io/
 
 - Stackoverflow
 
+https://stackoverflow.com/
+
 - Google uygun anahtar kelime
 
 ![](figures/Google-package-name.png)
 
+---
+
 
 
 ![](figures/Google-start-with-R.png)
+
+---
 
 - Awesome Cheatsheet
 https://github.com/detailyang/awesome-cheatsheet
@@ -144,12 +156,13 @@ https://awesome-r.com/
 
 https://twitter.com/hashtag/rstats?src=hash
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><a href="https://twitter.com/intent/tweet?button_hashtag=rstats&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #rstats</a>
+
+---
 
 ## R paket yükleme
 
 
-```{r}
+```{r paket yükleme}
 install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
 install.packages("questionr", dependencies = TRUE)
@@ -157,7 +170,7 @@ install.packages("Rcmdr", dependencies = TRUE)
 ```
 
 
-```{r, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
+```{r paket çağırma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
 require(tidyverse)
 require(jmv)
 require(questionr)
@@ -179,6 +192,7 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 ![](https://support.rstudio.com/hc/en-us/article_attachments/206277618/data-import-overview.gif)
 
+---
 
 ## Excel
 
@@ -196,7 +210,8 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 
 ```{r}
-summary()
+library(nycflights13)
+summary(flights)
 ```
 
 
@@ -245,7 +260,7 @@ skimr::skim()
 
 ![](figures/change_data.png)
 
-
+---
 
 
 ## RStudio aracılığıyla recode
@@ -254,7 +269,7 @@ skimr::skim()
 
 ![](figures/level_recode.png)
 
-
+---
 
 
 
@@ -264,12 +279,12 @@ https://juba.github.io/questionr/articles/recoding_addins.html
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_1.png)
 
 
-
+---
 
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_2.png)
 
 
-
+---
 
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_3.png)
 
@@ -279,16 +294,22 @@ https://juba.github.io/questionr/articles/recoding_addins.html
 # Basit tanımlayıcı istatistikler
 
 summary()
+
 mean
+
 median
+
 min
+
 max
+
 sd
+
 table()
 
 
 
-```{r echo=TRUE}
+```{r descriptive, echo=TRUE, include = TRUE, fig.show='animate', aniopts='controls'}
 library(readr)
 irisdata <- read_csv("data/iris.csv")
 
@@ -315,9 +336,10 @@ jmv::descriptives(
     pcEqGr = TRUE)
 ```
 
+---
 
-```{r}
-install.packages("scatr")
+```{r scatter, echo=TRUE, include=TRUE}
+# install.packages("scatr")
 
 scatr::scat(
     data = irisdata,

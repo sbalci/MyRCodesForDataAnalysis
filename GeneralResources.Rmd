@@ -21,3 +21,13 @@ http://rpubs.com/michaelmarks/R-Clin-Epi
 - r-tutor
 
 http://www.r-tutor.com/
+
+- Statistics Meets Big Data
+
+http://www.statsoft.org/
+
+- ModernDive
+
+https://moderndive.com/
+
+![](https://moderndive.com/images/flowcharts/flowchart/flowchart.002.png)
