@@ -15,6 +15,9 @@ output: html_notebook
 <!-- ``` -->
 
 
+# infer
+Tidy Statistical Inference
+https://cran.r-project.org/web/packages/infer/index.html
 
 https://kbroman.org/pkg_primer/
 

@@ -3,6 +3,22 @@ title: "Hypothesis Testing"
 output: html_notebook
 ---
 
+# Glue
+Glue strings to data in R. Small, fast, dependency free interpreted string literals.
+
+https://glue.tidyverse.org/
+
+# infer package
+Statistical Inference: A Tidy Approach
+https://ismayc.github.io/talks/ness-infer/slide_deck.html
+
+https://infer.netlify.com/
+
+https://moderndive.netlify.com/
+
+https://cran.r-project.org/web/packages/infer/index.html
+
+
 # Hypothesis Testing
 
 ## Test Selection
