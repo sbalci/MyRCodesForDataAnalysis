@@ -17,3 +17,14 @@ https://kbroman.org/knitr_knutshell/pages/reproducible.html
 - Reproducible science in R
 
 https://grunwaldlab.github.io/Reproducible-science-in-R/index.html
+
+- The Practice of Reproducible Research Case Studies and Lessons from the Data-Intensive Sciences
+
+https://www.practicereproducibleresearch.org/
+
+
+- papaja
+
+papaja (Preparing APA Journal Articles) is an R package that provides document formats and helper functions to produce complete APA manscripts from RMarkdown-files (PDF and Word documents).
+
+https://crsh.github.io/papaja/

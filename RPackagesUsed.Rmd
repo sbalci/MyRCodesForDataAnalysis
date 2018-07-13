@@ -15,6 +15,19 @@ output: html_notebook
 <!-- ``` -->
 
 
+Teaching R to New Users - From tapply to the Tidyverse
+
+https://simplystatistics.org/2018/07/12/use-r-keynote-2018/
+
+
+# purrr
+
+https://colinfay.me/happy-dev-purrr/
+
+# knitcitations
+
+http://www.carlboettiger.info/2012/05/30/knitcitations.html
+
 # infer
 Tidy Statistical Inference
 https://cran.r-project.org/web/packages/infer/index.html

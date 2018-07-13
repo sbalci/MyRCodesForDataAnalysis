@@ -3,10 +3,21 @@ title: "Visualisation: Graphs & Plots"
 output: html_notebook
 ---
 
+- Global Migration, animated with R
+
+http://blog.revolutionanalytics.com/2018/06/global-migration-animated-with-r.html
+
+
+
+- Tidy Eval Meets ggplot2
+
+http://www.onceupondata.com/2018/07/06/ggplot-tidyeval/
+
 - 
 http://serialmentor.com/dataviz/
 
 - You Can Design a Good Chart with R
+
 https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
 
 - Data to Viz
@@ -15,6 +26,36 @@ https://www.data-to-viz.com/
 
 [![](https://www.data-to-viz.com/img/poster/poster_big.png)](https://www.data-to-viz.com/)
 
-- 
+-  ggpubr
+ggpubr: ‘ggplot2’ Based Publication Ready Plots
+http://www.sthda.com/english/rpkgs/ggpubr/
 
-- 
+- R Graph Gallery
+
+https://www.r-graph-gallery.com/
+
+- The Data Visualisation Catalogue
+
+https://datavizcatalogue.com/
+
+
+- Dataviz Project
+
+http://datavizproject.com/
+
+-  Python Graph Gallery
+
+https://python-graph-gallery.com/
+
+- Financial Times Visual Vocabulary
+
+https://github.com/ft-interactive/chart-doctor/tree/master/visual-vocabulary
+
+- Xenographics Weird but (sometimes) useful charts
+
+https://xeno.graphics/
+
+-
+
+https://vis.design/
+
