@@ -424,6 +424,71 @@ ozp3 <- veri %>%
     
 
 
+# xray
+
+The R Package to Have X Ray Vision on your Datasets
+
+https://blog.datascienceheroes.com/x-ray-vision-on-your-datasets/
+
+
+
+```{r}
+# install.packages("devtools")
+devtools::install_github("sicarul/xray")
+```
+
+
+
+```{r}
+data(longley)
+badLongley <- longley
+badLongley$GNP <- NA
+xray::anomalies(badLongley)
+```
+
+
+```{r}
+distrLongley <- longley
+distrLongley$testCategorical <- c(rep('One',7), rep('Two', 9))
+xray::distributions(distrLongley)
+```
+
+
+```{r}
+dateLongley <- longley
+dateLongley$Year <- as.Date(paste0(dateLongley$Year,'-01-01'))
+dateLongley$Data <- 'Original'
+ndateLongley <- dateLongley
+ndateLongley$GNP <- dateLongley$GNP+10
+ndateLongley$Data <- 'Offseted'
+xray::timebased(rbind(dateLongley, ndateLongley), 'Year')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

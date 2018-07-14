@@ -3,6 +3,32 @@ title: "General Resources"
 output: html_notebook
 ---
 
+- Data Science Live Book
+
+https://livebook.datascienceheroes.com/
+
+- School of Psychology at the University of New South Wales http://www.compcogscisydney.org/teaching/
+
+   - Of Minds and Machines
+http://www.compcogscisydney.org/mm/
+
+   - psyr: Using R in Psychological Science
+http://www.compcogscisydney.org/psyr/
+
+
+   - Perception and Cognition
+http://www.compcogscisydney.org/psyc2071/
+
+   - Learning Statistics with R
+http://www.compcogscisydney.org/learning-statistics-with-r/
+
+   - Computational Cognitive Science
+http://www.compcogscisydney.org/ccs/
+
+
+- Advanced R
+
+https://adv-r.hadley.nz/
 
 - One Page R
 

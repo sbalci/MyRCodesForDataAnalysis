@@ -23,6 +23,11 @@ output:
     highlight: kate
 ---
 
+- finalfit
+
+
+http://www.datasurg.net/2018/07/12/finalfit-now-includes-bootstrap-simulation-for-model-prediction/
+
 - 
 
 https://kbroman.org/knitr_knutshell/pages/figs_tables.html

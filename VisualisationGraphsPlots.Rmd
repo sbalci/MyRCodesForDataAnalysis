@@ -7,6 +7,9 @@ output: html_notebook
 
 http://blog.revolutionanalytics.com/2018/06/global-migration-animated-with-r.html
 
+- Creating a Geodemographic Classification Using K-means Clustering in R
+
+https://data.cdrc.ac.uk/tutorial/creating-a-geodemographic-classification-using-k-means-clustering-in-r
 
 
 - Tidy Eval Meets ggplot2

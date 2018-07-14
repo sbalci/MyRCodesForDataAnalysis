@@ -3,6 +3,14 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+
+- R Markdown: The Definitive Guide
+
+https://bookdown.org/yihui/rmarkdown/
+
+
+
+
 ## Use R Markdown
 
 https://andrewbtran.github.io/NICAR/2018/workflow/docs/02-rmarkdown.html

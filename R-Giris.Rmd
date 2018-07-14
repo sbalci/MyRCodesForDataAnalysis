@@ -16,6 +16,11 @@ date: '`r format(Sys.Date())`'
 
 # R yükleme
 
+http://www.youtube.com/watch?v=XcBLEVknqvY
+
+[![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)](http://www.youtube.com/watch?v=XcBLEVknqvY)
+
+
 ## R-project
 
 https://cran.r-project.org/
