@@ -465,9 +465,9 @@ xray::timebased(rbind(dateLongley, ndateLongley), 'Year')
 ```
 
 
+# convert all data.frame into character
 
-
-
+df <- purrr::map_df(df, as.character)
 
 
 
