@@ -1789,3 +1789,2184 @@ summarizes key information about models
 
 https://broom.tidyverse.org/index.html
 
+
+
+
+
+
+
+
+
+
+
+
+## abind
+
+
+## acepack
+
+
+## addinexamples
+
+
+## additivityTests
+
+
+## ade4
+
+
+## AER
+
+
+## afex
+
+
+## AlgDesign
+
+
+## alluvial
+
+
+## alr4
+
+
+## animation
+
+
+## ANTsR
+
+
+## ANTsRCore
+
+
+## anytime
+
+
+## apaTables
+
+
+## aplpack
+
+
+## arm
+
+
+## arsenal
+
+
+## ash
+
+
+## assertthat
+
+
+## aws.s3
+
+
+## aws.signature
+
+
+## backports
+
+
+## base
+
+
+## base64enc
+
+
+## BayesFactor
+
+
+## bayesplot
+
+
+## BCA
+
+
+## BcDiag
+
+
+## BDgraph
+
+
+## bdsmatrix
+
+
+## BH
+
+
+## BiasedUrn
+
+
+## BiBitR
+
+
+## bibtex
+
+
+## biclust
+
+
+## bindr
+
+
+## bindrcpp
+
+
+## BiocGenerics
+
+
+## BiocInstaller
+
+
+## biostatmethods
+
+
+## bit
+
+
+## bit64
+
+
+## bitops
+
+
+## blob
+
+
+## blogdown
+
+
+## bookdown
+
+
+## boot
+
+
+## brew
+
+
+## bridgesampling
+
+
+## brms
+
+
+## Brobdingnag
+
+
+## broom
+
+
+## BsMD
+
+
+## ca
+
+
+## cairoDevice
+
+
+## callr
+
+
+## car
+
+
+## carData
+
+
+## caTools
+
+
+## cellranger
+
+
+## checkmate
+
+
+## class
+
+
+## classInt
+
+
+## cli
+
+
+## clipr
+
+
+## clisymbols
+
+
+## clue
+
+
+## cluster
+
+
+## clv
+
+
+## cmaker
+
+
+## cmprsk
+
+
+## coauthornetwork
+
+
+## cobs
+
+
+## coda
+
+
+## CodeDepends
+
+
+## codetools
+
+
+## coin
+
+
+## colorspace
+
+
+## colourpicker
+
+
+## combinat
+
+
+## commonmark
+
+
+## compiler
+
+
+## conf.design
+
+
+## config
+
+
+## conflicted
+
+
+## contfrac
+
+
+## corpcor
+
+
+## covr
+
+
+## cowplot
+
+
+## coxme
+
+
+## cramer
+
+
+## crayon
+
+
+## cronR
+
+
+## crosstalk
+
+
+## csvy
+
+
+## curl
+
+
+## d3Network
+
+
+## data.table
+
+
+## data.tree
+
+
+## datapasta
+
+
+## datasets
+
+
+## date
+
+
+## DBI
+
+
+## dbplyr
+
+
+## debugme
+
+
+## Deducer
+
+
+## DeducerExtras
+
+
+## demography
+
+
+## dendextend
+
+
+## DEoptimR
+
+
+## depthTools
+
+
+## desc
+
+
+## descr
+
+
+## DescTools
+
+
+## deSolve
+
+
+## devtools
+
+
+## DiagrammeR
+
+
+## DiceDesign
+
+
+## dichromat
+
+
+## digest
+
+
+## diptest
+
+
+## DoE.base
+
+
+## DoE.wrapper
+
+
+## doParallel
+
+
+## downloader
+
+
+## dplyr
+
+
+## DT
+
+
+## dtplyr
+
+
+## dunn.test
+
+
+## dygraphs
+
+
+## e1071
+
+
+## EcoVirtual
+
+
+## effects
+
+
+## effsize
+
+
+## ellipse
+
+
+## elliptic
+
+
+## emmeans
+
+
+## enc
+
+
+## ENmisc
+
+
+## Epi
+
+
+## epibasix
+
+
+## epiDisplay
+
+
+## epiR
+
+
+## epitools
+
+
+## estimability
+
+
+## etm
+
+
+## evaluate
+
+
+## exact2x2
+
+
+## exactci
+
+
+## exactRankTests
+
+
+## experiment
+
+
+## expm
+
+
+## extrantsr
+
+
+## ez
+
+
+## FactoMineR
+
+
+## Fahrmeir
+
+
+## fansi
+
+
+## fastmatch
+
+
+## fBasics
+
+
+## fda
+
+
+## fdrtool
+
+
+## feather
+
+
+## ff
+
+
+## ffbase
+
+
+## finalfit
+
+
+## fit.models
+
+
+## fivethirtyeight
+
+
+## flashClust
+
+
+## flatxml
+
+
+## flexclust
+
+
+## flexmix
+
+
+## flextable
+
+
+## FNN
+
+
+## forcats
+
+
+## foreach
+
+
+## forecast
+
+
+## forecastHybrid
+
+
+## foreign
+
+
+## formatR
+
+
+## formattable
+
+
+## Formula
+
+
+## fpc
+
+
+## fracdiff
+
+
+## FrF2
+
+
+## fslr
+
+
+## fst
+
+
+## ftsa
+
+
+## gdata
+
+
+## gdtools
+
+
+## gee
+
+
+## getPass
+
+
+## GGally
+
+
+## ggcorrplot
+
+
+## ggdendro
+
+
+## ggExtra
+
+
+## ggforce
+
+
+## ggformula
+
+
+## ggfortify
+
+
+## ggm
+
+
+## ggplot2
+
+
+## ggplot2movies
+
+
+## ggpubr
+
+
+## ggraph
+
+
+## ggrepel
+
+
+## ggridges
+
+
+## ggsci
+
+
+## ggsignif
+
+
+## ggstance
+
+
+## ggstatsplot
+
+
+## ggthemes
+
+
+## ggvis
+
+
+## gh
+
+
+## git2r
+
+
+## glasso
+
+
+## glmmTMB
+
+
+## glue
+
+
+## gmailr
+
+
+## gmodels
+
+
+## gmp
+
+
+## gnm
+
+
+## googleVis
+
+
+## GPArotation
+
+
+## gplots
+
+
+## graph
+
+
+## graphics
+
+
+## graphTweets
+
+
+## grDevices
+
+
+## grid
+
+
+## gridExtra
+
+
+## gsl
+
+
+## gss
+
+
+## gtable
+
+
+## gtools
+
+
+## gWidgets
+
+
+## gWidgetstcltk
+
+
+## GWRM
+
+
+## h2o
+
+
+## hash
+
+
+## haven
+
+
+## hdrcde
+
+
+## hexbin
+
+
+## HH
+
+
+## highlight
+
+
+## highr
+
+
+## Hmisc
+
+
+## hms
+
+
+## htmlTable
+
+
+## htmltools
+
+
+## htmlwidgets
+
+
+## httpuv
+
+
+## httr
+
+
+## huge
+
+
+## hunspell
+
+
+## hypergeo
+
+
+## ICC
+
+
+## IRdisplay
+
+
+## IRkernel
+
+
+## ISLR
+
+
+## ISwR
+
+
+## ITKR
+
+
+## igraph
+
+
+## influenceR
+
+
+## ini
+
+
+## inline
+
+
+## ipred
+
+
+## irlba
+
+
+## irr
+
+
+## iterators
+
+
+## JavaGD
+
+
+## JGR
+
+
+## jmv
+
+
+## jmvcore
+
+
+## jomo
+
+
+## jose
+
+
+## jpeg
+
+
+## jsonlite
+
+
+## kableExtra
+
+
+## kernlab
+
+
+## KernSmooth
+
+
+## klaR
+
+
+## km.ci
+
+
+## KMsurv
+
+
+## knitr
+
+
+## kohonen
+
+
+## ks
+
+
+## labeling
+
+
+## labelled
+
+
+## Lahman
+
+
+## later
+
+
+## lattice
+
+
+## latticeExtra
+
+
+## lava
+
+
+## lavaan
+
+
+## lazyeval
+
+
+## leaps
+
+
+## lfstat
+
+
+## lhs
+
+
+## lintr
+
+
+## lisrelToR
+
+
+## lme4
+
+
+## lmerTest
+
+
+## lmom
+
+
+## lmomRFA
+
+
+## lmtest
+
+
+## locfit
+
+
+## loo
+
+
+## lpSolve
+
+
+## lubridate
+
+
+## MAd
+
+
+## magic
+
+
+## magicfor
+
+
+## magrittr
+
+
+## manipulate
+
+
+## manipulateWidget
+
+
+## mapproj
+
+
+## maps
+
+
+## maptools
+
+
+## markdown
+
+
+## MASS
+
+
+## Matrix
+
+
+## matrixcalc
+
+
+## MatrixModels
+
+
+## matrixStats
+
+
+## maxstat
+
+
+## MBESS
+
+
+## mc2d
+
+
+## mclust
+
+
+## memisc
+
+
+## memoise
+
+
+## meta
+
+
+## metafor
+
+
+## methods
+
+
+## mgcv
+
+
+## mi
+
+
+## mice
+
+
+## microbenchmark
+
+
+## mime
+
+
+## miniUI
+
+
+## minpack.lm
+
+
+## minqa
+
+
+## misc3d
+
+
+## mitml
+
+
+## mixlm
+
+
+## mixOmics
+
+
+## mlbench
+
+
+## mnormt
+
+
+## modelr
+
+
+## modeltools
+
+
+## mosaic
+
+
+## mosaicCore
+
+
+## mosaicData
+
+
+## multcomp
+
+
+## multcompView
+
+
+## multicool
+
+
+## MuMIn
+
+
+## munsell
+
+
+## mvnormtest
+
+
+## mvtnorm
+
+
+## network
+
+
+## networkD3
+
+
+## neurobase
+
+
+## neuroim
+
+
+## nFactors
+
+
+## nleqslv
+
+
+## nlme
+
+
+## nloptr
+
+
+## NLP
+
+
+## nnet
+
+
+## nortest
+
+
+## nparLD
+
+
+## numbers
+
+
+## numDeriv
+
+
+## nycflights13
+
+
+## OceanView
+
+
+## officer
+
+
+## OpenMx
+
+
+## openssl
+
+
+## openxlsx
+
+
+## OptimClassifier
+
+
+## ordinal
+
+
+## orloca
+
+
+## orloca.es
+
+
+## oro.dicom
+
+
+## oro.nifti
+
+
+## packagefinder
+
+
+## packrat
+
+
+## pacman
+
+
+## pan
+
+
+## pander
+
+
+## papeR
+
+
+## parallel
+
+
+## party
+
+
+## pbapply
+
+
+## pbdZMQ
+
+
+## pbivnorm
+
+
+## pbkrtest
+
+
+## pcaPP
+
+
+## permute
+
+
+## phia
+
+
+## pillar
+
+
+## pkgbuild
+
+
+## pkgconfig
+
+
+## pkgload
+
+
+## PKI
+
+
+## plogr
+
+
+## plot3D
+
+
+## plot3Drgl
+
+
+## plotly
+
+
+## pls
+
+
+## plyr
+
+
+## PMCMR
+
+
+## png
+
+
+## popEpi
+
+
+## ppcor
+
+
+## prabclus
+
+
+## pracma
+
+
+## praise
+
+
+## prediction
+
+
+## prettydoc
+
+
+## prettyR
+
+
+## prettyunits
+
+
+## pROC
+
+
+## processx
+
+
+## prodlim
+
+
+## progress
+
+
+## promises
+
+
+## pspearman
+
+
+## psych
+
+
+## psycho
+
+
+## pubh
+
+
+## purrr
+
+
+## purrrlyr
+
+
+## pwr
+
+
+## qgraph
+
+
+## quadprog
+
+
+## quantmod
+
+
+## quantreg
+
+
+## questionr
+
+
+## qvcalc
+
+
+## R.cache
+
+
+## R.matlab
+
+
+## R.methodsS3
+
+
+## R.oo
+
+
+## R.utils
+
+
+## R2HTML
+
+
+## R6
+
+
+## rainbow
+
+
+## rainfreq
+
+
+## randomcoloR
+
+
+## randtests
+
+
+## ranger
+
+
+## RApiDatetime
+
+
+## rappdirs
+
+
+## rARPACK
+
+
+## raster
+
+
+## rattle
+
+
+## rCharts
+
+
+## rcmdcheck
+
+
+## Rcmdr
+
+
+## RcmdrMisc
+
+
+## RcmdrPlugin.aRnova
+
+
+## RcmdrPlugin.BCA
+
+
+## RcmdrPlugin.BiclustGUI
+
+
+## RcmdrPlugin.coin
+
+
+## RcmdrPlugin.depthTools
+
+
+## RcmdrPlugin.DoE
+
+
+## RcmdrPlugin.doex
+
+
+## RcmdrPlugin.EACSPIR
+
+
+## RcmdrPlugin.EBM
+
+
+## RcmdrPlugin.EcoVirtual
+
+
+## RcmdrPlugin.epack
+
+
+## RcmdrPlugin.Export
+
+
+## RcmdrPlugin.EZR
+
+
+## RcmdrPlugin.FactoMineR
+
+
+## RcmdrPlugin.FuzzyClust
+
+
+## RcmdrPlugin.GWRM
+
+
+## RcmdrPlugin.HH
+
+
+## RcmdrPlugin.IPSUR
+
+
+## RcmdrPlugin.KMggplot2
+
+
+## RcmdrPlugin.lfstat
+
+
+## RcmdrPlugin.MA
+
+
+## RcmdrPlugin.mosaic
+
+
+## RcmdrPlugin.MPAStats
+
+
+## RcmdrPlugin.NMBU
+
+
+## RcmdrPlugin.OptimClassifier
+
+
+## RcmdrPlugin.orloca
+
+
+## RcmdrPlugin.PcaRobust
+
+
+## RcmdrPlugin.plotByGroup
+
+
+## RcmdrPlugin.pointG
+
+
+## RcmdrPlugin.qual
+
+
+## RcmdrPlugin.RiskDemo
+
+
+## RcmdrPlugin.RMTCJags
+
+
+## RcmdrPlugin.ROC
+
+
+## RcmdrPlugin.sampling
+
+
+## RcmdrPlugin.SCDA
+
+
+## RcmdrPlugin.SLC
+
+
+## RcmdrPlugin.SM
+
+
+## RcmdrPlugin.sos
+
+
+## RcmdrPlugin.steepness
+
+
+## RcmdrPlugin.survival
+
+
+## RcmdrPlugin.sutteForecastR
+
+
+## RcmdrPlugin.TeachingDemos
+
+
+## RcmdrPlugin.temis
+
+
+## RcmdrPlugin.UCA
+
+
+## RColorBrewer
+
+
+## Rcpp
+
+
+## RcppArmadillo
+
+
+## RcppEigen
+
+
+## RCurl
+
+
+## readODS
+
+
+## readr
+
+
+## readstata13
+
+
+## readxl
+
+
+## RefManageR
+
+
+## relimp
+
+
+## rematch
+
+
+## rematch2
+
+
+## remotes
+
+
+## repr
+
+
+## reprex
+
+
+## reshape
+
+
+## reshape2
+
+
+## ResourceSelection
+
+
+## rex
+
+
+## rgexf
+
+
+## rgl
+
+
+## RGtk2
+
+
+## rhandsontable
+
+
+## RISmed
+
+
+## rio
+
+
+## rjags
+
+
+## rJava
+
+
+## rjson
+
+
+## RJSONIO
+
+
+## rlang
+
+
+## rmarkdown
+
+
+## rmatio
+
+
+## rmdformats
+
+
+## rmeta
+
+
+## Rmpfr
+
+
+## RMySQL
+
+
+## RNifti
+
+
+## robets
+
+
+## robust
+
+
+## robustbase
+
+
+## rockchalk
+
+
+## ROCR
+
+
+## Rook
+
+
+## roomba
+
+
+## roxygen2
+
+
+## rpart
+
+
+## rpart.plot
+
+
+## rpf
+
+
+## RPostgreSQL
+
+
+## rprojroot
+
+
+## rrcov
+
+
+## rsconnect
+
+
+## rsm
+
+
+## RSpectra
+
+
+## RSQLite
+
+
+## rstan
+
+
+## rstanarm
+
+
+## rstantools
+
+
+## rstudioapi
+
+
+## RStudioConsoleRender
+
+
+## rsvd
+
+
+## Rtsne
+
+
+## rtweet
+
+
+## runjags
+
+
+## RVAideMemoire
+
+
+## rversions
+
+
+## rvest
+
+
+## s4vd
+
+
+## sampling
+
+
+## sandwich
+
+
+## scales
+
+
+## scatr
+
+
+## scatterplot3d
+
+
+## scholar
+
+
+## SCMA
+
+
+## SCRT
+
+
+## SCVA
+
+
+## sde
+
+
+## SDMTools
+
+
+## selectr
+
+
+## sem
+
+
+## SemiCompRisks
+
+
+## semPlot
+
+
+## semTools
+
+
+## sendmailR
+
+
+## servr
+
+
+## sessioninfo
+
+
+## sf
+
+
+## sfsmisc
+
+
+## shape
+
+
+## shiny
+
+
+## shinyFiles
+
+
+## shinyjs
+
+
+## shinystan
+
+
+## shinythemes
+
+
+## sjlabelled
+
+
+## sjmisc
+
+
+## sjstats
+
+
+## skimr
+
+
+## slam
+
+
+## SLC
+
+
+## Sleuth2
+
+
+## smcure
+
+
+## sna
+
+
+## snakecase
+
+
+## som
+
+
+## sos
+
+
+## sourcetools
+
+
+## sp
+
+
+## sparklyr
+
+
+## SparseM
+
+
+## spatial
+
+
+## spData
+
+
+## splines
+
+
+## splitstackshape
+
+
+## SQUAREM
+
+
+## ssanv
+
+
+## ssgraph
+
+
+## stabledist
+
+
+## StanHeaders
+
+
+## stapler
+
+
+## stargazer
+
+
+## statisticalModeling
+
+
+## statnet.common
+
+
+## stats
+
+
+## stats4
+
+
+## steepness
+
+
+## stencila
+
+
+## stringdist
+
+
+## stringi
+
+
+## stringr
+
+
+## strucchange
+
+
+## styler
+
+
+## superbiclust
+
+
+## SuppDists
+
+
+## survey
+
+
+## survival
+
+
+## survminer
+
+
+## survMisc
+
+
+## sutteForecastR
+
+
+## svglite
+
+
+## tableone
+
+
+## tables
+
+
+## tabplot
+
+
+## tangram
+
+
+## tcltk
+
+
+## tcltk2
+
+
+## TeachingDemos
+
+
+## testit
+
+
+## testthat
+
+
+## TH.data
+
+
+## threejs
+
+
+## tibble
+
+
+## tidygraph
+
+
+## tidyr
+
+
+## tidyselect
+
+
+## tidyverse
+
+
+## timeDate
+
+
+## timeSeries
+
+
+## tinytex
+
+
+## tkrplot
+
+
+## tm
+
+
+## TMB
+
+
+## tools
+
+
+## tree
+
+
+## triebeard
+
+
+## trimcluster
+
+
+## tseries
+
+
+## TTR
+
+
+## tufterhandout
+
+
+## tutorial
+
+
+## tweenr
+
+
+## ucminf
+
+
+## units
+
+
+## updateR
+
+
+## urca
+
+
+## urltools
+
+
+## uroot
+
+
+## userfriendlyscience
+
+
+## usethis
+
+
+## utf8
+
+
+## utils
+
+
+## uuid
+
+
+## V8
+
+
+## vcd
+
+
+## vcdExtra
+
+
+## vegan
+
+
+## VGAM
+
+
+## ViewPipeSteps
+
+
+## viridis
+
+
+## viridisLite
+
+
+## visdat
+
+
+## visNetwork
+
+
+## visreg
+
+
+## wbstats
+
+
+## webshot
+
+
+## whisker
+
+
+## WhiteStripe
+
+
+## withr
+
+
+## wordcloud
+
+
+## workflowr
+
+
+## writexl
+
+
+## WRS2
+
+
+## xfun
+
+
+## XLConnect
+
+
+## XLConnectJars
+
+
+## xlsx
+
+
+## xlsxjars
+
+
+## XML
+
+
+## xml2
+
+
+## xplain
+
+
+## xray
+
+
+## xtable
+
+
+## xts
+
+
+## yaImpute
+
+
+## yaml
+
+
+## zip
+
+
+## zoo

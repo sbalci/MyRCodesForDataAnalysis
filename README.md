@@ -120,6 +120,8 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 ## News
 
+## web scrapping
+
 # Bibliography
 
 Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](https://sbalci.github.io/ResearchOnBibliography/)
