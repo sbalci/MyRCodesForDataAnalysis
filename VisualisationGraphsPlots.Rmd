@@ -62,3 +62,13 @@ https://xeno.graphics/
 
 https://vis.design/
 
+
+- Show Me Shiny Gallery of R Web Apps
+
+https://www.showmeshiny.com/
+
+- Where Work Pays: Occupations & Earnings across the United States
+
+http://www.hamiltonproject.org/charts/where_work_pays_interactive
+
+

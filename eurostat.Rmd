@@ -1,0 +1,15 @@
+---
+title: "Eurostat"
+output: html_notebook
+---
+
+# eurostat R package
+
+http://ropengov.github.io/eurostat/
+
+
+- Retrieval and Analysis of Eurostat Open Data with the eurostat Package
+
+https://journal.r-project.org/archive/2017/RJ-2017-019/index.html
+
+- 
