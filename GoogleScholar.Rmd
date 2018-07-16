@@ -46,3 +46,9 @@ plot_coauthors(grab_network("citations?user=joN_UxsAAAAJ&hl=en", n_coauthors = 1
 
 ```
 
+## scholar.shiny
+
+A shiny application that interacts with Google Scholar
+
+https://github.com/agbarnett/scholar.shiny
+

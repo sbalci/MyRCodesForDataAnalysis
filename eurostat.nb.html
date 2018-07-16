@@ -1699,20 +1699,71 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<div id="eurostat-r-package" class="section level1">
-<h1>eurostat R package</h1>
+<ul>
+<li>eurostat R package</li>
+</ul>
 <p><a href="http://ropengov.github.io/eurostat/" class="uri">http://ropengov.github.io/eurostat/</a></p>
 <ul>
 <li>Retrieval and Analysis of Eurostat Open Data with the eurostat Package</li>
 </ul>
 <p><a href="https://journal.r-project.org/archive/2017/RJ-2017-019/index.html" class="uri">https://journal.r-project.org/archive/2017/RJ-2017-019/index.html</a></p>
 <ul>
-<li></li>
+<li>CheatSheet</li>
 </ul>
+<p><a href="https://github.com/rOpenGov/eurostat/blob/master/vignettes/cheatsheet/eurostat_cheatsheet.pdf" class="uri">https://github.com/rOpenGov/eurostat/blob/master/vignettes/cheatsheet/eurostat_cheatsheet.pdf</a></p>
+<p><a href="https://github.com/rstudio/cheatsheets/raw/master/eurostat.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/eurostat.pdf</a></p>
+<ul>
+<li>Searching, downloading and manipulating Eurostat data with R</li>
+</ul>
+<p><a href="http://ropengov.github.io/r/2015/05/01/eurostat-package-examples/" class="uri">http://ropengov.github.io/r/2015/05/01/eurostat-package-examples/</a></p>
+<ul>
+<li>Mapping Eurostat information</li>
+</ul>
+<p><a href="https://www.mytinyshinys.com/2017/07/11/eurostat/" class="uri">https://www.mytinyshinys.com/2017/07/11/eurostat/</a></p>
+<ul>
+<li>eurostat-package published</li>
+</ul>
+<p><a href="https://rpubs.com/muuankarski/27120" class="uri">https://rpubs.com/muuankarski/27120</a></p>
+<ul>
+<li>Tutorial (vignette) for the eurostat R package</li>
+</ul>
+<p><a href="http://ropengov.github.io/eurostat/articles/eurostat_tutorial.html" class="uri">http://ropengov.github.io/eurostat/articles/eurostat_tutorial.html</a></p>
 <!-- rnb-text-end -->
-</div>
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbnN0YWxsLnBhY2thZ2VzKFwiZXVyb3N0YXRcIilcbmxpYnJhcnkoZXVyb3N0YXQpXG5cbmBgYCJ9 -->
+<pre class="r"><code># install.packages(&quot;eurostat&quot;)
+library(eurostat)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWm9ydW5sdSBwYWtldCB5w7xrbGVuaXlvcjogZHBseXJcblxuQXR0YWNoaW5nIHBhY2thZ2U6IOKAmGRwbHly4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0cyBhcmUgbWFza2VkIGZyb20g4oCYcGFja2FnZTpzdGF0c+KAmTpcblxuICAgIGZpbHRlciwgbGFnXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0cyBhcmUgbWFza2VkIGZyb20g4oCYcGFja2FnZTpiYXNl4oCZOlxuXG4gICAgaW50ZXJzZWN0LCBzZXRkaWZmLCBzZXRlcXVhbCwgdW5pb25cbiJ9 -->
+<pre><code>Zorunlu paket yükleniyor: dplyr
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRXVyb3N0YXQiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMgZXVyb3N0YXQgUiBwYWNrYWdlCgpodHRwOi8vcm9wZW5nb3YuZ2l0aHViLmlvL2V1cm9zdGF0LwoKCi0gUmV0cmlldmFsIGFuZCBBbmFseXNpcyBvZiBFdXJvc3RhdCBPcGVuIERhdGEgd2l0aCB0aGUgZXVyb3N0YXQgUGFja2FnZQoKaHR0cHM6Ly9qb3VybmFsLnItcHJvamVjdC5vcmcvYXJjaGl2ZS8yMDE3L1JKLTIwMTctMDE5L2luZGV4Lmh0bWwKCi0gCg==</div>
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OCwibnJvdyI6MTN9LCJyZGYiOiJINHNJQUFBQUFBQUFBK1ZXVzIvVE1CVE9laGxkcFFIU0huamd4VHdnZ2JSVlNkZXVLNjlzMnA3UXVFbVRrSmhjeDJ1c3VYYXduWTYrOFo5NTN6ajJuSzVKRnpaQVNGd2lKVDQzZitjN1IvSGx6ZDV4dDMzY0RvS2dGdFNiSzBHdERtS2pCcCtWb0JHczJmRnpFTlEzUUdqQit4RGVkZThZSE1wTTAwVHlXQ09UWUlNU1BLVm9wQ1NPUjFqRUNCTkN0VWFqR1hyMS90MWIxRVdLanBrVTJrOVBqNmdpVkJnOHBraWVvdVFhN0p5WlpCbUhDUURnMkFBRU1uSXBuZ2xEbGFER2gyOVc1bjEwSUtWbHJMRFFxVlRHQnRwYzN0MC9vakxsRkoweHptbnNzb0xUb3JJWTJHcjBUTXNNaUw5QSt5K1JwbXJLSU4xelB4a2QzbExGMzkyNkovczJNbFZNMCsvWDkyR1BLVW9NSUUrcE5oT2dpckFMM1VRVERHeUluS1JTdUhadUlTeEVoam1Lc2NIZ2hyWmJtcGxnNElUaWhLTU5mcElwUlFXWitSVGJWU2tBOFZPR0ZSRGxNdy82MUFJZDdCMzVxUjkvaEYwWjY4NEVmK2xIK3NuSnhRWGFNbU1kaG1GdnQ2UVA1N3BSb0lkOXI2L3BlSHdTUlNlOWNCN0FCUGdIMjNjR2RQSERoZm1wSHFYZGJsSHZiNWYwWGhXQkJVT3h0S2JCSTA3L2FLVkl1QjFGblhEUTZZYlI3ajlyK2Q4cmJuVERjS2RDN2kvSTBSM2liNVNqNFRESFdiWHk2K2hHclp3ald1WVpEU3JrblFxNUt2NDJlZFgyNlpwblFWdk9sL09FbFg4SnorOGZDemVkSnVFWWpyQXJFcm14YmJmOXpxbkNFMW9PRjJETHcxdnp4Yy9NZkNkb0VCblBaVE5MYzNrRDhoaVVwUUR0RG5DYndyc2VPNWZiUVpBMktpTW1VeFNSQklzeFhXUUVUamlYOG4zVVdhakk3ekNyVTh3elM2M0FkMDNKODA3TzJmYTQ5Z1UrMElhdk1GeVVndS9KMUxpVFA2alp1MSt6MUpVVlZUSTh5SVNGanJkSWtvbXpyWjdsNmR4WHo3cVgxeGZrMWxYSytxV0hhdWJzcVJnek1kOU5PUjVSN3BYN1VJS3JvQU9YRUpHWDN3YXI3aGhwY0I3WEpwTG5GbGRiY1BFTjdZaG5pT2tLQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["title"],"name":[1],"type":["chr"],"align":["left"]},{"label":["code"],"name":[2],"type":["chr"],"align":["left"]},{"label":["type"],"name":[3],"type":["chr"],"align":["left"]},{"label":["last update of data"],"name":[4],"type":["chr"],"align":["left"]},{"label":["last table structure change"],"name":[5],"type":["chr"],"align":["left"]},{"label":["data start"],"name":[6],"type":["chr"],"align":["left"]},{"label":["data end"],"name":[7],"type":["chr"],"align":["left"]},{"label":["values"],"name":[8],"type":["chr"],"align":["left"]}],"data":[{"1":"Households that have broadband access by NUTS 2 regions","2":"tgs00048","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2006","7":"2017","8":"NA"},{"1":"Percentage of households with broadband access in relation to households with internet access, by NUTS 2 regions","2":"tgs00049","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2006","7":"2017","8":"NA"},{"1":"Goods transport by road","2":"ttr00005","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2005","7":"2016","8":"NA"},{"1":"People killed in road accidents (source: EC services)","2":"sdg_11_40","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2001","7":"2016","8":"NA"},{"1":"Households with broadband access","2":"tin00073","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2006","7":"2017","8":"NA"},{"1":"Households that have broadband access by NUTS 2 regions","2":"tgs00048","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2006","7":"2017","8":"NA"},{"1":"Percentage of households with broadband access in relation to households with internet access, by NUTS 2 regions","2":"tgs00049","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2006","7":"2017","8":"NA"},{"1":"Enterprises with broadband access","2":"tin00090","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2006","7":"2017","8":"NA"},{"1":"Direct investment abroad, main components - annual data, million units of national currency","2":"tipsbp22","3":"table","4":"11.07.2018","5":"11.07.2018","6":"1995","7":"2017","8":"NA"},{"1":"Direct investment abroad - quarterly data, % of GDP","2":"tipsbp53","3":"table","4":"11.07.2018","5":"11.07.2018","6":"1995Q1","7":"2018Q1","8":"NA"},{"1":"Direct investment abroad, main components - quarterly data, million units of national currency","2":"tipsbp54","3":"table","4":"11.07.2018","5":"11.07.2018","6":"1995Q1","7":"2018Q1","8":"NA"},{"1":"People killed in road accidents (source: EC services)","2":"sdg_11_40","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2001","7":"2016","8":"NA"},{"1":"People killed in road accidents (source: EC services)","2":"sdg_11_40","3":"table","4":"11.07.2018","5":"11.07.2018","6":"2001","7":"2016","8":"NA"}],"options":{"columns":{"min":{},"max":[10],"total":[8]},"rows":{"min":[10],"max":[10],"total":[13]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRXVyb3N0YXQiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCi0gZXVyb3N0YXQgUiBwYWNrYWdlCgpodHRwOi8vcm9wZW5nb3YuZ2l0aHViLmlvL2V1cm9zdGF0LwoKCi0gUmV0cmlldmFsIGFuZCBBbmFseXNpcyBvZiBFdXJvc3RhdCBPcGVuIERhdGEgd2l0aCB0aGUgZXVyb3N0YXQgUGFja2FnZQoKaHR0cHM6Ly9qb3VybmFsLnItcHJvamVjdC5vcmcvYXJjaGl2ZS8yMDE3L1JKLTIwMTctMDE5L2luZGV4Lmh0bWwKCi0gQ2hlYXRTaGVldAoKaHR0cHM6Ly9naXRodWIuY29tL3JPcGVuR292L2V1cm9zdGF0L2Jsb2IvbWFzdGVyL3ZpZ25ldHRlcy9jaGVhdHNoZWV0L2V1cm9zdGF0X2NoZWF0c2hlZXQucGRmCgpodHRwczovL2dpdGh1Yi5jb20vcnN0dWRpby9jaGVhdHNoZWV0cy9yYXcvbWFzdGVyL2V1cm9zdGF0LnBkZgoKLSBTZWFyY2hpbmcsIGRvd25sb2FkaW5nIGFuZCBtYW5pcHVsYXRpbmcgRXVyb3N0YXQgZGF0YSB3aXRoIFIKCmh0dHA6Ly9yb3Blbmdvdi5naXRodWIuaW8vci8yMDE1LzA1LzAxL2V1cm9zdGF0LXBhY2thZ2UtZXhhbXBsZXMvCgotIE1hcHBpbmcgRXVyb3N0YXQgaW5mb3JtYXRpb24KCmh0dHBzOi8vd3d3Lm15dGlueXNoaW55cy5jb20vMjAxNy8wNy8xMS9ldXJvc3RhdC8KCi0gZXVyb3N0YXQtcGFja2FnZSBwdWJsaXNoZWQKCmh0dHBzOi8vcnB1YnMuY29tL211dWFua2Fyc2tpLzI3MTIwCgotIFR1dG9yaWFsICh2aWduZXR0ZSkgZm9yIHRoZSBldXJvc3RhdCBSIHBhY2thZ2UKCmh0dHA6Ly9yb3Blbmdvdi5naXRodWIuaW8vZXVyb3N0YXQvYXJ0aWNsZXMvZXVyb3N0YXRfdHV0b3JpYWwuaHRtbAoKCgoKCmBgYHtyfQojIGluc3RhbGwucGFja2FnZXMoImV1cm9zdGF0IikKbGlicmFyeShldXJvc3RhdCkKYGBgCgoKYGBge3J9CnF1ZXJ5IDwtIHNlYXJjaF9ldXJvc3RhdCgicm9hZCIsIHR5cGUgPSAidGFibGUiKQoKcXVlcnkKYGBgCgoKCg==</div>
 
 
 

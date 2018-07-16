@@ -686,3 +686,12 @@ https://behindbars.shinyapps.io/user2018/
 
 https://github.com/oliviergimenez/isec2018_tweet_analysis
 
+
+
+
+# Twitter Article Mentions and Citations
+
+https://github.com/dsquintana/ajp
+
+
+

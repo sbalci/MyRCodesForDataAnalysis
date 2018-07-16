@@ -3,7 +3,7 @@ title: "Eurostat"
 output: html_notebook
 ---
 
-# eurostat R package
+- eurostat R package
 
 http://ropengov.github.io/eurostat/
 
@@ -12,4 +12,43 @@ http://ropengov.github.io/eurostat/
 
 https://journal.r-project.org/archive/2017/RJ-2017-019/index.html
 
-- 
+- CheatSheet
+
+https://github.com/rOpenGov/eurostat/blob/master/vignettes/cheatsheet/eurostat_cheatsheet.pdf
+
+https://github.com/rstudio/cheatsheets/raw/master/eurostat.pdf
+
+- Searching, downloading and manipulating Eurostat data with R
+
+http://ropengov.github.io/r/2015/05/01/eurostat-package-examples/
+
+- Mapping Eurostat information
+
+https://www.mytinyshinys.com/2017/07/11/eurostat/
+
+- eurostat-package published
+
+https://rpubs.com/muuankarski/27120
+
+- Tutorial (vignette) for the eurostat R package
+
+http://ropengov.github.io/eurostat/articles/eurostat_tutorial.html
+
+
+
+
+
+```{r}
+# install.packages("eurostat")
+library(eurostat)
+```
+
+
+```{r}
+query <- search_eurostat("road", type = "table")
+
+query
+```
+
+
+

@@ -1491,5 +1491,15 @@ library(tidyverse)
 <!-- gg_histo_by_village -->
 
 
+# tips
+
+```{r}
+my_string1 <- "3+4"
+my_string2 <- "plot(cars)"
+eval(parse(text = my_string1))
+eval(parse(text = my_string2))
+
+```
+
 
 

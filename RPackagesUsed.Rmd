@@ -3970,3 +3970,13 @@ https://broom.tidyverse.org/index.html
 
 
 ## zoo
+
+
+
+## Effsize
+
+a package for efficient effect size computation
+
+https://github.com/mtorchiano/effsize
+
+
