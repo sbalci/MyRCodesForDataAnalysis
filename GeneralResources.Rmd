@@ -65,3 +65,7 @@ https://statistics.laerd.com/
 - statpages
 
 http://statpages.info/index.html
+
+- The R class R programming for biologists
+
+http://r-bio.github.io/

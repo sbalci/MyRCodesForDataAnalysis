@@ -3,6 +3,10 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+- An introduction to Git and how to use it with RStudio
+
+http://r-bio.github.io/intro-git-rstudio/
+
 
 https://andrewbtran.github.io/NICAR/2018/workflow/docs/03-integrating_github.html
 
