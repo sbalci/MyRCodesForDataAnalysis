@@ -1,7 +1,10 @@
 ---
-title: "R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans vermeye çalıştım.]"
-output: 
-  html_notebook: 
+title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans
+  vermeye çalıştım.]
+author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
+date: "`r format(Sys.Date())`"
+output:
+  html_notebook:
     fig_caption: yes
     highlight: kate
     number_sections: yes
@@ -9,9 +12,17 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
-date: '`r format(Sys.Date())`'
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '5'
 ---
+
+```{r, include=FALSE}
+library(knitr)
+opts_chunk$set(comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis')
+```
+
 
 
 # R yükleme
@@ -172,6 +183,7 @@ install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
 install.packages("questionr", dependencies = TRUE)
 install.packages("Rcmdr", dependencies = TRUE)
+install.packages("summarytools")
 ```
 
 
@@ -179,6 +191,7 @@ install.packages("Rcmdr", dependencies = TRUE)
 require(tidyverse)
 require(jmv)
 require(questionr)
+library(summarytools)
 ```
 
 ---
@@ -356,6 +369,19 @@ scatr::scat(
     se = TRUE)
 
 ```
+
+## summarytools
+
+```{r, include=TRUE}
+# library(summarytools)
+summarytools::freq(iris$Species, style = "rmarkdown")
+```
+
+
+
+
+
+
 
 ---
 
