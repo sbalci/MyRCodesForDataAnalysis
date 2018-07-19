@@ -18,13 +18,6 @@ output:
     toc_depth: '5'
 ---
 
-```{r, include=FALSE}
-library(knitr)
-opts_chunk$set(comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis')
-```
-
-
-
 # R yükleme
 
 http://www.youtube.com/watch?v=XcBLEVknqvY
@@ -177,13 +170,20 @@ https://twitter.com/hashtag/rstats?src=hash
 
 ## R paket yükleme
 
-
-```{r paket yükleme}
+```
 install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
 install.packages("questionr", dependencies = TRUE)
 install.packages("Rcmdr", dependencies = TRUE)
 install.packages("summarytools")
+```
+
+```{r paket yükleme}
+# install.packages("tidyverse", dependencies = TRUE)
+# install.packages("jmv", dependencies = TRUE)
+# install.packages("questionr", dependencies = TRUE)
+# install.packages("Rcmdr", dependencies = TRUE)
+# install.packages("summarytools")
 ```
 
 
@@ -227,44 +227,44 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 
 
-```{r}
+```{r, results="markup"}
 library(nycflights13)
 summary(flights)
 ```
 
 
 
-```{r}
+```
 View(data)
 ```
 
 
-```{r}
+```
 data
 ```
 
 
-```{r}
+```
 head
 ```
 
 
-```{r}
+```
 tail
 ```
 
 
-```{r}
+```
 glimpse
 ```
 
 
-```{r}
+```
 str
 ```
 
 
-```{r}
+```
 skimr::skim()
 ```
 
@@ -311,20 +311,33 @@ https://juba.github.io/questionr/articles/recoding_addins.html
 
 # Basit tanımlayıcı istatistikler
 
+```
 summary()
+```
 
+```
 mean
+```
 
+```
 median
+```
 
+```
 min
+```
 
+```
 max
+```
 
+```
 sd
+```
 
+```
 table()
-
+```
 
 
 ```{r descriptive, echo=TRUE, include = TRUE, fig.show='animate', aniopts='controls'}
@@ -372,11 +385,14 @@ scatr::scat(
 
 ## summarytools
 
-```{r, include=TRUE}
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # library(summarytools)
 summarytools::freq(iris$Species, style = "rmarkdown")
 ```
 
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
+```
 
 
 
@@ -387,7 +403,7 @@ summarytools::freq(iris$Species, style = "rmarkdown")
 
 # Rcmdr
 
-```{r}
+```
 library(Rcmdr)
 ```
 
