@@ -71,4 +71,12 @@ https://www.showmeshiny.com/
 
 http://www.hamiltonproject.org/charts/where_work_pays_interactive
 
+- You Can Design a Good Chart with R But do R users invest in design?
 
+https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
+
+- Machine Learning Results in R: one plot to rule them all!
+
+https://datascienceplus.com/machine-learning-results-one-plot-to-rule-them-all/
+
+- 

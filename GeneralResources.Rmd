@@ -69,3 +69,7 @@ http://statpages.info/index.html
 - The R class R programming for biologists
 
 http://r-bio.github.io/
+
+- Sosyal Bilimler Araştırmaları İçin R
+
+https://bookdown.org/connect/#/apps/1531/access

@@ -2736,6 +2736,23 @@ https://broom.tidyverse.org/index.html
 ## magicfor
 
 
+https://cran.r-project.org/web/packages/magicfor/vignettes/magicfor.html
+
+
+```{r}
+magicfor::magic_for(silent = TRUE)
+
+for (i in 1:3) {
+  squared <- i ^ 2
+  cubed <- i ^ 3
+  put(squared, cubed)
+}
+
+magicfor::magic_result_as_dataframe()
+```
+
+
+
 ## magrittr
 
 
