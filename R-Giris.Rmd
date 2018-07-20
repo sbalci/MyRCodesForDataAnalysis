@@ -396,6 +396,16 @@ freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE
 
 
 
+## Grafikler
+
+```{r}
+library(ggplot2)
+library(mosaic)
+mPlot(irisdata)
+```
+
+
+
 
 
 
