@@ -18,6 +18,10 @@ output:
     toc_depth: '5'
 ---
 
+
+[![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls)
+
+
 # R yükleme
 
 http://www.youtube.com/watch?v=XcBLEVknqvY
@@ -385,6 +389,8 @@ scatr::scat(
 
 ## summarytools
 
+https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
+
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # library(summarytools)
 summarytools::freq(iris$Species, style = "rmarkdown")
@@ -394,7 +400,113 @@ summarytools::freq(iris$Species, style = "rmarkdown")
 freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
 ```
 
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+with(tobacco, print(ctable(smoker, diseased), method = 'render'))
+```
 
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+with(tobacco, 
+     print(ctable(smoker, diseased, prop = 'n', totals = FALSE), 
+           omit.headings = TRUE, method = "render"))
+```
+
+
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+summarytools::descr(iris, style = "rmarkdown")
+```
+
+
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+descr(iris, stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE, 
+      omit.headings = TRUE, style = "rmarkdown")
+```
+
+
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+view(dfSummary(iris))
+
+```
+
+
+![](figures/dfsummary.png)
+
+
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+dfSummary(tobacco, plain.ascii = FALSE, style = "grid")
+```
+
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+# First save the results
+iris_stats_by_species <- by(data = iris, 
+                            INDICES = iris$Species, 
+                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"), 
+                            transpose = TRUE)
+
+# Then use view(), like so:
+view(iris_stats_by_species, method = "pander", style = "rmarkdown")
+```
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+view(iris_stats_by_species)
+```
+
+![](figures/DescriptiveStatistics.png)
+
+---
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+data(tobacco) # tobacco is an example dataframe included in the package
+BMI_by_age <- with(tobacco, 
+                   by(BMI, age.gr, descr, 
+                      stats = c("mean", "sd", "min", "med", "max")))
+view(BMI_by_age, "pander", style = "rmarkdown")
+```
+
+---
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+BMI_by_age <- with(tobacco, 
+                   by(BMI, age.gr, descr,  transpose = TRUE,
+                      stats = c("mean", "sd", "min", "med", "max")))
+view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
+```
+
+---
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")]
+freq_tables <- lapply(tobacco_subset, freq)
+view(freq_tables, footnote = NA, file = 'freq-tables.html')
+```
+
+---
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+what.is(iris)
+```
+
+---
+
+```{r}
+freq(tobacco$gender, style = 'rmarkdown')
+```
+
+---
+
+```{r}
+print(freq(tobacco$gender), method = 'render')
+```
+
+
+
+
+---
 
 ## Grafikler
 
@@ -404,7 +516,25 @@ library(mosaic)
 mPlot(irisdata)
 ```
 
+---
 
+```{r}
+ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
+```
+
+---
+
+```{r}
+print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
+```
+
+descr(tobacco, style = 'rmarkdown')
+
+print(descr(tobacco), method = 'render', table.classes = 'st-small')
+
+dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
+
+print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 
 

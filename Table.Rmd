@@ -733,9 +733,105 @@ https://github.com/spgarbet/tangram/issues/36
 https://strengejacke.github.io/sjPlot/articles/sjtlm.html
 
 
-#### - arsenal::tableby
+#### - arsenal
+
+to compare data frames: https://cran.r-project.org/web/packages/arsenal/vignettes/compare.html
+
+##### - arsenal::paired
+
+summary statistics for a set of variables paired across two time points: 
+
+https://cran.r-project.org/web/packages/arsenal/vignettes/paired.html
+
+
+```{r}
+library(arsenal)
+dat <- data.frame(
+  tp = paste0("Time Point ", c(1, 2, 1, 2, 1, 2, 1, 2, 1, 2)),
+  id = c(1, 1, 2, 2, 3, 3, 4, 4, 5, 6),
+  Cat = c("A", "A", "A", "B", "B", "B", "B", "A", NA, "B"),
+  Fac = factor(c("A", "B", "C", "A", "B", "C", "A", "B", "C", "A")),
+  Num = c(1, 2, 3, 4, 4, 3, 3, 4, 0, NA),
+  Ord = ordered(c("I", "II", "II", "III", "III", "III", "I", "III", "II", "I")),
+  Lgl = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE),
+  Dat = as.Date("2018-05-01") + c(1, 1, 2, 2, 3, 4, 5, 6, 3, 4),
+  stringsAsFactors = FALSE
+)
+```
+
+```{r}
+dat
+```
+
+
+```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+p <- paired(tp ~ Cat + Fac + Num + Ord + Lgl + Dat, data = dat, id = id, signed.rank.exact = FALSE)
+summary(p)
+```
+
+
+##### - arsenal::freqlist
+
+https://cran.r-project.org/web/packages/arsenal/vignettes/freqlist.html
+
+```{r}
+require(arsenal)
+```
+
+
+```{r}
+# load the data
+data(mockstudy)
+
+# retain NAs when creating the table using the useNA argument
+tab.ex <- table(mockstudy[, c("arm", "sex", "mdquality.s")], useNA = "ifany")
+```
+
+```{r}
+tab.ex
+```
+
+```{r}
+noby <- freqlist(tab.ex)
+
+str(noby)
+```
+
+```{r}
+# view the data frame portion of freqlist output
+head(noby[["freqlist"]])  ## or use as.data.frame(noby)
+```
+
+
+```{r}
+summary(noby)
+```
+
+
+summary(noby, title = "Basic freqlist output")
+
+summary(freqlist(~ arm + sex + mdquality.s, data = mockstudy, addNA = TRUE))
+
+summary(freqlist(~arm + sex + addNA(mdquality.s), data = mockstudy))
+
+summary(freqlist(~arm + sex + includeNA(mdquality.s, "Missing"), data = mockstudy))
+
+```
+withnames <- freqlist(tab.ex, labelTranslations = c("Treatment Arm", "Gender", "LASA QOL"), digits = 0)
+summary(withnames)
+```
+
+
+
+##### - arsenal::tableby
 
 https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
+
+
+##### - arsenal::modelsum
+
+https://cran.r-project.org/web/packages/arsenal/vignettes/modelsum.html
+
 
 
 

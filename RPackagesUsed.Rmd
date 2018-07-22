@@ -956,7 +956,7 @@ http://www.sthda.com/english/rpkgs/survminer/
 
 ## purrr
 
-
+https://colinfay.me/happy-dev-purrr/
 
 ## quadprog
 
@@ -2824,6 +2824,11 @@ magicfor::magic_result_as_dataframe()
 
 ## mice
 
+http://www.stefvanbuuren.nl/mi/FIMD.html
+
+- Flexible Imputation of Missing Data
+
+https://stefvanbuuren.name/fimd/
 
 ## microbenchmark
 
@@ -2865,6 +2870,10 @@ magicfor::magic_result_as_dataframe()
 
 
 ## mosaic
+
+https://github.com/ProjectMOSAIC/mosaic/blob/master/vignettes/mosaic-resources.Rmd
+
+http://mosaic-web.org/
 
 
 ## mosaicCore
@@ -3900,6 +3909,9 @@ magicfor::magic_result_as_dataframe()
 
 
 ## ViewPipeSteps
+
+https://github.com/daranzolin/ViewPipeSteps
+
 
 
 ## viridis

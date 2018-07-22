@@ -3,6 +3,14 @@ title: "Visualisation: Graphs & Plots"
 output: html_notebook
 ---
 
+- Visualization of Biomedical Data
+ 
+ https://www.annualreviews.org/doi/10.1146/annurev-biodatasci-080917-013424
+
+- Regional population structures at a glance
+
+https://ikashnitsky.github.io/2018/the-lancet-paper/
+
 - Global Migration, animated with R
 
 http://blog.revolutionanalytics.com/2018/06/global-migration-animated-with-r.html

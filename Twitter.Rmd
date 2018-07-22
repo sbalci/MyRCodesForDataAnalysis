@@ -694,4 +694,13 @@ https://github.com/oliviergimenez/isec2018_tweet_analysis
 https://github.com/dsquintana/ajp
 
 
+# twitterreport
+
+https://github.com/gvegayon/twitterreport
+
+
+
+# streamR
+
+https://cran.r-project.org/web/packages/streamR/
 

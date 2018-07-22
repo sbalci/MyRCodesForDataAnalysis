@@ -471,6 +471,13 @@ df <- purrr::map_df(df, as.character)
 
 
 
+# R:case4base - reshape data with base R
+
+https://jozefhajnala.gitlab.io/r/r002-data-manipulation/
+
+# R:case4base - data aggregation with base R
+
+https://jozefhajnala.gitlab.io/r/r003-aggregation/
 
 
 

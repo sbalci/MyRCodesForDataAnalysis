@@ -1,0 +1,29 @@
+---
+title: "Bibliography"
+output: html_notebook
+---
+
+
+A brief introduction to bibliometrix
+
+
+https://cran.r-project.org/web/packages/bibliometrix/vignettes/bibliometrix-vignette.html
+
+ Bibliographic Network Visualization for Academic Literature Reviews 
+ 
+ http://www.mburnamfink.com/blog/bibliographic-network-visualization-for-academic-literature-reviews
+ 
+ 
+ https://embed.kumu.io/0b991b02bb20975fde904f4bf7433333#jpsp-top-50?s=%23doi-101037-0022-35147451252
+ 
+  More Than Words? Computer-Aided Text Analysis in Organizational Behavior and Psychology Research
+  
+  https://www.annualreviews.org/doi/10.1146/annurev-orgpsych-032117-104622
+  
+  
+ 
+ 
+ https://www.kumu.io/nicholasjkelley/jpsp-top-50
+ 
+ 
+
