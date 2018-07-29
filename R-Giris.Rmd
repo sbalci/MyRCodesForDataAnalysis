@@ -22,6 +22,11 @@ output:
 [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls)
 
 
+- R generation
+
+https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x
+
+
 # R yükleme
 
 http://www.youtube.com/watch?v=XcBLEVknqvY
@@ -545,6 +550,9 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 ```
 library(Rcmdr)
+
+Rcmdr::Commander()
+
 ```
 
 

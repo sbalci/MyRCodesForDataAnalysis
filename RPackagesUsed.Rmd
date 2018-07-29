@@ -254,6 +254,10 @@ library("psycho")
 
 ## splitstackshape
 
+- The “splitstackshape” package for R
+
+https://www.r-bloggers.com/the-splitstackshape-package-for-r/
+
 ## epiR
 
 Basic Epi
@@ -2102,6 +2106,7 @@ https://broom.tidyverse.org/index.html
 
 ## datapasta
 
+https://github.com/MilesMcBain/datapasta
 
 ## datasets
 
@@ -2617,6 +2622,11 @@ https://broom.tidyverse.org/index.html
 
 
 ## jmvcore
+
+
+## jmvconnect
+
+https://cran.r-project.org/package=jmvconnect
 
 
 ## jomo
@@ -3769,6 +3779,9 @@ http://mosaic-web.org/
 
 ## tableone
 
+https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html
+
+
 
 ## tables
 
@@ -3777,6 +3790,41 @@ http://mosaic-web.org/
 
 
 ## tangram
+
+https://github.com/spgarbet/tangram
+
+https://cran.r-project.org/web/packages/tangram/index.html
+
+https://cran.r-project.org/web/packages/tangram/vignettes/summary-example.html
+
+
+- Global Style for Rmd Example
+
+
+     <style type="text/css">
+     \```{r, results='asis'}
+     cat(custom_css("lancet.css"))
+     ```
+     .figbody thead
+     {
+       background: #aaffff !important;
+     }
+     .figbody tbody .odd
+     {
+       background: #aaffff !important;
+     }
+     </style>
+ 
+
+
+https://cran.r-project.org/web/packages/tangram/vignettes/fda-example.html
+
+https://cran.r-project.org/web/packages/tangram/vignettes/example.html
+
+
+ 
+
+https://cran.r-project.org/web/packages/tangram/vignettes/single-style.html
 
 
 ## tcltk

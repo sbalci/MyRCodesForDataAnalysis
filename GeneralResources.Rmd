@@ -73,3 +73,7 @@ http://r-bio.github.io/
 - Sosyal Bilimler Araştırmaları İçin R
 
 https://bookdown.org/connect/#/apps/1531/access
+
+- R for Psychological Science An introductory resource
+
+http://compcogscisydney.org/psyr/
