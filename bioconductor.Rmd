@@ -1,0 +1,130 @@
+---
+title: "R Bioconductor"
+output: html_notebook
+---
+
+
+- https://www.bioconductor.org/
+
+```
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+```
+
+- The Bioconductor 2018 Workshop Compilation
+https://bioconductor.github.io/BiocWorkshops/index.html
+
+https://github.com/Bioconductor/BiocWorkshops
+
+
+```{r}
+fname <- file.choose()
+fname
+```
+
+
+```{r}
+file.exists(fname)
+```
+
+
+https://raw.githubusercontent.com/Bioconductor/BiocWorkshops/master/100_Morgan_RBiocForAll/ALL-phenoData.csv
+
+```{r}
+pdata <- read.csv(fname)
+```
+
+
+```{r}
+pdata
+```
+
+
+
+```{r}
+dim(pdata)
+```
+
+
+```{r}
+head(pdata)
+```
+
+
+```{r}
+tail(pdata)
+```
+
+
+
+```{r}
+summary(pdata)
+```
+
+
+
+```{r}
+class(fname)
+class(pdata)
+```
+
+
+```{r}
+pdata <- read.csv(
+    fname,
+    colClasses = c("character", "factor", "integer", "factor")
+)
+summary(pdata)
+```
+
+
+```{r}
+pdata[1:5, c("sex", "mol.biol")]
+```
+
+```{r}
+pdata[1:5, c(2, 3)]
+```
+
+
+```{r}
+pdata[1:5, ]
+```
+
+
+```{r}
+pdata$age
+```
+
+
+```{r}
+pdata[["age"]]
+```
+
+
+```{r}
+class(pdata$age)
+```
+
+
+
+```{r}
+table(pdata$mol.biol)
+```
+
+
+```{r}
+table(is.na(pdata$age))
+
+```
+
+
+```{r}
+levels(pdata$sex)
+
+```
+
+
+
+

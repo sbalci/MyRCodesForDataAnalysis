@@ -3851,6 +3851,13 @@ https://cran.r-project.org/web/packages/tangram/vignettes/single-style.html
 ## tibble
 
 
+## tidybayes
+
+Bayesian analysis + tidy data + geoms
+
+http://mjskay.github.io/tidybayes/
+
+
 ## tidygraph
 
 

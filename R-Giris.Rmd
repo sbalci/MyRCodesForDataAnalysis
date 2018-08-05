@@ -563,6 +563,19 @@ http://r4stats.com/articles/software-reviews/r-commander/
 
 ---
 
+# jamovi
+
+https://www.jamovi.org/
+
+![![](https://www.jamovi.org/assets/main-screenshot.png)](https://www.jamovi.org/)
+
+
+https://blog.jamovi.org/2018/07/30/rj.html
+
+![![](https://blog.jamovi.org/assets/images/rj.png)](https://blog.jamovi.org/2018/07/30/rj.html)
+
+---
+
 # Sonraki Konular
 
 - RStudio ile GitHub

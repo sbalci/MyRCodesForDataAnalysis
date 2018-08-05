@@ -64,3 +64,52 @@ export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
 ```
 R -e "rmarkdown::render('markdown_example.md')"
 ```
+
+
+---
+
+https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
+
+root                         ┌───────────────────────┐             ┌──────────────┐
+ ├─branch-1                  |        Vehicle        ├── has-a ───→|    Engine    |
+ │  ├─sub-branch-1           └───────────────────────┘             └──────────────┘
+ │  └─sub-branch-2                 ↑              ↑                      ↑   ↑                 ------\\
+ ├─branch-2                        |              |                      |   |                 ┤ ^_^ |
+ │  └─sub-branch-3                 |            is-a                     |   |                 └──-──┘  
+ │     ├─a                         |              |                      |   |       
+ │     └─b                         |         ┌────┴─────────┐            |   |
+ ├─branch-3                       is-a       |    Toyota    ├── has-a ───┘   |                 ------\\
+ │  └─sub-branch-4                 |         └──────────────┘                |                 ┤ @_@ |
+ └─branch-4                        |                                       is-a                └──-──┘
+    ├─sub-branch-5                 |                                         |       
+    ├─sub-branch-6           ┌─────┴──────────┐                     ┌────────┴────┐
+    │  └─c                   │   Lamborghini  ├───────has-a ───────→│  V12 Engine │
+    └─sub-branch-7           └────────────────┘                     └─────────────┘
+   
+    
+---   
+
+
+root                    
+ ├─branch-1             
+ │  ├─sub-branch-1          
+ │  └─sub-branch-2          
+ ├─branch-2             
+ │  └─sub-branch-3        
+ │     ├─a              
+ │     └─b              
+ ├─branch-3             
+ │  └─sub-branch-4      
+ └─branch-4             
+    ├─sub-branch-5      
+    ├─sub-branch-6      
+    │  └─c              
+    └─sub-branch-7      
+    
+ 
+   
+
+
+
+
+
