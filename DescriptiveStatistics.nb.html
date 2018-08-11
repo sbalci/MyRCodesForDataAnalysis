@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-07-11" />
+<meta name="date" content="2018-08-08" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -2929,7 +2929,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-07-11</em></h4>
+<h4 class="date"><em>2018-08-08</em></h4>
 
 </div>
 
@@ -2939,14 +2939,14 @@ div.tocify {
 <h2><span class="header-section-number">0.1</span> Descriptive Statistics</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKSJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKVxuXG5gYGAifQ== -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbInRhYmxlIDwtIEVwaTo6c3RhdC50YWJsZShnZW5kZXIsbWVhbihhZ2UpLCBkYXRhID0gc2NhYmllcykiLCIiLCJwYW5kZXI6OnBhbmRlcih0YWJsZSkiXX0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUgPC0gRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKVxuXG5wYW5kZXI6OnBhbmRlcih0YWJsZSlcblxuXG5gYGAifQ== -->
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">table &lt;-<span class="st"> </span>Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">pander<span class="op">::</span><span class="kw">pander</span>(table)</a></code></pre></div>
@@ -2955,7 +2955,7 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIiNUYWJ1bGF0ZSwgYnkgZ2VuZGVyLCB0aGUgbWVhbiBhZ2UgZnJvbSB0aGUgc2NhYmllcyBkYXRhc2V0IiwiIiwiRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKSJdfQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RhYnVsYXRlLCBieSBnZW5kZXIsIHRoZSBtZWFuIGFnZSBmcm9tIHRoZSBzY2FiaWVzIGRhdGFzZXRcblxuRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKVxuYGBgIn0= -->
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">#Tabulate, by gender, the mean age from the scabies dataset</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">list</span>(<span class="kw">mean</span>(age),<span class="kw">median</span>(age)), <span class="dt">data =</span> scabies)</a></code></pre></div>
@@ -2964,7 +2964,7 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbInN1bW1hcnlfZGF0YSA8LSBhcnNlbmFsOjp0YWJsZWJ5KGdlbmRlcn5hZ2Urc2NhYmllc19pbmZlc3RhdGlvbixkYXRhPXNjYWJpZXMpIiwic3VtbWFyeShzdW1tYXJ5X2RhdGEpIl19 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeV9kYXRhIDwtIGFyc2VuYWw6OnRhYmxlYnkoZ2VuZGVyfmFnZStzY2FiaWVzX2luZmVzdGF0aW9uLGRhdGE9c2NhYmllcylcbnN1bW1hcnkoc3VtbWFyeV9kYXRhKVxuXG5gYGAifQ== -->
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">summary_data &lt;-<span class="st"> </span>arsenal<span class="op">::</span><span class="kw">tableby</span>(gender<span class="op">~</span>age<span class="op">+</span>scabies_infestation,<span class="dt">data=</span>scabies)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">summary</span>(summary_data)</a></code></pre></div>
 <!-- rnb-source-end -->
@@ -2976,105 +2976,391 @@ div.tocify {
 <p><a href="https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html" class="uri">https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoicmVxdWlyZShza2ltcikifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShza2ltcilcblxuYGBgIn0= -->
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">require</span>(skimr)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWm9ydW5sdSBwYWtldCB5w7xrbGVuaXlvcjogc2tpbXJcbiJ9 -->
+<pre><code>Zorunlu paket yükleniyor: skimr</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic3VtbWFyeShpcmlzKSJ9 -->
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">summary</span>(iris)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShpcmlzKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">summary</span>(iris)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBTZXBhbC5MZW5ndGggICAgU2VwYWwuV2lkdGggICAgIFBldGFsLkxlbmd0aCAgICBQZXRhbC5XaWR0aCAgICAgICAgICBTcGVjaWVzICBcbiBNaW4uICAgOjQuMzAwICAgTWluLiAgIDoyLjAwMCAgIE1pbi4gICA6MS4wMDAgICBNaW4uICAgOjAuMTAwICAgc2V0b3NhICAgIDo1MCAgXG4gMXN0IFF1Ljo1LjEwMCAgIDFzdCBRdS46Mi44MDAgICAxc3QgUXUuOjEuNjAwICAgMXN0IFF1LjowLjMwMCAgIHZlcnNpY29sb3I6NTAgIFxuIE1lZGlhbiA6NS44MDAgICBNZWRpYW4gOjMuMDAwICAgTWVkaWFuIDo0LjM1MCAgIE1lZGlhbiA6MS4zMDAgICB2aXJnaW5pY2EgOjUwICBcbiBNZWFuICAgOjUuODQzICAgTWVhbiAgIDozLjA1NyAgIE1lYW4gICA6My43NTggICBNZWFuICAgOjEuMTk5ICAgICAgICAgICAgICAgICAgXG4gM3JkIFF1Ljo2LjQwMCAgIDNyZCBRdS46My4zMDAgICAzcmQgUXUuOjUuMTAwICAgM3JkIFF1LjoxLjgwMCAgICAgICAgICAgICAgICAgIFxuIE1heC4gICA6Ny45MDAgICBNYXguICAgOjQuNDAwICAgTWF4LiAgIDo2LjkwMCAgIE1heC4gICA6Mi41MDAgICAgICAgICAgICAgICAgICBcbiJ9 -->
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100   setosa    :50  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300   versicolor:50  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300   virginica :50  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199                  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800                  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500                  </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic3VtbWFyeShpcmlzJFNlcGFsLkxlbmd0aCkifQ== -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShpcmlzJFNlcGFsLkxlbmd0aClcbmBgYCJ9 -->
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTWluLiAxc3QgUXUuICBNZWRpYW4gICAgTWVhbiAzcmQgUXUuICAgIE1heC4gXG4gIDQuMzAwICAgNS4xMDAgICA1LjgwMCAgIDUuODQzICAgNi40MDAgICA3LjkwMCBcbiJ9 -->
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  4.300   5.100   5.800   5.843   6.400   7.900 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiZml2ZW51bShpcmlzJFNlcGFsLkxlbmd0aCkifQ== -->
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">fivenum</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZml2ZW51bShpcmlzJFNlcGFsLkxlbmd0aClcbmBgYCJ9 -->
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">fivenum</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQuMyA1LjEgNS44IDYuNCA3LjlcbiJ9 -->
+<pre><code>[1] 4.3 5.1 5.8 6.4 7.9</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic3VtbWFyeShpcmlzJFNwZWNpZXMpIn0= -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Species)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShpcmlzJFNwZWNpZXMpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Species)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHNldG9zYSB2ZXJzaWNvbG9yICB2aXJnaW5pY2EgXG4gICAgICAgIDUwICAgICAgICAgNTAgICAgICAgICA1MCBcbiJ9 -->
+<pre><code>    setosa versicolor  virginica 
+        50         50         50 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic2tpbShpcmlzKSJ9 -->
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">skim</span>(iris)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShpcmlzKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">skim</span>(iris)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMTUwIFxuIG4gdmFyaWFibGVzOiA1IFxuXG7ilIDilIAgVmFyaWFibGUgdHlwZTpmYWN0b3Ig4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG4gdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbl91bmlxdWUgICAgICAgICAgICAgICAgICAgICAgIHRvcF9jb3VudHMgb3JkZXJlZFxuICBTcGVjaWVzICAgICAgIDAgICAgICAxNTAgMTUwICAgICAgICAzIHNldDogNTAsIHZlcjogNTAsIHZpcjogNTAsIE5BOiAwICAgRkFMU0Vcblxu4pSA4pSAIFZhcmlhYmxlIHR5cGU6bnVtZXJpYyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiAgICAgdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbWVhbiAgIHNkICBwMCBwMjUgIHA1MCBwNzUgcDEwMCAgICAgaGlzdFxuIFBldGFsLkxlbmd0aCAgICAgICAwICAgICAgMTUwIDE1MCAzLjc2IDEuNzcgMSAgIDEuNiA0LjM1IDUuMSAgNi45IOKWh+KWgeKWgeKWguKWheKWheKWg+KWgVxuICBQZXRhbC5XaWR0aCAgICAgICAwICAgICAgMTUwIDE1MCAxLjIgIDAuNzYgMC4xIDAuMyAxLjMgIDEuOCAgMi41IOKWh+KWgeKWgeKWheKWg+KWg+KWguKWglxuIFNlcGFsLkxlbmd0aCAgICAgICAwICAgICAgMTUwIDE1MCA1Ljg0IDAuODMgNC4zIDUuMSA1LjggIDYuNCAgNy45IOKWguKWh+KWheKWh+KWhuKWheKWguKWglxuICBTZXBhbC5XaWR0aCAgICAgICAwICAgICAgMTUwIDE1MCAzLjA2IDAuNDQgMiAgIDIuOCAzICAgIDMuMyAgNC40IOKWgeKWguKWheKWh+KWg+KWguKWgeKWgVxuIn0= -->
+<pre><code>Skim summary statistics
+ n obs: 150 
+ n variables: 5 
+
+── Variable type:factor ───────────────────────────────────────────────────────────
+ variable missing complete   n n_unique                       top_counts ordered
+  Species       0      150 150        3 set: 50, ver: 50, vir: 50, NA: 0   FALSE
+
+── Variable type:numeric ──────────────────────────────────────────────────────────
+     variable missing complete   n mean   sd  p0 p25  p50 p75 p100     hist
+ Petal.Length       0      150 150 3.76 1.77 1   1.6 4.35 5.1  6.9 ▇▁▁▂▅▅▃▁
+  Petal.Width       0      150 150 1.2  0.76 0.1 0.3 1.3  1.8  2.5 ▇▁▁▅▃▃▂▂
+ Sepal.Length       0      150 150 5.84 0.83 4.3 5.1 5.8  6.4  7.9 ▂▇▅▇▆▅▂▂
+  Sepal.Width       0      150 150 3.06 0.44 2   2.8 3    3.3  4.4 ▁▂▅▇▃▂▁▁</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbImlyaXNfcmVzdWx0cyA8LSBza2ltKGlyaXMpIiwic3RyKGlyaXNfcmVzdWx0cykiLCJpcmlzX3Jlc3VsdHMkdmFyaWFibGUiLCJpcmlzX3Jlc3VsdHMkdHlwZSJdfQ== -->
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">iris_results &lt;-<span class="st"> </span><span class="kw">skim</span>(iris)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">str</span>(iris_results)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">iris_results<span class="op">$</span>variable</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">iris_results<span class="op">$</span>type</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXJpc19yZXN1bHRzIDwtIHNraW0oaXJpcylcbnN0cihpcmlzX3Jlc3VsdHMpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">iris_results &lt;-<span class="st"> </span><span class="kw">skim</span>(iris)</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">str</span>(iris_results)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2xhc3NlcyDigJhza2ltX2Rm4oCZLCDigJh0YmxfZGbigJksIOKAmHRibOKAmSBhbmQgJ2RhdGEuZnJhbWUnOlx0NTMgb2JzLiBvZiAgNiB2YXJpYWJsZXM6XG4gJCB2YXJpYWJsZSA6IGNociAgXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5MZW5ndGhcIiAuLi5cbiAkIHR5cGUgICAgIDogY2hyICBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiAuLi5cbiAkIHN0YXQgICAgIDogY2hyICBcIm1pc3NpbmdcIiBcImNvbXBsZXRlXCIgXCJuXCIgXCJtZWFuXCIgLi4uXG4gJCBsZXZlbCAgICA6IGNociAgXCIuYWxsXCIgXCIuYWxsXCIgXCIuYWxsXCIgXCIuYWxsXCIgLi4uXG4gJCB2YWx1ZSAgICA6IG51bSAgMCAxNTAgMTUwIDUuODQzIDAuODI4IC4uLlxuICQgZm9ybWF0dGVkOiBjaHIgIFwiMFwiIFwiMTUwXCIgXCIxNTBcIiBcIjUuODRcIiAuLi5cbiAtIGF0dHIoKiwgXCJkYXRhX3Jvd3NcIik9IGludCAxNTBcbiAtIGF0dHIoKiwgXCJkYXRhX2NvbHNcIik9IGludCA1XG4gLSBhdHRyKCosIFwiZGZfbmFtZVwiKT0gc3ltYm9sIGlyaXNcbiJ9 -->
+<pre><code>Classes ‘skim_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':    53 obs. of  6 variables:
+ $ variable : chr  &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; ...
+ $ type     : chr  &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; ...
+ $ stat     : chr  &quot;missing&quot; &quot;complete&quot; &quot;n&quot; &quot;mean&quot; ...
+ $ level    : chr  &quot;.all&quot; &quot;.all&quot; &quot;.all&quot; &quot;.all&quot; ...
+ $ value    : num  0 150 150 5.843 0.828 ...
+ $ formatted: chr  &quot;0&quot; &quot;150&quot; &quot;150&quot; &quot;5.84&quot; ...
+ - attr(*, &quot;data_rows&quot;)= int 150
+ - attr(*, &quot;data_cols&quot;)= int 5
+ - attr(*, &quot;df_name&quot;)= symbol iris</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXJpc19yZXN1bHRzJHZhcmlhYmxlXG5gYGAifQ== -->
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">iris_results<span class="op">$</span>variable</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCJcbiBbNl0gXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiXG5bMTFdIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5XaWR0aFwiICBcIlNlcGFsLldpZHRoXCIgIFwiU2VwYWwuV2lkdGhcIiAgXCJTZXBhbC5XaWR0aFwiIFxuWzE2XSBcIlNlcGFsLldpZHRoXCIgIFwiU2VwYWwuV2lkdGhcIiAgXCJTZXBhbC5XaWR0aFwiICBcIlNlcGFsLldpZHRoXCIgIFwiU2VwYWwuV2lkdGhcIiBcblsyMV0gXCJTZXBhbC5XaWR0aFwiICBcIlNlcGFsLldpZHRoXCIgIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIiBcIlBldGFsLkxlbmd0aFwiXG5bMjZdIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIiBcIlBldGFsLkxlbmd0aFwiIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIlxuWzMxXSBcIlBldGFsLkxlbmd0aFwiIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIiBcIlBldGFsLldpZHRoXCIgIFwiUGV0YWwuV2lkdGhcIiBcblszNl0gXCJQZXRhbC5XaWR0aFwiICBcIlBldGFsLldpZHRoXCIgIFwiUGV0YWwuV2lkdGhcIiAgXCJQZXRhbC5XaWR0aFwiICBcIlBldGFsLldpZHRoXCIgXG5bNDFdIFwiUGV0YWwuV2lkdGhcIiAgXCJQZXRhbC5XaWR0aFwiICBcIlBldGFsLldpZHRoXCIgIFwiUGV0YWwuV2lkdGhcIiAgXCJTcGVjaWVzXCIgICAgIFxuWzQ2XSBcIlNwZWNpZXNcIiAgICAgIFwiU3BlY2llc1wiICAgICAgXCJTcGVjaWVzXCIgICAgICBcIlNwZWNpZXNcIiAgICAgIFwiU3BlY2llc1wiICAgICBcbls1MV0gXCJTcGVjaWVzXCIgICAgICBcIlNwZWNpZXNcIiAgICAgIFwiU3BlY2llc1wiICAgICBcbiJ9 -->
+<pre><code> [1] &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot;
+ [6] &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot;
+[11] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot; 
+[16] &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot; 
+[21] &quot;Sepal.Width&quot;  &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Length&quot; &quot;Petal.Length&quot;
+[26] &quot;Petal.Length&quot; &quot;Petal.Length&quot; &quot;Petal.Length&quot; &quot;Petal.Length&quot; &quot;Petal.Length&quot;
+[31] &quot;Petal.Length&quot; &quot;Petal.Length&quot; &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Petal.Width&quot; 
+[36] &quot;Petal.Width&quot;  &quot;Petal.Width&quot;  &quot;Petal.Width&quot;  &quot;Petal.Width&quot;  &quot;Petal.Width&quot; 
+[41] &quot;Petal.Width&quot;  &quot;Petal.Width&quot;  &quot;Petal.Width&quot;  &quot;Petal.Width&quot;  &quot;Species&quot;     
+[46] &quot;Species&quot;      &quot;Species&quot;      &quot;Species&quot;      &quot;Species&quot;      &quot;Species&quot;     
+[51] &quot;Species&quot;      &quot;Species&quot;      &quot;Species&quot;     </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXJpc19yZXN1bHRzJHR5cGVcbmBgYCJ9 -->
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">iris_results<span class="op">$</span>type</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuIFs4XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzE1XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzIyXSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzI5XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzM2XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzQzXSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiIFxuWzUwXSBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiIFxuIn0= -->
+<pre><code> [1] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
+ [8] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
+[15] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
+[22] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
+[29] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
+[36] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
+[43] &quot;numeric&quot; &quot;numeric&quot; &quot;factor&quot;  &quot;factor&quot;  &quot;factor&quot;  &quot;factor&quot;  &quot;factor&quot; 
+[50] &quot;factor&quot;  &quot;factor&quot;  &quot;factor&quot;  &quot;factor&quot; </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbInNraW1yOjpza2ltKGlyaXMpICU+JSIsIiAgZHBseXI6OmZpbHRlcihzdGF0ID09IFwibWVhblwiKSJdfQ== -->
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">skimr<span class="op">::</span><span class="kw">skim</span>(iris) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stat <span class="op">==</span><span class="st"> &quot;mean&quot;</span>)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbXI6OnNraW0oaXJpcykgJT4lXG4gIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSBcIm1lYW5cIilcbmBgYCJ9 -->
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">skimr<span class="op">::</span><span class="kw">skim</span>(iris) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stat <span class="op">==</span><span class="st"> &quot;mean&quot;</span>)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6NiwibnJvdyI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUE1VlN2VTdETUJoMG01KzJvUzJWR0JBdndFU3RVZ3BGTEZTSUVTUUVBOTNBVFZ3YTFYRWl4eWxsNHhsWWVBZDJSa1plZ0RkQlRFaW93V25pUU0xU0l0bSszSGUrVDVkODU4Zjl0dFczQUFCRm9CbGkxd1RVaTJJckFCMVVrbk1LZ0xZbWdDbFdJNmxtaGVvRkRoQ0JKNWplOEZIR3JhVGNwZXZrVlBVTTh6K3lsRXRsaTY0bEdubVl1ZmIvWGhjOWRBOGp1aFJXN2tGRXlGSVlnSHFDZSt0WEQ2K2ZXOWU5Y2pSdXZtd2M5ZXFOd2VuYis5UGhSMnU2ZWZEOHFQcnZ3djJPeER1d3RmZUR1eEpyMjdDdC9BSERKaWdNTXk5SldnN2lDQTRaOHJBcXA0S1Rjak1qeXhQRVhEUWdXTGJrZDBHT1E0NjR2RXp3Qk11c3hnU1JTS29xUTU5NWlIUHNLUDBxekwrRnNtY3RtYVI3c2NWeC9DV09tU0l1K1FGM2ZTcWt4V1NtRENWVmdTbkVha1FUYTZkcGp5STZibmFTNVBOeSt0UXlyUC9DWnRwU2l6TXJJN015eFFTNkZPZEIwU0FQV2hjUjVnbGd3RndxdjRVbDJCQnlYNHlxWkd5ZlNHYWVEY3krQVVmSG1ncEJBd0FBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["variable"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["stat"],"name":[3],"type":["chr"],"align":["left"]},{"label":["level"],"name":[4],"type":["chr"],"align":["left"]},{"label":["value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["formatted"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"Sepal.Length","2":"numeric","3":"mean","4":".all","5":"5.843333","6":"5.84"},{"1":"Sepal.Width","2":"numeric","3":"mean","4":".all","5":"3.057333","6":"3.06"},{"1":"Petal.Length","2":"numeric","3":"mean","4":".all","5":"3.758000","6":"3.76"},{"1":"Petal.Width","2":"numeric","3":"mean","4":".all","5":"1.199333","6":"1.2"}],"options":{"columns":{"min":{},"max":[10],"total":[6]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiaGVhZChpcmlzX3Jlc3VsdHMsIG49MTUpIn0= -->
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">head</span>(iris_results, <span class="dt">n=</span><span class="dv">15</span>)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChpcmlzX3Jlc3VsdHMsIG49MTUpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">head</span>(iris_results, <span class="dt">n=</span><span class="dv">15</span>)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6NiwibnJvdyI6MTV9LCJyZGYiOiJINHNJQUFBQUFBQUFBOTJVVFcvVE1CakgzU1pwMSt5bElKREdUdnNDcTlXdVRWZE9SSWdqcDNGZ04rWW03bXJOY2FMRUtYRGFWUEVpcmh3cXdaSHZnY1NGTDFKdW5PRElaY1ZKL1dRMEFnbU5FM3VrMkQvLzg4VDIzM1o4K09CbzN6NnlFVUpWWkZpcU5CU2FWVlZVa0lrYVdmME1JZU9XZ3BwNmJxaW5xVjlzUEtJUjRmZ2hGU2R5Zk0yMDlhWDJtUG4vSXEydVYxMmtBWTJaZHcyYkphTUJTeEltVG5SenpRdURpRk5KNFVBSkRXWkFDWEExOFlHaXRpWWoybmNLZEM3VkExRE5xTk1HMlJ5elJGNXBBcXVUTnpIaC9MOWhoTGJ5dWV0d2g1OVc2KzBuYnovLzJEdSs5L1hzeFp2REwxUDNaamNQOS9Zb0QzZGJ0M2ZlWmZIZTNWM1daOSt5citzZi90anZXbnJhK3JoenY3UjJsV0tQT3M1djBIVHdvQWZjeG9NdXBQUndnUTd1WE9JQXNJL2hPK01BMzBYb1BNTTc4OWwwUG5zOW43M015MWM1S0dYNmw3UHA0bmEvZE5kWkhpZEpvbDJCYVB0RUVqeUtTVURMNlVKcGtGNkQwelloTVNORERxZk5sTStqZ2hOSjRKQmFuRTRvN0tZMUlUeUZyTVlvakFNaUpmVkw0elhpOENtR01UZXpmK1ZjRll2RjRydXFMa3JKOVRDU0xCUXF0WnJkM2xiSlZTVXVDYzFVWkYzN0xXK2NpdE5XUDNPZXYxN0dwdWJtTDF4YkRta3NkRmVXN3FxbXJsSW1hR0dVREF1alc4cEM3Z0JITVJPd0ZyWlNFeXhEU1NEUDlrSU9TdTROWGZ3RWJjbS92cXNHQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["variable"],"name":[1],"type":["chr"],"align":["left"]},{"label":["type"],"name":[2],"type":["chr"],"align":["left"]},{"label":["stat"],"name":[3],"type":["chr"],"align":["left"]},{"label":["level"],"name":[4],"type":["chr"],"align":["left"]},{"label":["value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["formatted"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"Sepal.Length","2":"numeric","3":"missing","4":".all","5":"0.0000000","6":"0"},{"1":"Sepal.Length","2":"numeric","3":"complete","4":".all","5":"150.0000000","6":"150"},{"1":"Sepal.Length","2":"numeric","3":"n","4":".all","5":"150.0000000","6":"150"},{"1":"Sepal.Length","2":"numeric","3":"mean","4":".all","5":"5.8433333","6":"5.84"},{"1":"Sepal.Length","2":"numeric","3":"sd","4":".all","5":"0.8280661","6":"0.83"},{"1":"Sepal.Length","2":"numeric","3":"p0","4":".all","5":"4.3000000","6":"4.3"},{"1":"Sepal.Length","2":"numeric","3":"p25","4":".all","5":"5.1000000","6":"5.1"},{"1":"Sepal.Length","2":"numeric","3":"p50","4":".all","5":"5.8000000","6":"5.8"},{"1":"Sepal.Length","2":"numeric","3":"p75","4":".all","5":"6.4000000","6":"6.4"},{"1":"Sepal.Length","2":"numeric","3":"p100","4":".all","5":"7.9000000","6":"7.9"},{"1":"Sepal.Length","2":"numeric","3":"hist","4":".all","5":"NA","6":"▂▇▅▇▆▅▂▂"},{"1":"Sepal.Width","2":"numeric","3":"missing","4":".all","5":"0.0000000","6":"0"},{"1":"Sepal.Width","2":"numeric","3":"complete","4":".all","5":"150.0000000","6":"150"},{"1":"Sepal.Width","2":"numeric","3":"n","4":".all","5":"150.0000000","6":"150"},{"1":"Sepal.Width","2":"numeric","3":"mean","4":".all","5":"3.0573333","6":"3.06"}],"options":{"columns":{"min":{},"max":[10],"total":[6]},"rows":{"min":[10],"max":[10],"total":[15]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIm10Y2FycyAlPiUiLCIgIGRwbHlyOjpncm91cF9ieShnZWFyKSAlPiUiLCIgIHNraW0oKSJdfQ== -->
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(gear) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">skim</span>()</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXRjYXJzICU+JVxuICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lXG4gIHNraW0oKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(gear) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="st">  </span><span class="kw">skim</span>()</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMzIgXG4gbiB2YXJpYWJsZXM6IDExIFxuIGdyb3VwIHZhcmlhYmxlczogZ2VhciBcblxu4pSA4pSAIFZhcmlhYmxlIHR5cGU6bnVtZXJpYyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiBnZWFyIHZhcmlhYmxlIG1pc3NpbmcgY29tcGxldGUgIG4gICBtZWFuICAgICBzZCAgICAgcDAgICAgcDI1ICAgIHA1MCAgICBwNzVcbiAgICAzICAgICAgIGFtICAgICAgIDAgICAgICAgMTUgMTUgICAwICAgICAgMCAgICAgIDAgICAgICAwICAgICAgMCAgICAgIDAgICBcbiAgICAzICAgICBjYXJiICAgICAgIDAgICAgICAgMTUgMTUgICAyLjY3ICAgMS4xOCAgIDEgICAgICAyICAgICAgMyAgICAgIDQgICBcbiAgICAzICAgICAgY3lsICAgICAgIDAgICAgICAgMTUgMTUgICA3LjQ3ICAgMS4xOSAgIDQgICAgICA4ICAgICAgOCAgICAgIDggICBcbiAgICAzICAgICBkaXNwICAgICAgIDAgICAgICAgMTUgMTUgMzI2LjMgICA5NC44NSAxMjAuMSAgMjc1LjggIDMxOCAgICAzODAgICBcbiAgICAzICAgICBkcmF0ICAgICAgIDAgICAgICAgMTUgMTUgICAzLjEzICAgMC4yNyAgIDIuNzYgICAzLjA0ICAgMy4wOCAgIDMuMThcbiAgICAzICAgICAgIGhwICAgICAgIDAgICAgICAgMTUgMTUgMTc2LjEzICA0Ny42OSAgOTcgICAgMTUwICAgIDE4MCAgICAyMTAgICBcbiAgICAzICAgICAgbXBnICAgICAgIDAgICAgICAgMTUgMTUgIDE2LjExICAgMy4zNyAgMTAuNCAgIDE0LjUgICAxNS41ICAgMTguNCBcbiAgICAzICAgICBxc2VjICAgICAgIDAgICAgICAgMTUgMTUgIDE3LjY5ICAgMS4zNSAgMTUuNDEgIDE3LjA0ICAxNy40MiAgMTcuOTlcbiAgICAzICAgICAgIHZzICAgICAgIDAgICAgICAgMTUgMTUgICAwLjIgICAgMC40MSAgIDAgICAgICAwICAgICAgMCAgICAgIDAgICBcbiAgICAzICAgICAgIHd0ICAgICAgIDAgICAgICAgMTUgMTUgICAzLjg5ICAgMC44MyAgIDIuNDYgICAzLjQ1ICAgMy43MyAgIDMuOTZcbiAgICA0ICAgICAgIGFtICAgICAgIDAgICAgICAgMTIgMTIgICAwLjY3ICAgMC40OSAgIDAgICAgICAwICAgICAgMSAgICAgIDEgICBcbiAgICA0ICAgICBjYXJiICAgICAgIDAgICAgICAgMTIgMTIgICAyLjMzICAgMS4zICAgIDEgICAgICAxICAgICAgMiAgICAgIDQgICBcbiAgICA0ICAgICAgY3lsICAgICAgIDAgICAgICAgMTIgMTIgICA0LjY3ICAgMC45OCAgIDQgICAgICA0ICAgICAgNCAgICAgIDYgICBcbiAgICA0ICAgICBkaXNwICAgICAgIDAgICAgICAgMTIgMTIgMTIzLjAyICAzOC45MSAgNzEuMSAgIDc4LjkyIDEzMC45ICAxNjAgICBcbiAgICA0ICAgICBkcmF0ICAgICAgIDAgICAgICAgMTIgMTIgICA0LjA0ICAgMC4zMSAgIDMuNjkgICAzLjkgICAgMy45MiAgIDQuMDlcbiAgICA0ICAgICAgIGhwICAgICAgIDAgICAgICAgMTIgMTIgIDg5LjUgICAyNS44OSAgNTIgICAgIDY1Ljc1ICA5NCAgICAxMTAgICBcbiAgICA0ICAgICAgbXBnICAgICAgIDAgICAgICAgMTIgMTIgIDI0LjUzICAgNS4yOCAgMTcuOCAgIDIxICAgICAyMi44ICAgMjguMDhcbiAgICA0ICAgICBxc2VjICAgICAgIDAgICAgICAgMTIgMTIgIDE4Ljk2ICAgMS42MSAgMTYuNDYgIDE4LjQ2ICAxOC43NSAgMTkuNThcbiAgICA0ICAgICAgIHZzICAgICAgIDAgICAgICAgMTIgMTIgICAwLjgzICAgMC4zOSAgIDAgICAgICAxICAgICAgMSAgICAgIDEgICBcbiAgICA0ICAgICAgIHd0ICAgICAgIDAgICAgICAgMTIgMTIgICAyLjYyICAgMC42MyAgIDEuNjEgICAyLjEzICAgMi43ICAgIDMuMTZcbiAgICA1ICAgICAgIGFtICAgICAgIDAgICAgICAgIDUgIDUgICAxICAgICAgMCAgICAgIDEgICAgICAxICAgICAgMSAgICAgIDEgICBcbiAgICA1ICAgICBjYXJiICAgICAgIDAgICAgICAgIDUgIDUgICA0LjQgICAgMi42MSAgIDIgICAgICAyICAgICAgNCAgICAgIDYgICBcbiAgICA1ICAgICAgY3lsICAgICAgIDAgICAgICAgIDUgIDUgICA2ICAgICAgMiAgICAgIDQgICAgICA0ICAgICAgNiAgICAgIDggICBcbiAgICA1ICAgICBkaXNwICAgICAgIDAgICAgICAgIDUgIDUgMjAyLjQ4IDExNS40OSAgOTUuMSAgMTIwLjMgIDE0NSAgICAzMDEgICBcbiAgICA1ICAgICBkcmF0ICAgICAgIDAgICAgICAgIDUgIDUgICAzLjkyICAgMC4zOSAgIDMuNTQgICAzLjYyICAgMy43NyAgIDQuMjJcbiAgICA1ICAgICAgIGhwICAgICAgIDAgICAgICAgIDUgIDUgMTk1LjYgIDEwMi44MyAgOTEgICAgMTEzICAgIDE3NSAgICAyNjQgICBcbiAgICA1ICAgICAgbXBnICAgICAgIDAgICAgICAgIDUgIDUgIDIxLjM4ICAgNi42NiAgMTUgICAgIDE1LjggICAxOS43ICAgMjYgICBcbiAgICA1ICAgICBxc2VjICAgICAgIDAgICAgICAgIDUgIDUgIDE1LjY0ICAgMS4xMyAgMTQuNSAgIDE0LjYgICAxNS41ICAgMTYuNyBcbiAgICA1ICAgICAgIHZzICAgICAgIDAgICAgICAgIDUgIDUgICAwLjIgICAgMC40NSAgIDAgICAgICAwICAgICAgMCAgICAgIDAgICBcbiAgICA1ICAgICAgIHd0ICAgICAgIDAgICAgICAgIDUgIDUgICAyLjYzICAgMC44MiAgIDEuNTEgICAyLjE0ICAgMi43NyAgIDMuMTdcbiAgIHAxMDAgICAgIGhpc3RcbiAgIDAgICAg4paB4paB4paB4paH4paB4paB4paB4paBXG4gICA0ICAgIOKWheKWgeKWhuKWgeKWgeKWheKWgeKWh1xuICAgOCAgICDiloHiloHiloHiloHiloHiloHiloHilodcbiA0NzIgICAg4paC4paB4paC4paH4paD4paG4paC4paGXG4gICAzLjczIOKWg+KWg+KWh+KWhuKWgeKWgeKWgeKWg1xuIDI0NSAgICDiloXiloHiloPiloHilofiloLiloLiloVcbiAgMjEuNSAg4paD4paB4paD4paH4paD4paD4paC4paDXG4gIDIwLjIyIOKWg+KWgeKWhuKWh+KWhuKWgeKWguKWg1xuICAgMSAgICDilofiloHiloHiloHiloHiloHiloHiloJcbiAgIDUuNDIg4paB4paB4paH4paF4paB4paB4paB4paDXG4gICAxICAgIOKWg+KWgeKWgeKWgeKWgeKWgeKWgeKWh1xuICAgNCAgICDilofiloHilofiloHiloHiloHiloHilodcbiAgIDYgICAg4paH4paB4paB4paB4paB4paB4paB4paDXG4gMTY3LjYgIOKWh+KWgeKWgeKWguKWguKWguKWguKWh1xuICAgNC45MyDiloHilofiloPiloHiloHiloHiloHiloFcbiAxMjMgICAg4paC4paH4paB4paB4paD4paB4paG4paDXG4gIDMzLjkgIOKWheKWh+KWheKWguKWguKWgeKWguKWhVxuICAyMi45ICDiloPiloHilofilobiloPiloHiloHiloJcbiAgIDEgICAg4paC4paB4paB4paB4paB4paB4paB4paHXG4gICAzLjQ0IOKWh+KWg+KWg+KWg+KWg+KWh+KWh+KWh1xuICAgMSAgICDiloHiloHiloHilofiloHiloHiloHiloFcbiAgIDggICAg4paH4paB4paD4paB4paB4paD4paB4paDXG4gICA4ICAgIOKWh+KWgeKWgeKWg+KWgeKWgeKWgeKWh1xuIDM1MSAgICDilofiloPiloHiloHiloHiloHiloPiloNcbiAgIDQuNDMg4paH4paB4paD4paB4paB4paB4paD4paDXG4gMzM1ICAgIOKWh+KWgeKWg+KWgeKWgeKWg+KWgeKWg1xuICAzMC40ICDilofiloHiloPiloHiloHiloPiloHiloNcbiAgMTYuOSAg4paH4paB4paB4paD4paB4paB4paB4paHXG4gICAxICAgIOKWh+KWgeKWgeKWgeKWgeKWgeKWgeKWglxuICAgMy41NyDilofiloHilofiloHilofiloHilofilodcbiJ9 -->
+<pre><code>Skim summary statistics
+ n obs: 32 
+ n variables: 11 
+ group variables: gear 
+
+── Variable type:numeric ─────────────────────────────────────────────────────────
+ gear variable missing complete  n   mean     sd     p0    p25    p50    p75
+    3       am       0       15 15   0      0      0      0      0      0   
+    3     carb       0       15 15   2.67   1.18   1      2      3      4   
+    3      cyl       0       15 15   7.47   1.19   4      8      8      8   
+    3     disp       0       15 15 326.3   94.85 120.1  275.8  318    380   
+    3     drat       0       15 15   3.13   0.27   2.76   3.04   3.08   3.18
+    3       hp       0       15 15 176.13  47.69  97    150    180    210   
+    3      mpg       0       15 15  16.11   3.37  10.4   14.5   15.5   18.4 
+    3     qsec       0       15 15  17.69   1.35  15.41  17.04  17.42  17.99
+    3       vs       0       15 15   0.2    0.41   0      0      0      0   
+    3       wt       0       15 15   3.89   0.83   2.46   3.45   3.73   3.96
+    4       am       0       12 12   0.67   0.49   0      0      1      1   
+    4     carb       0       12 12   2.33   1.3    1      1      2      4   
+    4      cyl       0       12 12   4.67   0.98   4      4      4      6   
+    4     disp       0       12 12 123.02  38.91  71.1   78.92 130.9  160   
+    4     drat       0       12 12   4.04   0.31   3.69   3.9    3.92   4.09
+    4       hp       0       12 12  89.5   25.89  52     65.75  94    110   
+    4      mpg       0       12 12  24.53   5.28  17.8   21     22.8   28.08
+    4     qsec       0       12 12  18.96   1.61  16.46  18.46  18.75  19.58
+    4       vs       0       12 12   0.83   0.39   0      1      1      1   
+    4       wt       0       12 12   2.62   0.63   1.61   2.13   2.7    3.16
+    5       am       0        5  5   1      0      1      1      1      1   
+    5     carb       0        5  5   4.4    2.61   2      2      4      6   
+    5      cyl       0        5  5   6      2      4      4      6      8   
+    5     disp       0        5  5 202.48 115.49  95.1  120.3  145    301   
+    5     drat       0        5  5   3.92   0.39   3.54   3.62   3.77   4.22
+    5       hp       0        5  5 195.6  102.83  91    113    175    264   
+    5      mpg       0        5  5  21.38   6.66  15     15.8   19.7   26   
+    5     qsec       0        5  5  15.64   1.13  14.5   14.6   15.5   16.7 
+    5       vs       0        5  5   0.2    0.45   0      0      0      0   
+    5       wt       0        5  5   2.63   0.82   1.51   2.14   2.77   3.17
+   p100     hist
+   0    ▁▁▁▇▁▁▁▁
+   4    ▅▁▆▁▁▅▁▇
+   8    ▁▁▁▁▁▁▁▇
+ 472    ▂▁▂▇▃▆▂▆
+   3.73 ▃▃▇▆▁▁▁▃
+ 245    ▅▁▃▁▇▂▂▅
+  21.5  ▃▁▃▇▃▃▂▃
+  20.22 ▃▁▆▇▆▁▂▃
+   1    ▇▁▁▁▁▁▁▂
+   5.42 ▁▁▇▅▁▁▁▃
+   1    ▃▁▁▁▁▁▁▇
+   4    ▇▁▇▁▁▁▁▇
+   6    ▇▁▁▁▁▁▁▃
+ 167.6  ▇▁▁▂▂▂▂▇
+   4.93 ▁▇▃▁▁▁▁▁
+ 123    ▂▇▁▁▃▁▆▃
+  33.9  ▅▇▅▂▂▁▂▅
+  22.9  ▃▁▇▆▃▁▁▂
+   1    ▂▁▁▁▁▁▁▇
+   3.44 ▇▃▃▃▃▇▇▇
+   1    ▁▁▁▇▁▁▁▁
+   8    ▇▁▃▁▁▃▁▃
+   8    ▇▁▁▃▁▁▁▇
+ 351    ▇▃▁▁▁▁▃▃
+   4.43 ▇▁▃▁▁▁▃▃
+ 335    ▇▁▃▁▁▃▁▃
+  30.4  ▇▁▃▁▁▃▁▃
+  16.9  ▇▁▁▃▁▁▁▇
+   1    ▇▁▁▁▁▁▁▂
+   3.57 ▇▁▇▁▇▁▇▇</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpIn0= -->
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">skim</span>(iris, Sepal.Length, Species)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">skim</span>(iris, Sepal.Length, Species)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMTUwIFxuIG4gdmFyaWFibGVzOiA1IFxuXG7ilIDilIAgVmFyaWFibGUgdHlwZTpmYWN0b3Ig4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG4gdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbl91bmlxdWUgICAgICAgICAgICAgICAgICAgICAgIHRvcF9jb3VudHMgb3JkZXJlZFxuICBTcGVjaWVzICAgICAgIDAgICAgICAxNTAgMTUwICAgICAgICAzIHNldDogNTAsIHZlcjogNTAsIHZpcjogNTAsIE5BOiAwICAgRkFMU0Vcblxu4pSA4pSAIFZhcmlhYmxlIHR5cGU6bnVtZXJpYyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiAgICAgdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbWVhbiAgIHNkICBwMCBwMjUgcDUwIHA3NSBwMTAwICAgICBoaXN0XG4gU2VwYWwuTGVuZ3RoICAgICAgIDAgICAgICAxNTAgMTUwIDUuODQgMC44MyA0LjMgNS4xIDUuOCA2LjQgIDcuOSDiloLilofiloXilofilobiloXiloLiloJcbiJ9 -->
+<pre><code>Skim summary statistics
+ n obs: 150 
+ n variables: 5 
+
+── Variable type:factor ──────────────────────────────────────────────────────────
+ variable missing complete   n n_unique                       top_counts ordered
+  Species       0      150 150        3 set: 50, ver: 50, vir: 50, NA: 0   FALSE
+
+── Variable type:numeric ─────────────────────────────────────────────────────────
+     variable missing complete   n mean   sd  p0 p25 p50 p75 p100     hist
+ Sepal.Length       0      150 150 5.84 0.83 4.3 5.1 5.8 6.4  7.9 ▂▇▅▇▆▅▂▂</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic2tpbShpcmlzLCBzdGFydHNfd2l0aChcIlNlcGFsXCIpKSJ9 -->
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">skim</span>(iris, <span class="kw">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>))</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShpcmlzLCBzdGFydHNfd2l0aChcIlNlcGFsXCIpKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">skim</span>(iris, <span class="kw">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>))</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMTUwIFxuIG4gdmFyaWFibGVzOiA1IFxuXG7ilIDilIAgVmFyaWFibGUgdHlwZTpudW1lcmljIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxuICAgICB2YXJpYWJsZSBtaXNzaW5nIGNvbXBsZXRlICAgbiBtZWFuICAgc2QgIHAwIHAyNSBwNTAgcDc1IHAxMDAgICAgIGhpc3RcbiBTZXBhbC5MZW5ndGggICAgICAgMCAgICAgIDE1MCAxNTAgNS44NCAwLjgzIDQuMyA1LjEgNS44IDYuNCAgNy45IOKWguKWh+KWheKWh+KWhuKWheKWguKWglxuICBTZXBhbC5XaWR0aCAgICAgICAwICAgICAgMTUwIDE1MCAzLjA2IDAuNDQgMiAgIDIuOCAzICAgMy4zICA0LjQg4paB4paC4paF4paH4paD4paC4paB4paBXG4ifQ== -->
+<pre><code>Skim summary statistics
+ n obs: 150 
+ n variables: 5 
+
+── Variable type:numeric ─────────────────────────────────────────────────────────
+     variable missing complete   n mean   sd  p0 p25 p50 p75 p100     hist
+ Sepal.Length       0      150 150 5.84 0.83 4.3 5.1 5.8 6.4  7.9 ▂▇▅▇▆▅▂▂
+  Sepal.Width       0      150 150 3.06 0.44 2   2.8 3   3.3  4.4 ▁▂▅▇▃▂▁▁</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoic2tpbShkYXRhc2V0czo6bHlueCkifQ== -->
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">skim</span>(datasets<span class="op">::</span>lynx)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShkYXRhc2V0czo6bHlueClcbmBgYCJ9 -->
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">skim</span>(datasets<span class="op">::</span>lynx)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Ta2ltIHN1bW1hcnkgc3RhdGlzdGljc1xuXG7ilIDilIAgVmFyaWFibGUgdHlwZTp0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiAgICAgICB2YXJpYWJsZSBtaXNzaW5nIGNvbXBsZXRlICAgbiBzdGFydCAgZW5kIGZyZXF1ZW5jeSBkZWx0YXQgICAgbWVhbiAgICAgIHNkXG4gZGF0YXNldHM6Omx5bnggICAgICAgMCAgICAgIDExNCAxMTQgIDE4MjEgMTkzNCAgICAgICAgIDEgICAgICAxIDE1MzguMDIgMTU4NS44NFxuIG1pbiAgbWF4IG1lZGlhbiBsaW5lX2dyYXBoXG4gIDM5IDY5OTEgICAgNzcxICAg4qGI4qKE4qGg4qKB4qOA4qCS4qOA4qCUXG4ifQ== -->
+<pre><code>
+Skim summary statistics
+
+── Variable type:ts ──────────────────────────────────────────────────────────────
+       variable missing complete   n start  end frequency deltat    mean      sd
+ datasets::lynx       0      114 114  1821 1934         1      1 1538.02 1585.84
+ min  max median line_graph
+  39 6991    771   ⡈⢄⡠⢁⣀⠒⣀⠔</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<ul>
+<li>Exploratory Data Analysis in R (introduction)</li>
+</ul>
+<p><a href="https://blog.datascienceheroes.com/exploratory-data-analysis-in-r-intro/" class="uri">https://blog.datascienceheroes.com/exploratory-data-analysis-in-r-intro/</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHN1bW1hcnl0b29scylcbiMgbGlicmFyeShmdW5Nb2RlbGluZykgXG5saWJyYXJ5KHRpZHl2ZXJzZSkgXG5saWJyYXJ5KEhtaXNjKVxuYmFzaWNfZWRhIDwtIGZ1bmN0aW9uKGRhdGEpXG57XG4gIGdsaW1wc2UoZGF0YSlcbiAjIGRmX3N0YXR1cyhkYXRhKVxuICMgZnJlcShkYXRhKSBcbiAjIHByb2ZpbGluZ19udW0oZGF0YSlcbiAjIHBsb3RfbnVtKGRhdGEpXG4gIGRlc2NyaWJlKGRhdGEpXG59XG5iYXNpY19lZGEoaXJpc2RhdGEpXG5gYGAifQ== -->
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="kw">library</span>(summarytools)</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="co"># library(funModeling) </span></a>
+<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="kw">library</span>(tidyverse) </a>
+<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="kw">library</span>(Hmisc)</a>
+<a class="sourceLine" id="cb33-6" data-line-number="6">basic_eda &lt;-<span class="st"> </span><span class="cf">function</span>(data)</a>
+<a class="sourceLine" id="cb33-7" data-line-number="7">{</a>
+<a class="sourceLine" id="cb33-8" data-line-number="8">  <span class="kw">glimpse</span>(data)</a>
+<a class="sourceLine" id="cb33-9" data-line-number="9"> <span class="co"># df_status(data)</span></a>
+<a class="sourceLine" id="cb33-10" data-line-number="10"> <span class="co"># freq(data) </span></a>
+<a class="sourceLine" id="cb33-11" data-line-number="11"> <span class="co"># profiling_num(data)</span></a>
+<a class="sourceLine" id="cb33-12" data-line-number="12"> <span class="co"># plot_num(data)</span></a>
+<a class="sourceLine" id="cb33-13" data-line-number="13">  <span class="kw">describe</span>(data)</a>
+<a class="sourceLine" id="cb33-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb33-15" data-line-number="15"><span class="kw">basic_eda</span>(irisdata)</a></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiT2JzZXJ2YXRpb25zOiAxNTBcblZhcmlhYmxlczogNVxuJCBTZXBhbC5MZW5ndGggPGRibD4gNS4xLCA0LjksIDQuNywgNC42LCA1LjAsIDUuNCwuLi5cbiQgU2VwYWwuV2lkdGggIDxkYmw+IDMuNSwgMy4wLCAzLjIsIDMuMSwgMy42LCAzLjksLi4uXG4kIFBldGFsLkxlbmd0aCA8ZGJsPiAxLjQsIDEuNCwgMS4zLCAxLjUsIDEuNCwgMS43LC4uLlxuJCBQZXRhbC5XaWR0aCAgPGRibD4gMC4yLCAwLjIsIDAuMiwgMC4yLCAwLjIsIDAuNCwuLi5cbiQgU3BlY2llcyAgICAgIDxjaHI+IFwic2V0b3NhXCIsIFwic2V0b3NhXCIsIFwic2V0b3NhXCIsLi4uXG5kYXRhIFxuXG4gNSAgVmFyaWFibGVzICAgICAgMTUwICBPYnNlcnZhdGlvbnNcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblNlcGFsLkxlbmd0aCBcbiAgICAgICBuICBtaXNzaW5nIGRpc3RpbmN0ICAgICBJbmZvICAgICBNZWFuICAgICAgR21kIFxuICAgICAxNTAgICAgICAgIDAgICAgICAgMzUgICAgMC45OTggICAgNS44NDMgICAwLjk0NjIgXG4gICAgIC4wNSAgICAgIC4xMCAgICAgIC4yNSAgICAgIC41MCAgICAgIC43NSAgICAgIC45MCBcbiAgIDQuNjAwICAgIDQuODAwICAgIDUuMTAwICAgIDUuODAwICAgIDYuNDAwICAgIDYuOTAwIFxuICAgICAuOTUgXG4gICA3LjI1NSBcblxubG93ZXN0IDogNC4zIDQuNCA0LjUgNC42IDQuNywgaGlnaGVzdDogNy4zIDcuNCA3LjYgNy43IDcuOVxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuU2VwYWwuV2lkdGggXG4gICAgICAgbiAgbWlzc2luZyBkaXN0aW5jdCAgICAgSW5mbyAgICAgTWVhbiAgICAgIEdtZCBcbiAgICAgMTUwICAgICAgICAwICAgICAgIDIzICAgIDAuOTkyICAgIDMuMDU3ICAgMC40ODcyIFxuICAgICAuMDUgICAgICAuMTAgICAgICAuMjUgICAgICAuNTAgICAgICAuNzUgICAgICAuOTAgXG4gICAyLjM0NSAgICAyLjUwMCAgICAyLjgwMCAgICAzLjAwMCAgICAzLjMwMCAgICAzLjYxMCBcbiAgICAgLjk1IFxuICAgMy44MDAgXG5cbmxvd2VzdCA6IDIuMCAyLjIgMi4zIDIuNCAyLjUsIGhpZ2hlc3Q6IDMuOSA0LjAgNC4xIDQuMiA0LjRcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblBldGFsLkxlbmd0aCBcbiAgICAgICBuICBtaXNzaW5nIGRpc3RpbmN0ICAgICBJbmZvICAgICBNZWFuICAgICAgR21kIFxuICAgICAxNTAgICAgICAgIDAgICAgICAgNDMgICAgMC45OTggICAgMy43NTggICAgMS45NzkgXG4gICAgIC4wNSAgICAgIC4xMCAgICAgIC4yNSAgICAgIC41MCAgICAgIC43NSAgICAgIC45MCBcbiAgICAxLjMwICAgICAxLjQwICAgICAxLjYwICAgICA0LjM1ICAgICA1LjEwICAgICA1LjgwIFxuICAgICAuOTUgXG4gICAgNi4xMCBcblxubG93ZXN0IDogMS4wIDEuMSAxLjIgMS4zIDEuNCwgaGlnaGVzdDogNi4zIDYuNCA2LjYgNi43IDYuOVxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuUGV0YWwuV2lkdGggXG4gICAgICAgbiAgbWlzc2luZyBkaXN0aW5jdCAgICAgSW5mbyAgICAgTWVhbiAgICAgIEdtZCBcbiAgICAgMTUwICAgICAgICAwICAgICAgIDIyICAgICAwLjk5ICAgIDEuMTk5ICAgMC44Njc2IFxuICAgICAuMDUgICAgICAuMTAgICAgICAuMjUgICAgICAuNTAgICAgICAuNzUgICAgICAuOTAgXG4gICAgIDAuMiAgICAgIDAuMiAgICAgIDAuMyAgICAgIDEuMyAgICAgIDEuOCAgICAgIDIuMiBcbiAgICAgLjk1IFxuICAgICAyLjMgXG5cbmxvd2VzdCA6IDAuMSAwLjIgMC4zIDAuNCAwLjUsIGhpZ2hlc3Q6IDIuMSAyLjIgMi4zIDIuNCAyLjVcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblNwZWNpZXMgXG4gICAgICAgbiAgbWlzc2luZyBkaXN0aW5jdCBcbiAgICAgMTUwICAgICAgICAwICAgICAgICAzIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuVmFsdWUgICAgICAgICAgc2V0b3NhIHZlcnNpY29sb3IgIHZpcmdpbmljYVxuRnJlcXVlbmN5ICAgICAgICAgIDUwICAgICAgICAgNTAgICAgICAgICA1MFxuUHJvcG9ydGlvbiAgICAgIDAuMzMzICAgICAgMC4zMzMgICAgICAwLjMzM1xuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuIn0= -->
+<pre><code>Observations: 150
+Variables: 5
+$ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4,...
+$ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9,...
+$ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7,...
+$ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4,...
+$ Species      &lt;chr&gt; &quot;setosa&quot;, &quot;setosa&quot;, &quot;setosa&quot;,...
+data 
+
+ 5  Variables      150  Observations
+-------------------------------------------------------
+Sepal.Length 
+       n  missing distinct     Info     Mean      Gmd 
+     150        0       35    0.998    5.843   0.9462 
+     .05      .10      .25      .50      .75      .90 
+   4.600    4.800    5.100    5.800    6.400    6.900 
+     .95 
+   7.255 
+
+lowest : 4.3 4.4 4.5 4.6 4.7, highest: 7.3 7.4 7.6 7.7 7.9
+-------------------------------------------------------
+Sepal.Width 
+       n  missing distinct     Info     Mean      Gmd 
+     150        0       23    0.992    3.057   0.4872 
+     .05      .10      .25      .50      .75      .90 
+   2.345    2.500    2.800    3.000    3.300    3.610 
+     .95 
+   3.800 
+
+lowest : 2.0 2.2 2.3 2.4 2.5, highest: 3.9 4.0 4.1 4.2 4.4
+-------------------------------------------------------
+Petal.Length 
+       n  missing distinct     Info     Mean      Gmd 
+     150        0       43    0.998    3.758    1.979 
+     .05      .10      .25      .50      .75      .90 
+    1.30     1.40     1.60     4.35     5.10     5.80 
+     .95 
+    6.10 
+
+lowest : 1.0 1.1 1.2 1.3 1.4, highest: 6.3 6.4 6.6 6.7 6.9
+-------------------------------------------------------
+Petal.Width 
+       n  missing distinct     Info     Mean      Gmd 
+     150        0       22     0.99    1.199   0.8676 
+     .05      .10      .25      .50      .75      .90 
+     0.2      0.2      0.3      1.3      1.8      2.2 
+     .95 
+     2.3 
+
+lowest : 0.1 0.2 0.3 0.4 0.5, highest: 2.1 2.2 2.3 2.4 2.5
+-------------------------------------------------------
+Species 
+       n  missing distinct 
+     150        0        3 
+                                           
+Value          setosa versicolor  virginica
+Frequency          50         50         50
+Proportion      0.333      0.333      0.333
+-------------------------------------------------------</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+<ul>
+<li><strong>What’s so hard about histograms?</strong></li>
+</ul>
+<p><a href="http://tinlizzie.org/~aran/histograms/" class="uri">http://tinlizzie.org/~aran/histograms/</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKIyMgRGVzY3JpcHRpdmUgU3RhdGlzdGljcwoKCmBgYHtyfQpFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpgYGAKCmBgYHtyfQp0YWJsZSA8LSBFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpwYW5kZXI6OnBhbmRlcih0YWJsZSkKCgpgYGAKCmBgYHtyfQojVGFidWxhdGUsIGJ5IGdlbmRlciwgdGhlIG1lYW4gYWdlIGZyb20gdGhlIHNjYWJpZXMgZGF0YXNldAoKRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKQpgYGAKCmBgYHtyfQpzdW1tYXJ5X2RhdGEgPC0gYXJzZW5hbDo6dGFibGVieShnZW5kZXJ+YWdlK3NjYWJpZXNfaW5mZXN0YXRpb24sZGF0YT1zY2FiaWVzKQpzdW1tYXJ5KHN1bW1hcnlfZGF0YSkKCmBgYAoKCiMjIHNraW1yCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvc2tpbXIvdmlnbmV0dGVzL1VzaW5nX3NraW1yLmh0bWwKCmBgYHtyfQpyZXF1aXJlKHNraW1yKQpgYGAKCmBgYHtyfQpzdW1tYXJ5KGlyaXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoaXJpcyRTZXBhbC5MZW5ndGgpCmBgYAoKCmBgYHtyfQpmaXZlbnVtKGlyaXMkU2VwYWwuTGVuZ3RoKQpgYGAKCgpgYGB7cn0Kc3VtbWFyeShpcmlzJFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMpCmBgYAoKCmBgYHtyfQppcmlzX3Jlc3VsdHMgPC0gc2tpbShpcmlzKQpzdHIoaXJpc19yZXN1bHRzKQppcmlzX3Jlc3VsdHMkdmFyaWFibGUKaXJpc19yZXN1bHRzJHR5cGUKYGBgCgoKYGBge3J9CnNraW1yOjpza2ltKGlyaXMpICU+JQogIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSAibWVhbiIpCmBgYAoKYGBge3J9CmhlYWQoaXJpc19yZXN1bHRzLCBuPTE1KQpgYGAKCgoKYGBge3J9Cm10Y2FycyAlPiUKICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lCiAgc2tpbSgpCmBgYAoKCgpgYGB7cn0Kc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMsIHN0YXJ0c193aXRoKCJTZXBhbCIpKQpgYGAKCgoKYGBge3J9CnNraW0oZGF0YXNldHM6Omx5bngpCmBgYAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKIyMgRGVzY3JpcHRpdmUgU3RhdGlzdGljcwoKCmBgYHtyfQpFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpgYGAKCmBgYHtyfQp0YWJsZSA8LSBFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpwYW5kZXI6OnBhbmRlcih0YWJsZSkKCgpgYGAKCmBgYHtyfQojVGFidWxhdGUsIGJ5IGdlbmRlciwgdGhlIG1lYW4gYWdlIGZyb20gdGhlIHNjYWJpZXMgZGF0YXNldAoKRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKQpgYGAKCmBgYHtyfQpzdW1tYXJ5X2RhdGEgPC0gYXJzZW5hbDo6dGFibGVieShnZW5kZXJ+YWdlK3NjYWJpZXNfaW5mZXN0YXRpb24sZGF0YT1zY2FiaWVzKQpzdW1tYXJ5KHN1bW1hcnlfZGF0YSkKCmBgYAoKCiMjIHNraW1yCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvc2tpbXIvdmlnbmV0dGVzL1VzaW5nX3NraW1yLmh0bWwKCmBgYHtyfQpyZXF1aXJlKHNraW1yKQpgYGAKCmBgYHtyfQpzdW1tYXJ5KGlyaXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoaXJpcyRTZXBhbC5MZW5ndGgpCmBgYAoKCmBgYHtyfQpmaXZlbnVtKGlyaXMkU2VwYWwuTGVuZ3RoKQpgYGAKCgpgYGB7cn0Kc3VtbWFyeShpcmlzJFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMpCmBgYAoKCmBgYHtyfQppcmlzX3Jlc3VsdHMgPC0gc2tpbShpcmlzKQpzdHIoaXJpc19yZXN1bHRzKQppcmlzX3Jlc3VsdHMkdmFyaWFibGUKaXJpc19yZXN1bHRzJHR5cGUKYGBgCgoKYGBge3J9CnNraW1yOjpza2ltKGlyaXMpICU+JQogIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSAibWVhbiIpCmBgYAoKYGBge3J9CmhlYWQoaXJpc19yZXN1bHRzLCBuPTE1KQpgYGAKCgoKYGBge3J9Cm10Y2FycyAlPiUKICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lCiAgc2tpbSgpCmBgYAoKCgpgYGB7cn0Kc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMsIHN0YXJ0c193aXRoKCJTZXBhbCIpKQpgYGAKCgoKYGBge3J9CnNraW0oZGF0YXNldHM6Omx5bngpCmBgYAoKCi0gRXhwbG9yYXRvcnkgRGF0YSBBbmFseXNpcyBpbiBSIChpbnRyb2R1Y3Rpb24pCgoKaHR0cHM6Ly9ibG9nLmRhdGFzY2llbmNlaGVyb2VzLmNvbS9leHBsb3JhdG9yeS1kYXRhLWFuYWx5c2lzLWluLXItaW50cm8vCgoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KHN1bW1hcnl0b29scykKIyBsaWJyYXJ5KGZ1bk1vZGVsaW5nKSAKbGlicmFyeSh0aWR5dmVyc2UpIApsaWJyYXJ5KEhtaXNjKQoKYmFzaWNfZWRhIDwtIGZ1bmN0aW9uKGRhdGEpCnsKICBnbGltcHNlKGRhdGEpCiAjIGRmX3N0YXR1cyhkYXRhKQogIyBmcmVxKGRhdGEpIAogIyBwcm9maWxpbmdfbnVtKGRhdGEpCiAjIHBsb3RfbnVtKGRhdGEpCiAgZGVzY3JpYmUoZGF0YSkKfQoKYmFzaWNfZWRhKGlyaXNkYXRhKQpgYGAKCi0tLQoKLSAqKldoYXQncyBzbyBoYXJkIGFib3V0IGhpc3RvZ3JhbXM/KioKCmh0dHA6Ly90aW5saXp6aWUub3JnL35hcmFuL2hpc3RvZ3JhbXMvCgoKCgoK</div>
 
 
 </div>

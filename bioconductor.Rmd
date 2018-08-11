@@ -125,6 +125,189 @@ levels(pdata$sex)
 
 ```
 
+```{r}
+pdata$sex == "F"
+
+```
+
+```{r}
+(pdata$sex == "F") & (pdata$age > 50)
+
+```
+
+
+```{r}
+table( pdata$mol.biol )
+
+```
+
+
+```{r}
+pdata$mol.biol %in% c("BCR/ABL", "NEG")
+
+```
+
+
+```{r}
+subset(pdata, sex == "F" & age > 50)
+```
+
+
+```{r}
+bcrabl <- subset(pdata, mol.biol %in% c("BCR/ABL", "NEG"))
+dim( bcrabl )
+```
+
+
+```{r}
+table(bcrabl$mol.biol)
+```
+
+```{r}
+str(bcrabl$mol.biol)
+```
+
+
+```{r}
+factor(bcrabl$mol.biol)
+```
+
+
+```{r}
+bcrabl$mol.biol <- factor(bcrabl$mol.biol)
+table(bcrabl$mol.biol)
+```
+
+
+```{r}
+str(bcrabl$mol.biol)
+```
+
+```{r}
+boxplot(age ~ mol.biol, bcrabl)
+```
+
+
+```{r}
+t.test(age ~ mol.biol, bcrabl)
+```
+
+
+
+```{r}
+library(ggplot2)
+ggplot(bcrabl, aes(x = mol.biol, y = age))
+```
+
+
+```{r}
+ggplot(bcrabl, aes(x = mol.biol, y = age)) + geom_boxplot()
+```
+
+
+
+
+
+```{r}
+if (!"BiocManager" %in% rownames(installed.packages()))
+    install.packages("BiocManager", repos="https://cran.r-project.org")
+```
+
+
+```{r}
+BiocManager::install(c("rtracklayer", "GenomicRanges"))
+```
+
+
+
+```{r}
+BiocManager::valid()
+```
+
+
+```{r}
+BiocManager::available("TxDb.Hsapiens")
+```
+
+
+```{r}
+browseVignettes("simpleSingleCell")
+```
+
+
+https://support.bioconductor.org/
+
+
+https://bioconductor.org/help/course-materials/
+
+
+```{r}
+library("rtracklayer")
+library("GenomicRanges")
+```
+
+
+https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=578954849_wF1QP81SIHdfr8b0kmZUOcsZcHYr&clade=mammal&org=Human&db=hg38&hgta_group=regulation&hgta_track=knownGene&hgta_table=0&hgta_regionType=genome&position=chr9%3A133252000-133280861&hgta_outputType=primaryTable&hgta_outFileName=
+
+```{r}
+fname <- file.choose()
+```
+
+
+```{r}
+cpg <- rtracklayer::import(fname)
+```
+
+
+```{r}
+file.exists(fname)
+```
+
+
+```{r}
+cpg
+```
+
+
+
+https://bioconductor.github.io/BiocWorkshops/r-and-bioconductor-for-everyone-an-introduction.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

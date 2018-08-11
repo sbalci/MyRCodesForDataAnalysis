@@ -3,6 +3,46 @@ title: "General Resources"
 output: html_notebook
 ---
 
+https://sbalci.gitbooks.io/pathology-notes/content/pathology-residents/computational-pathology.html
+
+http://web.stanford.edu/class/bios221/book/
+
+https://kbroman.org/minimal_make/
+
+https://www.gnu.org/software/make/
+
+https://kbroman.org/minimal_make/
+
+
+https://www.datacamp.com/community/tutorials/shell-commands-data-scientist
+
+https://moderndive.com/3-viz.html
+
+https://www.causeweb.org/cause/ecots/ecots18/breakouts/7
+
+https://plotly-book.cpsievert.me/
+
+http://r-bio.github.io/01-intro-R/
+
+https://www.rdatagen.net/post/by-vs-within/?platform=hootsuite
+
+http://www.biomart.org/download.html
+
+https://ropensci.org/blog/2018/07/24/educollab-challenges/
+
+
+
+https://www.datacamp.com/community/tutorials/data-science-pitfalls
+
+
+https://serialmentor.com/dataviz/preface.html
+
+
+- https://news.codecademy.com/errors-in-code-think-differently/?utm_source=customer.io&utm_medium=email&utm_campaign=fortnightly_8-1-18&utm_content=ErrorFortnightly
+
+
+
+
 - Data Science Live Book
 
 https://livebook.datascienceheroes.com/

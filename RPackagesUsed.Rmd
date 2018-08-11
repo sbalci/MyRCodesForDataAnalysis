@@ -1981,6 +1981,12 @@ https://broom.tidyverse.org/index.html
 ## carData
 
 
+## carbonate
+
+https://yonicd.github.io/carbonate/
+
+https://carbon.now.sh/
+
 ## caTools
 
 
@@ -3562,6 +3568,11 @@ http://mosaic-web.org/
 
 
 ## rvest
+
+
+## rvg
+
+https://github.com/davidgohel/rvg
 
 
 ## s4vd

@@ -127,3 +127,39 @@ skim(datasets::lynx)
 ```
 
 
+- Exploratory Data Analysis in R (introduction)
+
+
+https://blog.datascienceheroes.com/exploratory-data-analysis-in-r-intro/
+
+
+```{r}
+library(tidyverse)
+library(summarytools)
+# library(funModeling) 
+library(tidyverse) 
+library(Hmisc)
+
+basic_eda <- function(data)
+{
+  glimpse(data)
+ # df_status(data)
+ # freq(data) 
+ # profiling_num(data)
+ # plot_num(data)
+  describe(data)
+}
+
+basic_eda(irisdata)
+```
+
+---
+
+- **What's so hard about histograms?**
+
+http://tinlizzie.org/~aran/histograms/
+
+
+
+
+
