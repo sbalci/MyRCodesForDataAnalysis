@@ -1182,6 +1182,20 @@ https://cran.r-project.org/web/packages/RcmdrPlugin.sampling/index.html
 ## rsm
 
 
+## rticles tufte
+
+
+https://github.com/rstudio/rticles
+
+https://www.coursera.org/learn/reproducible-templates-analysis/lecture/QaDy7/building-a-document-template-part-2
+
+
+https://www.coursera.org/learn/reproducible-templates-analysis/supplement/GQz0G/lecture-prep-code-file
+
+
+https://github.com/rstudio/tufte
+
+
 
 ## RSQLite
 

@@ -1,0 +1,408 @@
+﻿*Be sure to only copy and paste the sections as they are discussed on screen.* 
+
+Module 3 - Lesson: Building a Document Template, part 1
+
+
+Here is the code for the first R code chunk
+
+```{r setup, include=FALSE}
+# define knitr options
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+# set any missing NAs in table to blank
+options(knitr.kable.NA='')
+
+# load R packages
+library(fivethirtyeight)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(ggthemes)
+
+# load steak_survey dataset
+data("steak_survey", package="fivethirtyeight")
+
+# create subset, no missing NAs
+# pick a specific region
+sdat <- na.omit(steak_survey) %>%
+  filter(region=="Mountain")
+
+```
+
+
+Module 3 - Lesson: Building a Document Template, part 2
+
+
+## Background
+
+In May 2014, Walt Hickey at
+[538.com](http://fivethirtyeight.com/) published an
+article entitled
+["How Americans Like Their Steak"](https://fivethirtyeight.com/features/how-americans-like-their-steak/). This article utilized survey data collected from 550 people which asked questions related to various risky activities, such as whether they speed in traffic, if they smoke or go skydiving, and if they prefer a riskier lottery. The survey also asked if they eat steak and if so, how they prefer their steak.
+
+
+## Purpose
+
+The "steak survey" dataset that was used for the ["How
+Americans Like Their
+Steak"](https://fivethirtyeight.com/features/how-americans-like-their-steak/) article, is available through
+the R package [`fivethirtyeight`](https://cran.r-
+project.org/web/packages/fivethirtyeight/index.html).
+Using this dataset, this article summarizes the steak
+preferences for the _**Mountain**_ Region of the
+United States by gender.
+
+For our summary presented here, a subset of the original steak survey was extracted to only include responses with no missing data and only included respondents from the _**Mountain**_ region of the US. The data subset used for our summary had `r nrow(sdat)` respondents.
+
+
+## Demographic Summary Tables
+
+The age categories of the `r nrow(sdat)` survey
+respondents were:
+
+```{r}
+# create table of the age categories
+tb <- sdat %>%
+  select(age) %>%
+  table() %>%
+  prop.table()*100
+
+# convert table to data frame
+dt <- as.data.frame(tb)
+
+# use kable from knitr package to make table
+# and use kable styling from kableExtra package
+knitr::kable(dt, format="html",
+             col.names=c("Ages","%"),
+             digits=2,
+             caption="Ages of Survey Respondents") %>%
+  kableExtra::kable_styling(bootstrap_options ="striped",
+                            full_width=FALSE)
+```
+
+
+The education levels of the `r nrow(sdat)` survey respondents were:
+
+```{r}
+# repeat for education
+tb <-sdat %>% 
+  select(educ) %>%
+  table() %>%
+  prop.table()*100
+
+dt <-as.data.frame(tb)
+
+knitr::kable(dt, format="html",
+             col.names=c("Education","%"),
+             digits=2,
+             caption="Education of Survey Respondents") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped",
+                            full_width=FALSE)
+```
+
+
+The income levels of the `r nrow(sdat)` survey respondents were:
+
+```{r}
+# repeat for household income
+tb <-sdat %>% 
+  select(hhold_income) %>%
+  table() %>%
+  prop.table()*100
+
+dt <-as.data.frame(tb)
+
+knitr::kable(dt, format="html",
+             col.names=c("Income","%"),
+             digits=2,
+             caption="Income of Survey Respondents") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped",
+                            full_width=FALSE)
+```
+
+
+## _OPTIONAL_ Demographics of Survey Respondents in a Merged Table
+
+This section is provided as an example of how to merge the three demographic summary tables for the `r nrow(sdat)` survey respondents above into a single merged table.
+
+```{r}
+# create table summary for ages
+tb1 <-sdat %>% 
+  select(age) %>%
+  table() %>%
+  prop.table()*100
+
+# create table summary for education
+tb2 <-sdat %>% 
+  select(educ) %>%
+  table() %>%
+  prop.table()*100
+
+# create table summary for income
+tb3 <-sdat %>% 
+  select(hhold_income) %>%
+  table() %>%
+  prop.table()*100
+
+# convert all tables to data frames
+tb1df <-as.data.frame(tb1) 
+tb2df <-as.data.frame(tb2)
+tb3df <-as.data.frame(tb3)
+
+# merge 1st 2 data frames together
+mtb <-merge(data.frame(tb1df, row.names = NULL),
+            data.frame(tb2df, row.names = NULL),
+            by=0, all=TRUE)[-1]
+
+# merge result with 3rd data frame
+mtb2 <-merge(data.frame(mtb, row.names = NULL),
+             data.frame(tb3df, row.names = NULL),
+             by=0, all=TRUE)[-1]
+
+# use the final data frame
+# make into a table with kable
+# add styling with kableExtra
+# add header with labels spanning 2 columns each
+mtb2 %>%
+ knitr::kable(format="html",
+              col.names=c("Category","%","Category","%","Category","%"),
+              digits=2,
+              caption="Demographics of Survey Respondents") %>%
+  kableExtra::kable_styling(c("striped","bordered"),
+                            full_width=FALSE) %>%
+  add_header_above(c("Ages"=2,"Education"=2,"Income"=2))
+```
+
+
+## Steak Preparation Preference by Gender
+
+Finally, here is a breakdown of the `r nrow(sdat)` survey respondents for the _**Mountain**_ region of the US on how they prefer their steak to be prepared by gender.
+
+```{r}
+ggplot(sdat, aes(x = steak_prep, fill = female)) +
+  geom_bar(position="dodge",colour="black") +
+  ggtitle(paste0("Steak Preference by Gender: ",
+          "Mountain"," Region")) +
+  xlab("Steak Preparation Preference") +
+  ylab("Number of Respondents") +
+  scale_fill_manual(values=c("skyblue","palevioletred"),
+                    name="Gender",
+                    breaks=c(FALSE,TRUE),
+                    labels=c("Male", "Female")) +
+  theme_fivethirtyeight()
+```
+
+
+Module 3 - Lesson: Adding Parameters in a Document Template
+
+The text sections and R code chunks have been updated with the params$region substitutions as needed for this lesson.
+
+
+## Background
+
+In May 2014, Walt Hickey at
+[538.com](http://fivethirtyeight.com/) published an
+article entitled
+["How Americans Like Their Steak"](https://fivethirtyeight.com/features/how-americans-like-their-steak/). This article utilized survey data collected from 550 people which asked questions related to various risky activities, such as whether they speed in traffic, if they smoke or go skydiving, and if they prefer a riskier lottery. The survey also asked if they eat steak and if so, how they prefer their steak.
+
+
+## Purpose
+
+The "steak survey" dataset that was used for the ["How
+Americans Like Their
+Steak"](https://fivethirtyeight.com/features/how-americans-like-their-steak/) article, is available through
+the R package [`fivethirtyeight`](https://cran.r-
+project.org/web/packages/fivethirtyeight/index.html).
+Using this dataset, this article summarizes the steak
+preferences for the `r params$region` Region of the
+United States by gender.
+
+For our summary presented here, a subset of the original steak survey was extracted to only include responses with no missing data and only included respondents from the `r params$region` region of the US. The data subset used for our summary had `r nrow(sdat)` respondents.
+
+
+## Demographic Summary Tables
+
+The age categories of the `r nrow(sdat)` survey
+respondents were:
+
+```{r}
+# create table of the age categories
+tb <- sdat %>%
+  select(age) %>%
+  table() %>%
+  prop.table()*100
+
+# convert table to data frame
+dt <- as.data.frame(tb)
+
+# use kable from knitr package to make table
+# and use kable styling from kableExtra package
+knitr::kable(dt, format="html",
+             col.names=c("Ages","%"),
+             digits=2,
+             caption="Ages of Survey Respondents") %>%
+  kableExtra::kable_styling(bootstrap_options ="striped",
+                            full_width=FALSE)
+```
+
+
+The education levels of the `r nrow(sdat)` survey respondents were:
+
+```{r}
+# repeat for education
+tb <-sdat %>% 
+  select(educ) %>%
+  table() %>%
+  prop.table()*100
+
+dt <-as.data.frame(tb)
+
+knitr::kable(dt, format="html",
+             col.names=c("Education","%"),
+             digits=2,
+             caption="Education of Survey Respondents") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped",
+                            full_width=FALSE)
+```
+
+
+The income levels of the `r nrow(sdat)` survey respondents were:
+
+```{r}
+# repeat for household income
+tb <-sdat %>% 
+  select(hhold_income) %>%
+  table() %>%
+  prop.table()*100
+
+dt <-as.data.frame(tb)
+
+knitr::kable(dt, format="html",
+             col.names=c("Income","%"),
+             digits=2,
+             caption="Income of Survey Respondents") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped",
+                            full_width=FALSE)
+```
+
+
+## _OPTIONAL_ Demographics of Survey Respondents in a Merged Table
+
+This section is provided as an example of how to merge the three demographic summary tables for the `r nrow(sdat)` survey respondents above into a single merged table.
+
+```{r}
+# create table summary for ages
+tb1 <-sdat %>% 
+  select(age) %>%
+  table() %>%
+  prop.table()*100
+
+# create table summary for education
+tb2 <-sdat %>% 
+  select(educ) %>%
+  table() %>%
+  prop.table()*100
+
+# create table summary for income
+tb3 <-sdat %>% 
+  select(hhold_income) %>%
+  table() %>%
+  prop.table()*100
+
+# convert all tables to data frames
+tb1df <-as.data.frame(tb1) 
+tb2df <-as.data.frame(tb2)
+tb3df <-as.data.frame(tb3)
+
+# merge 1st 2 data frames together
+mtb <-merge(data.frame(tb1df, row.names = NULL),
+            data.frame(tb2df, row.names = NULL),
+            by=0, all=TRUE)[-1]
+
+# merge result with 3rd data frame
+mtb2 <-merge(data.frame(mtb, row.names = NULL),
+             data.frame(tb3df, row.names = NULL),
+             by=0, all=TRUE)[-1]
+
+# use the final data frame
+# make into a table with kable
+# add styling with kableExtra
+# add header with labels spanning 2 columns each
+mtb2 %>%
+ knitr::kable(format="html",
+              col.names=c("Category","%","Category","%","Category","%"),
+              digits=2,
+              caption="Demographics of Survey Respondents") %>%
+  kableExtra::kable_styling(c("striped","bordered"),
+                            full_width=FALSE) %>%
+  add_header_above(c("Ages"=2,"Education"=2,"Income"=2))
+```
+
+
+## Steak Preparation Preference by Gender
+
+Finally, here is a breakdown of the `r nrow(sdat)` survey respondents for the `r params$region` region of the US on how they prefer their steak to be prepared by gender.
+
+```{r}
+ggplot(sdat, aes(x = steak_prep, fill = female)) +
+  geom_bar(position="dodge",colour="black") +
+  ggtitle(paste0("Steak Preference by Gender: ",
+          params$region," Region")) +
+  xlab("Steak Preparation Preference") +
+  ylab("Number of Respondents") +
+  scale_fill_manual(values=c("skyblue","palevioletred"),
+                    name="Gender",
+                    breaks=c(FALSE,TRUE),
+                    labels=c("Male", "Female")) +
+  theme_fivethirtyeight()
+```
+
+
+YAML updates for the parameters pull-down list
+
+
+params:
+  region: 
+    label:"Region:"
+    value: Mountain
+    input: select
+    choices: ["East North Central","East South Central", 
+              "Middle Atlantic","Mountain", "New England", 
+              "Pacific","South Atlantic", "West North Central",
+              "West South Central"]
+
+
+R code for the render function
+
+rmarkdown::render("steakArticleParams.Rmd",
+                  params = list(region = "Mountain"))
+
+
+R code to create the custom function
+
+
+render_report <-function(regionvar){
+  template <-"steakArticleParams.Rmd"
+  outfile <-sprintf("steakArticle_%s.html",regionvar)
+  parameters <-list(region = regionvar)
+  rmarkdown::render(template,
+                    output_file=outfile,
+                    params=parameters)
+  invisible(TRUE)
+}
+
+render_report("Pacific")
+
+
+R code to use the custom function with purrr
+
+
+library(purrr)
+params_list <- list(list("East North Central",
+                         "East South Central", "Middle Atlantic",
+                         "Mountain", "New England", "Pacific",
+                         "South Atlantic", "West North Central",
+                         "West South Central"))
+purrr::pmap(params_list,render_report)

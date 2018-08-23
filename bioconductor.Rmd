@@ -273,6 +273,15 @@ cpg
 https://bioconductor.github.io/BiocWorkshops/r-and-bioconductor-for-everyone-an-introduction.html
 
 
+---
+
+- **Introduction to Bioconductor**
+
+https://www.datacamp.com/community/tutorials/intro-bioconductor
+
+---
+
+
 
 
 
