@@ -2260,6 +2260,13 @@ https://github.com/MilesMcBain/datapasta
 ## epitools
 
 
+## errorist
+
+Automatic Error and Warning Search
+
+https://github.com/coatless/errorist
+
+
 ## estimability
 
 
