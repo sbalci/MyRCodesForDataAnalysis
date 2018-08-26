@@ -42,7 +42,8 @@ https://colinfay.me/happy-dev-purrr/
 http://www.carlboettiger.info/2012/05/30/knitcitations.html
 
 # infer
-Tidy Statistical Inference
+
+Tidy Statistical Inference  
 https://cran.r-project.org/web/packages/infer/index.html
 
 https://kbroman.org/pkg_primer/
