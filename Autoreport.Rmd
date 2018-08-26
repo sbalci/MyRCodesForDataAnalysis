@@ -62,7 +62,7 @@ t.test(df$Adjusting ~ df$Sex) %>%
 
 ```
 
-
+# citation
 
 ```{r PubMed references}
 PMID_25783680 <- RefManageR::ReadPubMed("25783680", database = "PubMed")
