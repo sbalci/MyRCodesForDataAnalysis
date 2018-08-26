@@ -13,7 +13,7 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 Use them at your own risk :)
 
 
-**See the Codes below:**
+**See the links for the Codes below:**
 
 # Getting Data into R / Veriyi R'a yükleme
 
