@@ -157,6 +157,10 @@ for(i in 1:length(cities)) {
 }
 
 
+
+
+
+
 # The linkedin vector has already been defined for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 
@@ -164,6 +168,12 @@ linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 for (views in linkedin) {
     print(views)
 }
+
+
+
+
+
+
 
 
 
@@ -3463,10 +3473,17 @@ trend2 <- supsmu(Cars93$Horsepower, Cars93$MPG.city, bass=10)
 lines(trend2, lty=3, lwd=2)
 
 
+# Add this trend curve to the plot
+lines(trend1)
+
+# Call supsmu() for a second trend curve, with bass = 10
+trend2 <- supsmu(Cars93$Horsepower, Cars93$MPG.city, bass=10)
+
+# Add this trend curve as a heavy, dotted line
+lines(trend2, lty=3, lwd=2)
 
 
-
-
+Deneme
 
 
 
