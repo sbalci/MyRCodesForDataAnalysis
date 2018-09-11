@@ -203,5 +203,25 @@ write.foreign(mydata, "mydata.txt", "mydata.sps",   package = "SPSS")
 ```
 
 
+---
+
+https://twitter.com/WeAreRLadies/status/1034817323922804737
+
+f <- list.files( "my_folder", pattern = "*.csv", full.names = TRUE)
+d <- purrr::map_df(f, readr::read_csv, .id = "id")
+
+
+---
+
+
+m <- lm(mpg ~ qsec + wt, data = mtcars)
+broom::tidy(m)
+
+
+---
+
+
+
+
 
 

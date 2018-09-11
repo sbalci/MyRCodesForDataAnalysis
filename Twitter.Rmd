@@ -704,3 +704,10 @@ https://github.com/gvegayon/twitterreport
 
 https://cran.r-project.org/web/packages/streamR/
 
+
+---
+
+- Retweet count for specific tweet
+
+https://stackoverflow.com/questions/10427147/retweet-count-for-specific-tweet
+
