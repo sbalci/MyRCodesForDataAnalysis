@@ -103,7 +103,9 @@ autoplot(km_trt_fit)
 
 
 
+# survminer
 
+http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-curves
 
 
 
