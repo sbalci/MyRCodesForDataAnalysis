@@ -561,6 +561,20 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here, building up a <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> as slowly as possible, <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>.  Incremental adjustments.  <a href="https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;ref_src=twsrc%5Etfw">#rstatsteachingideas</a> <a href="https://t.co/nUulQl8bPh">pic.twitter.com/nUulQl8bPh</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw">August 13, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
+---
+
+
+[![](https://raw.githubusercontent.com/dreamRs/esquisse/master/man/figures/esquisse.gif)](https://github.com/dreamRs/esquisse)
+
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Dreaming of a fancy <a href="https://twitter.com/hashtag/Rstats?src=hash&amp;ref_src=twsrc%5Etfw">#Rstats</a> <a href="https://twitter.com/hashtag/ggplot?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> but still scared of typing <a href="https://twitter.com/hashtag/code?src=hash&amp;ref_src=twsrc%5Etfw">#code</a>? <a href="https://twitter.com/_pvictorr?ref_src=twsrc%5Etfw">@_pvictorr</a> esquisse package has you covered <a href="https://t.co/1vIDXcVAAF">https://t.co/1vIDXcVAAF</a> <a href="https://t.co/RlTkptnrNv">pic.twitter.com/RlTkptnrNv</a></p>&mdash; Radoslaw Panczak (@RPanczak) <a href="https://twitter.com/RPanczak/status/1047019588658040832?ref_src=twsrc%5Etfw">October 2, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
+
+
 
 
 

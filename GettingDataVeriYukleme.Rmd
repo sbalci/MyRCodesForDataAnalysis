@@ -220,7 +220,19 @@ broom::tidy(m)
 
 ---
 
+Import a Directory of CSV Files at Once Using {purrr} and {readr}
 
+https://www.gerkelab.com/blog/2018/09/import-directory-csv-purrr-readr/
+
+```
+data_dir %>% 
+  dir_ls(regexp = "\\.csv$") %>% 
+  map_dfr(read_csv, .id = "source") %>% 
+  mutate(Month_Year = myd(Month_Year, truncated = 1))
+```  
+
+
+---
 
 
 

@@ -15,6 +15,30 @@ output: html_notebook
 <!-- ``` -->
 
 
+# ggraptR
+
+https://github.com/cargomoose/ggraptR
+
+[![](https://raw.githubusercontent.com/cargomoose/ggraptR/master/inst/ggraptR/www/demo.gif)](https://github.com/cargomoose/ggraptR)
+
+
+
+# bookdownThemeEditor
+
+https://github.com/hebrewseniorlife/bookdownThemeEditor
+
+
+# esquisse
+
+
+https://github.com/dreamRs/esquisse
+
+
+# ggtextures  
+
+https://github.com/clauswilke/ggtextures
+
+
 
 # ggstatsplot
 
