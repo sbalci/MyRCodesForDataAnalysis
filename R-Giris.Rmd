@@ -57,6 +57,12 @@ https://moderndive.com/2-getting-started.html
 
 ---
 
+[![](http://www-users.york.ac.uk/~er13/RStudio%20Anatomy.svg)](https://buzzrbeeline.blog/2018/07/04/rstudio-anatomy/)
+
+
+
+---
+
 ### RStudio eklentileri
 
 - Discover and install useful RStudio addins

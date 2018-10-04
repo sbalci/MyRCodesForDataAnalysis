@@ -15,6 +15,13 @@ output: html_notebook
 <!-- ``` -->
 
 
+
+# finalfit
+
+http://www.datasurg.net/2018/05/22/finalfit-knitr-and-r-markdown-for-quick-results/
+
+
+
 # ggraptR
 
 https://github.com/cargomoose/ggraptR
