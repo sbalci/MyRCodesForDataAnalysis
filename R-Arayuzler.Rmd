@@ -1,0 +1,115 @@
+---
+title: R Arayüzler^[Bu bir derlemedir, mümkün mertebe alıntılara referans
+  vermeye çalıştım.]
+author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
+date: "`r format(Sys.Date())`"
+output:
+  html_notebook:
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '5'
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '5'
+---
+
+<!-- Open all links in new tab-->  
+<base target="_blank"/>   
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+</script> 
+
+
+
+# R için arayüzler
+
+## Analiz için genel GUI
+
+
+### R Commander
+
+https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/
+
+
+```{r}
+#### Obtain names of all packages on CRAN
+names.available.packages <- rownames(available.packages())
+
+#### Extract packages names that contain Rcmdr
+Rcmdr.related.packages <- names.available.packages[grep("Rcmdr", names.available.packages)]
+Rcmdr.related.packages
+
+#### Install these packages
+install.packages(pkgs = Rcmdr.related.packages)
+```
+
+
+### RKWard
+
+https://rkward.kde.org/Main_Page
+
+
+### Rattle
+
+
+https://rattle.togaware.com/
+
+
+### Jamovi
+
+### JASP
+
+### Blue Sky Statistics
+
+https://www.blueskystatistics.com/
+
+### Deducer
+
+http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+
+https://r4stats.com/2018/06/13/deducer/
+
+```{r}
+install.packages(c("JGR","Deducer","DeducerExtras"))
+```
+
+```{r}
+library("JGR")
+JGR()
+```
+
+## Raporlama için
+
+
+### Stencila
+
+
+### Datazar
+
+
+
+
+
+
+---
+
+# Diğer kodlar
+
+- Diğer kodlar için bakınız: [https://sbalci.github.io/](https://sbalci.github.io/)
+
+
+---
+
+# Geri Bildirim
+
+- Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
+

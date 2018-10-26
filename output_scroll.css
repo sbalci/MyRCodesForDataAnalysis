@@ -1,0 +1,10 @@
+pre {
+  max-height: 300px;
+  float: left;
+  width: 910px;
+  overflow-y: auto;
+}
+
+pre.r {
+  max-height: none;
+}

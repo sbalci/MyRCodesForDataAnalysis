@@ -251,18 +251,142 @@ https://analytics4all.org/2016/11/23/r-decision-trees-regression/
 
 # DECISION TREE CLASSIFIER IMPLEMENTATION IN R
 
+---
+
 https://dataaspirant.com/2017/01/30/how-decision-tree-algorithm-works/
+
+
+
+
+
+---
 
 https://dataaspirant.com/2017/02/03/decision-tree-classifier-implementation-in-r/
 
 
+# caret
+
+Classification And REgression Training
+
+
+
+```{r}
+library(caret)
+library(rpart.plot)
+```
+
+
+```{r}
+data_url <- c("https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data")
+download.file(url = data_url, destfile = "data/car.data")
+
+car_df <- read.csv("data/car.data", sep = ',', header = FALSE)
+```
+
+
+```{r}
+set.seed(3033)
+intrain <- createDataPartition(y = car_df$V7, p= 0.7, list = FALSE)
+training <- car_df[intrain,]
+testing <- car_df[-intrain,]
+```
+
+
+```{r}
+#check dimensions of train & test set
+dim(training); dim(testing);
+```
+
+
+
+```{r}
+anyNA(car_df)
+```
+
+```{r}
+summary(car_df)
+```
+
+```{r}
+trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
+
+# The “method” parameter holds the details about resampling method. We can set “method” with many values like  “boot”, “boot632”, “cv”, “repeatedcv”, “LOOCV”, “LGOCV” etc. For this tutorial, let’s try to use repeatedcv i.e, repeated cross-validation.
+# 
+# The “number” parameter holds the number of resampling iterations. The “repeats ” parameter contains the complete sets of folds to compute for our repeated cross-validation. We are using setting number =10 and repeats =3. This trainControl() methods returns a list. We are going to pass this on our train() method.
+
+
+set.seed(3333)
+
+dtree_fit <- train(V7 ~., data = training, method = "rpart",
+                   parms = list(split = "information"),
+                   trControl=trctrl,
+                   tuneLength = 10)
+
+
+# train() method should be passed with “method” parameter as “rpart”. There is another package “rpart”, it is specifically available for decision tree implementation. Caret links its train function with others to make our work simple.
+# 
+# We are passing our target variable V7. The “V7~.” denotes a formula for using all attributes in our classifier and V7 as the target variable. The “trControl” parameter should be passed with results from our trianControl() method.
 
 
 
 
 
+```
 
 
+
+```{r}
+?rpart
+```
+
+
+```{r}
+dtree_fit
+```
+
+```{r}
+prp(dtree_fit$finalModel, box.palette = "Reds", tweak = 1.2)
+```
+
+
+```{r}
+testing[1,]
+```
+
+```{r}
+predict(dtree_fit, newdata = testing[1,])
+```
+
+```{r}
+test_pred <- predict(dtree_fit, newdata = testing)
+```
+
+
+```{r}
+confusionMatrix(test_pred, testing$V7 )  #check accuracy
+```
+
+
+
+
+```{r}
+set.seed(3333)
+dtree_fit_gini <- train(V7 ~., data = training, method = "rpart",
+                   parms = list(split = "gini"),
+                   trControl=trctrl,
+                   tuneLength = 10)
+dtree_fit_gini
+```
+
+```{r}
+prp(dtree_fit_gini$finalModel, box.palette = "Blues", tweak = 1.2)
+```
+
+
+```{r}
+test_pred_gini <- predict(dtree_fit_gini, newdata = testing)
+confusionMatrix(test_pred_gini, testing$V7 )  #check accuracy
+```
 
 
 

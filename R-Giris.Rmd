@@ -21,6 +21,15 @@ output:
     toc_depth: '5'
 ---
 
+<!-- Open all links in new tab-->  
+<base target="_blank"/>   
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+</script> 
+
+
+
 
 [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls)
 
@@ -192,6 +201,14 @@ https://awesome-r.com/
 - Twitter
 
 https://twitter.com/hashtag/rstats?src=hash
+
+
+- Reproducible Examples
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Got a question to ask on <a href="https://twitter.com/SlackHQ?ref_src=twsrc%5Etfw">@SlackHQ</a> or post on <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@github</a>? No time to read the long post on how to use reprex? Here is a 20-second gif for you to format your R codes nicely and for others to reproduce your problem. (An example from a talk given by <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a>) <a href="https://twitter.com/hashtag/rstat?src=hash&amp;ref_src=twsrc%5Etfw">#rstat</a> <a href="https://t.co/gpuGXpFIsX">pic.twitter.com/gpuGXpFIsX</a></p>&mdash; ZhiYang (@zhiiiyang) <a href="https://twitter.com/zhiiiyang/status/1053006003711569920?ref_src=twsrc%5Etfw">October 18, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
 
 
 ---
