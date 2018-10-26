@@ -787,6 +787,7 @@ data(mockstudy)
 tab.ex <- table(mockstudy[, c("arm", "sex", "mdquality.s")], useNA = "ifany")
 ```
 
+
 ```{r}
 tab.ex
 ```
