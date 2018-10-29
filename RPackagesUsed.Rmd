@@ -16,6 +16,22 @@ output: html_notebook
 
 
 
+# Radiant
+
+Radiant – Business analytics using R and Shiny
+
+https://radiant-rstats.github.io/docs/tutorials.html
+
+# rspivot
+
+https://ryantimpe.github.io/rspivot/index.html
+
+
+
+
+
+
+
 # finalfit
 
 http://www.datasurg.net/2018/05/22/finalfit-knitr-and-r-markdown-for-quick-results/
