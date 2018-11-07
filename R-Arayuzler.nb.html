@@ -11,7 +11,7 @@
 
 <meta name="author" content="Derleyen Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-10-14" />
+<meta name="date" content="2018-11-07" />
 
 <title>R Arayüzler</title>
 
@@ -2629,7 +2629,7 @@ window.initializeSourceEmbed = function(filename) {
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -2642,13 +2642,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -2926,7 +2924,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R Arayüzler<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h1>
 <h4 class="author"><em>Derleyen <a href="https://sbalci.github.io/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-10-14</em></h4>
+<h4 class="date"><em>2018-11-07</em></h4>
 
 </div>
 
@@ -2947,14 +2945,14 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMjIyBPYnRhaW4gbmFtZXMgb2YgYWxsIHBhY2thZ2VzIG9uIENSQU5cbm5hbWVzLmF2YWlsYWJsZS5wYWNrYWdlcyA8LSByb3duYW1lcyhhdmFpbGFibGUucGFja2FnZXMoKSlcblxuIyMjIyBFeHRyYWN0IHBhY2thZ2VzIG5hbWVzIHRoYXQgY29udGFpbiBSY21kclxuUmNtZHIucmVsYXRlZC5wYWNrYWdlcyA8LSBuYW1lcy5hdmFpbGFibGUucGFja2FnZXNbZ3JlcChcIlJjbWRyXCIsIG5hbWVzLmF2YWlsYWJsZS5wYWNrYWdlcyldXG5SY21kci5yZWxhdGVkLnBhY2thZ2VzXG5cbiMjIyMgSW5zdGFsbCB0aGVzZSBwYWNrYWdlc1xuaW5zdGFsbC5wYWNrYWdlcyhwa2dzID0gUmNtZHIucmVsYXRlZC5wYWNrYWdlcylcbmBgYCJ9 -->
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">#### Obtain names of all packages on CRAN</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">#### Obtain names of all packages on CRAN</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">names.available.packages &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">available.packages</span>())</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">#### Extract packages names that contain Rcmdr</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#### Extract packages names that contain Rcmdr</span></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">Rcmdr.related.packages &lt;-<span class="st"> </span>names.available.packages[<span class="kw">grep</span>(<span class="st">&quot;Rcmdr&quot;</span>, names.available.packages)]</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">Rcmdr.related.packages</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">#### Install these packages</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#### Install these packages</span></a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"><span class="kw">install.packages</span>(<span class="dt">pkgs =</span> Rcmdr.related.packages)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -3036,6 +3034,10 @@ export R_LIBS_USER=&quot;~/Library/R/3.5/library&quot;
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+<div id="radiant" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> Radiant</h3>
+<p><a href="https://radiant-rstats.github.io/docs/tutorials.html" class="uri">https://radiant-rstats.github.io/docs/tutorials.html</a></p>
+</div>
 </div>
 <div id="raporlama-icin" class="section level2">
 <h2><span class="header-section-number">1.2</span> Raporlama için</h2>
@@ -3044,6 +3046,21 @@ export R_LIBS_USER=&quot;~/Library/R/3.5/library&quot;
 </div>
 <div id="datazar" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Datazar</h3>
+</div>
+</div>
+<div id="grafikler" class="section level2">
+<h2><span class="header-section-number">1.3</span> Grafikler</h2>
+<div id="esquisse" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> esquisse</h3>
+<p><a href="https://github.com/dreamRs/esquisse" class="uri">https://github.com/dreamRs/esquisse</a></p>
+</div>
+<div id="ggextra" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> ggExtra</h3>
+<p><a href="https://github.com/daattali/ggExtra" class="uri">https://github.com/daattali/ggExtra</a></p>
+</div>
+<div id="ggplotassist" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> ggplotAssist</h3>
+<p><a href="https://github.com/cardiomoon/ggplotAssist" class="uri">https://github.com/cardiomoon/ggplotAssist</a></p>
 <hr />
 </div>
 </div>
@@ -3051,7 +3068,7 @@ export R_LIBS_USER=&quot;~/Library/R/3.5/library&quot;
 <div id="diger-kodlar" class="section level1">
 <h1><span class="header-section-number">2</span> Diğer kodlar</h1>
 <ul>
-<li>Diğer kodlar için bakınız: <a href="https://sbalci.github.io/" class="uri">https://sbalci.github.io/</a></li>
+<li>Diğer kodlar için bakınız: <a href="https://sbalci.github.io/">https://sbalci.github.io/</a></li>
 </ul>
 <hr />
 </div>
@@ -3069,7 +3086,7 @@ export R_LIBS_USER=&quot;~/Library/R/3.5/library&quot;
 </ol>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBSIEFyYXnDvHpsZXJeW0J1IGJpciBkZXJsZW1lZGlyLCBtw7xta8O8biBtZXJ0ZWJlIGFsxLFudMSxbGFyYSByZWZlcmFucwogIHZlcm1leWUgw6dhbMSxxZ90xLFtLl0KYXV0aG9yOiAiRGVybGV5ZW4gW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvLykiCmRhdGU6ICJgciBmb3JtYXQoU3lzLkRhdGUoKSlgIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGZpZ19jYXB0aW9uOiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBmbGF0bHkKICAgIHRvYzogeWVzCiAgICB0b2NfZGVwdGg6IDUKICAgIHRvY19mbG9hdDogeWVzCiAgcGRmX2RvY3VtZW50OgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCi0tLQoKPCEtLSBPcGVuIGFsbCBsaW5rcyBpbiBuZXcgdGFiLS0+ICAKPGJhc2UgdGFyZ2V0PSJfYmxhbmsiLz4gICAKCgo8IS0tIEdvIHRvIHd3dy5hZGR0aGlzLmNvbS9kYXNoYm9hcmQgdG8gY3VzdG9taXplIHlvdXIgdG9vbHMgLS0+IDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii8vczcuYWRkdGhpcy5jb20vanMvMzAwL2FkZHRoaXNfd2lkZ2V0LmpzI3B1YmlkPXJhLTViYzM2OTAwYTQwNTA5MGIiPiAgCjwvc2NyaXB0PiAKCgoKIyBSIGnDp2luIGFyYXnDvHpsZXIKCiMjIEFuYWxpeiBpw6dpbiBnZW5lbCBHVUkKCgojIyMgUiBDb21tYW5kZXIKCmh0dHBzOi8vc29jaWFsc2NpZW5jZXMubWNtYXN0ZXIuY2EvamZveC9NaXNjL1JjbWRyLwoKCmBgYHtyfQojIyMjIE9idGFpbiBuYW1lcyBvZiBhbGwgcGFja2FnZXMgb24gQ1JBTgpuYW1lcy5hdmFpbGFibGUucGFja2FnZXMgPC0gcm93bmFtZXMoYXZhaWxhYmxlLnBhY2thZ2VzKCkpCgojIyMjIEV4dHJhY3QgcGFja2FnZXMgbmFtZXMgdGhhdCBjb250YWluIFJjbWRyClJjbWRyLnJlbGF0ZWQucGFja2FnZXMgPC0gbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzW2dyZXAoIlJjbWRyIiwgbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzKV0KUmNtZHIucmVsYXRlZC5wYWNrYWdlcwoKIyMjIyBJbnN0YWxsIHRoZXNlIHBhY2thZ2VzCmluc3RhbGwucGFja2FnZXMocGtncyA9IFJjbWRyLnJlbGF0ZWQucGFja2FnZXMpCmBgYAoKCiMjIyBSS1dhcmQKCmh0dHBzOi8vcmt3YXJkLmtkZS5vcmcvTWFpbl9QYWdlCgoKIyMjIFJhdHRsZQoKCmh0dHBzOi8vcmF0dGxlLnRvZ2F3YXJlLmNvbS8KCgojIyMgSmFtb3ZpCgojIyMgSkFTUAoKIyMjIEJsdWUgU2t5IFN0YXRpc3RpY3MKCmh0dHBzOi8vd3d3LmJsdWVza3lzdGF0aXN0aWNzLmNvbS8KCiMjIyBEZWR1Y2VyCgpodHRwOi8vd3d3LmRlZHVjZXIub3JnL3Btd2lraS9wbXdpa2kucGhwP249TWFpbi5EZWR1Y2VyTWFudWFsCgpodHRwczovL3I0c3RhdHMuY29tLzIwMTgvMDYvMTMvZGVkdWNlci8KCmBgYHtyfQppbnN0YWxsLnBhY2thZ2VzKGMoIkpHUiIsIkRlZHVjZXIiLCJEZWR1Y2VyRXh0cmFzIikpCmBgYAoKYGBge3J9CmxpYnJhcnkoIkpHUiIpCkpHUigpCmBgYAoKIyMgUmFwb3JsYW1hIGnDp2luCgoKIyMjIFN0ZW5jaWxhCgoKIyMjIERhdGF6YXIKCgoKCgoKLS0tCgojIERpxJ9lciBrb2RsYXIKCi0gRGnEn2VyIGtvZGxhciBpw6dpbiBiYWvEsW7EsXo6IFtodHRwczovL3NiYWxjaS5naXRodWIuaW8vXShodHRwczovL3NiYWxjaS5naXRodWIuaW8vKQoKCi0tLQoKIyBHZXJpIEJpbGRpcmltCgotIEdlcmkgYmlsZGlyaW0gacOnaW4gdMSxa2xhecSxbsSxejogX1tHZXJpIGJpbGRpcmltIGZvcm11XShodHRwczovL2dvby5nbC9mb3Jtcy9ZakdaNURIZ3RQbFIxUm5CMylfCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBSIEFyYXnDvHpsZXJeW0J1IGJpciBkZXJsZW1lZGlyLCBtw7xta8O8biBtZXJ0ZWJlIGFsxLFudMSxbGFyYSByZWZlcmFucwogIHZlcm1leWUgw6dhbMSxxZ90xLFtLl0KYXV0aG9yOiAiRGVybGV5ZW4gW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvLykiCmRhdGU6ICJgciBmb3JtYXQoU3lzLkRhdGUoKSlgIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGZpZ19jYXB0aW9uOiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBmbGF0bHkKICAgIHRvYzogeWVzCiAgICB0b2NfZGVwdGg6IDUKICAgIHRvY19mbG9hdDogeWVzCiAgcGRmX2RvY3VtZW50OgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCi0tLQoKPCEtLSBPcGVuIGFsbCBsaW5rcyBpbiBuZXcgdGFiLS0+ICAKPGJhc2UgdGFyZ2V0PSJfYmxhbmsiLz4gICAKCgo8IS0tIEdvIHRvIHd3dy5hZGR0aGlzLmNvbS9kYXNoYm9hcmQgdG8gY3VzdG9taXplIHlvdXIgdG9vbHMgLS0+IDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii8vczcuYWRkdGhpcy5jb20vanMvMzAwL2FkZHRoaXNfd2lkZ2V0LmpzI3B1YmlkPXJhLTViYzM2OTAwYTQwNTA5MGIiPiAgCjwvc2NyaXB0PiAKCgoKIyBSIGnDp2luIGFyYXnDvHpsZXIKCiMjIEFuYWxpeiBpw6dpbiBnZW5lbCBHVUkKCgojIyMgUiBDb21tYW5kZXIKCmh0dHBzOi8vc29jaWFsc2NpZW5jZXMubWNtYXN0ZXIuY2EvamZveC9NaXNjL1JjbWRyLwoKCmBgYHtyfQojIyMjIE9idGFpbiBuYW1lcyBvZiBhbGwgcGFja2FnZXMgb24gQ1JBTgpuYW1lcy5hdmFpbGFibGUucGFja2FnZXMgPC0gcm93bmFtZXMoYXZhaWxhYmxlLnBhY2thZ2VzKCkpCgojIyMjIEV4dHJhY3QgcGFja2FnZXMgbmFtZXMgdGhhdCBjb250YWluIFJjbWRyClJjbWRyLnJlbGF0ZWQucGFja2FnZXMgPC0gbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzW2dyZXAoIlJjbWRyIiwgbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzKV0KUmNtZHIucmVsYXRlZC5wYWNrYWdlcwoKIyMjIyBJbnN0YWxsIHRoZXNlIHBhY2thZ2VzCmluc3RhbGwucGFja2FnZXMocGtncyA9IFJjbWRyLnJlbGF0ZWQucGFja2FnZXMpCmBgYAoKCiMjIyBSS1dhcmQKCmh0dHBzOi8vcmt3YXJkLmtkZS5vcmcvTWFpbl9QYWdlCgoKIyMjIFJhdHRsZQoKCmh0dHBzOi8vcmF0dGxlLnRvZ2F3YXJlLmNvbS8KCgojIyMgSmFtb3ZpCgojIyMgSkFTUAoKIyMjIEJsdWUgU2t5IFN0YXRpc3RpY3MKCmh0dHBzOi8vd3d3LmJsdWVza3lzdGF0aXN0aWNzLmNvbS8KCiMjIyBEZWR1Y2VyCgpodHRwOi8vd3d3LmRlZHVjZXIub3JnL3Btd2lraS9wbXdpa2kucGhwP249TWFpbi5EZWR1Y2VyTWFudWFsCgpodHRwczovL3I0c3RhdHMuY29tLzIwMTgvMDYvMTMvZGVkdWNlci8KCmBgYHtyfQppbnN0YWxsLnBhY2thZ2VzKGMoIkpHUiIsIkRlZHVjZXIiLCJEZWR1Y2VyRXh0cmFzIikpCmBgYAoKYGBge3J9CmxpYnJhcnkoIkpHUiIpCkpHUigpCmBgYAoKIyMjIFJhZGlhbnQKCmh0dHBzOi8vcmFkaWFudC1yc3RhdHMuZ2l0aHViLmlvL2RvY3MvdHV0b3JpYWxzLmh0bWwKCgojIyBSYXBvcmxhbWEgacOnaW4KCgojIyMgU3RlbmNpbGEKCgojIyMgRGF0YXphcgoKCiMjIEdyYWZpa2xlcgoKIyMjIGVzcXVpc3NlCgpodHRwczovL2dpdGh1Yi5jb20vZHJlYW1Scy9lc3F1aXNzZQoKIyMjIGdnRXh0cmEKCmh0dHBzOi8vZ2l0aHViLmNvbS9kYWF0dGFsaS9nZ0V4dHJhCgoKIyMjIGdncGxvdEFzc2lzdAoKaHR0cHM6Ly9naXRodWIuY29tL2NhcmRpb21vb24vZ2dwbG90QXNzaXN0CgoKCgoKCi0tLQoKIyBEacSfZXIga29kbGFyCgotIERpxJ9lciBrb2RsYXIgacOnaW4gYmFrxLFuxLF6OiBbaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvL10oaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvLykKCgotLS0KCiMgR2VyaSBCaWxkaXJpbQoKLSBHZXJpIGJpbGRpcmltIGnDp2luIHTEsWtsYXnEsW7EsXo6IF9bR2VyaSBiaWxkaXJpbSBmb3JtdV0oaHR0cHM6Ly9nb28uZ2wvZm9ybXMvWWpHWjVESGd0UGxSMVJuQjMpXwoK</div>
 
 
 </div>

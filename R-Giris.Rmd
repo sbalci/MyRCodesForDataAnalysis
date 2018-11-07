@@ -544,6 +544,26 @@ freq(tobacco$gender, style = 'rmarkdown')
 print(freq(tobacco$gender), method = 'render')
 ```
 
+---
+
+## skimr
+
+```
+library(skimr)
+skim(df)
+```
+
+---
+
+## DataExplorer
+
+```
+library(DataExplorer)
+DataExplorer::create_report(df)
+```
+
+
+[![](https://static1.squarespace.com/static/58eef8846a4963e429687a4d/t/5bdfc2fb4d7a9c04ee50b7aa/1541391160702/dataExplorerGifLg.gif?format=1500w)](https://www.littlemissdata.com/blog/simple-eda)
 
 
 

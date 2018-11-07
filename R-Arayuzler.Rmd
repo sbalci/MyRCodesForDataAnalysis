@@ -87,6 +87,11 @@ library("JGR")
 JGR()
 ```
 
+### Radiant
+
+https://radiant-rstats.github.io/docs/tutorials.html
+
+
 ## Raporlama için
 
 
@@ -94,6 +99,22 @@ JGR()
 
 
 ### Datazar
+
+
+## Grafikler
+
+### esquisse
+
+https://github.com/dreamRs/esquisse
+
+### ggExtra
+
+https://github.com/daattali/ggExtra
+
+
+### ggplotAssist
+
+https://github.com/cardiomoon/ggplotAssist
 
 
 

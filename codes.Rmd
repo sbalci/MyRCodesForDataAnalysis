@@ -34,7 +34,9 @@ knitr::opts_chunk$set(
 ```
 
 
+rstudioapi::selectDirectory()
 
+xaringan:::inf_mr()
 
 
 **Load required packages**

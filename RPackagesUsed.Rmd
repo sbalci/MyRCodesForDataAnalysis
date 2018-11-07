@@ -15,6 +15,57 @@ output: html_notebook
 <!-- ``` -->
 
 
+# textmineR
+
+https://cran.r-project.org/web/packages/textmineR/vignettes/a_start_here.html
+
+https://cran.r-project.org/web/packages/textmineR/vignettes/b_document_clustering.html
+
+https://cran.r-project.org/web/packages/textmineR/vignettes/c_topic_modeling.html
+
+https://cran.r-project.org/web/packages/textmineR/vignettes/d_text_embeddings.html
+
+https://cran.r-project.org/web/packages/textmineR/vignettes/e_doc_summarization.html
+
+
+
+
+# tidyshiny
+
+https://github.com/MangoTheCat/tidyshiny/
+
+
+# rio
+
+https://cran.r-project.org/web/packages/rio/README.html
+
+install.packages("rio")
+install_formats()
+
+
+# addinplots
+
+RStudio Addins for plotting
+
+https://github.com/homerhanumat/addinplots/
+
+
+
+
+
+# citr
+
+citr: RStudio Addin to Insert Markdown Citations
+
+https://github.com/crsh/citr
+
+
+
+
+# ggplotAssist
+
+https://github.com/cardiomoon/ggplotAssist/blob/master/README.md
+
 
 # Radiant
 
