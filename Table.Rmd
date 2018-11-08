@@ -80,6 +80,13 @@ https://rdrr.io/cran/xtable/man/xtable.html
 
 ####  - flextable
 
+https://davidgohel.github.io/flextable/index.html
+
+```{r}
+
+```
+
+
 https://cran.r-project.org/web/packages/flextable/vignettes/overview.html
 
 ```{r}
@@ -595,6 +602,16 @@ https://hughjonesd.github.io/huxtable/design-principles.html
 
 ####   - pixiedust
 
+pixiedust: Tables so Beautifully Fine-Tuned You Will Believe It's Magic
+
+https://cran.r-project.org/web/packages/pixiedust/vignettes/pixiedust.html
+
+https://cran.r-project.org/web/packages/pixiedust/vignettes/advancedMagic.html
+
+
+
+
+
 
 ####   - reporttools
 
@@ -612,6 +629,10 @@ https://hughjonesd.github.io/huxtable/design-principles.html
 
 
 ####   - carpenter
+
+
+https://cran.r-project.org/web/packages/carpenter/vignettes/carpenter.html
+
 
 
 ####   - dtables
@@ -834,6 +855,9 @@ https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
 https://cran.r-project.org/web/packages/arsenal/vignettes/modelsum.html
 
 
+#### - desctable
 
+
+https://cran.r-project.org/web/packages/desctable/vignettes/desctable.html
 
 

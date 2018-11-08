@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-10-01" />
+<meta name="date" content="2018-11-07" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -2631,79 +2631,6 @@ window.initializeSourceEmbed = function(filename) {
 </script>
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-div.sourceCode {
-  overflow-x: visible;
-}
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
 <style type="text/css">
@@ -2929,7 +2856,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>Getting Data into R</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-10-01</em></h4>
+<h4 class="date"><em>2018-11-07</em></h4>
 
 </div>
 
@@ -2946,10 +2873,6 @@ div.tocify {
 <h3><span class="header-section-number">1.1.2</span> Import CSV File</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NhYmllcyA8LSByZWFkLmNzdihmaWxlID0gXCJodHRwOi8vZGF0YWNvbXBhc3MubHNodG0uYWMudWsvNjA3LzIvUzEtRGF0YXNldF9DU1YuY3N2XCIsIGhlYWRlciA9IFRSVUUsIHNlcCA9IFwiLFwiKVxuc2NhYmllc1xuYGBgIn0= -->
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">scabies &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;http://datacompass.lshtm.ac.uk/607/2/S1-Dataset_CSV.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">scabies</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -2957,10 +2880,6 @@ div.tocify {
 <h3><span class="header-section-number">1.1.3</span> Import TXT File</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWJvbGEgPC0gcmVhZC5jc3YoZmlsZSA9IFwiaHR0cDovL2RhdGFjb21wYXNzLmxzaHRtLmFjLnVrLzYwOC8xL21tYzEudHh0XCIsIGhlYWRlciA9IFRSVUUsIHNlcCA9IFwiLFwiKVxuZWJvbGFcbmBgYCJ9 -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">ebola &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;http://datacompass.lshtm.ac.uk/608/1/mmc1.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">ebola</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3031,51 +2950,31 @@ div.tocify {
 <h3><span class="header-section-number">1.1.6</span> Keep SPSS labels</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmb3JlaWduKSAjIGZvcmVpZ24gcGFrZXRpIHnDvGtsZW5peW9yXG5gYGAifQ== -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(foreign) <span class="co"># foreign paketi yükleniyor</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>read.spss komutu ile değer etiketlerini almasını ve bunu liste olarak değil de data.frame olarak kaydetmesini istiyoruz</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlkYXRhIDwtIHJlYWQuc3BzcyhcIm15ZGF0YS5zYXZcIiwgdXNlLnZhbHVlLmxhYmVscyA9IFRSVUUsIHRvLmRhdGEuZnJhbWUgPSBUUlVFKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">mydata &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;mydata.sav&quot;</span>, <span class="dt">use.value.labels =</span> <span class="ot">TRUE</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>aktardığımız data.frame’in özellikleri (attr) içinde değişkenlerin etiketleri var, bunları dışarı çıkartıyoruz</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVMYWJlbHMgPC0gYXMuZGF0YS5mcmFtZShhdHRyKG15ZGF0YSwgXCJ2YXJpYWJsZS5sYWJlbHNcIikpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">VariableLabels &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">attr</span>(mydata, <span class="st">&quot;variable.labels&quot;</span>))</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>elde ettiğimiz data.frame’deki satır isimleri değişkenlerin isimleri oluyor, karşılarında da değişken etiketleri var satır isimlerini de dışarı çıkartıyoruz</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVMYWJlbHMkb3JpZ2luYWwgPC0gcm93bmFtZXMoVmFyaWFibGVMYWJlbHMpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">VariableLabels<span class="op">$</span>original &lt;-<span class="st"> </span><span class="kw">rownames</span>(VariableLabels)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Değişken etiketi olanları etiketleri ile diğerlerini olduğu gibi saklıyoruz</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVMYWJlbHMkbGFiZWxbVmFyaWFibGVMYWJlbHMkbGFiZWwgPT1cIlwiXSA8LSBOQSBcblZhcmlhYmxlTGFiZWxzJGNvbG5hbWUgPC0gVmFyaWFibGVMYWJlbHMkb3JpZ2luYWxcblZhcmlhYmxlTGFiZWxzJGNvbG5hbWVbIWlzLm5hKFZhcmlhYmxlTGFiZWxzJGxhYmVsKV0gPC0gYXMudmVjdG9yKFZhcmlhYmxlTGFiZWxzJGxhYmVsWyFpcy5uYShWYXJpYWJsZUxhYmVscyRsYWJlbCldKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">VariableLabels<span class="op">$</span>label[VariableLabels<span class="op">$</span>label <span class="op">==</span><span class="st">&quot;&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> </a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">VariableLabels<span class="op">$</span>colname &lt;-<span class="st"> </span>VariableLabels<span class="op">$</span>original</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">VariableLabels<span class="op">$</span>colname[<span class="op">!</span><span class="kw">is.na</span>(VariableLabels<span class="op">$</span>label)] &lt;-<span class="st"> </span><span class="kw">as.vector</span>(VariableLabels<span class="op">$</span>label[<span class="op">!</span><span class="kw">is.na</span>(VariableLabels<span class="op">$</span>label)])</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>son olarak da data.frame’deki sütun isimlerini değiştiriyoruz</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMobXlkYXRhKSA8LSBWYXJpYWJsZUxhYmVscyRjb2xuYW1lXG5gYGAifQ== -->
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">names</span>(mydata) &lt;-<span class="st"> </span>VariableLabels<span class="op">$</span>colname</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3088,10 +2987,6 @@ div.tocify {
 <p>R’da <code>factor</code> olan label verdiğiniz değişkenleri <code>SPSS</code> ya da diğer istatistik programlarına aktardığınızda bu tanımlamaları korumak işimize yarar. Bunun için <code>foreign</code> paketi ile bir <code>txt</code> dosyası ve bir <code>sps</code> dosyası oluşturuyoruz. SPSS’te <code>sps</code> dosyasını açıp kodu çalıştırarak tekrar atanan değerler geri yükleniyor.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmb3JlaWduKVxud3JpdGUuZm9yZWlnbihteWRhdGEsIFwibXlkYXRhLnR4dFwiLCBcIm15ZGF0YS5zcHNcIiwgICBwYWNrYWdlID0gXCJTUFNTXCIpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">write.foreign</span>(mydata, <span class="st">&quot;mydata.txt&quot;</span>, <span class="st">&quot;mydata.sps&quot;</span>,   <span class="dt">package =</span> <span class="st">&quot;SPSS&quot;</span>)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <hr />
@@ -3107,11 +3002,24 @@ div.tocify {
   map_dfr(read_csv, .id = &quot;source&quot;) %&gt;% 
   mutate(Month_Year = myd(Month_Year, truncated = 1))</code></pre>
 <hr />
+<p><a href="https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r/" class="uri">https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r/</a></p>
+<p>Turkish character sometimes became the menace for the data scientist. To avoid the risks you may want to change it with safe characters. To do that you can use this code:</p>
+<p>#turkce karakter donusumu to.plain &lt;- function(s) {</p>
+</div>
+</div>
+<div id="character-substitutions" class="section level1">
+<h1><span class="header-section-number">3</span> 1 character substitutions</h1>
+<p>old1 &lt;- “çğşıüöÇĞŞİÖÜ” new1 &lt;- “cgsiuocgsiou” s1 &lt;- chartr(old1, new1, s)</p>
+</div>
+<div id="character-substitutions-1" class="section level1">
+<h1><span class="header-section-number">4</span> 2 character substitutions</h1>
+<p>old2 &lt;- c(“œ”, “ß”, “æ”, “ø”) new2 &lt;- c(“oe”, “ss”, “ae”, “oe”) s2 &lt;- s1 for(i in seq_along(old2)) s2 &lt;- gsub(old2[i], new2[i], s2, fixed = TRUE)</p>
+<p>s2 } df<span class="math inline">\(source=as.vector(sapply(df\)</span>source,to.plain))</p>
+<p>to.plain(make.names(tolower(names(df))))</p>
 <!-- rnb-text-end -->
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJHZXR0aW5nIERhdGEgaW50byBSIgphdXRob3I6ICJbU2VyZGFyIEJhbGPEsSwgTUQsIFBhdGhvbG9naXN0XShodHRwczovL3d3dy5zZXJkYXJiYWxjaS5jb20vKSIKZGF0ZTogJ2ByIGZvcm1hdChTeXMuRGF0ZSgpKWAnCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazogCiAgICBmaWdfY2FwdGlvbjogeWVzCiAgICBoaWdobGlnaHQ6IHRhbmdvCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcwogICAgdGhlbWU6IHBhcGVyCiAgICB0b2M6IHllcwogICAgdG9jX2RlcHRoOiA1CiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6IAogICAgY29kZV9mb2xkaW5nOiBoaWRlCiAgICBkZl9wcmludDoga2FibGUKICAgIGtlZXBfbWQ6IHllcwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBjZXJ1bGVhbgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCiAgICBoaWdobGlnaHQ6IGthdGUKLS0tCgojIEdldHRpbmcgRGF0YSBpbnRvIFIgLyBWZXJpeWkgUidhIHnDvGtsZW1lCgojIyBJbXBvcnQgRGF0YQoKIyMjIEltcG9ydCB1c2luZyBSU3R1ZGlvCgojIyMgSW1wb3J0IENTViBGaWxlCgpgYGB7cn0Kc2NhYmllcyA8LSByZWFkLmNzdihmaWxlID0gImh0dHA6Ly9kYXRhY29tcGFzcy5sc2h0bS5hYy51ay82MDcvMi9TMS1EYXRhc2V0X0NTVi5jc3YiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCnNjYWJpZXMKYGBgCgojIyMgSW1wb3J0IFRYVCBGaWxlCgpgYGB7cn0KZWJvbGEgPC0gcmVhZC5jc3YoZmlsZSA9ICJodHRwOi8vZGF0YWNvbXBhc3MubHNodG0uYWMudWsvNjA4LzEvbW1jMS50eHQiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCmVib2xhCmBgYAoKCiMjIyBJbXBvcnQgRXhjZWwgRmlsZQoKbXlfZGF0YSA8LSByZWFkX2V4Y2VsKGZpbGUuY2hvb3NlKCkpCgoKZmlsZXMgPC0gbGlzdC5maWxlcyhwYXR0ZXJuID0gIi54bHN4IikKCmRhdGFfeGxzeF9kZiA8LSBtYXBfZGYoc2V0X25hbWVzKGZpbGVzKSwgZnVuY3Rpb24oZmlsZSkgewogIGZpbGUgJT4lIAogICAgZXhjZWxfc2hlZXRzKCkgJT4lIAogICAgc2V0X25hbWVzKCkgJT4lIAogICAgbWFwX2RmKAogICAgICB+IHJlYWRfeGxzeChwYXRoID0gZmlsZSwgc2hlZXQgPSAueCwgcmFuZ2UgPSAiSDMiKSwKICAgICAgLmlkID0gInNoZWV0IikKfSwgLmlkID0gImZpbGUiKQoKCiMjIyMgSW1wb3J0IFNoZWV0cwoKPCEtLSAjIFNoZWV0cyAtLT4KCjwhLS0gbGlicmFyeSh0aWR5dmVyc2UpIC0tPgo8IS0tIGxpYnJhcnkocmVhZHhsKSAtLT4KCgo8IS0tIHBhdGggPC0gIklDUE5fUkFXLnhscyIgLS0+CjwhLS0gc2hlZXRsaXN0IDwtIHBhdGggJT4lICAtLT4KPCEtLSAgICAgZXhjZWxfc2hlZXRzKCkgJT4lICAtLT4KPCEtLSAgICAgc2V0X25hbWVzKCkgJT4lICAtLT4KPCEtLSAgICAgbWFwKHJlYWRfZXhjZWwsIHNraXAgPSAxLCBwYXRoID0gcGF0aCkgLS0+Cgo8IS0tIHNoZWV0bGlzdCA8LSBzaGVldGxpc3RbLTI5XSAtLT4KCgo8IS0tIHNoZWV0bGlzdCA8LSBzaGVldGxpc3QgJT4lIC0tPgo8IS0tICAgICByZWR1Y2UobGVmdF9qb2luLCBieSA9ICJSZXNwb25kYW50IiwgLmlkID0gImlkIiwgc3VmZml4ID0gYygiMSIsIjIiKSkgLS0+Cgo8IS0tIG5hbWVzKHNoZWV0bGlzdCkgLS0+Cgo8IS0tIGNvbHVtbk5hbWVzIDwtIGMoIC0tPgo8IS0tICAgICAiSUQiLCAtLT4KPCEtLSAgICAgIkRYIiwgLS0+CjwhLS0gICAgICJ5L24iLCAtLT4KPCEtLSAgICAgIn5wbGFzdGljIiwgLS0+CjwhLS0gICAgICJXSE8tIDIwMTAgY2xhc3NpZmljYXRpb24iLCAtLT4KPCEtLSAgICAgIkdSQURFIiwgLS0+CjwhLS0gICAgICJJTlZBU0lWRSBDQSIsIC0tPgo8IS0tICAgICAiQ0VMTCBMSU5FQUdFIiwgLS0+CjwhLS0gICAgICJJUE1OIExpbmVhZ2UgKFBSRS9NSU4pIiwgLS0+CjwhLS0gICAgICJleHBlcmllbmNlIHdpdGggdGhpcyBpbnZhc2lvbiIsIC0tPgo8IS0tICAgICAiQ09NTUVOVFMiIC0tPgo8IS0tICkgLS0+Cgo8IS0tIGNvbHVtbk51bWJlcnMgPC0gcmVwKGMoMToyOCksIGVhY2ggPSAxMSkgLS0+Cgo8IS0tIGNvbHVtbk5hbWVzMiA8LSBwYXN0ZShjb2x1bW5OYW1lcywgY29sdW1uTnVtYmVycywgc2VwID0gIiIpIC0tPgoKPCEtLSBjb2x1bW5OYW1lczIgPC0gYygiUmVzcG9uZGFudCIsIGNvbHVtbk5hbWVzMikgLS0+Cgo8IS0tIG5hbWVzKHNoZWV0bGlzdCkgPC0gY29sdW1uTmFtZXMyIC0tPgoKCgo8IS0tICMgIlJlc3BvbmRhbnQiCSJJRCIJInkvbiIJIldITy0gMjAxMCBjbGFzc2lmaWNhdGlvbiIJIkdSQURFIgkiSU5WQVNJVkUgQ0EiCSJDRUxMIExJTkVBR0UiCSJJUE1OIExpbmVhZ2UgKFBSRS9NSU4pIiAtLT4KCjwhLS0gZGVuZW1lIDwtIHNoZWV0bGlzdCAlPiUgIC0tPgo8IS0tICAgICBzZWxlY3Qoc3RhcnRzX3dpdGgoIlJlc3BvbmRhbnQiKSwgc3RhcnRzX3dpdGgoIkdSQURFIikpIC0tPgoKCgoKCgoKPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJISUdIIl0gPC0gMyAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJISUdIIChmb2NhbCkiXSA8LSAzIC0tPgo8IS0tICMgZGVuZW1lW2RlbmVtZT09Ik1PREVSQVRFIl0gPC0gMiAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJMT1ciXSA8LSAxIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lIDwtIGFzLmRhdGEuZnJhbWUoZGVuZW1lKSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIHJvdy5uYW1lcyhkZW5lbWUpIDwtIGRlbmVtZSRSZXNwb25kYW50IC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lIDwtIGRlbmVtZVstMV0gLS0+CjwhLS0gIyAgLS0+CjwhLS0gIyBkZW5lbWVbaXMubmEoZGVuZW1lKV0gPC0gMSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGRlbmVtZSA8LSBtYXBfZGYoZGVuZW1lLCBhcy5tYXRyaXgpIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZ2xpbXBzZShkZW5lbWUpIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgaGVhdG1hcChkZW5lbWUpIC0tPgoKPCEtLSB3cml0ZV9jc3YoZGVuZW1lLCAiZGVuZW1lLmNzdiIpIC0tPgoKCgoKCgojIyMgSW1wb3J0IFNQU1MgRmlsZQoKIyMjIEtlZXAgU1BTUyBsYWJlbHMKCmBgYHtyfQpsaWJyYXJ5KGZvcmVpZ24pICMgZm9yZWlnbiBwYWtldGkgecO8a2xlbml5b3IKYGBgCgpyZWFkLnNwc3Mga29tdXR1IGlsZSBkZcSfZXIgZXRpa2V0bGVyaW5pIGFsbWFzxLFuxLEgdmUgYnVudSBsaXN0ZSBvbGFyYWsgZGXEn2lsIGRlIGRhdGEuZnJhbWUgb2xhcmFrIGtheWRldG1lc2luaSBpc3RpeW9ydXoKCmBgYHtyfQpteWRhdGEgPC0gcmVhZC5zcHNzKCJteWRhdGEuc2F2IiwgdXNlLnZhbHVlLmxhYmVscyA9IFRSVUUsIHRvLmRhdGEuZnJhbWUgPSBUUlVFKQpgYGAKCmFrdGFyZMSxxJ/EsW3EsXogZGF0YS5mcmFtZSdpbiDDtnplbGxpa2xlcmkgKGF0dHIpIGnDp2luZGUgZGXEn2nFn2tlbmxlcmluIGV0aWtldGxlcmkgdmFyLCBidW5sYXLEsSBkxLHFn2FyxLEgw6fEsWthcnTEsXlvcnV6CgpgYGB7cn0KVmFyaWFibGVMYWJlbHMgPC0gYXMuZGF0YS5mcmFtZShhdHRyKG15ZGF0YSwgInZhcmlhYmxlLmxhYmVscyIpKQpgYGAKCgplbGRlIGV0dGnEn2ltaXogZGF0YS5mcmFtZSdkZWtpIHNhdMSxciBpc2ltbGVyaSBkZcSfacWfa2VubGVyaW4gaXNpbWxlcmkgb2x1eW9yLCBrYXLFn8SxbGFyxLFuZGEgZGEgZGXEn2nFn2tlbiBldGlrZXRsZXJpIHZhcgpzYXTEsXIgaXNpbWxlcmluaSBkZSBkxLHFn2FyxLEgw6fEsWthcnTEsXlvcnV6CgpgYGB7cn0KVmFyaWFibGVMYWJlbHMkb3JpZ2luYWwgPC0gcm93bmFtZXMoVmFyaWFibGVMYWJlbHMpCmBgYAoKRGXEn2nFn2tlbiBldGlrZXRpIG9sYW5sYXLEsSBldGlrZXRsZXJpIGlsZSBkacSfZXJsZXJpbmkgb2xkdcSfdSBnaWJpIHNha2zEsXlvcnV6ICAKCmBgYHtyfQpWYXJpYWJsZUxhYmVscyRsYWJlbFtWYXJpYWJsZUxhYmVscyRsYWJlbCA9PSIiXSA8LSBOQSAKVmFyaWFibGVMYWJlbHMkY29sbmFtZSA8LSBWYXJpYWJsZUxhYmVscyRvcmlnaW5hbApWYXJpYWJsZUxhYmVscyRjb2xuYW1lWyFpcy5uYShWYXJpYWJsZUxhYmVscyRsYWJlbCldIDwtIGFzLnZlY3RvcihWYXJpYWJsZUxhYmVscyRsYWJlbFshaXMubmEoVmFyaWFibGVMYWJlbHMkbGFiZWwpXSkKYGBgCgpzb24gb2xhcmFrIGRhIGRhdGEuZnJhbWUnZGVraSBzw7x0dW4gaXNpbWxlcmluaSBkZcSfacWfdGlyaXlvcnV6CgpgYGB7cn0KbmFtZXMobXlkYXRhKSA8LSBWYXJpYWJsZUxhYmVscyRjb2xuYW1lCmBgYAoKCgoKCiMgRXhwb3J0IERhdGEKCiMjIyBFeHBvcnQgdG8gU1BTUywgd2hpbGUga2VlcGluZyBsYWJlbHMKClInZGEgYGZhY3RvcmAgb2xhbiBsYWJlbCB2ZXJkacSfaW5peiBkZcSfacWfa2VubGVyaSBgU1BTU2AgeWEgZGEgZGnEn2VyIGlzdGF0aXN0aWsgcHJvZ3JhbWxhcsSxbmEgYWt0YXJkxLHEn8SxbsSxemRhIGJ1IHRhbsSxbWxhbWFsYXLEsSBrb3J1bWFrIGnFn2ltaXplIHlhcmFyLiBCdW51biBpw6dpbiBgZm9yZWlnbmAgcGFrZXRpIGlsZSBiaXIgYHR4dGAgZG9zeWFzxLEgdmUgYmlyIGBzcHNgIGRvc3lhc8SxIG9sdcWfdHVydXlvcnV6LiBTUFNTJ3RlIGBzcHNgIGRvc3lhc8SxbsSxIGHDp8SxcCBrb2R1IMOnYWzEscWfdMSxcmFyYWsgdGVrcmFyIGF0YW5hbiBkZcSfZXJsZXIgZ2VyaSB5w7xrbGVuaXlvci4KCgpgYGB7cn0KbGlicmFyeShmb3JlaWduKQp3cml0ZS5mb3JlaWduKG15ZGF0YSwgIm15ZGF0YS50eHQiLCAibXlkYXRhLnNwcyIsICAgcGFja2FnZSA9ICJTUFNTIikKYGBgCgoKLS0tCgpodHRwczovL3R3aXR0ZXIuY29tL1dlQXJlUkxhZGllcy9zdGF0dXMvMTAzNDgxNzMyMzkyMjgwNDczNwoKZiA8LSBsaXN0LmZpbGVzKCAibXlfZm9sZGVyIiwgcGF0dGVybiA9ICIqLmNzdiIsIGZ1bGwubmFtZXMgPSBUUlVFKQpkIDwtIHB1cnJyOjptYXBfZGYoZiwgcmVhZHI6OnJlYWRfY3N2LCAuaWQgPSAiaWQiKQoKCi0tLQoKCm0gPC0gbG0obXBnIH4gcXNlYyArIHd0LCBkYXRhID0gbXRjYXJzKQpicm9vbTo6dGlkeShtKQoKCi0tLQoKSW1wb3J0IGEgRGlyZWN0b3J5IG9mIENTViBGaWxlcyBhdCBPbmNlIFVzaW5nIHtwdXJycn0gYW5kIHtyZWFkcn0KCmh0dHBzOi8vd3d3LmdlcmtlbGFiLmNvbS9ibG9nLzIwMTgvMDkvaW1wb3J0LWRpcmVjdG9yeS1jc3YtcHVycnItcmVhZHIvCgpgYGAKZGF0YV9kaXIgJT4lIAogIGRpcl9scyhyZWdleHAgPSAiXFwuY3N2JCIpICU+JSAKICBtYXBfZGZyKHJlYWRfY3N2LCAuaWQgPSAic291cmNlIikgJT4lIAogIG11dGF0ZShNb250aF9ZZWFyID0gbXlkKE1vbnRoX1llYXIsIHRydW5jYXRlZCA9IDEpKQpgYGAgIAoKCi0tLQoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJHZXR0aW5nIERhdGEgaW50byBSIgphdXRob3I6ICJbU2VyZGFyIEJhbGPEsSwgTUQsIFBhdGhvbG9naXN0XShodHRwczovL3d3dy5zZXJkYXJiYWxjaS5jb20vKSIKZGF0ZTogJ2ByIGZvcm1hdChTeXMuRGF0ZSgpKWAnCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazogCiAgICBmaWdfY2FwdGlvbjogeWVzCiAgICBoaWdobGlnaHQ6IHRhbmdvCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcwogICAgdGhlbWU6IHBhcGVyCiAgICB0b2M6IHllcwogICAgdG9jX2RlcHRoOiA1CiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6IAogICAgY29kZV9mb2xkaW5nOiBoaWRlCiAgICBkZl9wcmludDoga2FibGUKICAgIGtlZXBfbWQ6IHllcwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBjZXJ1bGVhbgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCiAgICBoaWdobGlnaHQ6IGthdGUKLS0tCgojIEdldHRpbmcgRGF0YSBpbnRvIFIgLyBWZXJpeWkgUidhIHnDvGtsZW1lCgojIyBJbXBvcnQgRGF0YQoKIyMjIEltcG9ydCB1c2luZyBSU3R1ZGlvCgojIyMgSW1wb3J0IENTViBGaWxlCgpgYGB7cn0Kc2NhYmllcyA8LSByZWFkLmNzdihmaWxlID0gImh0dHA6Ly9kYXRhY29tcGFzcy5sc2h0bS5hYy51ay82MDcvMi9TMS1EYXRhc2V0X0NTVi5jc3YiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCnNjYWJpZXMKYGBgCgojIyMgSW1wb3J0IFRYVCBGaWxlCgpgYGB7cn0KZWJvbGEgPC0gcmVhZC5jc3YoZmlsZSA9ICJodHRwOi8vZGF0YWNvbXBhc3MubHNodG0uYWMudWsvNjA4LzEvbW1jMS50eHQiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCmVib2xhCmBgYAoKCiMjIyBJbXBvcnQgRXhjZWwgRmlsZQoKbXlfZGF0YSA8LSByZWFkX2V4Y2VsKGZpbGUuY2hvb3NlKCkpCgoKZmlsZXMgPC0gbGlzdC5maWxlcyhwYXR0ZXJuID0gIi54bHN4IikKCmRhdGFfeGxzeF9kZiA8LSBtYXBfZGYoc2V0X25hbWVzKGZpbGVzKSwgZnVuY3Rpb24oZmlsZSkgewogIGZpbGUgJT4lIAogICAgZXhjZWxfc2hlZXRzKCkgJT4lIAogICAgc2V0X25hbWVzKCkgJT4lIAogICAgbWFwX2RmKAogICAgICB+IHJlYWRfeGxzeChwYXRoID0gZmlsZSwgc2hlZXQgPSAueCwgcmFuZ2UgPSAiSDMiKSwKICAgICAgLmlkID0gInNoZWV0IikKfSwgLmlkID0gImZpbGUiKQoKCiMjIyMgSW1wb3J0IFNoZWV0cwoKPCEtLSAjIFNoZWV0cyAtLT4KCjwhLS0gbGlicmFyeSh0aWR5dmVyc2UpIC0tPgo8IS0tIGxpYnJhcnkocmVhZHhsKSAtLT4KCgo8IS0tIHBhdGggPC0gIklDUE5fUkFXLnhscyIgLS0+CjwhLS0gc2hlZXRsaXN0IDwtIHBhdGggJT4lICAtLT4KPCEtLSAgICAgZXhjZWxfc2hlZXRzKCkgJT4lICAtLT4KPCEtLSAgICAgc2V0X25hbWVzKCkgJT4lICAtLT4KPCEtLSAgICAgbWFwKHJlYWRfZXhjZWwsIHNraXAgPSAxLCBwYXRoID0gcGF0aCkgLS0+Cgo8IS0tIHNoZWV0bGlzdCA8LSBzaGVldGxpc3RbLTI5XSAtLT4KCgo8IS0tIHNoZWV0bGlzdCA8LSBzaGVldGxpc3QgJT4lIC0tPgo8IS0tICAgICByZWR1Y2UobGVmdF9qb2luLCBieSA9ICJSZXNwb25kYW50IiwgLmlkID0gImlkIiwgc3VmZml4ID0gYygiMSIsIjIiKSkgLS0+Cgo8IS0tIG5hbWVzKHNoZWV0bGlzdCkgLS0+Cgo8IS0tIGNvbHVtbk5hbWVzIDwtIGMoIC0tPgo8IS0tICAgICAiSUQiLCAtLT4KPCEtLSAgICAgIkRYIiwgLS0+CjwhLS0gICAgICJ5L24iLCAtLT4KPCEtLSAgICAgIn5wbGFzdGljIiwgLS0+CjwhLS0gICAgICJXSE8tIDIwMTAgY2xhc3NpZmljYXRpb24iLCAtLT4KPCEtLSAgICAgIkdSQURFIiwgLS0+CjwhLS0gICAgICJJTlZBU0lWRSBDQSIsIC0tPgo8IS0tICAgICAiQ0VMTCBMSU5FQUdFIiwgLS0+CjwhLS0gICAgICJJUE1OIExpbmVhZ2UgKFBSRS9NSU4pIiwgLS0+CjwhLS0gICAgICJleHBlcmllbmNlIHdpdGggdGhpcyBpbnZhc2lvbiIsIC0tPgo8IS0tICAgICAiQ09NTUVOVFMiIC0tPgo8IS0tICkgLS0+Cgo8IS0tIGNvbHVtbk51bWJlcnMgPC0gcmVwKGMoMToyOCksIGVhY2ggPSAxMSkgLS0+Cgo8IS0tIGNvbHVtbk5hbWVzMiA8LSBwYXN0ZShjb2x1bW5OYW1lcywgY29sdW1uTnVtYmVycywgc2VwID0gIiIpIC0tPgoKPCEtLSBjb2x1bW5OYW1lczIgPC0gYygiUmVzcG9uZGFudCIsIGNvbHVtbk5hbWVzMikgLS0+Cgo8IS0tIG5hbWVzKHNoZWV0bGlzdCkgPC0gY29sdW1uTmFtZXMyIC0tPgoKCgo8IS0tICMgIlJlc3BvbmRhbnQiCSJJRCIJInkvbiIJIldITy0gMjAxMCBjbGFzc2lmaWNhdGlvbiIJIkdSQURFIgkiSU5WQVNJVkUgQ0EiCSJDRUxMIExJTkVBR0UiCSJJUE1OIExpbmVhZ2UgKFBSRS9NSU4pIiAtLT4KCjwhLS0gZGVuZW1lIDwtIHNoZWV0bGlzdCAlPiUgIC0tPgo8IS0tICAgICBzZWxlY3Qoc3RhcnRzX3dpdGgoIlJlc3BvbmRhbnQiKSwgc3RhcnRzX3dpdGgoIkdSQURFIikpIC0tPgoKCgoKCgoKPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJISUdIIl0gPC0gMyAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJISUdIIChmb2NhbCkiXSA8LSAzIC0tPgo8IS0tICMgZGVuZW1lW2RlbmVtZT09Ik1PREVSQVRFIl0gPC0gMiAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJMT1ciXSA8LSAxIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lIDwtIGFzLmRhdGEuZnJhbWUoZGVuZW1lKSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIHJvdy5uYW1lcyhkZW5lbWUpIDwtIGRlbmVtZSRSZXNwb25kYW50IC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lIDwtIGRlbmVtZVstMV0gLS0+CjwhLS0gIyAgLS0+CjwhLS0gIyBkZW5lbWVbaXMubmEoZGVuZW1lKV0gPC0gMSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGRlbmVtZSA8LSBtYXBfZGYoZGVuZW1lLCBhcy5tYXRyaXgpIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZ2xpbXBzZShkZW5lbWUpIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgaGVhdG1hcChkZW5lbWUpIC0tPgoKPCEtLSB3cml0ZV9jc3YoZGVuZW1lLCAiZGVuZW1lLmNzdiIpIC0tPgoKCgoKCgojIyMgSW1wb3J0IFNQU1MgRmlsZQoKIyMjIEtlZXAgU1BTUyBsYWJlbHMKCmBgYHtyfQpsaWJyYXJ5KGZvcmVpZ24pICMgZm9yZWlnbiBwYWtldGkgecO8a2xlbml5b3IKYGBgCgpyZWFkLnNwc3Mga29tdXR1IGlsZSBkZcSfZXIgZXRpa2V0bGVyaW5pIGFsbWFzxLFuxLEgdmUgYnVudSBsaXN0ZSBvbGFyYWsgZGXEn2lsIGRlIGRhdGEuZnJhbWUgb2xhcmFrIGtheWRldG1lc2luaSBpc3RpeW9ydXoKCmBgYHtyfQpteWRhdGEgPC0gcmVhZC5zcHNzKCJteWRhdGEuc2F2IiwgdXNlLnZhbHVlLmxhYmVscyA9IFRSVUUsIHRvLmRhdGEuZnJhbWUgPSBUUlVFKQpgYGAKCmFrdGFyZMSxxJ/EsW3EsXogZGF0YS5mcmFtZSdpbiDDtnplbGxpa2xlcmkgKGF0dHIpIGnDp2luZGUgZGXEn2nFn2tlbmxlcmluIGV0aWtldGxlcmkgdmFyLCBidW5sYXLEsSBkxLHFn2FyxLEgw6fEsWthcnTEsXlvcnV6CgpgYGB7cn0KVmFyaWFibGVMYWJlbHMgPC0gYXMuZGF0YS5mcmFtZShhdHRyKG15ZGF0YSwgInZhcmlhYmxlLmxhYmVscyIpKQpgYGAKCgplbGRlIGV0dGnEn2ltaXogZGF0YS5mcmFtZSdkZWtpIHNhdMSxciBpc2ltbGVyaSBkZcSfacWfa2VubGVyaW4gaXNpbWxlcmkgb2x1eW9yLCBrYXLFn8SxbGFyxLFuZGEgZGEgZGXEn2nFn2tlbiBldGlrZXRsZXJpIHZhcgpzYXTEsXIgaXNpbWxlcmluaSBkZSBkxLHFn2FyxLEgw6fEsWthcnTEsXlvcnV6CgpgYGB7cn0KVmFyaWFibGVMYWJlbHMkb3JpZ2luYWwgPC0gcm93bmFtZXMoVmFyaWFibGVMYWJlbHMpCmBgYAoKRGXEn2nFn2tlbiBldGlrZXRpIG9sYW5sYXLEsSBldGlrZXRsZXJpIGlsZSBkacSfZXJsZXJpbmkgb2xkdcSfdSBnaWJpIHNha2zEsXlvcnV6ICAKCmBgYHtyfQpWYXJpYWJsZUxhYmVscyRsYWJlbFtWYXJpYWJsZUxhYmVscyRsYWJlbCA9PSIiXSA8LSBOQSAKVmFyaWFibGVMYWJlbHMkY29sbmFtZSA8LSBWYXJpYWJsZUxhYmVscyRvcmlnaW5hbApWYXJpYWJsZUxhYmVscyRjb2xuYW1lWyFpcy5uYShWYXJpYWJsZUxhYmVscyRsYWJlbCldIDwtIGFzLnZlY3RvcihWYXJpYWJsZUxhYmVscyRsYWJlbFshaXMubmEoVmFyaWFibGVMYWJlbHMkbGFiZWwpXSkKYGBgCgpzb24gb2xhcmFrIGRhIGRhdGEuZnJhbWUnZGVraSBzw7x0dW4gaXNpbWxlcmluaSBkZcSfacWfdGlyaXlvcnV6CgpgYGB7cn0KbmFtZXMobXlkYXRhKSA8LSBWYXJpYWJsZUxhYmVscyRjb2xuYW1lCmBgYAoKCgoKCiMgRXhwb3J0IERhdGEKCiMjIyBFeHBvcnQgdG8gU1BTUywgd2hpbGUga2VlcGluZyBsYWJlbHMKClInZGEgYGZhY3RvcmAgb2xhbiBsYWJlbCB2ZXJkacSfaW5peiBkZcSfacWfa2VubGVyaSBgU1BTU2AgeWEgZGEgZGnEn2VyIGlzdGF0aXN0aWsgcHJvZ3JhbWxhcsSxbmEgYWt0YXJkxLHEn8SxbsSxemRhIGJ1IHRhbsSxbWxhbWFsYXLEsSBrb3J1bWFrIGnFn2ltaXplIHlhcmFyLiBCdW51biBpw6dpbiBgZm9yZWlnbmAgcGFrZXRpIGlsZSBiaXIgYHR4dGAgZG9zeWFzxLEgdmUgYmlyIGBzcHNgIGRvc3lhc8SxIG9sdcWfdHVydXlvcnV6LiBTUFNTJ3RlIGBzcHNgIGRvc3lhc8SxbsSxIGHDp8SxcCBrb2R1IMOnYWzEscWfdMSxcmFyYWsgdGVrcmFyIGF0YW5hbiBkZcSfZXJsZXIgZ2VyaSB5w7xrbGVuaXlvci4KCgpgYGB7cn0KbGlicmFyeShmb3JlaWduKQp3cml0ZS5mb3JlaWduKG15ZGF0YSwgIm15ZGF0YS50eHQiLCAibXlkYXRhLnNwcyIsICAgcGFja2FnZSA9ICJTUFNTIikKYGBgCgoKLS0tCgpodHRwczovL3R3aXR0ZXIuY29tL1dlQXJlUkxhZGllcy9zdGF0dXMvMTAzNDgxNzMyMzkyMjgwNDczNwoKZiA8LSBsaXN0LmZpbGVzKCAibXlfZm9sZGVyIiwgcGF0dGVybiA9ICIqLmNzdiIsIGZ1bGwubmFtZXMgPSBUUlVFKQpkIDwtIHB1cnJyOjptYXBfZGYoZiwgcmVhZHI6OnJlYWRfY3N2LCAuaWQgPSAiaWQiKQoKCi0tLQoKCm0gPC0gbG0obXBnIH4gcXNlYyArIHd0LCBkYXRhID0gbXRjYXJzKQpicm9vbTo6dGlkeShtKQoKCi0tLQoKSW1wb3J0IGEgRGlyZWN0b3J5IG9mIENTViBGaWxlcyBhdCBPbmNlIFVzaW5nIHtwdXJycn0gYW5kIHtyZWFkcn0KCmh0dHBzOi8vd3d3LmdlcmtlbGFiLmNvbS9ibG9nLzIwMTgvMDkvaW1wb3J0LWRpcmVjdG9yeS1jc3YtcHVycnItcmVhZHIvCgpgYGAKZGF0YV9kaXIgJT4lIAogIGRpcl9scyhyZWdleHAgPSAiXFwuY3N2JCIpICU+JSAKICBtYXBfZGZyKHJlYWRfY3N2LCAuaWQgPSAic291cmNlIikgJT4lIAogIG11dGF0ZShNb250aF9ZZWFyID0gbXlkKE1vbnRoX1llYXIsIHRydW5jYXRlZCA9IDEpKQpgYGAgIAoKCi0tLQoKaHR0cHM6Ly9zdWF0YXRhbi53b3JkcHJlc3MuY29tLzIwMTcvMTAvMDcvYnVsay1yZXBsYWNpbmctdHVya2lzaC1jaGFyYWN0ZXJzLWluLXIvCgpUdXJraXNoIGNoYXJhY3RlciBzb21ldGltZXMgYmVjYW1lIHRoZSBtZW5hY2UgZm9yIHRoZSBkYXRhIHNjaWVudGlzdC4gVG8gYXZvaWQgdGhlIHJpc2tzIHlvdSBtYXkgd2FudCB0byBjaGFuZ2UgaXQgd2l0aCBzYWZlIGNoYXJhY3RlcnMuIFRvIGRvIHRoYXQgeW91IGNhbiB1c2UgdGhpcyBjb2RlOgoKCiN0dXJrY2Uga2FyYWt0ZXIgZG9udXN1bXUKdG8ucGxhaW4gPC0gZnVuY3Rpb24ocykgewoKIyAxIGNoYXJhY3RlciBzdWJzdGl0dXRpb25zCm9sZDEgPC0g4oCcw6fEn8WfxLHDvMO2w4fEnsWexLDDlsOc4oCdCm5ldzEgPC0g4oCcY2dzaXVvY2dzaW914oCdCnMxIDwtIGNoYXJ0cihvbGQxLCBuZXcxLCBzKQoKIyAyIGNoYXJhY3RlciBzdWJzdGl0dXRpb25zCm9sZDIgPC0gYyjigJzFk+KAnSwg4oCcw5/igJ0sIOKAnMOm4oCdLCDigJzDuOKAnSkKbmV3MiA8LSBjKOKAnG9l4oCdLCDigJxzc+KAnSwg4oCcYWXigJ0sIOKAnG9l4oCdKQpzMiA8LSBzMQpmb3IoaSBpbiBzZXFfYWxvbmcob2xkMikpIHMyIDwtIGdzdWIob2xkMltpXSwgbmV3MltpXSwgczIsIGZpeGVkID0gVFJVRSkKCnMyCn0KZGYkc291cmNlPWFzLnZlY3RvcihzYXBwbHkoZGYkc291cmNlLHRvLnBsYWluKSkKCgp0by5wbGFpbihtYWtlLm5hbWVzKHRvbG93ZXIobmFtZXMoZGYpKSkpCgo=</div>
 
 
 </div>

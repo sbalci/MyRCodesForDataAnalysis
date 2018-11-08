@@ -124,11 +124,16 @@ https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/
 
 ## Paketleri nereden bulabiliriz
 
-- Available CRAN Packages By Name
+- Available CRAN Packages By Name  
 https://cran.r-project.org/web/packages/available_packages_by_name.html
 
-- Bioconductor
+- Bioconductor  
 https://www.bioconductor.org
+
+- RecommendR  
+http://recommendr.info/
+
+
 
 
 ---

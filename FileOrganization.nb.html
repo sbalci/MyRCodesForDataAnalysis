@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-06-24" />
+<meta name="date" content="2018-11-07" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -2856,7 +2856,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-06-24</em></h4>
+<h4 class="date"><em>2018-11-07</em></h4>
 
 </div>
 
@@ -2867,10 +2867,50 @@ div.tocify {
 <p>This page summarises how to organize files and analysis before everything gets jumbled up: <a href="https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html">Setting up a reproducible data analysis workflow in R</a></p>
 <p>Basically they suggest: - using a project and project folder in RStudio for each analysis - using <code>packrat</code> as much as possible</p>
 <p><code>setwd()</code> and <code>getwd()</code> is not necesary when you use projects.</p>
+<hr />
+<ul>
+<li><strong>Why should I use the here package when I’m already using projects?</strong></li>
+</ul>
+<p><a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package/" class="uri">https://malco.io/2018/11/05/why-should-i-use-the-here-package/</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiL1VzZXJzL3NlcmRhcmJhbGNpb2xkL1JlcFRlbXBsYXRlcy9NeVJDb2Rlc0ZvckRhdGFBbmFseXNpc1wiXG4ifQ== -->
+<pre><code>[1] &quot;/Users/serdarbalciold/RepTemplates/MyRCodesForDataAnalysis&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCAvVXNlcnMvc2VyZGFyYmFsY2lvbGQvUmVwVGVtcGxhdGVzL015UkNvZGVzRm9yRGF0YUFuYWx5c2lzLCBiZWNhdXNlIGl0IGNvbnRhaW5zIGEgZmlsZSBtYXRjaGluZyBgWy5dUnByb2okYCB3aXRoIGNvbnRlbnRzIG1hdGNoaW5nIGBeVmVyc2lvbjogYCBpbiB0aGUgZmlyc3QgbGluZVxuIn0= -->
+<pre><code>here() starts at /Users/serdarbalciold/RepTemplates/MyRCodesForDataAnalysis, because it contains a file matching `[.]Rproj$` with contents matching `^Version: ` in the first line</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiL1VzZXJzL3NlcmRhcmJhbGNpb2xkL1JlcFRlbXBsYXRlcy9NeVJDb2Rlc0ZvckRhdGFBbmFseXNpcy9maWd1cmUvZmlndXJlLnBuZ1wiXG4ifQ== -->
+<pre><code>[1] &quot;/Users/serdarbalciold/RepTemplates/MyRCodesForDataAnalysis/figure/figure.png&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiZmlndXJlL2ZpZ3VyZS5wbmdcIlxuIn0= -->
+<pre><code>[1] &quot;figure/figure.png&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6ICcvVXNlcnMvc2VyZGFyYmFsY2lvbGQvUmVwVGVtcGxhdGVzL015UkNvZGVzRm9yRGF0YUFuYWx5c2lzL2RhdGEvbXRjYXJzLmNzdicgZG9lcyBub3QgZXhpc3QuXG4ifQ== -->
+<pre><code>Error: '/Users/serdarbalciold/RepTemplates/MyRCodesForDataAnalysis/data/mtcars.csv' does not exist.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKCiMjIEZpbGUgb3JnYW5pemF0aW9uIGJlc3QgcHJhY3RpY2VzCgpUaGlzIHBhZ2Ugc3VtbWFyaXNlcyBob3cgdG8gb3JnYW5pemUgZmlsZXMgYW5kIGFuYWx5c2lzIGJlZm9yZSBldmVyeXRoaW5nIGdldHMganVtYmxlZCB1cDoKW1NldHRpbmcgdXAgYSByZXByb2R1Y2libGUgZGF0YSBhbmFseXNpcyB3b3JrZmxvdyBpbiBSXShodHRwczovL2FuZHJld2J0cmFuLmdpdGh1Yi5pby9OSUNBUi8yMDE4L3dvcmtmbG93L2RvY3MvMDEtd29ya2Zsb3dfaW50cm8uaHRtbCkKCkJhc2ljYWxseSB0aGV5IHN1Z2dlc3Q6Ci0gdXNpbmcgYSBwcm9qZWN0IGFuZCBwcm9qZWN0IGZvbGRlciBpbiBSU3R1ZGlvIGZvciBlYWNoIGFuYWx5c2lzCi0gdXNpbmcgYHBhY2tyYXRgIGFzIG11Y2ggYXMgcG9zc2libGUKCmBzZXR3ZCgpYCBhbmQgYGdldHdkKClgIGlzIG5vdCBuZWNlc2FyeSB3aGVuIHlvdSB1c2UgcHJvamVjdHMuCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKCiMjIEZpbGUgb3JnYW5pemF0aW9uIGJlc3QgcHJhY3RpY2VzCgpUaGlzIHBhZ2Ugc3VtbWFyaXNlcyBob3cgdG8gb3JnYW5pemUgZmlsZXMgYW5kIGFuYWx5c2lzIGJlZm9yZSBldmVyeXRoaW5nIGdldHMganVtYmxlZCB1cDoKW1NldHRpbmcgdXAgYSByZXByb2R1Y2libGUgZGF0YSBhbmFseXNpcyB3b3JrZmxvdyBpbiBSXShodHRwczovL2FuZHJld2J0cmFuLmdpdGh1Yi5pby9OSUNBUi8yMDE4L3dvcmtmbG93L2RvY3MvMDEtd29ya2Zsb3dfaW50cm8uaHRtbCkKCkJhc2ljYWxseSB0aGV5IHN1Z2dlc3Q6Ci0gdXNpbmcgYSBwcm9qZWN0IGFuZCBwcm9qZWN0IGZvbGRlciBpbiBSU3R1ZGlvIGZvciBlYWNoIGFuYWx5c2lzCi0gdXNpbmcgYHBhY2tyYXRgIGFzIG11Y2ggYXMgcG9zc2libGUKCmBzZXR3ZCgpYCBhbmQgYGdldHdkKClgIGlzIG5vdCBuZWNlc2FyeSB3aGVuIHlvdSB1c2UgcHJvamVjdHMuCgoKCi0tLQoKLSAqKldoeSBzaG91bGQgSSB1c2UgdGhlIGhlcmUgcGFja2FnZSB3aGVuIEknbSBhbHJlYWR5IHVzaW5nIHByb2plY3RzPyoqCgpodHRwczovL21hbGNvLmlvLzIwMTgvMTEvMDUvd2h5LXNob3VsZC1pLXVzZS10aGUtaGVyZS1wYWNrYWdlLwoKCmBgYHtyfQpsaWJyYXJ5KGhlcmUpCmhlcmUoKQpgYGAKCmBgYHtyfQpkcl9oZXJlKCkKYGBgCgpgYGB7cn0KaGVyZSgiZmlndXJlIiwgImZpZ3VyZS5wbmciKQpgYGAKCmBgYHtyfQpmaWxlLnBhdGgoImZpZ3VyZSIsICJmaWd1cmUucG5nIikKYGBgCgpgYGB7cn0KcmVhZF9jc3YoaGVyZSgiZGF0YSIsICJtdGNhcnMuY3N2IikpCmBgYAoK</div>
 
 
 </div>

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-10-27" />
+<meta name="date" content="2018-11-08" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -2927,7 +2927,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-10-27</em></h4>
+<h4 class="date"><em>2018-11-08</em></h4>
 
 </div>
 
@@ -2945,27 +2945,14 @@ div.tocify {
 <h2><span class="header-section-number">0.1</span> Tables</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh4dGFibGUpXG54dGFibGUoQk1UKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(xtable)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">xtable</span>(BMT)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShrYWJsZUV4dHJhKVxua2FibGUoQk1UKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(kableExtra)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">kable</span>(BMT)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5yZXF1aXJlKHJoYW5kc29udGFibGUpXG5yaGFuZHNvbnRhYmxlKEJNVClcblxuYGBgIn0= -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">require</span>(rhandsontable)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">rhandsontable</span>(BMT)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -2980,122 +2967,58 @@ div.tocify {
 </div>
 <div id="flextable" class="section level4">
 <h4><span class="header-section-number">0.2.1.2</span> - flextable</h4>
+<p><a href="https://davidgohel.github.io/flextable/index.html" class="uri">https://davidgohel.github.io/flextable/index.html</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><a href="https://cran.r-project.org/web/packages/flextable/vignettes/overview.html" class="uri">https://cran.r-project.org/web/packages/flextable/vignettes/overview.html</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmbGV4dGFibGUpXG5saWJyYXJ5KG9mZmljZXIpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(flextable)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">library</span>(officer)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSBpcmlzW2MoMTozLCA1MTo1MywgMTAxOjEwNCksXVxuXG5kYXRhXG5cbmBgYCJ9 -->
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">data &lt;-<span class="st"> </span>iris[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">51</span><span class="op">:</span><span class="dv">53</span>, <span class="dv">101</span><span class="op">:</span><span class="dv">104</span>),]</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">data</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmxleHRhYmxlOjpyZWd1bGFydGFibGUoZGF0YSlcblxuYGBgIn0= -->
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">flextable<span class="op">::</span><span class="kw">regulartable</span>(data)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSByZWd1bGFydGFibGUoXG4gIGhlYWQobXRjYXJzKSwgXG4gIGNvbF9rZXlzID0gYyhcImFtXCIsIFwiY2FyYlwiLCBcImdlYXJcIiwgXCJtcGdcIiwgXCJkcmF0XCIgKSlcbm15ZnRcbmBgYCJ9 -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">regulartable</span>(</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">head</span>(mtcars), </a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dt">col_keys =</span> <span class="kw">c</span>(<span class="st">&quot;am&quot;</span>, <span class="st">&quot;carb&quot;</span>, <span class="st">&quot;gear&quot;</span>, <span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;drat&quot;</span> ))</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSB0aGVtZV92YW5pbGxhKG15ZnQpXG5teWZ0XG5gYGAifQ== -->
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">theme_vanilla</span>(myft)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSBtZXJnZV92KG15ZnQsIGogPSBjKFwiYW1cIiwgXCJjYXJiXCIpIClcbm15ZnRcbmBgYCJ9 -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">merge_v</span>(myft, <span class="dt">j =</span> <span class="kw">c</span>(<span class="st">&quot;am&quot;</span>, <span class="st">&quot;carb&quot;</span>) )</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSBzZXRfaGVhZGVyX2xhYmVscyggbXlmdCwgY2FyYiA9IFwiIyBjYXJiLlwiIClcbm15ZnQgPC0gd2lkdGgobXlmdCwgd2lkdGggPSAuNzUpICMgc2V0IHdpZHRoIG9mIGFsbCBjb2x1bW5zIHRvIC43NSBpblxubXlmdFxuYGBgIn0= -->
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">set_header_labels</span>( myft, <span class="dt">carb =</span> <span class="st">&quot;# carb.&quot;</span> )</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">myft &lt;-<span class="st"> </span><span class="kw">width</span>(myft, <span class="dt">width =</span> <span class="fl">.75</span>) <span class="co"># set width of all columns to .75 in</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSBhdXRvZml0KG15ZnQpXG5teWZ0XG5gYGAifQ== -->
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">autofit</span>(myft)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSBpdGFsaWMobXlmdCwgaiA9IDEpXG5teWZ0IDwtIGJnKG15ZnQsIGJnID0gXCIjQzkwMDAwXCIsIHBhcnQgPSBcImhlYWRlclwiKVxubXlmdCA8LSBjb2xvcihteWZ0LCBjb2xvciA9IFwid2hpdGVcIiwgcGFydCA9IFwiaGVhZGVyXCIpXG5teWZ0XG5gYGAifQ== -->
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">italic</span>(myft, <span class="dt">j =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">myft &lt;-<span class="st"> </span><span class="kw">bg</span>(myft, <span class="dt">bg =</span> <span class="st">&quot;#C90000&quot;</span>, <span class="dt">part =</span> <span class="st">&quot;header&quot;</span>)</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">myft &lt;-<span class="st"> </span><span class="kw">color</span>(myft, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">part =</span> <span class="st">&quot;header&quot;</span>)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlmdCA8LSBjb2xvcihteWZ0LCB+IGRyYXQgPiAzLjUsIH4gZHJhdCwgY29sb3IgPSBcInJlZFwiKVxubXlmdCA8LSBib2xkKG15ZnQsIH4gZHJhdCA+IDMuNSwgfiBkcmF0LCBib2xkID0gVFJVRSlcbm15ZnQgPC0gYXV0b2ZpdChteWZ0KVxuXG5teWZ0XG5gYGAifQ== -->
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">myft &lt;-<span class="st"> </span><span class="kw">color</span>(myft, <span class="op">~</span><span class="st"> </span>drat <span class="op">&gt;</span><span class="st"> </span><span class="fl">3.5</span>, <span class="op">~</span><span class="st"> </span>drat, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">myft &lt;-<span class="st"> </span><span class="kw">bold</span>(myft, <span class="op">~</span><span class="st"> </span>drat <span class="op">&gt;</span><span class="st"> </span><span class="fl">3.5</span>, <span class="op">~</span><span class="st"> </span>drat, <span class="dt">bold =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">myft &lt;-<span class="st"> </span><span class="kw">autofit</span>(myft)</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">myft</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShvZmZpY2VyKVxuXG5cbmZ0IDwtIHJlZ3VsYXJ0YWJsZShoZWFkKG10Y2FycykpXG5mdCA8LSB0aGVtZV9ib29rdGFicyhmdClcbmZ0IDwtIGF1dG9maXQoZnQpXG5cbnBwdCA8LSByZWFkX3BwdHgoKVxucHB0IDwtIGFkZF9zbGlkZShwcHQsIGxheW91dCA9IFwiVGl0bGUgYW5kIENvbnRlbnRcIiwgbWFzdGVyID0gXCJPZmZpY2UgVGhlbWVcIilcbnBwdCA8LSBwaF93aXRoX2ZsZXh0YWJsZShwcHQsIHZhbHVlID0gZnQsIHR5cGUgPSBcImJvZHlcIikgXG5cbnByaW50KHBwdCwgdGFyZ2V0ID0gXCJvdXRwdXQvZXhhbXBsZS5wcHR4XCIpXG5cbiMgaHR0cHM6Ly92aWV3Lm9mZmljZWFwcHMubGl2ZS5jb20vb3Avdmlldy5hc3B4P3NyYz1odHRwczovL2RhdmlkZ29oZWwuZ2l0aHViLmlvL2ZsZXh0YWJsZS9hcnRpY2xlcy9hc3NldHMvcHB0eC9leGFtcGxlLnBwdHhcblxuYGBgIn0= -->
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(officer)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">ft &lt;-<span class="st"> </span><span class="kw">regulartable</span>(<span class="kw">head</span>(mtcars))</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">ft &lt;-<span class="st"> </span><span class="kw">theme_booktabs</span>(ft)</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">ft &lt;-<span class="st"> </span><span class="kw">autofit</span>(ft)</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">ppt &lt;-<span class="st"> </span><span class="kw">read_pptx</span>()</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">ppt &lt;-<span class="st"> </span><span class="kw">add_slide</span>(ppt, <span class="dt">layout =</span> <span class="st">&quot;Title and Content&quot;</span>, <span class="dt">master =</span> <span class="st">&quot;Office Theme&quot;</span>)</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">ppt &lt;-<span class="st"> </span><span class="kw">ph_with_flextable</span>(ppt, <span class="dt">value =</span> ft, <span class="dt">type =</span> <span class="st">&quot;body&quot;</span>) </a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="kw">print</span>(ppt, <span class="dt">target =</span> <span class="st">&quot;output/example.pptx&quot;</span>)</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co"># https://view.officeapps.live.com/op/view.aspx?src=https://davidgohel.github.io/flextable/articles/assets/pptx/example.pptx</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9jIDwtIHJlYWRfZG9jeCgpXG5kb2MgPC0gYm9keV9hZGRfZmxleHRhYmxlKGRvYywgdmFsdWUgPSBmdClcbnByaW50KGRvYywgdGFyZ2V0ID0gXCJvdXRwdXQvZXhhbXBsZS5kb2N4XCIpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">doc &lt;-<span class="st"> </span><span class="kw">read_docx</span>()</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">doc &lt;-<span class="st"> </span><span class="kw">body_add_flextable</span>(doc, <span class="dt">value =</span> ft)</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw">print</span>(doc, <span class="dt">target =</span> <span class="st">&quot;output/example.docx&quot;</span>)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3106,77 +3029,22 @@ div.tocify {
 <h4><span class="header-section-number">0.2.1.4</span> - formatttable</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmb3JtYXR0YWJsZSlcblxucCA8LSBwZXJjZW50KGMoMC4xLCAwLjAyLCAwLjAzLCAwLjEyKSlcbnBcbnAgKyAwLjA1XG5tYXgocClcblxuYGBgIn0= -->
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(formattable)</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">p &lt;-<span class="st"> </span><span class="kw">percent</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.03</span>, <span class="fl">0.12</span>))</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">p</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="fl">0.05</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="kw">max</span>(p)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmFsYW5jZSA8LSBhY2NvdW50aW5nKGMoMTAwMCwgNTAwLCAyMDAsIC0xNTAsIDAsIDEyMDApKVxuYmFsYW5jZVxuXG5iYWxhbmNlICsgMTAwMFxuXG5gYGAifQ== -->
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">balance &lt;-<span class="st"> </span><span class="kw">accounting</span>(<span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">-150</span>, <span class="dv">0</span>, <span class="dv">1200</span>))</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">balance</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">balance <span class="op">+</span><span class="st"> </span><span class="dv">1000</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucCA8LSBkYXRhLmZyYW1lKFxuICBpZCA9IGMoMSwgMiwgMywgNCwgNSksIFxuICBuYW1lID0gYyhcIkExXCIsIFwiQTJcIiwgXCJCMVwiLCBcIkIyXCIsIFwiQzFcIiksXG4gIGJhbGFuY2UgPSBhY2NvdW50aW5nKGMoNTI1MDAsIDM2MTUwLCAyNTAwMCwgMTgzMDAsIDc2MDApLCBmb3JtYXQgPSBcImRcIiksXG4gIGdyb3d0aCA9IHBlcmNlbnQoYygwLjMsIDAuMywgMC4xLCAwLjE1LCAwLjE1KSwgZm9ybWF0ID0gXCJkXCIpLFxuICByZWFkeSA9IGZvcm1hdHRhYmxlKGMoVFJVRSwgVFJVRSwgRkFMU0UsIEZBTFNFLCBUUlVFKSwgXCJ5ZXNcIiwgXCJub1wiKSlcbnBcbnByaW50LkFzSXMocClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), </a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;A1&quot;</span>, <span class="st">&quot;A2&quot;</span>, <span class="st">&quot;B1&quot;</span>, <span class="st">&quot;B2&quot;</span>, <span class="st">&quot;C1&quot;</span>),</a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="dt">balance =</span> <span class="kw">accounting</span>(<span class="kw">c</span>(<span class="dv">52500</span>, <span class="dv">36150</span>, <span class="dv">25000</span>, <span class="dv">18300</span>, <span class="dv">7600</span>), <span class="dt">format =</span> <span class="st">&quot;d&quot;</span>),</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="dt">growth =</span> <span class="kw">percent</span>(<span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.15</span>), <span class="dt">format =</span> <span class="st">&quot;d&quot;</span>),</a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">  <span class="dt">ready =</span> <span class="kw">formattable</span>(<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>), <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">p</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="kw">print.AsIs</span>(p)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgPC0gZGF0YS5mcmFtZShcbiAgaWQgPSAxOjEwLFxuICBuYW1lID0gYyhcIkJvYlwiLCBcIkFzaGxleVwiLCBcIkphbWVzXCIsIFwiRGF2aWRcIiwgXCJKZW5ueVwiLCBcbiAgICBcIkhhbnNcIiwgXCJMZW9cIiwgXCJKb2huXCIsIFwiRW1pbHlcIiwgXCJMZWVcIiksIFxuICBhZ2UgPSBjKDI4LCAyNywgMzAsIDI4LCAyOSwgMjksIDI3LCAyNywgMzEsIDMwKSxcbiAgZ3JhZGUgPSBjKFwiQ1wiLCBcIkFcIiwgXCJBXCIsIFwiQ1wiLCBcIkJcIiwgXCJCXCIsIFwiQlwiLCBcIkFcIiwgXCJDXCIsIFwiQ1wiKSxcbiAgdGVzdDFfc2NvcmUgPSBjKDguOSwgOS41LCA5LjYsIDguOSwgOS4xLCA5LjMsIDkuMywgOS45LCA4LjUsIDguNiksXG4gIHRlc3QyX3Njb3JlID0gYyg5LjEsIDkuMSwgOS4yLCA5LjEsIDguOSwgOC41LCA5LjIsIDkuMywgOS4xLCA4LjgpLFxuICBmaW5hbF9zY29yZSA9IGMoOSwgOS4zLCA5LjQsIDksIDksIDguOSwgOS4yNSwgOS42LCA4LjgsIDguNyksXG4gIHJlZ2lzdGVyZWQgPSBjKFRSVUUsIEZBTFNFLCBUUlVFLCBGQUxTRSwgVFJVRSwgVFJVRSwgVFJVRSwgRkFMU0UsIEZBTFNFLCBGQUxTRSksXG4gIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSlcbmBgYCJ9 -->
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Ashley&quot;</span>, <span class="st">&quot;James&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Jenny&quot;</span>, </a>
-<a class="sourceLine" id="cb19-4" data-line-number="4">    <span class="st">&quot;Hans&quot;</span>, <span class="st">&quot;Leo&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Emily&quot;</span>, <span class="st">&quot;Lee&quot;</span>), </a>
-<a class="sourceLine" id="cb19-5" data-line-number="5">  <span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">30</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">27</span>, <span class="dv">31</span>, <span class="dv">30</span>),</a>
-<a class="sourceLine" id="cb19-6" data-line-number="6">  <span class="dt">grade =</span> <span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;C&quot;</span>),</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7">  <span class="dt">test1_score =</span> <span class="kw">c</span>(<span class="fl">8.9</span>, <span class="fl">9.5</span>, <span class="fl">9.6</span>, <span class="fl">8.9</span>, <span class="fl">9.1</span>, <span class="fl">9.3</span>, <span class="fl">9.3</span>, <span class="fl">9.9</span>, <span class="fl">8.5</span>, <span class="fl">8.6</span>),</a>
-<a class="sourceLine" id="cb19-8" data-line-number="8">  <span class="dt">test2_score =</span> <span class="kw">c</span>(<span class="fl">9.1</span>, <span class="fl">9.1</span>, <span class="fl">9.2</span>, <span class="fl">9.1</span>, <span class="fl">8.9</span>, <span class="fl">8.5</span>, <span class="fl">9.2</span>, <span class="fl">9.3</span>, <span class="fl">9.1</span>, <span class="fl">8.8</span>),</a>
-<a class="sourceLine" id="cb19-9" data-line-number="9">  <span class="dt">final_score =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="fl">9.3</span>, <span class="fl">9.4</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="fl">8.9</span>, <span class="fl">9.25</span>, <span class="fl">9.6</span>, <span class="fl">8.8</span>, <span class="fl">8.7</span>),</a>
-<a class="sourceLine" id="cb19-10" data-line-number="10">  <span class="dt">registered =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>),</a>
-<a class="sourceLine" id="cb19-11" data-line-number="11">  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5cbmxpYnJhcnkoZm9ybWF0dGFibGUpXG5cbmZvcm1hdHRhYmxlKGRmLCBsaXN0KFxuICBhZ2UgPSBjb2xvcl90aWxlKFwid2hpdGVcIiwgXCJvcmFuZ2VcIiksXG4gIGdyYWRlID0gZm9ybWF0dGVyKFwic3BhblwiLCBzdHlsZSA9IHggfiBpZmVsc2UoeCA9PSBcIkFcIiwgXG4gICAgc3R5bGUoY29sb3IgPSBcImdyZWVuXCIsIGZvbnQud2VpZ2h0ID0gXCJib2xkXCIpLCBOQSkpLFxuICBhcmVhKGNvbCA9IGModGVzdDFfc2NvcmUsIHRlc3QyX3Njb3JlKSkgfiBub3JtYWxpemVfYmFyKFwicGlua1wiLCAwLjIpLFxuICBmaW5hbF9zY29yZSA9IGZvcm1hdHRlcihcInNwYW5cIixcbiAgICBzdHlsZSA9IHggfiBzdHlsZShjb2xvciA9IGlmZWxzZShyYW5rKC14KSA8PSAzLCBcImdyZWVuXCIsIFwiZ3JheVwiKSksXG4gICAgeCB+IHNwcmludGYoXCIlLjJmIChyYW5rOiAlMDJkKVwiLCB4LCByYW5rKC14KSkpLFxuICByZWdpc3RlcmVkID0gZm9ybWF0dGVyKFwic3BhblwiLFxuICAgIHN0eWxlID0geCB+IHN0eWxlKGNvbG9yID0gaWZlbHNlKHgsIFwiZ3JlZW5cIiwgXCJyZWRcIikpLFxuICAgIHggfiBpY29udGV4dChpZmVsc2UoeCwgXCJva1wiLCBcInJlbW92ZVwiKSwgaWZlbHNlKHgsIFwiWWVzXCIsIFwiTm9cIikpKVxuKSlcbmBgYCJ9 -->
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">library</span>(formattable)</a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="kw">formattable</span>(df, <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6">  <span class="dt">age =</span> <span class="kw">color_tile</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>),</a>
-<a class="sourceLine" id="cb20-7" data-line-number="7">  <span class="dt">grade =</span> <span class="kw">formatter</span>(<span class="st">&quot;span&quot;</span>, <span class="dt">style =</span> x <span class="op">~</span><span class="st"> </span><span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> &quot;A&quot;</span>, </a>
-<a class="sourceLine" id="cb20-8" data-line-number="8">    <span class="kw">style</span>(<span class="dt">color =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">font.weight =</span> <span class="st">&quot;bold&quot;</span>), <span class="ot">NA</span>)),</a>
-<a class="sourceLine" id="cb20-9" data-line-number="9">  <span class="kw">area</span>(<span class="dt">col =</span> <span class="kw">c</span>(test1_score, test2_score)) <span class="op">~</span><span class="st"> </span><span class="kw">normalize_bar</span>(<span class="st">&quot;pink&quot;</span>, <span class="fl">0.2</span>),</a>
-<a class="sourceLine" id="cb20-10" data-line-number="10">  <span class="dt">final_score =</span> <span class="kw">formatter</span>(<span class="st">&quot;span&quot;</span>,</a>
-<a class="sourceLine" id="cb20-11" data-line-number="11">    <span class="dt">style =</span> x <span class="op">~</span><span class="st"> </span><span class="kw">style</span>(<span class="dt">color =</span> <span class="kw">ifelse</span>(<span class="kw">rank</span>(<span class="op">-</span>x) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;gray&quot;</span>)),</a>
-<a class="sourceLine" id="cb20-12" data-line-number="12">    x <span class="op">~</span><span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;%.2f (rank: %02d)&quot;</span>, x, <span class="kw">rank</span>(<span class="op">-</span>x))),</a>
-<a class="sourceLine" id="cb20-13" data-line-number="13">  <span class="dt">registered =</span> <span class="kw">formatter</span>(<span class="st">&quot;span&quot;</span>,</a>
-<a class="sourceLine" id="cb20-14" data-line-number="14">    <span class="dt">style =</span> x <span class="op">~</span><span class="st"> </span><span class="kw">style</span>(<span class="dt">color =</span> <span class="kw">ifelse</span>(x, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)),</a>
-<a class="sourceLine" id="cb20-15" data-line-number="15">    x <span class="op">~</span><span class="st"> </span><span class="kw">icontext</span>(<span class="kw">ifelse</span>(x, <span class="st">&quot;ok&quot;</span>, <span class="st">&quot;remove&quot;</span>), <span class="kw">ifelse</span>(x, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)))</a>
-<a class="sourceLine" id="cb20-16" data-line-number="16">))</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3231,147 +3099,6 @@ div.tocify {
 <p><a href="http://www.datasurg.net/2018/05/16/elegant-regression-results-tables-and-plots-the-finalfit-package/" class="uri">http://www.datasurg.net/2018/05/16/elegant-regression-results-tables-and-plots-the-finalfit-package/</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJld2VuaGFycmlzb24vZmluYWxmaXRcIilcbiMgaW5zdGFsbC5wYWNrYWdlcyhcInJzdGFuXCIpXG4jIGluc3RhbGwucGFja2FnZXMoXCJib290XCIpXG5cbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShmaW5hbGZpdClcbmxpYnJhcnkocnN0YW4pXG5saWJyYXJ5KGJvb3QpXG5cbmBgYCJ9 -->
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># devtools::install_github(&quot;ewenharrison/finalfit&quot;)</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co"># install.packages(&quot;rstan&quot;)</span></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co"># install.packages(&quot;boot&quot;)</span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="kw">library</span>(finalfit)</a>
-<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="kw">library</span>(rstan)</a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="kw">library</span>(boot)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBMb2FkIGV4YW1wbGUgZGF0YXNldCwgbW9kaWZpZWQgdmVyc2lvbiBvZiBzdXJ2aXZhbDo6Y29sb25cbmRhdGEoY29sb25fcylcblxuXG5cbmNvbG9uX3MyJGFnZSA8LSBhcy5udW1lcmljKGNvbG9uX3MkYWdlKVxuY29sb25fczIkYWdlLmZhY3RvciA8LSBhc19mYWN0b3IoY29sb25fcyRhZ2UuZmFjdG9yKVxuY29sb25fczIkc2V4LmZhY3RvciA8LSBhc19mYWN0b3IoY29sb25fcyRzZXguZmFjdG9yKVxuY29sb25fczIkb2JzdHJ1Y3QuZmFjdG9yIDwtIGFzX2ZhY3Rvcihjb2xvbl9zJG9ic3RydWN0LmZhY3RvcilcbmNvbG9uX3MyJHBlcmZvci5mYWN0b3IgPC0gYXNfZmFjdG9yKGNvbG9uX3MkcGVyZm9yLmZhY3RvcilcbmNvbG9uX3MyJG1vcnRfNXlyIDwtIGFzX2ZhY3Rvcihjb2xvbl9zJG1vcnRfNXlyKVxuY29sb25fczIkaG9zcGl0YWwgPC0gYXNfZmFjdG9yKGNvbG9uX3MkaG9zcGl0YWwpXG5jb2xvbl9zMiRzdGF0dXMgPC0gYXMubnVtZXJpYyhjb2xvbl9zJHN0YXR1cylcbmNvbG9uX3MyJHRpbWUgPC0gYXMubnVtZXJpYyhjb2xvbl9zJHRpbWUpXG5jb2xvbl9zMlxuXG5cbmBgYCJ9 -->
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Load example dataset, modified version of survival::colon</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">data</span>(colon_s)</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb22-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">colon_s2<span class="op">$</span>age &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(colon_s<span class="op">$</span>age)</a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">colon_s2<span class="op">$</span>age.factor &lt;-<span class="st"> </span><span class="kw">as_factor</span>(colon_s<span class="op">$</span>age.factor)</a>
-<a class="sourceLine" id="cb22-8" data-line-number="8">colon_s2<span class="op">$</span>sex.factor &lt;-<span class="st"> </span><span class="kw">as_factor</span>(colon_s<span class="op">$</span>sex.factor)</a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">colon_s2<span class="op">$</span>obstruct.factor &lt;-<span class="st"> </span><span class="kw">as_factor</span>(colon_s<span class="op">$</span>obstruct.factor)</a>
-<a class="sourceLine" id="cb22-10" data-line-number="10">colon_s2<span class="op">$</span>perfor.factor &lt;-<span class="st"> </span><span class="kw">as_factor</span>(colon_s<span class="op">$</span>perfor.factor)</a>
-<a class="sourceLine" id="cb22-11" data-line-number="11">colon_s2<span class="op">$</span>mort_5yr &lt;-<span class="st"> </span><span class="kw">as_factor</span>(colon_s<span class="op">$</span>mort_5yr)</a>
-<a class="sourceLine" id="cb22-12" data-line-number="12">colon_s2<span class="op">$</span>hospital &lt;-<span class="st"> </span><span class="kw">as_factor</span>(colon_s<span class="op">$</span>hospital)</a>
-<a class="sourceLine" id="cb22-13" data-line-number="13">colon_s2<span class="op">$</span>status &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(colon_s<span class="op">$</span>status)</a>
-<a class="sourceLine" id="cb22-14" data-line-number="14">colon_s2<span class="op">$</span>time &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(colon_s<span class="op">$</span>time)</a>
-<a class="sourceLine" id="cb22-15" data-line-number="15">colon_s2</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUYWJsZSAxIC0gUGF0aWVudCBkZW1vZ3JhcGhpY3MgYnkgdmFyaWFibGUgb2YgaW50ZXJlc3QgLS0tLVxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlXCIsIFwiYWdlLmZhY3RvclwiLCBcbiAgXCJzZXguZmFjdG9yXCIsIFwib2JzdHJ1Y3QuZmFjdG9yXCIpXG5kZXBlbmRlbnQgPSBcInBlcmZvci5mYWN0b3JcIiAjIEJvd2VsIHBlcmZvcmF0aW9uXG50YWJsZSA8LSBjb2xvbl9zMiAlPiVcbiAgc3VtbWFyeV9mYWN0b3JsaXN0KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksXG4gIHA9VFJVRSwgYWRkX2RlcGVuZGVudF9sYWJlbD1UUlVFLCB0b3RhbF9jb2wgPSBUUlVFKVxuXG5wcmludC5Bc0lzKHRhYmxlKVxuXG5cblxuYGBgIn0= -->
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Table 1 - Patient demographics by variable of interest ----</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;age.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb23-3" data-line-number="3">  <span class="st">&quot;sex.factor&quot;</span>, <span class="st">&quot;obstruct.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb23-4" data-line-number="4">dependent =<span class="st"> &quot;perfor.factor&quot;</span> <span class="co"># Bowel perforation</span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5">table &lt;-<span class="st"> </span>colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="st">  </span><span class="kw">summary_factorlist</span>(dependent, explanatory,</a>
-<a class="sourceLine" id="cb23-7" data-line-number="7">  <span class="dt">p=</span><span class="ot">TRUE</span>, <span class="dt">add_dependent_label=</span><span class="ot">TRUE</span>, <span class="dt">total_col =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="kw">print.AsIs</span>(table)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUYWJsZSAyIC0gNSB5ciBtb3J0YWxpdHkgLS0tLVxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlLmZhY3RvclwiLCBcbiAgXCJzZXguZmFjdG9yXCIsXG4gIFwib2JzdHJ1Y3QuZmFjdG9yXCIpXG5kZXBlbmRlbnQgPSAnbW9ydF81eXInXG50YWJsZSA8LSBjb2xvbl9zICU+JVxuICBzdW1tYXJ5X2ZhY3Rvcmxpc3QoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgXG4gIHA9VFJVRSwgYWRkX2RlcGVuZGVudF9sYWJlbD1UUlVFKVxuXG5wcmludC5Bc0lzKHRhYmxlKVxuXG5gYGAifQ== -->
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># Table 2 - 5 yr mortality ----</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="st">&quot;sex.factor&quot;</span>,</a>
-<a class="sourceLine" id="cb24-4" data-line-number="4">  <span class="st">&quot;obstruct.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb24-5" data-line-number="5">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb24-6" data-line-number="6">table &lt;-<span class="st"> </span>colon_s <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb24-7" data-line-number="7"><span class="st">  </span><span class="kw">summary_factorlist</span>(dependent, explanatory, </a>
-<a class="sourceLine" id="cb24-8" data-line-number="8">  <span class="dt">p=</span><span class="ot">TRUE</span>, <span class="dt">add_dependent_label=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb24-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb24-10" data-line-number="10"><span class="kw">print.AsIs</span>(table)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6OmthYmxlKHRhYmxlLCByb3cubmFtZXM9RkFMU0UsIFxuICAgIGFsaWduPWMoXCJsXCIsIFwibFwiLCBcInJcIiwgXCJyXCIsIFwiclwiLCBcInJcIikpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(table, <span class="dt">row.names=</span><span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb25-2" data-line-number="2">    <span class="dt">align=</span><span class="kw">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>))</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlLmZhY3RvclwiLCBcInNleC5mYWN0b3JcIiwgXG4gIFwib2JzdHJ1Y3QuZmFjdG9yXCIsIFwicGVyZm9yLmZhY3RvclwiKVxuZGVwZW5kZW50ID0gJ21vcnRfNXlyJ1xudGFibGVfc3VydiA8LSBjb2xvbl9zMiAlPiVcbiAgZmluYWxmaXQoZGVwZW5kZW50LCBleHBsYW5hdG9yeSlcbmBgYCJ9 -->
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb26-2" data-line-number="2">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4">table_surv &lt;-<span class="st"> </span>colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="st">  </span><span class="kw">finalfit</span>(dependent, explanatory)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6OmthYmxlKHRhYmxlX3N1cnYsIHJvdy5uYW1lcyA9IEZBTFNFLCBcbiAgICBhbGlnbiA9IGMoXCJsXCIsIFwibFwiLCBcInJcIiwgXCJyXCIsIFwiclwiLCBcInJcIikpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(table_surv, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb27-2" data-line-number="2">    <span class="dt">align =</span> <span class="kw">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>))</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlLmZhY3RvclwiLCBcInNleC5mYWN0b3JcIiwgXG4gIFwib2JzdHJ1Y3QuZmFjdG9yXCIsIFwicGVyZm9yLmZhY3RvclwiKVxuZXhwbGFuYXRvcnlfbXVsdGkgPSBjKFwiYWdlLmZhY3RvclwiLCBcbiAgXCJvYnN0cnVjdC5mYWN0b3JcIilcbmRlcGVuZGVudCA9ICdtb3J0XzV5cidcbmNvbG9uX3MyICU+JVxuICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCBcbiAgZXhwbGFuYXRvcnlfbXVsdGkpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3">explanatory_multi =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">  <span class="st">&quot;obstruct.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb28-5" data-line-number="5">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb28-6" data-line-number="6">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb28-7" data-line-number="7"><span class="st">  </span><span class="kw">finalfit</span>(dependent, explanatory, </a>
-<a class="sourceLine" id="cb28-8" data-line-number="8">  explanatory_multi)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlLmZhY3RvclwiLCBcInNleC5mYWN0b3JcIiwgXG4gIFwib2JzdHJ1Y3QuZmFjdG9yXCIsIFwicGVyZm9yLmZhY3RvclwiKVxuZXhwbGFuYXRvcnlfbXVsdGkgPSBjKFwiYWdlLmZhY3RvclwiLCBcIm9ic3RydWN0LmZhY3RvclwiKVxucmFuZG9tX2VmZmVjdCA9IFwiaG9zcGl0YWxcIlxuZGVwZW5kZW50ID0gJ21vcnRfNXlyJ1xuY29sb25fczIgJT4lXG4gIGZpbmFsZml0KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIFxuICBleHBsYW5hdG9yeV9tdWx0aSwgcmFuZG9tX2VmZmVjdClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb29-2" data-line-number="2">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb29-3" data-line-number="3">explanatory_multi =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;obstruct.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb29-4" data-line-number="4">random_effect =<span class="st"> &quot;hospital&quot;</span></a>
-<a class="sourceLine" id="cb29-5" data-line-number="5">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb29-6" data-line-number="6">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb29-7" data-line-number="7"><span class="st">  </span><span class="kw">finalfit</span>(dependent, explanatory, </a>
-<a class="sourceLine" id="cb29-8" data-line-number="8">  explanatory_multi, random_effect)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5leHBsYW5hdG9yeSA9IGMoXCJhZ2UuZmFjdG9yXCIsIFwic2V4LmZhY3RvclwiLCBcblwib2JzdHJ1Y3QuZmFjdG9yXCIsIFwicGVyZm9yLmZhY3RvclwiKVxuZGVwZW5kZW50ID0gXCJTdXJ2KHRpbWUsIHN0YXR1cylcIlxuY29sb25fczIgJT4lXG4gIGZpbmFsZml0KGRlcGVuZGVudCwgZXhwbGFuYXRvcnkpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb30-4" data-line-number="4">dependent =<span class="st"> &quot;Surv(time, status)&quot;</span></a>
-<a class="sourceLine" id="cb30-5" data-line-number="5">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="st">  </span><span class="kw">finalfit</span>(dependent, explanatory)</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlLmZhY3RvclwiLCBcInNleC5mYWN0b3JcIiwgXG4gIFwib2JzdHJ1Y3QuZmFjdG9yXCIsIFwicGVyZm9yLmZhY3RvclwiKVxuZGVwZW5kZW50ID0gJ21vcnRfNXlyJ1xudGFibGU3IDwtIGNvbG9uX3MyICU+JVxuICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCBcbiAgbWV0cmljcz1UUlVFKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb31-3" data-line-number="3">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4">table7 &lt;-<span class="st"> </span>colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="st">  </span><span class="kw">finalfit</span>(dependent, explanatory, </a>
-<a class="sourceLine" id="cb31-6" data-line-number="6">  <span class="dt">metrics=</span><span class="ot">TRUE</span>)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -3380,80 +3107,58 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwbGFuYXRvcnkgPSBjKFwiYWdlLmZhY3RvclwiLCBcInNleC5mYWN0b3JcIiwgXG4gIFwib2JzdHJ1Y3QuZmFjdG9yXCIsIFwicGVyZm9yLmZhY3RvclwiKVxuZXhwbGFuYXRvcnlfbXVsdGkgPSBjKFwiYWdlLmZhY3RvclwiLCBcIm9ic3RydWN0LmZhY3RvclwiKVxucmFuZG9tX2VmZmVjdCA9IFwiaG9zcGl0YWxcIlxuZGVwZW5kZW50ID0gJ21vcnRfNXlyJ1xuXG4jIFNlcGFyYXRlIHRhYmxlc1xuY29sb25fczIgJT4lXG4gIHN1bW1hcnlfZmFjdG9ybGlzdChkZXBlbmRlbnQsIFxuICBleHBsYW5hdG9yeSwgZml0X2lkPVRSVUUpIC0+IGV4YW1wbGUuc3VtbWFyeVxuXG5jb2xvbl9zMiAlPiVcbiAgZ2xtdW5pKGRlcGVuZGVudCwgZXhwbGFuYXRvcnkpICU+JVxuICBmaXQyZGYoZXN0aW1hdGVfc3VmZml4PVwiICh1bml2YXJpYWJsZSlcIikgLT4gZXhhbXBsZS51bml2YXJpYWJsZVxuXG5jb2xvbl9zMiAlPiVcbiAgZ2xtbXVsdGkoZGVwZW5kZW50LCBleHBsYW5hdG9yeSkgJT4lXG4gIGZpdDJkZihlc3RpbWF0ZV9zdWZmaXg9XCIgKG11bHRpdmFyaWFibGUpXCIpIC0+IGV4YW1wbGUubXVsdGl2YXJpYWJsZVxuXG5jb2xvbl9zMiAlPiVcbiAgZ2xtbWl4ZWQoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgcmFuZG9tX2VmZmVjdCkgJT4lXG4gIGZpdDJkZihlc3RpbWF0ZV9zdWZmaXg9XCIgKG11bHRpbGV2ZWwpXCIpIC0+IGV4YW1wbGUubXVsdGlsZXZlbFxuXG4jIFBpcGUgdG9nZXRoZXJcbmV4YW1wbGUuc3VtbWFyeSAlPiVcbiAgZmluYWxmaXRfbWVyZ2UoZXhhbXBsZS51bml2YXJpYWJsZSkgJT4lXG4gIGZpbmFsZml0X21lcmdlKGV4YW1wbGUubXVsdGl2YXJpYWJsZSkgJT4lXG4gIGZpbmFsZml0X21lcmdlKGV4YW1wbGUubXVsdGlsZXZlbCkgJT4lXG4gIHNlbGVjdCgtYyhmaXRfaWQsIGluZGV4KSkgJT4lICMgcmVtb3ZlIHVubmVjZXNzYXJ5IGNvbHVtbnNcbiAgZGVwZW5kZW50X2xhYmVsKGNvbG9uX3MyLCBkZXBlbmRlbnQsIHByZWZpeD1cIlwiKSAjIHBsYWNlIGRlcGVuZGVudCB2YXJpYWJsZSBsYWJlbFxuYGBgIn0= -->
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb32-3" data-line-number="3">explanatory_multi =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;obstruct.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb32-4" data-line-number="4">random_effect =<span class="st"> &quot;hospital&quot;</span></a>
-<a class="sourceLine" id="cb32-5" data-line-number="5">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb32-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="co"># Separate tables</span></a>
-<a class="sourceLine" id="cb32-8" data-line-number="8">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-9" data-line-number="9"><span class="st">  </span><span class="kw">summary_factorlist</span>(dependent, </a>
-<a class="sourceLine" id="cb32-10" data-line-number="10">  explanatory, <span class="dt">fit_id=</span><span class="ot">TRUE</span>) -&gt;<span class="st"> </span>example.summary</a>
-<a class="sourceLine" id="cb32-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb32-12" data-line-number="12">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-13" data-line-number="13"><span class="st">  </span><span class="kw">glmuni</span>(dependent, explanatory) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-14" data-line-number="14"><span class="st">  </span><span class="kw">fit2df</span>(<span class="dt">estimate_suffix=</span><span class="st">&quot; (univariable)&quot;</span>) -&gt;<span class="st"> </span>example.univariable</a>
-<a class="sourceLine" id="cb32-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb32-16" data-line-number="16">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-17" data-line-number="17"><span class="st">  </span><span class="kw">glmmulti</span>(dependent, explanatory) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-18" data-line-number="18"><span class="st">  </span><span class="kw">fit2df</span>(<span class="dt">estimate_suffix=</span><span class="st">&quot; (multivariable)&quot;</span>) -&gt;<span class="st"> </span>example.multivariable</a>
-<a class="sourceLine" id="cb32-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb32-20" data-line-number="20">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-21" data-line-number="21"><span class="st">  </span><span class="kw">glmmixed</span>(dependent, explanatory, random_effect) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-22" data-line-number="22"><span class="st">  </span><span class="kw">fit2df</span>(<span class="dt">estimate_suffix=</span><span class="st">&quot; (multilevel)&quot;</span>) -&gt;<span class="st"> </span>example.multilevel</a>
-<a class="sourceLine" id="cb32-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb32-24" data-line-number="24"><span class="co"># Pipe together</span></a>
-<a class="sourceLine" id="cb32-25" data-line-number="25">example.summary <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-26" data-line-number="26"><span class="st">  </span><span class="kw">finalfit_merge</span>(example.univariable) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-27" data-line-number="27"><span class="st">  </span><span class="kw">finalfit_merge</span>(example.multivariable) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-28" data-line-number="28"><span class="st">  </span><span class="kw">finalfit_merge</span>(example.multilevel) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-29" data-line-number="29"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(fit_id, index)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># remove unnecessary columns</span></a>
-<a class="sourceLine" id="cb32-30" data-line-number="30"><span class="st">  </span><span class="kw">dependent_label</span>(colon_s2, dependent, <span class="dt">prefix=</span><span class="st">&quot;&quot;</span>) <span class="co"># place dependent variable label</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPUiBwbG90XG5leHBsYW5hdG9yeSA9IGMoXCJhZ2UuZmFjdG9yXCIsIFwic2V4LmZhY3RvclwiLCBcbiAgXCJvYnN0cnVjdC5mYWN0b3JcIiwgXCJwZXJmb3IuZmFjdG9yXCIpXG5kZXBlbmRlbnQgPSAnbW9ydF81eXInXG5jb2xvbl9zMiAlPiVcbiAgb3JfcGxvdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5KVxuIyBQcmV2aW91c2x5IGZpdHRlZCBtb2RlbHMgKGBnbG1tdWx0aSgpYCBvciBcbiMgYGdsbW1peGVkKClgKSBjYW4gYmUgcHJvdmlkZWQgZGlyZWN0bHkgdG8gYGdsbWZpdGBcbmBgYCJ9 -->
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="co"># OR plot</span></a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb33-3" data-line-number="3">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb33-4" data-line-number="4">dependent =<span class="st"> 'mort_5yr'</span></a>
-<a class="sourceLine" id="cb33-5" data-line-number="5">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb33-6" data-line-number="6"><span class="st">  </span><span class="kw">or_plot</span>(dependent, explanatory)</a>
-<a class="sourceLine" id="cb33-7" data-line-number="7"><span class="co"># Previously fitted models (`glmmulti()` or </span></a>
-<a class="sourceLine" id="cb33-8" data-line-number="8"><span class="co"># `glmmixed()`) can be provided directly to `glmfit`</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBIUiBwbG90XG5leHBsYW5hdG9yeSA9IGMoXCJhZ2UuZmFjdG9yXCIsIFwic2V4LmZhY3RvclwiLCBcbiAgXCJvYnN0cnVjdC5mYWN0b3JcIiwgXCJwZXJmb3IuZmFjdG9yXCIpXG5kZXBlbmRlbnQgPSBcIlN1cnYodGltZSwgc3RhdHVzKVwiXG5jb2xvbl9zMiAlPiVcbiAgaHJfcGxvdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCBkZXBlbmRlbnRfbGFiZWwgPSBcIlN1cnZpdmFsXCIpXG4jIFByZXZpb3VzbHkgZml0dGVkIG1vZGVscyAoYGNveHBobXVsdGlgKSBjYW4gYmUgcHJvdmlkZWQgZGlyZWN0bHkgdXNpbmcgYGNveGZpdGBcbmBgYCJ9 -->
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co"># HR plot</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.factor&quot;</span>, <span class="st">&quot;sex.factor&quot;</span>, </a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">  <span class="st">&quot;obstruct.factor&quot;</span>, <span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">dependent =<span class="st"> &quot;Surv(time, status)&quot;</span></a>
-<a class="sourceLine" id="cb34-5" data-line-number="5">colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb34-6" data-line-number="6"><span class="st">  </span><span class="kw">hr_plot</span>(dependent, explanatory, <span class="dt">dependent_label =</span> <span class="st">&quot;Survival&quot;</span>)</a>
-<a class="sourceLine" id="cb34-7" data-line-number="7"><span class="co"># Previously fitted models (`coxphmulti`) can be provided directly using `coxfit`</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBLTSBwbG90XG5leHBsYW5hdG9yeSA9IGMoXCJwZXJmb3IuZmFjdG9yXCIpXG5kZXBlbmRlbnQgPSBcIlN1cnYodGltZSwgc3RhdHVzKVwiXG5cbnBsb3RLTSA8LSBjb2xvbl9zMiAlPiVcbiAgc3Vydl9wbG90KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIFxuICB4bGFiID0gXCJUaW1lIChkYXlzKVwiLCBwdmFsID0gVFJVRSwgbGVnZW5kID0gXCJub25lXCIpXG5cbnBsb3RLTVxuXG5gYGAifQ== -->
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># KM plot</span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">explanatory =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;perfor.factor&quot;</span>)</a>
-<a class="sourceLine" id="cb35-3" data-line-number="3">dependent =<span class="st"> &quot;Surv(time, status)&quot;</span></a>
-<a class="sourceLine" id="cb35-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb35-5" data-line-number="5">plotKM &lt;-<span class="st"> </span>colon_s2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb35-6" data-line-number="6"><span class="st">  </span><span class="kw">surv_plot</span>(dependent, explanatory, </a>
-<a class="sourceLine" id="cb35-7" data-line-number="7">  <span class="dt">xlab =</span> <span class="st">&quot;Time (days)&quot;</span>, <span class="dt">pval =</span> <span class="ot">TRUE</span>, <span class="dt">legend =</span> <span class="st">&quot;none&quot;</span>)</a>
-<a class="sourceLine" id="cb35-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb35-9" data-line-number="9">plotKM</a></code></pre></div>
-<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3472,6 +3177,9 @@ div.tocify {
 </div>
 <div id="pixiedust" class="section level4">
 <h4><span class="header-section-number">0.2.2.6</span> - pixiedust</h4>
+<p>pixiedust: Tables so Beautifully Fine-Tuned You Will Believe It’s Magic</p>
+<p><a href="https://cran.r-project.org/web/packages/pixiedust/vignettes/pixiedust.html" class="uri">https://cran.r-project.org/web/packages/pixiedust/vignettes/pixiedust.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/pixiedust/vignettes/advancedMagic.html" class="uri">https://cran.r-project.org/web/packages/pixiedust/vignettes/advancedMagic.html</a></p>
 </div>
 <div id="reporttools" class="section level4">
 <h4><span class="header-section-number">0.2.2.7</span> - reporttools</h4>
@@ -3490,6 +3198,7 @@ div.tocify {
 </div>
 <div id="carpenter" class="section level4">
 <h4><span class="header-section-number">0.2.2.12</span> - carpenter</h4>
+<p><a href="https://cran.r-project.org/web/packages/carpenter/vignettes/carpenter.html" class="uri">https://cran.r-project.org/web/packages/carpenter/vignettes/carpenter.html</a></p>
 </div>
 <div id="dtables" class="section level4">
 <h4><span class="header-section-number">0.2.2.13</span> - dtables</h4>
@@ -3592,20 +3301,6 @@ div.tocify {
 <p><a href="https://cran.r-project.org/web/packages/arsenal/vignettes/paired.html" class="uri">https://cran.r-project.org/web/packages/arsenal/vignettes/paired.html</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShhcnNlbmFsKVxuZGF0IDwtIGRhdGEuZnJhbWUoXG4gIHRwID0gcGFzdGUwKFwiVGltZSBQb2ludCBcIiwgYygxLCAyLCAxLCAyLCAxLCAyLCAxLCAyLCAxLCAyKSksXG4gIGlkID0gYygxLCAxLCAyLCAyLCAzLCAzLCA0LCA0LCA1LCA2KSxcbiAgQ2F0ID0gYyhcIkFcIiwgXCJBXCIsIFwiQVwiLCBcIkJcIiwgXCJCXCIsIFwiQlwiLCBcIkJcIiwgXCJBXCIsIE5BLCBcIkJcIiksXG4gIEZhYyA9IGZhY3RvcihjKFwiQVwiLCBcIkJcIiwgXCJDXCIsIFwiQVwiLCBcIkJcIiwgXCJDXCIsIFwiQVwiLCBcIkJcIiwgXCJDXCIsIFwiQVwiKSksXG4gIE51bSA9IGMoMSwgMiwgMywgNCwgNCwgMywgMywgNCwgMCwgTkEpLFxuICBPcmQgPSBvcmRlcmVkKGMoXCJJXCIsIFwiSUlcIiwgXCJJSVwiLCBcIklJSVwiLCBcIklJSVwiLCBcIklJSVwiLCBcIklcIiwgXCJJSUlcIiwgXCJJSVwiLCBcIklcIikpLFxuICBMZ2wgPSBjKFRSVUUsIFRSVUUsIEZBTFNFLCBUUlVFLCBGQUxTRSwgVFJVRSwgVFJVRSwgRkFMU0UsIEZBTFNFLCBGQUxTRSksXG4gIERhdCA9IGFzLkRhdGUoXCIyMDE4LTA1LTAxXCIpICsgYygxLCAxLCAyLCAyLCAzLCA0LCA1LCA2LCAzLCA0KSxcbiAgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFXG4pXG5gYGAifQ== -->
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">library</span>(arsenal)</a>
-<a class="sourceLine" id="cb36-2" data-line-number="2">dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb36-3" data-line-number="3">  <span class="dt">tp =</span> <span class="kw">paste0</span>(<span class="st">&quot;Time Point &quot;</span>, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>)),</a>
-<a class="sourceLine" id="cb36-4" data-line-number="4">  <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),</a>
-<a class="sourceLine" id="cb36-5" data-line-number="5">  <span class="dt">Cat =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="ot">NA</span>, <span class="st">&quot;B&quot;</span>),</a>
-<a class="sourceLine" id="cb36-6" data-line-number="6">  <span class="dt">Fac =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>)),</a>
-<a class="sourceLine" id="cb36-7" data-line-number="7">  <span class="dt">Num =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="ot">NA</span>),</a>
-<a class="sourceLine" id="cb36-8" data-line-number="8">  <span class="dt">Ord =</span> <span class="kw">ordered</span>(<span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;I&quot;</span>)),</a>
-<a class="sourceLine" id="cb36-9" data-line-number="9">  <span class="dt">Lgl =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>),</a>
-<a class="sourceLine" id="cb36-10" data-line-number="10">  <span class="dt">Dat =</span> <span class="kw">as.Date</span>(<span class="st">&quot;2018-05-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb36-11" data-line-number="11">  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb36-12" data-line-number="12">)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -3622,8 +3317,8 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucCA8LSBwYWlyZWQodHAgfiBDYXQgKyBGYWMgKyBOdW0gKyBPcmQgKyBMZ2wgKyBEYXQsIGRhdGEgPSBkYXQsIGlkID0gaWQsIHNpZ25lZC5yYW5rLmV4YWN0ID0gRkFMU0UpXG5zdW1tYXJ5KHApXG5gYGAifQ== -->
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">paired</span>(tp <span class="op">~</span><span class="st"> </span>Cat <span class="op">+</span><span class="st"> </span>Fac <span class="op">+</span><span class="st"> </span>Num <span class="op">+</span><span class="st"> </span>Ord <span class="op">+</span><span class="st"> </span>Lgl <span class="op">+</span><span class="st"> </span>Dat, <span class="dt">data =</span> dat, <span class="dt">id =</span> id, <span class="dt">signed.rank.exact =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">summary</span>(p)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">paired</span>(tp <span class="op">~</span><span class="st"> </span>Cat <span class="op">+</span><span class="st"> </span>Fac <span class="op">+</span><span class="st"> </span>Num <span class="op">+</span><span class="st"> </span>Ord <span class="op">+</span><span class="st"> </span>Lgl <span class="op">+</span><span class="st"> </span>Dat, <span class="dt">data =</span> dat, <span class="dt">id =</span> id, <span class="dt">signed.rank.exact =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">summary</span>(p)</a></code></pre></div>
 <!-- rnb-source-end -->
 <table>
 <thead>
@@ -3786,26 +3481,14 @@ div.tocify {
 <p><a href="https://cran.r-project.org/web/packages/arsenal/vignettes/freqlist.html" class="uri">https://cran.r-project.org/web/packages/arsenal/vignettes/freqlist.html</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShhcnNlbmFsKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">require</span>(arsenal)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsb2FkIHRoZSBkYXRhXG5kYXRhKG1vY2tzdHVkeSlcbiMgcmV0YWluIE5BcyB3aGVuIGNyZWF0aW5nIHRoZSB0YWJsZSB1c2luZyB0aGUgdXNlTkEgYXJndW1lbnRcbnRhYi5leCA8LSB0YWJsZShtb2Nrc3R1ZHlbLCBjKFwiYXJtXCIsIFwic2V4XCIsIFwibWRxdWFsaXR5LnNcIildLCB1c2VOQSA9IFwiaWZhbnlcIilcbmBgYCJ9 -->
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># load the data</span></a>
-<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw">data</span>(mockstudy)</a>
-<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co"># retain NAs when creating the table using the useNA argument</span></a>
-<a class="sourceLine" id="cb39-4" data-line-number="4">tab.ex &lt;-<span class="st"> </span><span class="kw">table</span>(mockstudy[, <span class="kw">c</span>(<span class="st">&quot;arm&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;mdquality.s&quot;</span>)], <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFiLmV4XG5cbmBgYCJ9 -->
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">tab.ex</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiLCAsIG1kcXVhbGl0eS5zID0gMFxuXG4gICAgICAgICAgIHNleFxuYXJtICAgICAgICAgTWFsZSBGZW1hbGVcbiAgQTogSUZMICAgICAgMjkgICAgIDEyXG4gIEY6IEZPTEZPWCAgIDMxICAgICAyMVxuICBHOiBJUk9YICAgICAxNyAgICAgMTRcblxuLCAsIG1kcXVhbGl0eS5zID0gMVxuXG4gICAgICAgICAgIHNleFxuYXJtICAgICAgICAgTWFsZSBGZW1hbGVcbiAgQTogSUZMICAgICAyMTQgICAgMTE4XG4gIEY6IEZPTEZPWCAgMjg1ICAgIDE5OFxuICBHOiBJUk9YICAgIDE4NyAgICAxMjFcblxuLCAsIG1kcXVhbGl0eS5zID0gTkFcblxuICAgICAgICAgICBzZXhcbmFybSAgICAgICAgIE1hbGUgRmVtYWxlXG4gIEE6IElGTCAgICAgIDM0ICAgICAyMVxuICBGOiBGT0xGT1ggICA5NSAgICAgNjFcbiAgRzogSVJPWCAgICAgMjQgICAgIDE3XG4ifQ== -->
 <pre><code>, , mdquality.s = 0
 
@@ -3835,10 +3518,6 @@ arm         Male Female
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubm9ieSA8LSBmcmVxbGlzdCh0YWIuZXgpXG5zdHIobm9ieSlcbmBgYCJ9 -->
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">noby &lt;-<span class="st"> </span><span class="kw">freqlist</span>(tab.ex)</a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">str</span>(noby)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiTGlzdCBvZiAzXG4gJCBmcmVxbGlzdDonZGF0YS5mcmFtZSc6XHQxOCBvYnMuIG9mICA3IHZhcmlhYmxlczpcbiAgLi4kIGFybSAgICAgICAgOiBGYWN0b3Igdy8gMyBsZXZlbHMgXCJBOiBJRkxcIixcIkY6IEZPTEZPWFwiLC4uOiAxIDEgMSAxIDEgMSAyIDIgMiAyIC4uLlxuICAuLiQgc2V4ICAgICAgICA6IEZhY3RvciB3LyAyIGxldmVscyBcIk1hbGVcIixcIkZlbWFsZVwiOiAxIDEgMSAyIDIgMiAxIDEgMSAyIC4uLlxuICAuLiQgbWRxdWFsaXR5LnM6IEZhY3RvciB3LyAyIGxldmVscyBcIjBcIixcIjFcIjogMSAyIE5BIDEgMiBOQSAxIDIgTkEgMSAuLi5cbiAgLi4kIEZyZXEgICAgICAgOiBpbnQgWzE6MThdIDI5IDIxNCAzNCAxMiAxMTggMjEgMzEgMjg1IDk1IDIxIC4uLlxuICAuLiQgY3VtRnJlcSAgICA6IGludCBbMToxOF0gMjkgMjQzIDI3NyAyODkgNDA3IDQyOCA0NTkgNzQ0IDgzOSA4NjAgLi4uXG4gIC4uJCBmcmVxUGVyY2VudDogbnVtIFsxOjE4XSAxLjkzIDE0LjI4IDIuMjcgMC44IDcuODcgLi4uXG4gIC4uJCBjdW1QZXJjZW50IDogbnVtIFsxOjE4XSAxLjkzIDE2LjIxIDE4LjQ4IDE5LjI4IDI3LjE1IC4uLlxuICQgYnlWYXIgICA6IE5VTExcbiAkIGxhYmVscyAgOiBOVUxMXG4gLSBhdHRyKCosIFwiY2xhc3NcIik9IGNociBcImZyZXFsaXN0XCJcbiJ9 -->
 <pre><code>List of 3
  $ freqlist:'data.frame':   18 obs. of  7 variables:
@@ -3857,10 +3536,6 @@ arm         Male Female
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB2aWV3IHRoZSBkYXRhIGZyYW1lIHBvcnRpb24gb2YgZnJlcWxpc3Qgb3V0cHV0XG5oZWFkKG5vYnlbW1wiZnJlcWxpc3RcIl1dKSAgIyMgb3IgdXNlIGFzLmRhdGEuZnJhbWUobm9ieSlcbmBgYCJ9 -->
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="co"># view the data frame portion of freqlist output</span></a>
-<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="kw">head</span>(noby[[<span class="st">&quot;freqlist&quot;</span>]])  <span class="co">## or use as.data.frame(noby)</span></a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NywibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUE0MVRPMC9ETUJCMm5LWlJXd3BJd0loNERLaElFUEVRQ3lBMVNDaUFCQUoxNnRERnBDNVVPRW1icER3WGZnQVNJNExmZ1BnUnpMQ3lkMlJHTUJiT3FVM1RBaEtXdnZpN3orYzcyM2NwckJjWDBzVTBRZ2dqVlZNUVZvRW1NSHdVbEVBcFBwOGlwQTRCMFdIT3dweU1GbjlGMThZa284ZVVCY0FHQWFwVTE1Ykh0Nnh0WWFXczVYRnJkOXZhTFFwQjM0RGxBcGpkc1RTYmtVQ0crazVRSVhibytjQmFmeHdOZDhERDRVOFJBWXNJaVIzQ3FJeG1VWWRia2FmNitlOWMrQkpGSThaL3phWE1TVEwvbnh4STVoZ0Z2QUFtQVgyQVk4Qkl6L29iQkFGTm1RRGNBTzVCNitmcitWWno0Mkg0dkduT1hKZHk3NC9YSnViZjBuVCs5WmFQTzNQc25EdGM1RDhxMGZpeGIyNEozSE1mNWtMYnoxeU01RTF6WlNyeU4xZXZubUE4OTViTEpRNlY1ZEtGcUJMZmtUU2dwNEptbkhLOVFWZzFQRE1DV1JYTHAzWFpEM2JEaVptWkN2QTk2dHZVRFlXVUJnK3BkSjhpNVhzbmhqeEpObGFxNUI4RlNKZEpTSXlLRDF2YVJlZ0twM3Uxc09xNUVBenozMEhyMmF6NFBjSkF3K1hKeTdQMlljTTltcDNuQ1dLOW1SVnpNc2IxZHNxRVBKZ21PNE82QjFWWGRxckd5RDVsd3VpSFMwWjNOR3ArdGZNb29BWkc2SVdFZlQrVHg2VFNickRXRndGbFhRcjhBd0FBIn0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -3872,9 +3547,6 @@ arm         Male Female
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShub2J5KVxuYGBgIn0= -->
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">summary</span>(noby)</a></code></pre></div>
-<!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiXG5cbnxhcm0gICAgICAgfHNleCAgICB8bWRxdWFsaXR5LnMgfCBGcmVxfCBjdW1GcmVxfCBmcmVxUGVyY2VudHwgY3VtUGVyY2VudHxcbnw6LS0tLS0tLS0tfDotLS0tLS18Oi0tLS0tLS0tLS0tfC0tLS06fC0tLS0tLS06fC0tLS0tLS0tLS0tOnwtLS0tLS0tLS0tOnxcbnxBOiBJRkwgICAgfE1hbGUgICB8MCAgICAgICAgICAgfCAgIDI5fCAgICAgIDI5fCAgICAgICAgMS45M3wgICAgICAgMS45M3xcbnwgICAgICAgICAgfCAgICAgICB8MSAgICAgICAgICAgfCAgMjE0fCAgICAgMjQzfCAgICAgICAxNC4yOHwgICAgICAxNi4yMXxcbnwgICAgICAgICAgfCAgICAgICB8TkEgICAgICAgICAgfCAgIDM0fCAgICAgMjc3fCAgICAgICAgMi4yN3wgICAgICAxOC40OHxcbnwgICAgICAgICAgfEZlbWFsZSB8MCAgICAgICAgICAgfCAgIDEyfCAgICAgMjg5fCAgICAgICAgMC44MHwgICAgICAxOS4yOHxcbnwgICAgICAgICAgfCAgICAgICB8MSAgICAgICAgICAgfCAgMTE4fCAgICAgNDA3fCAgICAgICAgNy44N3wgICAgICAyNy4xNXxcbnwgICAgICAgICAgfCAgICAgICB8TkEgICAgICAgICAgfCAgIDIxfCAgICAgNDI4fCAgICAgICAgMS40MHwgICAgICAyOC41NXxcbnxGOiBGT0xGT1ggfE1hbGUgICB8MCAgICAgICAgICAgfCAgIDMxfCAgICAgNDU5fCAgICAgICAgMi4wN3wgICAgICAzMC42MnxcbnwgICAgICAgICAgfCAgICAgICB8MSAgICAgICAgICAgfCAgMjg1fCAgICAgNzQ0fCAgICAgICAxOS4wMXwgICAgICA0OS42M3xcbnwgICAgICAgICAgfCAgICAgICB8TkEgICAgICAgICAgfCAgIDk1fCAgICAgODM5fCAgICAgICAgNi4zNHwgICAgICA1NS45N3xcbnwgICAgICAgICAgfEZlbWFsZSB8MCAgICAgICAgICAgfCAgIDIxfCAgICAgODYwfCAgICAgICAgMS40MHwgICAgICA1Ny4zN3xcbnwgICAgICAgICAgfCAgICAgICB8MSAgICAgICAgICAgfCAgMTk4fCAgICAxMDU4fCAgICAgICAxMy4yMXwgICAgICA3MC41OHxcbnwgICAgICAgICAgfCAgICAgICB8TkEgICAgICAgICAgfCAgIDYxfCAgICAxMTE5fCAgICAgICAgNC4wN3wgICAgICA3NC42NXxcbnxHOiBJUk9YICAgfE1hbGUgICB8MCAgICAgICAgICAgfCAgIDE3fCAgICAxMTM2fCAgICAgICAgMS4xM3wgICAgICA3NS43OHxcbnwgICAgICAgICAgfCAgICAgICB8MSAgICAgICAgICAgfCAgMTg3fCAgICAxMzIzfCAgICAgICAxMi40N3wgICAgICA4OC4yNnxcbnwgICAgICAgICAgfCAgICAgICB8TkEgICAgICAgICAgfCAgIDI0fCAgICAxMzQ3fCAgICAgICAgMS42MHwgICAgICA4OS44NnxcbnwgICAgICAgICAgfEZlbWFsZSB8MCAgICAgICAgICAgfCAgIDE0fCAgICAxMzYxfCAgICAgICAgMC45M3wgICAgICA5MC43OXxcbnwgICAgICAgICAgfCAgICAgICB8MSAgICAgICAgICAgfCAgMTIxfCAgICAxNDgyfCAgICAgICAgOC4wN3wgICAgICA5OC44N3xcbnwgICAgICAgICAgfCAgICAgICB8TkEgICAgICAgICAgfCAgIDE3fCAgICAxNDk5fCAgICAgICAgMS4xM3wgICAgIDEwMC4wMHxcbiJ9 -->
 <pre><code>
 
@@ -3915,13 +3587,17 @@ summary(withnames)</code></pre>
 <div id="arsenalmodelsum" class="section level5">
 <h5><span class="header-section-number">0.2.4.3.4</span> - arsenal::modelsum</h5>
 <p><a href="https://cran.r-project.org/web/packages/arsenal/vignettes/modelsum.html" class="uri">https://cran.r-project.org/web/packages/arsenal/vignettes/modelsum.html</a></p>
+</div>
+</div>
+<div id="desctable" class="section level4">
+<h4><span class="header-section-number">0.2.4.4</span> - desctable</h4>
+<p><a href="https://cran.r-project.org/web/packages/desctable/vignettes/desctable.html" class="uri">https://cran.r-project.org/web/packages/desctable/vignettes/desctable.html</a></p>
 <!-- rnb-text-end -->
 </div>
 </div>
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKLSBmaW5hbGZpdAoKCmh0dHA6Ly93d3cuZGF0YXN1cmcubmV0LzIwMTgvMDcvMTIvZmluYWxmaXQtbm93LWluY2x1ZGVzLWJvb3RzdHJhcC1zaW11bGF0aW9uLWZvci1tb2RlbC1wcmVkaWN0aW9uLwoKLSAKCmh0dHBzOi8va2Jyb21hbi5vcmcva25pdHJfa251dHNoZWxsL3BhZ2VzL2ZpZ3NfdGFibGVzLmh0bWwKCiMjIFRhYmxlcwoKYGBge3J9CmxpYnJhcnkoeHRhYmxlKQp4dGFibGUoQk1UKQpgYGAKCgpgYGB7cn0KbGlicmFyeShrYWJsZUV4dHJhKQprYWJsZShCTVQpCmBgYAoKCmBgYHtyIGRpc3BsYXkgcmVzdWx0cyBhcyB0YWJsZX0KCnJlcXVpcmUocmhhbmRzb250YWJsZSkKcmhhbmRzb250YWJsZShCTVQpCgpgYGAKCiMjIHR0dGFibGUKCmh0dHBzOi8vZ2l0aHViLmNvbS9sZWVwZXIvdHR0YWJsZQoKCgoKCgoKIyMjIC0gcmVuZGVyZXJzCgojIyMjICAtIHh0YWJsZQoKaHR0cHM6Ly9yZHJyLmlvL2NyYW4veHRhYmxlL21hbi94dGFibGUuaHRtbAoKCgoKCgoKCgoKIyMjIyAgLSBmbGV4dGFibGUKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9mbGV4dGFibGUvdmlnbmV0dGVzL292ZXJ2aWV3Lmh0bWwKCmBgYHtyfQpsaWJyYXJ5KGZsZXh0YWJsZSkKbGlicmFyeShvZmZpY2VyKQpgYGAKCmBgYHtyfQpkYXRhIDwtIGlyaXNbYygxOjMsIDUxOjUzLCAxMDE6MTA0KSxdCgpkYXRhCgpgYGAKCgpgYGB7cn0KZmxleHRhYmxlOjpyZWd1bGFydGFibGUoZGF0YSkKCmBgYAoKYGBge3J9Cm15ZnQgPC0gcmVndWxhcnRhYmxlKAogIGhlYWQobXRjYXJzKSwgCiAgY29sX2tleXMgPSBjKCJhbSIsICJjYXJiIiwgImdlYXIiLCAibXBnIiwgImRyYXQiICkpCm15ZnQKYGBgCgpgYGB7cn0KbXlmdCA8LSB0aGVtZV92YW5pbGxhKG15ZnQpCm15ZnQKYGBgCgpgYGB7cn0KbXlmdCA8LSBtZXJnZV92KG15ZnQsIGogPSBjKCJhbSIsICJjYXJiIikgKQpteWZ0CmBgYAoKYGBge3J9Cm15ZnQgPC0gc2V0X2hlYWRlcl9sYWJlbHMoIG15ZnQsIGNhcmIgPSAiIyBjYXJiLiIgKQpteWZ0IDwtIHdpZHRoKG15ZnQsIHdpZHRoID0gLjc1KSAjIHNldCB3aWR0aCBvZiBhbGwgY29sdW1ucyB0byAuNzUgaW4KbXlmdApgYGAKCmBgYHtyfQpteWZ0IDwtIGF1dG9maXQobXlmdCkKbXlmdApgYGAKCmBgYHtyfQpteWZ0IDwtIGl0YWxpYyhteWZ0LCBqID0gMSkKbXlmdCA8LSBiZyhteWZ0LCBiZyA9ICIjQzkwMDAwIiwgcGFydCA9ICJoZWFkZXIiKQpteWZ0IDwtIGNvbG9yKG15ZnQsIGNvbG9yID0gIndoaXRlIiwgcGFydCA9ICJoZWFkZXIiKQpteWZ0CmBgYAoKCmBgYHtyfQpteWZ0IDwtIGNvbG9yKG15ZnQsIH4gZHJhdCA+IDMuNSwgfiBkcmF0LCBjb2xvciA9ICJyZWQiKQpteWZ0IDwtIGJvbGQobXlmdCwgfiBkcmF0ID4gMy41LCB+IGRyYXQsIGJvbGQgPSBUUlVFKQpteWZ0IDwtIGF1dG9maXQobXlmdCkKCm15ZnQKYGBgCgpgYGB7cn0KbGlicmFyeShvZmZpY2VyKQoKCmZ0IDwtIHJlZ3VsYXJ0YWJsZShoZWFkKG10Y2FycykpCmZ0IDwtIHRoZW1lX2Jvb2t0YWJzKGZ0KQpmdCA8LSBhdXRvZml0KGZ0KQoKcHB0IDwtIHJlYWRfcHB0eCgpCnBwdCA8LSBhZGRfc2xpZGUocHB0LCBsYXlvdXQgPSAiVGl0bGUgYW5kIENvbnRlbnQiLCBtYXN0ZXIgPSAiT2ZmaWNlIFRoZW1lIikKcHB0IDwtIHBoX3dpdGhfZmxleHRhYmxlKHBwdCwgdmFsdWUgPSBmdCwgdHlwZSA9ICJib2R5IikgCgpwcmludChwcHQsIHRhcmdldCA9ICJvdXRwdXQvZXhhbXBsZS5wcHR4IikKCiMgaHR0cHM6Ly92aWV3Lm9mZmljZWFwcHMubGl2ZS5jb20vb3Avdmlldy5hc3B4P3NyYz1odHRwczovL2RhdmlkZ29oZWwuZ2l0aHViLmlvL2ZsZXh0YWJsZS9hcnRpY2xlcy9hc3NldHMvcHB0eC9leGFtcGxlLnBwdHgKCmBgYAoKCgoKCmBgYHtyfQpkb2MgPC0gcmVhZF9kb2N4KCkKZG9jIDwtIGJvZHlfYWRkX2ZsZXh0YWJsZShkb2MsIHZhbHVlID0gZnQpCnByaW50KGRvYywgdGFyZ2V0ID0gIm91dHB1dC9leGFtcGxlLmRvY3giKQpgYGAKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgojIyMjICAtIGtuaXRyOjprYWJsZSgpCgoKIyMjIyAgLSBmb3JtYXR0dGFibGUKCmBgYHtyfQpsaWJyYXJ5KGZvcm1hdHRhYmxlKQoKcCA8LSBwZXJjZW50KGMoMC4xLCAwLjAyLCAwLjAzLCAwLjEyKSkKcApwICsgMC4wNQptYXgocCkKCmBgYAoKYGBge3J9CmJhbGFuY2UgPC0gYWNjb3VudGluZyhjKDEwMDAsIDUwMCwgMjAwLCAtMTUwLCAwLCAxMjAwKSkKYmFsYW5jZQoKYmFsYW5jZSArIDEwMDAKCmBgYAoKCmBgYHtyfQpwIDwtIGRhdGEuZnJhbWUoCiAgaWQgPSBjKDEsIDIsIDMsIDQsIDUpLCAKICBuYW1lID0gYygiQTEiLCAiQTIiLCAiQjEiLCAiQjIiLCAiQzEiKSwKICBiYWxhbmNlID0gYWNjb3VudGluZyhjKDUyNTAwLCAzNjE1MCwgMjUwMDAsIDE4MzAwLCA3NjAwKSwgZm9ybWF0ID0gImQiKSwKICBncm93dGggPSBwZXJjZW50KGMoMC4zLCAwLjMsIDAuMSwgMC4xNSwgMC4xNSksIGZvcm1hdCA9ICJkIiksCiAgcmVhZHkgPSBmb3JtYXR0YWJsZShjKFRSVUUsIFRSVUUsIEZBTFNFLCBGQUxTRSwgVFJVRSksICJ5ZXMiLCAibm8iKSkKcApwcmludC5Bc0lzKHApCmBgYAoKYGBge3J9CmRmIDwtIGRhdGEuZnJhbWUoCiAgaWQgPSAxOjEwLAogIG5hbWUgPSBjKCJCb2IiLCAiQXNobGV5IiwgIkphbWVzIiwgIkRhdmlkIiwgIkplbm55IiwgCiAgICAiSGFucyIsICJMZW8iLCAiSm9obiIsICJFbWlseSIsICJMZWUiKSwgCiAgYWdlID0gYygyOCwgMjcsIDMwLCAyOCwgMjksIDI5LCAyNywgMjcsIDMxLCAzMCksCiAgZ3JhZGUgPSBjKCJDIiwgIkEiLCAiQSIsICJDIiwgIkIiLCAiQiIsICJCIiwgIkEiLCAiQyIsICJDIiksCiAgdGVzdDFfc2NvcmUgPSBjKDguOSwgOS41LCA5LjYsIDguOSwgOS4xLCA5LjMsIDkuMywgOS45LCA4LjUsIDguNiksCiAgdGVzdDJfc2NvcmUgPSBjKDkuMSwgOS4xLCA5LjIsIDkuMSwgOC45LCA4LjUsIDkuMiwgOS4zLCA5LjEsIDguOCksCiAgZmluYWxfc2NvcmUgPSBjKDksIDkuMywgOS40LCA5LCA5LCA4LjksIDkuMjUsIDkuNiwgOC44LCA4LjcpLAogIHJlZ2lzdGVyZWQgPSBjKFRSVUUsIEZBTFNFLCBUUlVFLCBGQUxTRSwgVFJVRSwgVFJVRSwgVFJVRSwgRkFMU0UsIEZBTFNFLCBGQUxTRSksCiAgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFKQpgYGAKCgoKCgoKCgoKYGBge3J9CgoKbGlicmFyeShmb3JtYXR0YWJsZSkKCmZvcm1hdHRhYmxlKGRmLCBsaXN0KAogIGFnZSA9IGNvbG9yX3RpbGUoIndoaXRlIiwgIm9yYW5nZSIpLAogIGdyYWRlID0gZm9ybWF0dGVyKCJzcGFuIiwgc3R5bGUgPSB4IH4gaWZlbHNlKHggPT0gIkEiLCAKICAgIHN0eWxlKGNvbG9yID0gImdyZWVuIiwgZm9udC53ZWlnaHQgPSAiYm9sZCIpLCBOQSkpLAogIGFyZWEoY29sID0gYyh0ZXN0MV9zY29yZSwgdGVzdDJfc2NvcmUpKSB+IG5vcm1hbGl6ZV9iYXIoInBpbmsiLCAwLjIpLAogIGZpbmFsX3Njb3JlID0gZm9ybWF0dGVyKCJzcGFuIiwKICAgIHN0eWxlID0geCB+IHN0eWxlKGNvbG9yID0gaWZlbHNlKHJhbmsoLXgpIDw9IDMsICJncmVlbiIsICJncmF5IikpLAogICAgeCB+IHNwcmludGYoIiUuMmYgKHJhbms6ICUwMmQpIiwgeCwgcmFuaygteCkpKSwKICByZWdpc3RlcmVkID0gZm9ybWF0dGVyKCJzcGFuIiwKICAgIHN0eWxlID0geCB+IHN0eWxlKGNvbG9yID0gaWZlbHNlKHgsICJncmVlbiIsICJyZWQiKSksCiAgICB4IH4gaWNvbnRleHQoaWZlbHNlKHgsICJvayIsICJyZW1vdmUiKSwgaWZlbHNlKHgsICJZZXMiLCAiTm8iKSkpCikpCmBgYAoKCgojIyMjICAtIGtuaXRMYXRleAoKCgojIyMjICAtIGh0bWxUYWJsZQoKCiMjIyMgIC0gcHN5dGFicwoKCiMjIyMgIC0gU29ydGFibGVIVE1MVGFibGVzCgoKIyMjIyAgLSB0YWJsYXhsc3gKCgojIyMjICAtIHRhYmxlMXhscwoKCiMjIyMgIC0gdGFibGVIVE1MCgoKIyMjIyAgLSBUYWJsZU1vbnN0ZXIKCgojIyMjICAtIHRleHJlZwoKCiMjIyMgIC0genRhYmxlCgoKIyMjIyAgLSBhcGFTdHlsZQoKCiMjIyMgIC0gYXBhVGFibGVzCgoKIyMjIyAgLSBhcHNydGFibGUKCgojIyMjICAtIERUCgojIyMgLSBoaWdoZXItbGV2ZWwgZnVuY3Rpb25hbGl0eQoKIyMjIyAtIGZpbmFsZml0CgoKCgpodHRwczovL2dpdGh1Yi5jb20vZXdlbmhhcnJpc29uL2ZpbmFsZml0CgpodHRwOi8vd3d3LmRhdGFzdXJnLm5ldC8yMDE4LzA1LzE2L2VsZWdhbnQtcmVncmVzc2lvbi1yZXN1bHRzLXRhYmxlcy1hbmQtcGxvdHMtdGhlLWZpbmFsZml0LXBhY2thZ2UvCgoKYGBge3J9CiMgZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJld2VuaGFycmlzb24vZmluYWxmaXQiKQojIGluc3RhbGwucGFja2FnZXMoInJzdGFuIikKIyBpbnN0YWxsLnBhY2thZ2VzKCJib290IikKCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KGZpbmFsZml0KQpsaWJyYXJ5KHJzdGFuKQpsaWJyYXJ5KGJvb3QpCgpgYGAKCgoKCmBgYHtyfQojIExvYWQgZXhhbXBsZSBkYXRhc2V0LCBtb2RpZmllZCB2ZXJzaW9uIG9mIHN1cnZpdmFsOjpjb2xvbgpkYXRhKGNvbG9uX3MpCgoKCmNvbG9uX3MyJGFnZSA8LSBhcy5udW1lcmljKGNvbG9uX3MkYWdlKQpjb2xvbl9zMiRhZ2UuZmFjdG9yIDwtIGFzX2ZhY3Rvcihjb2xvbl9zJGFnZS5mYWN0b3IpCmNvbG9uX3MyJHNleC5mYWN0b3IgPC0gYXNfZmFjdG9yKGNvbG9uX3Mkc2V4LmZhY3RvcikKY29sb25fczIkb2JzdHJ1Y3QuZmFjdG9yIDwtIGFzX2ZhY3Rvcihjb2xvbl9zJG9ic3RydWN0LmZhY3RvcikKY29sb25fczIkcGVyZm9yLmZhY3RvciA8LSBhc19mYWN0b3IoY29sb25fcyRwZXJmb3IuZmFjdG9yKQpjb2xvbl9zMiRtb3J0XzV5ciA8LSBhc19mYWN0b3IoY29sb25fcyRtb3J0XzV5cikKY29sb25fczIkaG9zcGl0YWwgPC0gYXNfZmFjdG9yKGNvbG9uX3MkaG9zcGl0YWwpCmNvbG9uX3MyJHN0YXR1cyA8LSBhcy5udW1lcmljKGNvbG9uX3Mkc3RhdHVzKQpjb2xvbl9zMiR0aW1lIDwtIGFzLm51bWVyaWMoY29sb25fcyR0aW1lKQpjb2xvbl9zMgoKCmBgYAoKCmBgYHtyfQojIFRhYmxlIDEgLSBQYXRpZW50IGRlbW9ncmFwaGljcyBieSB2YXJpYWJsZSBvZiBpbnRlcmVzdCAtLS0tCmV4cGxhbmF0b3J5ID0gYygiYWdlIiwgImFnZS5mYWN0b3IiLCAKICAic2V4LmZhY3RvciIsICJvYnN0cnVjdC5mYWN0b3IiKQpkZXBlbmRlbnQgPSAicGVyZm9yLmZhY3RvciIgIyBCb3dlbCBwZXJmb3JhdGlvbgp0YWJsZSA8LSBjb2xvbl9zMiAlPiUKICBzdW1tYXJ5X2ZhY3Rvcmxpc3QoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwKICBwPVRSVUUsIGFkZF9kZXBlbmRlbnRfbGFiZWw9VFJVRSwgdG90YWxfY29sID0gVFJVRSkKCnByaW50LkFzSXModGFibGUpCgoKCmBgYAoKCgoKYGBge3J9CiMgVGFibGUgMiAtIDUgeXIgbW9ydGFsaXR5IC0tLS0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgCiAgInNleC5mYWN0b3IiLAogICJvYnN0cnVjdC5mYWN0b3IiKQpkZXBlbmRlbnQgPSAnbW9ydF81eXInCnRhYmxlIDwtIGNvbG9uX3MgJT4lCiAgc3VtbWFyeV9mYWN0b3JsaXN0KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIAogIHA9VFJVRSwgYWRkX2RlcGVuZGVudF9sYWJlbD1UUlVFKQoKcHJpbnQuQXNJcyh0YWJsZSkKCmBgYAoKCgoKYGBge3IgcmVzdWx0cz0nYXNpcyd9CmtuaXRyOjprYWJsZSh0YWJsZSwgcm93Lm5hbWVzPUZBTFNFLCAKICAgIGFsaWduPWMoImwiLCAibCIsICJyIiwgInIiLCAiciIsICJyIikpCmBgYAoKCgpgYGB7cn0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpkZXBlbmRlbnQgPSAnbW9ydF81eXInCnRhYmxlX3N1cnYgPC0gY29sb25fczIgJT4lCiAgZmluYWxmaXQoZGVwZW5kZW50LCBleHBsYW5hdG9yeSkKYGBgCgoKCgpgYGB7ciByZXN1bHRzPSdhc2lzJ30Ka25pdHI6OmthYmxlKHRhYmxlX3N1cnYsIHJvdy5uYW1lcyA9IEZBTFNFLCAKICAgIGFsaWduID0gYygibCIsICJsIiwgInIiLCAiciIsICJyIiwgInIiKSkKYGBgCgoKYGBge3J9CmV4cGxhbmF0b3J5ID0gYygiYWdlLmZhY3RvciIsICJzZXguZmFjdG9yIiwgCiAgIm9ic3RydWN0LmZhY3RvciIsICJwZXJmb3IuZmFjdG9yIikKZXhwbGFuYXRvcnlfbXVsdGkgPSBjKCJhZ2UuZmFjdG9yIiwgCiAgIm9ic3RydWN0LmZhY3RvciIpCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKY29sb25fczIgJT4lCiAgZmluYWxmaXQoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgCiAgZXhwbGFuYXRvcnlfbXVsdGkpCmBgYAoKCgoKYGBge3J9CmV4cGxhbmF0b3J5ID0gYygiYWdlLmZhY3RvciIsICJzZXguZmFjdG9yIiwgCiAgIm9ic3RydWN0LmZhY3RvciIsICJwZXJmb3IuZmFjdG9yIikKZXhwbGFuYXRvcnlfbXVsdGkgPSBjKCJhZ2UuZmFjdG9yIiwgIm9ic3RydWN0LmZhY3RvciIpCnJhbmRvbV9lZmZlY3QgPSAiaG9zcGl0YWwiCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKY29sb25fczIgJT4lCiAgZmluYWxmaXQoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgCiAgZXhwbGFuYXRvcnlfbXVsdGksIHJhbmRvbV9lZmZlY3QpCmBgYAoKCgoKYGBge3J9CgpleHBsYW5hdG9yeSA9IGMoImFnZS5mYWN0b3IiLCAic2V4LmZhY3RvciIsIAoib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpkZXBlbmRlbnQgPSAiU3Vydih0aW1lLCBzdGF0dXMpIgpjb2xvbl9zMiAlPiUKICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5KQpgYGAKCgoKCgpgYGB7cn0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpkZXBlbmRlbnQgPSAnbW9ydF81eXInCnRhYmxlNyA8LSBjb2xvbl9zMiAlPiUKICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCAKICBtZXRyaWNzPVRSVUUpCmBgYAoKCgoKCmBgYHtyLCBlY2hvPUZBTFNFLCByZXN1bHRzPSJhc2lzIn0Ka25pdHI6OmthYmxlKHRhYmxlN1tbMV1dLCByb3cubmFtZXM9RkFMU0UsIGFsaWduPWMoImwiLCAibCIsICJyIiwgInIiLCAiciIpKQprbml0cjo6a2FibGUodGFibGU3W1syXV0sIHJvdy5uYW1lcz1GQUxTRSkKYGBgCgoKCgoKYGBge3J9CmV4cGxhbmF0b3J5ID0gYygiYWdlLmZhY3RvciIsICJzZXguZmFjdG9yIiwgCiAgIm9ic3RydWN0LmZhY3RvciIsICJwZXJmb3IuZmFjdG9yIikKZXhwbGFuYXRvcnlfbXVsdGkgPSBjKCJhZ2UuZmFjdG9yIiwgIm9ic3RydWN0LmZhY3RvciIpCnJhbmRvbV9lZmZlY3QgPSAiaG9zcGl0YWwiCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKCiMgU2VwYXJhdGUgdGFibGVzCmNvbG9uX3MyICU+JQogIHN1bW1hcnlfZmFjdG9ybGlzdChkZXBlbmRlbnQsIAogIGV4cGxhbmF0b3J5LCBmaXRfaWQ9VFJVRSkgLT4gZXhhbXBsZS5zdW1tYXJ5Cgpjb2xvbl9zMiAlPiUKICBnbG11bmkoZGVwZW5kZW50LCBleHBsYW5hdG9yeSkgJT4lCiAgZml0MmRmKGVzdGltYXRlX3N1ZmZpeD0iICh1bml2YXJpYWJsZSkiKSAtPiBleGFtcGxlLnVuaXZhcmlhYmxlCgpjb2xvbl9zMiAlPiUKICBnbG1tdWx0aShkZXBlbmRlbnQsIGV4cGxhbmF0b3J5KSAlPiUKICBmaXQyZGYoZXN0aW1hdGVfc3VmZml4PSIgKG11bHRpdmFyaWFibGUpIikgLT4gZXhhbXBsZS5tdWx0aXZhcmlhYmxlCgpjb2xvbl9zMiAlPiUKICBnbG1taXhlZChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCByYW5kb21fZWZmZWN0KSAlPiUKICBmaXQyZGYoZXN0aW1hdGVfc3VmZml4PSIgKG11bHRpbGV2ZWwpIikgLT4gZXhhbXBsZS5tdWx0aWxldmVsCgojIFBpcGUgdG9nZXRoZXIKZXhhbXBsZS5zdW1tYXJ5ICU+JQogIGZpbmFsZml0X21lcmdlKGV4YW1wbGUudW5pdmFyaWFibGUpICU+JQogIGZpbmFsZml0X21lcmdlKGV4YW1wbGUubXVsdGl2YXJpYWJsZSkgJT4lCiAgZmluYWxmaXRfbWVyZ2UoZXhhbXBsZS5tdWx0aWxldmVsKSAlPiUKICBzZWxlY3QoLWMoZml0X2lkLCBpbmRleCkpICU+JSAjIHJlbW92ZSB1bm5lY2Vzc2FyeSBjb2x1bW5zCiAgZGVwZW5kZW50X2xhYmVsKGNvbG9uX3MyLCBkZXBlbmRlbnQsIHByZWZpeD0iIikgIyBwbGFjZSBkZXBlbmRlbnQgdmFyaWFibGUgbGFiZWwKYGBgCgoKCgoKCgpgYGB7ciBmaWcuaGVpZ2h0PTUsIGZpZy53aWR0aD02fQojIE9SIHBsb3QKZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpkZXBlbmRlbnQgPSAnbW9ydF81eXInCmNvbG9uX3MyICU+JQogIG9yX3Bsb3QoZGVwZW5kZW50LCBleHBsYW5hdG9yeSkKIyBQcmV2aW91c2x5IGZpdHRlZCBtb2RlbHMgKGBnbG1tdWx0aSgpYCBvciAKIyBgZ2xtbWl4ZWQoKWApIGNhbiBiZSBwcm92aWRlZCBkaXJlY3RseSB0byBgZ2xtZml0YApgYGAKCgpgYGB7ciBmaWcuaGVpZ2h0PTUsIGZpZy53aWR0aD02fQojIEhSIHBsb3QKZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpkZXBlbmRlbnQgPSAiU3Vydih0aW1lLCBzdGF0dXMpIgpjb2xvbl9zMiAlPiUKICBocl9wbG90KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIGRlcGVuZGVudF9sYWJlbCA9ICJTdXJ2aXZhbCIpCiMgUHJldmlvdXNseSBmaXR0ZWQgbW9kZWxzIChgY294cGhtdWx0aWApIGNhbiBiZSBwcm92aWRlZCBkaXJlY3RseSB1c2luZyBgY294Zml0YApgYGAKCgpgYGB7cn0KIyBLTSBwbG90CmV4cGxhbmF0b3J5ID0gYygicGVyZm9yLmZhY3RvciIpCmRlcGVuZGVudCA9ICJTdXJ2KHRpbWUsIHN0YXR1cykiCgpwbG90S00gPC0gY29sb25fczIgJT4lCiAgc3Vydl9wbG90KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIAogIHhsYWIgPSAiVGltZSAoZGF5cykiLCBwdmFsID0gVFJVRSwgbGVnZW5kID0gIm5vbmUiKQoKcGxvdEtNCgpgYGAKCgoKCgoKCgoKCgoKCgoKCgoKCgojIyMjICAgLSBqYW5pdG9yCgoKIyMjIyAgIC0gaHV4dGFibGUKCmh0dHBzOi8vaHVnaGpvbmVzZC5naXRodWIuaW8vaHV4dGFibGUvZGVzaWduLXByaW5jaXBsZXMuaHRtbAoKCgojIyMjICAgLSB0YWJsZXMKCgojIyMjICAgLSBzdGFyZ2F6ZXIKCgojIyMjICAgLSBwaXhpZWR1c3QKCgojIyMjICAgLSByZXBvcnR0b29scwoKCiMjIyMgICAtIHJ0YWJsZQoKCiMjIyMgICAtIHN1bW1hcnl0b29scwoKCiMjIyMgICAtIHRhYgoKCiMjIyMgICAtIHRhYmxlb25lCgoKIyMjIyAgIC0gY2FycGVudGVyCgoKIyMjIyAgIC0gZHRhYmxlcwoKCiMjIyMgICAtIGV0YWJsZQoKIyMjIyAgIC0gdGFuZ3JhbQp0YW5ncmFtIChncmFtbWFyIG9mIHRhYmxlcykKCmh0dHBzOi8vZ2l0aHViLmNvbS9zcGdhcmJldC90YW5ncmFtCmh0dHA6Ly9odG1scHJldmlldy5naXRodWIuaW8vP2h0dHBzOi8vZ2l0aHViLmNvbS9zcGdhcmJldC90Zy9ibG9iL21hc3Rlci92aWduZXR0ZXMvZXhhbXBsZS5odG1sCgpodHRwczovL2dpdGh1Yi5jb20vc3BnYXJiZXQvdGFuZ3JhbS9pc3N1ZXMvMzYKCgo8IS0tIGxpYnJhcnkodGFuZ3JhbSkgLS0+CjwhLS0gbGlicmFyeShIbWlzYykgLS0+CjwhLS0gZ2V0SGRhdGEocGJjKSAtLT4KPCEtLSBWaWV3KHBiYykgLS0+CjwhLS0gdGFibGUgPC0gdGFuZ3JhbShkcnVnIH4gYmlsaSArIGFsYnVtaW4gKyBzdGFnZSArIHByb3RpbWUgKyBzZXggKyBhZ2UgKyBzcGlkZXJzLCBkYXRhID0gcGJjKSAtLT4KCjwhLS0gdGFibGUgLS0+CjwhLS0gaHRtbDUodGFibGUpIC0tPgo8IS0tIGxhdGV4KHRhYmxlKSAtLT4KPCEtLSBpbmRleCh0YWJsZSkgLS0+Cgo8IS0tIHdyaXRlKCAtLT4KPCEtLSBodG1sNSh0YW5ncmFtKCJkcnVnIH4gYmlsaVsyXSArIGFsYnVtaW4gKyBzdGFnZTo6Q2F0ZWdvcmljYWwgKyBwcm90aW1lICsgc2V4ICsgYWdlICsgc3BpZGVycyIsIHBiYywgbXNkPVRSVUUsIHF1YW50PXNlcSgwLCAxLCAwLjI1KSksIC0tPgo8IS0tICAgICAgIGZyYWdtZW50PVRSVUUsIGlubGluZT0iaG1pc2MuY3NzIiwgY2FwdGlvbiA9ICJIVE1MNSBUYWJsZSBIbWlzYyBTdHlsZSIsIGlkPSJ0YmwyIiksIC0tPgo8IS0tICJ0YW5ncmFtMS5odG1sIikgLS0+Cgo8IS0tIHdyaXRlKCAtLT4KPCEtLSBodG1sNSh0YW5ncmFtKCJkcnVnIH4gYmlsaVsyXSArIGFsYnVtaW4gKyBzdGFnZTo6Q2F0ZWdvcmljYWwgKyBwcm90aW1lICsgc2V4ICsgYWdlICsgc3BpZGVycyIsIHBiYyksIC0tPgo8IS0tICAgICAgIGZyYWdtZW50PVRSVUUsIGlubGluZT0ibmVqbS5jc3MiLCBjYXB0aW9uID0gIkhUTUw1IFRhYmxlIE5FSk0gU3R5bGUiLCBpZD0idGJsMyIpLCAtLT4KPCEtLSAidGFuZ3JhbV9uZWptLmh0bWwiKSAtLT4KCgo8IS0tIHRibCA8LSB0YW5ncmFtKCJkcnVnIH4gYmlsaVsyXSArIGFsYnVtaW4gKyBzdGFnZTo6Q2F0ZWdvcmljYWxbMV0gKyBwcm90aW1lICsgc2V4WzFdICsgYWdlICsgc3BpZGVyc1sxXSIsICAtLT4KPCEtLSAgICAgICAgICAgICAgICBkYXRhPXBiYywgLS0+CjwhLS0gICAgICAgICAgICAgICAgcGZvcm1hdCA9IDUpIC0tPgo8IS0tIHdyaXRlKGh0bWw1KHRibCwgLS0+CjwhLS0gICAgICAgZnJhZ21lbnQ9VFJVRSwgLS0+CjwhLS0gICAgICAgaW5saW5lPSJsYW5jZXQuY3NzIiwgLS0+CjwhLS0gICAgICAgY2FwdGlvbiA9ICJIVE1MNSBUYWJsZSBMYW5jZXQgU3R5bGUiLCBpZD0idGJsNCIgLS0+CjwhLS0gKSwgLS0+CjwhLS0gInRhbmdyYW1fbGFuY2V0Lmh0bWwiKSAtLT4KCjwhLS0gaW5kZXgodGFuZ3JhbSgiZHJ1ZyB+IGJpbGkgKyBhbGJ1bWluICsgc3RhZ2U6OkNhdGVnb3JpY2FsICsgcHJvdGltZSArIHNleCArIGFnZSArIHNwaWRlcnMiLCBwYmMpKVsxOjIwLF0gLS0+CgoKPCEtLSBsaWJyYXJ5KHJlYWR4bCkgLS0+CjwhLS0gTURMMzA3X0RhdGEgPC0gcmVhZF9leGNlbCgiTURMMzA3IC0gRGF0YS54bHN4IikgLS0+Cgo8IS0tIE1ETDMwN19EYXRhIDwtIGFzLmRhdGEuZnJhbWUoTURMMzA3X0RhdGEpIC0tPgoKPCEtLSBuYW1lcyhNREwzMDdfRGF0YSkgLS0+Cgo8IS0tIFZpZXcoTURMMzA3X0RhdGEpIC0tPgoKPCEtLSBNREwzMDdfRGF0YSRiaXlva2lteWFzYWxyZWt1cnJlbnMgPC0gYXMuZmFjdG9yKE1ETDMwN19EYXRhJGJpeW9raW15YXNhbHJla3VycmVucykgLS0+CjwhLS0gbGV2ZWxzKE1ETDMwN19EYXRhJGJpeW9raW15YXNhbHJla3VycmVucylbMV0gPC0gInlvayIgLS0+CjwhLS0gbGV2ZWxzKE1ETDMwN19EYXRhJGJpeW9raW15YXNhbHJla3VycmVucylbMl0gPC0gInZhciIgLS0+Cgo8IS0tIGNvbGxpc3QgPC0gYygiZ2xlYXNvbnNrb3IiLCAtLT4KPCEtLSAgICAgICAgICAgICAgICAgICJ0ZXJzaXllciIsIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgImtyaWJyaWZvcm0iLCAtLT4KPCEtLSAgICAgICAgICAgICAgICAgICJjZXJyYWhpc2luaXIiLCAtLT4KPCEtLSAgICAgICAgICAgICAgICAgICJla3N0YXByb3N0YXRpayIsIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgImxlbmZub2R1IiwgLS0+CjwhLS0gICAgICAgICAgICAgICAgICAic2VtaW5hbHZlemlrdWwiIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgKSAtLT4KCgo8IS0tIE1ETDMwN19EYXRhW2NvbGxpc3RdIDwtIGxhcHBseShNREwzMDdfRGF0YVtjb2xsaXN0XSwgYXMuZmFjdG9yKSAtLT4KCgo8IS0tIHRhYmxlIDwtIHRhbmdyYW0oYml5b2tpbXlhc2FscmVrdXJyZW5zIH4geWFzICsgLS0+CjwhLS0gICAgICAgICAgICAgICAgICBnbGVhc29uc2tvciArIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgdGVyc2l5ZXIgKyAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIGtyaWJyaWZvcm0gKyAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIGtyaWJyaWZvcm15dXpkZSArIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgY2VycmFoaXNpbmlyICsgLS0+CjwhLS0gICAgICAgICAgICAgICAgICBla3N0YXByb3N0YXRpayArIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgbGVuZm5vZHUgKyAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIHNlbWluYWx2ZXppa3VsICsgLS0+CjwhLS0gICAgICAgICAgICAgICAgICBiaXlva2lteWFzYWxyZWt1cnJlbnMsIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgZGF0YSA9IE1ETDMwN19EYXRhKSAtLT4KPCEtLSB0YWJsZSAtLT4KCgo8IS0tICMjIFNlbWlDb21wUmlza3MgLS0+Cgo8IS0tIGluc3RhbGwucGFja2FnZXMoIlNlbWlDb21wUmlza3MiKSAtLT4KPCEtLSBsaWJyYXJ5KFNlbWlDb21wUmlza3MpIC0tPgo8IS0tIGRhdGEoQk1UKSAtLT4KCjwhLS0gIyMgc21jdXJlIC0tPgoKPCEtLSBpbnN0YWxsLnBhY2thZ2VzKCJzbWN1cmUiKSAtLT4KPCEtLSBsaWJyYXJ5KHNtY3VyZSkgLS0+CjwhLS0gZGF0YShlMTY4NCkgLS0+CgoKCgojIyMgLSBwaXZvdHMKCgojIyMjICAgLSBycGl2b3R0dGFibGUKCiMjIyAtIG90aGVyCgoKIyMjIyAgIC0gZ3RhYmxlCgoKIyMjIyAtIHNqdGxtCmh0dHBzOi8vc3RyZW5nZWphY2tlLmdpdGh1Yi5pby9zalBsb3QvYXJ0aWNsZXMvc2p0bG0uaHRtbAoKCiMjIyMgLSBhcnNlbmFsCgp0byBjb21wYXJlIGRhdGEgZnJhbWVzOiBodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvYXJzZW5hbC92aWduZXR0ZXMvY29tcGFyZS5odG1sCgojIyMjIyAtIGFyc2VuYWw6OnBhaXJlZAoKc3VtbWFyeSBzdGF0aXN0aWNzIGZvciBhIHNldCBvZiB2YXJpYWJsZXMgcGFpcmVkIGFjcm9zcyB0d28gdGltZSBwb2ludHM6IAoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2Fyc2VuYWwvdmlnbmV0dGVzL3BhaXJlZC5odG1sCgoKYGBge3J9CmxpYnJhcnkoYXJzZW5hbCkKZGF0IDwtIGRhdGEuZnJhbWUoCiAgdHAgPSBwYXN0ZTAoIlRpbWUgUG9pbnQgIiwgYygxLCAyLCAxLCAyLCAxLCAyLCAxLCAyLCAxLCAyKSksCiAgaWQgPSBjKDEsIDEsIDIsIDIsIDMsIDMsIDQsIDQsIDUsIDYpLAogIENhdCA9IGMoIkEiLCAiQSIsICJBIiwgIkIiLCAiQiIsICJCIiwgIkIiLCAiQSIsIE5BLCAiQiIpLAogIEZhYyA9IGZhY3RvcihjKCJBIiwgIkIiLCAiQyIsICJBIiwgIkIiLCAiQyIsICJBIiwgIkIiLCAiQyIsICJBIikpLAogIE51bSA9IGMoMSwgMiwgMywgNCwgNCwgMywgMywgNCwgMCwgTkEpLAogIE9yZCA9IG9yZGVyZWQoYygiSSIsICJJSSIsICJJSSIsICJJSUkiLCAiSUlJIiwgIklJSSIsICJJIiwgIklJSSIsICJJSSIsICJJIikpLAogIExnbCA9IGMoVFJVRSwgVFJVRSwgRkFMU0UsIFRSVUUsIEZBTFNFLCBUUlVFLCBUUlVFLCBGQUxTRSwgRkFMU0UsIEZBTFNFKSwKICBEYXQgPSBhcy5EYXRlKCIyMDE4LTA1LTAxIikgKyBjKDEsIDEsIDIsIDIsIDMsIDQsIDUsIDYsIDMsIDQpLAogIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRQopCmBgYAoKYGBge3J9CmRhdApgYGAKCgpgYGB7ciwgaW5jbHVkZT1UUlVFLCBjb21tZW50PU5BLCBwcm9tcHQ9RkFMU0UsIGNhY2hlPUZBTFNFLCBlY2hvPVRSVUUsIHJlc3VsdHM9J2FzaXMnfQpwIDwtIHBhaXJlZCh0cCB+IENhdCArIEZhYyArIE51bSArIE9yZCArIExnbCArIERhdCwgZGF0YSA9IGRhdCwgaWQgPSBpZCwgc2lnbmVkLnJhbmsuZXhhY3QgPSBGQUxTRSkKc3VtbWFyeShwKQpgYGAKCgojIyMjIyAtIGFyc2VuYWw6OmZyZXFsaXN0CgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvYXJzZW5hbC92aWduZXR0ZXMvZnJlcWxpc3QuaHRtbAoKYGBge3J9CnJlcXVpcmUoYXJzZW5hbCkKYGBgCgoKYGBge3J9CiMgbG9hZCB0aGUgZGF0YQpkYXRhKG1vY2tzdHVkeSkKCiMgcmV0YWluIE5BcyB3aGVuIGNyZWF0aW5nIHRoZSB0YWJsZSB1c2luZyB0aGUgdXNlTkEgYXJndW1lbnQKdGFiLmV4IDwtIHRhYmxlKG1vY2tzdHVkeVssIGMoImFybSIsICJzZXgiLCAibWRxdWFsaXR5LnMiKV0sIHVzZU5BID0gImlmYW55IikKYGBgCgoKYGBge3J9CnRhYi5leApgYGAKCmBgYHtyfQpub2J5IDwtIGZyZXFsaXN0KHRhYi5leCkKCnN0cihub2J5KQpgYGAKCmBgYHtyfQojIHZpZXcgdGhlIGRhdGEgZnJhbWUgcG9ydGlvbiBvZiBmcmVxbGlzdCBvdXRwdXQKaGVhZChub2J5W1siZnJlcWxpc3QiXV0pICAjIyBvciB1c2UgYXMuZGF0YS5mcmFtZShub2J5KQpgYGAKCgpgYGB7cn0Kc3VtbWFyeShub2J5KQpgYGAKCgpzdW1tYXJ5KG5vYnksIHRpdGxlID0gIkJhc2ljIGZyZXFsaXN0IG91dHB1dCIpCgpzdW1tYXJ5KGZyZXFsaXN0KH4gYXJtICsgc2V4ICsgbWRxdWFsaXR5LnMsIGRhdGEgPSBtb2Nrc3R1ZHksIGFkZE5BID0gVFJVRSkpCgpzdW1tYXJ5KGZyZXFsaXN0KH5hcm0gKyBzZXggKyBhZGROQShtZHF1YWxpdHkucyksIGRhdGEgPSBtb2Nrc3R1ZHkpKQoKc3VtbWFyeShmcmVxbGlzdCh+YXJtICsgc2V4ICsgaW5jbHVkZU5BKG1kcXVhbGl0eS5zLCAiTWlzc2luZyIpLCBkYXRhID0gbW9ja3N0dWR5KSkKCmBgYAp3aXRobmFtZXMgPC0gZnJlcWxpc3QodGFiLmV4LCBsYWJlbFRyYW5zbGF0aW9ucyA9IGMoIlRyZWF0bWVudCBBcm0iLCAiR2VuZGVyIiwgIkxBU0EgUU9MIiksIGRpZ2l0cyA9IDApCnN1bW1hcnkod2l0aG5hbWVzKQpgYGAKCgoKIyMjIyMgLSBhcnNlbmFsOjp0YWJsZWJ5CgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvYXJzZW5hbC92aWduZXR0ZXMvdGFibGVieS5odG1sCgoKIyMjIyMgLSBhcnNlbmFsOjptb2RlbHN1bQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2Fyc2VuYWwvdmlnbmV0dGVzL21vZGVsc3VtLmh0bWwKCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKLSBmaW5hbGZpdAoKCmh0dHA6Ly93d3cuZGF0YXN1cmcubmV0LzIwMTgvMDcvMTIvZmluYWxmaXQtbm93LWluY2x1ZGVzLWJvb3RzdHJhcC1zaW11bGF0aW9uLWZvci1tb2RlbC1wcmVkaWN0aW9uLwoKLSAKCmh0dHBzOi8va2Jyb21hbi5vcmcva25pdHJfa251dHNoZWxsL3BhZ2VzL2ZpZ3NfdGFibGVzLmh0bWwKCiMjIFRhYmxlcwoKYGBge3J9CmxpYnJhcnkoeHRhYmxlKQp4dGFibGUoQk1UKQpgYGAKCgpgYGB7cn0KbGlicmFyeShrYWJsZUV4dHJhKQprYWJsZShCTVQpCmBgYAoKCmBgYHtyIGRpc3BsYXkgcmVzdWx0cyBhcyB0YWJsZX0KCnJlcXVpcmUocmhhbmRzb250YWJsZSkKcmhhbmRzb250YWJsZShCTVQpCgpgYGAKCiMjIHR0dGFibGUKCmh0dHBzOi8vZ2l0aHViLmNvbS9sZWVwZXIvdHR0YWJsZQoKCgoKCgoKIyMjIC0gcmVuZGVyZXJzCgojIyMjICAtIHh0YWJsZQoKaHR0cHM6Ly9yZHJyLmlvL2NyYW4veHRhYmxlL21hbi94dGFibGUuaHRtbAoKCgoKCgoKCgoKIyMjIyAgLSBmbGV4dGFibGUKCmh0dHBzOi8vZGF2aWRnb2hlbC5naXRodWIuaW8vZmxleHRhYmxlL2luZGV4Lmh0bWwKCmBgYHtyfQoKYGBgCgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2ZsZXh0YWJsZS92aWduZXR0ZXMvb3ZlcnZpZXcuaHRtbAoKYGBge3J9CmxpYnJhcnkoZmxleHRhYmxlKQpsaWJyYXJ5KG9mZmljZXIpCmBgYAoKYGBge3J9CmRhdGEgPC0gaXJpc1tjKDE6MywgNTE6NTMsIDEwMToxMDQpLF0KCmRhdGEKCmBgYAoKCmBgYHtyfQpmbGV4dGFibGU6OnJlZ3VsYXJ0YWJsZShkYXRhKQoKYGBgCgpgYGB7cn0KbXlmdCA8LSByZWd1bGFydGFibGUoCiAgaGVhZChtdGNhcnMpLCAKICBjb2xfa2V5cyA9IGMoImFtIiwgImNhcmIiLCAiZ2VhciIsICJtcGciLCAiZHJhdCIgKSkKbXlmdApgYGAKCmBgYHtyfQpteWZ0IDwtIHRoZW1lX3ZhbmlsbGEobXlmdCkKbXlmdApgYGAKCmBgYHtyfQpteWZ0IDwtIG1lcmdlX3YobXlmdCwgaiA9IGMoImFtIiwgImNhcmIiKSApCm15ZnQKYGBgCgpgYGB7cn0KbXlmdCA8LSBzZXRfaGVhZGVyX2xhYmVscyggbXlmdCwgY2FyYiA9ICIjIGNhcmIuIiApCm15ZnQgPC0gd2lkdGgobXlmdCwgd2lkdGggPSAuNzUpICMgc2V0IHdpZHRoIG9mIGFsbCBjb2x1bW5zIHRvIC43NSBpbgpteWZ0CmBgYAoKYGBge3J9Cm15ZnQgPC0gYXV0b2ZpdChteWZ0KQpteWZ0CmBgYAoKYGBge3J9Cm15ZnQgPC0gaXRhbGljKG15ZnQsIGogPSAxKQpteWZ0IDwtIGJnKG15ZnQsIGJnID0gIiNDOTAwMDAiLCBwYXJ0ID0gImhlYWRlciIpCm15ZnQgPC0gY29sb3IobXlmdCwgY29sb3IgPSAid2hpdGUiLCBwYXJ0ID0gImhlYWRlciIpCm15ZnQKYGBgCgoKYGBge3J9Cm15ZnQgPC0gY29sb3IobXlmdCwgfiBkcmF0ID4gMy41LCB+IGRyYXQsIGNvbG9yID0gInJlZCIpCm15ZnQgPC0gYm9sZChteWZ0LCB+IGRyYXQgPiAzLjUsIH4gZHJhdCwgYm9sZCA9IFRSVUUpCm15ZnQgPC0gYXV0b2ZpdChteWZ0KQoKbXlmdApgYGAKCmBgYHtyfQpsaWJyYXJ5KG9mZmljZXIpCgoKZnQgPC0gcmVndWxhcnRhYmxlKGhlYWQobXRjYXJzKSkKZnQgPC0gdGhlbWVfYm9va3RhYnMoZnQpCmZ0IDwtIGF1dG9maXQoZnQpCgpwcHQgPC0gcmVhZF9wcHR4KCkKcHB0IDwtIGFkZF9zbGlkZShwcHQsIGxheW91dCA9ICJUaXRsZSBhbmQgQ29udGVudCIsIG1hc3RlciA9ICJPZmZpY2UgVGhlbWUiKQpwcHQgPC0gcGhfd2l0aF9mbGV4dGFibGUocHB0LCB2YWx1ZSA9IGZ0LCB0eXBlID0gImJvZHkiKSAKCnByaW50KHBwdCwgdGFyZ2V0ID0gIm91dHB1dC9leGFtcGxlLnBwdHgiKQoKIyBodHRwczovL3ZpZXcub2ZmaWNlYXBwcy5saXZlLmNvbS9vcC92aWV3LmFzcHg/c3JjPWh0dHBzOi8vZGF2aWRnb2hlbC5naXRodWIuaW8vZmxleHRhYmxlL2FydGljbGVzL2Fzc2V0cy9wcHR4L2V4YW1wbGUucHB0eAoKYGBgCgoKCgoKYGBge3J9CmRvYyA8LSByZWFkX2RvY3goKQpkb2MgPC0gYm9keV9hZGRfZmxleHRhYmxlKGRvYywgdmFsdWUgPSBmdCkKcHJpbnQoZG9jLCB0YXJnZXQgPSAib3V0cHV0L2V4YW1wbGUuZG9jeCIpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCiMjIyMgIC0ga25pdHI6OmthYmxlKCkKCgojIyMjICAtIGZvcm1hdHR0YWJsZQoKYGBge3J9CmxpYnJhcnkoZm9ybWF0dGFibGUpCgpwIDwtIHBlcmNlbnQoYygwLjEsIDAuMDIsIDAuMDMsIDAuMTIpKQpwCnAgKyAwLjA1Cm1heChwKQoKYGBgCgpgYGB7cn0KYmFsYW5jZSA8LSBhY2NvdW50aW5nKGMoMTAwMCwgNTAwLCAyMDAsIC0xNTAsIDAsIDEyMDApKQpiYWxhbmNlCgpiYWxhbmNlICsgMTAwMAoKYGBgCgoKYGBge3J9CnAgPC0gZGF0YS5mcmFtZSgKICBpZCA9IGMoMSwgMiwgMywgNCwgNSksIAogIG5hbWUgPSBjKCJBMSIsICJBMiIsICJCMSIsICJCMiIsICJDMSIpLAogIGJhbGFuY2UgPSBhY2NvdW50aW5nKGMoNTI1MDAsIDM2MTUwLCAyNTAwMCwgMTgzMDAsIDc2MDApLCBmb3JtYXQgPSAiZCIpLAogIGdyb3d0aCA9IHBlcmNlbnQoYygwLjMsIDAuMywgMC4xLCAwLjE1LCAwLjE1KSwgZm9ybWF0ID0gImQiKSwKICByZWFkeSA9IGZvcm1hdHRhYmxlKGMoVFJVRSwgVFJVRSwgRkFMU0UsIEZBTFNFLCBUUlVFKSwgInllcyIsICJubyIpKQpwCnByaW50LkFzSXMocCkKYGBgCgpgYGB7cn0KZGYgPC0gZGF0YS5mcmFtZSgKICBpZCA9IDE6MTAsCiAgbmFtZSA9IGMoIkJvYiIsICJBc2hsZXkiLCAiSmFtZXMiLCAiRGF2aWQiLCAiSmVubnkiLCAKICAgICJIYW5zIiwgIkxlbyIsICJKb2huIiwgIkVtaWx5IiwgIkxlZSIpLCAKICBhZ2UgPSBjKDI4LCAyNywgMzAsIDI4LCAyOSwgMjksIDI3LCAyNywgMzEsIDMwKSwKICBncmFkZSA9IGMoIkMiLCAiQSIsICJBIiwgIkMiLCAiQiIsICJCIiwgIkIiLCAiQSIsICJDIiwgIkMiKSwKICB0ZXN0MV9zY29yZSA9IGMoOC45LCA5LjUsIDkuNiwgOC45LCA5LjEsIDkuMywgOS4zLCA5LjksIDguNSwgOC42KSwKICB0ZXN0Ml9zY29yZSA9IGMoOS4xLCA5LjEsIDkuMiwgOS4xLCA4LjksIDguNSwgOS4yLCA5LjMsIDkuMSwgOC44KSwKICBmaW5hbF9zY29yZSA9IGMoOSwgOS4zLCA5LjQsIDksIDksIDguOSwgOS4yNSwgOS42LCA4LjgsIDguNyksCiAgcmVnaXN0ZXJlZCA9IGMoVFJVRSwgRkFMU0UsIFRSVUUsIEZBTFNFLCBUUlVFLCBUUlVFLCBUUlVFLCBGQUxTRSwgRkFMU0UsIEZBTFNFKSwKICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpCmBgYAoKCgoKCgoKCgpgYGB7cn0KCgpsaWJyYXJ5KGZvcm1hdHRhYmxlKQoKZm9ybWF0dGFibGUoZGYsIGxpc3QoCiAgYWdlID0gY29sb3JfdGlsZSgid2hpdGUiLCAib3JhbmdlIiksCiAgZ3JhZGUgPSBmb3JtYXR0ZXIoInNwYW4iLCBzdHlsZSA9IHggfiBpZmVsc2UoeCA9PSAiQSIsIAogICAgc3R5bGUoY29sb3IgPSAiZ3JlZW4iLCBmb250LndlaWdodCA9ICJib2xkIiksIE5BKSksCiAgYXJlYShjb2wgPSBjKHRlc3QxX3Njb3JlLCB0ZXN0Ml9zY29yZSkpIH4gbm9ybWFsaXplX2JhcigicGluayIsIDAuMiksCiAgZmluYWxfc2NvcmUgPSBmb3JtYXR0ZXIoInNwYW4iLAogICAgc3R5bGUgPSB4IH4gc3R5bGUoY29sb3IgPSBpZmVsc2UocmFuaygteCkgPD0gMywgImdyZWVuIiwgImdyYXkiKSksCiAgICB4IH4gc3ByaW50ZigiJS4yZiAocmFuazogJTAyZCkiLCB4LCByYW5rKC14KSkpLAogIHJlZ2lzdGVyZWQgPSBmb3JtYXR0ZXIoInNwYW4iLAogICAgc3R5bGUgPSB4IH4gc3R5bGUoY29sb3IgPSBpZmVsc2UoeCwgImdyZWVuIiwgInJlZCIpKSwKICAgIHggfiBpY29udGV4dChpZmVsc2UoeCwgIm9rIiwgInJlbW92ZSIpLCBpZmVsc2UoeCwgIlllcyIsICJObyIpKSkKKSkKYGBgCgoKCiMjIyMgIC0ga25pdExhdGV4CgoKCiMjIyMgIC0gaHRtbFRhYmxlCgoKIyMjIyAgLSBwc3l0YWJzCgoKIyMjIyAgLSBTb3J0YWJsZUhUTUxUYWJsZXMKCgojIyMjICAtIHRhYmxheGxzeAoKCiMjIyMgIC0gdGFibGUxeGxzCgoKIyMjIyAgLSB0YWJsZUhUTUwKCgojIyMjICAtIFRhYmxlTW9uc3RlcgoKCiMjIyMgIC0gdGV4cmVnCgoKIyMjIyAgLSB6dGFibGUKCgojIyMjICAtIGFwYVN0eWxlCgoKIyMjIyAgLSBhcGFUYWJsZXMKCgojIyMjICAtIGFwc3J0YWJsZQoKCiMjIyMgIC0gRFQKCiMjIyAtIGhpZ2hlci1sZXZlbCBmdW5jdGlvbmFsaXR5CgojIyMjIC0gZmluYWxmaXQKCgoKCmh0dHBzOi8vZ2l0aHViLmNvbS9ld2VuaGFycmlzb24vZmluYWxmaXQKCmh0dHA6Ly93d3cuZGF0YXN1cmcubmV0LzIwMTgvMDUvMTYvZWxlZ2FudC1yZWdyZXNzaW9uLXJlc3VsdHMtdGFibGVzLWFuZC1wbG90cy10aGUtZmluYWxmaXQtcGFja2FnZS8KCgpgYGB7cn0KIyBkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoImV3ZW5oYXJyaXNvbi9maW5hbGZpdCIpCiMgaW5zdGFsbC5wYWNrYWdlcygicnN0YW4iKQojIGluc3RhbGwucGFja2FnZXMoImJvb3QiKQoKbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoZmluYWxmaXQpCmxpYnJhcnkocnN0YW4pCmxpYnJhcnkoYm9vdCkKCmBgYAoKCgoKYGBge3J9CiMgTG9hZCBleGFtcGxlIGRhdGFzZXQsIG1vZGlmaWVkIHZlcnNpb24gb2Ygc3Vydml2YWw6OmNvbG9uCmRhdGEoY29sb25fcykKCgoKY29sb25fczIkYWdlIDwtIGFzLm51bWVyaWMoY29sb25fcyRhZ2UpCmNvbG9uX3MyJGFnZS5mYWN0b3IgPC0gYXNfZmFjdG9yKGNvbG9uX3MkYWdlLmZhY3RvcikKY29sb25fczIkc2V4LmZhY3RvciA8LSBhc19mYWN0b3IoY29sb25fcyRzZXguZmFjdG9yKQpjb2xvbl9zMiRvYnN0cnVjdC5mYWN0b3IgPC0gYXNfZmFjdG9yKGNvbG9uX3Mkb2JzdHJ1Y3QuZmFjdG9yKQpjb2xvbl9zMiRwZXJmb3IuZmFjdG9yIDwtIGFzX2ZhY3Rvcihjb2xvbl9zJHBlcmZvci5mYWN0b3IpCmNvbG9uX3MyJG1vcnRfNXlyIDwtIGFzX2ZhY3Rvcihjb2xvbl9zJG1vcnRfNXlyKQpjb2xvbl9zMiRob3NwaXRhbCA8LSBhc19mYWN0b3IoY29sb25fcyRob3NwaXRhbCkKY29sb25fczIkc3RhdHVzIDwtIGFzLm51bWVyaWMoY29sb25fcyRzdGF0dXMpCmNvbG9uX3MyJHRpbWUgPC0gYXMubnVtZXJpYyhjb2xvbl9zJHRpbWUpCmNvbG9uX3MyCgoKYGBgCgoKYGBge3J9CiMgVGFibGUgMSAtIFBhdGllbnQgZGVtb2dyYXBoaWNzIGJ5IHZhcmlhYmxlIG9mIGludGVyZXN0IC0tLS0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UiLCAiYWdlLmZhY3RvciIsIAogICJzZXguZmFjdG9yIiwgIm9ic3RydWN0LmZhY3RvciIpCmRlcGVuZGVudCA9ICJwZXJmb3IuZmFjdG9yIiAjIEJvd2VsIHBlcmZvcmF0aW9uCnRhYmxlIDwtIGNvbG9uX3MyICU+JQogIHN1bW1hcnlfZmFjdG9ybGlzdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LAogIHA9VFJVRSwgYWRkX2RlcGVuZGVudF9sYWJlbD1UUlVFLCB0b3RhbF9jb2wgPSBUUlVFKQoKcHJpbnQuQXNJcyh0YWJsZSkKCgoKYGBgCgoKCgpgYGB7cn0KIyBUYWJsZSAyIC0gNSB5ciBtb3J0YWxpdHkgLS0tLQpleHBsYW5hdG9yeSA9IGMoImFnZS5mYWN0b3IiLCAKICAic2V4LmZhY3RvciIsCiAgIm9ic3RydWN0LmZhY3RvciIpCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKdGFibGUgPC0gY29sb25fcyAlPiUKICBzdW1tYXJ5X2ZhY3Rvcmxpc3QoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgCiAgcD1UUlVFLCBhZGRfZGVwZW5kZW50X2xhYmVsPVRSVUUpCgpwcmludC5Bc0lzKHRhYmxlKQoKYGBgCgoKCgpgYGB7ciByZXN1bHRzPSdhc2lzJ30Ka25pdHI6OmthYmxlKHRhYmxlLCByb3cubmFtZXM9RkFMU0UsIAogICAgYWxpZ249YygibCIsICJsIiwgInIiLCAiciIsICJyIiwgInIiKSkKYGBgCgoKCmBgYHtyfQpleHBsYW5hdG9yeSA9IGMoImFnZS5mYWN0b3IiLCAic2V4LmZhY3RvciIsIAogICJvYnN0cnVjdC5mYWN0b3IiLCAicGVyZm9yLmZhY3RvciIpCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKdGFibGVfc3VydiA8LSBjb2xvbl9zMiAlPiUKICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5KQpgYGAKCgoKCmBgYHtyIHJlc3VsdHM9J2FzaXMnfQprbml0cjo6a2FibGUodGFibGVfc3Vydiwgcm93Lm5hbWVzID0gRkFMU0UsIAogICAgYWxpZ24gPSBjKCJsIiwgImwiLCAiciIsICJyIiwgInIiLCAiciIpKQpgYGAKCgpgYGB7cn0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpleHBsYW5hdG9yeV9tdWx0aSA9IGMoImFnZS5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIikKZGVwZW5kZW50ID0gJ21vcnRfNXlyJwpjb2xvbl9zMiAlPiUKICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCAKICBleHBsYW5hdG9yeV9tdWx0aSkKYGBgCgoKCgpgYGB7cn0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpleHBsYW5hdG9yeV9tdWx0aSA9IGMoImFnZS5mYWN0b3IiLCAib2JzdHJ1Y3QuZmFjdG9yIikKcmFuZG9tX2VmZmVjdCA9ICJob3NwaXRhbCIKZGVwZW5kZW50ID0gJ21vcnRfNXlyJwpjb2xvbl9zMiAlPiUKICBmaW5hbGZpdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5LCAKICBleHBsYW5hdG9yeV9tdWx0aSwgcmFuZG9tX2VmZmVjdCkKYGBgCgoKCgpgYGB7cn0KCmV4cGxhbmF0b3J5ID0gYygiYWdlLmZhY3RvciIsICJzZXguZmFjdG9yIiwgCiJvYnN0cnVjdC5mYWN0b3IiLCAicGVyZm9yLmZhY3RvciIpCmRlcGVuZGVudCA9ICJTdXJ2KHRpbWUsIHN0YXR1cykiCmNvbG9uX3MyICU+JQogIGZpbmFsZml0KGRlcGVuZGVudCwgZXhwbGFuYXRvcnkpCmBgYAoKCgoKCmBgYHtyfQpleHBsYW5hdG9yeSA9IGMoImFnZS5mYWN0b3IiLCAic2V4LmZhY3RvciIsIAogICJvYnN0cnVjdC5mYWN0b3IiLCAicGVyZm9yLmZhY3RvciIpCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKdGFibGU3IDwtIGNvbG9uX3MyICU+JQogIGZpbmFsZml0KGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIAogIG1ldHJpY3M9VFJVRSkKYGBgCgoKCgoKYGBge3IsIGVjaG89RkFMU0UsIHJlc3VsdHM9ImFzaXMifQprbml0cjo6a2FibGUodGFibGU3W1sxXV0sIHJvdy5uYW1lcz1GQUxTRSwgYWxpZ249YygibCIsICJsIiwgInIiLCAiciIsICJyIikpCmtuaXRyOjprYWJsZSh0YWJsZTdbWzJdXSwgcm93Lm5hbWVzPUZBTFNFKQpgYGAKCgoKCgpgYGB7cn0KZXhwbGFuYXRvcnkgPSBjKCJhZ2UuZmFjdG9yIiwgInNleC5mYWN0b3IiLCAKICAib2JzdHJ1Y3QuZmFjdG9yIiwgInBlcmZvci5mYWN0b3IiKQpleHBsYW5hdG9yeV9tdWx0aSA9IGMoImFnZS5mYWN0b3IiLCAib2JzdHJ1Y3QuZmFjdG9yIikKcmFuZG9tX2VmZmVjdCA9ICJob3NwaXRhbCIKZGVwZW5kZW50ID0gJ21vcnRfNXlyJwoKIyBTZXBhcmF0ZSB0YWJsZXMKY29sb25fczIgJT4lCiAgc3VtbWFyeV9mYWN0b3JsaXN0KGRlcGVuZGVudCwgCiAgZXhwbGFuYXRvcnksIGZpdF9pZD1UUlVFKSAtPiBleGFtcGxlLnN1bW1hcnkKCmNvbG9uX3MyICU+JQogIGdsbXVuaShkZXBlbmRlbnQsIGV4cGxhbmF0b3J5KSAlPiUKICBmaXQyZGYoZXN0aW1hdGVfc3VmZml4PSIgKHVuaXZhcmlhYmxlKSIpIC0+IGV4YW1wbGUudW5pdmFyaWFibGUKCmNvbG9uX3MyICU+JQogIGdsbW11bHRpKGRlcGVuZGVudCwgZXhwbGFuYXRvcnkpICU+JQogIGZpdDJkZihlc3RpbWF0ZV9zdWZmaXg9IiAobXVsdGl2YXJpYWJsZSkiKSAtPiBleGFtcGxlLm11bHRpdmFyaWFibGUKCmNvbG9uX3MyICU+JQogIGdsbW1peGVkKGRlcGVuZGVudCwgZXhwbGFuYXRvcnksIHJhbmRvbV9lZmZlY3QpICU+JQogIGZpdDJkZihlc3RpbWF0ZV9zdWZmaXg9IiAobXVsdGlsZXZlbCkiKSAtPiBleGFtcGxlLm11bHRpbGV2ZWwKCiMgUGlwZSB0b2dldGhlcgpleGFtcGxlLnN1bW1hcnkgJT4lCiAgZmluYWxmaXRfbWVyZ2UoZXhhbXBsZS51bml2YXJpYWJsZSkgJT4lCiAgZmluYWxmaXRfbWVyZ2UoZXhhbXBsZS5tdWx0aXZhcmlhYmxlKSAlPiUKICBmaW5hbGZpdF9tZXJnZShleGFtcGxlLm11bHRpbGV2ZWwpICU+JQogIHNlbGVjdCgtYyhmaXRfaWQsIGluZGV4KSkgJT4lICMgcmVtb3ZlIHVubmVjZXNzYXJ5IGNvbHVtbnMKICBkZXBlbmRlbnRfbGFiZWwoY29sb25fczIsIGRlcGVuZGVudCwgcHJlZml4PSIiKSAjIHBsYWNlIGRlcGVuZGVudCB2YXJpYWJsZSBsYWJlbApgYGAKCgoKCgoKCmBgYHtyIGZpZy5oZWlnaHQ9NSwgZmlnLndpZHRoPTZ9CiMgT1IgcGxvdApleHBsYW5hdG9yeSA9IGMoImFnZS5mYWN0b3IiLCAic2V4LmZhY3RvciIsIAogICJvYnN0cnVjdC5mYWN0b3IiLCAicGVyZm9yLmZhY3RvciIpCmRlcGVuZGVudCA9ICdtb3J0XzV5cicKY29sb25fczIgJT4lCiAgb3JfcGxvdChkZXBlbmRlbnQsIGV4cGxhbmF0b3J5KQojIFByZXZpb3VzbHkgZml0dGVkIG1vZGVscyAoYGdsbW11bHRpKClgIG9yIAojIGBnbG1taXhlZCgpYCkgY2FuIGJlIHByb3ZpZGVkIGRpcmVjdGx5IHRvIGBnbG1maXRgCmBgYAoKCmBgYHtyIGZpZy5oZWlnaHQ9NSwgZmlnLndpZHRoPTZ9CiMgSFIgcGxvdApleHBsYW5hdG9yeSA9IGMoImFnZS5mYWN0b3IiLCAic2V4LmZhY3RvciIsIAogICJvYnN0cnVjdC5mYWN0b3IiLCAicGVyZm9yLmZhY3RvciIpCmRlcGVuZGVudCA9ICJTdXJ2KHRpbWUsIHN0YXR1cykiCmNvbG9uX3MyICU+JQogIGhyX3Bsb3QoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgZGVwZW5kZW50X2xhYmVsID0gIlN1cnZpdmFsIikKIyBQcmV2aW91c2x5IGZpdHRlZCBtb2RlbHMgKGBjb3hwaG11bHRpYCkgY2FuIGJlIHByb3ZpZGVkIGRpcmVjdGx5IHVzaW5nIGBjb3hmaXRgCmBgYAoKCmBgYHtyfQojIEtNIHBsb3QKZXhwbGFuYXRvcnkgPSBjKCJwZXJmb3IuZmFjdG9yIikKZGVwZW5kZW50ID0gIlN1cnYodGltZSwgc3RhdHVzKSIKCnBsb3RLTSA8LSBjb2xvbl9zMiAlPiUKICBzdXJ2X3Bsb3QoZGVwZW5kZW50LCBleHBsYW5hdG9yeSwgCiAgeGxhYiA9ICJUaW1lIChkYXlzKSIsIHB2YWwgPSBUUlVFLCBsZWdlbmQgPSAibm9uZSIpCgpwbG90S00KCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgoKCiMjIyMgICAtIGphbml0b3IKCgojIyMjICAgLSBodXh0YWJsZQoKaHR0cHM6Ly9odWdoam9uZXNkLmdpdGh1Yi5pby9odXh0YWJsZS9kZXNpZ24tcHJpbmNpcGxlcy5odG1sCgoKCiMjIyMgICAtIHRhYmxlcwoKCiMjIyMgICAtIHN0YXJnYXplcgoKCiMjIyMgICAtIHBpeGllZHVzdAoKcGl4aWVkdXN0OiBUYWJsZXMgc28gQmVhdXRpZnVsbHkgRmluZS1UdW5lZCBZb3UgV2lsbCBCZWxpZXZlIEl0J3MgTWFnaWMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9waXhpZWR1c3QvdmlnbmV0dGVzL3BpeGllZHVzdC5odG1sCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvcGl4aWVkdXN0L3ZpZ25ldHRlcy9hZHZhbmNlZE1hZ2ljLmh0bWwKCgoKCgoKIyMjIyAgIC0gcmVwb3J0dG9vbHMKCgojIyMjICAgLSBydGFibGUKCgojIyMjICAgLSBzdW1tYXJ5dG9vbHMKCgojIyMjICAgLSB0YWIKCgojIyMjICAgLSB0YWJsZW9uZQoKCiMjIyMgICAtIGNhcnBlbnRlcgoKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9jYXJwZW50ZXIvdmlnbmV0dGVzL2NhcnBlbnRlci5odG1sCgoKCiMjIyMgICAtIGR0YWJsZXMKCgojIyMjICAgLSBldGFibGUKCiMjIyMgICAtIHRhbmdyYW0KdGFuZ3JhbSAoZ3JhbW1hciBvZiB0YWJsZXMpCgpodHRwczovL2dpdGh1Yi5jb20vc3BnYXJiZXQvdGFuZ3JhbQpodHRwOi8vaHRtbHByZXZpZXcuZ2l0aHViLmlvLz9odHRwczovL2dpdGh1Yi5jb20vc3BnYXJiZXQvdGcvYmxvYi9tYXN0ZXIvdmlnbmV0dGVzL2V4YW1wbGUuaHRtbAoKaHR0cHM6Ly9naXRodWIuY29tL3NwZ2FyYmV0L3RhbmdyYW0vaXNzdWVzLzM2CgoKPCEtLSBsaWJyYXJ5KHRhbmdyYW0pIC0tPgo8IS0tIGxpYnJhcnkoSG1pc2MpIC0tPgo8IS0tIGdldEhkYXRhKHBiYykgLS0+CjwhLS0gVmlldyhwYmMpIC0tPgo8IS0tIHRhYmxlIDwtIHRhbmdyYW0oZHJ1ZyB+IGJpbGkgKyBhbGJ1bWluICsgc3RhZ2UgKyBwcm90aW1lICsgc2V4ICsgYWdlICsgc3BpZGVycywgZGF0YSA9IHBiYykgLS0+Cgo8IS0tIHRhYmxlIC0tPgo8IS0tIGh0bWw1KHRhYmxlKSAtLT4KPCEtLSBsYXRleCh0YWJsZSkgLS0+CjwhLS0gaW5kZXgodGFibGUpIC0tPgoKPCEtLSB3cml0ZSggLS0+CjwhLS0gaHRtbDUodGFuZ3JhbSgiZHJ1ZyB+IGJpbGlbMl0gKyBhbGJ1bWluICsgc3RhZ2U6OkNhdGVnb3JpY2FsICsgcHJvdGltZSArIHNleCArIGFnZSArIHNwaWRlcnMiLCBwYmMsIG1zZD1UUlVFLCBxdWFudD1zZXEoMCwgMSwgMC4yNSkpLCAtLT4KPCEtLSAgICAgICBmcmFnbWVudD1UUlVFLCBpbmxpbmU9ImhtaXNjLmNzcyIsIGNhcHRpb24gPSAiSFRNTDUgVGFibGUgSG1pc2MgU3R5bGUiLCBpZD0idGJsMiIpLCAtLT4KPCEtLSAidGFuZ3JhbTEuaHRtbCIpIC0tPgoKPCEtLSB3cml0ZSggLS0+CjwhLS0gaHRtbDUodGFuZ3JhbSgiZHJ1ZyB+IGJpbGlbMl0gKyBhbGJ1bWluICsgc3RhZ2U6OkNhdGVnb3JpY2FsICsgcHJvdGltZSArIHNleCArIGFnZSArIHNwaWRlcnMiLCBwYmMpLCAtLT4KPCEtLSAgICAgICBmcmFnbWVudD1UUlVFLCBpbmxpbmU9Im5lam0uY3NzIiwgY2FwdGlvbiA9ICJIVE1MNSBUYWJsZSBORUpNIFN0eWxlIiwgaWQ9InRibDMiKSwgLS0+CjwhLS0gInRhbmdyYW1fbmVqbS5odG1sIikgLS0+CgoKPCEtLSB0YmwgPC0gdGFuZ3JhbSgiZHJ1ZyB+IGJpbGlbMl0gKyBhbGJ1bWluICsgc3RhZ2U6OkNhdGVnb3JpY2FsWzFdICsgcHJvdGltZSArIHNleFsxXSArIGFnZSArIHNwaWRlcnNbMV0iLCAgLS0+CjwhLS0gICAgICAgICAgICAgICAgZGF0YT1wYmMsIC0tPgo8IS0tICAgICAgICAgICAgICAgIHBmb3JtYXQgPSA1KSAtLT4KPCEtLSB3cml0ZShodG1sNSh0YmwsIC0tPgo8IS0tICAgICAgIGZyYWdtZW50PVRSVUUsIC0tPgo8IS0tICAgICAgIGlubGluZT0ibGFuY2V0LmNzcyIsIC0tPgo8IS0tICAgICAgIGNhcHRpb24gPSAiSFRNTDUgVGFibGUgTGFuY2V0IFN0eWxlIiwgaWQ9InRibDQiIC0tPgo8IS0tICksIC0tPgo8IS0tICJ0YW5ncmFtX2xhbmNldC5odG1sIikgLS0+Cgo8IS0tIGluZGV4KHRhbmdyYW0oImRydWcgfiBiaWxpICsgYWxidW1pbiArIHN0YWdlOjpDYXRlZ29yaWNhbCArIHByb3RpbWUgKyBzZXggKyBhZ2UgKyBzcGlkZXJzIiwgcGJjKSlbMToyMCxdIC0tPgoKCjwhLS0gbGlicmFyeShyZWFkeGwpIC0tPgo8IS0tIE1ETDMwN19EYXRhIDwtIHJlYWRfZXhjZWwoIk1ETDMwNyAtIERhdGEueGxzeCIpIC0tPgoKPCEtLSBNREwzMDdfRGF0YSA8LSBhcy5kYXRhLmZyYW1lKE1ETDMwN19EYXRhKSAtLT4KCjwhLS0gbmFtZXMoTURMMzA3X0RhdGEpIC0tPgoKPCEtLSBWaWV3KE1ETDMwN19EYXRhKSAtLT4KCjwhLS0gTURMMzA3X0RhdGEkYml5b2tpbXlhc2FscmVrdXJyZW5zIDwtIGFzLmZhY3RvcihNREwzMDdfRGF0YSRiaXlva2lteWFzYWxyZWt1cnJlbnMpIC0tPgo8IS0tIGxldmVscyhNREwzMDdfRGF0YSRiaXlva2lteWFzYWxyZWt1cnJlbnMpWzFdIDwtICJ5b2siIC0tPgo8IS0tIGxldmVscyhNREwzMDdfRGF0YSRiaXlva2lteWFzYWxyZWt1cnJlbnMpWzJdIDwtICJ2YXIiIC0tPgoKPCEtLSBjb2xsaXN0IDwtIGMoImdsZWFzb25za29yIiwgLS0+CjwhLS0gICAgICAgICAgICAgICAgICAidGVyc2l5ZXIiLCAtLT4KPCEtLSAgICAgICAgICAgICAgICAgICJrcmlicmlmb3JtIiwgLS0+CjwhLS0gICAgICAgICAgICAgICAgICAiY2VycmFoaXNpbmlyIiwgLS0+CjwhLS0gICAgICAgICAgICAgICAgICAiZWtzdGFwcm9zdGF0aWsiLCAtLT4KPCEtLSAgICAgICAgICAgICAgICAgICJsZW5mbm9kdSIsIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgInNlbWluYWx2ZXppa3VsIiAtLT4KPCEtLSAgICAgICAgICAgICAgICAgICkgLS0+CgoKPCEtLSBNREwzMDdfRGF0YVtjb2xsaXN0XSA8LSBsYXBwbHkoTURMMzA3X0RhdGFbY29sbGlzdF0sIGFzLmZhY3RvcikgLS0+CgoKPCEtLSB0YWJsZSA8LSB0YW5ncmFtKGJpeW9raW15YXNhbHJla3VycmVucyB+IHlhcyArIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgZ2xlYXNvbnNrb3IgKyAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIHRlcnNpeWVyICsgLS0+CjwhLS0gICAgICAgICAgICAgICAgICBrcmlicmlmb3JtICsgLS0+CjwhLS0gICAgICAgICAgICAgICAgICBrcmlicmlmb3JteXV6ZGUgKyAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIGNlcnJhaGlzaW5pciArIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgZWtzdGFwcm9zdGF0aWsgKyAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIGxlbmZub2R1ICsgLS0+CjwhLS0gICAgICAgICAgICAgICAgICBzZW1pbmFsdmV6aWt1bCArIC0tPgo8IS0tICAgICAgICAgICAgICAgICAgYml5b2tpbXlhc2FscmVrdXJyZW5zLCAtLT4KPCEtLSAgICAgICAgICAgICAgICAgIGRhdGEgPSBNREwzMDdfRGF0YSkgLS0+CjwhLS0gdGFibGUgLS0+CgoKPCEtLSAjIyBTZW1pQ29tcFJpc2tzIC0tPgoKPCEtLSBpbnN0YWxsLnBhY2thZ2VzKCJTZW1pQ29tcFJpc2tzIikgLS0+CjwhLS0gbGlicmFyeShTZW1pQ29tcFJpc2tzKSAtLT4KPCEtLSBkYXRhKEJNVCkgLS0+Cgo8IS0tICMjIHNtY3VyZSAtLT4KCjwhLS0gaW5zdGFsbC5wYWNrYWdlcygic21jdXJlIikgLS0+CjwhLS0gbGlicmFyeShzbWN1cmUpIC0tPgo8IS0tIGRhdGEoZTE2ODQpIC0tPgoKCgoKIyMjIC0gcGl2b3RzCgoKIyMjIyAgIC0gcnBpdm90dHRhYmxlCgojIyMgLSBvdGhlcgoKCiMjIyMgICAtIGd0YWJsZQoKCiMjIyMgLSBzanRsbQpodHRwczovL3N0cmVuZ2VqYWNrZS5naXRodWIuaW8vc2pQbG90L2FydGljbGVzL3NqdGxtLmh0bWwKCgojIyMjIC0gYXJzZW5hbAoKdG8gY29tcGFyZSBkYXRhIGZyYW1lczogaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2Fyc2VuYWwvdmlnbmV0dGVzL2NvbXBhcmUuaHRtbAoKIyMjIyMgLSBhcnNlbmFsOjpwYWlyZWQKCnN1bW1hcnkgc3RhdGlzdGljcyBmb3IgYSBzZXQgb2YgdmFyaWFibGVzIHBhaXJlZCBhY3Jvc3MgdHdvIHRpbWUgcG9pbnRzOiAKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9hcnNlbmFsL3ZpZ25ldHRlcy9wYWlyZWQuaHRtbAoKCmBgYHtyfQpsaWJyYXJ5KGFyc2VuYWwpCmRhdCA8LSBkYXRhLmZyYW1lKAogIHRwID0gcGFzdGUwKCJUaW1lIFBvaW50ICIsIGMoMSwgMiwgMSwgMiwgMSwgMiwgMSwgMiwgMSwgMikpLAogIGlkID0gYygxLCAxLCAyLCAyLCAzLCAzLCA0LCA0LCA1LCA2KSwKICBDYXQgPSBjKCJBIiwgIkEiLCAiQSIsICJCIiwgIkIiLCAiQiIsICJCIiwgIkEiLCBOQSwgIkIiKSwKICBGYWMgPSBmYWN0b3IoYygiQSIsICJCIiwgIkMiLCAiQSIsICJCIiwgIkMiLCAiQSIsICJCIiwgIkMiLCAiQSIpKSwKICBOdW0gPSBjKDEsIDIsIDMsIDQsIDQsIDMsIDMsIDQsIDAsIE5BKSwKICBPcmQgPSBvcmRlcmVkKGMoIkkiLCAiSUkiLCAiSUkiLCAiSUlJIiwgIklJSSIsICJJSUkiLCAiSSIsICJJSUkiLCAiSUkiLCAiSSIpKSwKICBMZ2wgPSBjKFRSVUUsIFRSVUUsIEZBTFNFLCBUUlVFLCBGQUxTRSwgVFJVRSwgVFJVRSwgRkFMU0UsIEZBTFNFLCBGQUxTRSksCiAgRGF0ID0gYXMuRGF0ZSgiMjAxOC0wNS0wMSIpICsgYygxLCAxLCAyLCAyLCAzLCA0LCA1LCA2LCAzLCA0KSwKICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UKKQpgYGAKCmBgYHtyfQpkYXQKYGBgCgoKYGBge3IsIGluY2x1ZGU9VFJVRSwgY29tbWVudD1OQSwgcHJvbXB0PUZBTFNFLCBjYWNoZT1GQUxTRSwgZWNobz1UUlVFLCByZXN1bHRzPSdhc2lzJ30KcCA8LSBwYWlyZWQodHAgfiBDYXQgKyBGYWMgKyBOdW0gKyBPcmQgKyBMZ2wgKyBEYXQsIGRhdGEgPSBkYXQsIGlkID0gaWQsIHNpZ25lZC5yYW5rLmV4YWN0ID0gRkFMU0UpCnN1bW1hcnkocCkKYGBgCgoKIyMjIyMgLSBhcnNlbmFsOjpmcmVxbGlzdAoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2Fyc2VuYWwvdmlnbmV0dGVzL2ZyZXFsaXN0Lmh0bWwKCmBgYHtyfQpyZXF1aXJlKGFyc2VuYWwpCmBgYAoKCmBgYHtyfQojIGxvYWQgdGhlIGRhdGEKZGF0YShtb2Nrc3R1ZHkpCgojIHJldGFpbiBOQXMgd2hlbiBjcmVhdGluZyB0aGUgdGFibGUgdXNpbmcgdGhlIHVzZU5BIGFyZ3VtZW50CnRhYi5leCA8LSB0YWJsZShtb2Nrc3R1ZHlbLCBjKCJhcm0iLCAic2V4IiwgIm1kcXVhbGl0eS5zIildLCB1c2VOQSA9ICJpZmFueSIpCmBgYAoKCmBgYHtyfQp0YWIuZXgKYGBgCgpgYGB7cn0Kbm9ieSA8LSBmcmVxbGlzdCh0YWIuZXgpCgpzdHIobm9ieSkKYGBgCgpgYGB7cn0KIyB2aWV3IHRoZSBkYXRhIGZyYW1lIHBvcnRpb24gb2YgZnJlcWxpc3Qgb3V0cHV0CmhlYWQobm9ieVtbImZyZXFsaXN0Il1dKSAgIyMgb3IgdXNlIGFzLmRhdGEuZnJhbWUobm9ieSkKYGBgCgoKYGBge3J9CnN1bW1hcnkobm9ieSkKYGBgCgoKc3VtbWFyeShub2J5LCB0aXRsZSA9ICJCYXNpYyBmcmVxbGlzdCBvdXRwdXQiKQoKc3VtbWFyeShmcmVxbGlzdCh+IGFybSArIHNleCArIG1kcXVhbGl0eS5zLCBkYXRhID0gbW9ja3N0dWR5LCBhZGROQSA9IFRSVUUpKQoKc3VtbWFyeShmcmVxbGlzdCh+YXJtICsgc2V4ICsgYWRkTkEobWRxdWFsaXR5LnMpLCBkYXRhID0gbW9ja3N0dWR5KSkKCnN1bW1hcnkoZnJlcWxpc3QofmFybSArIHNleCArIGluY2x1ZGVOQShtZHF1YWxpdHkucywgIk1pc3NpbmciKSwgZGF0YSA9IG1vY2tzdHVkeSkpCgpgYGAKd2l0aG5hbWVzIDwtIGZyZXFsaXN0KHRhYi5leCwgbGFiZWxUcmFuc2xhdGlvbnMgPSBjKCJUcmVhdG1lbnQgQXJtIiwgIkdlbmRlciIsICJMQVNBIFFPTCIpLCBkaWdpdHMgPSAwKQpzdW1tYXJ5KHdpdGhuYW1lcykKYGBgCgoKCiMjIyMjIC0gYXJzZW5hbDo6dGFibGVieQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2Fyc2VuYWwvdmlnbmV0dGVzL3RhYmxlYnkuaHRtbAoKCiMjIyMjIC0gYXJzZW5hbDo6bW9kZWxzdW0KCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9hcnNlbmFsL3ZpZ25ldHRlcy9tb2RlbHN1bS5odG1sCgoKIyMjIyAtIGRlc2N0YWJsZQoKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9kZXNjdGFibGUvdmlnbmV0dGVzL2Rlc2N0YWJsZS5odG1sCgoK</div>
 
 
 </div>

@@ -14,6 +14,15 @@ output: html_notebook
 <!-- ) -->
 <!-- ``` -->
 
+# DiagrammeR
+
+http://rich-iannone.github.io/DiagrammeR/
+
+
+# gggenes
+
+https://cran.r-project.org/web/packages/gggenes/vignettes/introduction-to-gggenes.html
+
 
 # textmineR
 

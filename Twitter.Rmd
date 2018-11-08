@@ -711,3 +711,22 @@ https://cran.r-project.org/web/packages/streamR/
 
 https://stackoverflow.com/questions/10427147/retweet-count-for-specific-tweet
 
+
+---
+
+# statquotes
+
+
+```{r}
+install.packages("statquotes")
+```
+
+
+```{r}
+statquotes::statquote()
+```
+
+
+
+
+

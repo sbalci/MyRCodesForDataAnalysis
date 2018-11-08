@@ -37,4 +37,31 @@ Basically they suggest:
 
 
 
+---
+
+- **Why should I use the here package when I'm already using projects?**
+
+https://malco.io/2018/11/05/why-should-i-use-the-here-package/
+
+
+```{r}
+library(here)
+here()
+```
+
+```{r}
+dr_here()
+```
+
+```{r}
+here("figure", "figure.png")
+```
+
+```{r}
+file.path("figure", "figure.png")
+```
+
+```{r}
+read_csv(here("data", "mtcars.csv"))
+```
 

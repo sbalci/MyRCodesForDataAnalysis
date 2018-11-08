@@ -92,6 +92,17 @@ JGR()
 https://radiant-rstats.github.io/docs/tutorials.html
 
 
+### lessR
+
+https://cran.r-project.org/web/packages/lessR/index.html
+
+http://www.lessrstats.com/
+
+http://www.lessrstats.com/videos.html
+
+
+
+
 ## Raporlama için
 
 
@@ -115,6 +126,12 @@ https://github.com/daattali/ggExtra
 ### ggplotAssist
 
 https://github.com/cardiomoon/ggplotAssist
+
+### ggraptR
+
+https://github.com/cargomoose/ggraptR
+
+
 
 
 
