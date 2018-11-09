@@ -1,0 +1,30 @@
+---
+title: "CancerInSilico"
+output: html_notebook
+---
+
+An R interface for computational modeling of tumor progression
+
+https://bioconductor.org/packages/release/bioc/html/CancerInSilico.html
+
+
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("CancerInSilico", version = "3.8")
+
+```
+
+
+
+```{r}
+browseVignettes("CancerInSilico")
+
+```
+
+
+https://bioconductor.org/packages/release/bioc/vignettes/CancerInSilico/inst/doc/CancerInSilico.html
+
+
+
