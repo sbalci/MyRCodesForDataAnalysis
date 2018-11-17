@@ -1,0 +1,31 @@
+---
+title: "Text Mining"
+output: html_notebook
+---
+
+
+https://regexr.com/
+
+https://regex101.com/
+
+# Read text files with readtext()
+
+https://cran.r-project.org/web/packages/readtext/vignettes/readtext_vignette.html
+
+
+# qdapRegex
+
+```{r}
+library(qdapRegex)
+```
+
+
+https://github.com/trinker/qdapRegex
+
+http://trinker.github.io/qdapRegex_dev/index.html
+
+# stringr
+
+https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html
+
+

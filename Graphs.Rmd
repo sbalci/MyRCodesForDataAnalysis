@@ -1,0 +1,17 @@
+---
+title: "Graphs"
+output: html_notebook
+---
+
+
+# RColorBrewer
+
+How to expand color palette with ggplot and RColorBrewer
+
+https://www.r-bloggers.com/how-to-expand-color-palette-with-ggplot-and-rcolorbrewer/
+
+
+
+
+
+

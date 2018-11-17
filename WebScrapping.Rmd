@@ -21,6 +21,16 @@ https://hanjostudy.github.io/Presentations/UseR2018/Rvest/rvest.html#1
 https://www.r-bloggers.com/automated-text-feature-engineering-using-textfeatures-in-r/
 
 
+# Selectorgadget
+
+https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html
+
+
+# polite
+
+https://github.com/dmi3kno/polite
+
+
 
 
 

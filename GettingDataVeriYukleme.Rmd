@@ -260,3 +260,25 @@ df$source=as.vector(sapply(df$source,to.plain))
 
 to.plain(make.names(tolower(names(df))))
 
+
+
+# pdftables
+
+https://cran.r-project.org/web/packages/pdftables/vignettes/convert_pdf_tables.html
+
+
+# tabulizer
+
+Extract Tables from PDFs
+
+
+https://github.com/ropensci/tabulizer
+
+
+
+# rio
+
+Import, Export, and Convert Data Files
+
+https://cran.r-project.org/web/packages/rio/vignettes/rio.html
+

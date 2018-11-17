@@ -133,6 +133,18 @@ https://www.bioconductor.org
 - RecommendR  
 http://recommendr.info/
 
+- pkgsearch  
+CRAN package search  
+https://github.com/metacran/pkgsearch
+
+- Awesome R  
+https://awesome-r.com/  
+
+
+## Kendi paket evrenini oluştur
+
+- pkgverse: Build a Meta-Package Universe  
+https://cran.r-project.org/web/packages/pkgverse/index.html
 
 
 

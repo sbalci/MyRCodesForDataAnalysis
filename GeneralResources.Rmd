@@ -3,6 +3,16 @@ title: "General Resources"
 output: html_notebook
 ---
 
+# Data Science Live Book
+
+https://livebook.datascienceheroes.com/
+
+
+https://toolbox.google.com/datasetsearch
+
+http://archive.ics.uci.edu/ml/index.php
+
+
 http://asdfree.com/
 
 https://rstudio-education.github.io/hopr/
@@ -141,6 +151,7 @@ https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
 ---
 
 ## master course links
+
 
 
 

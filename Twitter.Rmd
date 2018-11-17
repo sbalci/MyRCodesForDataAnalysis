@@ -728,5 +728,11 @@ statquotes::statquote()
 
 
 
+# rtweet-workshop
+
+https://github.com/mkearney/rtweet-workshop
+
+https://rtweet-workshop.mikewk.com/
+
 
 
