@@ -12,6 +12,388 @@ https://www.r-bloggers.com/how-to-expand-color-palette-with-ggplot-and-rcolorbre
 
 
 
+# highcharter
+
+http://jkunst.com/highcharter/
+
+https://github.com/jbkunst/highcharter
+
+http://www.htmlwidgets.org/index.html
+
+https://cran.r-project.org/web/packages/highcharter/index.html
+
+https://www.datacamp.com/community/tutorials/data-visualization-highcharter-r
+
+
+```{r}
+library(tidyverse)
+library(highcharter)
+
+```
+
+```{r}
+data("pokemon")
+glimpse(pokemon)
+```
+
+
+
+
+
+
+```
+hchart works like ggplot2's qplot.
+hc_add_series works like ggplot2's geom_S.
+hcaes works like ggplot2's aes.
+```
+
+
+
+
+
+```{r}
+pokemon %>%
+  count(type_1) %>%
+  arrange(n) %>%
+  hchart(type = "bar", hcaes(x = "type_1", y = "n"))
+```
+
+
+```{r}
+pokemon %>%
+  count(type_1) %>%
+  arrange(n) %>%
+  hchart(type = "column", hcaes(x = "type_1", y = "n"))
+```
+
+
+
+```{r}
+pokemon %>%
+  count(type_1) %>%
+  arrange(n) %>%
+  hchart(type = "treemap", hcaes(x = "type_1", value = "n", color = "n"))
+```
+
+
+```{r}
+highchart() %>%
+  hc_add_series(pokemon, "scatter", hcaes(x = "height", y = "weight"))
+```
+
+
+
+
+```{r}
+data(diamonds, package = "ggplot2")
+
+set.seed(123)
+data <- sample_n(diamonds, 300)
+
+modlss <- loess(price ~ carat, data = data)
+fit <- arrange(broom::augment(modlss), carat)
+
+highchart() %>%
+  hc_add_series(data, type = "scatter",
+                hcaes(x = "carat", y = "price", size = "depth", group = "cut")) %>%
+  hc_add_series(fit, type = "line", hcaes(x = "carat", y = ".fitted"),
+                name = "Fit", id = "fit") %>%
+  hc_add_series(fit, type = "arearange",
+                hcaes(x = "carat", low = ".fitted - 2*.se.fit",
+                      high = ".fitted + 2*.se.fit"),
+                linkedTo = "fit")
+
+
+```
+
+
+
+
+```{r}
+highchart() %>%
+  hc_chart(type = "area") %>%
+  hc_title(text = "Historic and Estimated Worldwide Population Distribution by Region") %>%
+  hc_subtitle(text = "Source: Wikipedia.org") %>%
+  hc_xAxis(categories = c("1750", "1800", "1850", "1900", "1950", "1999", "2050"),
+           tickmarkPlacement = "on",
+           title = list(enabled = FALSE)) %>%
+  hc_yAxis(title = list(text = "Percent")) %>%
+  hc_tooltip(pointFormat = "<span style=\"color:{series.color}\">{series.name}</span>:
+             <b>{point.percentage:.1f}%</b> ({point.y:,.0f} millions)<br/>",
+             shared = TRUE) %>%
+  hc_plotOptions(area = list(
+     stacking = "percent",
+     lineColor = "#ffffff",
+     lineWidth = 1,
+     marker = list(
+       lineWidth = 1,
+       lineColor = "#ffffff"
+       ))
+     ) %>%
+  hc_add_series(name = "Asia", data = c(502, 635, 809, 947, 1402, 3634, 5268)) %>%
+  hc_add_series(name = "Africa", data = c(106, 107, 111, 133, 221, 767, 1766)) %>%
+  hc_add_series(name = "Europe", data = c(163, 203, 276, 408, 547, 729, 628)) %>%
+  hc_add_series(name = "America", data = c(18, 31, 54, 156, 339, 818, 1201)) %>%
+  hc_add_series(name = "Oceania", data = c(2, 2, 2, 6, 13, 30, 46))
+```
+
+
+
+
+```{r}
+x <- quantmod::getSymbols("GOOG", auto.assign = FALSE)
+
+hchart(x)
+```
+
+
+
+
+```{r}
+y <- quantmod::getSymbols("AMZN", auto.assign = FALSE)
+
+highchart(type = "stock") %>%
+  hc_add_series(x) %>%
+  hc_add_series(y, type = "ohlc")
+```
+
+
+
+
+```{r}
+hcmap("https://code.highcharts.com/mapdata/countries/in/in-all.js")%>%
+  hc_title(text = "India")
+```
+
+
+
+```{r}
+hcmap("https://code.highcharts.com/mapdata/countries/tr/tr-all.js")%>%
+  hc_title(text = "Turkey")
+```
+
+```
+download_map_data: Download the geojson data from the highcharts collection.
+get_data_from_map: Get the properties for each region in the map, as the keys from the map data.
+```
+
+
+
+```{r}
+mapdata <- get_data_from_map(download_map_data("https://code.highcharts.com/mapdata/countries/in/in-all.js"))
+glimpse(mapdata)
+```
+
+
+
+
+```{r}
+
+#population state wise
+pop <-  as.data.frame(c(84673556, 1382611, 31169272, 103804637, 1055450, 25540196, 342853, 242911, 18980000, 1457723, 60383628, 25353081, 6864602,
+12548926, 32966238, 61130704, 33387677, 64429, 72597565, 112372972, 2721756, 2964007, 1091014, 1980602, 41947358, 1244464,
+27704236, 68621012, 607688, 72138958, 3671032, 207281477, 10116752,91347736))
+
+state <-  mapdata%>%
+  select(`hc-a2`)%>%
+  arrange(`hc-a2`)
+
+State_pop <-  as.data.frame(c(state, pop))
+names(State_pop)= c("State", "Population")
+
+hcmap("https://code.highcharts.com/mapdata/countries/in/in-all.js", data = State_pop, value = "Population",
+      joinBy = c("hc-a2", "State"), name = "Fake data",
+      dataLabels = list(enabled = TRUE, format = '{point.name}'),
+      borderColor = "#FAFAFA", borderWidth = 0.1,
+      tooltip = list(valueDecimals = 0))
+
+```
+
+
+
+
+```{r}
+data(mpg, package = "ggplot2")
+
+mpgg <- mpg %>%
+  filter(class %in% c("suv", "compact", "midsize")) %>%
+  group_by(class, manufacturer) %>%
+  summarize(count = n())
+
+categories_grouped <- mpgg %>%
+  group_by(name = class) %>%
+  do(categories = .$manufacturer) %>%
+  list_parse()
+
+highchart() %>%
+  hc_xAxis(categories = categories_grouped) %>%
+  hc_add_series(data = mpgg, type = "bar", hcaes(y = "count", color = "manufacturer"),
+                showInLegend = FALSE)
+```
+
+
+
+
+
+
+
+
+```{r}
+df <- data_frame(
+  name = c("Animals", "Fruits", "Cars"),
+  y = c(5, 2, 4),
+  drilldown = tolower(name)
+)
+
+
+ds <- list_parse(df)
+names(ds) <- NULL
+
+
+hc <- highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Basic drilldown") %>%
+  hc_xAxis(type = "category") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_plotOptions(
+    series = list(
+      boderWidth = 0,
+      dataLabels = list(enabled = TRUE)
+    )
+  ) %>%
+  hc_add_series(
+    name = "Things",
+    colorByPoint = TRUE,
+    data = ds
+  )
+
+dfan <- data_frame(
+  name = c("Cats", "Dogs", "Cows", "Sheep", "Pigs"),
+  value = c(4, 3, 1, 2, 1)
+)
+
+dffru <- data_frame(
+  name = c("Apple", "Organes"),
+  value = c(4, 2)
+)
+
+dfcar <- data_frame(
+  name = c("Toyota", "Opel", "Volkswage"),
+  value = c(4, 2, 2)
+)
+
+second_el_to_numeric <- function(ls){
+
+  map(ls, function(x){
+    x[[2]] <- as.numeric(x[[2]])
+    x
+  })
+
+}
+
+dsan <- second_el_to_numeric(list_parse2(dfan))
+
+dsfru <- second_el_to_numeric(list_parse2(dffru))
+
+dscar <- second_el_to_numeric(list_parse2(dfcar))
+
+hc %>%
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series = list(
+      list(
+        id = "animals",
+        data = dsan
+      ),
+      list(
+        id = "fruits",
+        data = dsfru
+      ),
+      list(
+        id = "cars",
+        data = dscar
+      )
+    )
+  )
+
+```
+
+
+
+
+
+
+```{r}
+tm <- pokemon %>%
+  mutate(type_2 = ifelse(is.na(type_2), paste("only", type_1), type_2),
+         type_1 = type_1) %>%
+  group_by(type_1, type_2) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  treemap::treemap(index = c("type_1", "type_2"),
+                   vSize = "n", vColor = "type_1")
+
+tm$tm <- tm$tm %>%
+  tbl_df() %>%
+  left_join(pokemon %>% select(type_1, type_2, color_f) %>% distinct(), by = c("type_1", "type_2")) %>%
+  left_join(pokemon %>% select(type_1, color_1) %>% distinct(), by = c("type_1")) %>%
+  mutate(type_1 = paste0("Main ", type_1),
+         color = ifelse(is.na(color_f), color_1, color_f))
+
+highchart() %>%
+  hc_add_series_treemap(tm, allowDrillToNode = TRUE,
+                        layoutAlgorithm = "squarified")
+```
+
+
+
+```{r}
+pokemon%>%
+  count(type_1)%>%
+  arrange(n)%>%
+  hchart(type = "bar", hcaes(x = "type_1", y = "n", color = "type_1"))%>%
+  hc_exporting(enabled = TRUE)
+```
+
+
+
+
+```{r}
+pokemon%>%
+  count(type_1)%>%
+  arrange(n)%>%
+  hchart(type = "bar", hcaes(x = "type_1", y = "n", color = "type_1"))%>%
+  hc_exporting(enabled = TRUE)%>%
+hc_add_theme(hc_theme_chalk())
+```
+
+
+
+
+
+
+```{r}
+data("weather")
+
+x <- c("Min", "Mean", "Max")
+y <- sprintf("{point.%s}", c("min_temperaturec", "mean_temperaturec", "max_temperaturec"))
+tltip <- tooltip_table(x, y)
+
+hchart(weather, type = "columnrange",
+       hcaes(x = "date", low = "min_temperaturec", high = "max_temperaturec",
+             color = "mean_temperaturec")) %>%
+  hc_chart(polar = TRUE) %>%
+  hc_yAxis( max = 30, min = -10, labels = list(format = "{value} C"),
+            showFirstLabel = FALSE) %>%
+  hc_xAxis(
+    title = list(text = ""), gridLineWidth = 0.5,
+    labels = list(format = "{value: %b}")) %>%
+  hc_tooltip(useHTML = TRUE, pointFormat = tltip,
+             headerFormat = as.character(tags$small("{point.x:%d %B, %Y}")))
+
+```
+
+
 
 
 
