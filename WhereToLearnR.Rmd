@@ -1,0 +1,14 @@
+---
+title: "Where to learn R"
+output: html_notebook
+---
+
+# swirlstats
+
+https://swirlstats.com/
+
+
+# Data Skills for Reproducible Science
+
+
+https://gupsych.github.io/data_skills/index.html

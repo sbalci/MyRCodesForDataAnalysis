@@ -10,10 +10,17 @@ The title says "My R Codes" but I am only the collector. I will try to refer the
 
 There are plenty of ways to do an analysis in `R`, which is great but also confusing for the newbies. I will collect the codes here so that I can refer later and then update them as I learn more.
 
-Use them at your own risk :)
 
 
 **See the links for the Codes below:**
+
+
+# Lecture Notes
+
+R-Arayuzler.nb.html
+R-Giris.nb.html
+WhereToLearnR.nb.html
+
 
 # Getting Data into R / Veriyi R'a yükleme
 
@@ -35,6 +42,8 @@ Use them at your own risk :)
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/PrepareData.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/PrepareData.nb.html)
 
+
+
 ## data.table
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/datatable.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/datatable.nb.html)
@@ -45,9 +54,14 @@ Use them at your own risk :)
 
 # Analysis
 
-## Descriptive Statistics
+## Descriptive Statistics, Exploratory Data Analysis, Summary Statistics
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/DescriptiveStatistics.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DescriptiveStatistics.nb.html)
+
+ExplatoryDataAnalysisSummaryStatistics.nb.html
+
+freq-tables.html
+
 
 ## Hypothesis Testing
 
@@ -65,7 +79,31 @@ Use them at your own risk :)
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/SurvivalAnalysis.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/SurvivalAnalysis.nb.html)
 
+
+## Contingency Tables
+
+ContingencyTables.nb.html
+
+
+
 ## Other Analysis
+
+
+### Regression
+
+Regression.nb.html
+
+
+### LinearRegression.nb.html
+
+LinearRegression.nb.html
+
+
+### General Linear Models
+
+GeneralLinearModels.nb.html
+
+
 
 ### Decision Trees
 
@@ -85,6 +123,7 @@ Use them at your own risk :)
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/VisualisationGraphsPlots.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/VisualisationGraphsPlots.nb.html)
 
+Graphs.nb.html
 
 
 ## Sankey Diagrams
@@ -95,20 +134,49 @@ Use them at your own risk :)
 
 ## ReproducibleResearch
 
-[https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html)
+[https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html)
+
 
 ## Use R Markdown
 
-[https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html)
+[https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html)
+
 
 
 ## Tables
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html)
 
+
+finalfit.nb.html
+
+formattable.nb.html
+
+
+
+
 ## Autoreport
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Autoreport.nb.html)
+
+
+## shiny
+
+shiny.nb.html
+
+
+
+# Bioinformatics
+
+## bioconductor
+
+bioconductor.nb.html
+
+CancerInSilico.nb.html
+
+CancerPackages.nb.html
+
+
 
 
 # Backup Analysis and Data
@@ -119,17 +187,28 @@ Use them at your own risk :)
 
 # Text Analysis Sentiment Analysis
 
+TextMining.nb.html
+
+
 ## Twitter Analysis With R
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Twitter.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Twitter.nb.html)
 
 ## News
 
+news.nb.html
+
 ## web scrapping
+
+WebScrapping.nb.html
+
 
 # Bibliography
 
 Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](https://sbalci.github.io/ResearchOnBibliography/)
+
+
+Bibliography.nb.html
 
 ## PubMed
 
@@ -153,11 +232,13 @@ Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](
 
 ### Coauthor 
 
-# Miscellaneous
 
 ## Power Analysis
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html)
+
+Power_Analysis.nb.html
+PowerAnalysis.nb.html
 
 
 ## Formulas
@@ -172,6 +253,8 @@ Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/GeneralResources.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/GeneralResources.nb.html)
 
+DataScienceLiveBook.nb.html
+
 # Package List
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/RPackagesUsed.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/RPackagesUsed.nb.html)
@@ -181,9 +264,25 @@ Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html)
 
+
+eurostat.nb.html
+
+
+
 # Data Tools
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/DataTools.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DataTools.nb.html)
+
+
+# Miscellaneous
+
+codes.nb.html
+OpenCPU.nb.html
+papeR.nb.html
+Tutorials.nb.html
+PythonPandas.nb.html
+lessR.nb.html
+
 
 # Feedback
 

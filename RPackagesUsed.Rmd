@@ -4213,3 +4213,21 @@ a package for efficient effect size computation
 https://github.com/mtorchiano/effsize
 
 
+## keyring
+
+https://www.infoworld.com/video/91987/r-tip-keep-passwords-and-tokens-secure-with-the-keyring-package
+
+## testthat
+
+R tip: Test your code with testthat
+
+https://www.infoworld.com/video/87735/r-tip-test-your-code-with-testthat
+
+
+## cronR
+
+Schedule R scripts on a Mac
+
+https://www.infoworld.com/video/90629/r-tip-schedule-r-scripts-on-a-mac
+
+

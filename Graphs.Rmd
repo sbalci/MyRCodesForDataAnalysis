@@ -157,6 +157,8 @@ highchart(type = "stock") %>%
   hc_add_series(y, type = "ohlc")
 ```
 
+Highmaps - Map Collection  
+https://code.highcharts.com/mapdata/  
 
 
 
