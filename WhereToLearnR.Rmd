@@ -12,3 +12,13 @@ https://swirlstats.com/
 
 
 https://gupsych.github.io/data_skills/index.html
+
+
+# rstats-ed
+
+
+https://github.com/rstudio-education/rstats-ed
+
+
+
+

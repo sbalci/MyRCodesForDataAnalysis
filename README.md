@@ -17,9 +17,11 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 # Lecture Notes
 
-R-Arayuzler.nb.html
-R-Giris.nb.html
-WhereToLearnR.nb.html
+[R-Arayuzler](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Arayuzler.nb.html)
+
+[R-Giris](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Giris.nb.html)
+
+[Where To Learn R](https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html)
 
 
 # Getting Data into R / Veriyi R'a yükleme
@@ -58,9 +60,9 @@ WhereToLearnR.nb.html
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/DescriptiveStatistics.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DescriptiveStatistics.nb.html)
 
-ExplatoryDataAnalysisSummaryStatistics.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/ExplatoryDataAnalysisSummaryStatistics.nb.html
 
-freq-tables.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/freq-tables.html
 
 
 ## Hypothesis Testing
@@ -82,7 +84,7 @@ freq-tables.html
 
 ## Contingency Tables
 
-ContingencyTables.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/ContingencyTables.nb.html
 
 
 
@@ -91,17 +93,17 @@ ContingencyTables.nb.html
 
 ### Regression
 
-Regression.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/Regression.nb.html
 
 
 ### LinearRegression.nb.html
 
-LinearRegression.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/LinearRegression.nb.html
 
 
 ### General Linear Models
 
-GeneralLinearModels.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/GeneralLinearModels.nb.html
 
 
 
@@ -123,7 +125,7 @@ GeneralLinearModels.nb.html
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/VisualisationGraphsPlots.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/VisualisationGraphsPlots.nb.html)
 
-Graphs.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/Graphs.nb.html
 
 
 ## Sankey Diagrams
@@ -148,9 +150,9 @@ Graphs.nb.html
 [https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Table.nb.html)
 
 
-finalfit.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/finalfit.nb.html
 
-formattable.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/formattable.nb.html
 
 
 
@@ -162,7 +164,7 @@ formattable.nb.html
 
 ## shiny
 
-shiny.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/shiny.nb.html
 
 
 
@@ -170,11 +172,11 @@ shiny.nb.html
 
 ## bioconductor
 
-bioconductor.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/bioconductor.nb.html
 
-CancerInSilico.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/CancerInSilico.nb.html
 
-CancerPackages.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/CancerPackages.nb.html
 
 
 
@@ -187,7 +189,7 @@ CancerPackages.nb.html
 
 # Text Analysis Sentiment Analysis
 
-TextMining.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/TextMining.nb.html
 
 
 ## Twitter Analysis With R
@@ -196,11 +198,11 @@ TextMining.nb.html
 
 ## News
 
-news.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/news.nb.html
 
 ## web scrapping
 
-WebScrapping.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/WebScrapping.nb.html
 
 
 # Bibliography
@@ -208,7 +210,7 @@ WebScrapping.nb.html
 Other Bibliographic Studies: [https://sbalci.github.io/ResearchOnBibliography/](https://sbalci.github.io/ResearchOnBibliography/)
 
 
-Bibliography.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/Bibliography.nb.html
 
 ## PubMed
 
@@ -237,8 +239,8 @@ Bibliography.nb.html
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html)
 
-Power_Analysis.nb.html
-PowerAnalysis.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/Power_Analysis.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/PowerAnalysis.nb.html
 
 
 ## Formulas
@@ -253,7 +255,7 @@ PowerAnalysis.nb.html
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/GeneralResources.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/GeneralResources.nb.html)
 
-DataScienceLiveBook.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/DataScienceLiveBook.nb.html
 
 # Package List
 
@@ -265,7 +267,7 @@ DataScienceLiveBook.nb.html
 [https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/DataList.nb.html)
 
 
-eurostat.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/eurostat.nb.html
 
 
 
@@ -276,12 +278,12 @@ eurostat.nb.html
 
 # Miscellaneous
 
-codes.nb.html
-OpenCPU.nb.html
-papeR.nb.html
-Tutorials.nb.html
-PythonPandas.nb.html
-lessR.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/OpenCPU.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/Tutorials.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/PythonPandas.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/lessR.nb.html
 
 
 # Feedback
