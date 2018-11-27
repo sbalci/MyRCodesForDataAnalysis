@@ -283,7 +283,8 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/OpenCPU.nb.html
 https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html
 https://sbalci.github.io/MyRCodesForDataAnalysis/Tutorials.nb.html
 https://sbalci.github.io/MyRCodesForDataAnalysis/PythonPandas.nb.html
-https://sbalci.github.io/MyRCodesForDataAnalysis/lessR.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/lessR.nb.html  
+https://sbalci.github.io/MyRCodesForDataAnalysis/arsenal.nb.html
 
 
 # Feedback

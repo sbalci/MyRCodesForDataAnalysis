@@ -479,6 +479,9 @@ https://jozefhajnala.gitlab.io/r/r002-data-manipulation/
 
 https://jozefhajnala.gitlab.io/r/r003-aggregation/
 
+# tidyr
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This week I&#39;m going to be looking at some <a href="https://twitter.com/hashtag/tidyr?src=hash&amp;ref_src=twsrc%5Etfw">#tidyr</a> functions! 💡 First is uncount() which might come in handy if you want to transform a summary table to individual rows. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/UZE0wUcEHC">pic.twitter.com/UZE0wUcEHC</a></p>&mdash; Nic Crane (@nic_crane) <a href="https://twitter.com/nic_crane/status/1066964776276893696?ref_src=twsrc%5Etfw">November 26, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 

@@ -20,5 +20,8 @@ https://gupsych.github.io/data_skills/index.html
 https://github.com/rstudio-education/rstats-ed
 
 
+# newonlinecourses psu
+
+https://newonlinecourses.science.psu.edu/statprogram/
 
 
