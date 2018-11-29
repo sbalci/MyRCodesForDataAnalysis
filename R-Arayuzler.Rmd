@@ -101,6 +101,18 @@ http://www.lessrstats.com/
 http://www.lessrstats.com/videos.html
 
 
+### Renjin
+
+http://www.renjin.org/
+
+
+### FastR
+
+
+https://github.com/oracle/fastr
+
+
+http://www.graalvm.org/docs/reference-manual/languages/r/
 
 
 ## Raporlama için
