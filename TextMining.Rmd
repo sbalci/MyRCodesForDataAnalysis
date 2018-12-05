@@ -28,4 +28,20 @@ http://trinker.github.io/qdapRegex_dev/index.html
 
 https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html
 
+```
+stringr::str_view()
+```
+
+
+# RegExplain
+
+https://www.garrickadenbuie.com/project/regexplain/
+
+
+```{r}
+# devtools::install_github("gadenbuie/regexplain")
+# source("https://install-github.me/gadenbuie/regexplain")
+```
+
+
 

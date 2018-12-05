@@ -1,0 +1,21 @@
+---
+title: "rchess"
+output: html_notebook
+---
+
+
+
+http://jkunst.com/rchess/
+
+https://github.com/jbkunst/rchess
+
+
+
+```{r}
+install.packages("rchess")
+```
+
+```{r}
+devtools::install_github("jbkunst/rchess")
+```
+

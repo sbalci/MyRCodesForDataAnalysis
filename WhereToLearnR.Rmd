@@ -25,3 +25,6 @@ https://github.com/rstudio-education/rstats-ed
 https://newonlinecourses.science.psu.edu/statprogram/
 
 
+# statsthinking21
+
+http://statsthinking21.org/index.html#why-does-this-book-exist

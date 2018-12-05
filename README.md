@@ -65,9 +65,13 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/ExplatoryDataAnalysisSummarySta
 https://sbalci.github.io/MyRCodesForDataAnalysis/freq-tables.html
 
 
+the-lesser-known-stars-of-the-tidyverse.nb.html
+
+
 ## Hypothesis Testing
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/HypothesisTesting.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/HypothesisTesting.nb.html)
+
 
 ### Compare Means
 
@@ -187,6 +191,9 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/CancerPackages.nb.html
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/GitHub.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/GitHub.nb.html)
 
+SyncingGitHubFork.nb.html
+
+
 # Text Analysis Sentiment Analysis
 
 https://sbalci.github.io/MyRCodesForDataAnalysis/TextMining.nb.html
@@ -285,6 +292,8 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/Tutorials.nb.html
 https://sbalci.github.io/MyRCodesForDataAnalysis/PythonPandas.nb.html
 https://sbalci.github.io/MyRCodesForDataAnalysis/lessR.nb.html  
 https://sbalci.github.io/MyRCodesForDataAnalysis/arsenal.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/rchess.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/EvidenceSynthesisProjects.nb.html
 
 
 # Feedback

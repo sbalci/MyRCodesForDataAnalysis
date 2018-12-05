@@ -1,0 +1,216 @@
+---
+title: "Evidence Synthesis Projects"
+output: html_notebook
+---
+
+# revtools
+
+revtools: Tools to Support Evidence Synthesis
+
+https://cran.r-project.org/package=revtools
+
+https://revtools.net/
+
+https://revtools.net/user_manual/1_introduction.html
+
+
+
+```{r}
+# install.packages("revtools")
+# devtools:: install_github("mjwestgate/revtools")
+library(revtools)
+```
+
+
+
+```
+data1 <- read_bibliography("my_data.ris")
+data2 <- read_bibliography("my_data.bib")
+```
+
+
+
+```{r}
+# data1 <- read_bibliography(file.choose())
+
+data1 <- read_bibliography("data/citations.nbib")
+
+
+```
+
+
+```
+# If the files are in the working directory:
+file_names <- list.files()
+
+# Or if they are in a subdirectory:
+file_names <- paste0(
+  "./raw_data/",
+  list.files(path = "./raw_data/")
+)
+
+# Then import to a list
+data_list <- lapply(
+  file_names,
+  function(x){read_bibliography(x)}
+)
+```
+
+```{r}
+data2 <- read_bibliography(
+  "data/citations.nbib",
+  return_df = FALSE
+)
+
+class(data2)
+
+class(data2[[1]])
+
+names(data2[[1]])
+```
+
+
+```{r}
+write_bibliography(data2, "data/denemeRIS", format = "ris")
+```
+
+
+```{r}
+# revtools::format_citation()
+```
+
+
+```
+data <- read_bibliography("my_data.ris")
+
+matches <- find_duplicates(
+  data = data,
+  match_variable = "title",
+  group_variable = NULL,
+  match_function = "fuzzdist",
+  method = "fuzz_partial_ratio",
+  threshold = 0
+)
+```
+
+```
+data_unique <- extract_unique_references(data, matches)
+```
+
+# screen_duplicates
+
+https://revtools.net/user_manual/4_removing_duplicates.html
+
+```{r}
+screen_duplicates(data1)
+```
+
+
+
+```
+# 1. standalone; load in data in the app
+screen_titles()
+
+# 2. the same, but save back to workspace on exit
+result <- screen_titles() # ditto,
+
+data <- read_bibliography("my_data.ris") # load in data
+
+# 3. launch the app using data from the workspace
+screen_titles(data)  
+
+# 4. specify an object to return data to
+result <- screen_titles(data)
+```
+
+```{r}
+screen_titles(data1)
+```
+
+
+```{r}
+screen_abstracts(data1)
+```
+
+
+```{r}
+screen_topics(data1)
+```
+
+
+
+
+```{r}
+library(revtools)
+data <- read_bibliography("data/deneme2.ris")
+dtm <- make_DTM(data)
+model <- topicmodels::LDA(
+  dtm,
+  k = 15,
+  LDA.control = list(
+    burnin = 1000,
+    iter = 6000,
+    keep = 100
+  )
+)
+```
+
+
+
+```{r}
+articles <- as.data.frame(data)
+articles$topic <- topics(model)
+
+# cross-tabulate to show number of articles per topic per year
+popularity <- as.data.frame(
+  xtabs(
+    ~ year + topic,
+    data = articles,
+    drop.unused.levels = FALSE
+  ),
+stringsAsFactors = FALSE
+)
+popularity$year <- scale(
+  as.numeric(popularity$year)
+)
+popularity$topic <- as.factor(popularity$topic)
+
+# create a mixed model
+library(lme4)
+popularity_model <- glmer(Freq ~ 1 + (1 | topic) + (year -1 | topic),
+	family = poisson(link = "log"),
+	data = popularity
+)
+
+# export the results of this model
+popularity_results <- ranef(popularity_model)$topic
+colnames(popularity_results) <- c("intercept", "slope")
+
+```
+
+
+
+```{r}
+library(ggplot2)
+p <- ggplot(popularity_results,
+  aes(x = intercept, y = slope)
+) +
+geom_point()
+p
+```
+
+
+# RefManageR
+
+RefManageR: Straightforward 'BibTeX' and 'BibLaTeX' Bibliography Management
+
+
+https://cran.r-project.org/web/packages/RefManageR/index.html
+
+
+# bibtex
+
+bibtex: Bibtex Parser
+
+https://cran.r-project.org/web/packages/bibtex/index.html
+

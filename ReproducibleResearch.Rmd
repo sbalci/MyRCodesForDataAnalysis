@@ -38,3 +38,35 @@ https://crsh.github.io/papaja/
 An open source office suite for reproducible research
 
 http://stenci.la/
+
+
+- redoc - reversible R Markdown/MS Word documents.
+
+https://noamross.github.io/redoc/
+
+
+
+
+```
+---
+output:
+  redoc::rdocx_reversible:
+    keep_md: TRUE
+    highlight_outputs: TRUE
+---
+```
+
+
+```
+redoc::undoc("reversible2.docx")
+redoc::undoc(file.choose())
+```
+
+
+```
+redoc::redoc_extract_rmd("reversible.docx")
+```
+
+
+
+
