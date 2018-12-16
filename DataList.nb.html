@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-07-22" />
+<meta name="date" content="2018-12-13" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -100,7 +100,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -2632,10 +2632,10 @@ window.initializeSourceEmbed = function(filename) {
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -2648,13 +2648,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -2695,10 +2693,38 @@ code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
 code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-div.sourceCode {
-  overflow-x: visible;
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
 }
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -2764,6 +2790,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -2795,9 +2824,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -2811,7 +2901,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -2927,9 +3016,9 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
-<h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
+<h3 class="subtitle"><em>Open Data that can be used for projects</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-07-22</em></h4>
+<h4 class="date"><em>2018-12-13</em></h4>
 
 </div>
 
@@ -2981,10 +3070,18 @@ div.tocify {
 <li><p>projects</p></li>
 </ul>
 <p><a href="https://www.analyticsvidhya.com/blog/2014/11/data-science-projects-learn/" class="uri">https://www.analyticsvidhya.com/blog/2014/11/data-science-projects-learn/</a></p>
+<ul>
+<li>Miscellaneous Datasets</li>
+</ul>
+<p><a href="http://users.stat.ufl.edu/~winner/datasets.html" class="uri">http://users.stat.ufl.edu/~winner/datasets.html</a></p>
+<ul>
+<li>datasets</li>
+</ul>
+<p><a href="https://www.rdocumentation.org/packages/datasets/versions/3.5.1" class="uri">https://www.rdocumentation.org/packages/datasets/versions/3.5.1</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKCiMgRGF0YSBMaXN0CgotIExlYXJuaW5nIENsaW5pY2FsIEVwaWRlbWlvbG9neSB3aXRoIFIKCmh0dHA6Ly9kYXRhY29tcGFzcy5sc2h0bS5hYy51ay81OTkvCgotIElTTFIKCmBgYHtyfQpkYXRhKHBhY2thZ2UgPSAiSVNMUiIpCmBgYAoKLSBhY3MKCkRvd25sb2FkLCBNYW5pcHVsYXRlLCBhbmQgUHJlc2VudCBBbWVyaWNhbiBDb21tdW5pdHkgU3VydmV5IGFuZCBEZWNlbm5pYWwgCgpEYXRhIGZyb20gdGhlIFVTIENlbnN1cwoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2Fjcy9pbmRleC5odG1sCgotIGV1cm9zdGF0CgpUb29scyBmb3IgRXVyb3N0YXQgT3BlbiBEYXRhCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvZXVyb3N0YXQvaW5kZXguaHRtbAoKLSBSaWxvc3RhdAoKaHR0cHM6Ly9naXRodWIuY29tL2lsb3N0YXQvUmlsb3N0YXQKCi0gT0VDRAoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL09FQ0QvdmlnbmV0dGVzL29lY2RfdmlnbmV0dGVfbWFpbi5wZGYKCi0gZ2FwbWluZGVyCgpGYWN0ZnVsbmVzczogQnVpbGRpbmcgR2FwbWluZGVyIEluY29tZSBNb3VudGFpbnMKCmh0dHA6Ly9zdGFmZi5tYXRoLnN1LnNlL2hvZWhsZS9ibG9nLzIwMTgvMDcvMDIvZmFjdGZ1bG5lc3MuaHRtbAoKLSBueWNmbGlnaHRzMTMKCi0gZml2ZXRoaXJ0eWVpZ2h0CgotIHByb2plY3RzCgpodHRwczovL3d3dy5hbmFseXRpY3N2aWRoeWEuY29tL2Jsb2cvMjAxNC8xMS9kYXRhLXNjaWVuY2UtcHJvamVjdHMtbGVhcm4v</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJPcGVuIERhdGEgdGhhdCBjYW4gYmUgdXNlZCBmb3IgcHJvamVjdHMiCmF1dGhvcjogIltTZXJkYXIgQmFsY8SxLCBNRCwgUGF0aG9sb2dpc3RdKGh0dHBzOi8vd3d3LnNlcmRhcmJhbGNpLmNvbS8pIgpkYXRlOiAnYHIgZm9ybWF0KFN5cy5EYXRlKCkpYCcKb3V0cHV0OiAKICBodG1sX25vdGVib29rOiAKICAgIGZpZ19jYXB0aW9uOiB5ZXMKICAgIGhpZ2hsaWdodDogdGFuZ28KICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogcGFwZXIKICAgIHRvYzogeWVzCiAgICB0b2NfZGVwdGg6IDUKICAgIHRvY19mbG9hdDogeWVzCiAgaHRtbF9kb2N1bWVudDogCiAgICBjb2RlX2ZvbGRpbmc6IGhpZGUKICAgIGRmX3ByaW50OiBrYWJsZQogICAga2VlcF9tZDogeWVzCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcwogICAgdGhlbWU6IGNlcnVsZWFuCiAgICB0b2M6IHllcwogICAgdG9jX2Zsb2F0OiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQotLS0KCgojIERhdGEgTGlzdAoKLSBMZWFybmluZyBDbGluaWNhbCBFcGlkZW1pb2xvZ3kgd2l0aCBSCgpodHRwOi8vZGF0YWNvbXBhc3MubHNodG0uYWMudWsvNTk5LwoKLSBJU0xSCgpgYGB7cn0KZGF0YShwYWNrYWdlID0gIklTTFIiKQpgYGAKCi0gYWNzCgpEb3dubG9hZCwgTWFuaXB1bGF0ZSwgYW5kIFByZXNlbnQgQW1lcmljYW4gQ29tbXVuaXR5IFN1cnZleSBhbmQgRGVjZW5uaWFsIAoKRGF0YSBmcm9tIHRoZSBVUyBDZW5zdXMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9hY3MvaW5kZXguaHRtbAoKLSBldXJvc3RhdAoKVG9vbHMgZm9yIEV1cm9zdGF0IE9wZW4gRGF0YQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2V1cm9zdGF0L2luZGV4Lmh0bWwKCi0gUmlsb3N0YXQKCmh0dHBzOi8vZ2l0aHViLmNvbS9pbG9zdGF0L1JpbG9zdGF0CgotIE9FQ0QKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9PRUNEL3ZpZ25ldHRlcy9vZWNkX3ZpZ25ldHRlX21haW4ucGRmCgotIGdhcG1pbmRlcgoKRmFjdGZ1bG5lc3M6IEJ1aWxkaW5nIEdhcG1pbmRlciBJbmNvbWUgTW91bnRhaW5zCgpodHRwOi8vc3RhZmYubWF0aC5zdS5zZS9ob2VobGUvYmxvZy8yMDE4LzA3LzAyL2ZhY3RmdWxuZXNzLmh0bWwKCi0gbnljZmxpZ2h0czEzCgotIGZpdmV0aGlydHllaWdodAoKLSBwcm9qZWN0cwoKaHR0cHM6Ly93d3cuYW5hbHl0aWNzdmlkaHlhLmNvbS9ibG9nLzIwMTQvMTEvZGF0YS1zY2llbmNlLXByb2plY3RzLWxlYXJuLwoKLSBNaXNjZWxsYW5lb3VzIERhdGFzZXRzCgpodHRwOi8vdXNlcnMuc3RhdC51ZmwuZWR1L353aW5uZXIvZGF0YXNldHMuaHRtbAoKCi0gZGF0YXNldHMKCmh0dHBzOi8vd3d3LnJkb2N1bWVudGF0aW9uLm9yZy9wYWNrYWdlcy9kYXRhc2V0cy92ZXJzaW9ucy8zLjUuMQoKCgoKCg==</div>
 
 
 </div>

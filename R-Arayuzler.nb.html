@@ -11,7 +11,7 @@
 
 <meta name="author" content="Derleyen Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-11-29" />
+<meta name="date" content="2018-12-09" />
 
 <title>R Arayüzler</title>
 
@@ -94,7 +94,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -2626,7 +2626,7 @@ window.initializeSourceEmbed = function(filename) {
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
@@ -2691,10 +2691,38 @@ code span.st { color: #bf0303; } /* String */
 code span.va { color: #0057ae; } /* Variable */
 code span.vs { color: #bf0303; } /* VerbatimString */
 code span.wa { color: #bf0303; } /* Warning */
-div.sourceCode {
-  overflow-x: visible;
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
 }
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -2760,6 +2788,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -2791,9 +2822,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -2807,7 +2899,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -2924,7 +3015,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R Arayüzler<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h1>
 <h4 class="author"><em>Derleyen <a href="https://sbalci.github.io/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-11-29</em></h4>
+<h4 class="date"><em>2018-12-09</em></h4>
 
 </div>
 
@@ -2976,80 +3067,46 @@ div.tocify {
 <h3><span class="header-section-number">1.1.6</span> Blue Sky Statistics</h3>
 <p><a href="https://www.blueskystatistics.com/" class="uri">https://www.blueskystatistics.com/</a></p>
 </div>
+<div id="r-analyticflow" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> R AnalyticFlow</h3>
+<p><a href="https://r.analyticflow.com/en/" class="uri">https://r.analyticflow.com/en/</a></p>
+</div>
 <div id="deducer" class="section level3">
-<h3><span class="header-section-number">1.1.7</span> Deducer</h3>
+<h3><span class="header-section-number">1.1.8</span> Deducer</h3>
 <p><a href="http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual" class="uri">http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual</a></p>
 <p><a href="https://r4stats.com/2018/06/13/deducer/" class="uri">https://r4stats.com/2018/06/13/deducer/</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhjKFwiSkdSXCIsXCJEZWR1Y2VyXCIsXCJEZWR1Y2VyRXh0cmFzXCIpKVxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhjKFwiSkdSXCIsXCJEZWR1Y2VyXCIsXCJEZWR1Y2VyRXh0cmFzXCIpKVxuYGBgIn0= -->
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;JGR&quot;</span>,<span class="st">&quot;Deducer&quot;</span>,<span class="st">&quot;DeducerExtras&quot;</span>))</a></code></pre></div>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly9jcmFuLnJzdHVkaW8uY29tL2Jpbi9tYWNvc3gvZWwtY2FwaXRhbi9jb250cmliLzMuNS9KR1JfMS44LTYudGd6J1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LWd6aXAnIGxlbmd0aCAxMTQ4NzMyIGJ5dGVzICgxLjEgTUIpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuZG93bmxvYWRlZCAxLjEgTUJcblxudHJ5aW5nIFVSTCAnaHR0cHM6Ly9jcmFuLnJzdHVkaW8uY29tL2Jpbi9tYWNvc3gvZWwtY2FwaXRhbi9jb250cmliLzMuNS9EZWR1Y2VyXzAuNy05LnRneidcbkNvbnRlbnQgdHlwZSAnYXBwbGljYXRpb24veC1nemlwJyBsZW5ndGggMzI0MjMyMCBieXRlcyAoMy4xIE1CKVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbmRvd25sb2FkZWQgMy4xIE1CXG5cbnRyeWluZyBVUkwgJ2h0dHBzOi8vY3Jhbi5yc3R1ZGlvLmNvbS9iaW4vbWFjb3N4L2VsLWNhcGl0YW4vY29udHJpYi8zLjUvRGVkdWNlckV4dHJhc18xLjcudGd6J1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LWd6aXAnIGxlbmd0aCA1ODY1NSBieXRlcyAoNTcgS0IpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuZG93bmxvYWRlZCA1NyBLQlxuIn0= -->
-<pre><code>trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/JGR_1.8-6.tgz'
-Content type 'application/x-gzip' length 1148732 bytes (1.1 MB)
-==================================================
-downloaded 1.1 MB
-
-trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/Deducer_0.7-9.tgz'
-Content type 'application/x-gzip' length 3242320 bytes (3.1 MB)
-==================================================
-downloaded 3.1 MB
-
-trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/DeducerExtras_1.7.tgz'
-Content type 'application/x-gzip' length 58655 bytes (57 KB)
-==================================================
-downloaded 57 KB</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5UaGUgZG93bmxvYWRlZCBiaW5hcnkgcGFja2FnZXMgYXJlIGluXG5cdC92YXIvZm9sZGVycy83Ni9ycV9zXzIzczdmZDVyOGhxcmJnOHJtbmMwMDAwZ3AvVC8vUnRtcFZzUkhjQy9kb3dubG9hZGVkX3BhY2thZ2VzXG4ifQ== -->
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/76/rq_s_23s7fd5r8hqrbg8rmnc0000gp/T//RtmpVsRHcC/downloaded_packages</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcIkpHUlwiKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;JGR&quot;</span>)</a></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcIkpHUlwiKVxuSkdSKClcbmBgYCJ9 -->
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;JGR&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">JGR</span>()</a></code></pre></div>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBySmF2YVxuTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBKYXZhR0RcblxuUGxlYXNlIHR5cGUgSkdSKCkgdG8gbGF1bmNoIGNvbnNvbGUuIFBsYXRmb3JtIHNwZWNpZmljIGxhdW5jaGVycyAoLmV4ZSBhbmQgLmFwcCkgY2FuIGFsc28gYmUgb2J0YWluZWQgYXQgaHR0cDovL3d3dy5yZm9yZ2UubmV0L0pHUi9maWxlcy8uXG4ifQ== -->
-<pre><code>Loading required package: rJava
-Loading required package: JavaGD
-
-Please type JGR() to launch console. Platform specific launchers (.exe and .app) can also be obtained at http://www.rforge.net/JGR/files/.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuSkdSKClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">JGR</span>()</a></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIyEvYmluL3NoXG5cbmV4cG9ydCBSX0hPTUU9XCIvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1Jlc291cmNlc1wiXG5leHBvcnQgUl9BUkNIPVwiXCJcbmV4cG9ydCBSX0xJQlM9XCIvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNS9SZXNvdXJjZXMvbGlicmFyeVwiXG5leHBvcnQgUl9MSUJTX1VTRVI9XCJ+L0xpYnJhcnkvUi8zLjUvbGlicmFyeVwiXG4nL0xpYnJhcnkvSmF2YS9KYXZhVmlydHVhbE1hY2hpbmVzL2pkazEuOC4wXzEzMS5qZGsvQ29udGVudHMvSG9tZS9qcmUvYmluL2phdmEnIC1jcCAnL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjUvUmVzb3VyY2VzL2xpYnJhcnkvckphdmEvamF2YS9ib290JyAtRHJqYXZhLmNsYXNzLnBhdGg9Jy9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy41L1Jlc291cmNlcy9saWJyYXJ5L3JKYXZhL2pyaS9KUkkuamFyOi9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy41L1Jlc291cmNlcy9saWJyYXJ5L0pHUi9qYXZhL0pHUi5qYXI6L0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9SZXNvdXJjZXMvZXRjL2NsYXNzZXM6L0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9SZXNvdXJjZXMvZXRjL2NsYXNzZXMvY2xhc3Nlcy5qYXInIC1EcmphdmEucGF0aD0nL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjUvUmVzb3VyY2VzL2xpYnJhcnkvckphdmEnIC1EbWFpbi5jbGFzcz1vcmcucm9zdWRhLkpHUi5KR1IgIC1EamdyLmxvYWQucGtncz15ZXMgIC1Eci5hcmNoPSAtWGRvY2s6aWNvbj0nL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjUvUmVzb3VyY2VzL2xpYnJhcnkvSkdSL2ljb25zL0pHUi5pY25zJyAtRGNvbS5hcHBsZS5tcmouYXBwbGljYXRpb24uYXBwbGUubWVudS5hYm91dC5uYW1lPSdKR1InIC1YZG9jazpuYW1lPSdKR1InIC1EYXBwbGUubGFmLnVzZVNjcmVlbk1lbnVCYXI9dHJ1ZSAtRGNvbS5hcHBsZS5tYWNvcy51c2VTY3JlZW5NZW51QmFyPXRydWUgLVhycyAtWHNzNW0gUkphdmFDbGFzc0xvYWRlciBcbiJ9 -->
-<pre><code>#!/bin/sh
-
-export R_HOME=&quot;/Library/Frameworks/R.framework/Resources&quot;
-export R_ARCH=&quot;&quot;
-export R_LIBS=&quot;/Library/Frameworks/R.framework/Versions/3.5/Resources/library&quot;
-export R_LIBS_USER=&quot;~/Library/R/3.5/library&quot;
-'/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/bin/java' -cp '/Library/Frameworks/R.framework/Versions/3.5/Resources/library/rJava/java/boot' -Drjava.class.path='/Library/Frameworks/R.framework/Versions/3.5/Resources/library/rJava/jri/JRI.jar:/Library/Frameworks/R.framework/Versions/3.5/Resources/library/JGR/java/JGR.jar:/Library/Frameworks/R.framework/Resources/etc/classes:/Library/Frameworks/R.framework/Resources/etc/classes/classes.jar' -Drjava.path='/Library/Frameworks/R.framework/Versions/3.5/Resources/library/rJava' -Dmain.class=org.rosuda.JGR.JGR  -Djgr.load.pkgs=yes  -Dr.arch= -Xdock:icon='/Library/Frameworks/R.framework/Versions/3.5/Resources/library/JGR/icons/JGR.icns' -Dcom.apple.mrj.application.apple.menu.about.name='JGR' -Xdock:name='JGR' -Dapple.laf.useScreenMenuBar=true -Dcom.apple.macos.useScreenMenuBar=true -Xrs -Xss5m RJavaClassLoader </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 <div id="radiant" class="section level3">
-<h3><span class="header-section-number">1.1.8</span> Radiant</h3>
+<h3><span class="header-section-number">1.1.9</span> Radiant</h3>
 <p><a href="https://radiant-rstats.github.io/docs/tutorials.html" class="uri">https://radiant-rstats.github.io/docs/tutorials.html</a></p>
 </div>
 <div id="lessr" class="section level3">
-<h3><span class="header-section-number">1.1.9</span> lessR</h3>
+<h3><span class="header-section-number">1.1.10</span> lessR</h3>
 <p><a href="https://cran.r-project.org/web/packages/lessR/index.html" class="uri">https://cran.r-project.org/web/packages/lessR/index.html</a></p>
 <p><a href="http://www.lessrstats.com/" class="uri">http://www.lessrstats.com/</a></p>
 <p><a href="http://www.lessrstats.com/videos.html" class="uri">http://www.lessrstats.com/videos.html</a></p>
 </div>
 <div id="renjin" class="section level3">
-<h3><span class="header-section-number">1.1.10</span> Renjin</h3>
+<h3><span class="header-section-number">1.1.11</span> Renjin</h3>
 <p><a href="http://www.renjin.org/" class="uri">http://www.renjin.org/</a></p>
 </div>
 <div id="fastr" class="section level3">
-<h3><span class="header-section-number">1.1.11</span> FastR</h3>
+<h3><span class="header-section-number">1.1.12</span> FastR</h3>
 <p><a href="https://github.com/oracle/fastr" class="uri">https://github.com/oracle/fastr</a></p>
 <p><a href="http://www.graalvm.org/docs/reference-manual/languages/r/" class="uri">http://www.graalvm.org/docs/reference-manual/languages/r/</a></p>
 </div>
@@ -3105,7 +3162,7 @@ export R_LIBS_USER=&quot;~/Library/R/3.5/library&quot;
 </ol>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBSIEFyYXnDvHpsZXJeW0J1IGJpciBkZXJsZW1lZGlyLCBtw7xta8O8biBtZXJ0ZWJlIGFsxLFudMSxbGFyYSByZWZlcmFucwogIHZlcm1leWUgw6dhbMSxxZ90xLFtLl0KYXV0aG9yOiAiRGVybGV5ZW4gW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvLykiCmRhdGU6ICJgciBmb3JtYXQoU3lzLkRhdGUoKSlgIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGZpZ19jYXB0aW9uOiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBmbGF0bHkKICAgIHRvYzogeWVzCiAgICB0b2NfZGVwdGg6IDUKICAgIHRvY19mbG9hdDogeWVzCiAgcGRmX2RvY3VtZW50OgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCi0tLQoKPCEtLSBPcGVuIGFsbCBsaW5rcyBpbiBuZXcgdGFiLS0+ICAKPGJhc2UgdGFyZ2V0PSJfYmxhbmsiLz4gICAKCgo8IS0tIEdvIHRvIHd3dy5hZGR0aGlzLmNvbS9kYXNoYm9hcmQgdG8gY3VzdG9taXplIHlvdXIgdG9vbHMgLS0+IDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii8vczcuYWRkdGhpcy5jb20vanMvMzAwL2FkZHRoaXNfd2lkZ2V0LmpzI3B1YmlkPXJhLTViYzM2OTAwYTQwNTA5MGIiPiAgCjwvc2NyaXB0PiAKCgoKIyBSIGnDp2luIGFyYXnDvHpsZXIKCiMjIEFuYWxpeiBpw6dpbiBnZW5lbCBHVUkKCgojIyMgUiBDb21tYW5kZXIKCmh0dHBzOi8vc29jaWFsc2NpZW5jZXMubWNtYXN0ZXIuY2EvamZveC9NaXNjL1JjbWRyLwoKCmBgYHtyfQojIyMjIE9idGFpbiBuYW1lcyBvZiBhbGwgcGFja2FnZXMgb24gQ1JBTgpuYW1lcy5hdmFpbGFibGUucGFja2FnZXMgPC0gcm93bmFtZXMoYXZhaWxhYmxlLnBhY2thZ2VzKCkpCgojIyMjIEV4dHJhY3QgcGFja2FnZXMgbmFtZXMgdGhhdCBjb250YWluIFJjbWRyClJjbWRyLnJlbGF0ZWQucGFja2FnZXMgPC0gbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzW2dyZXAoIlJjbWRyIiwgbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzKV0KUmNtZHIucmVsYXRlZC5wYWNrYWdlcwoKIyMjIyBJbnN0YWxsIHRoZXNlIHBhY2thZ2VzCmluc3RhbGwucGFja2FnZXMocGtncyA9IFJjbWRyLnJlbGF0ZWQucGFja2FnZXMpCmBgYAoKCiMjIyBSS1dhcmQKCmh0dHBzOi8vcmt3YXJkLmtkZS5vcmcvTWFpbl9QYWdlCgoKIyMjIFJhdHRsZQoKCmh0dHBzOi8vcmF0dGxlLnRvZ2F3YXJlLmNvbS8KCgojIyMgSmFtb3ZpCgojIyMgSkFTUAoKIyMjIEJsdWUgU2t5IFN0YXRpc3RpY3MKCmh0dHBzOi8vd3d3LmJsdWVza3lzdGF0aXN0aWNzLmNvbS8KCiMjIyBEZWR1Y2VyCgpodHRwOi8vd3d3LmRlZHVjZXIub3JnL3Btd2lraS9wbXdpa2kucGhwP249TWFpbi5EZWR1Y2VyTWFudWFsCgpodHRwczovL3I0c3RhdHMuY29tLzIwMTgvMDYvMTMvZGVkdWNlci8KCmBgYHtyfQppbnN0YWxsLnBhY2thZ2VzKGMoIkpHUiIsIkRlZHVjZXIiLCJEZWR1Y2VyRXh0cmFzIikpCmBgYAoKYGBge3J9CmxpYnJhcnkoIkpHUiIpCkpHUigpCmBgYAoKIyMjIFJhZGlhbnQKCmh0dHBzOi8vcmFkaWFudC1yc3RhdHMuZ2l0aHViLmlvL2RvY3MvdHV0b3JpYWxzLmh0bWwKCgojIyMgbGVzc1IKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9sZXNzUi9pbmRleC5odG1sCgpodHRwOi8vd3d3Lmxlc3Nyc3RhdHMuY29tLwoKaHR0cDovL3d3dy5sZXNzcnN0YXRzLmNvbS92aWRlb3MuaHRtbAoKCiMjIyBSZW5qaW4KCmh0dHA6Ly93d3cucmVuamluLm9yZy8KCgojIyMgRmFzdFIKCgpodHRwczovL2dpdGh1Yi5jb20vb3JhY2xlL2Zhc3RyCgoKaHR0cDovL3d3dy5ncmFhbHZtLm9yZy9kb2NzL3JlZmVyZW5jZS1tYW51YWwvbGFuZ3VhZ2VzL3IvCgoKIyMgUmFwb3JsYW1hIGnDp2luCgoKIyMjIFN0ZW5jaWxhCgoKIyMjIERhdGF6YXIKCgojIyBHcmFmaWtsZXIKCiMjIyBlc3F1aXNzZQoKaHR0cHM6Ly9naXRodWIuY29tL2RyZWFtUnMvZXNxdWlzc2UKCiMjIyBnZ0V4dHJhCgpodHRwczovL2dpdGh1Yi5jb20vZGFhdHRhbGkvZ2dFeHRyYQoKCiMjIyBnZ3Bsb3RBc3Npc3QKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYXJkaW9tb29uL2dncGxvdEFzc2lzdAoKIyMjIGdncmFwdFIKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYXJnb21vb3NlL2dncmFwdFIKCgoKCgoKCgotLS0KCiMgRGnEn2VyIGtvZGxhcgoKLSBEacSfZXIga29kbGFyIGnDp2luIGJha8SxbsSxejogW2h0dHBzOi8vc2JhbGNpLmdpdGh1Yi5pby9dKGh0dHBzOi8vc2JhbGNpLmdpdGh1Yi5pby8pCgoKLS0tCgojIEdlcmkgQmlsZGlyaW0KCi0gR2VyaSBiaWxkaXJpbSBpw6dpbiB0xLFrbGF5xLFuxLF6OiBfW0dlcmkgYmlsZGlyaW0gZm9ybXVdKGh0dHBzOi8vZ29vLmdsL2Zvcm1zL1lqR1o1REhndFBsUjFSbkIzKV8KCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBSIEFyYXnDvHpsZXJeW0J1IGJpciBkZXJsZW1lZGlyLCBtw7xta8O8biBtZXJ0ZWJlIGFsxLFudMSxbGFyYSByZWZlcmFucwogIHZlcm1leWUgw6dhbMSxxZ90xLFtLl0KYXV0aG9yOiAiRGVybGV5ZW4gW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvLykiCmRhdGU6ICJgciBmb3JtYXQoU3lzLkRhdGUoKSlgIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGZpZ19jYXB0aW9uOiB5ZXMKICAgIGhpZ2hsaWdodDoga2F0ZQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBmbGF0bHkKICAgIHRvYzogeWVzCiAgICB0b2NfZGVwdGg6IDUKICAgIHRvY19mbG9hdDogeWVzCiAgcGRmX2RvY3VtZW50OgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogJzUnCi0tLQoKPCEtLSBPcGVuIGFsbCBsaW5rcyBpbiBuZXcgdGFiLS0+ICAKPGJhc2UgdGFyZ2V0PSJfYmxhbmsiLz4gICAKCgo8IS0tIEdvIHRvIHd3dy5hZGR0aGlzLmNvbS9kYXNoYm9hcmQgdG8gY3VzdG9taXplIHlvdXIgdG9vbHMgLS0+IDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii8vczcuYWRkdGhpcy5jb20vanMvMzAwL2FkZHRoaXNfd2lkZ2V0LmpzI3B1YmlkPXJhLTViYzM2OTAwYTQwNTA5MGIiPiAgCjwvc2NyaXB0PiAKCgoKIyBSIGnDp2luIGFyYXnDvHpsZXIKCiMjIEFuYWxpeiBpw6dpbiBnZW5lbCBHVUkKCgojIyMgUiBDb21tYW5kZXIKCmh0dHBzOi8vc29jaWFsc2NpZW5jZXMubWNtYXN0ZXIuY2EvamZveC9NaXNjL1JjbWRyLwoKCmBgYHtyfQojIyMjIE9idGFpbiBuYW1lcyBvZiBhbGwgcGFja2FnZXMgb24gQ1JBTgpuYW1lcy5hdmFpbGFibGUucGFja2FnZXMgPC0gcm93bmFtZXMoYXZhaWxhYmxlLnBhY2thZ2VzKCkpCgojIyMjIEV4dHJhY3QgcGFja2FnZXMgbmFtZXMgdGhhdCBjb250YWluIFJjbWRyClJjbWRyLnJlbGF0ZWQucGFja2FnZXMgPC0gbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzW2dyZXAoIlJjbWRyIiwgbmFtZXMuYXZhaWxhYmxlLnBhY2thZ2VzKV0KUmNtZHIucmVsYXRlZC5wYWNrYWdlcwoKIyMjIyBJbnN0YWxsIHRoZXNlIHBhY2thZ2VzCmluc3RhbGwucGFja2FnZXMocGtncyA9IFJjbWRyLnJlbGF0ZWQucGFja2FnZXMpCmBgYAoKCiMjIyBSS1dhcmQKCmh0dHBzOi8vcmt3YXJkLmtkZS5vcmcvTWFpbl9QYWdlCgoKIyMjIFJhdHRsZQoKCmh0dHBzOi8vcmF0dGxlLnRvZ2F3YXJlLmNvbS8KCgojIyMgSmFtb3ZpCgoKCgojIyMgSkFTUAoKCgoKCiMjIyBCbHVlIFNreSBTdGF0aXN0aWNzCgpodHRwczovL3d3dy5ibHVlc2t5c3RhdGlzdGljcy5jb20vCgoKIyMjIFIgQW5hbHl0aWNGbG93CgoKaHR0cHM6Ly9yLmFuYWx5dGljZmxvdy5jb20vZW4vCgoKCiMjIyBEZWR1Y2VyCgpodHRwOi8vd3d3LmRlZHVjZXIub3JnL3Btd2lraS9wbXdpa2kucGhwP249TWFpbi5EZWR1Y2VyTWFudWFsCgpodHRwczovL3I0c3RhdHMuY29tLzIwMTgvMDYvMTMvZGVkdWNlci8KCmBgYHtyfQppbnN0YWxsLnBhY2thZ2VzKGMoIkpHUiIsIkRlZHVjZXIiLCJEZWR1Y2VyRXh0cmFzIikpCmBgYAoKCgpgYGB7cn0KbGlicmFyeSgiSkdSIikKSkdSKCkKYGBgCgojIyMgUmFkaWFudAoKaHR0cHM6Ly9yYWRpYW50LXJzdGF0cy5naXRodWIuaW8vZG9jcy90dXRvcmlhbHMuaHRtbAoKCiMjIyBsZXNzUgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2xlc3NSL2luZGV4Lmh0bWwKCmh0dHA6Ly93d3cubGVzc3JzdGF0cy5jb20vCgpodHRwOi8vd3d3Lmxlc3Nyc3RhdHMuY29tL3ZpZGVvcy5odG1sCgoKIyMjIFJlbmppbgoKaHR0cDovL3d3dy5yZW5qaW4ub3JnLwoKCiMjIyBGYXN0UgoKCmh0dHBzOi8vZ2l0aHViLmNvbS9vcmFjbGUvZmFzdHIKCgpodHRwOi8vd3d3LmdyYWFsdm0ub3JnL2RvY3MvcmVmZXJlbmNlLW1hbnVhbC9sYW5ndWFnZXMvci8KCgojIyBSYXBvcmxhbWEgacOnaW4KCgojIyMgU3RlbmNpbGEKCgojIyMgRGF0YXphcgoKCiMjIEdyYWZpa2xlcgoKIyMjIGVzcXVpc3NlCgpodHRwczovL2dpdGh1Yi5jb20vZHJlYW1Scy9lc3F1aXNzZQoKIyMjIGdnRXh0cmEKCmh0dHBzOi8vZ2l0aHViLmNvbS9kYWF0dGFsaS9nZ0V4dHJhCgoKIyMjIGdncGxvdEFzc2lzdAoKaHR0cHM6Ly9naXRodWIuY29tL2NhcmRpb21vb24vZ2dwbG90QXNzaXN0CgojIyMgZ2dyYXB0UgoKaHR0cHM6Ly9naXRodWIuY29tL2NhcmdvbW9vc2UvZ2dyYXB0UgoKCgoKCgoKCi0tLQoKIyBEacSfZXIga29kbGFyCgotIERpxJ9lciBrb2RsYXIgacOnaW4gYmFrxLFuxLF6OiBbaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvL10oaHR0cHM6Ly9zYmFsY2kuZ2l0aHViLmlvLykKCgotLS0KCiMgR2VyaSBCaWxkaXJpbQoKLSBHZXJpIGJpbGRpcmltIGnDp2luIHTEsWtsYXnEsW7EsXo6IF9bR2VyaSBiaWxkaXJpbSBmb3JtdV0oaHR0cHM6Ly9nb28uZ2wvZm9ybXMvWWpHWjVESGd0UGxSMVJuQjMpXwoK</div>
 
 
 </div>

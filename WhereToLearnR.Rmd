@@ -20,7 +20,7 @@ https://gupsych.github.io/data_skills/index.html
 https://github.com/rstudio-education/rstats-ed
 
 
-# newonlinecourses psu
+# new online courses psu
 
 https://newonlinecourses.science.psu.edu/statprogram/
 
@@ -28,3 +28,15 @@ https://newonlinecourses.science.psu.edu/statprogram/
 # statsthinking21
 
 http://statsthinking21.org/index.html#why-does-this-book-exist
+
+
+# RStudio  
+
+https://www.rstudio.com/online-learning/
+
+
+# r-statistics
+
+http://r-statistics.co/R-Tutorial.html
+
+

@@ -66,11 +66,26 @@ https://rattle.togaware.com/
 
 ### Jamovi
 
+
+
+
 ### JASP
+
+
+
+
 
 ### Blue Sky Statistics
 
 https://www.blueskystatistics.com/
+
+
+### R AnalyticFlow
+
+
+https://r.analyticflow.com/en/
+
+
 
 ### Deducer
 
@@ -81,6 +96,8 @@ https://r4stats.com/2018/06/13/deducer/
 ```{r}
 install.packages(c("JGR","Deducer","DeducerExtras"))
 ```
+
+
 
 ```{r}
 library("JGR")

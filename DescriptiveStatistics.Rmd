@@ -188,6 +188,11 @@ https://github.com/robinsones/robinsones_blog/blob/master/content/post/2018-11-1
 
 
 
+- I “only” use R for descriptive stats — and that’s OK
+
+https://rforeval.com/descriptive-stats-r/
+
+
 
 
 

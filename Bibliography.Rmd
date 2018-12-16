@@ -26,4 +26,75 @@ https://cran.r-project.org/web/packages/bibliometrix/vignettes/bibliometrix-vign
  https://www.kumu.io/nicholasjkelley/jpsp-top-50
  
  
+# knitcitations
+
+https://github.com/cboettig/knitcitations
+
+
+```{r}
+# library(devtools)
+# install_github("cboettig/knitcitations")
+install.packages("knitcitations")
+```
+
+
+```{r}
+library("knitcitations")
+cleanbib()
+options("citation_format" = "pandoc")
+
+```
+
+```{r}
+citep("10.1890/11-0011.1")
+```
+
+citation `r citep("10.1890/11-0011.1")` in text
+
+
+```{r}
+citet("10.1098/rspb.2013.1372")
+```
+
+
+
+citation `r citet("10.1098/rspb.2013.1372")` in text
+
+
+```{r}
+citep("http://knowledgeblog.org/greycite")
+```
+
+```
+write.bibtex(file="references.bib")
+```
+
+# rcrossref
+
+https://github.com/ropensci/rcrossref
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

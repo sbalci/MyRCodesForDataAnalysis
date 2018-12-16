@@ -282,3 +282,29 @@ Import, Export, and Convert Data Files
 
 https://cran.r-project.org/web/packages/rio/vignettes/rio.html
 
+
+# read with purrr
+
+
+R tip: Iterate with purrr's map_df function
+
+
+https://www.infoworld.com/video/89075/r-tip-iterate-with-purrrs-map-df-function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

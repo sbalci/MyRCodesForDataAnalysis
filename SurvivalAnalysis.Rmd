@@ -726,3 +726,371 @@ coxph(Surv(start,stop,D1) ~ Z1+Z2+Z3+T1Z1,data=burn.cp)
 ```
 
 
+---
+
+# survsup
+
+- Plotting survival curves with the survsup package  
+
+https://cran.r-project.org/web/packages/survsup/vignettes/survsup_intro.html
+
+
+http://github.com/dlindholm/survsup/
+
+
+```{r}
+# install.packages("survsup")
+```
+
+
+```{r}
+library(survsup)
+library(ggplot2)
+library(survival)
+library(dplyr)
+```
+
+
+```{r}
+lung
+```
+
+
+
+```{r}
+fit <- survfit(Surv(time, status) ~ 1, data = lung)
+plot_survfit(fit)
+```
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ 1, data = .) %>%
+  plot_survfit()
+```
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ 1, data = .) %>%
+  plot_survfit(cuminc = FALSE)
+```
+
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE)
+```
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE, ci = TRUE)
+```
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE, ci = TRUE) + # <--- NOTE!
+  labs(x = "Time (days)", y = "Survival (%)")
+```
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE) %>%
+  nar()
+```
+
+
+
+```{r}
+lung %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE) %>%
+  nar(size = 3)
+```
+
+
+
+```{r}
+colon
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ rx, data = .) %>%
+  plot_survfit() %>%
+  nar() +
+  scale_color_manual(values = c("darkorange", "steelblue", "darkred"))
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
+  skislopes()
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
+  skislopes(reverse = TRUE)
+```
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
+  cat4()
+```
+
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
+  hcl_rainbow()
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
+  hcl_rainbow(reverse = TRUE)
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(lwd = 2)
+```
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(lwd = 0.5)
+```
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(legend.title = "Extent of disease")
+```
+
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(ylim = c(0, 100)) %>%
+  nar()
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(xmax = 2000) %>%
+  nar()
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(xmax = 2000, xbreaks = c(0, 1000, 2000)) %>%
+  nar()
+```
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar()
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(flip = TRUE)
+```
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(size = 5, flip = TRUE)
+```
+
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(size = 2, flip = TRUE)
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(y_offset = 0.1, flip = TRUE)
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(y_offset = 0.03, flip = TRUE)
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(separator = FALSE)
+```
+
+
+```{r}
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
+  nar(sep_color = "grey90", sep_lwd = 1.5)
+```
+
+
+
+https://cran.r-project.org/package=gridExtra
+
+
+```{r}
+library(gridExtra)
+```
+  
+
+```{r}
+p <- list(
+  p1 = colon %>%
+    survfit(Surv(time, status) ~ sex, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar() +
+    labs(tag = "A"),
+
+  p2 = colon %>%
+    survfit(Surv(time, status) ~ node4, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar() +
+    labs(tag = "B")
+)
+
+grid.arrange(grobs = p, ncol = 2)
+```
+
+
+```{r}
+# Store plots in a list
+p <- list(
+  p1 = colon %>%
+    survfit(Surv(time, status) ~ 1, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) +
+    labs(tag = "A"),
+
+  p2 = colon %>%
+    survfit(Surv(time, status) ~ rx, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar(2, separator = FALSE) +
+    labs(tag = "B"),
+
+  p3 = colon %>%
+    survfit(Surv(time, status) ~ extent, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar(2, separator = FALSE) +
+    labs(tag = "C"),
+
+  p4 = colon %>%
+    survfit(Surv(time, status) ~ sex, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar(2, separator = FALSE) +
+    labs(tag = "D"),
+
+  p5 = colon %>%
+    survfit(Surv(time, status) ~ node4, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar(2, separator = FALSE) +
+    labs(tag = "E"),
+
+  p6 = colon %>%
+    survfit(Surv(time, status) ~ surg, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
+    nar(2, separator = FALSE) +
+    labs(tag = "F")
+
+)
+
+#Define layout matrix
+lay <- rbind(c(1,1,2),
+             c(1,1,3),
+             c(4,5,6))
+
+#Plot it all!
+grid.arrange(grobs = p, layout_matrix = lay)
+```
+
+
+```{r}
+p[["p3"]]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

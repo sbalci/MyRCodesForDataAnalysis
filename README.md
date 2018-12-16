@@ -86,6 +86,9 @@ the-lesser-known-stars-of-the-tidyverse.nb.html
 [https://sbalci.github.io/MyRCodesForDataAnalysis/SurvivalAnalysis.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/SurvivalAnalysis.nb.html)
 
 
+https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html
+
+
 ## Contingency Tables
 
 https://sbalci.github.io/MyRCodesForDataAnalysis/ContingencyTables.nb.html
@@ -138,7 +141,7 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/Graphs.nb.html
 
 # Reporting
 
-## ReproducibleResearch
+## Reproducible Research
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html)
 
@@ -171,6 +174,9 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/formattable.nb.html
 https://sbalci.github.io/MyRCodesForDataAnalysis/shiny.nb.html
 
 
+## Creating websites in R
+
+https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html
 
 # Bioinformatics
 
@@ -286,17 +292,27 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/eurostat.nb.html
 # Miscellaneous
 
 https://sbalci.github.io/MyRCodesForDataAnalysis/codes.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/OpenCPU.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/papeR.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/Tutorials.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/PythonPandas.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/lessR.nb.html  
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/arsenal.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/rchess.nb.html
+
 https://sbalci.github.io/MyRCodesForDataAnalysis/EvidenceSynthesisProjects.nb.html
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/MachineLearning.nb.html
 
 # Feedback
+
 
 - [Yours truly](https://github.com/sbalci) would like to hear your feedback: _[feedback form](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
 

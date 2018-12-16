@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1626,6 +1626,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -1657,9 +1660,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -1673,7 +1737,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -1711,17 +1774,25 @@ $(document).ready(function () {
 <h1>rstats-ed</h1>
 <p><a href="https://github.com/rstudio-education/rstats-ed" class="uri">https://github.com/rstudio-education/rstats-ed</a></p>
 </div>
-<div id="newonlinecourses-psu" class="section level1">
-<h1>newonlinecourses psu</h1>
+<div id="new-online-courses-psu" class="section level1">
+<h1>new online courses psu</h1>
 <p><a href="https://newonlinecourses.science.psu.edu/statprogram/" class="uri">https://newonlinecourses.science.psu.edu/statprogram/</a></p>
 </div>
 <div id="statsthinking21" class="section level1">
 <h1>statsthinking21</h1>
 <p><a href="http://statsthinking21.org/index.html#why-does-this-book-exist" class="uri">http://statsthinking21.org/index.html#why-does-this-book-exist</a></p>
+</div>
+<div id="rstudio" class="section level1">
+<h1>RStudio</h1>
+<p><a href="https://www.rstudio.com/online-learning/" class="uri">https://www.rstudio.com/online-learning/</a></p>
+</div>
+<div id="r-statistics" class="section level1">
+<h1>r-statistics</h1>
+<p><a href="http://r-statistics.co/R-Tutorial.html" class="uri">http://r-statistics.co/R-Tutorial.html</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiV2hlcmUgdG8gbGVhcm4gUiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBzd2lybHN0YXRzCgpodHRwczovL3N3aXJsc3RhdHMuY29tLwoKCiMgRGF0YSBTa2lsbHMgZm9yIFJlcHJvZHVjaWJsZSBTY2llbmNlCgoKaHR0cHM6Ly9ndXBzeWNoLmdpdGh1Yi5pby9kYXRhX3NraWxscy9pbmRleC5odG1sCgoKIyByc3RhdHMtZWQKCgpodHRwczovL2dpdGh1Yi5jb20vcnN0dWRpby1lZHVjYXRpb24vcnN0YXRzLWVkCgoKIyBuZXdvbmxpbmVjb3Vyc2VzIHBzdQoKaHR0cHM6Ly9uZXdvbmxpbmVjb3Vyc2VzLnNjaWVuY2UucHN1LmVkdS9zdGF0cHJvZ3JhbS8KCgojIHN0YXRzdGhpbmtpbmcyMQoKaHR0cDovL3N0YXRzdGhpbmtpbmcyMS5vcmcvaW5kZXguaHRtbCN3aHktZG9lcy10aGlzLWJvb2stZXhpc3QK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiV2hlcmUgdG8gbGVhcm4gUiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBzd2lybHN0YXRzCgpodHRwczovL3N3aXJsc3RhdHMuY29tLwoKCiMgRGF0YSBTa2lsbHMgZm9yIFJlcHJvZHVjaWJsZSBTY2llbmNlCgoKaHR0cHM6Ly9ndXBzeWNoLmdpdGh1Yi5pby9kYXRhX3NraWxscy9pbmRleC5odG1sCgoKIyByc3RhdHMtZWQKCgpodHRwczovL2dpdGh1Yi5jb20vcnN0dWRpby1lZHVjYXRpb24vcnN0YXRzLWVkCgoKIyBuZXcgb25saW5lIGNvdXJzZXMgcHN1CgpodHRwczovL25ld29ubGluZWNvdXJzZXMuc2NpZW5jZS5wc3UuZWR1L3N0YXRwcm9ncmFtLwoKCiMgc3RhdHN0aGlua2luZzIxCgpodHRwOi8vc3RhdHN0aGlua2luZzIxLm9yZy9pbmRleC5odG1sI3doeS1kb2VzLXRoaXMtYm9vay1leGlzdAoKCiMgUlN0dWRpbyAgCgpodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9vbmxpbmUtbGVhcm5pbmcvCgoKIyByLXN0YXRpc3RpY3MKCmh0dHA6Ly9yLXN0YXRpc3RpY3MuY28vUi1UdXRvcmlhbC5odG1sCgoK</div>
 
 
 

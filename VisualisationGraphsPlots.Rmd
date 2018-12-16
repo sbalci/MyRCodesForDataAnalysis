@@ -87,4 +87,6 @@ https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
 
 https://datascienceplus.com/machine-learning-results-one-plot-to-rule-them-all/
 
-- 
+- data visualisation applications, tools and libraries
+
+http://www.visualisingdata.com/resources/

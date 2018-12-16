@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1626,6 +1626,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -1657,9 +1660,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -1673,7 +1737,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -1733,10 +1796,14 @@ $(document).ready(function () {
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="a-tidy-text-analysis-of-my-google-search-history" class="section level1">
+<h1>A Tidy Text Analysis of My Google Search History</h1>
+<p><a href="https://www.r-bloggers.com/a-tidy-text-analysis-of-my-google-search-history/" class="uri">https://www.r-bloggers.com/a-tidy-text-analysis-of-my-google-search-history/</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGV4dCBNaW5pbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgpodHRwczovL3JlZ2V4ci5jb20vCgpodHRwczovL3JlZ2V4MTAxLmNvbS8KCiMgUmVhZCB0ZXh0IGZpbGVzIHdpdGggcmVhZHRleHQoKQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3JlYWR0ZXh0L3ZpZ25ldHRlcy9yZWFkdGV4dF92aWduZXR0ZS5odG1sCgoKIyBxZGFwUmVnZXgKCmBgYHtyfQpsaWJyYXJ5KHFkYXBSZWdleCkKYGBgCgoKaHR0cHM6Ly9naXRodWIuY29tL3RyaW5rZXIvcWRhcFJlZ2V4CgpodHRwOi8vdHJpbmtlci5naXRodWIuaW8vcWRhcFJlZ2V4X2Rldi9pbmRleC5odG1sCgojIHN0cmluZ3IKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9zdHJpbmdyL3ZpZ25ldHRlcy9zdHJpbmdyLmh0bWwKCmBgYApzdHJpbmdyOjpzdHJfdmlldygpCmBgYAoKCiMgUmVnRXhwbGFpbgoKaHR0cHM6Ly93d3cuZ2Fycmlja2FkZW5idWllLmNvbS9wcm9qZWN0L3JlZ2V4cGxhaW4vCgoKYGBge3J9CiMgZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJnYWRlbmJ1aWUvcmVnZXhwbGFpbiIpCiMgc291cmNlKCJodHRwczovL2luc3RhbGwtZ2l0aHViLm1lL2dhZGVuYnVpZS9yZWdleHBsYWluIikKYGBgCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGV4dCBNaW5pbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgpodHRwczovL3JlZ2V4ci5jb20vCgpodHRwczovL3JlZ2V4MTAxLmNvbS8KCiMgUmVhZCB0ZXh0IGZpbGVzIHdpdGggcmVhZHRleHQoKQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3JlYWR0ZXh0L3ZpZ25ldHRlcy9yZWFkdGV4dF92aWduZXR0ZS5odG1sCgoKIyBxZGFwUmVnZXgKCmBgYHtyfQpsaWJyYXJ5KHFkYXBSZWdleCkKYGBgCgoKaHR0cHM6Ly9naXRodWIuY29tL3RyaW5rZXIvcWRhcFJlZ2V4CgpodHRwOi8vdHJpbmtlci5naXRodWIuaW8vcWRhcFJlZ2V4X2Rldi9pbmRleC5odG1sCgojIHN0cmluZ3IKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9zdHJpbmdyL3ZpZ25ldHRlcy9zdHJpbmdyLmh0bWwKCmBgYApzdHJpbmdyOjpzdHJfdmlldygpCmBgYAoKCiMgUmVnRXhwbGFpbgoKaHR0cHM6Ly93d3cuZ2Fycmlja2FkZW5idWllLmNvbS9wcm9qZWN0L3JlZ2V4cGxhaW4vCgoKYGBge3J9CiMgZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJnYWRlbmJ1aWUvcmVnZXhwbGFpbiIpCiMgc291cmNlKCJodHRwczovL2luc3RhbGwtZ2l0aHViLm1lL2dhZGVuYnVpZS9yZWdleHBsYWluIikKYGBgCgoKCiMgQSBUaWR5IFRleHQgQW5hbHlzaXMgb2YgTXkgR29vZ2xlIFNlYXJjaCBIaXN0b3J5CgpodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9hLXRpZHktdGV4dC1hbmFseXNpcy1vZi1teS1nb29nbGUtc2VhcmNoLWhpc3RvcnkvCgoK</div>
 
 
 

@@ -14,6 +14,19 @@ output: html_notebook
 <!-- ) -->
 <!-- ``` -->
 
+
+# purrr
+
+- Learning Functional Programming & purrr
+
+https://paulvanderlaken.com/2018/12/05/learning-functional-programming-purrr/
+
+
+
+
+
+
+
 # DiagrammeR
 
 http://rich-iannone.github.io/DiagrammeR/

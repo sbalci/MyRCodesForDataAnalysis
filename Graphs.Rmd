@@ -397,5 +397,111 @@ hchart(weather, type = "columnrange",
 
 
 
+---
+
+
+# taucharts
+
+
+https://www.infoworld.com/video/87337/r-tip-how-to-create-easy-interactive-scatter-plots-with-taucharts
+
+
+---
+  
+<iframe src="//content.jwplatform.com/players/GkbRp8n7-BIrn9usY.html" width="640" height="360" frameborder="0" scrolling="auto"></iframe>  
+
+---
+
+
+
+
+```{r}
+devtools::install_github("hrbrmstr/taucharts")
+# githubinstall::githubinstall("taucharts")
+```
+
+
+```{r}
+library(tidyverse)
+library(taucharts)
+data("mtcars")
+```
+
+
+```{r}
+mtcars2 <- mtcars %>% 
+  select(wt, mpg) %>% 
+  mutate(model = row.names(mtcars))
+```
+
+
+```{r}
+taucharts::tauchart(mtcars2) %>% 
+  tau_point(x = "wt", y = "mpg") %>% 
+  tau_tooltip() %>% 
+  tau_trendline()
+```
+
+
+# gganimate
+
+https://www.infoworld.com/video/89987/r-tip-animations-in-r
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-12-04" />
+<meta name="date" content="2018-12-16" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -100,7 +100,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -2632,7 +2632,7 @@ window.initializeSourceEmbed = function(filename) {
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
@@ -2693,10 +2693,38 @@ code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
 code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-div.sourceCode {
-  overflow-x: visible;
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
 }
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -2762,6 +2790,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -2793,9 +2824,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -2809,7 +2901,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -2927,7 +3018,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-12-04</em></h4>
+<h4 class="date"><em>2018-12-16</em></h4>
 
 </div>
 
@@ -3371,10 +3462,14 @@ Proportion      0.333      0.333      0.333
 <p><a href="https://www.rstudio.com/resources/videos/the-lesser-known-stars-of-the-tidyverse/" class="uri">https://www.rstudio.com/resources/videos/the-lesser-known-stars-of-the-tidyverse/</a></p>
 <p><a href="https://github.com/robinsones/robinsones_blog/blob/master/content/post/multipleChoiceResponses.csv" class="uri">https://github.com/robinsones/robinsones_blog/blob/master/content/post/multipleChoiceResponses.csv</a></p>
 <p><a href="https://github.com/robinsones/robinsones_blog/blob/master/content/post/2018-11-16-the-lesser-known-stars-of-the-tidyverse.Rmd" class="uri">https://github.com/robinsones/robinsones_blog/blob/master/content/post/2018-11-16-the-lesser-known-stars-of-the-tidyverse.Rmd</a></p>
+<ul>
+<li>I “only” use R for descriptive stats — and that’s OK</li>
+</ul>
+<p><a href="https://rforeval.com/descriptive-stats-r/" class="uri">https://rforeval.com/descriptive-stats-r/</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKIyMgRGVzY3JpcHRpdmUgU3RhdGlzdGljcwoKCmBgYHtyfQpFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpgYGAKCmBgYHtyfQp0YWJsZSA8LSBFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpwYW5kZXI6OnBhbmRlcih0YWJsZSkKCgpgYGAKCmBgYHtyfQojVGFidWxhdGUsIGJ5IGdlbmRlciwgdGhlIG1lYW4gYWdlIGZyb20gdGhlIHNjYWJpZXMgZGF0YXNldAoKRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKQpgYGAKCmBgYHtyfQpzdW1tYXJ5X2RhdGEgPC0gYXJzZW5hbDo6dGFibGVieShnZW5kZXJ+YWdlK3NjYWJpZXNfaW5mZXN0YXRpb24sZGF0YT1zY2FiaWVzKQpzdW1tYXJ5KHN1bW1hcnlfZGF0YSkKCmBgYAoKCiMjIHNraW1yCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvc2tpbXIvdmlnbmV0dGVzL1VzaW5nX3NraW1yLmh0bWwKCmBgYHtyfQpyZXF1aXJlKHNraW1yKQpgYGAKCmBgYHtyfQpzdW1tYXJ5KGlyaXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoaXJpcyRTZXBhbC5MZW5ndGgpCmBgYAoKCmBgYHtyfQpmaXZlbnVtKGlyaXMkU2VwYWwuTGVuZ3RoKQpgYGAKCgpgYGB7cn0Kc3VtbWFyeShpcmlzJFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMpCmBgYAoKCmBgYHtyfQppcmlzX3Jlc3VsdHMgPC0gc2tpbShpcmlzKQpzdHIoaXJpc19yZXN1bHRzKQppcmlzX3Jlc3VsdHMkdmFyaWFibGUKaXJpc19yZXN1bHRzJHR5cGUKYGBgCgoKYGBge3J9CnNraW1yOjpza2ltKGlyaXMpICU+JQogIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSAibWVhbiIpCmBgYAoKYGBge3J9CmhlYWQoaXJpc19yZXN1bHRzLCBuPTE1KQpgYGAKCgoKYGBge3J9Cm10Y2FycyAlPiUKICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lCiAgc2tpbSgpCmBgYAoKCgpgYGB7cn0Kc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMsIHN0YXJ0c193aXRoKCJTZXBhbCIpKQpgYGAKCgoKYGBge3J9CnNraW0oZGF0YXNldHM6Omx5bngpCmBgYAoKCi0gRXhwbG9yYXRvcnkgRGF0YSBBbmFseXNpcyBpbiBSIChpbnRyb2R1Y3Rpb24pCgoKaHR0cHM6Ly9ibG9nLmRhdGFzY2llbmNlaGVyb2VzLmNvbS9leHBsb3JhdG9yeS1kYXRhLWFuYWx5c2lzLWluLXItaW50cm8vCgoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KHN1bW1hcnl0b29scykKIyBsaWJyYXJ5KGZ1bk1vZGVsaW5nKSAKbGlicmFyeSh0aWR5dmVyc2UpIApsaWJyYXJ5KEhtaXNjKQoKYmFzaWNfZWRhIDwtIGZ1bmN0aW9uKGRhdGEpCnsKICBnbGltcHNlKGRhdGEpCiAjIGRmX3N0YXR1cyhkYXRhKQogIyBmcmVxKGRhdGEpIAogIyBwcm9maWxpbmdfbnVtKGRhdGEpCiAjIHBsb3RfbnVtKGRhdGEpCiAgZGVzY3JpYmUoZGF0YSkKfQoKYmFzaWNfZWRhKGlyaXNkYXRhKQpgYGAKCi0tLQoKLSAqKldoYXQncyBzbyBoYXJkIGFib3V0IGhpc3RvZ3JhbXM/KioKCmh0dHA6Ly90aW5saXp6aWUub3JnL35hcmFuL2hpc3RvZ3JhbXMvCgoKCi0tLQoKCiMgRGF0YUV4cGxvcmVyCgoKLS0tCgojIFdlYmluYXI6IFRpZHl2ZXJzZSBFeHBsb3JhdG9yeSBBbmFseXNpcyAoRW1pbHkgUm9iaW5zb24pCgoKPGlmcmFtZSBzcmM9Imh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9wbHVnaW5zL3ZpZGVvLnBocD9ocmVmPWh0dHBzJTNBJTJGJTJGd3d3LmZhY2Vib29rLmNvbSUyRjcyNjI4MjU0NzM5NjIyOCUyRnZpZGVvcyUyRjU4NDQxNzg2MTk4Njg4NyUyRiZzaG93X3RleHQ9MSZ3aWR0aD01NjAiIHdpZHRoPSI1NjAiIGhlaWdodD0iNTI5IiBzdHlsZT0iYm9yZGVyOm5vbmU7b3ZlcmZsb3c6aGlkZGVuIiBzY3JvbGxpbmc9Im5vIiBmcmFtZWJvcmRlcj0iMCIgYWxsb3dUcmFuc3BhcmVuY3k9InRydWUiIGFsbG93PSJlbmNyeXB0ZWQtbWVkaWEiIGFsbG93RnVsbFNjcmVlbj0idHJ1ZSI+PC9pZnJhbWU+CgoKPGlmcmFtZSB3aWR0aD0iNTYwIiBoZWlnaHQ9IjMxNSIgc3JjPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC91RzNpZ0FHWDdVRSIgZnJhbWVib3JkZXI9IjAiIGFsbG93PSJhY2NlbGVyb21ldGVyOyBhdXRvcGxheTsgZW5jcnlwdGVkLW1lZGlhOyBneXJvc2NvcGU7IHBpY3R1cmUtaW4tcGljdHVyZSIgYWxsb3dmdWxsc2NyZWVuPjwvaWZyYW1lPgoKCmh0dHBzOi8vaG9va2Vkb25kYXRhLm9yZy90aGUtbGVzc2VyLWtub3duLXN0YXJzLW9mLXRoZS10aWR5dmVyc2UvCgpodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9yZXNvdXJjZXMvdmlkZW9zL3RoZS1sZXNzZXIta25vd24tc3RhcnMtb2YtdGhlLXRpZHl2ZXJzZS8KCmh0dHBzOi8vZ2l0aHViLmNvbS9yb2JpbnNvbmVzL3JvYmluc29uZXNfYmxvZy9ibG9iL21hc3Rlci9jb250ZW50L3Bvc3QvbXVsdGlwbGVDaG9pY2VSZXNwb25zZXMuY3N2CgpodHRwczovL2dpdGh1Yi5jb20vcm9iaW5zb25lcy9yb2JpbnNvbmVzX2Jsb2cvYmxvYi9tYXN0ZXIvY29udGVudC9wb3N0LzIwMTgtMTEtMTYtdGhlLWxlc3Nlci1rbm93bi1zdGFycy1vZi10aGUtdGlkeXZlcnNlLlJtZAoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJJbiB0aGlzIHJlcG9zaXRvcnkgSSBhbSBnb2luZyB0byBjb2xsZWN0IGBSIGNvZGVzYCBmb3IgZGF0YSBhbmFseXNpcy4gQ29kZXMgYXJlIGZyb20gdmFyaW91cyByZXNvdXJjZXMgYW5kIEkgdHJ5IHRvIGdpdmUgb3JpZ2luYWwgbGluayBhcyBtdWNoIGFzIHBvc3NpYmxlLiIKYXV0aG9yOiAiW1NlcmRhciBCYWxjxLEsIE1ELCBQYXRob2xvZ2lzdF0oaHR0cHM6Ly93d3cuc2VyZGFyYmFsY2kuY29tLykiCmRhdGU6ICdgciBmb3JtYXQoU3lzLkRhdGUoKSlgJwpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19kZXB0aDogNQogICAgdG9jX2Zsb2F0OiB5ZXMKICBodG1sX2RvY3VtZW50OiAKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgZGZfcHJpbnQ6IGthYmxlCiAgICBrZWVwX21kOiB5ZXMKICAgIG51bWJlcl9zZWN0aW9uczogeWVzCiAgICB0aGVtZTogY2VydWxlYW4KICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwogICAgaGlnaGxpZ2h0OiBrYXRlCi0tLQoKIyMgRGVzY3JpcHRpdmUgU3RhdGlzdGljcwoKCmBgYHtyfQpFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpgYGAKCmBgYHtyfQp0YWJsZSA8LSBFcGk6OnN0YXQudGFibGUoZ2VuZGVyLG1lYW4oYWdlKSwgZGF0YSA9IHNjYWJpZXMpCgpwYW5kZXI6OnBhbmRlcih0YWJsZSkKCgpgYGAKCmBgYHtyfQojVGFidWxhdGUsIGJ5IGdlbmRlciwgdGhlIG1lYW4gYWdlIGZyb20gdGhlIHNjYWJpZXMgZGF0YXNldAoKRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKQpgYGAKCmBgYHtyfQpzdW1tYXJ5X2RhdGEgPC0gYXJzZW5hbDo6dGFibGVieShnZW5kZXJ+YWdlK3NjYWJpZXNfaW5mZXN0YXRpb24sZGF0YT1zY2FiaWVzKQpzdW1tYXJ5KHN1bW1hcnlfZGF0YSkKCmBgYAoKCiMjIHNraW1yCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvc2tpbXIvdmlnbmV0dGVzL1VzaW5nX3NraW1yLmh0bWwKCmBgYHtyfQpyZXF1aXJlKHNraW1yKQpgYGAKCmBgYHtyfQpzdW1tYXJ5KGlyaXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoaXJpcyRTZXBhbC5MZW5ndGgpCmBgYAoKCmBgYHtyfQpmaXZlbnVtKGlyaXMkU2VwYWwuTGVuZ3RoKQpgYGAKCgpgYGB7cn0Kc3VtbWFyeShpcmlzJFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMpCmBgYAoKCmBgYHtyfQppcmlzX3Jlc3VsdHMgPC0gc2tpbShpcmlzKQpzdHIoaXJpc19yZXN1bHRzKQppcmlzX3Jlc3VsdHMkdmFyaWFibGUKaXJpc19yZXN1bHRzJHR5cGUKYGBgCgoKYGBge3J9CnNraW1yOjpza2ltKGlyaXMpICU+JQogIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSAibWVhbiIpCmBgYAoKYGBge3J9CmhlYWQoaXJpc19yZXN1bHRzLCBuPTE1KQpgYGAKCgoKYGBge3J9Cm10Y2FycyAlPiUKICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lCiAgc2tpbSgpCmBgYAoKCgpgYGB7cn0Kc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpCmBgYAoKCmBgYHtyfQpza2ltKGlyaXMsIHN0YXJ0c193aXRoKCJTZXBhbCIpKQpgYGAKCgoKYGBge3J9CnNraW0oZGF0YXNldHM6Omx5bngpCmBgYAoKCi0gRXhwbG9yYXRvcnkgRGF0YSBBbmFseXNpcyBpbiBSIChpbnRyb2R1Y3Rpb24pCgoKaHR0cHM6Ly9ibG9nLmRhdGFzY2llbmNlaGVyb2VzLmNvbS9leHBsb3JhdG9yeS1kYXRhLWFuYWx5c2lzLWluLXItaW50cm8vCgoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KHN1bW1hcnl0b29scykKIyBsaWJyYXJ5KGZ1bk1vZGVsaW5nKSAKbGlicmFyeSh0aWR5dmVyc2UpIApsaWJyYXJ5KEhtaXNjKQoKYmFzaWNfZWRhIDwtIGZ1bmN0aW9uKGRhdGEpCnsKICBnbGltcHNlKGRhdGEpCiAjIGRmX3N0YXR1cyhkYXRhKQogIyBmcmVxKGRhdGEpIAogIyBwcm9maWxpbmdfbnVtKGRhdGEpCiAjIHBsb3RfbnVtKGRhdGEpCiAgZGVzY3JpYmUoZGF0YSkKfQoKYmFzaWNfZWRhKGlyaXNkYXRhKQpgYGAKCi0tLQoKLSAqKldoYXQncyBzbyBoYXJkIGFib3V0IGhpc3RvZ3JhbXM/KioKCmh0dHA6Ly90aW5saXp6aWUub3JnL35hcmFuL2hpc3RvZ3JhbXMvCgoKCi0tLQoKCiMgRGF0YUV4cGxvcmVyCgoKLS0tCgojIFdlYmluYXI6IFRpZHl2ZXJzZSBFeHBsb3JhdG9yeSBBbmFseXNpcyAoRW1pbHkgUm9iaW5zb24pCgoKPGlmcmFtZSBzcmM9Imh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9wbHVnaW5zL3ZpZGVvLnBocD9ocmVmPWh0dHBzJTNBJTJGJTJGd3d3LmZhY2Vib29rLmNvbSUyRjcyNjI4MjU0NzM5NjIyOCUyRnZpZGVvcyUyRjU4NDQxNzg2MTk4Njg4NyUyRiZzaG93X3RleHQ9MSZ3aWR0aD01NjAiIHdpZHRoPSI1NjAiIGhlaWdodD0iNTI5IiBzdHlsZT0iYm9yZGVyOm5vbmU7b3ZlcmZsb3c6aGlkZGVuIiBzY3JvbGxpbmc9Im5vIiBmcmFtZWJvcmRlcj0iMCIgYWxsb3dUcmFuc3BhcmVuY3k9InRydWUiIGFsbG93PSJlbmNyeXB0ZWQtbWVkaWEiIGFsbG93RnVsbFNjcmVlbj0idHJ1ZSI+PC9pZnJhbWU+CgoKPGlmcmFtZSB3aWR0aD0iNTYwIiBoZWlnaHQ9IjMxNSIgc3JjPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC91RzNpZ0FHWDdVRSIgZnJhbWVib3JkZXI9IjAiIGFsbG93PSJhY2NlbGVyb21ldGVyOyBhdXRvcGxheTsgZW5jcnlwdGVkLW1lZGlhOyBneXJvc2NvcGU7IHBpY3R1cmUtaW4tcGljdHVyZSIgYWxsb3dmdWxsc2NyZWVuPjwvaWZyYW1lPgoKCmh0dHBzOi8vaG9va2Vkb25kYXRhLm9yZy90aGUtbGVzc2VyLWtub3duLXN0YXJzLW9mLXRoZS10aWR5dmVyc2UvCgpodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9yZXNvdXJjZXMvdmlkZW9zL3RoZS1sZXNzZXIta25vd24tc3RhcnMtb2YtdGhlLXRpZHl2ZXJzZS8KCmh0dHBzOi8vZ2l0aHViLmNvbS9yb2JpbnNvbmVzL3JvYmluc29uZXNfYmxvZy9ibG9iL21hc3Rlci9jb250ZW50L3Bvc3QvbXVsdGlwbGVDaG9pY2VSZXNwb25zZXMuY3N2CgpodHRwczovL2dpdGh1Yi5jb20vcm9iaW5zb25lcy9yb2JpbnNvbmVzX2Jsb2cvYmxvYi9tYXN0ZXIvY29udGVudC9wb3N0LzIwMTgtMTEtMTYtdGhlLWxlc3Nlci1rbm93bi1zdGFycy1vZi10aGUtdGlkeXZlcnNlLlJtZAoKCgotIEkg4oCcb25seeKAnSB1c2UgUiBmb3IgZGVzY3JpcHRpdmUgc3RhdHMg4oCUIGFuZCB0aGF04oCZcyBPSwoKaHR0cHM6Ly9yZm9yZXZhbC5jb20vZGVzY3JpcHRpdmUtc3RhdHMtci8KCgoKCgoK</div>
 
 
 </div>

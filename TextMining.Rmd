@@ -45,3 +45,8 @@ https://www.garrickadenbuie.com/project/regexplain/
 
 
 
+# A Tidy Text Analysis of My Google Search History
+
+https://www.r-bloggers.com/a-tidy-text-analysis-of-my-google-search-history/
+
+

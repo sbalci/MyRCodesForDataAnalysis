@@ -71,3 +71,17 @@ http://staff.math.su.se/hoehle/blog/2018/07/02/factfulness.html
 - projects
 
 https://www.analyticsvidhya.com/blog/2014/11/data-science-projects-learn/
+
+- Miscellaneous Datasets
+
+http://users.stat.ufl.edu/~winner/datasets.html
+
+
+- datasets
+
+https://www.rdocumentation.org/packages/datasets/versions/3.5.1
+
+
+
+
+

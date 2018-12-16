@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1626,6 +1626,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -1657,9 +1660,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -1673,7 +1737,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -1703,13 +1766,67 @@ $(document).ready(function () {
 <p><a href="https://cran.r-project.org/web/packages/bibliometrix/vignettes/bibliometrix-vignette.html" class="uri">https://cran.r-project.org/web/packages/bibliometrix/vignettes/bibliometrix-vignette.html</a></p>
 <p>Bibliographic Network Visualization for Academic Literature Reviews</p>
 <p><a href="http://www.mburnamfink.com/blog/bibliographic-network-visualization-for-academic-literature-reviews" class="uri">http://www.mburnamfink.com/blog/bibliographic-network-visualization-for-academic-literature-reviews</a></p>
-<p><a href="https://embed.kumu.io/0b991b02bb20975fde904f4bf7433333#jpsp-top-50?s=%23doi-101037-0022-35147451252">https://embed.kumu.io/0b991b02bb20975fde904f4bf7433333#jpsp-top-50?s=%23doi-101037-0022-35147451252</a></p>
+<p><a href="https://embed.kumu.io/0b991b02bb20975fde904f4bf7433333#jpsp-top-50?s=%23doi-101037-0022-35147451252" class="uri">https://embed.kumu.io/0b991b02bb20975fde904f4bf7433333#jpsp-top-50?s=%23doi-101037-0022-35147451252</a></p>
 <p>More Than Words? Computer-Aided Text Analysis in Organizational Behavior and Psychology Research</p>
 <p><a href="https://www.annualreviews.org/doi/10.1146/annurev-orgpsych-032117-104622" class="uri">https://www.annualreviews.org/doi/10.1146/annurev-orgpsych-032117-104622</a></p>
 <p><a href="https://www.kumu.io/nicholasjkelley/jpsp-top-50" class="uri">https://www.kumu.io/nicholasjkelley/jpsp-top-50</a></p>
+<div id="knitcitations" class="section level1">
+<h1>knitcitations</h1>
+<p><a href="https://github.com/cboettig/knitcitations" class="uri">https://github.com/cboettig/knitcitations</a></p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcImtuaXRjaXRhdGlvbnNcIilcbmNsZWFuYmliKClcbm9wdGlvbnMoXCJjaXRhdGlvbl9mb3JtYXRcIiA9IFwicGFuZG9jXCIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>library(&quot;knitcitations&quot;)
+cleanbib()
+options(&quot;citation_format&quot; = &quot;pandoc&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXAoXCIxMC4xODkwLzExLTAwMTEuMVwiKVxuYGBgIn0= -->
+<pre class="r"><code>citep(&quot;10.1890/11-0011.1&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiW0BBYnJhbXNfMjAxMl1cIlxuIn0= -->
+<pre><code>[1] &quot;[@Abrams_2012]&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>citation <span class="citation">[@Abrams_2012]</span> in text</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXQoXCIxMC4xMDk4L3JzcGIuMjAxMy4xMzcyXCIpXG5gYGAifQ== -->
+<pre class="r"><code>citet(&quot;10.1098/rspb.2013.1372&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQEJvZXR0aWdlcl8yMDEzXCJcbiJ9 -->
+<pre><code>[1] &quot;@Boettiger_2013&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>citation <span class="citation">@Boettiger_2013</span> in text</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXAoXCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGVcIilcbmBgYCJ9 -->
+<pre class="r"><code>citep(&quot;http://knowledgeblog.org/greycite&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IHJlYWNoIEdyZXljaXRlIEFQSVxuIn0= -->
+<pre><code>cannot reach Greycite API</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiW0BVbmtub3duXzIwMThdXCJcbiJ9 -->
+<pre><code>[1] &quot;[@Unknown_2018]&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<pre><code>write.bibtex(file=&quot;references.bib&quot;)</code></pre>
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlibGlvZ3JhcGh5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQSBicmllZiBpbnRyb2R1Y3Rpb24gdG8gYmlibGlvbWV0cml4CgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2JpYmxpb21ldHJpeC92aWduZXR0ZXMvYmlibGlvbWV0cml4LXZpZ25ldHRlLmh0bWwKCiBCaWJsaW9ncmFwaGljIE5ldHdvcmsgVmlzdWFsaXphdGlvbiBmb3IgQWNhZGVtaWMgTGl0ZXJhdHVyZSBSZXZpZXdzIAogCiBodHRwOi8vd3d3Lm1idXJuYW1maW5rLmNvbS9ibG9nL2JpYmxpb2dyYXBoaWMtbmV0d29yay12aXN1YWxpemF0aW9uLWZvci1hY2FkZW1pYy1saXRlcmF0dXJlLXJldmlld3MKIAogCiBodHRwczovL2VtYmVkLmt1bXUuaW8vMGI5OTFiMDJiYjIwOTc1ZmRlOTA0ZjRiZjc0MzMzMzMjanBzcC10b3AtNTA/cz0lMjNkb2ktMTAxMDM3LTAwMjItMzUxNDc0NTEyNTIKIAogIE1vcmUgVGhhbiBXb3Jkcz8gQ29tcHV0ZXItQWlkZWQgVGV4dCBBbmFseXNpcyBpbiBPcmdhbml6YXRpb25hbCBCZWhhdmlvciBhbmQgUHN5Y2hvbG9neSBSZXNlYXJjaAogIAogIGh0dHBzOi8vd3d3LmFubnVhbHJldmlld3Mub3JnL2RvaS8xMC4xMTQ2L2FubnVyZXYtb3JncHN5Y2gtMDMyMTE3LTEwNDYyMgogIAogIAogCiAKIGh0dHBzOi8vd3d3Lmt1bXUuaW8vbmljaG9sYXNqa2VsbGV5L2pwc3AtdG9wLTUwCiAKIAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlibGlvZ3JhcGh5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQSBicmllZiBpbnRyb2R1Y3Rpb24gdG8gYmlibGlvbWV0cml4CgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2JpYmxpb21ldHJpeC92aWduZXR0ZXMvYmlibGlvbWV0cml4LXZpZ25ldHRlLmh0bWwKCiBCaWJsaW9ncmFwaGljIE5ldHdvcmsgVmlzdWFsaXphdGlvbiBmb3IgQWNhZGVtaWMgTGl0ZXJhdHVyZSBSZXZpZXdzIAogCiBodHRwOi8vd3d3Lm1idXJuYW1maW5rLmNvbS9ibG9nL2JpYmxpb2dyYXBoaWMtbmV0d29yay12aXN1YWxpemF0aW9uLWZvci1hY2FkZW1pYy1saXRlcmF0dXJlLXJldmlld3MKIAogCiBodHRwczovL2VtYmVkLmt1bXUuaW8vMGI5OTFiMDJiYjIwOTc1ZmRlOTA0ZjRiZjc0MzMzMzMjanBzcC10b3AtNTA/cz0lMjNkb2ktMTAxMDM3LTAwMjItMzUxNDc0NTEyNTIKIAogIE1vcmUgVGhhbiBXb3Jkcz8gQ29tcHV0ZXItQWlkZWQgVGV4dCBBbmFseXNpcyBpbiBPcmdhbml6YXRpb25hbCBCZWhhdmlvciBhbmQgUHN5Y2hvbG9neSBSZXNlYXJjaAogIAogIGh0dHBzOi8vd3d3LmFubnVhbHJldmlld3Mub3JnL2RvaS8xMC4xMTQ2L2FubnVyZXYtb3JncHN5Y2gtMDMyMTE3LTEwNDYyMgogIAogIAogCiAKIGh0dHBzOi8vd3d3Lmt1bXUuaW8vbmljaG9sYXNqa2VsbGV5L2pwc3AtdG9wLTUwCiAKIAojIGtuaXRjaXRhdGlvbnMKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYm9ldHRpZy9rbml0Y2l0YXRpb25zCgoKYGBge3J9CiMgbGlicmFyeShkZXZ0b29scykKIyBpbnN0YWxsX2dpdGh1YigiY2JvZXR0aWcva25pdGNpdGF0aW9ucyIpCmluc3RhbGwucGFja2FnZXMoImtuaXRjaXRhdGlvbnMiKQpgYGAKCgpgYGB7cn0KbGlicmFyeSgia25pdGNpdGF0aW9ucyIpCmNsZWFuYmliKCkKb3B0aW9ucygiY2l0YXRpb25fZm9ybWF0IiA9ICJwYW5kb2MiKQoKYGBgCgpgYGB7cn0KY2l0ZXAoIjEwLjE4OTAvMTEtMDAxMS4xIikKYGBgCgpjaXRhdGlvbiBgciBjaXRlcCgiMTAuMTg5MC8xMS0wMDExLjEiKWAgaW4gdGV4dAoKCmBgYHtyfQpjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpCmBgYAoKCgpjaXRhdGlvbiBgciBjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpYCBpbiB0ZXh0CgoKYGBge3J9CmNpdGVwKCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGUiKQpgYGAKCmBgYAp3cml0ZS5iaWJ0ZXgoZmlsZT0icmVmZXJlbmNlcy5iaWIiKQpgYGAKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCg==</div>
 
 
 
