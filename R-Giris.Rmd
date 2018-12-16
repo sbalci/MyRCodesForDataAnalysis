@@ -99,6 +99,24 @@ https://support.apple.com/kb/dl1572
 
 ---
 
+
+# R zor şeyler için kolay, kolay şeyler için zor
+
+
+- [R makes easy things hard, and hard things easy](http://r4stats.com/articles/why-r-is-hard-to-learn/)
+
+
+- Aynı şeyi çok fazla şekilde yapmak mümkün
+
+R Syntax Comparison::CHEAT SHEET
+
+https://www.amelia.mn/Syntax-cheatsheet.pdf
+
+
+
+---
+
+
 # R paketleri
 
 
@@ -156,6 +174,8 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 ```{r yardım}
 ?mean
 ??efetch
+help(merge)
+example(merge)
 ```
 
 

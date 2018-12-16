@@ -41,3 +41,35 @@ repeat{
 }
 
 
+---
+
+
+
+```{r}
+library(datasets) # initialize
+library(help=datasets) # display the datasets
+```
+
+
+
+```{r}
+class(airquality)  # get class
+sapply(airquality, class)  # get class of all columns
+str(airquality)  # structure
+summary(airquality)  # summary of airquality
+head(airquality)  # view the first 6 obs
+fix(airquality)  # view spreadsheet like grid
+View(airquality)
+rownames(airquality)  # row names
+colnames(airquality)  # columns names
+nrow(airquality)  # number of rows
+ncol(airquality)  # number of columns
+```
+
+
+
+
+
+
+
+

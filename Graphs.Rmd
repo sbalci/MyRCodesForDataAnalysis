@@ -448,7 +448,10 @@ taucharts::tauchart(mtcars2) %>%
 https://www.infoworld.com/video/89987/r-tip-animations-in-r
 
 
+# ggplot2
 
+
+http://r-statistics.co/ggplot2-Tutorial-With-R.html
 
 
 
