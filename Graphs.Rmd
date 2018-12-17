@@ -454,24 +454,67 @@ https://www.infoworld.com/video/89987/r-tip-animations-in-r
 http://r-statistics.co/ggplot2-Tutorial-With-R.html
 
 
+```{r}
+library(ggplot2)
+diamonds
+ggplot(diamonds)  # if only the dataset is known.
+```
+
+
+```{r}
+ggplot(diamonds, aes(x=carat))  # if only X-axis is known. The Y-axis can be specified in respective geoms.
+```
+
+
+```{r}
+ggplot(diamonds, aes(x=carat, y=price))  # if both X and Y axes are fixed for all layers.
+```
+
+
+```{r}
+ggplot(diamonds, aes(x=carat, color=cut))  # Each category of the 'cut' variable will now have a distinct  color, once a geom is added.
+```
+
+
+```{r}
+ggplot(diamonds, aes(x=carat), color="steelblue")
+```
 
 
 
+- https://ggplot2.tidyverse.org/reference/
+
+
+```{r}
+ggplot(diamonds, aes(x=carat, y=price, color=cut)) + 
+  geom_point() + 
+  geom_smooth()
+# Adding scatterplot geom (layer1) and smoothing geom (layer2).
+```
 
 
 
+```{r}
+ggplot(diamonds) + 
+  geom_point(aes(x=carat, y=price, color=cut)) + 
+  geom_smooth(aes(x=carat, y=price, color=cut))
+# Same as above but specifying the aesthetics inside the geoms.
+```
 
 
+```{r}
+library(ggplot2)
+ggplot(diamonds) + 
+  geom_point(aes(x=carat, y=price, color=cut)) + 
+  geom_smooth(aes(x=carat, y=price)) # Remove color from geom_smooth
+ggplot(diamonds, aes(x=carat, y=price)) + 
+  geom_point(aes(color=cut)) + 
+  geom_smooth()  # same but simpler
+```
 
 
-
-
-
-
-
-
-
-
+continue from here
+http://r-statistics.co/ggplot2-Tutorial-With-R.html
 
 
 
