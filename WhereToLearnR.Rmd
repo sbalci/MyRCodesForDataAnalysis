@@ -40,3 +40,9 @@ https://www.rstudio.com/online-learning/
 http://r-statistics.co/R-Tutorial.html
 
 
+# Advanced Data Science
+
+
+https://jhu-advdatasci.github.io/2018/
+
+
