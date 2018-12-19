@@ -25,9 +25,16 @@ https://github.com/rstudio-education/rstats-ed
 https://newonlinecourses.science.psu.edu/statprogram/
 
 
-# statsthinking21
+# Thinkstats - a tale of two books
 
-http://statsthinking21.org/index.html#why-does-this-book-exist
+## Think Stats
+
+https://greenteapress.com/wp/think-stats-2e/
+
+
+## statsthinking21
+
+http://statsthinking21.org/index.html
 
 
 # RStudio  

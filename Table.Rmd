@@ -326,6 +326,25 @@ formattable(df, list(
 
 ####  - DT
 
+https://www.infoworld.com/video/91607/r-tip-quick-interactive-tables
+
+
+https://rstudio.github.io/DT/
+
+
+https://datatables.net/
+
+
+```{r}
+# install.packages('DT')
+```
+
+
+
+
+
+
+
 ### - higher-level functionality
 
 #### - finalfit
