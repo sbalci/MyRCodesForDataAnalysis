@@ -4,6 +4,15 @@ title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılar
 author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 date: "`r format(Sys.Date())`"
 output:
+  html_document: 
+    fig_caption: yes
+    keep_md: yes
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '5'
   html_notebook:
     fig_caption: yes
     highlight: kate
@@ -12,13 +21,6 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '5'
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_depth: '5'
 ---
 
 <!-- Open all links in new tab-->  
@@ -81,7 +83,7 @@ https://cran.r-project.org/web/packages/addinslist/README.html
 https://rstudio.github.io/rstudioaddins/
 
 ```{r}
-devtools::install_github("rstudio/addinexamples", type = "source")
+# devtools::install_github("rstudio/addinexamples", type = "source")
 ```
 
 
@@ -172,10 +174,10 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 
 
 ```{r yardım}
-?mean
-??efetch
-help(merge)
-example(merge)
+# ?mean
+# ??efetch
+# help(merge)
+# example(merge)
 ```
 
 
@@ -269,11 +271,12 @@ install.packages("summarytools")
 ```
 
 
-```{r paket çağırma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
+```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
 require(tidyverse)
 require(jmv)
 require(questionr)
 library(summarytools)
+library(gganimate)
 ```
 
 ---
@@ -310,8 +313,8 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 
 ```{r, results="markup"}
-library(nycflights13)
-summary(flights)
+# library(nycflights13)
+# summary(flights)
 ```
 
 
@@ -352,6 +355,7 @@ skimr::skim()
 
 ---
 
+
 # Veriyi değiştirme
 
 ## Veriyi kod ile değiştirelim
@@ -359,6 +363,7 @@ skimr::skim()
 ## Veriyi eklentilerle değiştirme
 
 ![](figures/change_data.png)
+
 
 ---
 
@@ -368,6 +373,7 @@ skimr::skim()
 *questionr* paketi kullanılacak
 
 ![](figures/level_recode.png)
+
 
 ---
 
@@ -422,7 +428,7 @@ table()
 ```
 
 
-```{r descriptive, echo=TRUE, include = TRUE, fig.show='animate', aniopts='controls'}
+```{r descriptive, echo=TRUE, include = TRUE}
 library(readr)
 irisdata <- read_csv("data/iris.csv")
 
@@ -520,13 +526,16 @@ dfSummary(tobacco, plain.ascii = FALSE, style = "grid")
 
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
 # First save the results
+
 iris_stats_by_species <- by(data = iris, 
                             INDICES = iris$Species, 
                             FUN = descr, stats = c("mean", "sd", "min", "med", "max"), 
                             transpose = TRUE)
 
 # Then use view(), like so:
+
 view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 ```
 
@@ -611,7 +620,7 @@ DataExplorer::create_report(df)
 ```{r}
 library(ggplot2)
 library(mosaic)
-mPlot(irisdata)
+# mPlot(irisdata)
 ```
 
 ---
@@ -626,6 +635,7 @@ ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 ```
 
+```
 descr(tobacco, style = 'rmarkdown')
 
 print(descr(tobacco), method = 'render', table.classes = 'st-small')
@@ -633,6 +643,8 @@ print(descr(tobacco), method = 'render', table.classes = 'st-small')
 dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
 
 print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
+```
+
 
 ---
 
