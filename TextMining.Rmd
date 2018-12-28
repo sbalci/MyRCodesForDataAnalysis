@@ -50,3 +50,31 @@ https://www.garrickadenbuie.com/project/regexplain/
 https://www.r-bloggers.com/a-tidy-text-analysis-of-my-google-search-history/
 
 
+
+# Text Mining with R A Tidy Approach
+
+https://www.tidytextmining.com/
+
+# Pride and Prejudice
+
+https://juliasilge.com/blog/if-i-loved-nlp-less/
+
+# Text analysis of holy books
+
+## quRan 
+
+https://github.com/andrewheiss/quRan
+
+https://github.com/andrewheiss/quRan/blob/master/data-raw/clean_data.R
+
+## sacred
+
+http://sacred.john-coene.com/
+
+https://github.com/JohnCoene/sacred
+
+## scriptuRs 
+
+https://github.com/andrewheiss/scriptuRs
+
+

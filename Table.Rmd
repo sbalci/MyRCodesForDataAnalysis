@@ -931,3 +931,16 @@ sp500 %>%
   )
 ```
 
+
+
+
+
+
+# sparklines
+
+R tip: Sparklines in HTML tables  
+https://www.infoworld.com/video/91867/r-tip-sparklines-in-html-tables  
+
+
+
+

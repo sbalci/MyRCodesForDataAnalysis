@@ -56,4 +56,12 @@ http://r-statistics.co/R-Tutorial.html
 
 https://jhu-advdatasci.github.io/2018/
 
+# How Do I? …
+
+https://smach.github.io/R4JournalismBook/HowDoI.html
+
+# Data management and manipulation using R 
+
+https://ozanj.github.io/rclass/resources/
+
 
