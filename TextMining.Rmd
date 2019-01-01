@@ -158,6 +158,13 @@ glimpse(gospel_terms)
 ```
 
 
+# WORD ASSOCIATIONS FROM THE SMALL WORLD OF WORDS
+
+https://juliasilge.com/blog/word-associations/
+
+
+# 
+
 
 
 

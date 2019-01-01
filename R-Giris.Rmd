@@ -4,20 +4,20 @@ title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılar
 author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 date: "`r format(Sys.Date())`"
 output:
-  html_document: 
+  html_notebook:
     fig_caption: yes
-    keep_md: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
     toc: yes
     toc_depth: 5
     toc_float: yes
   pdf_document:
     toc: yes
     toc_depth: '5'
-  html_notebook:
+  html_document: 
     fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: flatly
+    keep_md: yes
     toc: yes
     toc_depth: 5
     toc_float: yes
@@ -81,6 +81,7 @@ https://moderndive.com/2-getting-started.html
 https://cran.r-project.org/web/packages/addinslist/README.html
 
 https://rstudio.github.io/rstudioaddins/
+
 
 ```{r}
 # devtools::install_github("rstudio/addinexamples", type = "source")
@@ -272,11 +273,11 @@ install.packages("summarytools")
 
 
 ```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
-require(tidyverse)
-require(jmv)
-require(questionr)
-library(summarytools)
-library(gganimate)
+# require(tidyverse)
+# require(jmv)
+# require(questionr)
+# library(summarytools)
+# library(gganimate)
 ```
 
 ---
@@ -476,12 +477,12 @@ scatr::scat(
 https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-# library(summarytools)
+library(summarytools)
 summarytools::freq(iris$Species, style = "rmarkdown")
 ```
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
+summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
 ```
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
@@ -511,7 +512,7 @@ descr(iris, stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE,
 
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-view(dfSummary(iris))
+# view(dfSummary(iris))
 
 ```
 
@@ -540,7 +541,7 @@ view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 ```
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-view(iris_stats_by_species)
+# view(iris_stats_by_species)
 ```
 
 ![](figures/DescriptiveStatistics.png)
@@ -561,6 +562,7 @@ view(BMI_by_age, "pander", style = "rmarkdown")
 BMI_by_age <- with(tobacco, 
                    by(BMI, age.gr, descr,  transpose = TRUE,
                       stats = c("mean", "sd", "min", "med", "max")))
+
 view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
 ```
 
@@ -569,7 +571,8 @@ view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")]
 freq_tables <- lapply(tobacco_subset, freq)
-view(freq_tables, footnote = NA, file = 'freq-tables.html')
+
+# view(freq_tables, footnote = NA, file = 'freq-tables.html')
 ```
 
 ---
@@ -618,8 +621,8 @@ DataExplorer::create_report(df)
 ## Grafikler
 
 ```{r}
-library(ggplot2)
-library(mosaic)
+# library(ggplot2)
+# library(mosaic)
 # mPlot(irisdata)
 ```
 
@@ -722,4 +725,33 @@ https://blog.jamovi.org/2018/07/30/rj.html
 # Geri Bildirim
 
 - Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
+
+
+---
+
+<script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-sbalci-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+---
+
 

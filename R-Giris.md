@@ -2,9 +2,10 @@
 title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
 author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
-date: "2018-12-19"
+date: "2019-01-01"
 output:
   html_document: 
+    fig_caption: yes
     keep_md: yes
     toc: yes
     toc_depth: 5
@@ -82,13 +83,9 @@ https://cran.r-project.org/web/packages/addinslist/README.html
 https://rstudio.github.io/rstudioaddins/
 
 
-```r
-devtools::install_github("rstudio/addinexamples", type = "source")
-```
 
-```
-## Skipping install of 'addinexamples' from a github remote, the SHA1 (fae96091) has not changed since last install.
-##   Use `force = TRUE` to force installation
+```r
+# devtools::install_github("rstudio/addinexamples", type = "source")
 ```
 
 
@@ -180,105 +177,10 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 
 
 ```r
-?mean
-??efetch
-help(merge)
-example(merge)
-```
-
-```
-## 
-## merge> authors <- data.frame(
-## merge+     ## I(*) : use character columns of names to get sensible sort order
-## merge+     surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
-## merge+     nationality = c("US", "Australia", "US", "UK", "Australia"),
-## merge+     deceased = c("yes", rep("no", 4)))
-## 
-## merge> authorN <- within(authors, { name <- surname; rm(surname) })
-## 
-## merge> books <- data.frame(
-## merge+     name = I(c("Tukey", "Venables", "Tierney",
-## merge+              "Ripley", "Ripley", "McNeil", "R Core")),
-## merge+     title = c("Exploratory Data Analysis",
-## merge+               "Modern Applied Statistics ...",
-## merge+               "LISP-STAT",
-## merge+               "Spatial Statistics", "Stochastic Simulation",
-## merge+               "Interactive Data Analysis",
-## merge+               "An Introduction to R"),
-## merge+     other.author = c(NA, "Ripley", NA, NA, NA, NA,
-## merge+                      "Venables & Smith"))
-## 
-## merge> (m0 <- merge(authorN, books))
-##       name nationality deceased                         title other.author
-## 1   McNeil   Australia       no     Interactive Data Analysis         <NA>
-## 2   Ripley          UK       no            Spatial Statistics         <NA>
-## 3   Ripley          UK       no         Stochastic Simulation         <NA>
-## 4  Tierney          US       no                     LISP-STAT         <NA>
-## 5    Tukey          US      yes     Exploratory Data Analysis         <NA>
-## 6 Venables   Australia       no Modern Applied Statistics ...       Ripley
-## 
-## merge> (m1 <- merge(authors, books, by.x = "surname", by.y = "name"))
-##    surname nationality deceased                         title other.author
-## 1   McNeil   Australia       no     Interactive Data Analysis         <NA>
-## 2   Ripley          UK       no            Spatial Statistics         <NA>
-## 3   Ripley          UK       no         Stochastic Simulation         <NA>
-## 4  Tierney          US       no                     LISP-STAT         <NA>
-## 5    Tukey          US      yes     Exploratory Data Analysis         <NA>
-## 6 Venables   Australia       no Modern Applied Statistics ...       Ripley
-## 
-## merge>  m2 <- merge(books, authors, by.x = "name", by.y = "surname")
-## 
-## merge> stopifnot(exprs = {
-## merge+    identical(m0, m2[, names(m0)])
-## merge+    as.character(m1[, 1]) == as.character(m2[, 1])
-## merge+    all.equal(m1[, -1], m2[, -1][ names(m1)[-1] ])
-## merge+    identical(dim(merge(m1, m2, by = NULL)),
-## merge+              c(nrow(m1)*nrow(m2), ncol(m1)+ncol(m2)))
-## merge+ })
-## 
-## merge> ## "R core" is missing from authors and appears only here :
-## merge> merge(authors, books, by.x = "surname", by.y = "name", all = TRUE)
-##    surname nationality deceased                         title
-## 1   McNeil   Australia       no     Interactive Data Analysis
-## 2   R Core        <NA>     <NA>          An Introduction to R
-## 3   Ripley          UK       no            Spatial Statistics
-## 4   Ripley          UK       no         Stochastic Simulation
-## 5  Tierney          US       no                     LISP-STAT
-## 6    Tukey          US      yes     Exploratory Data Analysis
-## 7 Venables   Australia       no Modern Applied Statistics ...
-##       other.author
-## 1             <NA>
-## 2 Venables & Smith
-## 3             <NA>
-## 4             <NA>
-## 5             <NA>
-## 6             <NA>
-## 7           Ripley
-## 
-## merge> ## example of using 'incomparables'
-## merge> x <- data.frame(k1 = c(NA,NA,3,4,5), k2 = c(1,NA,NA,4,5), data = 1:5)
-## 
-## merge> y <- data.frame(k1 = c(NA,2,NA,4,5), k2 = c(NA,NA,3,4,5), data = 1:5)
-## 
-## merge> merge(x, y, by = c("k1","k2")) # NA's match
-##   k1 k2 data.x data.y
-## 1  4  4      4      4
-## 2  5  5      5      5
-## 3 NA NA      2      1
-## 
-## merge> merge(x, y, by = "k1") # NA's match, so 6 rows
-##   k1 k2.x data.x k2.y data.y
-## 1  4    4      4    4      4
-## 2  5    5      5    5      5
-## 3 NA    1      1   NA      1
-## 4 NA    1      1    3      3
-## 5 NA   NA      2   NA      1
-## 6 NA   NA      2    3      3
-## 
-## merge> merge(x, y, by = "k2", incomparables = NA) # 2 rows
-##   k2 k1.x data.x k1.y data.y
-## 1  4    4      4    4      4
-## 2  5    5      5    5      5
+# ?mean
+# ??efetch
+# help(merge)
+# example(merge)
 ```
 
 
@@ -375,11 +277,11 @@ install.packages("summarytools")
 
 
 ```r
-require(tidyverse)
-require(jmv)
-require(questionr)
-library(summarytools)
-library(gganimate)
+# require(tidyverse)
+# require(jmv)
+# require(questionr)
+# library(summarytools)
+# library(gganimate)
 ```
 
 ---
@@ -417,51 +319,8 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 
 ```r
-library(nycflights13)
-summary(flights)
-```
-
-```
-##       year          month             day           dep_time   
-##  Min.   :2013   Min.   : 1.000   Min.   : 1.00   Min.   :   1  
-##  1st Qu.:2013   1st Qu.: 4.000   1st Qu.: 8.00   1st Qu.: 907  
-##  Median :2013   Median : 7.000   Median :16.00   Median :1401  
-##  Mean   :2013   Mean   : 6.549   Mean   :15.71   Mean   :1349  
-##  3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:23.00   3rd Qu.:1744  
-##  Max.   :2013   Max.   :12.000   Max.   :31.00   Max.   :2400  
-##                                                  NA's   :8255  
-##  sched_dep_time   dep_delay          arr_time    sched_arr_time
-##  Min.   : 106   Min.   : -43.00   Min.   :   1   Min.   :   1  
-##  1st Qu.: 906   1st Qu.:  -5.00   1st Qu.:1104   1st Qu.:1124  
-##  Median :1359   Median :  -2.00   Median :1535   Median :1556  
-##  Mean   :1344   Mean   :  12.64   Mean   :1502   Mean   :1536  
-##  3rd Qu.:1729   3rd Qu.:  11.00   3rd Qu.:1940   3rd Qu.:1945  
-##  Max.   :2359   Max.   :1301.00   Max.   :2400   Max.   :2359  
-##                 NA's   :8255      NA's   :8713                 
-##    arr_delay          carrier              flight       tailnum         
-##  Min.   : -86.000   Length:336776      Min.   :   1   Length:336776     
-##  1st Qu.: -17.000   Class :character   1st Qu.: 553   Class :character  
-##  Median :  -5.000   Mode  :character   Median :1496   Mode  :character  
-##  Mean   :   6.895                      Mean   :1972                     
-##  3rd Qu.:  14.000                      3rd Qu.:3465                     
-##  Max.   :1272.000                      Max.   :8500                     
-##  NA's   :9430                                                           
-##     origin              dest              air_time        distance   
-##  Length:336776      Length:336776      Min.   : 20.0   Min.   :  17  
-##  Class :character   Class :character   1st Qu.: 82.0   1st Qu.: 502  
-##  Mode  :character   Mode  :character   Median :129.0   Median : 872  
-##                                        Mean   :150.7   Mean   :1040  
-##                                        3rd Qu.:192.0   3rd Qu.:1389  
-##                                        Max.   :695.0   Max.   :4983  
-##                                        NA's   :9430                  
-##       hour           minute        time_hour                  
-##  Min.   : 1.00   Min.   : 0.00   Min.   :2013-01-01 05:00:00  
-##  1st Qu.: 9.00   1st Qu.: 8.00   1st Qu.:2013-04-04 13:00:00  
-##  Median :13.00   Median :29.00   Median :2013-07-03 10:00:00  
-##  Mean   :13.18   Mean   :26.23   Mean   :2013-07-03 05:22:54  
-##  3rd Qu.:17.00   3rd Qu.:44.00   3rd Qu.:2013-10-01 07:00:00  
-##  Max.   :23.00   Max.   :59.00   Max.   :2013-12-31 23:00:00  
-## 
+# library(nycflights13)
+# summary(flights)
 ```
 
 
@@ -502,6 +361,7 @@ skimr::skim()
 
 ---
 
+
 # Veriyi değiştirme
 
 ## Veriyi kod ile değiştirelim
@@ -509,6 +369,7 @@ skimr::skim()
 ## Veriyi eklentilerle değiştirme
 
 ![](figures/change_data.png)
+
 
 ---
 
@@ -518,6 +379,7 @@ skimr::skim()
 *questionr* paketi kullanılacak
 
 ![](figures/level_recode.png)
+
 
 ---
 
@@ -707,7 +569,7 @@ https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
 
 
 ```r
-# library(summarytools)
+library(summarytools)
 summarytools::freq(iris$Species, style = "rmarkdown")
 ```
 
@@ -725,7 +587,7 @@ summarytools::freq(iris$Species, style = "rmarkdown")
 
 
 ```r
-freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
+summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
 ```
 
 
@@ -806,7 +668,7 @@ with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 </tr>
 </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2018-12-19</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2019-01-01</p>
 </div><!--/html_preserve-->
 
 
@@ -857,7 +719,7 @@ with(tobacco,
 </tr>
 </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2018-12-19</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2019-01-01</p>
 </div><!--/html_preserve-->
 
 
@@ -917,15 +779,7 @@ Non-numerical variable(s) ignored: Species
 
 
 ```r
-view(dfSummary(iris))
-```
-
-```
-Method 'viewer' only valid within RStudio. Switching method to 'browser'.
-```
-
-```
-Output file written: /var/folders/76/rq_s_23s7fd5r8hqrbg8rmnc0000gp/T//RtmpNR9rw8/file3b015e9b0145.html
+# view(dfSummary(iris))
 ```
 
 
@@ -997,12 +851,14 @@ dfSummary(tobacco, plain.ascii = FALSE, style = "grid")
 
 ```r
 # First save the results
+
 iris_stats_by_species <- by(data = iris, 
                             INDICES = iris$Species, 
                             FUN = descr, stats = c("mean", "sd", "min", "med", "max"), 
                             transpose = TRUE)
 
 # Then use view(), like so:
+
 view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 ```
 
@@ -1040,19 +896,7 @@ view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 
 
 ```r
-view(iris_stats_by_species)
-```
-
-```
-Output file written: /var/folders/76/rq_s_23s7fd5r8hqrbg8rmnc0000gp/T//RtmpNR9rw8/file3b013770d0df.html
-```
-
-```
-Method 'viewer' only valid within RStudio. Switching method to 'browser'.
-```
-
-```
-Output file appended: /var/folders/76/rq_s_23s7fd5r8hqrbg8rmnc0000gp/T//RtmpNR9rw8/file3b013770d0df.html
+# view(iris_stats_by_species)
 ```
 
 ![](figures/DescriptiveStatistics.png)
@@ -1086,6 +930,7 @@ view(BMI_by_age, "pander", style = "rmarkdown")
 BMI_by_age <- with(tobacco, 
                    by(BMI, age.gr, descr,  transpose = TRUE,
                       stats = c("mean", "sd", "min", "med", "max")))
+
 view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
 ```
 
@@ -1103,19 +948,8 @@ view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
 ```r
 tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")]
 freq_tables <- lapply(tobacco_subset, freq)
-view(freq_tables, footnote = NA, file = 'freq-tables.html')
-```
 
-```
-Output file written: freq-tables.html
-```
-
-```
-Method 'viewer' only valid within RStudio. Switching method to 'browser'.
-```
-
-```
-Output file appended: freq-tables.html
+# view(freq_tables, footnote = NA, file = 'freq-tables.html')
 ```
 
 ---
@@ -1228,7 +1062,7 @@ print(freq(tobacco$gender), method = 'render')
     </tr>
   </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2018-12-19</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2019-01-01</p>
 </div><!--/html_preserve-->
 
 ---
@@ -1260,116 +1094,8 @@ DataExplorer::create_report(df)
 
 
 ```r
-library(ggplot2)
-library(mosaic)
-```
-
-```
-## Loading required package: lattice
-```
-
-```
-## Loading required package: ggformula
-```
-
-```
-## Loading required package: ggstance
-```
-
-```
-## 
-## Attaching package: 'ggstance'
-```
-
-```
-## The following objects are masked from 'package:ggplot2':
-## 
-##     geom_errorbarh, GeomErrorbarh
-```
-
-```
-## 
-## New to ggformula?  Try the tutorials: 
-## 	learnr::run_tutorial("introduction", package = "ggformula")
-## 	learnr::run_tutorial("refining", package = "ggformula")
-```
-
-```
-## Loading required package: mosaicData
-```
-
-```
-## Loading required package: Matrix
-```
-
-```
-## 
-## Attaching package: 'Matrix'
-```
-
-```
-## The following object is masked from 'package:tidyr':
-## 
-##     expand
-```
-
-```
-## 
-## The 'mosaic' package masks several functions from core packages in order to add 
-## additional features.  The original behavior of these functions should not be affected by this.
-## 
-## Note: If you use the Matrix package, be sure to load it BEFORE loading mosaic.
-```
-
-```
-## 
-## Attaching package: 'mosaic'
-```
-
-```
-## The following object is masked from 'package:Matrix':
-## 
-##     mean
-```
-
-```
-## The following object is masked from 'package:questionr':
-## 
-##     prop
-```
-
-```
-## The following objects are masked from 'package:dplyr':
-## 
-##     count, do, tally
-```
-
-```
-## The following object is masked from 'package:purrr':
-## 
-##     cross
-```
-
-```
-## The following object is masked from 'package:ggplot2':
-## 
-##     stat
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     binom.test, cor, cor.test, cov, fivenum, IQR, median,
-##     prop.test, quantile, sd, t.test, var
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     max, mean, min, prod, range, sample, sum
-```
-
-```r
+# library(ggplot2)
+# library(mosaic)
 # mPlot(irisdata)
 ```
 
@@ -1481,9 +1207,10 @@ print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 </tr>
 </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2018-12-19</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.8.8 (<a href='https://www.r-project.org/'>R</a> version 3.5.1)<br/>2019-01-01</p>
 </div><!--/html_preserve-->
 
+```
 descr(tobacco, style = 'rmarkdown')
 
 print(descr(tobacco), method = 'render', table.classes = 'st-small')
@@ -1491,6 +1218,8 @@ print(descr(tobacco), method = 'render', table.classes = 'st-small')
 dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
 
 print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
+```
+
 
 ---
 

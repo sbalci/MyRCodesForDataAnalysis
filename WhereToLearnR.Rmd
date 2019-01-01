@@ -79,4 +79,8 @@ https://gupsych.github.io/data_skills/
 
 https://gupsych.github.io/mms/
 
+# Causal Inference Book
+
+https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/
+
 
