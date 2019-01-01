@@ -52,6 +52,26 @@ Rcmdr.related.packages
 install.packages(pkgs = Rcmdr.related.packages)
 ```
 
+```{r}
+# load library & run Rcmdr
+# library(Rcmdr)
+# run Rcmdr
+# Rcmdr::Commander()
+```
+
+
+
+#### EZR
+
+An extension for R Commander
+
+http://www.jichi.ac.jp/saitama-sct/SaitamaHP.files/statmedEN.html
+
+[Investigation of the freely available easy-to-use software ‘EZR’ for medical statistics](http://www.nature.com/bmt/journal/vaop/ncurrent/pdf/bmt2012244a.pdf)
+
+
+
+
 
 ### RKWard
 

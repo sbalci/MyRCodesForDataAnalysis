@@ -1,0 +1,16 @@
+---
+title: "Correlations"
+output: html_notebook
+---
+
+# comparisons between correlations
+
+http://comparingcorrelations.org/
+
+
+
+
+
+
+
+

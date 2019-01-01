@@ -57,7 +57,14 @@ https://www.tidytextmining.com/
 
 # Pride and Prejudice
 
+https://juliasilge.com/blog/tidy-text-classification/
+
 https://juliasilge.com/blog/if-i-loved-nlp-less/
+
+
+# cleanNLP
+
+https://statsmaths.github.io/cleanNLP/
 
 # Text analysis of holy books
 
@@ -66,6 +73,12 @@ https://juliasilge.com/blog/if-i-loved-nlp-less/
 https://github.com/andrewheiss/quRan
 
 https://github.com/andrewheiss/quRan/blob/master/data-raw/clean_data.R
+
+
+### Tidy text, parts of speech, and unique words in the Qur'an
+
+https://www.andrewheiss.com/blog/2018/12/28/tidytext-pos-arabic/
+
 
 ## sacred
 
@@ -76,5 +89,80 @@ https://github.com/JohnCoene/sacred
 ## scriptuRs 
 
 https://github.com/andrewheiss/scriptuRs
+
+
+### Tidy text, parts of speech, and unique words in the Bible
+
+https://www.andrewheiss.com/blog/2018/12/26/tidytext-pos-john/
+
+
+
+```{r}
+# devtools::install_github("andrewheiss/scriptuRs")
+```
+
+
+```{r}
+library(tidyverse)  # For dplyr, ggplot2, and friends
+library(scriptuRs)  # For full text of bible
+library(tidytext)   # For analyzing text
+library(cleanNLP)   # For fancier natural language processing
+
+# Load data
+gospels <- kjv_bible() %>% 
+  filter(book_title %in% c("Matthew", "Mark", "Luke", "John"))
+```
+
+
+```{r}
+# Set up NLP backend
+# reticulate::use_python("/Users/serdarbalciold/.conda")  # I use homebrew python3
+# reticulate::use_condaenv(condaenv = "/anaconda3/envs", conda = "auto", required = FALSE)
+# cnlp_init_spacy()  # Use spaCy
+cnlp_init_udpipe()  # Or use this R-only one without external dependencies
+```
+
+
+
+```{r}
+# Determine the parts of speech of the "text" column and use "verse_title" as the id
+gospels_annotated <- cnlp_annotate(gospels, as_strings = TRUE,
+                                   text_var = "text", doc_var = "verse_title")
+```
+
+
+```{r}
+gospels_annotated
+```
+
+
+```{r}
+glimpse(gospels_annotated)
+```
+
+
+```{r}
+gospel_terms <- gospels_annotated %>% 
+  cnlp_get_token()
+head(gospel_terms)
+```
+
+```{r}
+gospels_lookup <- gospels %>% 
+  select(verse_title, book_title, chapter_number, verse_number)
+
+gospel_terms <- gospel_terms %>% 
+  left_join(gospels_lookup, by = c("id" = "verse_title"))
+
+glimpse(gospel_terms)
+```
+
+
+
+
+
+
+
+
 
 

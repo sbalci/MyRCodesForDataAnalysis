@@ -1807,7 +1807,12 @@ $(document).ready(function () {
 </div>
 <div id="pride-and-prejudice" class="section level1">
 <h1>Pride and Prejudice</h1>
+<p><a href="https://juliasilge.com/blog/tidy-text-classification/" class="uri">https://juliasilge.com/blog/tidy-text-classification/</a></p>
 <p><a href="https://juliasilge.com/blog/if-i-loved-nlp-less/" class="uri">https://juliasilge.com/blog/if-i-loved-nlp-less/</a></p>
+</div>
+<div id="cleannlp" class="section level1">
+<h1>cleanNLP</h1>
+<p><a href="https://statsmaths.github.io/cleanNLP/" class="uri">https://statsmaths.github.io/cleanNLP/</a></p>
 </div>
 <div id="text-analysis-of-holy-books" class="section level1">
 <h1>Text analysis of holy books</h1>
@@ -1815,6 +1820,10 @@ $(document).ready(function () {
 <h2>quRan</h2>
 <p><a href="https://github.com/andrewheiss/quRan" class="uri">https://github.com/andrewheiss/quRan</a></p>
 <p><a href="https://github.com/andrewheiss/quRan/blob/master/data-raw/clean_data.R" class="uri">https://github.com/andrewheiss/quRan/blob/master/data-raw/clean_data.R</a></p>
+<div id="tidy-text-parts-of-speech-and-unique-words-in-the-quran" class="section level3">
+<h3>Tidy text, parts of speech, and unique words in the Qur’an</h3>
+<p><a href="https://www.andrewheiss.com/blog/2018/12/28/tidytext-pos-arabic/" class="uri">https://www.andrewheiss.com/blog/2018/12/28/tidytext-pos-arabic/</a></p>
+</div>
 </div>
 <div id="sacred" class="section level2">
 <h2>sacred</h2>
@@ -1824,11 +1833,194 @@ $(document).ready(function () {
 <div id="scripturs" class="section level2">
 <h2>scriptuRs</h2>
 <p><a href="https://github.com/andrewheiss/scriptuRs" class="uri">https://github.com/andrewheiss/scriptuRs</a></p>
+<div id="tidy-text-parts-of-speech-and-unique-words-in-the-bible" class="section level3">
+<h3>Tidy text, parts of speech, and unique words in the Bible</h3>
+<p><a href="https://www.andrewheiss.com/blog/2018/12/26/tidytext-pos-john/" class="uri">https://www.andrewheiss.com/blog/2018/12/26/tidytext-pos-john/</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJhbmRyZXdoZWlzcy9zY3JpcHR1UnNcIilcbmBgYCJ9 -->
+<pre class="r"><code># devtools::install_github(&quot;andrewheiss/scriptuRs&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpICAjIEZvciBkcGx5ciwgZ2dwbG90MiwgYW5kIGZyaWVuZHNcbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)  # For dplyr, ggplot2, and friends</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXHUwMDFiWzM3beKUgOKUgCBcdTAwMWJbMW1BdHRhY2hpbmcgcGFja2FnZXNcdTAwMWJbMjJtIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2UgMS4yLjEg4pSA4pSAXHUwMDFiWzM5bVxuXHUwMDFiWzM3bVx1MDAxYlszMm3inJRcdTAwMWJbMzdtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzM3bSAzLjEuMCAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszN20gXHUwMDFiWzM0bXB1cnJyICBcdTAwMWJbMzdtIDAuMi41XG5cdTAwMWJbMzJt4pyUXHUwMDFiWzM3bSBcdTAwMWJbMzRtdGliYmxlIFx1MDAxYlszN20gMS40LjIgICAgIFx1MDAxYlszMm3inJRcdTAwMWJbMzdtIFx1MDAxYlszNG1kcGx5ciAgXHUwMDFiWzM3bSAwLjcuOFxuXHUwMDFiWzMybeKclFx1MDAxYlszN20gXHUwMDFiWzM0bXRpZHlyICBcdTAwMWJbMzdtIDAuOC4yICAgICBcdTAwMWJbMzJt4pyUXHUwMDFiWzM3bSBcdTAwMWJbMzRtc3RyaW5nclx1MDAxYlszN20gMS4zLjFcblx1MDAxYlszMm3inJRcdTAwMWJbMzdtIFx1MDAxYlszNG1yZWFkciAgXHUwMDFiWzM3bSAxLjMuMSAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszN20gXHUwMDFiWzM0bWZvcmNhdHNcdTAwMWJbMzdtIDAuMy4wXHUwMDFiWzM5bVxuXHUwMDFiWzM3beKUgOKUgCBcdTAwMWJbMW1Db25mbGljdHNcdTAwMWJbMjJtIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzM3bSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzdtOjpcdTAwMWJbMzJtZmlsdGVyKClcdTAwMWJbMzdtIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszN206OmZpbHRlcigpXG5cdTAwMWJbMzFt4pyWXHUwMDFiWzM3bSBcdTAwMWJbMzRtZHBseXJcdTAwMWJbMzdtOjpcdTAwMWJbMzJtbGFnKClcdTAwMWJbMzdtICAgIG1hc2tzIFx1MDAxYlszNG1zdGF0c1x1MDAxYlszN206OmxhZygpXHUwMDFiWzM5bVxuIn0= -->
+<pre><code>[37m── [1mAttaching packages[22m ───────────────────────────── tidyverse 1.2.1 ──[39m
+[37m[32m✔[37m [34mggplot2[37m 3.1.0     [32m✔[37m [34mpurrr  [37m 0.2.5
+[32m✔[37m [34mtibble [37m 1.4.2     [32m✔[37m [34mdplyr  [37m 0.7.8
+[32m✔[37m [34mtidyr  [37m 0.8.2     [32m✔[37m [34mstringr[37m 1.3.1
+[32m✔[37m [34mreadr  [37m 1.3.1     [32m✔[37m [34mforcats[37m 0.3.0[39m
+[37m── [1mConflicts[22m ──────────────────────────────── tidyverse_conflicts() ──
+[31m✖[37m [34mdplyr[37m::[32mfilter()[37m masks [34mstats[37m::filter()
+[31m✖[37m [34mdplyr[37m::[32mlag()[37m    masks [34mstats[37m::lag()[39m</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzY3JpcHR1UnMpICAjIEZvciBmdWxsIHRleHQgb2YgYmlibGVcbmxpYnJhcnkodGlkeXRleHQpICAgIyBGb3IgYW5hbHl6aW5nIHRleHRcbmxpYnJhcnkoY2xlYW5OTFApICAgIyBGb3IgZmFuY2llciBuYXR1cmFsIGxhbmd1YWdlIHByb2Nlc3NpbmdcblxuIyBMb2FkIGRhdGFcbmdvc3BlbHMgPC0ga2p2X2JpYmxlKCkgJT4lIFxuICBmaWx0ZXIoYm9va190aXRsZSAlaW4lIGMoXCJNYXR0aGV3XCIsIFwiTWFya1wiLCBcIkx1a2VcIiwgXCJKb2huXCIpKVxuYGBgIn0= -->
+<pre class="r"><code>library(scriptuRs)  # For full text of bible
+library(tidytext)   # For analyzing text
+library(cleanNLP)   # For fancier natural language processing
+
+# Load data
+gospels &lt;- kjv_bible() %&gt;% 
+  filter(book_title %in% c(&quot;Matthew&quot;, &quot;Mark&quot;, &quot;Luke&quot;, &quot;John&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY25scF9pbml0X3NwYWN5KCkgICMgVXNlIHNwYUN5XG5cbmBgYCJ9 -->
+<pre class="r"><code>cnlp_init_spacy()  # Use spaCy
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IFRoZSBzcGFjeSBtb2R1bGUgaXMgbm90IGF2YWlsYWJsZSBmcm9tIHRoZSBQeXRob25cbmV4ZWN1dGFibGUgbG9jYXRlZCBoZXJlOlxuXG4gICAvdXNyL2Jpbi9weXRob25cblxuVGhpcyBjYW4gYmUgaW5zdGFsbGVkIHdpdGggcGlwIGJ5IHJ1bm5pbmcgdGhlIGZvbGxvd2luZzpcblxuICBwaXAgaW5zdGFsbCBzcGFjeVxuXG5JZiB5b3UgYmVsaWV2ZSBpdCBpcyBhbHJlYWR5IGluc3RhbGxlZCwgeW91IG1heSBiZSBsaW5raW5nIFxudG8gdGhlIHdyb25nIHZlcnNpb24gb2YgUHl0aG9uLiBTZWUgcmV0aWN1bGF0ZTo6dXNlX3B5dGhvbigpXG50byBzZXQgdGhlIFB5dGhvbiBwYXRoLCB0aGVuIHJldHJ5LiBZb3UgbWF5IG5lZWQgdG8gcmVzdGFydFxuUiBiZWZvcmUgdXNlX3B5dGhvbiB0YWtlcyBlZmZlY3QuXG4ifQ== -->
+<pre><code>Error: The spacy module is not available from the Python
+executable located here:
+
+   /usr/bin/python
+
+This can be installed with pip by running the following:
+
+  pip install spacy
+
+If you believe it is already installed, you may be linking 
+to the wrong version of Python. See reticulate::use_python()
+to set the Python path, then retry. You may need to restart
+R before use_python takes effect.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ29zcGVsc19hbm5vdGF0ZWRcblxuYGBgIn0= -->
+<pre class="r"><code>gospels_annotated
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5BIENsZWFuTkxQIEFubm90YXRpb246XG4gIG51bS4gZG9jdW1lbnRzOiAzNzc5IFxuIn0= -->
+<pre><code>
+A CleanNLP Annotation:
+  num. documents: 3779 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xpbXBzZShnb3NwZWxzX2Fubm90YXRlZClcblxuYGBgIn0= -->
+<pre class="r"><code>glimpse(gospels_annotated)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTGlzdCBvZiA3XG4gJCBjb3JlZmVyZW5jZTpDbGFzc2VzIOKAmHRibF9kZuKAmSwg4oCYdGJs4oCZIGFuZCAnZGF0YS5mcmFtZSc6XHQwIG9icy4gb2YgIDEyIHZhcmlhYmxlczpcbiAgLi4kIGlkICAgICAgICAgIDogY2hyKDApIFxuICAuLiQgcmlkICAgICAgICAgOiBpbnQoMCkgXG4gIC4uJCBtaWQgICAgICAgICA6IGludCgwKSBcbiAgLi4kIG1lbnRpb24gICAgIDogY2hyKDApIFxuICAuLiQgbWVudGlvbl90eXBlOiBjaHIoMCkgXG4gIC4uJCBudW1iZXIgICAgICA6IGNocigwKSBcbiAgLi4kIGdlbmRlciAgICAgIDogY2hyKDApIFxuICAuLiQgYW5pbWFjeSAgICAgOiBjaHIoMCkgXG4gIC4uJCBzaWQgICAgICAgICA6IGludCgwKSBcbiAgLi4kIHRpZCAgICAgICAgIDogaW50KDApIFxuICAuLiQgdGlkX2VuZCAgICAgOiBpbnQoMCkgXG4gIC4uJCB0aWRfaGVhZCAgICA6IGludCgwKSBcbiAkIGRlcGVuZGVuY3kgOkNsYXNzZXMg4oCYdGJsX2Rm4oCZLCDigJh0YmzigJkgYW5kICdkYXRhLmZyYW1lJzpcdDk4NTQ2IG9icy4gb2YgIDYgdmFyaWFibGVzOlxuICAuLiQgaWQgICAgICAgICAgIDogY2hyIFsxOjk4NTQ2XSBcIk1hdHRoZXcgMToxXCIgXCJNYXR0aGV3IDE6MVwiIFwiTWF0dGhldyAxOjFcIiBcIk1hdHRoZXcgMToxXCIgLi4uXG4gIC4uJCBzaWQgICAgICAgICAgOiBpbnQgWzE6OTg1NDZdIDEgMSAxIDEgMSAxIDEgMSAxIDEgLi4uXG4gIC4uJCB0aWQgICAgICAgICAgOiBpbnQgWzE6OTg1NDZdIDIgMCA1IDUgMiA3IDUgNyAyIDExIC4uLlxuICAuLiQgdGlkX3RhcmdldCAgIDogaW50IFsxOjk4NTQ2XSAxIDIgMyA0IDUgNiA3IDggOSAxMCAuLi5cbiAgLi4kIHJlbGF0aW9uICAgICA6IGNociBbMTo5ODU0Nl0gXCJkZXRcIiBcInJvb3RcIiBcImNhc2VcIiBcImRldFwiIC4uLlxuICAuLiQgcmVsYXRpb25fZnVsbDogY2hyIFsxOjk4NTQ2XSBcImRldFwiIFwicm9vdFwiIFwiY2FzZVwiIFwiZGV0XCIgLi4uXG4gJCBkb2N1bWVudCAgIDpDbGFzc2VzIOKAmHRibF9kZuKAmSwg4oCYdGJs4oCZIGFuZCAnZGF0YS5mcmFtZSc6XHQzNzc5IG9icy4gb2YgIDUgdmFyaWFibGVzOlxuICAuLiQgaWQgICAgICA6IGNociBbMTozNzc5XSBcIk1hdHRoZXcgMToxXCIgXCJNYXR0aGV3IDE6MlwiIFwiTWF0dGhldyAxOjNcIiBcIk1hdHRoZXcgMTo0XCIgLi4uXG4gIC4uJCB0aW1lICAgIDogY2hyIFsxOjM3NzldIFwiMjAxOC0xMi0yOSAxMjo0ODozMFwiIFwiMjAxOC0xMi0yOSAxMjo0ODozMFwiIFwiMjAxOC0xMi0yOSAxMjo0ODozMFwiIFwiMjAxOC0xMi0yOSAxMjo0ODozMFwiIC4uLlxuICAuLiQgdmVyc2lvbiA6IGNociBbMTozNzc5XSBcIjAuOFwiIFwiMC44XCIgXCIwLjhcIiBcIjAuOFwiIC4uLlxuICAuLiQgbGFuZ3VhZ2U6IGNociBbMTozNzc5XSBcImVuZ2xpc2gtZXd0LXVkLTIuMy0xODExMTUudWRwaXBlXCIgXCJlbmdsaXNoLWV3dC11ZC0yLjMtMTgxMTE1LnVkcGlwZVwiIFwiZW5nbGlzaC1ld3QtdWQtMi4zLTE4MTExNS51ZHBpcGVcIiBcImVuZ2xpc2gtZXd0LXVkLTIuMy0xODExMTUudWRwaXBlXCIgLi4uXG4gIC4uJCB1cmkgICAgIDogY2hyIFsxOjM3NzldIE5BIE5BIE5BIE5BIC4uLlxuICQgZW50aXR5ICAgICA6Q2xhc3NlcyDigJh0YmxfZGbigJksIOKAmHRibOKAmSBhbmQgJ2RhdGEuZnJhbWUnOlx0MCBvYnMuIG9mICA2IHZhcmlhYmxlczpcbiAgLi4kIGlkICAgICAgICAgOiBjaHIoMCkgXG4gIC4uJCBzaWQgICAgICAgIDogaW50KDApIFxuICAuLiQgdGlkICAgICAgICA6IGludCgwKSBcbiAgLi4kIHRpZF9lbmQgICAgOiBpbnQoMCkgXG4gIC4uJCBlbnRpdHlfdHlwZTogY2hyKDApIFxuICAuLiQgZW50aXR5ICAgICA6IGNocigwKSBcbiAkIHNlbnRlbmNlICAgOkNsYXNzZXMg4oCYdGJsX2Rm4oCZLCDigJh0YmzigJkgYW5kICdkYXRhLmZyYW1lJzpcdDAgb2JzLiBvZiAgMiB2YXJpYWJsZXM6XG4gIC4uJCBpZCA6IGNocigwKSBcbiAgLi4kIHNpZDogaW50KDApIFxuICQgdG9rZW4gICAgICA6Q2xhc3NlcyDigJh0YmxfZGbigJksIOKAmHRibOKAmSBhbmQgJ2RhdGEuZnJhbWUnOlx0MTAzMDEzIG9icy4gb2YgIDEwIHZhcmlhYmxlczpcbiAgLi4kIGlkICAgICA6IGNociBbMToxMDMwMTNdIFwiTWF0dGhldyAxOjFcIiBcIk1hdHRoZXcgMToxXCIgXCJNYXR0aGV3IDE6MVwiIFwiTWF0dGhldyAxOjFcIiAuLi5cbiAgLi4kIHNpZCAgICA6IGludCBbMToxMDMwMTNdIDEgMSAxIDEgMSAxIDEgMSAxIDEgLi4uXG4gIC4uJCB0aWQgICAgOiBpbnQgWzE6MTAzMDEzXSAwIDEgMiAzIDQgNSA2IDcgOCA5IC4uLlxuICAuLiQgd29yZCAgIDogY2hyIFsxOjEwMzAxM10gXCJST09UXCIgXCJUSEVcIiBcImJvb2tcIiBcIm9mXCIgLi4uXG4gIC4uJCBsZW1tYSAgOiBjaHIgWzE6MTAzMDEzXSBcIlJPT1RcIiBcInRoZVwiIFwiYm9va1wiIFwib2ZcIiAuLi5cbiAgLi4kIHVwb3MgICA6IGNociBbMToxMDMwMTNdIE5BIFwiREVUXCIgXCJOT1VOXCIgXCJBRFBcIiAuLi5cbiAgLi4kIHBvcyAgICA6IGNociBbMToxMDMwMTNdIE5BIFwiRFRcIiBcIk5OXCIgXCJJTlwiIC4uLlxuICAuLiQgY2lkICAgIDogaW50IFsxOjEwMzAxM10gMCAwIDQgOSAxMiAxNiAyNyAzMCAzNiA0MiAuLi5cbiAgLi4kIHBpZCAgICA6IGludCBbMToxMDMwMTNdIDEgMSAxIDEgMSAxIDEgMSAxIDEgLi4uXG4gIC4uJCBzX2FmdGVyOiBjaHIgWzE6MTAzMDEzXSBcIiBcIiBcIiBcIiBcIiBcIiBcIiBcIiAuLi5cbiAkIHZlY3RvciAgICAgOiBudW1bMCAsIDAgXSBcbiAtIGF0dHIoKiwgXCJjbGFzc1wiKT0gY2hyIFwiYW5ub3RhdGlvblwiXG4ifQ== -->
+<pre><code>List of 7
+ $ coreference:Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    0 obs. of  12 variables:
+  ..$ id          : chr(0) 
+  ..$ rid         : int(0) 
+  ..$ mid         : int(0) 
+  ..$ mention     : chr(0) 
+  ..$ mention_type: chr(0) 
+  ..$ number      : chr(0) 
+  ..$ gender      : chr(0) 
+  ..$ animacy     : chr(0) 
+  ..$ sid         : int(0) 
+  ..$ tid         : int(0) 
+  ..$ tid_end     : int(0) 
+  ..$ tid_head    : int(0) 
+ $ dependency :Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    98546 obs. of  6 variables:
+  ..$ id           : chr [1:98546] &quot;Matthew 1:1&quot; &quot;Matthew 1:1&quot; &quot;Matthew 1:1&quot; &quot;Matthew 1:1&quot; ...
+  ..$ sid          : int [1:98546] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ tid          : int [1:98546] 2 0 5 5 2 7 5 7 2 11 ...
+  ..$ tid_target   : int [1:98546] 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ relation     : chr [1:98546] &quot;det&quot; &quot;root&quot; &quot;case&quot; &quot;det&quot; ...
+  ..$ relation_full: chr [1:98546] &quot;det&quot; &quot;root&quot; &quot;case&quot; &quot;det&quot; ...
+ $ document   :Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    3779 obs. of  5 variables:
+  ..$ id      : chr [1:3779] &quot;Matthew 1:1&quot; &quot;Matthew 1:2&quot; &quot;Matthew 1:3&quot; &quot;Matthew 1:4&quot; ...
+  ..$ time    : chr [1:3779] &quot;2018-12-29 12:48:30&quot; &quot;2018-12-29 12:48:30&quot; &quot;2018-12-29 12:48:30&quot; &quot;2018-12-29 12:48:30&quot; ...
+  ..$ version : chr [1:3779] &quot;0.8&quot; &quot;0.8&quot; &quot;0.8&quot; &quot;0.8&quot; ...
+  ..$ language: chr [1:3779] &quot;english-ewt-ud-2.3-181115.udpipe&quot; &quot;english-ewt-ud-2.3-181115.udpipe&quot; &quot;english-ewt-ud-2.3-181115.udpipe&quot; &quot;english-ewt-ud-2.3-181115.udpipe&quot; ...
+  ..$ uri     : chr [1:3779] NA NA NA NA ...
+ $ entity     :Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    0 obs. of  6 variables:
+  ..$ id         : chr(0) 
+  ..$ sid        : int(0) 
+  ..$ tid        : int(0) 
+  ..$ tid_end    : int(0) 
+  ..$ entity_type: chr(0) 
+  ..$ entity     : chr(0) 
+ $ sentence   :Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    0 obs. of  2 variables:
+  ..$ id : chr(0) 
+  ..$ sid: int(0) 
+ $ token      :Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    103013 obs. of  10 variables:
+  ..$ id     : chr [1:103013] &quot;Matthew 1:1&quot; &quot;Matthew 1:1&quot; &quot;Matthew 1:1&quot; &quot;Matthew 1:1&quot; ...
+  ..$ sid    : int [1:103013] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ tid    : int [1:103013] 0 1 2 3 4 5 6 7 8 9 ...
+  ..$ word   : chr [1:103013] &quot;ROOT&quot; &quot;THE&quot; &quot;book&quot; &quot;of&quot; ...
+  ..$ lemma  : chr [1:103013] &quot;ROOT&quot; &quot;the&quot; &quot;book&quot; &quot;of&quot; ...
+  ..$ upos   : chr [1:103013] NA &quot;DET&quot; &quot;NOUN&quot; &quot;ADP&quot; ...
+  ..$ pos    : chr [1:103013] NA &quot;DT&quot; &quot;NN&quot; &quot;IN&quot; ...
+  ..$ cid    : int [1:103013] 0 0 4 9 12 16 27 30 36 42 ...
+  ..$ pid    : int [1:103013] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ s_after: chr [1:103013] &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; ...
+ $ vector     : num[0 , 0 ] 
+ - attr(*, &quot;class&quot;)= chr &quot;annotation&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ29zcGVsX3Rlcm1zIDwtIGdvc3BlbHNfYW5ub3RhdGVkICU+JSBcbiAgY25scF9nZXRfdG9rZW4oKVxuaGVhZChnb3NwZWxfdGVybXMpXG5gYGAifQ== -->
+<pre class="r"><code>gospel_terms &lt;- gospels_annotated %&gt;% 
+  cnlp_get_token()
+head(gospel_terms)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MTAsIm5yb3ciOjZ9LCJyZGYiOiJINHNJQUFBQUFBQUFBN1ZUUVUvQ01CVHV1ZzFDRlRYaDZJVS93Qkk4ZWpNWmlSNmN4bURDelpSUllHRzB5MWFDUjMrM0IyWTcrbGhaVE1SRUQrMit2dmU5cjk5cnU1ZHdja01tQkNHRWtlczdDTHNLZWxoTkR2SlFSMy9mRVhKN0NtalNsUm90a3poN3BGSXUyYlkvdkIzK2R3aWhicld6dHZYOXNQUGFmdFdIR3I2SjI4N2Q4ZjNJUUc4cXhNcGdMT1pBVUJzYlNCYU1zNXpLUkhDTDF0Q3I2WCtqRjQ3R29CYzl2VVlRdmd1ZlQyQWNhK0VRaURnQ0duNklmc2pXNTRuTU9lck11ZEcrUHVFK2JBOU8vM2ZnK0FINm5LNVpZU1FKbUV4bTBITlJRM21BM2xia2dQMlVyZGNVRXB0TUZNQzNZRnlyWkFmWUx0N29YTEs4NGFpVGkyMEFydlJCNEE4MWxXWDUyYlFlcDdRQTZ4QWtNeXBwTU05VnZWcnRHaVZ0a2VtM29ZcHd6enhmdTlqSkc0SExEZGRPWm9ONHVlR3J3UkR0ZjFUSFhGM1g0SmFGeVg1TFhCb3AzMGkxR0Y4a25CMU9qVTVaYWhZWHF1T3E0U0RMRXk2aEV4VXRBaWtrQlI2SlJRcVJxamUwK3dMUkw4WlZZZ1FBQUE9PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sid"],"name":[2],"type":["int"],"align":["right"]},{"label":["tid"],"name":[3],"type":["int"],"align":["right"]},{"label":["word"],"name":[4],"type":["chr"],"align":["left"]},{"label":["lemma"],"name":[5],"type":["chr"],"align":["left"]},{"label":["upos"],"name":[6],"type":["chr"],"align":["left"]},{"label":["pos"],"name":[7],"type":["chr"],"align":["left"]},{"label":["cid"],"name":[8],"type":["int"],"align":["right"]},{"label":["pid"],"name":[9],"type":["int"],"align":["right"]},{"label":["s_after"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"Matthew 1:1","2":"1","3":"1","4":"THE","5":"the","6":"DET","7":"DT","8":"0","9":"1","10":""},{"1":"Matthew 1:1","2":"1","3":"2","4":"book","5":"book","6":"NOUN","7":"NN","8":"4","9":"1","10":""},{"1":"Matthew 1:1","2":"1","3":"3","4":"of","5":"of","6":"ADP","7":"IN","8":"9","9":"1","10":""},{"1":"Matthew 1:1","2":"1","3":"4","4":"the","5":"the","6":"DET","7":"DT","8":"12","9":"1","10":""},{"1":"Matthew 1:1","2":"1","3":"5","4":"generation","5":"generation","6":"NOUN","7":"NN","8":"16","9":"1","10":""},{"1":"Matthew 1:1","2":"1","3":"6","4":"of","5":"of","6":"ADP","7":"IN","8":"27","9":"1","10":""}],"options":{"columns":{"min":{},"max":[10],"total":[10]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ29zcGVsc19sb29rdXAgPC0gZ29zcGVscyAlPiUgXG4gIHNlbGVjdCh2ZXJzZV90aXRsZSwgYm9va190aXRsZSwgY2hhcHRlcl9udW1iZXIsIHZlcnNlX251bWJlcilcblxuZ29zcGVsX3Rlcm1zIDwtIGdvc3BlbF90ZXJtcyAlPiUgXG4gIGxlZnRfam9pbihnb3NwZWxzX2xvb2t1cCwgYnkgPSBjKFwiaWRcIiA9IFwidmVyc2VfdGl0bGVcIikpXG5cbmdsaW1wc2UoZ29zcGVsX3Rlcm1zKVxuYGBgIn0= -->
+<pre class="r"><code>gospels_lookup &lt;- gospels %&gt;% 
+  select(verse_title, book_title, chapter_number, verse_number)
+
+gospel_terms &lt;- gospel_terms %&gt;% 
+  left_join(gospels_lookup, by = c(&quot;id&quot; = &quot;verse_title&quot;))
+
+glimpse(gospel_terms)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiT2JzZXJ2YXRpb25zOiA5OCw1NDZcblZhcmlhYmxlczogMTNcbiQgaWQgICAgICAgICAgICAgPGNocj4gXCJNYXR0aGV3IDE6MVwiLCBcIk1hdHRoZXcgMToxXCIsIFwiTWF0dGhldyAxOjEuLi5cbiQgc2lkICAgICAgICAgICAgPGludD4gMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgLi4uXG4kIHRpZCAgICAgICAgICAgIDxpbnQ+IDEsIDIsIDMsIDQsIDUsIDYsIDcsIDgsIDksIDEwLCAxMSwgMTIsIDEzLC4uLlxuJCB3b3JkICAgICAgICAgICA8Y2hyPiBcIlRIRVwiLCBcImJvb2tcIiwgXCJvZlwiLCBcInRoZVwiLCBcImdlbmVyYXRpb25cIiwgLi4uXG4kIGxlbW1hICAgICAgICAgIDxjaHI+IFwidGhlXCIsIFwiYm9va1wiLCBcIm9mXCIsIFwidGhlXCIsIFwiZ2VuZXJhdGlvblwiLCAuLi5cbiQgdXBvcyAgICAgICAgICAgPGNocj4gXCJERVRcIiwgXCJOT1VOXCIsIFwiQURQXCIsIFwiREVUXCIsIFwiTk9VTlwiLCBcIkFEUFwiLi4uXG4kIHBvcyAgICAgICAgICAgIDxjaHI+IFwiRFRcIiwgXCJOTlwiLCBcIklOXCIsIFwiRFRcIiwgXCJOTlwiLCBcIklOXCIsIFwiTk5QXCIsLi4uXG4kIGNpZCAgICAgICAgICAgIDxpbnQ+IDAsIDQsIDksIDEyLCAxNiwgMjcsIDMwLCAzNiwgNDIsIDQ0LCA0OCwgNS4uLlxuJCBwaWQgICAgICAgICAgICA8aW50PiAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAuLi5cbiQgc19hZnRlciAgICAgICAgPGNocj4gXCIgXCIsIFwiIFwiLCBcIiBcIiwgXCIgXCIsIFwiIFwiLCBcIiBcIiwgXCIgXCIsIFwiXCIsIFwiIFwiLi4uXG4kIGJvb2tfdGl0bGUgICAgIDxjaHI+IFwiTWF0dGhld1wiLCBcIk1hdHRoZXdcIiwgXCJNYXR0aGV3XCIsIFwiTWF0dGhld1wiLi4uXG4kIGNoYXB0ZXJfbnVtYmVyIDxkYmw+IDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIC4uLlxuJCB2ZXJzZV9udW1iZXIgICA8ZGJsPiAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAuLi5cbiJ9 -->
+<pre><code>Observations: 98,546
+Variables: 13
+$ id             &lt;chr&gt; &quot;Matthew 1:1&quot;, &quot;Matthew 1:1&quot;, &quot;Matthew 1:1...
+$ sid            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+$ tid            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,...
+$ word           &lt;chr&gt; &quot;THE&quot;, &quot;book&quot;, &quot;of&quot;, &quot;the&quot;, &quot;generation&quot;, ...
+$ lemma          &lt;chr&gt; &quot;the&quot;, &quot;book&quot;, &quot;of&quot;, &quot;the&quot;, &quot;generation&quot;, ...
+$ upos           &lt;chr&gt; &quot;DET&quot;, &quot;NOUN&quot;, &quot;ADP&quot;, &quot;DET&quot;, &quot;NOUN&quot;, &quot;ADP&quot;...
+$ pos            &lt;chr&gt; &quot;DT&quot;, &quot;NN&quot;, &quot;IN&quot;, &quot;DT&quot;, &quot;NN&quot;, &quot;IN&quot;, &quot;NNP&quot;,...
+$ cid            &lt;int&gt; 0, 4, 9, 12, 16, 27, 30, 36, 42, 44, 48, 5...
+$ pid            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+$ s_after        &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;...
+$ book_title     &lt;chr&gt; &quot;Matthew&quot;, &quot;Matthew&quot;, &quot;Matthew&quot;, &quot;Matthew&quot;...
+$ chapter_number &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+$ verse_number   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGV4dCBNaW5pbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgpodHRwczovL3JlZ2V4ci5jb20vCgpodHRwczovL3JlZ2V4MTAxLmNvbS8KCiMgUmVhZCB0ZXh0IGZpbGVzIHdpdGggcmVhZHRleHQoKQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3JlYWR0ZXh0L3ZpZ25ldHRlcy9yZWFkdGV4dF92aWduZXR0ZS5odG1sCgoKIyBxZGFwUmVnZXgKCmBgYHtyfQpsaWJyYXJ5KHFkYXBSZWdleCkKYGBgCgoKaHR0cHM6Ly9naXRodWIuY29tL3RyaW5rZXIvcWRhcFJlZ2V4CgpodHRwOi8vdHJpbmtlci5naXRodWIuaW8vcWRhcFJlZ2V4X2Rldi9pbmRleC5odG1sCgojIHN0cmluZ3IKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9zdHJpbmdyL3ZpZ25ldHRlcy9zdHJpbmdyLmh0bWwKCmBgYApzdHJpbmdyOjpzdHJfdmlldygpCmBgYAoKCiMgUmVnRXhwbGFpbgoKaHR0cHM6Ly93d3cuZ2Fycmlja2FkZW5idWllLmNvbS9wcm9qZWN0L3JlZ2V4cGxhaW4vCgoKYGBge3J9CiMgZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJnYWRlbmJ1aWUvcmVnZXhwbGFpbiIpCiMgc291cmNlKCJodHRwczovL2luc3RhbGwtZ2l0aHViLm1lL2dhZGVuYnVpZS9yZWdleHBsYWluIikKYGBgCgoKCiMgQSBUaWR5IFRleHQgQW5hbHlzaXMgb2YgTXkgR29vZ2xlIFNlYXJjaCBIaXN0b3J5CgpodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9hLXRpZHktdGV4dC1hbmFseXNpcy1vZi1teS1nb29nbGUtc2VhcmNoLWhpc3RvcnkvCgoKCiMgVGV4dCBNaW5pbmcgd2l0aCBSIEEgVGlkeSBBcHByb2FjaAoKaHR0cHM6Ly93d3cudGlkeXRleHRtaW5pbmcuY29tLwoKIyBQcmlkZSBhbmQgUHJlanVkaWNlCgpodHRwczovL2p1bGlhc2lsZ2UuY29tL2Jsb2cvaWYtaS1sb3ZlZC1ubHAtbGVzcy8KCiMgVGV4dCBhbmFseXNpcyBvZiBob2x5IGJvb2tzCgojIyBxdVJhbiAKCmh0dHBzOi8vZ2l0aHViLmNvbS9hbmRyZXdoZWlzcy9xdVJhbgoKaHR0cHM6Ly9naXRodWIuY29tL2FuZHJld2hlaXNzL3F1UmFuL2Jsb2IvbWFzdGVyL2RhdGEtcmF3L2NsZWFuX2RhdGEuUgoKIyMgc2FjcmVkCgpodHRwOi8vc2FjcmVkLmpvaG4tY29lbmUuY29tLwoKaHR0cHM6Ly9naXRodWIuY29tL0pvaG5Db2VuZS9zYWNyZWQKCiMjIHNjcmlwdHVScyAKCmh0dHBzOi8vZ2l0aHViLmNvbS9hbmRyZXdoZWlzcy9zY3JpcHR1UnMKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGV4dCBNaW5pbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgpodHRwczovL3JlZ2V4ci5jb20vCgpodHRwczovL3JlZ2V4MTAxLmNvbS8KCiMgUmVhZCB0ZXh0IGZpbGVzIHdpdGggcmVhZHRleHQoKQoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3JlYWR0ZXh0L3ZpZ25ldHRlcy9yZWFkdGV4dF92aWduZXR0ZS5odG1sCgoKIyBxZGFwUmVnZXgKCmBgYHtyfQpsaWJyYXJ5KHFkYXBSZWdleCkKYGBgCgoKaHR0cHM6Ly9naXRodWIuY29tL3RyaW5rZXIvcWRhcFJlZ2V4CgpodHRwOi8vdHJpbmtlci5naXRodWIuaW8vcWRhcFJlZ2V4X2Rldi9pbmRleC5odG1sCgojIHN0cmluZ3IKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9zdHJpbmdyL3ZpZ25ldHRlcy9zdHJpbmdyLmh0bWwKCmBgYApzdHJpbmdyOjpzdHJfdmlldygpCmBgYAoKCiMgUmVnRXhwbGFpbgoKaHR0cHM6Ly93d3cuZ2Fycmlja2FkZW5idWllLmNvbS9wcm9qZWN0L3JlZ2V4cGxhaW4vCgoKYGBge3J9CiMgZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJnYWRlbmJ1aWUvcmVnZXhwbGFpbiIpCiMgc291cmNlKCJodHRwczovL2luc3RhbGwtZ2l0aHViLm1lL2dhZGVuYnVpZS9yZWdleHBsYWluIikKYGBgCgoKCiMgQSBUaWR5IFRleHQgQW5hbHlzaXMgb2YgTXkgR29vZ2xlIFNlYXJjaCBIaXN0b3J5CgpodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9hLXRpZHktdGV4dC1hbmFseXNpcy1vZi1teS1nb29nbGUtc2VhcmNoLWhpc3RvcnkvCgoKCiMgVGV4dCBNaW5pbmcgd2l0aCBSIEEgVGlkeSBBcHByb2FjaAoKaHR0cHM6Ly93d3cudGlkeXRleHRtaW5pbmcuY29tLwoKIyBQcmlkZSBhbmQgUHJlanVkaWNlCgpodHRwczovL2p1bGlhc2lsZ2UuY29tL2Jsb2cvdGlkeS10ZXh0LWNsYXNzaWZpY2F0aW9uLwoKaHR0cHM6Ly9qdWxpYXNpbGdlLmNvbS9ibG9nL2lmLWktbG92ZWQtbmxwLWxlc3MvCgoKIyBjbGVhbk5MUAoKaHR0cHM6Ly9zdGF0c21hdGhzLmdpdGh1Yi5pby9jbGVhbk5MUC8KCiMgVGV4dCBhbmFseXNpcyBvZiBob2x5IGJvb2tzCgojIyBxdVJhbiAKCmh0dHBzOi8vZ2l0aHViLmNvbS9hbmRyZXdoZWlzcy9xdVJhbgoKaHR0cHM6Ly9naXRodWIuY29tL2FuZHJld2hlaXNzL3F1UmFuL2Jsb2IvbWFzdGVyL2RhdGEtcmF3L2NsZWFuX2RhdGEuUgoKCiMjIyBUaWR5IHRleHQsIHBhcnRzIG9mIHNwZWVjaCwgYW5kIHVuaXF1ZSB3b3JkcyBpbiB0aGUgUXVyJ2FuCgpodHRwczovL3d3dy5hbmRyZXdoZWlzcy5jb20vYmxvZy8yMDE4LzEyLzI4L3RpZHl0ZXh0LXBvcy1hcmFiaWMvCgoKIyMgc2FjcmVkCgpodHRwOi8vc2FjcmVkLmpvaG4tY29lbmUuY29tLwoKaHR0cHM6Ly9naXRodWIuY29tL0pvaG5Db2VuZS9zYWNyZWQKCiMjIHNjcmlwdHVScyAKCmh0dHBzOi8vZ2l0aHViLmNvbS9hbmRyZXdoZWlzcy9zY3JpcHR1UnMKCgojIyMgVGlkeSB0ZXh0LCBwYXJ0cyBvZiBzcGVlY2gsIGFuZCB1bmlxdWUgd29yZHMgaW4gdGhlIEJpYmxlCgpodHRwczovL3d3dy5hbmRyZXdoZWlzcy5jb20vYmxvZy8yMDE4LzEyLzI2L3RpZHl0ZXh0LXBvcy1qb2huLwoKCgpgYGB7cn0KIyBkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoImFuZHJld2hlaXNzL3NjcmlwdHVScyIpCmBgYAoKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkgICMgRm9yIGRwbHlyLCBnZ3Bsb3QyLCBhbmQgZnJpZW5kcwpsaWJyYXJ5KHNjcmlwdHVScykgICMgRm9yIGZ1bGwgdGV4dCBvZiBiaWJsZQpsaWJyYXJ5KHRpZHl0ZXh0KSAgICMgRm9yIGFuYWx5emluZyB0ZXh0CmxpYnJhcnkoY2xlYW5OTFApICAgIyBGb3IgZmFuY2llciBuYXR1cmFsIGxhbmd1YWdlIHByb2Nlc3NpbmcKCiMgTG9hZCBkYXRhCmdvc3BlbHMgPC0ga2p2X2JpYmxlKCkgJT4lIAogIGZpbHRlcihib29rX3RpdGxlICVpbiUgYygiTWF0dGhldyIsICJNYXJrIiwgIkx1a2UiLCAiSm9obiIpKQpgYGAKCgpgYGB7cn0KIyBTZXQgdXAgTkxQIGJhY2tlbmQKIyByZXRpY3VsYXRlOjp1c2VfcHl0aG9uKCIvVXNlcnMvc2VyZGFyYmFsY2lvbGQvLmNvbmRhIikgICMgSSB1c2UgaG9tZWJyZXcgcHl0aG9uMwojIHJldGljdWxhdGU6OnVzZV9jb25kYWVudihjb25kYWVudiA9ICIvYW5hY29uZGEzL2VudnMiLCBjb25kYSA9ICJhdXRvIiwgcmVxdWlyZWQgPSBGQUxTRSkKIyBjbmxwX2luaXRfc3BhY3koKSAgIyBVc2Ugc3BhQ3kKY25scF9pbml0X3VkcGlwZSgpICAjIE9yIHVzZSB0aGlzIFItb25seSBvbmUgd2l0aG91dCBleHRlcm5hbCBkZXBlbmRlbmNpZXMKYGBgCgoKCmBgYHtyfQojIERldGVybWluZSB0aGUgcGFydHMgb2Ygc3BlZWNoIG9mIHRoZSAidGV4dCIgY29sdW1uIGFuZCB1c2UgInZlcnNlX3RpdGxlIiBhcyB0aGUgaWQKZ29zcGVsc19hbm5vdGF0ZWQgPC0gY25scF9hbm5vdGF0ZShnb3NwZWxzLCBhc19zdHJpbmdzID0gVFJVRSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0X3ZhciA9ICJ0ZXh0IiwgZG9jX3ZhciA9ICJ2ZXJzZV90aXRsZSIpCmBgYAoKCmBgYHtyfQpnb3NwZWxzX2Fubm90YXRlZApgYGAKCgpgYGB7cn0KZ2xpbXBzZShnb3NwZWxzX2Fubm90YXRlZCkKYGBgCgoKYGBge3J9Cmdvc3BlbF90ZXJtcyA8LSBnb3NwZWxzX2Fubm90YXRlZCAlPiUgCiAgY25scF9nZXRfdG9rZW4oKQpoZWFkKGdvc3BlbF90ZXJtcykKYGBgCgpgYGB7cn0KZ29zcGVsc19sb29rdXAgPC0gZ29zcGVscyAlPiUgCiAgc2VsZWN0KHZlcnNlX3RpdGxlLCBib29rX3RpdGxlLCBjaGFwdGVyX251bWJlciwgdmVyc2VfbnVtYmVyKQoKZ29zcGVsX3Rlcm1zIDwtIGdvc3BlbF90ZXJtcyAlPiUgCiAgbGVmdF9qb2luKGdvc3BlbHNfbG9va3VwLCBieSA9IGMoImlkIiA9ICJ2ZXJzZV90aXRsZSIpKQoKZ2xpbXBzZShnb3NwZWxfdGVybXMpCmBgYAoKCgoKCgoKCgoK</div>
 
 
 

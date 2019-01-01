@@ -311,6 +311,12 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/EvidenceSynthesisProjects.nb.ht
 
 https://sbalci.github.io/MyRCodesForDataAnalysis/MachineLearning.nb.html
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/Correlations.nb.html
+
+https://xgboost.readthedocs.io/en/latest/index.html
+
+
+
 # Feedback
 
 

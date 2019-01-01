@@ -3,6 +3,12 @@ title: "data.table package"
 output: html_notebook
 ---
 
+
+# Rdatatable
+
+https://github.com/Rdatatable
+
+
 # cheat sheet
 
 
