@@ -46,6 +46,7 @@ ebola
 
 ### Import Excel File
 
+```
 my_data <- read_excel(file.choose())
 
 
@@ -59,7 +60,7 @@ data_xlsx_df <- map_df(set_names(files), function(file) {
       ~ read_xlsx(path = file, sheet = .x, range = "H3"),
       .id = "sheet")
 }, .id = "file")
-
+```
 
 #### Import Sheets
 
@@ -207,16 +208,17 @@ write.foreign(mydata, "mydata.txt", "mydata.sps",   package = "SPSS")
 
 https://twitter.com/WeAreRLadies/status/1034817323922804737
 
+```
 f <- list.files( "my_folder", pattern = "*.csv", full.names = TRUE)
 d <- purrr::map_df(f, readr::read_csv, .id = "id")
-
+```
 
 ---
 
-
+```
 m <- lm(mpg ~ qsec + wt, data = mtcars)
 broom::tidy(m)
-
+```
 
 ---
 
@@ -238,7 +240,7 @@ https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r
 
 Turkish character sometimes became the menace for the data scientist. To avoid the risks you may want to change it with safe characters. To do that you can use this code:
 
-
+```
 #turkce karakter donusumu
 to.plain <- function(s) {
 
@@ -259,6 +261,31 @@ df$source=as.vector(sapply(df$source,to.plain))
 
 
 to.plain(make.names(tolower(names(df))))
+```
+
+
+- Remove all special characters from a string in R?
+
+https://stackoverflow.com/questions/10294284/remove-all-special-characters-from-a-string-in-r
+
+```
+x <- "a1~!@#$%^&*(){}_+:\"<>?,./;'[]-="
+stringr::str_replace_all(x, "[[:punct:]]", " ")
+stringr::str_replace_all(x, "[^[:alnum:]]", " ")
+```
+
+```
+astr <- "Ábcdêãçoàúü"
+iconv(astr, from = 'UTF-8', to = 'ASCII//TRANSLIT')
+```
+
+```
+Data  <- gsub("[^0-9A-Za-z///' ]","'" , Data ,ignore.case = TRUE)
+
+Data <- gsub("''","" , Data ,ignore.case = TRUE)
+```
+
+
 
 
 

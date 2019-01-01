@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2018-12-16" />
+<meta name="date" content="2019-01-02" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -3018,7 +3018,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>Getting Data into R</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2018-12-16</em></h4>
+<h4 class="date"><em>2019-01-02</em></h4>
 
 </div>
 
@@ -3055,9 +3055,19 @@ div.tocify {
 </div>
 <div id="import-excel-file" class="section level3">
 <h3><span class="header-section-number">1.1.4</span> Import Excel File</h3>
-<p>my_data &lt;- read_excel(file.choose())</p>
-<p>files &lt;- list.files(pattern = “.xlsx”)</p>
-<p>data_xlsx_df &lt;- map_df(set_names(files), function(file) { file %&gt;% excel_sheets() %&gt;% set_names() %&gt;% map_df( ~ read_xlsx(path = file, sheet = .x, range = “H3”), .id = “sheet”) }, .id = “file”)</p>
+<pre><code>my_data &lt;- read_excel(file.choose())
+
+
+files &lt;- list.files(pattern = &quot;.xlsx&quot;)
+
+data_xlsx_df &lt;- map_df(set_names(files), function(file) {
+  file %&gt;% 
+    excel_sheets() %&gt;% 
+    set_names() %&gt;% 
+    map_df(
+      ~ read_xlsx(path = file, sheet = .x, range = &quot;H3&quot;),
+      .id = &quot;sheet&quot;)
+}, .id = &quot;file&quot;)</code></pre>
 <div id="import-sheets" class="section level4">
 <h4><span class="header-section-number">1.1.4.1</span> Import Sheets</h4>
 <!-- # Sheets -->
@@ -3121,7 +3131,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmb3JlaWduKSAjIGZvcmVpZ24gcGFrZXRpIHnDvGtsZW5peW9yXG5gYGAifQ== -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(foreign) <span class="co"># foreign paketi yükleniyor</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(foreign) <span class="co"># foreign paketi yükleniyor</span></a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3129,7 +3139,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlkYXRhIDwtIHJlYWQuc3BzcyhcIm15ZGF0YS5zYXZcIiwgdXNlLnZhbHVlLmxhYmVscyA9IFRSVUUsIHRvLmRhdGEuZnJhbWUgPSBUUlVFKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">mydata &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;mydata.sav&quot;</span>, <span class="dt">use.value.labels =</span> <span class="ot">TRUE</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">mydata &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;mydata.sav&quot;</span>, <span class="dt">use.value.labels =</span> <span class="ot">TRUE</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3137,7 +3147,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVMYWJlbHMgPC0gYXMuZGF0YS5mcmFtZShhdHRyKG15ZGF0YSwgXCJ2YXJpYWJsZS5sYWJlbHNcIikpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">VariableLabels &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">attr</span>(mydata, <span class="st">&quot;variable.labels&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">VariableLabels &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">attr</span>(mydata, <span class="st">&quot;variable.labels&quot;</span>))</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3145,7 +3155,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVMYWJlbHMkb3JpZ2luYWwgPC0gcm93bmFtZXMoVmFyaWFibGVMYWJlbHMpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">VariableLabels<span class="op">$</span>original &lt;-<span class="st"> </span><span class="kw">rownames</span>(VariableLabels)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">VariableLabels<span class="op">$</span>original &lt;-<span class="st"> </span><span class="kw">rownames</span>(VariableLabels)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3153,9 +3163,9 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmFyaWFibGVMYWJlbHMkbGFiZWxbVmFyaWFibGVMYWJlbHMkbGFiZWwgPT1cIlwiXSA8LSBOQSBcblZhcmlhYmxlTGFiZWxzJGNvbG5hbWUgPC0gVmFyaWFibGVMYWJlbHMkb3JpZ2luYWxcblZhcmlhYmxlTGFiZWxzJGNvbG5hbWVbIWlzLm5hKFZhcmlhYmxlTGFiZWxzJGxhYmVsKV0gPC0gYXMudmVjdG9yKFZhcmlhYmxlTGFiZWxzJGxhYmVsWyFpcy5uYShWYXJpYWJsZUxhYmVscyRsYWJlbCldKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">VariableLabels<span class="op">$</span>label[VariableLabels<span class="op">$</span>label <span class="op">==</span><span class="st">&quot;&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> </a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">VariableLabels<span class="op">$</span>colname &lt;-<span class="st"> </span>VariableLabels<span class="op">$</span>original</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">VariableLabels<span class="op">$</span>colname[<span class="op">!</span><span class="kw">is.na</span>(VariableLabels<span class="op">$</span>label)] &lt;-<span class="st"> </span><span class="kw">as.vector</span>(VariableLabels<span class="op">$</span>label[<span class="op">!</span><span class="kw">is.na</span>(VariableLabels<span class="op">$</span>label)])</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">VariableLabels<span class="op">$</span>label[VariableLabels<span class="op">$</span>label <span class="op">==</span><span class="st">&quot;&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> </a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">VariableLabels<span class="op">$</span>colname &lt;-<span class="st"> </span>VariableLabels<span class="op">$</span>original</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">VariableLabels<span class="op">$</span>colname[<span class="op">!</span><span class="kw">is.na</span>(VariableLabels<span class="op">$</span>label)] &lt;-<span class="st"> </span><span class="kw">as.vector</span>(VariableLabels<span class="op">$</span>label[<span class="op">!</span><span class="kw">is.na</span>(VariableLabels<span class="op">$</span>label)])</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3163,7 +3173,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMobXlkYXRhKSA8LSBWYXJpYWJsZUxhYmVscyRjb2xuYW1lXG5gYGAifQ== -->
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">names</span>(mydata) &lt;-<span class="st"> </span>VariableLabels<span class="op">$</span>colname</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">names</span>(mydata) &lt;-<span class="st"> </span>VariableLabels<span class="op">$</span>colname</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3178,16 +3188,18 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShmb3JlaWduKVxud3JpdGUuZm9yZWlnbihteWRhdGEsIFwibXlkYXRhLnR4dFwiLCBcIm15ZGF0YS5zcHNcIiwgICBwYWNrYWdlID0gXCJTUFNTXCIpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">write.foreign</span>(mydata, <span class="st">&quot;mydata.txt&quot;</span>, <span class="st">&quot;mydata.sps&quot;</span>,   <span class="dt">package =</span> <span class="st">&quot;SPSS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">write.foreign</span>(mydata, <span class="st">&quot;mydata.txt&quot;</span>, <span class="st">&quot;mydata.sps&quot;</span>,   <span class="dt">package =</span> <span class="st">&quot;SPSS&quot;</span>)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <hr />
 <p><a href="https://twitter.com/WeAreRLadies/status/1034817323922804737" class="uri">https://twitter.com/WeAreRLadies/status/1034817323922804737</a></p>
-<p>f &lt;- list.files( “my_folder”, pattern = &quot;*.csv“, full.names = TRUE) d &lt;- purrr::map_df(f, readr::read_csv, .id =”id&quot;)</p>
+<pre><code>f &lt;- list.files( &quot;my_folder&quot;, pattern = &quot;*.csv&quot;, full.names = TRUE)
+d &lt;- purrr::map_df(f, readr::read_csv, .id = &quot;id&quot;)</code></pre>
 <hr />
-<p>m &lt;- lm(mpg ~ qsec + wt, data = mtcars) broom::tidy(m)</p>
+<pre><code>m &lt;- lm(mpg ~ qsec + wt, data = mtcars)
+broom::tidy(m)</code></pre>
 <hr />
 <p>Import a Directory of CSV Files at Once Using {purrr} and {readr}</p>
 <p><a href="https://www.gerkelab.com/blog/2018/09/import-directory-csv-purrr-readr/" class="uri">https://www.gerkelab.com/blog/2018/09/import-directory-csv-purrr-readr/</a></p>
@@ -3198,41 +3210,62 @@ div.tocify {
 <hr />
 <p><a href="https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r/" class="uri">https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r/</a></p>
 <p>Turkish character sometimes became the menace for the data scientist. To avoid the risks you may want to change it with safe characters. To do that you can use this code:</p>
-<p>#turkce karakter donusumu to.plain &lt;- function(s) {</p>
+<pre><code>#turkce karakter donusumu
+to.plain &lt;- function(s) {
+
+# 1 character substitutions
+old1 &lt;- “çğşıüöÇĞŞİÖÜ”
+new1 &lt;- “cgsiuocgsiou”
+s1 &lt;- chartr(old1, new1, s)
+
+# 2 character substitutions
+old2 &lt;- c(“œ”, “ß”, “æ”, “ø”)
+new2 &lt;- c(“oe”, “ss”, “ae”, “oe”)
+s2 &lt;- s1
+for(i in seq_along(old2)) s2 &lt;- gsub(old2[i], new2[i], s2, fixed = TRUE)
+
+s2
+}
+df$source=as.vector(sapply(df$source,to.plain))
+
+
+to.plain(make.names(tolower(names(df))))</code></pre>
+<ul>
+<li>Remove all special characters from a string in R?</li>
+</ul>
+<p><a href="https://stackoverflow.com/questions/10294284/remove-all-special-characters-from-a-string-in-r" class="uri">https://stackoverflow.com/questions/10294284/remove-all-special-characters-from-a-string-in-r</a></p>
+<pre><code>x &lt;- &quot;a1~!@#$%^&amp;*(){}_+:\&quot;&lt;&gt;?,./;'[]-=&quot;
+stringr::str_replace_all(x, &quot;[[:punct:]]&quot;, &quot; &quot;)
+stringr::str_replace_all(x, &quot;[^[:alnum:]]&quot;, &quot; &quot;)</code></pre>
+<pre><code>astr &lt;- &quot;Ábcdêãçoàúü&quot;
+iconv(astr, from = 'UTF-8', to = 'ASCII//TRANSLIT')</code></pre>
+<pre><code>Data  &lt;- gsub(&quot;[^0-9A-Za-z///' ]&quot;,&quot;'&quot; , Data ,ignore.case = TRUE)
+
+Data &lt;- gsub(&quot;''&quot;,&quot;&quot; , Data ,ignore.case = TRUE)</code></pre>
 </div>
-</div>
-<div id="character-substitutions" class="section level1">
-<h1><span class="header-section-number">3</span> 1 character substitutions</h1>
-<p>old1 &lt;- “çğşıüöÇĞŞİÖÜ” new1 &lt;- “cgsiuocgsiou” s1 &lt;- chartr(old1, new1, s)</p>
-</div>
-<div id="character-substitutions-1" class="section level1">
-<h1><span class="header-section-number">4</span> 2 character substitutions</h1>
-<p>old2 &lt;- c(“œ”, “ß”, “æ”, “ø”) new2 &lt;- c(“oe”, “ss”, “ae”, “oe”) s2 &lt;- s1 for(i in seq_along(old2)) s2 &lt;- gsub(old2[i], new2[i], s2, fixed = TRUE)</p>
-<p>s2 } df<span class="math inline">\(source=as.vector(sapply(df\)</span>source,to.plain))</p>
-<p>to.plain(make.names(tolower(names(df))))</p>
 </div>
 <div id="pdftables" class="section level1">
-<h1><span class="header-section-number">5</span> pdftables</h1>
+<h1><span class="header-section-number">3</span> pdftables</h1>
 <p><a href="https://cran.r-project.org/web/packages/pdftables/vignettes/convert_pdf_tables.html" class="uri">https://cran.r-project.org/web/packages/pdftables/vignettes/convert_pdf_tables.html</a></p>
 </div>
 <div id="tabulizer" class="section level1">
-<h1><span class="header-section-number">6</span> tabulizer</h1>
+<h1><span class="header-section-number">4</span> tabulizer</h1>
 <p>Extract Tables from PDFs</p>
 <p><a href="https://github.com/ropensci/tabulizer" class="uri">https://github.com/ropensci/tabulizer</a></p>
 </div>
 <div id="rio" class="section level1">
-<h1><span class="header-section-number">7</span> rio</h1>
+<h1><span class="header-section-number">5</span> rio</h1>
 <p>Import, Export, and Convert Data Files</p>
 <p><a href="https://cran.r-project.org/web/packages/rio/vignettes/rio.html" class="uri">https://cran.r-project.org/web/packages/rio/vignettes/rio.html</a></p>
 </div>
 <div id="read-with-purrr" class="section level1">
-<h1><span class="header-section-number">8</span> read with purrr</h1>
+<h1><span class="header-section-number">6</span> read with purrr</h1>
 <p>R tip: Iterate with purrr’s map_df function</p>
 <p><a href="https://www.infoworld.com/video/89075/r-tip-iterate-with-purrrs-map-df-function" class="uri">https://www.infoworld.com/video/89075/r-tip-iterate-with-purrrs-map-df-function</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJHZXR0aW5nIERhdGEgaW50byBSIgphdXRob3I6ICJbU2VyZGFyIEJhbGPEsSwgTUQsIFBhdGhvbG9naXN0XShodHRwczovL3d3dy5zZXJkYXJiYWxjaS5jb20vKSIKZGF0ZTogJ2ByIGZvcm1hdChTeXMuRGF0ZSgpKWAnCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazogCiAgICBmaWdfY2FwdGlvbjogeWVzCiAgICBoaWdobGlnaHQ6IHRhbmdvCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcwogICAgdGhlbWU6IHBhcGVyCiAgICB0b2M6IHllcwogICAgdG9jX2RlcHRoOiA1CiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6IAogICAgY29kZV9mb2xkaW5nOiBoaWRlCiAgICBkZl9wcmludDoga2FibGUKICAgIGtlZXBfbWQ6IHllcwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBjZXJ1bGVhbgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCiAgICBoaWdobGlnaHQ6IGthdGUKLS0tCgojIEdldHRpbmcgRGF0YSBpbnRvIFIgLyBWZXJpeWkgUidhIHnDvGtsZW1lCgojIyBJbXBvcnQgRGF0YQoKIyMjIEltcG9ydCB1c2luZyBSU3R1ZGlvCgojIyMgSW1wb3J0IENTViBGaWxlCgpgYGB7cn0Kc2NhYmllcyA8LSByZWFkLmNzdihmaWxlID0gImh0dHA6Ly9kYXRhY29tcGFzcy5sc2h0bS5hYy51ay82MDcvMi9TMS1EYXRhc2V0X0NTVi5jc3YiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCnNjYWJpZXMKYGBgCgojIyMgSW1wb3J0IFRYVCBGaWxlCgpgYGB7cn0KZWJvbGEgPC0gcmVhZC5jc3YoZmlsZSA9ICJodHRwOi8vZGF0YWNvbXBhc3MubHNodG0uYWMudWsvNjA4LzEvbW1jMS50eHQiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCmVib2xhCmBgYAoKCiMjIyBJbXBvcnQgRXhjZWwgRmlsZQoKbXlfZGF0YSA8LSByZWFkX2V4Y2VsKGZpbGUuY2hvb3NlKCkpCgoKZmlsZXMgPC0gbGlzdC5maWxlcyhwYXR0ZXJuID0gIi54bHN4IikKCmRhdGFfeGxzeF9kZiA8LSBtYXBfZGYoc2V0X25hbWVzKGZpbGVzKSwgZnVuY3Rpb24oZmlsZSkgewogIGZpbGUgJT4lIAogICAgZXhjZWxfc2hlZXRzKCkgJT4lIAogICAgc2V0X25hbWVzKCkgJT4lIAogICAgbWFwX2RmKAogICAgICB+IHJlYWRfeGxzeChwYXRoID0gZmlsZSwgc2hlZXQgPSAueCwgcmFuZ2UgPSAiSDMiKSwKICAgICAgLmlkID0gInNoZWV0IikKfSwgLmlkID0gImZpbGUiKQoKCiMjIyMgSW1wb3J0IFNoZWV0cwoKPCEtLSAjIFNoZWV0cyAtLT4KCjwhLS0gbGlicmFyeSh0aWR5dmVyc2UpIC0tPgo8IS0tIGxpYnJhcnkocmVhZHhsKSAtLT4KCgo8IS0tIHBhdGggPC0gIklDUE5fUkFXLnhscyIgLS0+CjwhLS0gc2hlZXRsaXN0IDwtIHBhdGggJT4lICAtLT4KPCEtLSAgICAgZXhjZWxfc2hlZXRzKCkgJT4lICAtLT4KPCEtLSAgICAgc2V0X25hbWVzKCkgJT4lICAtLT4KPCEtLSAgICAgbWFwKHJlYWRfZXhjZWwsIHNraXAgPSAxLCBwYXRoID0gcGF0aCkgLS0+Cgo8IS0tIHNoZWV0bGlzdCA8LSBzaGVldGxpc3RbLTI5XSAtLT4KCgo8IS0tIHNoZWV0bGlzdCA8LSBzaGVldGxpc3QgJT4lIC0tPgo8IS0tICAgICByZWR1Y2UobGVmdF9qb2luLCBieSA9ICJSZXNwb25kYW50IiwgLmlkID0gImlkIiwgc3VmZml4ID0gYygiMSIsIjIiKSkgLS0+Cgo8IS0tIG5hbWVzKHNoZWV0bGlzdCkgLS0+Cgo8IS0tIGNvbHVtbk5hbWVzIDwtIGMoIC0tPgo8IS0tICAgICAiSUQiLCAtLT4KPCEtLSAgICAgIkRYIiwgLS0+CjwhLS0gICAgICJ5L24iLCAtLT4KPCEtLSAgICAgIn5wbGFzdGljIiwgLS0+CjwhLS0gICAgICJXSE8tIDIwMTAgY2xhc3NpZmljYXRpb24iLCAtLT4KPCEtLSAgICAgIkdSQURFIiwgLS0+CjwhLS0gICAgICJJTlZBU0lWRSBDQSIsIC0tPgo8IS0tICAgICAiQ0VMTCBMSU5FQUdFIiwgLS0+CjwhLS0gICAgICJJUE1OIExpbmVhZ2UgKFBSRS9NSU4pIiwgLS0+CjwhLS0gICAgICJleHBlcmllbmNlIHdpdGggdGhpcyBpbnZhc2lvbiIsIC0tPgo8IS0tICAgICAiQ09NTUVOVFMiIC0tPgo8IS0tICkgLS0+Cgo8IS0tIGNvbHVtbk51bWJlcnMgPC0gcmVwKGMoMToyOCksIGVhY2ggPSAxMSkgLS0+Cgo8IS0tIGNvbHVtbk5hbWVzMiA8LSBwYXN0ZShjb2x1bW5OYW1lcywgY29sdW1uTnVtYmVycywgc2VwID0gIiIpIC0tPgoKPCEtLSBjb2x1bW5OYW1lczIgPC0gYygiUmVzcG9uZGFudCIsIGNvbHVtbk5hbWVzMikgLS0+Cgo8IS0tIG5hbWVzKHNoZWV0bGlzdCkgPC0gY29sdW1uTmFtZXMyIC0tPgoKCgo8IS0tICMgIlJlc3BvbmRhbnQiCSJJRCIJInkvbiIJIldITy0gMjAxMCBjbGFzc2lmaWNhdGlvbiIJIkdSQURFIgkiSU5WQVNJVkUgQ0EiCSJDRUxMIExJTkVBR0UiCSJJUE1OIExpbmVhZ2UgKFBSRS9NSU4pIiAtLT4KCjwhLS0gZGVuZW1lIDwtIHNoZWV0bGlzdCAlPiUgIC0tPgo8IS0tICAgICBzZWxlY3Qoc3RhcnRzX3dpdGgoIlJlc3BvbmRhbnQiKSwgc3RhcnRzX3dpdGgoIkdSQURFIikpIC0tPgoKCgoKCgoKPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJISUdIIl0gPC0gMyAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJISUdIIChmb2NhbCkiXSA8LSAzIC0tPgo8IS0tICMgZGVuZW1lW2RlbmVtZT09Ik1PREVSQVRFIl0gPC0gMiAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJMT1ciXSA8LSAxIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lIDwtIGFzLmRhdGEuZnJhbWUoZGVuZW1lKSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIHJvdy5uYW1lcyhkZW5lbWUpIDwtIGRlbmVtZSRSZXNwb25kYW50IC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lIDwtIGRlbmVtZVstMV0gLS0+CjwhLS0gIyAgLS0+CjwhLS0gIyBkZW5lbWVbaXMubmEoZGVuZW1lKV0gPC0gMSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGRlbmVtZSA8LSBtYXBfZGYoZGVuZW1lLCBhcy5tYXRyaXgpIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZ2xpbXBzZShkZW5lbWUpIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgaGVhdG1hcChkZW5lbWUpIC0tPgoKPCEtLSB3cml0ZV9jc3YoZGVuZW1lLCAiZGVuZW1lLmNzdiIpIC0tPgoKCgoKCgojIyMgSW1wb3J0IFNQU1MgRmlsZQoKIyMjIEtlZXAgU1BTUyBsYWJlbHMKCmBgYHtyfQpsaWJyYXJ5KGZvcmVpZ24pICMgZm9yZWlnbiBwYWtldGkgecO8a2xlbml5b3IKYGBgCgpyZWFkLnNwc3Mga29tdXR1IGlsZSBkZcSfZXIgZXRpa2V0bGVyaW5pIGFsbWFzxLFuxLEgdmUgYnVudSBsaXN0ZSBvbGFyYWsgZGXEn2lsIGRlIGRhdGEuZnJhbWUgb2xhcmFrIGtheWRldG1lc2luaSBpc3RpeW9ydXoKCmBgYHtyfQpteWRhdGEgPC0gcmVhZC5zcHNzKCJteWRhdGEuc2F2IiwgdXNlLnZhbHVlLmxhYmVscyA9IFRSVUUsIHRvLmRhdGEuZnJhbWUgPSBUUlVFKQpgYGAKCmFrdGFyZMSxxJ/EsW3EsXogZGF0YS5mcmFtZSdpbiDDtnplbGxpa2xlcmkgKGF0dHIpIGnDp2luZGUgZGXEn2nFn2tlbmxlcmluIGV0aWtldGxlcmkgdmFyLCBidW5sYXLEsSBkxLHFn2FyxLEgw6fEsWthcnTEsXlvcnV6CgpgYGB7cn0KVmFyaWFibGVMYWJlbHMgPC0gYXMuZGF0YS5mcmFtZShhdHRyKG15ZGF0YSwgInZhcmlhYmxlLmxhYmVscyIpKQpgYGAKCgplbGRlIGV0dGnEn2ltaXogZGF0YS5mcmFtZSdkZWtpIHNhdMSxciBpc2ltbGVyaSBkZcSfacWfa2VubGVyaW4gaXNpbWxlcmkgb2x1eW9yLCBrYXLFn8SxbGFyxLFuZGEgZGEgZGXEn2nFn2tlbiBldGlrZXRsZXJpIHZhcgpzYXTEsXIgaXNpbWxlcmluaSBkZSBkxLHFn2FyxLEgw6fEsWthcnTEsXlvcnV6CgpgYGB7cn0KVmFyaWFibGVMYWJlbHMkb3JpZ2luYWwgPC0gcm93bmFtZXMoVmFyaWFibGVMYWJlbHMpCmBgYAoKRGXEn2nFn2tlbiBldGlrZXRpIG9sYW5sYXLEsSBldGlrZXRsZXJpIGlsZSBkacSfZXJsZXJpbmkgb2xkdcSfdSBnaWJpIHNha2zEsXlvcnV6ICAKCmBgYHtyfQpWYXJpYWJsZUxhYmVscyRsYWJlbFtWYXJpYWJsZUxhYmVscyRsYWJlbCA9PSIiXSA8LSBOQSAKVmFyaWFibGVMYWJlbHMkY29sbmFtZSA8LSBWYXJpYWJsZUxhYmVscyRvcmlnaW5hbApWYXJpYWJsZUxhYmVscyRjb2xuYW1lWyFpcy5uYShWYXJpYWJsZUxhYmVscyRsYWJlbCldIDwtIGFzLnZlY3RvcihWYXJpYWJsZUxhYmVscyRsYWJlbFshaXMubmEoVmFyaWFibGVMYWJlbHMkbGFiZWwpXSkKYGBgCgpzb24gb2xhcmFrIGRhIGRhdGEuZnJhbWUnZGVraSBzw7x0dW4gaXNpbWxlcmluaSBkZcSfacWfdGlyaXlvcnV6CgpgYGB7cn0KbmFtZXMobXlkYXRhKSA8LSBWYXJpYWJsZUxhYmVscyRjb2xuYW1lCmBgYAoKCgoKCiMgRXhwb3J0IERhdGEKCiMjIyBFeHBvcnQgdG8gU1BTUywgd2hpbGUga2VlcGluZyBsYWJlbHMKClInZGEgYGZhY3RvcmAgb2xhbiBsYWJlbCB2ZXJkacSfaW5peiBkZcSfacWfa2VubGVyaSBgU1BTU2AgeWEgZGEgZGnEn2VyIGlzdGF0aXN0aWsgcHJvZ3JhbWxhcsSxbmEgYWt0YXJkxLHEn8SxbsSxemRhIGJ1IHRhbsSxbWxhbWFsYXLEsSBrb3J1bWFrIGnFn2ltaXplIHlhcmFyLiBCdW51biBpw6dpbiBgZm9yZWlnbmAgcGFrZXRpIGlsZSBiaXIgYHR4dGAgZG9zeWFzxLEgdmUgYmlyIGBzcHNgIGRvc3lhc8SxIG9sdcWfdHVydXlvcnV6LiBTUFNTJ3RlIGBzcHNgIGRvc3lhc8SxbsSxIGHDp8SxcCBrb2R1IMOnYWzEscWfdMSxcmFyYWsgdGVrcmFyIGF0YW5hbiBkZcSfZXJsZXIgZ2VyaSB5w7xrbGVuaXlvci4KCgpgYGB7cn0KbGlicmFyeShmb3JlaWduKQp3cml0ZS5mb3JlaWduKG15ZGF0YSwgIm15ZGF0YS50eHQiLCAibXlkYXRhLnNwcyIsICAgcGFja2FnZSA9ICJTUFNTIikKYGBgCgoKLS0tCgpodHRwczovL3R3aXR0ZXIuY29tL1dlQXJlUkxhZGllcy9zdGF0dXMvMTAzNDgxNzMyMzkyMjgwNDczNwoKZiA8LSBsaXN0LmZpbGVzKCAibXlfZm9sZGVyIiwgcGF0dGVybiA9ICIqLmNzdiIsIGZ1bGwubmFtZXMgPSBUUlVFKQpkIDwtIHB1cnJyOjptYXBfZGYoZiwgcmVhZHI6OnJlYWRfY3N2LCAuaWQgPSAiaWQiKQoKCi0tLQoKCm0gPC0gbG0obXBnIH4gcXNlYyArIHd0LCBkYXRhID0gbXRjYXJzKQpicm9vbTo6dGlkeShtKQoKCi0tLQoKSW1wb3J0IGEgRGlyZWN0b3J5IG9mIENTViBGaWxlcyBhdCBPbmNlIFVzaW5nIHtwdXJycn0gYW5kIHtyZWFkcn0KCmh0dHBzOi8vd3d3LmdlcmtlbGFiLmNvbS9ibG9nLzIwMTgvMDkvaW1wb3J0LWRpcmVjdG9yeS1jc3YtcHVycnItcmVhZHIvCgpgYGAKZGF0YV9kaXIgJT4lIAogIGRpcl9scyhyZWdleHAgPSAiXFwuY3N2JCIpICU+JSAKICBtYXBfZGZyKHJlYWRfY3N2LCAuaWQgPSAic291cmNlIikgJT4lIAogIG11dGF0ZShNb250aF9ZZWFyID0gbXlkKE1vbnRoX1llYXIsIHRydW5jYXRlZCA9IDEpKQpgYGAgIAoKCi0tLQoKaHR0cHM6Ly9zdWF0YXRhbi53b3JkcHJlc3MuY29tLzIwMTcvMTAvMDcvYnVsay1yZXBsYWNpbmctdHVya2lzaC1jaGFyYWN0ZXJzLWluLXIvCgpUdXJraXNoIGNoYXJhY3RlciBzb21ldGltZXMgYmVjYW1lIHRoZSBtZW5hY2UgZm9yIHRoZSBkYXRhIHNjaWVudGlzdC4gVG8gYXZvaWQgdGhlIHJpc2tzIHlvdSBtYXkgd2FudCB0byBjaGFuZ2UgaXQgd2l0aCBzYWZlIGNoYXJhY3RlcnMuIFRvIGRvIHRoYXQgeW91IGNhbiB1c2UgdGhpcyBjb2RlOgoKCiN0dXJrY2Uga2FyYWt0ZXIgZG9udXN1bXUKdG8ucGxhaW4gPC0gZnVuY3Rpb24ocykgewoKIyAxIGNoYXJhY3RlciBzdWJzdGl0dXRpb25zCm9sZDEgPC0g4oCcw6fEn8WfxLHDvMO2w4fEnsWexLDDlsOc4oCdCm5ldzEgPC0g4oCcY2dzaXVvY2dzaW914oCdCnMxIDwtIGNoYXJ0cihvbGQxLCBuZXcxLCBzKQoKIyAyIGNoYXJhY3RlciBzdWJzdGl0dXRpb25zCm9sZDIgPC0gYyjigJzFk+KAnSwg4oCcw5/igJ0sIOKAnMOm4oCdLCDigJzDuOKAnSkKbmV3MiA8LSBjKOKAnG9l4oCdLCDigJxzc+KAnSwg4oCcYWXigJ0sIOKAnG9l4oCdKQpzMiA8LSBzMQpmb3IoaSBpbiBzZXFfYWxvbmcob2xkMikpIHMyIDwtIGdzdWIob2xkMltpXSwgbmV3MltpXSwgczIsIGZpeGVkID0gVFJVRSkKCnMyCn0KZGYkc291cmNlPWFzLnZlY3RvcihzYXBwbHkoZGYkc291cmNlLHRvLnBsYWluKSkKCgp0by5wbGFpbihtYWtlLm5hbWVzKHRvbG93ZXIobmFtZXMoZGYpKSkpCgoKCiMgcGRmdGFibGVzCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvcGRmdGFibGVzL3ZpZ25ldHRlcy9jb252ZXJ0X3BkZl90YWJsZXMuaHRtbAoKCiMgdGFidWxpemVyCgpFeHRyYWN0IFRhYmxlcyBmcm9tIFBERnMKCgpodHRwczovL2dpdGh1Yi5jb20vcm9wZW5zY2kvdGFidWxpemVyCgoKCiMgcmlvCgpJbXBvcnQsIEV4cG9ydCwgYW5kIENvbnZlcnQgRGF0YSBGaWxlcwoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL3Jpby92aWduZXR0ZXMvcmlvLmh0bWwKCgojIHJlYWQgd2l0aCBwdXJycgoKClIgdGlwOiBJdGVyYXRlIHdpdGggcHVycnIncyBtYXBfZGYgZnVuY3Rpb24KCgpodHRwczovL3d3dy5pbmZvd29ybGQuY29tL3ZpZGVvLzg5MDc1L3ItdGlwLWl0ZXJhdGUtd2l0aC1wdXJycnMtbWFwLWRmLWZ1bmN0aW9uCgoKCgoKCgoKCgoKCgoKCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTXkgUiBDb2RlcyBGb3IgRGF0YSBBbmFseXNpcyIKc3VidGl0bGU6ICJHZXR0aW5nIERhdGEgaW50byBSIgphdXRob3I6ICJbU2VyZGFyIEJhbGPEsSwgTUQsIFBhdGhvbG9naXN0XShodHRwczovL3d3dy5zZXJkYXJiYWxjaS5jb20vKSIKZGF0ZTogJ2ByIGZvcm1hdChTeXMuRGF0ZSgpKWAnCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazogCiAgICBmaWdfY2FwdGlvbjogeWVzCiAgICBoaWdobGlnaHQ6IHRhbmdvCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcwogICAgdGhlbWU6IHBhcGVyCiAgICB0b2M6IHllcwogICAgdG9jX2RlcHRoOiA1CiAgICB0b2NfZmxvYXQ6IHllcwogIGh0bWxfZG9jdW1lbnQ6IAogICAgY29kZV9mb2xkaW5nOiBoaWRlCiAgICBkZl9wcmludDoga2FibGUKICAgIGtlZXBfbWQ6IHllcwogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgIHRoZW1lOiBjZXJ1bGVhbgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCiAgICBoaWdobGlnaHQ6IGthdGUKLS0tCgojIEdldHRpbmcgRGF0YSBpbnRvIFIgLyBWZXJpeWkgUidhIHnDvGtsZW1lCgojIyBJbXBvcnQgRGF0YQoKIyMjIEltcG9ydCB1c2luZyBSU3R1ZGlvCgojIyMgSW1wb3J0IENTViBGaWxlCgpgYGB7cn0Kc2NhYmllcyA8LSByZWFkLmNzdihmaWxlID0gImh0dHA6Ly9kYXRhY29tcGFzcy5sc2h0bS5hYy51ay82MDcvMi9TMS1EYXRhc2V0X0NTVi5jc3YiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCnNjYWJpZXMKYGBgCgojIyMgSW1wb3J0IFRYVCBGaWxlCgpgYGB7cn0KZWJvbGEgPC0gcmVhZC5jc3YoZmlsZSA9ICJodHRwOi8vZGF0YWNvbXBhc3MubHNodG0uYWMudWsvNjA4LzEvbW1jMS50eHQiLCBoZWFkZXIgPSBUUlVFLCBzZXAgPSAiLCIpCmVib2xhCmBgYAoKCiMjIyBJbXBvcnQgRXhjZWwgRmlsZQoKYGBgCm15X2RhdGEgPC0gcmVhZF9leGNlbChmaWxlLmNob29zZSgpKQoKCmZpbGVzIDwtIGxpc3QuZmlsZXMocGF0dGVybiA9ICIueGxzeCIpCgpkYXRhX3hsc3hfZGYgPC0gbWFwX2RmKHNldF9uYW1lcyhmaWxlcyksIGZ1bmN0aW9uKGZpbGUpIHsKICBmaWxlICU+JSAKICAgIGV4Y2VsX3NoZWV0cygpICU+JSAKICAgIHNldF9uYW1lcygpICU+JSAKICAgIG1hcF9kZigKICAgICAgfiByZWFkX3hsc3gocGF0aCA9IGZpbGUsIHNoZWV0ID0gLngsIHJhbmdlID0gIkgzIiksCiAgICAgIC5pZCA9ICJzaGVldCIpCn0sIC5pZCA9ICJmaWxlIikKYGBgCgojIyMjIEltcG9ydCBTaGVldHMKCjwhLS0gIyBTaGVldHMgLS0+Cgo8IS0tIGxpYnJhcnkodGlkeXZlcnNlKSAtLT4KPCEtLSBsaWJyYXJ5KHJlYWR4bCkgLS0+CgoKPCEtLSBwYXRoIDwtICJJQ1BOX1JBVy54bHMiIC0tPgo8IS0tIHNoZWV0bGlzdCA8LSBwYXRoICU+JSAgLS0+CjwhLS0gICAgIGV4Y2VsX3NoZWV0cygpICU+JSAgLS0+CjwhLS0gICAgIHNldF9uYW1lcygpICU+JSAgLS0+CjwhLS0gICAgIG1hcChyZWFkX2V4Y2VsLCBza2lwID0gMSwgcGF0aCA9IHBhdGgpIC0tPgoKPCEtLSBzaGVldGxpc3QgPC0gc2hlZXRsaXN0Wy0yOV0gLS0+CgoKPCEtLSBzaGVldGxpc3QgPC0gc2hlZXRsaXN0ICU+JSAtLT4KPCEtLSAgICAgcmVkdWNlKGxlZnRfam9pbiwgYnkgPSAiUmVzcG9uZGFudCIsIC5pZCA9ICJpZCIsIHN1ZmZpeCA9IGMoIjEiLCIyIikpIC0tPgoKPCEtLSBuYW1lcyhzaGVldGxpc3QpIC0tPgoKPCEtLSBjb2x1bW5OYW1lcyA8LSBjKCAtLT4KPCEtLSAgICAgIklEIiwgLS0+CjwhLS0gICAgICJEWCIsIC0tPgo8IS0tICAgICAieS9uIiwgLS0+CjwhLS0gICAgICJ+cGxhc3RpYyIsIC0tPgo8IS0tICAgICAiV0hPLSAyMDEwIGNsYXNzaWZpY2F0aW9uIiwgLS0+CjwhLS0gICAgICJHUkFERSIsIC0tPgo8IS0tICAgICAiSU5WQVNJVkUgQ0EiLCAtLT4KPCEtLSAgICAgIkNFTEwgTElORUFHRSIsIC0tPgo8IS0tICAgICAiSVBNTiBMaW5lYWdlIChQUkUvTUlOKSIsIC0tPgo8IS0tICAgICAiZXhwZXJpZW5jZSB3aXRoIHRoaXMgaW52YXNpb24iLCAtLT4KPCEtLSAgICAgIkNPTU1FTlRTIiAtLT4KPCEtLSApIC0tPgoKPCEtLSBjb2x1bW5OdW1iZXJzIDwtIHJlcChjKDE6MjgpLCBlYWNoID0gMTEpIC0tPgoKPCEtLSBjb2x1bW5OYW1lczIgPC0gcGFzdGUoY29sdW1uTmFtZXMsIGNvbHVtbk51bWJlcnMsIHNlcCA9ICIiKSAtLT4KCjwhLS0gY29sdW1uTmFtZXMyIDwtIGMoIlJlc3BvbmRhbnQiLCBjb2x1bW5OYW1lczIpIC0tPgoKPCEtLSBuYW1lcyhzaGVldGxpc3QpIDwtIGNvbHVtbk5hbWVzMiAtLT4KCgoKPCEtLSAjICJSZXNwb25kYW50IgkiSUQiCSJ5L24iCSJXSE8tIDIwMTAgY2xhc3NpZmljYXRpb24iCSJHUkFERSIJIklOVkFTSVZFIENBIgkiQ0VMTCBMSU5FQUdFIgkiSVBNTiBMaW5lYWdlIChQUkUvTUlOKSIgLS0+Cgo8IS0tIGRlbmVtZSA8LSBzaGVldGxpc3QgJT4lICAtLT4KPCEtLSAgICAgc2VsZWN0KHN0YXJ0c193aXRoKCJSZXNwb25kYW50IiksIHN0YXJ0c193aXRoKCJHUkFERSIpKSAtLT4KCgoKCgoKCjwhLS0gIyBkZW5lbWVbZGVuZW1lPT0iSElHSCJdIDwtIDMgLS0+CjwhLS0gIyBkZW5lbWVbZGVuZW1lPT0iSElHSCAoZm9jYWwpIl0gPC0gMyAtLT4KPCEtLSAjIGRlbmVtZVtkZW5lbWU9PSJNT0RFUkFURSJdIDwtIDIgLS0+CjwhLS0gIyBkZW5lbWVbZGVuZW1lPT0iTE9XIl0gPC0gMSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGRlbmVtZSA8LSBhcy5kYXRhLmZyYW1lKGRlbmVtZSkgLS0+CjwhLS0gIyAgLS0+CjwhLS0gIyByb3cubmFtZXMoZGVuZW1lKSA8LSBkZW5lbWUkUmVzcG9uZGFudCAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGRlbmVtZSA8LSBkZW5lbWVbLTFdIC0tPgo8IS0tICMgIC0tPgo8IS0tICMgZGVuZW1lW2lzLm5hKGRlbmVtZSldIDwtIDEgLS0+CjwhLS0gIyAgLS0+CjwhLS0gIyBkZW5lbWUgPC0gbWFwX2RmKGRlbmVtZSwgYXMubWF0cml4KSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGdsaW1wc2UoZGVuZW1lKSAtLT4KPCEtLSAjICAtLT4KPCEtLSAjIGhlYXRtYXAoZGVuZW1lKSAtLT4KCjwhLS0gd3JpdGVfY3N2KGRlbmVtZSwgImRlbmVtZS5jc3YiKSAtLT4KCgoKCgoKIyMjIEltcG9ydCBTUFNTIEZpbGUKCiMjIyBLZWVwIFNQU1MgbGFiZWxzCgpgYGB7cn0KbGlicmFyeShmb3JlaWduKSAjIGZvcmVpZ24gcGFrZXRpIHnDvGtsZW5peW9yCmBgYAoKcmVhZC5zcHNzIGtvbXV0dSBpbGUgZGXEn2VyIGV0aWtldGxlcmluaSBhbG1hc8SxbsSxIHZlIGJ1bnUgbGlzdGUgb2xhcmFrIGRlxJ9pbCBkZSBkYXRhLmZyYW1lIG9sYXJhayBrYXlkZXRtZXNpbmkgaXN0aXlvcnV6CgpgYGB7cn0KbXlkYXRhIDwtIHJlYWQuc3BzcygibXlkYXRhLnNhdiIsIHVzZS52YWx1ZS5sYWJlbHMgPSBUUlVFLCB0by5kYXRhLmZyYW1lID0gVFJVRSkKYGBgCgpha3RhcmTEscSfxLFtxLF6IGRhdGEuZnJhbWUnaW4gw7Z6ZWxsaWtsZXJpIChhdHRyKSBpw6dpbmRlIGRlxJ9pxZ9rZW5sZXJpbiBldGlrZXRsZXJpIHZhciwgYnVubGFyxLEgZMSxxZ9hcsSxIMOnxLFrYXJ0xLF5b3J1egoKYGBge3J9ClZhcmlhYmxlTGFiZWxzIDwtIGFzLmRhdGEuZnJhbWUoYXR0cihteWRhdGEsICJ2YXJpYWJsZS5sYWJlbHMiKSkKYGBgCgoKZWxkZSBldHRpxJ9pbWl6IGRhdGEuZnJhbWUnZGVraSBzYXTEsXIgaXNpbWxlcmkgZGXEn2nFn2tlbmxlcmluIGlzaW1sZXJpIG9sdXlvciwga2FyxZ/EsWxhcsSxbmRhIGRhIGRlxJ9pxZ9rZW4gZXRpa2V0bGVyaSB2YXIKc2F0xLFyIGlzaW1sZXJpbmkgZGUgZMSxxZ9hcsSxIMOnxLFrYXJ0xLF5b3J1egoKYGBge3J9ClZhcmlhYmxlTGFiZWxzJG9yaWdpbmFsIDwtIHJvd25hbWVzKFZhcmlhYmxlTGFiZWxzKQpgYGAKCkRlxJ9pxZ9rZW4gZXRpa2V0aSBvbGFubGFyxLEgZXRpa2V0bGVyaSBpbGUgZGnEn2VybGVyaW5pIG9sZHXEn3UgZ2liaSBzYWtsxLF5b3J1eiAgCgpgYGB7cn0KVmFyaWFibGVMYWJlbHMkbGFiZWxbVmFyaWFibGVMYWJlbHMkbGFiZWwgPT0iIl0gPC0gTkEgClZhcmlhYmxlTGFiZWxzJGNvbG5hbWUgPC0gVmFyaWFibGVMYWJlbHMkb3JpZ2luYWwKVmFyaWFibGVMYWJlbHMkY29sbmFtZVshaXMubmEoVmFyaWFibGVMYWJlbHMkbGFiZWwpXSA8LSBhcy52ZWN0b3IoVmFyaWFibGVMYWJlbHMkbGFiZWxbIWlzLm5hKFZhcmlhYmxlTGFiZWxzJGxhYmVsKV0pCmBgYAoKc29uIG9sYXJhayBkYSBkYXRhLmZyYW1lJ2Rla2kgc8O8dHVuIGlzaW1sZXJpbmkgZGXEn2nFn3Rpcml5b3J1egoKYGBge3J9Cm5hbWVzKG15ZGF0YSkgPC0gVmFyaWFibGVMYWJlbHMkY29sbmFtZQpgYGAKCgoKCgojIEV4cG9ydCBEYXRhCgojIyMgRXhwb3J0IHRvIFNQU1MsIHdoaWxlIGtlZXBpbmcgbGFiZWxzCgpSJ2RhIGBmYWN0b3JgIG9sYW4gbGFiZWwgdmVyZGnEn2luaXogZGXEn2nFn2tlbmxlcmkgYFNQU1NgIHlhIGRhIGRpxJ9lciBpc3RhdGlzdGlrIHByb2dyYW1sYXLEsW5hIGFrdGFyZMSxxJ/EsW7EsXpkYSBidSB0YW7EsW1sYW1hbGFyxLEga29ydW1hayBpxZ9pbWl6ZSB5YXJhci4gQnVudW4gacOnaW4gYGZvcmVpZ25gIHBha2V0aSBpbGUgYmlyIGB0eHRgIGRvc3lhc8SxIHZlIGJpciBgc3BzYCBkb3N5YXPEsSBvbHXFn3R1cnV5b3J1ei4gU1BTUyd0ZSBgc3BzYCBkb3N5YXPEsW7EsSBhw6fEsXAga29kdSDDp2FsxLHFn3TEsXJhcmFrIHRla3JhciBhdGFuYW4gZGXEn2VybGVyIGdlcmkgecO8a2xlbml5b3IuCgoKYGBge3J9CmxpYnJhcnkoZm9yZWlnbikKd3JpdGUuZm9yZWlnbihteWRhdGEsICJteWRhdGEudHh0IiwgIm15ZGF0YS5zcHMiLCAgIHBhY2thZ2UgPSAiU1BTUyIpCmBgYAoKCi0tLQoKaHR0cHM6Ly90d2l0dGVyLmNvbS9XZUFyZVJMYWRpZXMvc3RhdHVzLzEwMzQ4MTczMjM5MjI4MDQ3MzcKCmBgYApmIDwtIGxpc3QuZmlsZXMoICJteV9mb2xkZXIiLCBwYXR0ZXJuID0gIiouY3N2IiwgZnVsbC5uYW1lcyA9IFRSVUUpCmQgPC0gcHVycnI6Om1hcF9kZihmLCByZWFkcjo6cmVhZF9jc3YsIC5pZCA9ICJpZCIpCmBgYAoKLS0tCgpgYGAKbSA8LSBsbShtcGcgfiBxc2VjICsgd3QsIGRhdGEgPSBtdGNhcnMpCmJyb29tOjp0aWR5KG0pCmBgYAoKLS0tCgpJbXBvcnQgYSBEaXJlY3Rvcnkgb2YgQ1NWIEZpbGVzIGF0IE9uY2UgVXNpbmcge3B1cnJyfSBhbmQge3JlYWRyfQoKaHR0cHM6Ly93d3cuZ2Vya2VsYWIuY29tL2Jsb2cvMjAxOC8wOS9pbXBvcnQtZGlyZWN0b3J5LWNzdi1wdXJyci1yZWFkci8KCmBgYApkYXRhX2RpciAlPiUgCiAgZGlyX2xzKHJlZ2V4cCA9ICJcXC5jc3YkIikgJT4lIAogIG1hcF9kZnIocmVhZF9jc3YsIC5pZCA9ICJzb3VyY2UiKSAlPiUgCiAgbXV0YXRlKE1vbnRoX1llYXIgPSBteWQoTW9udGhfWWVhciwgdHJ1bmNhdGVkID0gMSkpCmBgYCAgCgoKLS0tCgpodHRwczovL3N1YXRhdGFuLndvcmRwcmVzcy5jb20vMjAxNy8xMC8wNy9idWxrLXJlcGxhY2luZy10dXJraXNoLWNoYXJhY3RlcnMtaW4tci8KClR1cmtpc2ggY2hhcmFjdGVyIHNvbWV0aW1lcyBiZWNhbWUgdGhlIG1lbmFjZSBmb3IgdGhlIGRhdGEgc2NpZW50aXN0LiBUbyBhdm9pZCB0aGUgcmlza3MgeW91IG1heSB3YW50IHRvIGNoYW5nZSBpdCB3aXRoIHNhZmUgY2hhcmFjdGVycy4gVG8gZG8gdGhhdCB5b3UgY2FuIHVzZSB0aGlzIGNvZGU6CgpgYGAKI3R1cmtjZSBrYXJha3RlciBkb251c3VtdQp0by5wbGFpbiA8LSBmdW5jdGlvbihzKSB7CgojIDEgY2hhcmFjdGVyIHN1YnN0aXR1dGlvbnMKb2xkMSA8LSDigJzDp8SfxZ/EscO8w7bDh8SexZ7EsMOWw5zigJ0KbmV3MSA8LSDigJxjZ3NpdW9jZ3Npb3XigJ0KczEgPC0gY2hhcnRyKG9sZDEsIG5ldzEsIHMpCgojIDIgY2hhcmFjdGVyIHN1YnN0aXR1dGlvbnMKb2xkMiA8LSBjKOKAnMWT4oCdLCDigJzDn+KAnSwg4oCcw6bigJ0sIOKAnMO44oCdKQpuZXcyIDwtIGMo4oCcb2XigJ0sIOKAnHNz4oCdLCDigJxhZeKAnSwg4oCcb2XigJ0pCnMyIDwtIHMxCmZvcihpIGluIHNlcV9hbG9uZyhvbGQyKSkgczIgPC0gZ3N1YihvbGQyW2ldLCBuZXcyW2ldLCBzMiwgZml4ZWQgPSBUUlVFKQoKczIKfQpkZiRzb3VyY2U9YXMudmVjdG9yKHNhcHBseShkZiRzb3VyY2UsdG8ucGxhaW4pKQoKCnRvLnBsYWluKG1ha2UubmFtZXModG9sb3dlcihuYW1lcyhkZikpKSkKYGBgCgoKLSBSZW1vdmUgYWxsIHNwZWNpYWwgY2hhcmFjdGVycyBmcm9tIGEgc3RyaW5nIGluIFI/CgpodHRwczovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xMDI5NDI4NC9yZW1vdmUtYWxsLXNwZWNpYWwtY2hhcmFjdGVycy1mcm9tLWEtc3RyaW5nLWluLXIKCmBgYAp4IDwtICJhMX4hQCMkJV4mKigpe31fKzpcIjw+PywuLzsnW10tPSIKc3RyaW5ncjo6c3RyX3JlcGxhY2VfYWxsKHgsICJbWzpwdW5jdDpdXSIsICIgIikKc3RyaW5ncjo6c3RyX3JlcGxhY2VfYWxsKHgsICJbXls6YWxudW06XV0iLCAiICIpCmBgYAoKYGBgCmFzdHIgPC0gIsOBYmNkw6rDo8Onb8Ogw7rDvCIKaWNvbnYoYXN0ciwgZnJvbSA9ICdVVEYtOCcsIHRvID0gJ0FTQ0lJLy9UUkFOU0xJVCcpCmBgYAoKYGBgCkRhdGEgIDwtIGdzdWIoIlteMC05QS1aYS16Ly8vJyBdIiwiJyIgLCBEYXRhICxpZ25vcmUuY2FzZSA9IFRSVUUpCgpEYXRhIDwtIGdzdWIoIicnIiwiIiAsIERhdGEgLGlnbm9yZS5jYXNlID0gVFJVRSkKYGBgCgoKCgoKIyBwZGZ0YWJsZXMKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi9wYWNrYWdlcy9wZGZ0YWJsZXMvdmlnbmV0dGVzL2NvbnZlcnRfcGRmX3RhYmxlcy5odG1sCgoKIyB0YWJ1bGl6ZXIKCkV4dHJhY3QgVGFibGVzIGZyb20gUERGcwoKCmh0dHBzOi8vZ2l0aHViLmNvbS9yb3BlbnNjaS90YWJ1bGl6ZXIKCgoKIyByaW8KCkltcG9ydCwgRXhwb3J0LCBhbmQgQ29udmVydCBEYXRhIEZpbGVzCgpodHRwczovL2NyYW4uci1wcm9qZWN0Lm9yZy93ZWIvcGFja2FnZXMvcmlvL3ZpZ25ldHRlcy9yaW8uaHRtbAoKCiMgcmVhZCB3aXRoIHB1cnJyCgoKUiB0aXA6IEl0ZXJhdGUgd2l0aCBwdXJycidzIG1hcF9kZiBmdW5jdGlvbgoKCmh0dHBzOi8vd3d3LmluZm93b3JsZC5jb20vdmlkZW8vODkwNzUvci10aXAtaXRlcmF0ZS13aXRoLXB1cnJycy1tYXAtZGYtZnVuY3Rpb24KCgoKCgoKCgoKCgoKCgoKCgoK</div>
 
 
 </div>
