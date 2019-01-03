@@ -83,4 +83,6 @@ https://gupsych.github.io/mms/
 
 https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/
 
+# IntroToR
 
+https://github.com/sbalci/IntroToR.git

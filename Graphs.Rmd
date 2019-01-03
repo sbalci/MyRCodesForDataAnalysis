@@ -517,22 +517,70 @@ continue from here
 http://r-statistics.co/ggplot2-Tutorial-With-R.html
 
 
+# gganimate
+
+https://cran.r-project.org/web/packages/gganimate/vignettes/gganimate.html
+
+```{r}
+library(gganimate)
+#> Loading required package: ggplot2
+
+# We'll start with a static plot
+p <- ggplot(iris, aes(x = Petal.Width, y = Petal.Length)) + 
+  geom_point()
+
+plot(p)
+```
+
+
+```{r}
+anim <- p + 
+  transition_states(Species,
+                    transition_length = 2,
+                    state_length = 1)
+
+anim
+```
+
+
+```{r}
+anim + 
+  ease_aes('cubic-in-out') # Slow start and end for a smoother look
+```
+
+
+```{r}
+anim + 
+  ease_aes('cubic-in-out',
+           y = 'bounce-out') # Sets special ease for y aesthetic
+```
+
+
+```{r}
+anim + 
+  ggtitle('Now showing {closest_state}',
+          subtitle = 'Frame {frame} of {nframes}')
+```
+
+```{r}
+ggplot(iris, aes(x = Petal.Width, y = Petal.Length)) + 
+  geom_line(aes(group = rep(1:50, 3)), colour = 'grey') + 
+  geom_point()
+```
 
 
 
+```{r}
+ggplot(iris, aes(x = Petal.Width, y = Petal.Length)) + 
+  geom_point(aes(colour = Species)) + 
+  transition_states(Species,
+                    transition_length = 2,
+                    state_length = 1)
+```
 
 
 
-
-
-
-
-
-
-
-
-
-
+---
 
 
 
