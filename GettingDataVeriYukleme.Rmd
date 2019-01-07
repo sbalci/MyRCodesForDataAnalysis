@@ -36,6 +36,52 @@ scabies <- read.csv(file = "http://datacompass.lshtm.ac.uk/607/2/S1-Dataset_CSV.
 scabies
 ```
 
+
+#### How to import multiple .csv files at once?
+
+https://stackoverflow.com/questions/11433432/how-to-import-multiple-csv-files-at-once
+
+
+```
+temp = list.files(pattern="*.csv")
+myfiles = lapply(temp, read.delim)
+
+temp = list.files(pattern="*.csv")
+for (i in 1:length(temp)) assign(temp[i], read.csv(temp[i]))
+
+temp = list.files(pattern="*.csv")
+list2env(
+  lapply(setNames(temp, make.names(gsub("*.csv$", "", temp))), 
+         read.csv), envir = .GlobalEnv)
+
+```
+
+
+```
+# Get the files names
+files = list.files(pattern="*.csv")
+# First apply read.csv, then rbind
+myfiles = do.call(rbind, lapply(files, function(x) read.csv(x, stringsAsFactors = FALSE)))
+```
+
+```
+library(data.table)
+DT = do.call(rbind, lapply(files, fread))
+# The same using `rbindlist`
+DT = rbindlist(lapply(files, fread))
+```
+
+```
+library(readr)
+library(dplyr)
+tbl = lapply(files, read_csv) %>% bind_rows()
+```
+
+
+
+
+
+
 ### Import TXT File
 
 ```{r}
@@ -306,6 +352,8 @@ https://github.com/ropensci/tabulizer
 # rio
 
 Import, Export, and Convert Data Files
+
+https://thomasleeper.com/rio/index.html
 
 https://cran.r-project.org/web/packages/rio/vignettes/rio.html
 

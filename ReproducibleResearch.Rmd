@@ -69,4 +69,10 @@ redoc::redoc_extract_rmd("reversible.docx")
 
 
 
+# docker
+
+- An Introduction to Docker for R Users 
+
+https://colinfay.me/docker-r-reproducibility/
+
 

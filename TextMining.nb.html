@@ -1871,25 +1871,13 @@ gospels &lt;- kjv_bible() %&gt;%
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY25scF9pbml0X3NwYWN5KCkgICMgVXNlIHNwYUN5XG5cbmBgYCJ9 -->
-<pre class="r"><code>cnlp_init_spacy()  # Use spaCy
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZXQgdXAgTkxQIGJhY2tlbmRcbiMgcmV0aWN1bGF0ZTo6dXNlX3B5dGhvbihcIi9Vc2Vycy9zZXJkYXJiYWxjaW9sZC8uY29uZGFcIikgICMgSSB1c2UgaG9tZWJyZXcgcHl0aG9uM1xuIyByZXRpY3VsYXRlOjp1c2VfY29uZGFlbnYoY29uZGFlbnYgPSBcIi9hbmFjb25kYTMvZW52c1wiLCBjb25kYSA9IFwiYXV0b1wiLCByZXF1aXJlZCA9IEZBTFNFKVxuIyBjbmxwX2luaXRfc3BhY3koKSAgIyBVc2Ugc3BhQ3lcbmNubHBfaW5pdF91ZHBpcGUoKSAgIyBPciB1c2UgdGhpcyBSLW9ubHkgb25lIHdpdGhvdXQgZXh0ZXJuYWwgZGVwZW5kZW5jaWVzXG5gYGAifQ== -->
+<pre class="r"><code># Set up NLP backend
+# reticulate::use_python(&quot;/Users/serdarbalciold/.conda&quot;)  # I use homebrew python3
+# reticulate::use_condaenv(condaenv = &quot;/anaconda3/envs&quot;, conda = &quot;auto&quot;, required = FALSE)
+# cnlp_init_spacy()  # Use spaCy
+cnlp_init_udpipe()  # Or use this R-only one without external dependencies</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IFRoZSBzcGFjeSBtb2R1bGUgaXMgbm90IGF2YWlsYWJsZSBmcm9tIHRoZSBQeXRob25cbmV4ZWN1dGFibGUgbG9jYXRlZCBoZXJlOlxuXG4gICAvdXNyL2Jpbi9weXRob25cblxuVGhpcyBjYW4gYmUgaW5zdGFsbGVkIHdpdGggcGlwIGJ5IHJ1bm5pbmcgdGhlIGZvbGxvd2luZzpcblxuICBwaXAgaW5zdGFsbCBzcGFjeVxuXG5JZiB5b3UgYmVsaWV2ZSBpdCBpcyBhbHJlYWR5IGluc3RhbGxlZCwgeW91IG1heSBiZSBsaW5raW5nIFxudG8gdGhlIHdyb25nIHZlcnNpb24gb2YgUHl0aG9uLiBTZWUgcmV0aWN1bGF0ZTo6dXNlX3B5dGhvbigpXG50byBzZXQgdGhlIFB5dGhvbiBwYXRoLCB0aGVuIHJldHJ5LiBZb3UgbWF5IG5lZWQgdG8gcmVzdGFydFxuUiBiZWZvcmUgdXNlX3B5dGhvbiB0YWtlcyBlZmZlY3QuXG4ifQ== -->
-<pre><code>Error: The spacy module is not available from the Python
-executable located here:
-
-   /usr/bin/python
-
-This can be installed with pip by running the following:
-
-  pip install spacy
-
-If you believe it is already installed, you may be linking 
-to the wrong version of Python. See reticulate::use_python()
-to set the Python path, then retry. You may need to restart
-R before use_python takes effect.</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->

@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1626,6 +1626,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 <style type="text/css">
@@ -1657,9 +1660,70 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -1673,7 +1737,6 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
-
 
 
 
@@ -1742,9 +1805,16 @@ output:
 <pre><code>redoc::undoc(&quot;reversible2.docx&quot;)
 redoc::undoc(file.choose())</code></pre>
 <pre><code>redoc::redoc_extract_rmd(&quot;reversible.docx&quot;)</code></pre>
+<div id="docker" class="section level1">
+<h1>docker</h1>
+<ul>
+<li>An Introduction to Docker for R Users</li>
+</ul>
+<p><a href="https://colinfay.me/docker-r-reproducibility/" class="uri">https://colinfay.me/docker-r-reproducibility/</a></p>
 <!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUmVwcm9kdWNpYmxlIFJlc2VhcmNoIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgotIERpc2Vhc2UgcmlzayBtb2RlbGxpbmcgYW5kIHZpc3VhbGl6YXRpb24gdXNpbmcgUgoKaHR0cDovL21hbmlvLm9yZy8yMDE1LzA2LzIyL215LWFwcHJvYWNoLXRvLXJlcHJvZHVjaWJsZS1yZXNlYXJjaC5odG1sCgotIGluaXRpYWwgc3RlcHMgdG93YXJkIHJlcHJvZHVjaWJsZSByZXNlYXJjaAoKaHR0cHM6Ly9rYnJvbWFuLm9yZy9zdGVwczJyci8KCgotIENvbW1lbnRzIG9uIHJlcHJvZHVjaWJpbGl0eQoKaHR0cHM6Ly9rYnJvbWFuLm9yZy9rbml0cl9rbnV0c2hlbGwvcGFnZXMvcmVwcm9kdWNpYmxlLmh0bWwKCi0gUmVwcm9kdWNpYmxlIHNjaWVuY2UgaW4gUgoKaHR0cHM6Ly9ncnVud2FsZGxhYi5naXRodWIuaW8vUmVwcm9kdWNpYmxlLXNjaWVuY2UtaW4tUi9pbmRleC5odG1sCgotIFRoZSBQcmFjdGljZSBvZiBSZXByb2R1Y2libGUgUmVzZWFyY2ggQ2FzZSBTdHVkaWVzIGFuZCBMZXNzb25zIGZyb20gdGhlIERhdGEtSW50ZW5zaXZlIFNjaWVuY2VzCgpodHRwczovL3d3dy5wcmFjdGljZXJlcHJvZHVjaWJsZXJlc2VhcmNoLm9yZy8KCgotIHBhcGFqYQoKcGFwYWphIChQcmVwYXJpbmcgQVBBIEpvdXJuYWwgQXJ0aWNsZXMpIGlzIGFuIFIgcGFja2FnZSB0aGF0IHByb3ZpZGVzIGRvY3VtZW50IGZvcm1hdHMgYW5kIGhlbHBlciBmdW5jdGlvbnMgdG8gcHJvZHVjZSBjb21wbGV0ZSBBUEEgbWFuc2NyaXB0cyBmcm9tIFJNYXJrZG93bi1maWxlcyAoUERGIGFuZCBXb3JkIGRvY3VtZW50cykuCgpodHRwczovL2Nyc2guZ2l0aHViLmlvL3BhcGFqYS8KCgoKLSAgU3RlbmNpbGEKCkFuIG9wZW4gc291cmNlIG9mZmljZSBzdWl0ZSBmb3IgcmVwcm9kdWNpYmxlIHJlc2VhcmNoCgpodHRwOi8vc3RlbmNpLmxhLwoKCi0gcmVkb2MgLSByZXZlcnNpYmxlIFIgTWFya2Rvd24vTVMgV29yZCBkb2N1bWVudHMuCgpodHRwczovL25vYW1yb3NzLmdpdGh1Yi5pby9yZWRvYy8KCgoKCmBgYAotLS0Kb3V0cHV0OgogIHJlZG9jOjpyZG9jeF9yZXZlcnNpYmxlOgogICAga2VlcF9tZDogVFJVRQogICAgaGlnaGxpZ2h0X291dHB1dHM6IFRSVUUKLS0tCmBgYAoKCmBgYApyZWRvYzo6dW5kb2MoInJldmVyc2libGUyLmRvY3giKQpyZWRvYzo6dW5kb2MoZmlsZS5jaG9vc2UoKSkKYGBgCgoKYGBgCnJlZG9jOjpyZWRvY19leHRyYWN0X3JtZCgicmV2ZXJzaWJsZS5kb2N4IikKYGBgCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUmVwcm9kdWNpYmxlIFJlc2VhcmNoIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgotIERpc2Vhc2UgcmlzayBtb2RlbGxpbmcgYW5kIHZpc3VhbGl6YXRpb24gdXNpbmcgUgoKaHR0cDovL21hbmlvLm9yZy8yMDE1LzA2LzIyL215LWFwcHJvYWNoLXRvLXJlcHJvZHVjaWJsZS1yZXNlYXJjaC5odG1sCgotIGluaXRpYWwgc3RlcHMgdG93YXJkIHJlcHJvZHVjaWJsZSByZXNlYXJjaAoKaHR0cHM6Ly9rYnJvbWFuLm9yZy9zdGVwczJyci8KCgotIENvbW1lbnRzIG9uIHJlcHJvZHVjaWJpbGl0eQoKaHR0cHM6Ly9rYnJvbWFuLm9yZy9rbml0cl9rbnV0c2hlbGwvcGFnZXMvcmVwcm9kdWNpYmxlLmh0bWwKCi0gUmVwcm9kdWNpYmxlIHNjaWVuY2UgaW4gUgoKaHR0cHM6Ly9ncnVud2FsZGxhYi5naXRodWIuaW8vUmVwcm9kdWNpYmxlLXNjaWVuY2UtaW4tUi9pbmRleC5odG1sCgotIFRoZSBQcmFjdGljZSBvZiBSZXByb2R1Y2libGUgUmVzZWFyY2ggQ2FzZSBTdHVkaWVzIGFuZCBMZXNzb25zIGZyb20gdGhlIERhdGEtSW50ZW5zaXZlIFNjaWVuY2VzCgpodHRwczovL3d3dy5wcmFjdGljZXJlcHJvZHVjaWJsZXJlc2VhcmNoLm9yZy8KCgotIHBhcGFqYQoKcGFwYWphIChQcmVwYXJpbmcgQVBBIEpvdXJuYWwgQXJ0aWNsZXMpIGlzIGFuIFIgcGFja2FnZSB0aGF0IHByb3ZpZGVzIGRvY3VtZW50IGZvcm1hdHMgYW5kIGhlbHBlciBmdW5jdGlvbnMgdG8gcHJvZHVjZSBjb21wbGV0ZSBBUEEgbWFuc2NyaXB0cyBmcm9tIFJNYXJrZG93bi1maWxlcyAoUERGIGFuZCBXb3JkIGRvY3VtZW50cykuCgpodHRwczovL2Nyc2guZ2l0aHViLmlvL3BhcGFqYS8KCgoKLSAgU3RlbmNpbGEKCkFuIG9wZW4gc291cmNlIG9mZmljZSBzdWl0ZSBmb3IgcmVwcm9kdWNpYmxlIHJlc2VhcmNoCgpodHRwOi8vc3RlbmNpLmxhLwoKCi0gcmVkb2MgLSByZXZlcnNpYmxlIFIgTWFya2Rvd24vTVMgV29yZCBkb2N1bWVudHMuCgpodHRwczovL25vYW1yb3NzLmdpdGh1Yi5pby9yZWRvYy8KCgoKCmBgYAotLS0Kb3V0cHV0OgogIHJlZG9jOjpyZG9jeF9yZXZlcnNpYmxlOgogICAga2VlcF9tZDogVFJVRQogICAgaGlnaGxpZ2h0X291dHB1dHM6IFRSVUUKLS0tCmBgYAoKCmBgYApyZWRvYzo6dW5kb2MoInJldmVyc2libGUyLmRvY3giKQpyZWRvYzo6dW5kb2MoZmlsZS5jaG9vc2UoKSkKYGBgCgoKYGBgCnJlZG9jOjpyZWRvY19leHRyYWN0X3JtZCgicmV2ZXJzaWJsZS5kb2N4IikKYGBgCgoKCiMgZG9ja2VyCgotIEFuIEludHJvZHVjdGlvbiB0byBEb2NrZXIgZm9yIFIgVXNlcnMgCgpodHRwczovL2NvbGluZmF5Lm1lL2RvY2tlci1yLXJlcHJvZHVjaWJpbGl0eS8KCgo=</div>
 
 
 
