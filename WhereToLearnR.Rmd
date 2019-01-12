@@ -1,10 +1,6 @@
 ---
 title: "Where to learn R"
-output: 
-  html_document: 
-    keep_md: yes
-    toc: yes
-    toc_float: yes
+output: html_notebook
 ---
 
 # swirlstats
@@ -86,3 +82,38 @@ https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/
 # IntroToR
 
 https://github.com/sbalci/IntroToR.git
+
+
+# YouTube Collections
+
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLxRBOaoEoP4KUSgmcNjSGBFu7PYipGVrX" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+---
+
+- Jamovi  
+https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
+
+- Do More with R  
+
+https://www.youtube.com/playlist?list=PL7D2RMSmRO9JOvPC1gbA8Mc3azvSfm8Vv
+
+https://www.youtube.com/playlist?list=PLYaGSokOr0MPz1tgwTW4JKcelhdJyUIrb
+
+- Neat proofs/perspectives
+
+https://www.youtube.com/playlist?list=PLZHQObOWTQDPSKntUcMArGheySM4gL7wS
+
+- Learning medical statistics with python and Jupyter notebooks
+
+https://www.youtube.com/playlist?list=PLsu0TcgLDUiIueDMfTX3322AZhdGb0_zm
+
+- Data Visualization and R
+
+https://www.youtube.com/playlist?list=PLCj1LhGni3hPGy6Kj1AFxHYkKklxenO9D
+
+
+
+---
