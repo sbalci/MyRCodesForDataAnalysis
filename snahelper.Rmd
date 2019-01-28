@@ -1,0 +1,29 @@
+---
+title: "snahelper"
+output: html_notebook
+---
+
+
+```{r}
+# devtools::install_github("schochastics/snahelper")
+# devtools::install_github("schochastics/smglr")
+```
+
+
+
+http://blog.schochastics.net/post/an-rstudio-addin-for-network-analysis-and-visualization/
+
+
+![](http://blog.schochastics.net/img/example.png)
+
+
+
+
+
+
+
+
+
+
+
+

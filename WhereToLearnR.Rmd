@@ -117,3 +117,10 @@ https://www.youtube.com/playlist?list=PLCj1LhGni3hPGy6Kj1AFxHYkKklxenO9D
 
 
 ---
+
+- Keeping up to date with R news  
+https://masalmon.eu/2019/01/25/uptodate/
+
+
+- Advanced R Markdown Workshop  
+https://arm.rbind.io/days/day1/learnr/
