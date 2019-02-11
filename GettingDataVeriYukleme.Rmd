@@ -368,12 +368,160 @@ https://www.infoworld.com/video/89075/r-tip-iterate-with-purrrs-map-df-function
 
 
 
+# The janitor package
+
+https://garthtarr.github.io/meatR/janitor.html
+
+```{r}
+# install.packages("janitor")
+```
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(xlsx)
+```
+
+```{r}
+# mymsa <-  data.table::fread("https://garthtarr.com/data/mymsa.xlsx", fill = TRUE)
+mymsa <-  read_excel("data/mymsa.xlsx")
+mymsa$çğşüö <- 2
+x <-  janitor::clean_names(mymsa)
+```
+
+
+```{r}
+data.frame(mymsa = colnames(mymsa), x = colnames(x))
+```
+
+
+```{r}
+tabyl(x, meat_colour) %>%
+  knitr::kable()
+```
+
+
+
+```{r}
+table(x$meat_colour)
+```
+
+
+```{r}
+# Load dplyr for the %>% pipe 
+library(dplyr)
+x %>% tabyl(meat_colour) %>%
+  knitr::kable()
+```
+
+
+```{r}
+x %>% 
+  tabyl(meat_colour) %>% 
+  adorn_pct_formatting(digits = 0, affix_sign = TRUE) %>%
+  knitr::kable()
+```
+
+
+
+```{r}
+x %>% tabyl(spare)
+```
+
+
+
+```{r}
+x = remove_empty(x, which = c("rows","cols"))
+```
+
+
+
+```{r}
+x = read_excel("data/mymsa.xlsx") %>% 
+  clean_names() %>% remove_empty()
+```
+
+
+```{r}
+x %>% tabyl(meat_colour, plant) %>%
+  knitr::kable()
+
+# can also make 3 way tables
+```
 
 
 
 
+```{r}
+# row totals
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = "row") %>%
+  knitr::kable()
+```
+
+  
+
+```{r}
+# column totals
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = "col") %>%
+  knitr::kable()
+```
 
 
+
+
+```{r}
+# row and column totals
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = c("row","col"))
+```
+  
+  
+  
+```{r}
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = c("row","col")) %>% 
+  adorn_percentages(denominator = "col") %>% 
+  adorn_pct_formatting(digits = 0) 
+```
+
+  
+```{r}
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = c("row","col")) %>% 
+  adorn_percentages(denominator = "col") %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  adorn_ns(position = "front")
+```
+
+  
+  
+
+```{r}
+x %>% get_dupes(rfid)
+```
+  
+
+```{r}
+x1 = x %>% slice(1:3)
+x2 = bind_rows(x1,x)
+x2 %>% get_dupes(rfid)
+```
+
+  
+
+## convert excel number into date
+
+
+```{r}
+janitor::excel_numeric_to_date(41103)
+```
 
 
 

@@ -75,6 +75,15 @@ https://github.com/ropensci/rcrossref
 
 
 
+# rorcid tutorial
+
+https://ropensci.org/tutorials/rorcid_tutorial/
+
+
+
+# rentrez tutorial
+
+https://ropensci.org/tutorials/rentrez_tutorial/  
 
 
 

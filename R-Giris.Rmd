@@ -158,6 +158,9 @@ http://recommendr.info/
 CRAN package search  
 https://github.com/metacran/pkgsearch
 
+- CRANsearcher  
+https://github.com/RhoInc/CRANsearcher  
+
 - Awesome R  
 https://awesome-r.com/  
 

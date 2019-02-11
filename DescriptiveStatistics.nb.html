@@ -11,7 +11,7 @@
 
 <meta name="author" content="Serdar Balcı, MD, Pathologist" />
 
-<meta name="date" content="2019-01-02" />
+<meta name="date" content="2019-02-06" />
 
 <title>My R Codes For Data Analysis</title>
 
@@ -3018,7 +3018,7 @@ div.tocify {
 <h1 class="title toc-ignore">My R Codes For Data Analysis</h1>
 <h3 class="subtitle"><em>In this repository I am going to collect <code>R codes</code> for data analysis. Codes are from various resources and I try to give original link as much as possible.</em></h3>
 <h4 class="author"><em><a href="https://www.serdarbalci.com/">Serdar Balcı, MD, Pathologist</a></em></h4>
-<h4 class="date"><em>2019-01-02</em></h4>
+<h4 class="date"><em>2019-02-06</em></h4>
 
 </div>
 
@@ -3031,31 +3031,34 @@ div.tocify {
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKVxuXG5gYGAifQ== -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZXZhbChpbmRleC5zdWIsIGRhdGEpIDogb2JqZWN0ICdzY2FiaWVzJyBub3QgZm91bmRcbiJ9 -->
+<pre><code>Error in eval(index.sub, data) : object 'scabies' not found</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUgPC0gRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixtZWFuKGFnZSksIGRhdGEgPSBzY2FiaWVzKVxuXG5wYW5kZXI6OnBhbmRlcih0YWJsZSlcblxuXG5gYGAifQ== -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">table &lt;-<span class="st"> </span>Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">pander<span class="op">::</span><span class="kw">pander</span>(table)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">table &lt;-<span class="st"> </span>Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">mean</span>(age), <span class="dt">data =</span> scabies)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">pander<span class="op">::</span><span class="kw">pander</span>(table)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RhYnVsYXRlLCBieSBnZW5kZXIsIHRoZSBtZWFuIGFnZSBmcm9tIHRoZSBzY2FiaWVzIGRhdGFzZXRcblxuRXBpOjpzdGF0LnRhYmxlKGdlbmRlcixsaXN0KG1lYW4oYWdlKSxtZWRpYW4oYWdlKSksIGRhdGEgPSBzY2FiaWVzKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">#Tabulate, by gender, the mean age from the scabies dataset</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">list</span>(<span class="kw">mean</span>(age),<span class="kw">median</span>(age)), <span class="dt">data =</span> scabies)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">#Tabulate, by gender, the mean age from the scabies dataset</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">Epi<span class="op">::</span><span class="kw">stat.table</span>(gender,<span class="kw">list</span>(<span class="kw">mean</span>(age),<span class="kw">median</span>(age)), <span class="dt">data =</span> scabies)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeV9kYXRhIDwtIGFyc2VuYWw6OnRhYmxlYnkoZ2VuZGVyfmFnZStzY2FiaWVzX2luZmVzdGF0aW9uLGRhdGE9c2NhYmllcylcbnN1bW1hcnkoc3VtbWFyeV9kYXRhKVxuXG5gYGAifQ== -->
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">summary_data &lt;-<span class="st"> </span>arsenal<span class="op">::</span><span class="kw">tableby</span>(gender<span class="op">~</span>age<span class="op">+</span>scabies_infestation,<span class="dt">data=</span>scabies)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">summary</span>(summary_data)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">summary_data &lt;-<span class="st"> </span>arsenal<span class="op">::</span><span class="kw">tableby</span>(gender<span class="op">~</span>age<span class="op">+</span>scabies_infestation,<span class="dt">data=</span>scabies)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">summary</span>(summary_data)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3066,7 +3069,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShza2ltcilcblxuYGBgIn0= -->
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">require</span>(skimr)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">require</span>(skimr)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWm9ydW5sdSBwYWtldCB5w7xrbGVuaXlvcjogc2tpbXJcbiJ9 -->
 <pre><code>Zorunlu paket yükleniyor: skimr</code></pre>
@@ -3076,7 +3079,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShpcmlzKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">summary</span>(iris)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">summary</span>(iris)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICBTZXBhbC5MZW5ndGggICAgU2VwYWwuV2lkdGggICAgIFBldGFsLkxlbmd0aCAgICBQZXRhbC5XaWR0aCAgICAgICAgICBTcGVjaWVzICBcbiBNaW4uICAgOjQuMzAwICAgTWluLiAgIDoyLjAwMCAgIE1pbi4gICA6MS4wMDAgICBNaW4uICAgOjAuMTAwICAgc2V0b3NhICAgIDo1MCAgXG4gMXN0IFF1Ljo1LjEwMCAgIDFzdCBRdS46Mi44MDAgICAxc3QgUXUuOjEuNjAwICAgMXN0IFF1LjowLjMwMCAgIHZlcnNpY29sb3I6NTAgIFxuIE1lZGlhbiA6NS44MDAgICBNZWRpYW4gOjMuMDAwICAgTWVkaWFuIDo0LjM1MCAgIE1lZGlhbiA6MS4zMDAgICB2aXJnaW5pY2EgOjUwICBcbiBNZWFuICAgOjUuODQzICAgTWVhbiAgIDozLjA1NyAgIE1lYW4gICA6My43NTggICBNZWFuICAgOjEuMTk5ICAgICAgICAgICAgICAgICAgXG4gM3JkIFF1Ljo2LjQwMCAgIDNyZCBRdS46My4zMDAgICAzcmQgUXUuOjUuMTAwICAgM3JkIFF1LjoxLjgwMCAgICAgICAgICAgICAgICAgIFxuIE1heC4gICA6Ny45MDAgICBNYXguICAgOjQuNDAwICAgTWF4LiAgIDo2LjkwMCAgIE1heC4gICA6Mi41MDAgICAgICAgICAgICAgICAgICBcbiJ9 -->
 <pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  
@@ -3092,7 +3095,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShpcmlzJFNlcGFsLkxlbmd0aClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgTWluLiAxc3QgUXUuICBNZWRpYW4gICAgTWVhbiAzcmQgUXUuICAgIE1heC4gXG4gIDQuMzAwICAgNS4xMDAgICA1LjgwMCAgIDUuODQzICAgNi40MDAgICA3LjkwMCBcbiJ9 -->
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -3103,7 +3106,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZml2ZW51bShpcmlzJFNlcGFsLkxlbmd0aClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">fivenum</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">fivenum</span>(iris<span class="op">$</span>Sepal.Length)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQuMyA1LjEgNS44IDYuNCA3LjlcbiJ9 -->
 <pre><code>[1] 4.3 5.1 5.8 6.4 7.9</code></pre>
@@ -3113,7 +3116,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShpcmlzJFNwZWNpZXMpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Species)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">summary</span>(iris<span class="op">$</span>Species)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgIHNldG9zYSB2ZXJzaWNvbG9yICB2aXJnaW5pY2EgXG4gICAgICAgIDUwICAgICAgICAgNTAgICAgICAgICA1MCBcbiJ9 -->
 <pre><code>    setosa versicolor  virginica 
@@ -3124,7 +3127,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShpcmlzKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">skim</span>(iris)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">skim</span>(iris)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMTUwIFxuIG4gdmFyaWFibGVzOiA1IFxuXG7ilIDilIAgVmFyaWFibGUgdHlwZTpmYWN0b3Ig4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG4gdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbl91bmlxdWUgICAgICAgICAgICAgICAgICAgICAgIHRvcF9jb3VudHMgb3JkZXJlZFxuICBTcGVjaWVzICAgICAgIDAgICAgICAxNTAgMTUwICAgICAgICAzIHNldDogNTAsIHZlcjogNTAsIHZpcjogNTAsIE5BOiAwICAgRkFMU0Vcblxu4pSA4pSAIFZhcmlhYmxlIHR5cGU6bnVtZXJpYyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiAgICAgdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbWVhbiAgIHNkICBwMCBwMjUgIHA1MCBwNzUgcDEwMCAgICAgaGlzdFxuIFBldGFsLkxlbmd0aCAgICAgICAwICAgICAgMTUwIDE1MCAzLjc2IDEuNzcgMSAgIDEuNiA0LjM1IDUuMSAgNi45IOKWh+KWgeKWgeKWguKWheKWheKWg+KWgVxuICBQZXRhbC5XaWR0aCAgICAgICAwICAgICAgMTUwIDE1MCAxLjIgIDAuNzYgMC4xIDAuMyAxLjMgIDEuOCAgMi41IOKWh+KWgeKWgeKWheKWg+KWg+KWguKWglxuIFNlcGFsLkxlbmd0aCAgICAgICAwICAgICAgMTUwIDE1MCA1Ljg0IDAuODMgNC4zIDUuMSA1LjggIDYuNCAgNy45IOKWguKWh+KWheKWh+KWhuKWheKWguKWglxuICBTZXBhbC5XaWR0aCAgICAgICAwICAgICAgMTUwIDE1MCAzLjA2IDAuNDQgMiAgIDIuOCAzICAgIDMuMyAgNC40IOKWgeKWguKWheKWh+KWg+KWguKWgeKWgVxuIn0= -->
 <pre><code>Skim summary statistics
@@ -3147,8 +3150,8 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXJpc19yZXN1bHRzIDwtIHNraW0oaXJpcylcbnN0cihpcmlzX3Jlc3VsdHMpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">iris_results &lt;-<span class="st"> </span><span class="kw">skim</span>(iris)</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">str</span>(iris_results)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">iris_results &lt;-<span class="st"> </span><span class="kw">skim</span>(iris)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">str</span>(iris_results)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiQ2xhc3NlcyDigJhza2ltX2Rm4oCZLCDigJh0YmxfZGbigJksIOKAmHRibOKAmSBhbmQgJ2RhdGEuZnJhbWUnOlx0NTMgb2JzLiBvZiAgNiB2YXJpYWJsZXM6XG4gJCB2YXJpYWJsZSA6IGNociAgXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5MZW5ndGhcIiAuLi5cbiAkIHR5cGUgICAgIDogY2hyICBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiAuLi5cbiAkIHN0YXQgICAgIDogY2hyICBcIm1pc3NpbmdcIiBcImNvbXBsZXRlXCIgXCJuXCIgXCJtZWFuXCIgLi4uXG4gJCBsZXZlbCAgICA6IGNociAgXCIuYWxsXCIgXCIuYWxsXCIgXCIuYWxsXCIgXCIuYWxsXCIgLi4uXG4gJCB2YWx1ZSAgICA6IG51bSAgMCAxNTAgMTUwIDUuODQzIDAuODI4IC4uLlxuICQgZm9ybWF0dGVkOiBjaHIgIFwiMFwiIFwiMTUwXCIgXCIxNTBcIiBcIjUuODRcIiAuLi5cbiAtIGF0dHIoKiwgXCJkYXRhX3Jvd3NcIik9IGludCAxNTBcbiAtIGF0dHIoKiwgXCJkYXRhX2NvbHNcIik9IGludCA1XG4gLSBhdHRyKCosIFwiZGZfbmFtZVwiKT0gc3ltYm9sIGlyaXNcbiJ9 -->
 <pre><code>Classes ‘skim_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':    53 obs. of  6 variables:
@@ -3163,7 +3166,7 @@ div.tocify {
  - attr(*, &quot;df_name&quot;)= symbol iris</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXJpc19yZXN1bHRzJHZhcmlhYmxlXG5gYGAifQ== -->
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">iris_results<span class="op">$</span>variable</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">iris_results<span class="op">$</span>variable</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCJcbiBbNl0gXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5MZW5ndGhcIiBcIlNlcGFsLkxlbmd0aFwiXG5bMTFdIFwiU2VwYWwuTGVuZ3RoXCIgXCJTZXBhbC5XaWR0aFwiICBcIlNlcGFsLldpZHRoXCIgIFwiU2VwYWwuV2lkdGhcIiAgXCJTZXBhbC5XaWR0aFwiIFxuWzE2XSBcIlNlcGFsLldpZHRoXCIgIFwiU2VwYWwuV2lkdGhcIiAgXCJTZXBhbC5XaWR0aFwiICBcIlNlcGFsLldpZHRoXCIgIFwiU2VwYWwuV2lkdGhcIiBcblsyMV0gXCJTZXBhbC5XaWR0aFwiICBcIlNlcGFsLldpZHRoXCIgIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIiBcIlBldGFsLkxlbmd0aFwiXG5bMjZdIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIiBcIlBldGFsLkxlbmd0aFwiIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIlxuWzMxXSBcIlBldGFsLkxlbmd0aFwiIFwiUGV0YWwuTGVuZ3RoXCIgXCJQZXRhbC5MZW5ndGhcIiBcIlBldGFsLldpZHRoXCIgIFwiUGV0YWwuV2lkdGhcIiBcblszNl0gXCJQZXRhbC5XaWR0aFwiICBcIlBldGFsLldpZHRoXCIgIFwiUGV0YWwuV2lkdGhcIiAgXCJQZXRhbC5XaWR0aFwiICBcIlBldGFsLldpZHRoXCIgXG5bNDFdIFwiUGV0YWwuV2lkdGhcIiAgXCJQZXRhbC5XaWR0aFwiICBcIlBldGFsLldpZHRoXCIgIFwiUGV0YWwuV2lkdGhcIiAgXCJTcGVjaWVzXCIgICAgIFxuWzQ2XSBcIlNwZWNpZXNcIiAgICAgIFwiU3BlY2llc1wiICAgICAgXCJTcGVjaWVzXCIgICAgICBcIlNwZWNpZXNcIiAgICAgIFwiU3BlY2llc1wiICAgICBcbls1MV0gXCJTcGVjaWVzXCIgICAgICBcIlNwZWNpZXNcIiAgICAgIFwiU3BlY2llc1wiICAgICBcbiJ9 -->
 <pre><code> [1] &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot; &quot;Sepal.Length&quot;
@@ -3179,7 +3182,7 @@ div.tocify {
 [51] &quot;Species&quot;      &quot;Species&quot;      &quot;Species&quot;     </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXJpc19yZXN1bHRzJHR5cGVcbmBgYCJ9 -->
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">iris_results<span class="op">$</span>type</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">iris_results<span class="op">$</span>type</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuIFs4XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzE1XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzIyXSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzI5XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzM2XSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcIm51bWVyaWNcIlxuWzQzXSBcIm51bWVyaWNcIiBcIm51bWVyaWNcIiBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiIFxuWzUwXSBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiICBcImZhY3RvclwiIFxuIn0= -->
 <pre><code> [1] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
@@ -3196,8 +3199,8 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbXI6OnNraW0oaXJpcykgJT4lXG4gIGRwbHlyOjpmaWx0ZXIoc3RhdCA9PSBcIm1lYW5cIilcbmBgYCJ9 -->
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">skimr<span class="op">::</span><span class="kw">skim</span>(iris) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stat <span class="op">==</span><span class="st"> &quot;mean&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">skimr<span class="op">::</span><span class="kw">skim</span>(iris) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stat <span class="op">==</span><span class="st"> &quot;mean&quot;</span>)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6NiwibnJvdyI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUE1VlN2VTdETUJoMG01KzJvUzJWR0JBdndFU3RVZ3BGTEZTSUVTUUVBOTNBVFZ3YTFYRWl4eWxsNHhsWWVBZDJSa1plZ0RkQlRFaW93V25pUU0xU0l0bSszSGUrVDVkODU4Zjl0dFczQUFCRm9CbGkxd1RVaTJJckFCMVVrbk1LZ0xZbWdDbFdJNmxtaGVvRkRoQ0JKNWplOEZIR3JhVGNwZXZrVlBVTTh6K3lsRXRsaTY0bEdubVl1ZmIvWGhjOWRBOGp1aFJXN2tGRXlGSVlnSHFDZSt0WEQ2K2ZXOWU5Y2pSdXZtd2M5ZXFOd2VuYis5UGhSMnU2ZWZEOHFQcnZ3djJPeER1d3RmZUR1eEpyMjdDdC9BSERKaWdNTXk5SldnN2lDQTRaOHJBcXA0S1Rjak1qeXhQRVhEUWdXTGJrZDBHT1E0NjR2RXp3Qk11c3hnU1JTS29xUTU5NWlIUHNLUDBxekwrRnNtY3RtYVI3c2NWeC9DV09tU0l1K1FGM2ZTcWt4V1NtRENWVmdTbkVha1FUYTZkcGp5STZibmFTNVBOeSt0UXlyUC9DWnRwU2l6TXJJN015eFFTNkZPZEIwU0FQV2hjUjVnbGd3RndxdjRVbDJCQnlYNHlxWkd5ZlNHYWVEY3krQVVmSG1ncEJBd0FBIn0= -->
 <div data-pagedtable="false">
@@ -3211,7 +3214,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChpcmlzX3Jlc3VsdHMsIG49MTUpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">head</span>(iris_results, <span class="dt">n=</span><span class="dv">15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">head</span>(iris_results, <span class="dt">n=</span><span class="dv">15</span>)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6NiwibnJvdyI6MTV9LCJyZGYiOiJINHNJQUFBQUFBQUFBOTJVVFcvVE1CakgzU1pwMSt5bElKREdUdnNDcTlXdVRWZE9SSWdqcDNGZ04rWW03bXJOY2FMRUtYRGFWUEVpcmh3cXdaSHZnY1NGTDFKdW5PRElaY1ZKL1dRMEFnbU5FM3VrMkQvLzg4VDIzM1o4K09CbzN6NnlFVUpWWkZpcU5CU2FWVlZVa0lrYVdmME1JZU9XZ3BwNmJxaW5xVjlzUEtJUjRmZ2hGU2R5Zk0yMDlhWDJtUG4vSXEydVYxMmtBWTJaZHcyYkphTUJTeEltVG5SenpRdURpRk5KNFVBSkRXWkFDWEExOFlHaXRpWWoybmNLZEM3VkExRE5xTk1HMlJ5elJGNXBBcXVUTnpIaC9MOWhoTGJ5dWV0d2g1OVc2KzBuYnovLzJEdSs5L1hzeFp2REwxUDNaamNQOS9Zb0QzZGJ0M2ZlWmZIZTNWM1daOSt5citzZi90anZXbnJhK3JoenY3UjJsV0tQT3M1djBIVHdvQWZjeG9NdXBQUndnUTd1WE9JQXNJL2hPK01BMzBYb1BNTTc4OWwwUG5zOW43M015MWM1S0dYNmw3UHA0bmEvZE5kWkhpZEpvbDJCYVB0RUVqeUtTVURMNlVKcGtGNkQwelloTVNORERxZk5sTStqZ2hOSjRKQmFuRTRvN0tZMUlUeUZyTVlvakFNaUpmVkw0elhpOENtR01UZXpmK1ZjRll2RjRydXFMa3JKOVRDU0xCUXF0WnJkM2xiSlZTVXVDYzFVWkYzN0xXK2NpdE5XUDNPZXYxN0dwdWJtTDF4YkRta3NkRmVXN3FxbXJsSW1hR0dVREF1alc4cEM3Z0JITVJPd0ZyWlNFeXhEU1NEUDlrSU9TdTROWGZ3RWJjbS92cXNHQUFBPSJ9 -->
 <div data-pagedtable="false">
@@ -3225,9 +3228,9 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXRjYXJzICU+JVxuICBkcGx5cjo6Z3JvdXBfYnkoZ2VhcikgJT4lXG4gIHNraW0oKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(gear) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="st">  </span><span class="kw">skim</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(gear) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="st">  </span><span class="kw">skim</span>()</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMzIgXG4gbiB2YXJpYWJsZXM6IDExIFxuIGdyb3VwIHZhcmlhYmxlczogZ2VhciBcblxu4pSA4pSAIFZhcmlhYmxlIHR5cGU6bnVtZXJpYyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiBnZWFyIHZhcmlhYmxlIG1pc3NpbmcgY29tcGxldGUgIG4gICBtZWFuICAgICBzZCAgICAgcDAgICAgcDI1ICAgIHA1MCAgICBwNzVcbiAgICAzICAgICAgIGFtICAgICAgIDAgICAgICAgMTUgMTUgICAwICAgICAgMCAgICAgIDAgICAgICAwICAgICAgMCAgICAgIDAgICBcbiAgICAzICAgICBjYXJiICAgICAgIDAgICAgICAgMTUgMTUgICAyLjY3ICAgMS4xOCAgIDEgICAgICAyICAgICAgMyAgICAgIDQgICBcbiAgICAzICAgICAgY3lsICAgICAgIDAgICAgICAgMTUgMTUgICA3LjQ3ICAgMS4xOSAgIDQgICAgICA4ICAgICAgOCAgICAgIDggICBcbiAgICAzICAgICBkaXNwICAgICAgIDAgICAgICAgMTUgMTUgMzI2LjMgICA5NC44NSAxMjAuMSAgMjc1LjggIDMxOCAgICAzODAgICBcbiAgICAzICAgICBkcmF0ICAgICAgIDAgICAgICAgMTUgMTUgICAzLjEzICAgMC4yNyAgIDIuNzYgICAzLjA0ICAgMy4wOCAgIDMuMThcbiAgICAzICAgICAgIGhwICAgICAgIDAgICAgICAgMTUgMTUgMTc2LjEzICA0Ny42OSAgOTcgICAgMTUwICAgIDE4MCAgICAyMTAgICBcbiAgICAzICAgICAgbXBnICAgICAgIDAgICAgICAgMTUgMTUgIDE2LjExICAgMy4zNyAgMTAuNCAgIDE0LjUgICAxNS41ICAgMTguNCBcbiAgICAzICAgICBxc2VjICAgICAgIDAgICAgICAgMTUgMTUgIDE3LjY5ICAgMS4zNSAgMTUuNDEgIDE3LjA0ICAxNy40MiAgMTcuOTlcbiAgICAzICAgICAgIHZzICAgICAgIDAgICAgICAgMTUgMTUgICAwLjIgICAgMC40MSAgIDAgICAgICAwICAgICAgMCAgICAgIDAgICBcbiAgICAzICAgICAgIHd0ICAgICAgIDAgICAgICAgMTUgMTUgICAzLjg5ICAgMC44MyAgIDIuNDYgICAzLjQ1ICAgMy43MyAgIDMuOTZcbiAgICA0ICAgICAgIGFtICAgICAgIDAgICAgICAgMTIgMTIgICAwLjY3ICAgMC40OSAgIDAgICAgICAwICAgICAgMSAgICAgIDEgICBcbiAgICA0ICAgICBjYXJiICAgICAgIDAgICAgICAgMTIgMTIgICAyLjMzICAgMS4zICAgIDEgICAgICAxICAgICAgMiAgICAgIDQgICBcbiAgICA0ICAgICAgY3lsICAgICAgIDAgICAgICAgMTIgMTIgICA0LjY3ICAgMC45OCAgIDQgICAgICA0ICAgICAgNCAgICAgIDYgICBcbiAgICA0ICAgICBkaXNwICAgICAgIDAgICAgICAgMTIgMTIgMTIzLjAyICAzOC45MSAgNzEuMSAgIDc4LjkyIDEzMC45ICAxNjAgICBcbiAgICA0ICAgICBkcmF0ICAgICAgIDAgICAgICAgMTIgMTIgICA0LjA0ICAgMC4zMSAgIDMuNjkgICAzLjkgICAgMy45MiAgIDQuMDlcbiAgICA0ICAgICAgIGhwICAgICAgIDAgICAgICAgMTIgMTIgIDg5LjUgICAyNS44OSAgNTIgICAgIDY1Ljc1ICA5NCAgICAxMTAgICBcbiAgICA0ICAgICAgbXBnICAgICAgIDAgICAgICAgMTIgMTIgIDI0LjUzICAgNS4yOCAgMTcuOCAgIDIxICAgICAyMi44ICAgMjguMDhcbiAgICA0ICAgICBxc2VjICAgICAgIDAgICAgICAgMTIgMTIgIDE4Ljk2ICAgMS42MSAgMTYuNDYgIDE4LjQ2ICAxOC43NSAgMTkuNThcbiAgICA0ICAgICAgIHZzICAgICAgIDAgICAgICAgMTIgMTIgICAwLjgzICAgMC4zOSAgIDAgICAgICAxICAgICAgMSAgICAgIDEgICBcbiAgICA0ICAgICAgIHd0ICAgICAgIDAgICAgICAgMTIgMTIgICAyLjYyICAgMC42MyAgIDEuNjEgICAyLjEzICAgMi43ICAgIDMuMTZcbiAgICA1ICAgICAgIGFtICAgICAgIDAgICAgICAgIDUgIDUgICAxICAgICAgMCAgICAgIDEgICAgICAxICAgICAgMSAgICAgIDEgICBcbiAgICA1ICAgICBjYXJiICAgICAgIDAgICAgICAgIDUgIDUgICA0LjQgICAgMi42MSAgIDIgICAgICAyICAgICAgNCAgICAgIDYgICBcbiAgICA1ICAgICAgY3lsICAgICAgIDAgICAgICAgIDUgIDUgICA2ICAgICAgMiAgICAgIDQgICAgICA0ICAgICAgNiAgICAgIDggICBcbiAgICA1ICAgICBkaXNwICAgICAgIDAgICAgICAgIDUgIDUgMjAyLjQ4IDExNS40OSAgOTUuMSAgMTIwLjMgIDE0NSAgICAzMDEgICBcbiAgICA1ICAgICBkcmF0ICAgICAgIDAgICAgICAgIDUgIDUgICAzLjkyICAgMC4zOSAgIDMuNTQgICAzLjYyICAgMy43NyAgIDQuMjJcbiAgICA1ICAgICAgIGhwICAgICAgIDAgICAgICAgIDUgIDUgMTk1LjYgIDEwMi44MyAgOTEgICAgMTEzICAgIDE3NSAgICAyNjQgICBcbiAgICA1ICAgICAgbXBnICAgICAgIDAgICAgICAgIDUgIDUgIDIxLjM4ICAgNi42NiAgMTUgICAgIDE1LjggICAxOS43ICAgMjYgICBcbiAgICA1ICAgICBxc2VjICAgICAgIDAgICAgICAgIDUgIDUgIDE1LjY0ICAgMS4xMyAgMTQuNSAgIDE0LjYgICAxNS41ICAgMTYuNyBcbiAgICA1ICAgICAgIHZzICAgICAgIDAgICAgICAgIDUgIDUgICAwLjIgICAgMC40NSAgIDAgICAgICAwICAgICAgMCAgICAgIDAgICBcbiAgICA1ICAgICAgIHd0ICAgICAgIDAgICAgICAgIDUgIDUgICAyLjYzICAgMC44MiAgIDEuNTEgICAyLjE0ICAgMi43NyAgIDMuMTdcbiAgIHAxMDAgICAgIGhpc3RcbiAgIDAgICAg4paB4paB4paB4paH4paB4paB4paB4paBXG4gICA0ICAgIOKWheKWgeKWhuKWgeKWgeKWheKWgeKWh1xuICAgOCAgICDiloHiloHiloHiloHiloHiloHiloHilodcbiA0NzIgICAg4paC4paB4paC4paH4paD4paG4paC4paGXG4gICAzLjczIOKWg+KWg+KWh+KWhuKWgeKWgeKWgeKWg1xuIDI0NSAgICDiloXiloHiloPiloHilofiloLiloLiloVcbiAgMjEuNSAg4paD4paB4paD4paH4paD4paD4paC4paDXG4gIDIwLjIyIOKWg+KWgeKWhuKWh+KWhuKWgeKWguKWg1xuICAgMSAgICDilofiloHiloHiloHiloHiloHiloHiloJcbiAgIDUuNDIg4paB4paB4paH4paF4paB4paB4paB4paDXG4gICAxICAgIOKWg+KWgeKWgeKWgeKWgeKWgeKWgeKWh1xuICAgNCAgICDilofiloHilofiloHiloHiloHiloHilodcbiAgIDYgICAg4paH4paB4paB4paB4paB4paB4paB4paDXG4gMTY3LjYgIOKWh+KWgeKWgeKWguKWguKWguKWguKWh1xuICAgNC45MyDiloHilofiloPiloHiloHiloHiloHiloFcbiAxMjMgICAg4paC4paH4paB4paB4paD4paB4paG4paDXG4gIDMzLjkgIOKWheKWh+KWheKWguKWguKWgeKWguKWhVxuICAyMi45ICDiloPiloHilofilobiloPiloHiloHiloJcbiAgIDEgICAg4paC4paB4paB4paB4paB4paB4paB4paHXG4gICAzLjQ0IOKWh+KWg+KWg+KWg+KWg+KWh+KWh+KWh1xuICAgMSAgICDiloHiloHiloHilofiloHiloHiloHiloFcbiAgIDggICAg4paH4paB4paD4paB4paB4paD4paB4paDXG4gICA4ICAgIOKWh+KWgeKWgeKWg+KWgeKWgeKWgeKWh1xuIDM1MSAgICDilofiloPiloHiloHiloHiloHiloPiloNcbiAgIDQuNDMg4paH4paB4paD4paB4paB4paB4paD4paDXG4gMzM1ICAgIOKWh+KWgeKWg+KWgeKWgeKWg+KWgeKWg1xuICAzMC40ICDilofiloHiloPiloHiloHiloPiloHiloNcbiAgMTYuOSAg4paH4paB4paB4paD4paB4paB4paB4paHXG4gICAxICAgIOKWh+KWgeKWgeKWgeKWgeKWgeKWgeKWglxuICAgMy41NyDilofiloHilofiloHilofiloHilofilodcbiJ9 -->
 <pre><code>Skim summary statistics
@@ -3304,7 +3307,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShpcmlzLCBTZXBhbC5MZW5ndGgsIFNwZWNpZXMpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">skim</span>(iris, Sepal.Length, Species)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">skim</span>(iris, Sepal.Length, Species)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMTUwIFxuIG4gdmFyaWFibGVzOiA1IFxuXG7ilIDilIAgVmFyaWFibGUgdHlwZTpmYWN0b3Ig4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG4gdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbl91bmlxdWUgICAgICAgICAgICAgICAgICAgICAgIHRvcF9jb3VudHMgb3JkZXJlZFxuICBTcGVjaWVzICAgICAgIDAgICAgICAxNTAgMTUwICAgICAgICAzIHNldDogNTAsIHZlcjogNTAsIHZpcjogNTAsIE5BOiAwICAgRkFMU0Vcblxu4pSA4pSAIFZhcmlhYmxlIHR5cGU6bnVtZXJpYyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiAgICAgdmFyaWFibGUgbWlzc2luZyBjb21wbGV0ZSAgIG4gbWVhbiAgIHNkICBwMCBwMjUgcDUwIHA3NSBwMTAwICAgICBoaXN0XG4gU2VwYWwuTGVuZ3RoICAgICAgIDAgICAgICAxNTAgMTUwIDUuODQgMC44MyA0LjMgNS4xIDUuOCA2LjQgIDcuOSDiloLilofiloXilofilobiloXiloLiloJcbiJ9 -->
 <pre><code>Skim summary statistics
@@ -3324,7 +3327,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShpcmlzLCBzdGFydHNfd2l0aChcIlNlcGFsXCIpKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">skim</span>(iris, <span class="kw">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">skim</span>(iris, <span class="kw">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>))</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiU2tpbSBzdW1tYXJ5IHN0YXRpc3RpY3NcbiBuIG9iczogMTUwIFxuIG4gdmFyaWFibGVzOiA1IFxuXG7ilIDilIAgVmFyaWFibGUgdHlwZTpudW1lcmljIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxuICAgICB2YXJpYWJsZSBtaXNzaW5nIGNvbXBsZXRlICAgbiBtZWFuICAgc2QgIHAwIHAyNSBwNTAgcDc1IHAxMDAgICAgIGhpc3RcbiBTZXBhbC5MZW5ndGggICAgICAgMCAgICAgIDE1MCAxNTAgNS44NCAwLjgzIDQuMyA1LjEgNS44IDYuNCAgNy45IOKWguKWh+KWheKWh+KWhuKWheKWguKWglxuICBTZXBhbC5XaWR0aCAgICAgICAwICAgICAgMTUwIDE1MCAzLjA2IDAuNDQgMiAgIDIuOCAzICAgMy4zICA0LjQg4paB4paC4paF4paH4paD4paC4paB4paBXG4ifQ== -->
 <pre><code>Skim summary statistics
@@ -3341,7 +3344,7 @@ div.tocify {
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2tpbShkYXRhc2V0czo6bHlueClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">skim</span>(datasets<span class="op">::</span>lynx)</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">skim</span>(datasets<span class="op">::</span>lynx)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiXG5Ta2ltIHN1bW1hcnkgc3RhdGlzdGljc1xuXG7ilIDilIAgVmFyaWFibGUgdHlwZTp0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbiAgICAgICB2YXJpYWJsZSBtaXNzaW5nIGNvbXBsZXRlICAgbiBzdGFydCAgZW5kIGZyZXF1ZW5jeSBkZWx0YXQgICAgbWVhbiAgICAgIHNkXG4gZGF0YXNldHM6Omx5bnggICAgICAgMCAgICAgIDExNCAxMTQgIDE4MjEgMTkzNCAgICAgICAgIDEgICAgICAxIDE1MzguMDIgMTU4NS44NFxuIG1pbiAgbWF4IG1lZGlhbiBsaW5lX2dyYXBoXG4gIDM5IDY5OTEgICAgNzcxICAg4qGI4qKE4qGg4qKB4qOA4qCS4qOA4qCUXG4ifQ== -->
 <pre><code>
@@ -3362,21 +3365,21 @@ Skim summary statistics
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHN1bW1hcnl0b29scylcbiMgbGlicmFyeShmdW5Nb2RlbGluZykgXG5saWJyYXJ5KHRpZHl2ZXJzZSkgXG5saWJyYXJ5KEhtaXNjKVxuYmFzaWNfZWRhIDwtIGZ1bmN0aW9uKGRhdGEpXG57XG4gIGdsaW1wc2UoZGF0YSlcbiAjIGRmX3N0YXR1cyhkYXRhKVxuICMgZnJlcShkYXRhKSBcbiAjIHByb2ZpbGluZ19udW0oZGF0YSlcbiAjIHBsb3RfbnVtKGRhdGEpXG4gIGRlc2NyaWJlKGRhdGEpXG59XG5iYXNpY19lZGEoaXJpc2RhdGEpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="kw">library</span>(summarytools)</a>
-<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="co"># library(funModeling) </span></a>
-<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="kw">library</span>(tidyverse) </a>
-<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="kw">library</span>(Hmisc)</a>
-<a class="sourceLine" id="cb33-6" data-line-number="6">basic_eda &lt;-<span class="st"> </span><span class="cf">function</span>(data)</a>
-<a class="sourceLine" id="cb33-7" data-line-number="7">{</a>
-<a class="sourceLine" id="cb33-8" data-line-number="8">  <span class="kw">glimpse</span>(data)</a>
-<a class="sourceLine" id="cb33-9" data-line-number="9"> <span class="co"># df_status(data)</span></a>
-<a class="sourceLine" id="cb33-10" data-line-number="10"> <span class="co"># freq(data) </span></a>
-<a class="sourceLine" id="cb33-11" data-line-number="11"> <span class="co"># profiling_num(data)</span></a>
-<a class="sourceLine" id="cb33-12" data-line-number="12"> <span class="co"># plot_num(data)</span></a>
-<a class="sourceLine" id="cb33-13" data-line-number="13">  <span class="kw">describe</span>(data)</a>
-<a class="sourceLine" id="cb33-14" data-line-number="14">}</a>
-<a class="sourceLine" id="cb33-15" data-line-number="15"><span class="kw">basic_eda</span>(irisdata)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="kw">library</span>(summarytools)</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="co"># library(funModeling) </span></a>
+<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="kw">library</span>(tidyverse) </a>
+<a class="sourceLine" id="cb34-5" data-line-number="5"><span class="kw">library</span>(Hmisc)</a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">basic_eda &lt;-<span class="st"> </span><span class="cf">function</span>(data)</a>
+<a class="sourceLine" id="cb34-7" data-line-number="7">{</a>
+<a class="sourceLine" id="cb34-8" data-line-number="8">  <span class="kw">glimpse</span>(data)</a>
+<a class="sourceLine" id="cb34-9" data-line-number="9"> <span class="co"># df_status(data)</span></a>
+<a class="sourceLine" id="cb34-10" data-line-number="10"> <span class="co"># freq(data) </span></a>
+<a class="sourceLine" id="cb34-11" data-line-number="11"> <span class="co"># profiling_num(data)</span></a>
+<a class="sourceLine" id="cb34-12" data-line-number="12"> <span class="co"># plot_num(data)</span></a>
+<a class="sourceLine" id="cb34-13" data-line-number="13">  <span class="kw">describe</span>(data)</a>
+<a class="sourceLine" id="cb34-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb34-15" data-line-number="15"><span class="kw">basic_eda</span>(irisdata)</a></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiT2JzZXJ2YXRpb25zOiAxNTBcblZhcmlhYmxlczogNVxuJCBTZXBhbC5MZW5ndGggPGRibD4gNS4xLCA0LjksIDQuNywgNC42LCA1LjAsIDUuNCwuLi5cbiQgU2VwYWwuV2lkdGggIDxkYmw+IDMuNSwgMy4wLCAzLjIsIDMuMSwgMy42LCAzLjksLi4uXG4kIFBldGFsLkxlbmd0aCA8ZGJsPiAxLjQsIDEuNCwgMS4zLCAxLjUsIDEuNCwgMS43LC4uLlxuJCBQZXRhbC5XaWR0aCAgPGRibD4gMC4yLCAwLjIsIDAuMiwgMC4yLCAwLjIsIDAuNCwuLi5cbiQgU3BlY2llcyAgICAgIDxjaHI+IFwic2V0b3NhXCIsIFwic2V0b3NhXCIsIFwic2V0b3NhXCIsLi4uXG5kYXRhIFxuXG4gNSAgVmFyaWFibGVzICAgICAgMTUwICBPYnNlcnZhdGlvbnNcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblNlcGFsLkxlbmd0aCBcbiAgICAgICBuICBtaXNzaW5nIGRpc3RpbmN0ICAgICBJbmZvICAgICBNZWFuICAgICAgR21kIFxuICAgICAxNTAgICAgICAgIDAgICAgICAgMzUgICAgMC45OTggICAgNS44NDMgICAwLjk0NjIgXG4gICAgIC4wNSAgICAgIC4xMCAgICAgIC4yNSAgICAgIC41MCAgICAgIC43NSAgICAgIC45MCBcbiAgIDQuNjAwICAgIDQuODAwICAgIDUuMTAwICAgIDUuODAwICAgIDYuNDAwICAgIDYuOTAwIFxuICAgICAuOTUgXG4gICA3LjI1NSBcblxubG93ZXN0IDogNC4zIDQuNCA0LjUgNC42IDQuNywgaGlnaGVzdDogNy4zIDcuNCA3LjYgNy43IDcuOVxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuU2VwYWwuV2lkdGggXG4gICAgICAgbiAgbWlzc2luZyBkaXN0aW5jdCAgICAgSW5mbyAgICAgTWVhbiAgICAgIEdtZCBcbiAgICAgMTUwICAgICAgICAwICAgICAgIDIzICAgIDAuOTkyICAgIDMuMDU3ICAgMC40ODcyIFxuICAgICAuMDUgICAgICAuMTAgICAgICAuMjUgICAgICAuNTAgICAgICAuNzUgICAgICAuOTAgXG4gICAyLjM0NSAgICAyLjUwMCAgICAyLjgwMCAgICAzLjAwMCAgICAzLjMwMCAgICAzLjYxMCBcbiAgICAgLjk1IFxuICAgMy44MDAgXG5cbmxvd2VzdCA6IDIuMCAyLjIgMi4zIDIuNCAyLjUsIGhpZ2hlc3Q6IDMuOSA0LjAgNC4xIDQuMiA0LjRcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblBldGFsLkxlbmd0aCBcbiAgICAgICBuICBtaXNzaW5nIGRpc3RpbmN0ICAgICBJbmZvICAgICBNZWFuICAgICAgR21kIFxuICAgICAxNTAgICAgICAgIDAgICAgICAgNDMgICAgMC45OTggICAgMy43NTggICAgMS45NzkgXG4gICAgIC4wNSAgICAgIC4xMCAgICAgIC4yNSAgICAgIC41MCAgICAgIC43NSAgICAgIC45MCBcbiAgICAxLjMwICAgICAxLjQwICAgICAxLjYwICAgICA0LjM1ICAgICA1LjEwICAgICA1LjgwIFxuICAgICAuOTUgXG4gICAgNi4xMCBcblxubG93ZXN0IDogMS4wIDEuMSAxLjIgMS4zIDEuNCwgaGlnaGVzdDogNi4zIDYuNCA2LjYgNi43IDYuOVxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuUGV0YWwuV2lkdGggXG4gICAgICAgbiAgbWlzc2luZyBkaXN0aW5jdCAgICAgSW5mbyAgICAgTWVhbiAgICAgIEdtZCBcbiAgICAgMTUwICAgICAgICAwICAgICAgIDIyICAgICAwLjk5ICAgIDEuMTk5ICAgMC44Njc2IFxuICAgICAuMDUgICAgICAuMTAgICAgICAuMjUgICAgICAuNTAgICAgICAuNzUgICAgICAuOTAgXG4gICAgIDAuMiAgICAgIDAuMiAgICAgIDAuMyAgICAgIDEuMyAgICAgIDEuOCAgICAgIDIuMiBcbiAgICAgLjk1IFxuICAgICAyLjMgXG5cbmxvd2VzdCA6IDAuMSAwLjIgMC4zIDAuNCAwLjUsIGhpZ2hlc3Q6IDIuMSAyLjIgMi4zIDIuNCAyLjVcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblNwZWNpZXMgXG4gICAgICAgbiAgbWlzc2luZyBkaXN0aW5jdCBcbiAgICAgMTUwICAgICAgICAwICAgICAgICAzIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuVmFsdWUgICAgICAgICAgc2V0b3NhIHZlcnNpY29sb3IgIHZpcmdpbmljYVxuRnJlcXVlbmN5ICAgICAgICAgIDUwICAgICAgICAgNTAgICAgICAgICA1MFxuUHJvcG9ydGlvbiAgICAgIDAuMzMzICAgICAgMC4zMzMgICAgICAwLjMzM1xuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuIn0= -->
 <pre><code>Observations: 150

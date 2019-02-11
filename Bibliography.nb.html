@@ -1775,6 +1775,11 @@ $(document).ready(function () {
 <p><a href="https://github.com/cboettig/knitcitations" class="uri">https://github.com/cboettig/knitcitations</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsaWJyYXJ5KGRldnRvb2xzKVxuIyBpbnN0YWxsX2dpdGh1YihcImNib2V0dGlnL2tuaXRjaXRhdGlvbnNcIilcbmluc3RhbGwucGFja2FnZXMoXCJrbml0Y2l0YXRpb25zXCIpXG5gYGAifQ== -->
+<pre class="r"><code># library(devtools)
+# install_github(&quot;cboettig/knitcitations&quot;)
+install.packages(&quot;knitcitations&quot;)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -1797,7 +1802,7 @@ options(&quot;citation_format&quot; = &quot;pandoc&quot;)
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>citation <span class="citation">[@Abrams_2012]</span> in text</p>
+<p>citation (Abrams, Ruokolainen, Shuter, et al., 2012) in text</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXQoXCIxMC4xMDk4L3JzcGIuMjAxMy4xMzcyXCIpXG5gYGAifQ== -->
@@ -1808,7 +1813,7 @@ options(&quot;citation_format&quot; = &quot;pandoc&quot;)
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>citation <span class="citation">@Boettiger_2013</span> in text</p>
+<p>citation Boettiger and Hastings (2013) in text</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXAoXCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGVcIilcbmBgYCJ9 -->
@@ -1823,10 +1828,22 @@ options(&quot;citation_format&quot; = &quot;pandoc&quot;)
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <pre><code>write.bibtex(file=&quot;references.bib&quot;)</code></pre>
+</div>
+<div id="rcrossref" class="section level1">
+<h1>rcrossref</h1>
+<p><a href="https://github.com/ropensci/rcrossref" class="uri">https://github.com/ropensci/rcrossref</a></p>
+</div>
+<div id="rorcid-tutorial" class="section level1">
+<h1>rorcid tutorial</h1>
+<p><a href="https://ropensci.org/tutorials/rorcid_tutorial/" class="uri">https://ropensci.org/tutorials/rorcid_tutorial/</a></p>
+</div>
+<div id="rentrez-tutorial" class="section level1">
+<h1>rentrez tutorial</h1>
+<p><a href="https://ropensci.org/tutorials/rentrez_tutorial/" class="uri">https://ropensci.org/tutorials/rentrez_tutorial/</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlibGlvZ3JhcGh5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQSBicmllZiBpbnRyb2R1Y3Rpb24gdG8gYmlibGlvbWV0cml4CgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2JpYmxpb21ldHJpeC92aWduZXR0ZXMvYmlibGlvbWV0cml4LXZpZ25ldHRlLmh0bWwKCiBCaWJsaW9ncmFwaGljIE5ldHdvcmsgVmlzdWFsaXphdGlvbiBmb3IgQWNhZGVtaWMgTGl0ZXJhdHVyZSBSZXZpZXdzIAogCiBodHRwOi8vd3d3Lm1idXJuYW1maW5rLmNvbS9ibG9nL2JpYmxpb2dyYXBoaWMtbmV0d29yay12aXN1YWxpemF0aW9uLWZvci1hY2FkZW1pYy1saXRlcmF0dXJlLXJldmlld3MKIAogCiBodHRwczovL2VtYmVkLmt1bXUuaW8vMGI5OTFiMDJiYjIwOTc1ZmRlOTA0ZjRiZjc0MzMzMzMjanBzcC10b3AtNTA/cz0lMjNkb2ktMTAxMDM3LTAwMjItMzUxNDc0NTEyNTIKIAogIE1vcmUgVGhhbiBXb3Jkcz8gQ29tcHV0ZXItQWlkZWQgVGV4dCBBbmFseXNpcyBpbiBPcmdhbml6YXRpb25hbCBCZWhhdmlvciBhbmQgUHN5Y2hvbG9neSBSZXNlYXJjaAogIAogIGh0dHBzOi8vd3d3LmFubnVhbHJldmlld3Mub3JnL2RvaS8xMC4xMTQ2L2FubnVyZXYtb3JncHN5Y2gtMDMyMTE3LTEwNDYyMgogIAogIAogCiAKIGh0dHBzOi8vd3d3Lmt1bXUuaW8vbmljaG9sYXNqa2VsbGV5L2pwc3AtdG9wLTUwCiAKIAojIGtuaXRjaXRhdGlvbnMKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYm9ldHRpZy9rbml0Y2l0YXRpb25zCgoKYGBge3J9CiMgbGlicmFyeShkZXZ0b29scykKIyBpbnN0YWxsX2dpdGh1YigiY2JvZXR0aWcva25pdGNpdGF0aW9ucyIpCmluc3RhbGwucGFja2FnZXMoImtuaXRjaXRhdGlvbnMiKQpgYGAKCgpgYGB7cn0KbGlicmFyeSgia25pdGNpdGF0aW9ucyIpCmNsZWFuYmliKCkKb3B0aW9ucygiY2l0YXRpb25fZm9ybWF0IiA9ICJwYW5kb2MiKQoKYGBgCgpgYGB7cn0KY2l0ZXAoIjEwLjE4OTAvMTEtMDAxMS4xIikKYGBgCgpjaXRhdGlvbiBgciBjaXRlcCgiMTAuMTg5MC8xMS0wMDExLjEiKWAgaW4gdGV4dAoKCmBgYHtyfQpjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpCmBgYAoKCgpjaXRhdGlvbiBgciBjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpYCBpbiB0ZXh0CgoKYGBge3J9CmNpdGVwKCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGUiKQpgYGAKCmBgYAp3cml0ZS5iaWJ0ZXgoZmlsZT0icmVmZXJlbmNlcy5iaWIiKQpgYGAKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlibGlvZ3JhcGh5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQSBicmllZiBpbnRyb2R1Y3Rpb24gdG8gYmlibGlvbWV0cml4CgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2JpYmxpb21ldHJpeC92aWduZXR0ZXMvYmlibGlvbWV0cml4LXZpZ25ldHRlLmh0bWwKCiBCaWJsaW9ncmFwaGljIE5ldHdvcmsgVmlzdWFsaXphdGlvbiBmb3IgQWNhZGVtaWMgTGl0ZXJhdHVyZSBSZXZpZXdzIAogCiBodHRwOi8vd3d3Lm1idXJuYW1maW5rLmNvbS9ibG9nL2JpYmxpb2dyYXBoaWMtbmV0d29yay12aXN1YWxpemF0aW9uLWZvci1hY2FkZW1pYy1saXRlcmF0dXJlLXJldmlld3MKIAogCiBodHRwczovL2VtYmVkLmt1bXUuaW8vMGI5OTFiMDJiYjIwOTc1ZmRlOTA0ZjRiZjc0MzMzMzMjanBzcC10b3AtNTA/cz0lMjNkb2ktMTAxMDM3LTAwMjItMzUxNDc0NTEyNTIKIAogIE1vcmUgVGhhbiBXb3Jkcz8gQ29tcHV0ZXItQWlkZWQgVGV4dCBBbmFseXNpcyBpbiBPcmdhbml6YXRpb25hbCBCZWhhdmlvciBhbmQgUHN5Y2hvbG9neSBSZXNlYXJjaAogIAogIGh0dHBzOi8vd3d3LmFubnVhbHJldmlld3Mub3JnL2RvaS8xMC4xMTQ2L2FubnVyZXYtb3JncHN5Y2gtMDMyMTE3LTEwNDYyMgogIAogIAogCiAKIGh0dHBzOi8vd3d3Lmt1bXUuaW8vbmljaG9sYXNqa2VsbGV5L2pwc3AtdG9wLTUwCiAKIAojIGtuaXRjaXRhdGlvbnMKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYm9ldHRpZy9rbml0Y2l0YXRpb25zCgoKYGBge3J9CiMgbGlicmFyeShkZXZ0b29scykKIyBpbnN0YWxsX2dpdGh1YigiY2JvZXR0aWcva25pdGNpdGF0aW9ucyIpCmluc3RhbGwucGFja2FnZXMoImtuaXRjaXRhdGlvbnMiKQpgYGAKCgpgYGB7cn0KbGlicmFyeSgia25pdGNpdGF0aW9ucyIpCmNsZWFuYmliKCkKb3B0aW9ucygiY2l0YXRpb25fZm9ybWF0IiA9ICJwYW5kb2MiKQoKYGBgCgpgYGB7cn0KY2l0ZXAoIjEwLjE4OTAvMTEtMDAxMS4xIikKYGBgCgpjaXRhdGlvbiBgciBjaXRlcCgiMTAuMTg5MC8xMS0wMDExLjEiKWAgaW4gdGV4dAoKCmBgYHtyfQpjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpCmBgYAoKCgpjaXRhdGlvbiBgciBjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpYCBpbiB0ZXh0CgoKYGBge3J9CmNpdGVwKCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGUiKQpgYGAKCmBgYAp3cml0ZS5iaWJ0ZXgoZmlsZT0icmVmZXJlbmNlcy5iaWIiKQpgYGAKCiMgcmNyb3NzcmVmCgpodHRwczovL2dpdGh1Yi5jb20vcm9wZW5zY2kvcmNyb3NzcmVmCgoKCiMgcm9yY2lkIHR1dG9yaWFsCgpodHRwczovL3JvcGVuc2NpLm9yZy90dXRvcmlhbHMvcm9yY2lkX3R1dG9yaWFsLwoKCgojIHJlbnRyZXogdHV0b3JpYWwKCmh0dHBzOi8vcm9wZW5zY2kub3JnL3R1dG9yaWFscy9yZW50cmV6X3R1dG9yaWFsLyAgCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK</div>
 
 
 
