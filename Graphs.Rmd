@@ -1,8 +1,84 @@
 ---
 title: "Graphs"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
+---
+
+# easyalluvial
+
+
+https://github.com/erblast/easyalluvial  
+
+https://www.datisticsblog.com/2018/10/intro_easyalluvial/#features  
+
+https://cran.r-project.org/web/packages/easyalluvial/index.html
+
+
+
+```{r}
+# install.packages('easyalluvial')
+```
+
+
+```{r}
+suppressPackageStartupMessages(require(tidyverse))
+suppressPackageStartupMessages(require(easyalluvial))
+```
+
+
+
+```{r}
+## mtcars2 is included in the current development version
+
+# mtcars2 <- within(mtcars, {
+#   vs <- factor(vs, labels = c("V", "S"))
+#   am <- factor(am, labels = c("automatic", "manual"))
+#   cyl  <- ordered(cyl)
+#   gear <- ordered(gear)
+#   carb <- ordered(carb)
+# })
+# 
+# mtcars2$id = row.names(mtcars)
+# 
+# mtcars2 = dplyr::as_tibble(mtcars2)
+
+knitr::kable(head(mtcars2))
+```
+
+
+
+
+
+```{r}
+library(easyalluvial)
+alluvial_wide(data = mtcars2
+                , max_variables = 5
+                , fill_by = 'first_variable' )
+```
+
+
+```{r}
+knitr::kable( head(quarterly_flights) )
+```
+
+
+```{r}
+alluvial_long( quarterly_flights
+               , key = qu
+               , value = mean_arr_delay
+               , id = tailnum
+               , fill = carrier )
+```
+
+
+
+
+
+
+---
 
 # RColorBrewer
 
@@ -10,7 +86,7 @@ How to expand color palette with ggplot and RColorBrewer
 
 https://www.r-bloggers.com/how-to-expand-color-palette-with-ggplot-and-rcolorbrewer/
 
-
+---
 
 # highcharter
 
@@ -28,12 +104,11 @@ https://www.datacamp.com/community/tutorials/data-visualization-highcharter-r
 ```{r}
 library(tidyverse)
 library(highcharter)
-
 ```
 
 ```{r}
 data("pokemon")
-glimpse(pokemon)
+# glimpse(pokemon)
 ```
 
 
@@ -183,7 +258,7 @@ get_data_from_map: Get the properties for each region in the map, as the keys fr
 
 ```{r}
 mapdata <- get_data_from_map(download_map_data("https://code.highcharts.com/mapdata/countries/in/in-all.js"))
-glimpse(mapdata)
+# glimpse(mapdata)
 ```
 
 
@@ -583,8 +658,46 @@ ggplot(iris, aes(x = Petal.Width, y = Petal.Length)) +
 ---
 
 
+# ggforce
 
 
+```{r}
+install.packages("ggforce")
+library(ggforce)
+```
+
+
+```{r}
+Titanic
+```
+
+
+```{r}
+titanic <- reshape2::melt(Titanic)
+
+head(titanic)
+```
+
+
+```{r}
+titanic <- gather_set_data(titanic, 1:4)
+head(titanic)
+# View(titanic)
+```
+
+
+```{r}
+ggplot(titanic, aes(x, id = id, split = y, value = value)) +
+  geom_parallel_sets(aes(fill = Sex), alpha = 0.3, axis.width = 0.1) +
+  geom_parallel_sets_axes(axis.width = 0.1) +
+  geom_parallel_sets_labels(colour = 'white')
+
+
+```
+
+
+
+---
 
 
 

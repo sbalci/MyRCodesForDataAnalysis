@@ -500,7 +500,38 @@ x %>%
   adorn_ns(position = "front")
 ```
 
-  
+
+```{r}
+adorn_cumulative <- function(dat, colname, dir = "down"){
+
+  if(!missing(colname)){
+    colname <- rlang::enquo(colname)
+  } else if("valid_percent" %in% names(dat)) {
+  colname <- rlang::sym("valid_percent")
+  } else if("percent" %in% names(dat)){
+    colname <- rlang::sym("percent")
+  } else {
+    stop("\"colname\" not specified and default columns valid_percent and percent are not present in data.frame dat")
+  }
+
+  target <- dplyr::pull(dat, !! colname)
+
+  if(dir == "up"){
+    target <- rev(target)
+  }
+  dat$cumulative <- cumsum(ifelse(is.na(target), 0, target)) + target*0 # an na.rm version of cumsum, from https://stackoverflow.com/a/25576972
+  if(dir == "up"){
+    dat$cumulative <- rev(dat$cumulative)
+    names(dat)[names(dat) %in% "cumulative"] <- "cumulative_up"
+  }
+  dat
+}
+```
+
+
+
+
+
   
 
 ```{r}

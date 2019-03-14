@@ -1478,7 +1478,7 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
@@ -1599,9 +1599,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1656,8 +1654,6 @@ summary {
 }
 </style>
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -1741,6 +1737,15 @@ $(document).ready(function () {
 
 
 
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
 
 <div class="fluid-row" id="header">
 
@@ -1802,29 +1807,20 @@ options(&quot;citation_format&quot; = &quot;pandoc&quot;)
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>citation (Abrams, Ruokolainen, Shuter, et al., 2012) in text</p>
+<pre><code>citation (Abrams, Ruokolainen, Shuter, et al., 2012) in text</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXQoXCIxMC4xMDk4L3JzcGIuMjAxMy4xMzcyXCIpXG5gYGAifQ== -->
-<pre class="r"><code>citet(&quot;10.1098/rspb.2013.1372&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdGNpdGF0aW9uczo6Y2l0ZXQoXCIxMC4xMDk4L3JzcGIuMjAxMy4xMzcyXCIpXG5gYGAifQ== -->
+<pre class="r"><code>knitcitations::citet(&quot;10.1098/rspb.2013.1372&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQEJvZXR0aWdlcl8yMDEzXCJcbiJ9 -->
-<pre><code>[1] &quot;@Boettiger_2013&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>citation Boettiger and Hastings (2013) in text</p>
+<pre><code>citation Boettiger and Hastings (2013) in text</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0ZXAoXCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGVcIilcbmBgYCJ9 -->
-<pre class="r"><code>citep(&quot;http://knowledgeblog.org/greycite&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdGNpdGF0aW9uczo6Y2l0ZXAoXCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGVcIilcbmBgYCJ9 -->
+<pre class="r"><code>knitcitations::citep(&quot;http://knowledgeblog.org/greycite&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IHJlYWNoIEdyZXljaXRlIEFQSVxuIn0= -->
-<pre><code>cannot reach Greycite API</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiW0BVbmtub3duXzIwMThdXCJcbiJ9 -->
-<pre><code>[1] &quot;[@Unknown_2018]&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <pre><code>write.bibtex(file=&quot;references.bib&quot;)</code></pre>
@@ -1840,10 +1836,159 @@ options(&quot;citation_format&quot; = &quot;pandoc&quot;)
 <div id="rentrez-tutorial" class="section level1">
 <h1>rentrez tutorial</h1>
 <p><a href="https://ropensci.org/tutorials/rentrez_tutorial/" class="uri">https://ropensci.org/tutorials/rentrez_tutorial/</a></p>
+</div>
+<div id="webscicorpus" class="section level1">
+<h1>WebSciCorpus</h1>
+<p><a href="https://www.clarehooper.net/WebSciCorpus/" class="uri">https://www.clarehooper.net/WebSciCorpus/</a></p>
+</div>
+<div id="web-of-science-wos-corpus-parsing-script" class="section level1">
+<h1>WEB OF SCIENCE (WOS) CORPUS | PARSING SCRIPT</h1>
+<p><a href="https://docs.cortext.net/question/web-of-science-wos-corpus-parsing-script-2/" class="uri">https://docs.cortext.net/question/web-of-science-wos-corpus-parsing-script-2/</a></p>
+</div>
+<div id="t-lab-plus-2019" class="section level1">
+<h1>T-LAB PLUS 2019</h1>
+<p><a href="https://tlab.it/en/allegati/help_en_online/mmappe2.htm" class="uri">https://tlab.it/en/allegati/help_en_online/mmappe2.htm</a></p>
+</div>
+<div id="tools-for-bibliometric-analyses" class="section level1">
+<h1>Tools for bibliometric analyses</h1>
+<p><a href="https://ju.se/library/research--teaching-support/bibliometrics/tools-for-bibliometric-analyses.html" class="uri">https://ju.se/library/research--teaching-support/bibliometrics/tools-for-bibliometric-analyses.html</a></p>
+</div>
+<div id="evidencepartners" class="section level1">
+<h1>evidencepartners</h1>
+<p><a href="https://www.evidencepartners.com/" class="uri">https://www.evidencepartners.com/</a></p>
+</div>
+<div id="r-script-for-creating-a-cross-citation-network" class="section level1">
+<h1>R script for creating a cross-citation network</h1>
+<p><a href="https://www.researchgate.net/publication/327790285_R_script_for_creating_a_cross-citation_network" class="uri">https://www.researchgate.net/publication/327790285_R_script_for_creating_a_cross-citation_network</a></p>
+<p>Repository: <a href="https://github.com/arsiders/citation-network" class="uri">https://github.com/arsiders/citation-network</a></p>
+<pre><code># RCitation - Quick Citation Network 
+# Fall 2018 
+# A.R. Siders (siders@alumni.stanford.edu)
+
+# Creates a network of the citations among a set of academic papers. 
+# Rationale: If full title of Article 2 is present in text of Article 1, Article 1 cites Article 2. 
+# NOTE: Will only work in fields where full, unabbreviated titles are used in reference/bibliography citation format. 
+# NOTE: Will have high error rate if titles are very short or comprised of common words (e.g., paper &quot;Vulnerability&quot; produced many false positives). Some errors result from authors using a shortened version of a title (e.g., only text before a colon) or incorrect citations or typos. Citation networks produced are therefore approximate and to be used primarily for exploration of the data.
+# NOTE: Error rate may be reduced by using only reference sections of the articles of interest, rather than full texts, but this will increase work required to prepare articles. 
+
+
+# ==&gt; FIVE STEPS TO CITATION NETWORK
+
+# STEP 1. FORMAT INPUT
+# a. Papers: Folder of papers in txt format (UTF-8) organized *in SAME ORDER* as Titles 
+# b. Titles: Column of paper titles in csv spreadsheet (Column #1) *in SAME ORDER* as documents in Papers folder. Need a header cell or top title will be removed.
+# Recommend naming all texts in Papers folder using author last name listed alphabetically. Organize Titles using same order.
+
+
+# STEP 2.  PREP
+# set working directory
+setwd(&quot;C:\[name of working space]&quot;) # make sure \ not / in name
+setwd(&quot;C:/Users/User/OneDrive/Adaptive Capacity Text Mining/Citation Network Test/CitationNetwork Test Data&quot;)
+# load packages
+install.packages(c(&quot;tm&quot;,&quot;plyr&quot;))
+library(tm)
+library(plyr)
+
+
+# STEP 3. LOAD INPUTS
+# a. Papers 
+papers&lt;-Corpus(DirSource(&quot;[name of folder where papers located]&quot;))
+papers&lt;-Corpus(DirSource(&quot;Papers&quot;))
+# b. Titles
+titletable&lt;-read.csv(&quot;[name of titles file].csv&quot;) #make sure column has a header
+titletable&lt;-read.csv(&quot;TestTitles.csv&quot;)
+titles&lt;-as.vector(titletable[,1])
+# load functions at bottom of this script (below Step 5)
+
+length(papers)
+length(titles)
+
+# STEP 4. RUN FUNCTION 
+
+CitationNetwork&lt;-CreateCitationNetwork(papers,titles)
+# add date
+currentDate &lt;- Sys.Date()
+csvFileName &lt;- paste(&quot;CitationEdges&quot;,currentDate,&quot;.csv&quot;,sep=&quot;&quot;)
+# save results
+write.csv(CitationNetwork, file=csvFileName) 
+
+  
+# STEP 5. VISUALIZE NETWORK
+
+# Install Gephi or other network visualization software and load CitationEdges.csv 
+# Load list of titles or other spreadsheet as nodes to visualize network 
+# Gephi available at https://gephi.org/
+
+
+# ===&gt; FUNCTIONS TO LOAD 
+
+CreateCitationNetwork&lt;-function(papers,titles){
+  # prep papers corpus
+  papers&lt;-tm_map(papers, content_transformer(tolower))
+  papers&lt;-tm_map(papers, removePunctuation)
+  papers&lt;-tm_map(papers, removeNumbers)
+  papers&lt;-tm_map(papers, stripWhitespace)
+  # prep titles 
+  titles&lt;-removePunctuation(titles)
+  titles&lt;-stripWhitespace(titles)
+  titles&lt;-tolower(titles)
+  # create citation true/false matrix
+  Cites.TF&lt;-CiteMatrix(titles, papers)
+  # format matrix into edges file 
+  CitationEdges&lt;-EdgesFormat(Cites.TF, titles)
+  return(CitationEdges)
+}  
+
+# format true/false matrix into edges file 
+EdgesFormat&lt;-function(Cites.TF, titles){
+  #create an empty object to put information in
+  edges&lt;-data.frame(matrix(NA), nrow=NA, ncol=NA)
+  colnames(edges)&lt;- c(&quot;Source&quot;,&quot;Target&quot;,&quot;Weight&quot;)
+  for (i in 1:length(Cites.TF)){
+  #for each document, run through all titles accross columns
+    for (j in 1:ncol(Cites.TF)){
+      # for each title, see if document [row] cited that title [column]
+      if (Cites.TF[i,j]==TRUE){  #if document is cited
+        temp&lt;-data.frame(matrix(NA), nrow=NA, ncol=NA)
+        colnames(temp)&lt;- c(&quot;Source&quot;,&quot;Target&quot;,&quot;Weight&quot;)
+        # first column &lt;- document doing the citing 
+        temp[1,1]&lt;-titles[i]
+        # second column &lt;- document being cited
+        temp[1,2]&lt;-titles[j]
+        # third column the yes/no [weight]
+        temp[1,3]&lt;-1  
+        temp[1,4]&lt;-&quot;Directed&quot;
+        edges&lt;-rbind(edges,temp)    
+      } 
+    }
+  }  
+  return(edges[-1,]) #-1 removes initial row of null values
+}
+
+# Citation true/false matrix 
+CiteMatrix&lt;-function(search.vector, Ref.corpus){
+  # Creates a csv matrix with True/False for citation patterns 
+  citations&lt;-data.frame(matrix(NA, nrow = length(Ref.corpus), ncol=length(search.vector)))
+  #Columns are the document being cited
+  colnames(citations)&lt;-search.vector
+  #Rows are the document doing the citing 
+  rownames(citations)&lt;-search.vector
+  for (i in 1:length(search.vector)){
+    searchi&lt;-search.vector[i]
+    papercite&lt;-grepl(searchi, Ref.corpus$content, fixed=TRUE)
+    citations[,i]&lt;-papercite
+  }
+  return(citations)
+}</code></pre>
+<hr />
+<ul>
+<li>The application of methods of social network analysis in bibliometrics and webometrics. Measures and tools</li>
+</ul>
+<p><a href="https://www.researchgate.net/publication/327817518_The_application_of_methods_of_social_network_analysis_in_bibliometrics_and_webometrics_Measures_and_tools" class="uri">https://www.researchgate.net/publication/327817518_The_application_of_methods_of_social_network_analysis_in_bibliometrics_and_webometrics_Measures_and_tools</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlibGlvZ3JhcGh5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQSBicmllZiBpbnRyb2R1Y3Rpb24gdG8gYmlibGlvbWV0cml4CgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2JpYmxpb21ldHJpeC92aWduZXR0ZXMvYmlibGlvbWV0cml4LXZpZ25ldHRlLmh0bWwKCiBCaWJsaW9ncmFwaGljIE5ldHdvcmsgVmlzdWFsaXphdGlvbiBmb3IgQWNhZGVtaWMgTGl0ZXJhdHVyZSBSZXZpZXdzIAogCiBodHRwOi8vd3d3Lm1idXJuYW1maW5rLmNvbS9ibG9nL2JpYmxpb2dyYXBoaWMtbmV0d29yay12aXN1YWxpemF0aW9uLWZvci1hY2FkZW1pYy1saXRlcmF0dXJlLXJldmlld3MKIAogCiBodHRwczovL2VtYmVkLmt1bXUuaW8vMGI5OTFiMDJiYjIwOTc1ZmRlOTA0ZjRiZjc0MzMzMzMjanBzcC10b3AtNTA/cz0lMjNkb2ktMTAxMDM3LTAwMjItMzUxNDc0NTEyNTIKIAogIE1vcmUgVGhhbiBXb3Jkcz8gQ29tcHV0ZXItQWlkZWQgVGV4dCBBbmFseXNpcyBpbiBPcmdhbml6YXRpb25hbCBCZWhhdmlvciBhbmQgUHN5Y2hvbG9neSBSZXNlYXJjaAogIAogIGh0dHBzOi8vd3d3LmFubnVhbHJldmlld3Mub3JnL2RvaS8xMC4xMTQ2L2FubnVyZXYtb3JncHN5Y2gtMDMyMTE3LTEwNDYyMgogIAogIAogCiAKIGh0dHBzOi8vd3d3Lmt1bXUuaW8vbmljaG9sYXNqa2VsbGV5L2pwc3AtdG9wLTUwCiAKIAojIGtuaXRjaXRhdGlvbnMKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYm9ldHRpZy9rbml0Y2l0YXRpb25zCgoKYGBge3J9CiMgbGlicmFyeShkZXZ0b29scykKIyBpbnN0YWxsX2dpdGh1YigiY2JvZXR0aWcva25pdGNpdGF0aW9ucyIpCmluc3RhbGwucGFja2FnZXMoImtuaXRjaXRhdGlvbnMiKQpgYGAKCgpgYGB7cn0KbGlicmFyeSgia25pdGNpdGF0aW9ucyIpCmNsZWFuYmliKCkKb3B0aW9ucygiY2l0YXRpb25fZm9ybWF0IiA9ICJwYW5kb2MiKQoKYGBgCgpgYGB7cn0KY2l0ZXAoIjEwLjE4OTAvMTEtMDAxMS4xIikKYGBgCgpjaXRhdGlvbiBgciBjaXRlcCgiMTAuMTg5MC8xMS0wMDExLjEiKWAgaW4gdGV4dAoKCmBgYHtyfQpjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpCmBgYAoKCgpjaXRhdGlvbiBgciBjaXRldCgiMTAuMTA5OC9yc3BiLjIwMTMuMTM3MiIpYCBpbiB0ZXh0CgoKYGBge3J9CmNpdGVwKCJodHRwOi8va25vd2xlZGdlYmxvZy5vcmcvZ3JleWNpdGUiKQpgYGAKCmBgYAp3cml0ZS5iaWJ0ZXgoZmlsZT0icmVmZXJlbmNlcy5iaWIiKQpgYGAKCiMgcmNyb3NzcmVmCgpodHRwczovL2dpdGh1Yi5jb20vcm9wZW5zY2kvcmNyb3NzcmVmCgoKCiMgcm9yY2lkIHR1dG9yaWFsCgpodHRwczovL3JvcGVuc2NpLm9yZy90dXRvcmlhbHMvcm9yY2lkX3R1dG9yaWFsLwoKCgojIHJlbnRyZXogdHV0b3JpYWwKCmh0dHBzOi8vcm9wZW5zY2kub3JnL3R1dG9yaWFscy9yZW50cmV6X3R1dG9yaWFsLyAgCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlibGlvZ3JhcGh5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQSBicmllZiBpbnRyb2R1Y3Rpb24gdG8gYmlibGlvbWV0cml4CgoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL2JpYmxpb21ldHJpeC92aWduZXR0ZXMvYmlibGlvbWV0cml4LXZpZ25ldHRlLmh0bWwKCiBCaWJsaW9ncmFwaGljIE5ldHdvcmsgVmlzdWFsaXphdGlvbiBmb3IgQWNhZGVtaWMgTGl0ZXJhdHVyZSBSZXZpZXdzIAogCiBodHRwOi8vd3d3Lm1idXJuYW1maW5rLmNvbS9ibG9nL2JpYmxpb2dyYXBoaWMtbmV0d29yay12aXN1YWxpemF0aW9uLWZvci1hY2FkZW1pYy1saXRlcmF0dXJlLXJldmlld3MKIAogCiBodHRwczovL2VtYmVkLmt1bXUuaW8vMGI5OTFiMDJiYjIwOTc1ZmRlOTA0ZjRiZjc0MzMzMzMjanBzcC10b3AtNTA/cz0lMjNkb2ktMTAxMDM3LTAwMjItMzUxNDc0NTEyNTIKIAogIE1vcmUgVGhhbiBXb3Jkcz8gQ29tcHV0ZXItQWlkZWQgVGV4dCBBbmFseXNpcyBpbiBPcmdhbml6YXRpb25hbCBCZWhhdmlvciBhbmQgUHN5Y2hvbG9neSBSZXNlYXJjaAogIAogIGh0dHBzOi8vd3d3LmFubnVhbHJldmlld3Mub3JnL2RvaS8xMC4xMTQ2L2FubnVyZXYtb3JncHN5Y2gtMDMyMTE3LTEwNDYyMgogIAogIAogCiAKIGh0dHBzOi8vd3d3Lmt1bXUuaW8vbmljaG9sYXNqa2VsbGV5L2pwc3AtdG9wLTUwCiAKIAojIGtuaXRjaXRhdGlvbnMKCmh0dHBzOi8vZ2l0aHViLmNvbS9jYm9ldHRpZy9rbml0Y2l0YXRpb25zCgoKYGBge3J9CiMgbGlicmFyeShkZXZ0b29scykKIyBpbnN0YWxsX2dpdGh1YigiY2JvZXR0aWcva25pdGNpdGF0aW9ucyIpCmluc3RhbGwucGFja2FnZXMoImtuaXRjaXRhdGlvbnMiKQpgYGAKCgpgYGB7cn0KbGlicmFyeSgia25pdGNpdGF0aW9ucyIpCmNsZWFuYmliKCkKb3B0aW9ucygiY2l0YXRpb25fZm9ybWF0IiA9ICJwYW5kb2MiKQoKYGBgCgoKYGBge3J9CmtuaXRjaXRhdGlvbnM6OmNpdGVwKCIxMC4xODkwLzExLTAwMTEuMSIpCmBgYAoKCmBgYApjaXRhdGlvbiBgciBjaXRlcCgiMTAuMTg5MC8xMS0wMDExLjEiKWAgaW4gdGV4dApgYGAKCgpgYGB7cn0Ka25pdGNpdGF0aW9uczo6Y2l0ZXQoIjEwLjEwOTgvcnNwYi4yMDEzLjEzNzIiKQpgYGAKCgoKYGBgCmNpdGF0aW9uIGByIGNpdGV0KCIxMC4xMDk4L3JzcGIuMjAxMy4xMzcyIilgIGluIHRleHQKYGBgCgpgYGB7cn0Ka25pdGNpdGF0aW9uczo6Y2l0ZXAoImh0dHA6Ly9rbm93bGVkZ2VibG9nLm9yZy9ncmV5Y2l0ZSIpCmBgYAoKCmBgYAp3cml0ZS5iaWJ0ZXgoZmlsZT0icmVmZXJlbmNlcy5iaWIiKQpgYGAKCgojIHJjcm9zc3JlZgoKaHR0cHM6Ly9naXRodWIuY29tL3JvcGVuc2NpL3Jjcm9zc3JlZgoKCgojIHJvcmNpZCB0dXRvcmlhbAoKaHR0cHM6Ly9yb3BlbnNjaS5vcmcvdHV0b3JpYWxzL3JvcmNpZF90dXRvcmlhbC8KCgoKIyByZW50cmV6IHR1dG9yaWFsCgpodHRwczovL3JvcGVuc2NpLm9yZy90dXRvcmlhbHMvcmVudHJlel90dXRvcmlhbC8gIAoKIyBXZWJTY2lDb3JwdXMKCmh0dHBzOi8vd3d3LmNsYXJlaG9vcGVyLm5ldC9XZWJTY2lDb3JwdXMvCgojIFdFQiBPRiBTQ0lFTkNFIChXT1MpIENPUlBVUyB8IFBBUlNJTkcgU0NSSVBUCgpodHRwczovL2RvY3MuY29ydGV4dC5uZXQvcXVlc3Rpb24vd2ViLW9mLXNjaWVuY2Utd29zLWNvcnB1cy1wYXJzaW5nLXNjcmlwdC0yLwoKIyBULUxBQiBQTFVTIDIwMTkKCmh0dHBzOi8vdGxhYi5pdC9lbi9hbGxlZ2F0aS9oZWxwX2VuX29ubGluZS9tbWFwcGUyLmh0bQoKIyBUb29scyBmb3IgYmlibGlvbWV0cmljIGFuYWx5c2VzCgpodHRwczovL2p1LnNlL2xpYnJhcnkvcmVzZWFyY2gtLXRlYWNoaW5nLXN1cHBvcnQvYmlibGlvbWV0cmljcy90b29scy1mb3ItYmlibGlvbWV0cmljLWFuYWx5c2VzLmh0bWwKCgojIGV2aWRlbmNlcGFydG5lcnMKCmh0dHBzOi8vd3d3LmV2aWRlbmNlcGFydG5lcnMuY29tLwoKIyBSIHNjcmlwdCBmb3IgY3JlYXRpbmcgYSBjcm9zcy1jaXRhdGlvbiBuZXR3b3JrCgpodHRwczovL3d3dy5yZXNlYXJjaGdhdGUubmV0L3B1YmxpY2F0aW9uLzMyNzc5MDI4NV9SX3NjcmlwdF9mb3JfY3JlYXRpbmdfYV9jcm9zcy1jaXRhdGlvbl9uZXR3b3JrCgpSZXBvc2l0b3J5OiBodHRwczovL2dpdGh1Yi5jb20vYXJzaWRlcnMvY2l0YXRpb24tbmV0d29yawoKCgpgYGAKIyBSQ2l0YXRpb24gLSBRdWljayBDaXRhdGlvbiBOZXR3b3JrIAojIEZhbGwgMjAxOCAKIyBBLlIuIFNpZGVycyAoc2lkZXJzQGFsdW1uaS5zdGFuZm9yZC5lZHUpCgojIENyZWF0ZXMgYSBuZXR3b3JrIG9mIHRoZSBjaXRhdGlvbnMgYW1vbmcgYSBzZXQgb2YgYWNhZGVtaWMgcGFwZXJzLiAKIyBSYXRpb25hbGU6IElmIGZ1bGwgdGl0bGUgb2YgQXJ0aWNsZSAyIGlzIHByZXNlbnQgaW4gdGV4dCBvZiBBcnRpY2xlIDEsIEFydGljbGUgMSBjaXRlcyBBcnRpY2xlIDIuIAojIE5PVEU6IFdpbGwgb25seSB3b3JrIGluIGZpZWxkcyB3aGVyZSBmdWxsLCB1bmFiYnJldmlhdGVkIHRpdGxlcyBhcmUgdXNlZCBpbiByZWZlcmVuY2UvYmlibGlvZ3JhcGh5IGNpdGF0aW9uIGZvcm1hdC4gCiMgTk9URTogV2lsbCBoYXZlIGhpZ2ggZXJyb3IgcmF0ZSBpZiB0aXRsZXMgYXJlIHZlcnkgc2hvcnQgb3IgY29tcHJpc2VkIG9mIGNvbW1vbiB3b3JkcyAoZS5nLiwgcGFwZXIgIlZ1bG5lcmFiaWxpdHkiIHByb2R1Y2VkIG1hbnkgZmFsc2UgcG9zaXRpdmVzKS4gU29tZSBlcnJvcnMgcmVzdWx0IGZyb20gYXV0aG9ycyB1c2luZyBhIHNob3J0ZW5lZCB2ZXJzaW9uIG9mIGEgdGl0bGUgKGUuZy4sIG9ubHkgdGV4dCBiZWZvcmUgYSBjb2xvbikgb3IgaW5jb3JyZWN0IGNpdGF0aW9ucyBvciB0eXBvcy4gQ2l0YXRpb24gbmV0d29ya3MgcHJvZHVjZWQgYXJlIHRoZXJlZm9yZSBhcHByb3hpbWF0ZSBhbmQgdG8gYmUgdXNlZCBwcmltYXJpbHkgZm9yIGV4cGxvcmF0aW9uIG9mIHRoZSBkYXRhLgojIE5PVEU6IEVycm9yIHJhdGUgbWF5IGJlIHJlZHVjZWQgYnkgdXNpbmcgb25seSByZWZlcmVuY2Ugc2VjdGlvbnMgb2YgdGhlIGFydGljbGVzIG9mIGludGVyZXN0LCByYXRoZXIgdGhhbiBmdWxsIHRleHRzLCBidXQgdGhpcyB3aWxsIGluY3JlYXNlIHdvcmsgcmVxdWlyZWQgdG8gcHJlcGFyZSBhcnRpY2xlcy4gCgoKIyA9PT4gRklWRSBTVEVQUyBUTyBDSVRBVElPTiBORVRXT1JLCgojIFNURVAgMS4gRk9STUFUIElOUFVUCiMgYS4gUGFwZXJzOiBGb2xkZXIgb2YgcGFwZXJzIGluIHR4dCBmb3JtYXQgKFVURi04KSBvcmdhbml6ZWQgKmluIFNBTUUgT1JERVIqIGFzIFRpdGxlcyAKIyBiLiBUaXRsZXM6IENvbHVtbiBvZiBwYXBlciB0aXRsZXMgaW4gY3N2IHNwcmVhZHNoZWV0IChDb2x1bW4gIzEpICppbiBTQU1FIE9SREVSKiBhcyBkb2N1bWVudHMgaW4gUGFwZXJzIGZvbGRlci4gTmVlZCBhIGhlYWRlciBjZWxsIG9yIHRvcCB0aXRsZSB3aWxsIGJlIHJlbW92ZWQuCiMgUmVjb21tZW5kIG5hbWluZyBhbGwgdGV4dHMgaW4gUGFwZXJzIGZvbGRlciB1c2luZyBhdXRob3IgbGFzdCBuYW1lIGxpc3RlZCBhbHBoYWJldGljYWxseS4gT3JnYW5pemUgVGl0bGVzIHVzaW5nIHNhbWUgb3JkZXIuCgoKIyBTVEVQIDIuICBQUkVQCiMgc2V0IHdvcmtpbmcgZGlyZWN0b3J5CnNldHdkKCJDOlxbbmFtZSBvZiB3b3JraW5nIHNwYWNlXSIpICMgbWFrZSBzdXJlIFwgbm90IC8gaW4gbmFtZQpzZXR3ZCgiQzovVXNlcnMvVXNlci9PbmVEcml2ZS9BZGFwdGl2ZSBDYXBhY2l0eSBUZXh0IE1pbmluZy9DaXRhdGlvbiBOZXR3b3JrIFRlc3QvQ2l0YXRpb25OZXR3b3JrIFRlc3QgRGF0YSIpCiMgbG9hZCBwYWNrYWdlcwppbnN0YWxsLnBhY2thZ2VzKGMoInRtIiwicGx5ciIpKQpsaWJyYXJ5KHRtKQpsaWJyYXJ5KHBseXIpCgoKIyBTVEVQIDMuIExPQUQgSU5QVVRTCiMgYS4gUGFwZXJzIApwYXBlcnM8LUNvcnB1cyhEaXJTb3VyY2UoIltuYW1lIG9mIGZvbGRlciB3aGVyZSBwYXBlcnMgbG9jYXRlZF0iKSkKcGFwZXJzPC1Db3JwdXMoRGlyU291cmNlKCJQYXBlcnMiKSkKIyBiLiBUaXRsZXMKdGl0bGV0YWJsZTwtcmVhZC5jc3YoIltuYW1lIG9mIHRpdGxlcyBmaWxlXS5jc3YiKSAjbWFrZSBzdXJlIGNvbHVtbiBoYXMgYSBoZWFkZXIKdGl0bGV0YWJsZTwtcmVhZC5jc3YoIlRlc3RUaXRsZXMuY3N2IikKdGl0bGVzPC1hcy52ZWN0b3IodGl0bGV0YWJsZVssMV0pCiMgbG9hZCBmdW5jdGlvbnMgYXQgYm90dG9tIG9mIHRoaXMgc2NyaXB0IChiZWxvdyBTdGVwIDUpCgpsZW5ndGgocGFwZXJzKQpsZW5ndGgodGl0bGVzKQoKIyBTVEVQIDQuIFJVTiBGVU5DVElPTiAKCkNpdGF0aW9uTmV0d29yazwtQ3JlYXRlQ2l0YXRpb25OZXR3b3JrKHBhcGVycyx0aXRsZXMpCiMgYWRkIGRhdGUKY3VycmVudERhdGUgPC0gU3lzLkRhdGUoKQpjc3ZGaWxlTmFtZSA8LSBwYXN0ZSgiQ2l0YXRpb25FZGdlcyIsY3VycmVudERhdGUsIi5jc3YiLHNlcD0iIikKIyBzYXZlIHJlc3VsdHMKd3JpdGUuY3N2KENpdGF0aW9uTmV0d29yaywgZmlsZT1jc3ZGaWxlTmFtZSkgCgogIAojIFNURVAgNS4gVklTVUFMSVpFIE5FVFdPUksKCiMgSW5zdGFsbCBHZXBoaSBvciBvdGhlciBuZXR3b3JrIHZpc3VhbGl6YXRpb24gc29mdHdhcmUgYW5kIGxvYWQgQ2l0YXRpb25FZGdlcy5jc3YgCiMgTG9hZCBsaXN0IG9mIHRpdGxlcyBvciBvdGhlciBzcHJlYWRzaGVldCBhcyBub2RlcyB0byB2aXN1YWxpemUgbmV0d29yayAKIyBHZXBoaSBhdmFpbGFibGUgYXQgaHR0cHM6Ly9nZXBoaS5vcmcvCgoKIyA9PT0+IEZVTkNUSU9OUyBUTyBMT0FEIAoKQ3JlYXRlQ2l0YXRpb25OZXR3b3JrPC1mdW5jdGlvbihwYXBlcnMsdGl0bGVzKXsKICAjIHByZXAgcGFwZXJzIGNvcnB1cwogIHBhcGVyczwtdG1fbWFwKHBhcGVycywgY29udGVudF90cmFuc2Zvcm1lcih0b2xvd2VyKSkKICBwYXBlcnM8LXRtX21hcChwYXBlcnMsIHJlbW92ZVB1bmN0dWF0aW9uKQogIHBhcGVyczwtdG1fbWFwKHBhcGVycywgcmVtb3ZlTnVtYmVycykKICBwYXBlcnM8LXRtX21hcChwYXBlcnMsIHN0cmlwV2hpdGVzcGFjZSkKICAjIHByZXAgdGl0bGVzIAogIHRpdGxlczwtcmVtb3ZlUHVuY3R1YXRpb24odGl0bGVzKQogIHRpdGxlczwtc3RyaXBXaGl0ZXNwYWNlKHRpdGxlcykKICB0aXRsZXM8LXRvbG93ZXIodGl0bGVzKQogICMgY3JlYXRlIGNpdGF0aW9uIHRydWUvZmFsc2UgbWF0cml4CiAgQ2l0ZXMuVEY8LUNpdGVNYXRyaXgodGl0bGVzLCBwYXBlcnMpCiAgIyBmb3JtYXQgbWF0cml4IGludG8gZWRnZXMgZmlsZSAKICBDaXRhdGlvbkVkZ2VzPC1FZGdlc0Zvcm1hdChDaXRlcy5URiwgdGl0bGVzKQogIHJldHVybihDaXRhdGlvbkVkZ2VzKQp9ICAKCiMgZm9ybWF0IHRydWUvZmFsc2UgbWF0cml4IGludG8gZWRnZXMgZmlsZSAKRWRnZXNGb3JtYXQ8LWZ1bmN0aW9uKENpdGVzLlRGLCB0aXRsZXMpewogICNjcmVhdGUgYW4gZW1wdHkgb2JqZWN0IHRvIHB1dCBpbmZvcm1hdGlvbiBpbgogIGVkZ2VzPC1kYXRhLmZyYW1lKG1hdHJpeChOQSksIG5yb3c9TkEsIG5jb2w9TkEpCiAgY29sbmFtZXMoZWRnZXMpPC0gYygiU291cmNlIiwiVGFyZ2V0IiwiV2VpZ2h0IikKICBmb3IgKGkgaW4gMTpsZW5ndGgoQ2l0ZXMuVEYpKXsKICAjZm9yIGVhY2ggZG9jdW1lbnQsIHJ1biB0aHJvdWdoIGFsbCB0aXRsZXMgYWNjcm9zcyBjb2x1bW5zCiAgICBmb3IgKGogaW4gMTpuY29sKENpdGVzLlRGKSl7CiAgICAgICMgZm9yIGVhY2ggdGl0bGUsIHNlZSBpZiBkb2N1bWVudCBbcm93XSBjaXRlZCB0aGF0IHRpdGxlIFtjb2x1bW5dCiAgICAgIGlmIChDaXRlcy5URltpLGpdPT1UUlVFKXsgICNpZiBkb2N1bWVudCBpcyBjaXRlZAogICAgICAgIHRlbXA8LWRhdGEuZnJhbWUobWF0cml4KE5BKSwgbnJvdz1OQSwgbmNvbD1OQSkKICAgICAgICBjb2xuYW1lcyh0ZW1wKTwtIGMoIlNvdXJjZSIsIlRhcmdldCIsIldlaWdodCIpCiAgICAgICAgIyBmaXJzdCBjb2x1bW4gPC0gZG9jdW1lbnQgZG9pbmcgdGhlIGNpdGluZyAKICAgICAgICB0ZW1wWzEsMV08LXRpdGxlc1tpXQogICAgICAgICMgc2Vjb25kIGNvbHVtbiA8LSBkb2N1bWVudCBiZWluZyBjaXRlZAogICAgICAgIHRlbXBbMSwyXTwtdGl0bGVzW2pdCiAgICAgICAgIyB0aGlyZCBjb2x1bW4gdGhlIHllcy9ubyBbd2VpZ2h0XQogICAgICAgIHRlbXBbMSwzXTwtMSAgCiAgICAgICAgdGVtcFsxLDRdPC0iRGlyZWN0ZWQiCiAgICAgICAgZWRnZXM8LXJiaW5kKGVkZ2VzLHRlbXApICAgIAogICAgICB9IAogICAgfQogIH0gIAogIHJldHVybihlZGdlc1stMSxdKSAjLTEgcmVtb3ZlcyBpbml0aWFsIHJvdyBvZiBudWxsIHZhbHVlcwp9CgojIENpdGF0aW9uIHRydWUvZmFsc2UgbWF0cml4IApDaXRlTWF0cml4PC1mdW5jdGlvbihzZWFyY2gudmVjdG9yLCBSZWYuY29ycHVzKXsKICAjIENyZWF0ZXMgYSBjc3YgbWF0cml4IHdpdGggVHJ1ZS9GYWxzZSBmb3IgY2l0YXRpb24gcGF0dGVybnMgCiAgY2l0YXRpb25zPC1kYXRhLmZyYW1lKG1hdHJpeChOQSwgbnJvdyA9IGxlbmd0aChSZWYuY29ycHVzKSwgbmNvbD1sZW5ndGgoc2VhcmNoLnZlY3RvcikpKQogICNDb2x1bW5zIGFyZSB0aGUgZG9jdW1lbnQgYmVpbmcgY2l0ZWQKICBjb2xuYW1lcyhjaXRhdGlvbnMpPC1zZWFyY2gudmVjdG9yCiAgI1Jvd3MgYXJlIHRoZSBkb2N1bWVudCBkb2luZyB0aGUgY2l0aW5nIAogIHJvd25hbWVzKGNpdGF0aW9ucyk8LXNlYXJjaC52ZWN0b3IKICBmb3IgKGkgaW4gMTpsZW5ndGgoc2VhcmNoLnZlY3RvcikpewogICAgc2VhcmNoaTwtc2VhcmNoLnZlY3RvcltpXQogICAgcGFwZXJjaXRlPC1ncmVwbChzZWFyY2hpLCBSZWYuY29ycHVzJGNvbnRlbnQsIGZpeGVkPVRSVUUpCiAgICBjaXRhdGlvbnNbLGldPC1wYXBlcmNpdGUKICB9CiAgcmV0dXJuKGNpdGF0aW9ucykKfQpgYGAKCi0tLQoKLSBUaGUgYXBwbGljYXRpb24gb2YgbWV0aG9kcyBvZiBzb2NpYWwgbmV0d29yayBhbmFseXNpcyBpbiBiaWJsaW9tZXRyaWNzIGFuZCB3ZWJvbWV0cmljcy4gTWVhc3VyZXMgYW5kIHRvb2xzCgpodHRwczovL3d3dy5yZXNlYXJjaGdhdGUubmV0L3B1YmxpY2F0aW9uLzMyNzgxNzUxOF9UaGVfYXBwbGljYXRpb25fb2ZfbWV0aG9kc19vZl9zb2NpYWxfbmV0d29ya19hbmFseXNpc19pbl9iaWJsaW9tZXRyaWNzX2FuZF93ZWJvbWV0cmljc19NZWFzdXJlc19hbmRfdG9vbHMKCgoKCgoKCgoKCgoKCgoKCgoKCgo=</div>
 
 
 

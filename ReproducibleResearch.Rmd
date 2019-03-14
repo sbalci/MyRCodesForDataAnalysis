@@ -76,3 +76,11 @@ redoc::redoc_extract_rmd("reversible.docx")
 https://colinfay.me/docker-r-reproducibility/
 
 
+# Naming Files
+
+- How to name files  
+https://speakerdeck.com/jennybc/how-to-name-files
+
+
+
+

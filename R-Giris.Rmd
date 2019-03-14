@@ -148,6 +148,9 @@ https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/
 - Available CRAN Packages By Name  
 https://cran.r-project.org/web/packages/available_packages_by_name.html
 
+- CRAN Task Views  
+https://cran.r-project.org/web/views/
+
 - Bioconductor  
 https://www.bioconductor.org
 

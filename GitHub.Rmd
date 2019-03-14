@@ -7,7 +7,6 @@ output: html_notebook
 
 http://r-bio.github.io/intro-git-rstudio/
 
-
 https://andrewbtran.github.io/NICAR/2018/workflow/docs/03-integrating_github.html
 
 https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/
@@ -25,6 +24,11 @@ http://happygitwithr.com/fork.html
 https://kbroman.org/github_tutorial/
 
 https://kbroman.org/simple_site/
+
+- Helping you make your first pull request!
+
+https://github.com/thisisnic/first-contributions
+
 
 
 

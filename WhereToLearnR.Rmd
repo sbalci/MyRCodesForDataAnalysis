@@ -115,12 +115,25 @@ https://www.youtube.com/playlist?list=PLsu0TcgLDUiIueDMfTX3322AZhdGb0_zm
 https://www.youtube.com/playlist?list=PLCj1LhGni3hPGy6Kj1AFxHYkKklxenO9D
 
 
+# What They Forgot to Teach You About R  
+  
+https://whattheyforgot.org/
+
+
 
 ---
 
-- Keeping up to date with R news  
+# Keeping up to date with R news  
 https://masalmon.eu/2019/01/25/uptodate/
 
 
-- Advanced R Markdown Workshop  
+
+# Advanced R Markdown Workshop  
 https://arm.rbind.io/days/day1/learnr/
+
+
+# CRAN Task Views
+
+https://cran.r-project.org/web/views/
+
+
