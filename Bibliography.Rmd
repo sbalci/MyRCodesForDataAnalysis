@@ -42,7 +42,6 @@ install.packages("knitcitations")
 library("knitcitations")
 cleanbib()
 options("citation_format" = "pandoc")
-
 ```
 
 
@@ -248,6 +247,62 @@ CiteMatrix<-function(search.vector, Ref.corpus){
 - The application of methods of social network analysis in bibliometrics and webometrics. Measures and tools
 
 https://www.researchgate.net/publication/327817518_The_application_of_methods_of_social_network_analysis_in_bibliometrics_and_webometrics_Measures_and_tools
+
+---
+
+# ScientoMiner ICR
+
+https://zenodo.org/record/1432557#.XItjfxO2k1J
+
+---
+
+# onodo
+
+https://onodo.org/dashboard
+
+https://onodo.org/tutorials
+
+---
+
+
+# BibExcel
+
+https://homepage.univie.ac.at/juan.gorraiz/bibexcel/
+
+---
+
+# Scientometric Portal
+
+https://sites.google.com/site/hjamali/scientometric-portal
+
+---
+
+# leydesdorff
+
+https://www.leydesdorff.net/software.htm
+
+
+---
+
+# Publish or Perish
+
+https://harzing.com/resources/publish-or-perish
+
+---
+
+# Pajek: analysis and visualization of large networks
+
+http://mrvar.fdv.uni-lj.si/pajek/
+
+---
+
+
+
+
+
+
+
+
 
 
 

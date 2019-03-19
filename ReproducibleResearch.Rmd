@@ -82,5 +82,22 @@ https://colinfay.me/docker-r-reproducibility/
 https://speakerdeck.com/jennybc/how-to-name-files
 
 
+# Example Articles
 
+- Increasing the Transparency of Research Papers withExplorable Multiverse Analyses
+
+https://hal.inria.fr/hal-01976951/document
+
+
+- Replication Study: Transcriptional amplification in tumor cells with elevated c-Myc
+
+https://repro.elifesciences.org/example.html
+
+- Introducing eLife’s first computationally reproducible article
+
+https://elifesciences.org/labs/ad58f08d/introducing-elife-s-first-computationally-reproducible-article
+
+- Re-Evaluating the Efficiency of Physical Visualizations: A Simple Multiverse Analysis
+
+https://explorablemultiverse.github.io/examples/frequentist/
 
