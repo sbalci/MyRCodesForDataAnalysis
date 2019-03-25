@@ -486,6 +486,28 @@ https://jozefhajnala.gitlab.io/r/r003-aggregation/
 
 
 
+---
+
+```
+df <- data.frame(
+          V1 = c(0, 0, 0, 0, 1, 1, 1, 1, 0, 1),
+          V2 = c(1, 1, 1, 0, 0, 0, 0, 0, 0, 1),
+          V3 = c(0, 0, 0, 1, 1, 1, 1, 1, 0, 1)
+)
+
+
+df$V1_rec <- grepl(pattern = "0", x = df$V1)
+df$V2_rec <- grepl(pattern = "0", x = df$V2)
+df$V3_rec <- grepl(pattern = "0", x = df$V3)
+
+df %>% 
+    mutate(toplam = select(., V1_rec:V3_rec) %>% rowSums(na.rm = TRUE)
+               )
+```
+
+---
+
+
 
 
 

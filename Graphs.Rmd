@@ -5,6 +5,21 @@ output:
     df_print: paged
 ---
 
+
+---
+
+
+# flatly
+
+Texas Housing Prices: flatly theme
+
+
+https://elastic-lovelace-155848.netlify.com/gallery/themes/flatly.html
+
+
+
+
+
 ---
 
 # easyalluvial

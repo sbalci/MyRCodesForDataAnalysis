@@ -174,10 +174,40 @@ https://awesome-r.com/
 https://cran.r-project.org/web/packages/pkgverse/index.html
 
 
+---
+
+## R paket yükleme
+
+```
+install.packages("tidyverse", dependencies = TRUE)
+install.packages("jmv", dependencies = TRUE)
+install.packages("questionr", dependencies = TRUE)
+install.packages("Rcmdr", dependencies = TRUE)
+install.packages("summarytools")
+```
+
+```{r paket yükleme}
+# install.packages("tidyverse", dependencies = TRUE)
+# install.packages("jmv", dependencies = TRUE)
+# install.packages("questionr", dependencies = TRUE)
+# install.packages("Rcmdr", dependencies = TRUE)
+# install.packages("summarytools")
+```
+
+
+```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
+# require(tidyverse)
+# require(jmv)
+# require(questionr)
+# library(summarytools)
+# library(gganimate)
+```
+
+
 
 ---
 
-## R için yardım bulma
+# R için yardım bulma
 
 
 ```{r yardım}
@@ -227,6 +257,20 @@ https://stackoverflow.com/
 
 ---
 
+- Google'da ararken `[R]` yazmak da işe yarayabiliyor.
+
+
+---
+
+- searcher package 📦
+
+
+[![](https://camo.githubusercontent.com/12f0e2d18047f1b5f36fbeb09a1d0e548236883f/68747470733a2f2f692e696d6775722e636f6d2f5a7132726736472e676966)](https://github.com/coatless/searcher)
+
+
+
+---
+
 - Awesome Cheatsheet
 https://github.com/detailyang/awesome-cheatsheet
 
@@ -256,37 +300,6 @@ https://twitter.com/hashtag/rstats?src=hash
 
 - Keeping up to date with R news  
 https://masalmon.eu/2019/01/25/uptodate/  
-
-
-
----
-
-## R paket yükleme
-
-```
-install.packages("tidyverse", dependencies = TRUE)
-install.packages("jmv", dependencies = TRUE)
-install.packages("questionr", dependencies = TRUE)
-install.packages("Rcmdr", dependencies = TRUE)
-install.packages("summarytools")
-```
-
-```{r paket yükleme}
-# install.packages("tidyverse", dependencies = TRUE)
-# install.packages("jmv", dependencies = TRUE)
-# install.packages("questionr", dependencies = TRUE)
-# install.packages("Rcmdr", dependencies = TRUE)
-# install.packages("summarytools")
-```
-
-
-```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
-# require(tidyverse)
-# require(jmv)
-# require(questionr)
-# library(summarytools)
-# library(gganimate)
-```
 
 ---
 

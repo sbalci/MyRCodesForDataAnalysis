@@ -203,3 +203,8 @@ library(tidyverse)
   details::details(summary = 'tibble')
 ```
 
+
+
+- Keeping Credentials Secret with Keyrings in R
+
+https://ras44.github.io/blog/2019/01/19/keeping-credentials-secret-with-keyrings-in-r.html
