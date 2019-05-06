@@ -336,7 +336,7 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 ## SPSS
 
-## csv
+## CSV
 
 
 ---
@@ -652,6 +652,13 @@ DataExplorer::create_report(df)
 
 ---
 
+## inspectdf
+
+https://github.com/alastairrushworth/inspectdf
+
+
+---
+
 ## Grafikler
 
 ```{r}
@@ -662,11 +669,13 @@ DataExplorer::create_report(df)
 
 ---
 
-```{r}
+
+```{r, results="asis"}
 ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 ```
 
 ---
+
 
 ```{r}
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
@@ -700,7 +709,9 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
+---
 
+## Tablolar
 
 
 
@@ -710,7 +721,11 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 ---
 
-# Rcmdr
+# Bazı arayüzler
+
+Link
+
+## Rcmdr
 
 ```
 library(Rcmdr)
@@ -727,7 +742,7 @@ http://r4stats.com/articles/software-reviews/r-commander/
 
 ---
 
-# jamovi
+## jamovi
 
 https://www.jamovi.org/
 
@@ -740,6 +755,11 @@ https://blog.jamovi.org/2018/07/30/rj.html
 
 ---
 
+# R nereden öğrenilir
+
+
+---
+
 # Sonraki Konular
 
 - RStudio ile GitHub
@@ -747,14 +767,7 @@ https://blog.jamovi.org/2018/07/30/rj.html
 - R Markdown ve R Notebook ile tekrarlanabilir rapor
 
 
----
-
-# Diğer kodlar
-
-- Diğer kodlar için bakınız: [https://sbalci.github.io/](https://sbalci.github.io/)
-
-
----
+-----
 
 # Geri Bildirim
 
@@ -787,5 +800,99 @@ s.setAttribute('data-timestamp', +new Date());
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 ---
+
+
+\pagebreak
+
+---
+
+```
+# Save Final Data
+
+saved data after analysis to `Data-After-Analysis.xlsx`.
+
+saveRDS(mydata, "Data-After-Analysis.rds")
+
+writexl::write_xlsx(mydata, "Data-After-Analysis.xlsx")
+
+file.info("Data-After-Analysis.xlsx")$ctime
+
+```
+
+---
+
+\pagebreak
+
+
+# Libraries Used
+
+```{r}
+citation()
+```
+
+```
+citation("tidyverse")
+citation("foreign")
+citation("tidylog")
+citation("janitor")
+citation("jmv")
+citation("tangram")
+citation("finalfit")
+citation("summarytools")
+citation("ggstatplot")
+citation("readxl")
+```
+
+
+```{r eval=FALSE, include=FALSE}
+citation("tidyverse")
+citation("foreign")
+citation("tidylog")
+citation("janitor")
+citation("jmv")
+citation("tangram")
+citation("finalfit")
+citation("summarytools")
+citation("ggstatplot")
+citation("readxl")
+```
+
+
+---
+
+
+```{r, results='asis'}
+report::cite_packages(session = sessionInfo())
+```
+
+
+---
+
+
+
+```{r}
+sessionInfo()
+```
+
+---
+
+\pagebreak
+
+
+
+# Notes  
+
+Completed on `r Sys.time()`.  
+
+Serdar Balci, MD, Pathologist  
+d  rserdarbalci@gmail.com  
+https://rpubs.com/sbalci/CV   
+
+  
+https://sbalci.github.io/  
+https://github.com/sbalci  
+---
+
+
 
 
