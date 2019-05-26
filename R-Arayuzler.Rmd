@@ -193,6 +193,10 @@ https://github.com/cardiomoon/ggplotAssist
 https://github.com/cargomoose/ggraptR
 
 
+# Eclipse – an alternative to RStudio
+
+https://datascienceplus.com/eclipse-an-alternative-to-rstudio-part-1/
+
 
 ---
 

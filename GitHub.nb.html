@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1478,7 +1478,7 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
@@ -1599,9 +1599,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1625,6 +1623,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -1654,12 +1655,71 @@ button.code-folding-btn:focus {
 </style>
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
@@ -1675,6 +1735,14 @@ $(document).ready(function () {
 </script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1699,6 +1767,20 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
+<hr />
+<pre><code>print(paste0(&quot;Git Update Started at: &quot;, Sys.time()))
+CommitMessage &lt;- paste(&quot;updated on: &quot;, Sys.time(), sep = &quot;&quot;)
+wd &lt;- &quot;~/serdarbalci&quot;
+setorigin &lt;- &quot;git remote set-url origin git@github.com:sbalci/MyJournalWatch.git \n&quot;
+gitCommand &lt;- paste(&quot;cd &quot;, wd, &quot; \n git add . \n git commit --message '&quot;, CommitMessage, &quot;' \n&quot;, setorigin, &quot;git push origin master \n&quot;,  sep = &quot;&quot;)
+system(command = paste(gitCommand, &quot;\n&quot;) , intern = TRUE, wait = TRUE)
+Sys.sleep(5)
+print(paste0(&quot;Git Update Ended at: &quot;, Sys.time()))</code></pre>
+<hr />
+<div id="happy-git-and-github-for-the-user" class="section level1">
+<h1>Happy Git and GitHub for the useR</h1>
+<p><a href="https://happygitwithr.com" class="uri">https://happygitwithr.com</a></p>
+<hr />
 <ul>
 <li>An introduction to Git and how to use it with RStudio</li>
 </ul>
@@ -1712,6 +1794,10 @@ $(document).ready(function () {
 <p><a href="http://happygitwithr.com/fork.html" class="uri">http://happygitwithr.com/fork.html</a></p>
 <p><a href="https://kbroman.org/github_tutorial/" class="uri">https://kbroman.org/github_tutorial/</a></p>
 <p><a href="https://kbroman.org/simple_site/" class="uri">https://kbroman.org/simple_site/</a></p>
+<ul>
+<li>Helping you make your first pull request!</li>
+</ul>
+<p><a href="https://github.com/thisisnic/first-contributions" class="uri">https://github.com/thisisnic/first-contributions</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVxdWlyZShyc3R1ZGlvYXBpKVxuQ29tbWl0TWVzc2FnZSA8LSBwYXN0ZShcInVwZGF0ZWQgb24gXCIsIFN5cy50aW1lKCksIHNlcCA9IFwiXCIpXG53ZCA8LSBnZXR3ZCgpXG5naXRDb21tYW5kIDwtIHBhc3RlKFwiY2RcIiwgd2QsIFwiIFxcbiBnaXQgYWRkIC4gXFxuIGdpdCBjb21taXQgLS1tZXNzYWdlICdcIiwgQ29tbWl0TWVzc2FnZSwgXCInIFxcbiBnaXQgcHVzaCBvcmlnaW4gbWFzdGVyIFxcblwiLCBzZXAgPSBcIlwiKVxuU3lzLnNsZWVwKHRpbWUgPSAxKVxuZ2l0VGVybSA8LSByc3R1ZGlvYXBpOjp0ZXJtaW5hbENyZWF0ZShzaG93ID0gRkFMU0UpXG5TeXMuc2xlZXAodGltZSA9IDEpXG5yc3R1ZGlvYXBpOjp0ZXJtaW5hbFNlbmQoZ2l0VGVybSwgZ2l0Q29tbWFuZClcbmBgYCJ9 -->
@@ -1737,8 +1823,9 @@ system(command = gitCommand, intern = TRUE)</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKLSBBbiBpbnRyb2R1Y3Rpb24gdG8gR2l0IGFuZCBob3cgdG8gdXNlIGl0IHdpdGggUlN0dWRpbwoKaHR0cDovL3ItYmlvLmdpdGh1Yi5pby9pbnRyby1naXQtcnN0dWRpby8KCgpodHRwczovL2FuZHJld2J0cmFuLmdpdGh1Yi5pby9OSUNBUi8yMDE4L3dvcmtmbG93L2RvY3MvMDMtaW50ZWdyYXRpbmdfZ2l0aHViLmh0bWwKCmh0dHBzOi8vYWJlcmRlZW5zdHVkeWdyb3VwLmdpdGh1Yi5pby9zdHVkeUdyb3VwL2xlc3NvbnMvU0ctVDEtR2l0SHViVmVyc2lvbkNvbnRyb2wvVmVyc2lvbkNvbnRyb2wvCgpodHRwOi8vci1iaW8uZ2l0aHViLmlvL2ludHJvLWdpdC1yc3R1ZGlvLwoKaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNDE2ODgxNjQvdXNpbmctcnN0dWRpby10by1tYWtlLXB1bGwtcmVxdWVzdHMtaW4tZ2l0CgpodHRwczovL2Jvb2tkb3duLm9yZy9yZHBlbmcvUlByb2dEQS92ZXJzaW9uLWNvbnRyb2wtYW5kLWdpdGh1Yi5odG1sCgpodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9yc3R1ZGlvLWFuZC1naXRodWIvCgpodHRwOi8vaGFwcHlnaXR3aXRoci5jb20vZm9yay5odG1sCgpodHRwczovL2ticm9tYW4ub3JnL2dpdGh1Yl90dXRvcmlhbC8KCmh0dHBzOi8va2Jyb21hbi5vcmcvc2ltcGxlX3NpdGUvCgoKCgpgYGB7cn0KcmVxdWlyZShyc3R1ZGlvYXBpKQpDb21taXRNZXNzYWdlIDwtIHBhc3RlKCJ1cGRhdGVkIG9uICIsIFN5cy50aW1lKCksIHNlcCA9ICIiKQp3ZCA8LSBnZXR3ZCgpCmdpdENvbW1hbmQgPC0gcGFzdGUoImNkIiwgd2QsICIgXG4gZ2l0IGFkZCAuIFxuIGdpdCBjb21taXQgLS1tZXNzYWdlICciLCBDb21taXRNZXNzYWdlLCAiJyBcbiBnaXQgcHVzaCBvcmlnaW4gbWFzdGVyIFxuIiwgc2VwID0gIiIpClN5cy5zbGVlcCh0aW1lID0gMSkKZ2l0VGVybSA8LSByc3R1ZGlvYXBpOjp0ZXJtaW5hbENyZWF0ZShzaG93ID0gRkFMU0UpClN5cy5zbGVlcCh0aW1lID0gMSkKcnN0dWRpb2FwaTo6dGVybWluYWxTZW5kKGdpdFRlcm0sIGdpdENvbW1hbmQpCmBgYAoKCmBgYHtyfQpDb21taXRNZXNzYWdlIDwtIHBhc3RlKCJ1cGRhdGVkIG9uICIsIFN5cy50aW1lKCksIHNlcCA9ICIiKQp3ZCA8LSBnZXR3ZCgpCmdpdENvbW1hbmQgPC0gcGFzdGUoImNkICIsIHdkLCAiIFxuIGdpdCBhZGQgLiBcbiBnaXQgY29tbWl0IC0tbWVzc2FnZSAnIiwgQ29tbWl0TWVzc2FnZSwgIicgXG4gZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcbiIsIHNlcCA9ICIiKQpzeXN0ZW0oY29tbWFuZCA9IGdpdENvbW1hbmQsIGludGVybiA9IFRSVUUpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKLS0tCgpgYGAKcHJpbnQocGFzdGUwKCJHaXQgVXBkYXRlIFN0YXJ0ZWQgYXQ6ICIsIFN5cy50aW1lKCkpKQpDb21taXRNZXNzYWdlIDwtIHBhc3RlKCJ1cGRhdGVkIG9uOiAiLCBTeXMudGltZSgpLCBzZXAgPSAiIikKd2QgPC0gIn4vc2VyZGFyYmFsY2kiCnNldG9yaWdpbiA8LSAiZ2l0IHJlbW90ZSBzZXQtdXJsIG9yaWdpbiBnaXRAZ2l0aHViLmNvbTpzYmFsY2kvTXlKb3VybmFsV2F0Y2guZ2l0IFxuIgpnaXRDb21tYW5kIDwtIHBhc3RlKCJjZCAiLCB3ZCwgIiBcbiBnaXQgYWRkIC4gXG4gZ2l0IGNvbW1pdCAtLW1lc3NhZ2UgJyIsIENvbW1pdE1lc3NhZ2UsICInIFxuIiwgc2V0b3JpZ2luLCAiZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcbiIsICBzZXAgPSAiIikKc3lzdGVtKGNvbW1hbmQgPSBwYXN0ZShnaXRDb21tYW5kLCAiXG4iKSAsIGludGVybiA9IFRSVUUsIHdhaXQgPSBUUlVFKQpTeXMuc2xlZXAoNSkKcHJpbnQocGFzdGUwKCJHaXQgVXBkYXRlIEVuZGVkIGF0OiAiLCBTeXMudGltZSgpKSkKYGBgCgoKCgoKCi0tLQoKIyBIYXBweSBHaXQgYW5kIEdpdEh1YiBmb3IgdGhlIHVzZVIKCmh0dHBzOi8vaGFwcHlnaXR3aXRoci5jb20KCi0tLQoKCi0gQW4gaW50cm9kdWN0aW9uIHRvIEdpdCBhbmQgaG93IHRvIHVzZSBpdCB3aXRoIFJTdHVkaW8KCmh0dHA6Ly9yLWJpby5naXRodWIuaW8vaW50cm8tZ2l0LXJzdHVkaW8vCgpodHRwczovL2FuZHJld2J0cmFuLmdpdGh1Yi5pby9OSUNBUi8yMDE4L3dvcmtmbG93L2RvY3MvMDMtaW50ZWdyYXRpbmdfZ2l0aHViLmh0bWwKCmh0dHBzOi8vYWJlcmRlZW5zdHVkeWdyb3VwLmdpdGh1Yi5pby9zdHVkeUdyb3VwL2xlc3NvbnMvU0ctVDEtR2l0SHViVmVyc2lvbkNvbnRyb2wvVmVyc2lvbkNvbnRyb2wvCgpodHRwOi8vci1iaW8uZ2l0aHViLmlvL2ludHJvLWdpdC1yc3R1ZGlvLwoKaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNDE2ODgxNjQvdXNpbmctcnN0dWRpby10by1tYWtlLXB1bGwtcmVxdWVzdHMtaW4tZ2l0CgpodHRwczovL2Jvb2tkb3duLm9yZy9yZHBlbmcvUlByb2dEQS92ZXJzaW9uLWNvbnRyb2wtYW5kLWdpdGh1Yi5odG1sCgpodHRwczovL3d3dy5yLWJsb2dnZXJzLmNvbS9yc3R1ZGlvLWFuZC1naXRodWIvCgpodHRwOi8vaGFwcHlnaXR3aXRoci5jb20vZm9yay5odG1sCgpodHRwczovL2ticm9tYW4ub3JnL2dpdGh1Yl90dXRvcmlhbC8KCmh0dHBzOi8va2Jyb21hbi5vcmcvc2ltcGxlX3NpdGUvCgotIEhlbHBpbmcgeW91IG1ha2UgeW91ciBmaXJzdCBwdWxsIHJlcXVlc3QhCgpodHRwczovL2dpdGh1Yi5jb20vdGhpc2lzbmljL2ZpcnN0LWNvbnRyaWJ1dGlvbnMKCgoKCgpgYGB7cn0KcmVxdWlyZShyc3R1ZGlvYXBpKQpDb21taXRNZXNzYWdlIDwtIHBhc3RlKCJ1cGRhdGVkIG9uICIsIFN5cy50aW1lKCksIHNlcCA9ICIiKQp3ZCA8LSBnZXR3ZCgpCmdpdENvbW1hbmQgPC0gcGFzdGUoImNkIiwgd2QsICIgXG4gZ2l0IGFkZCAuIFxuIGdpdCBjb21taXQgLS1tZXNzYWdlICciLCBDb21taXRNZXNzYWdlLCAiJyBcbiBnaXQgcHVzaCBvcmlnaW4gbWFzdGVyIFxuIiwgc2VwID0gIiIpClN5cy5zbGVlcCh0aW1lID0gMSkKZ2l0VGVybSA8LSByc3R1ZGlvYXBpOjp0ZXJtaW5hbENyZWF0ZShzaG93ID0gRkFMU0UpClN5cy5zbGVlcCh0aW1lID0gMSkKcnN0dWRpb2FwaTo6dGVybWluYWxTZW5kKGdpdFRlcm0sIGdpdENvbW1hbmQpCmBgYAoKCmBgYHtyfQpDb21taXRNZXNzYWdlIDwtIHBhc3RlKCJ1cGRhdGVkIG9uICIsIFN5cy50aW1lKCksIHNlcCA9ICIiKQp3ZCA8LSBnZXR3ZCgpCmdpdENvbW1hbmQgPC0gcGFzdGUoImNkICIsIHdkLCAiIFxuIGdpdCBhZGQgLiBcbiBnaXQgY29tbWl0IC0tbWVzc2FnZSAnIiwgQ29tbWl0TWVzc2FnZSwgIicgXG4gZ2l0IHB1c2ggb3JpZ2luIG1hc3RlciBcbiIsIHNlcCA9ICIiKQpzeXN0ZW0oY29tbWFuZCA9IGdpdENvbW1hbmQsIGludGVybiA9IFRSVUUpCmBgYAoK</div>
 
 
 

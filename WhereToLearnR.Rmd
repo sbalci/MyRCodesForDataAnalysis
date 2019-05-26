@@ -138,3 +138,11 @@ https://arm.rbind.io/days/day1/learnr/
 https://cran.r-project.org/web/views/
 
 
+
+---
+
+# Happy Git and GitHub for the useR
+
+https://happygitwithr.com
+
+

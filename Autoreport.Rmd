@@ -3,6 +3,25 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+---
+
+
+```
+print(paste0("Git Update Started at: ", Sys.time()))
+CommitMessage <- paste("updated on: ", Sys.time(), sep = "")
+wd <- "~/serdarbalci"
+setorigin <- "git remote set-url origin git@github.com:sbalci/MyJournalWatch.git \n"
+gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n", setorigin, "git push origin master \n",  sep = "")
+system(command = paste(gitCommand, "\n") , intern = TRUE, wait = TRUE)
+Sys.sleep(5)
+print(paste0("Git Update Ended at: ", Sys.time()))
+```
+
+
+
+
+---
+
 ## Describe results of analysis
 
 Copy/paste t-tests Directly to Manuscripts: https://neuropsychology.github.io/psycho.R//2018/06/19/analyze_ttest.html

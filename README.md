@@ -1,5 +1,9 @@
 # My R Codes For Data Analysis
 
+[![HitCount](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis.svg)](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis)
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/sbalci)
+
+
 In this repository I am going to collect `R codes` for data analysis.
 
 The title says "My R Codes" but I am only the collector. I will try to refer the original sources as far as I can.
@@ -13,6 +17,168 @@ There are plenty of ways to do an analysis in `R`, which is great but also confu
 
 
 **See the links for the Codes below:**
+
+
+---
+
+
+WorldBankCountryAnalysis.R
+1 cards.R
+2 DataCamp.R
+3 GABAHip.R
+4 googleCite.R
+5 makenames.R
+6 R-Program-Env-1-2.R
+8 SurvivalAnalysis.R
+9 SurvivalAnalysisR.R
+10 tangram.R
+11 TurkPathScholar.R
+deneme.R
+geom_bartext.R
+gilbert-dahl.R
+GitHubUpdateV2.R
+join-animations-with-gganimate.R
+plumber.R
+plumberRun.R
+power_multiplot.R
+quRan-data-raw-clean_data.R
+Retrieve_pubmed_citation_data.R
+sf_transitions.R
+silge.R
+
+
+---
+
+
+
+12 ArticlesPerJournalsPerCountry.Rmd
+13 CountryBasedComparison.Rmd
+14 JournalWatchPBPath.Rmd
+15 MeSH_Terms_Pathology_Articles_From_Turkey.Rmd
+16 6-tables.Rmd
+arsenal.Rmd
+AutomatedDashboardDeviation.Rmd
+Autoreport.Rmd
+bbplot.Rmd
+Bibliography.Rmd
+bioconductor.Rmd
+Biyoinformatik.Rmd
+CancerInSilico.Rmd
+CancerPackages.Rmd
+CloudForResearch.Rmd
+codes.Rmd
+CompareMeans.Rmd
+CompareProportions.Rmd
+ContingencyTables.Rmd
+Correlations.Rmd
+DataList.Rmd
+DataScienceLiveBook.Rmd
+datatable.Rmd
+DataTools.Rmd
+DecisionTreeKararAgaci.Rmd
+DescriptiveStatistics.Rmd
+drive.Rmd
+edirect-addin.Rmd
+eurostat.Rmd
+EvidenceSynthesisProjects.Rmd
+ExplatoryDataAnalysisSummaryStatistics.Rmd
+FileOrganization.Rmd
+finalfit.Rmd
+finalfit2.Rmd
+FlippingCoin.Rmd
+formattable.Rmd
+Formulas.Rmd
+GeneralLinearModels.Rmd
+GeneralResources.Rmd
+GettingDataVeriYukleme.Rmd
+GitHub.Rmd
+githubdocument.Rmd
+googledrive-trial.Rmd
+GoogleScholar.Rmd
+Graphs.Rmd
+h2o.Rmd
+HierarchicalClustering.Rmd
+HistopathologyResearchTemplate.Rmd
+How-To-Use-R-With-Excel.Rmd
+htmlclean.Rmd
+htmldocco.Rmd
+huxtable.Rmd
+HypothesisTesting.Rmd
+keras.Rmd
+KMeansClustering.Rmd
+lessR.Rmd
+LinearRegression.Rmd
+MachineLearning.Rmd
+Markdown.Rmd
+material.Rmd
+MultiplePages.Rmd
+mxnet.Rmd
+news.Rmd
+Ninja.Rmd
+OpenCPU.Rmd
+papeR.Rmd
+papeR2.Rmd
+Power_Analysis.Rmd
+power.Rmd
+PowerAnalysis.Rmd
+PrepareData.Rmd
+PythonPandas.Rmd
+R-Arayuzler.Rmd
+R-Giris.Rmd
+R-Tipps.Rmd
+radix.Rmd
+rchess.Rmd
+readthedown.Rmd
+Regression.Rmd
+reprex.Rmd
+ReproducibleResearch.Rmd
+RISmed.Rmd
+RinPathologyResearch.Rmd
+rmarkdown_websites_tutorial.Rmd
+rmarkdown_websites_tutorial2.Rmd
+ROC.Rmd
+rorcid.Rmd
+RPackagesUsed.Rmd
+SankeyDiagrams.Rmd
+SensitivitySpecificity.Rmd
+shiny.Rmd
+ShinyCodes.Rmd
+snahelper.Rmd
+summarytools_introduction.Rmd
+summarytools_markdown.Rmd
+survival_analysis_in_r_tutorial.Rmd
+survival_analysis_in_r_tutorial2.Rmd
+SurvivalAnalysis.Rmd
+SyncingGitHubFork.Rmd
+Table.Rmd
+tensorflow.Rmd
+TextMining.Rmd
+the-lesser-known-stars-of-the-tidyverse.Rmd
+tuftedoc.Rmd
+Tutorials.Rmd
+tweetbook1.Rmd
+Twitter.Rmd
+TwitterDashboard.Rmd
+Untitled1.Rmd
+Untitled22.Rmd
+VisualisationGraphsPlots.Rmd
+WebScrapping.Rmd
+WhereToLearnR.Rmd
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Lecture Notes
