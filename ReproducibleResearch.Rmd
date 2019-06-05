@@ -112,6 +112,20 @@ https://srv.colinfay.me:1001/#about
 https://github.com/ColinFay/ronline
 
 
+```
+Sys.setenv(
+  DSN = "database_name",
+  UID = "User ID",
+  PASS = "Password"
+)
+
+db <- DBI::dbConnect(
+  drv = odbc::odbc(),
+  dsn = Sys.getenv("DSN"),
+  uid = Sys.getenv("UID"),
+  pwd = Sys.getenv("PASS")
+)
+```
 
 
 

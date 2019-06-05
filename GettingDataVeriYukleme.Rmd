@@ -77,9 +77,14 @@ library(dplyr)
 tbl = lapply(files, read_csv) %>% bind_rows()
 ```
 
-
-
-
+```
+data <- read.csv(
+  switch(animal, 
+         "dog" = "dogdata.csv", 
+         "cat" = "catdata.csv",
+         "rabbit" = "rabbitdata.csv")
+)
+```
 
 
 ### Import TXT File
