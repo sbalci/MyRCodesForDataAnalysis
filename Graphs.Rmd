@@ -715,6 +715,20 @@ ggplot(titanic, aes(x, id = id, split = y, value = value)) +
 ---
 
 
+# g2r
+
+```
+remotes::install_github("JohnCoene/g2r")
+```
+
+
+```{r}
+library(g2r)
+
+g2(iris, asp(Petal.Length, Petal.Width, color = Species)) %>% 
+  fig_point() %>%
+  plane_wrap(planes(Species))
+```
 
 
 

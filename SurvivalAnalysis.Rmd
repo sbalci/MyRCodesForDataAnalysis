@@ -1089,16 +1089,98 @@ p[["p3"]]
 https://cran.r-project.org/web/packages/survivalAnalysis/vignettes/univariate.html
 
 
+# breast cancer wisconsin 
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+UCI_data_URL <- RCurl::getURL('https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data')
 
 
 
 
+```
+
+
+# Lung Cancer
+
+
+```{r}
+library(survival)
+km_fit <- survfit(Surv(time, status) ~ sex, data = lung)
+km_fit
+```
+
+
+```{r}
+summary(km_fit, times = c(12,36,60))
+```
+
+
+```{r}
+# View fit
+View(km_fit)
+
+# Get formula
+km_fit[["call"]][["formula"]]
+
+# Get formula 2
+km_fit[["call"]]
+```
+
+
+```{r}
+library(tidyverse)
+# make a dataframe from fit list
+fitDF <- bind_cols(
+time = km_fit[["time"]],
+n.risk = km_fit[["n.risk"]],
+n.event = km_fit[["n.event"]],
+n.censor = km_fit[["n.censor"]],
+surv = km_fit[["surv"]],
+lower = km_fit[["lower"]],
+upper = km_fit[["upper"]],
+) %>% 
+  mutate(
+    timeyear = time / 365.25
+  )
+```
+
+
+
+```{r}
+# this gives the result for the time = 0.5
+fitDF[which.min(abs(fitDF$timeyear - 0.5)),]
+
+# this gives the result for the time = 1
+fitDF[which.min(abs(fitDF$timeyear - 1)),]
+
+# this gives the result for the time = 2
+fitDF[which.min(abs(fitDF$timeyear - 2)),]
+```
 
 
 
 
+```{r}
+fitDF[which.min(abs(fitDF$timeyear - 0.5)),]
+
+fitDF[which.min(abs(fitDF$timeyear - 1)),]
+
+fitDF[which.min(abs(fitDF$timeyear - 2)),]
+```
 
 
+
+```{r}
+# https://stackoverflow.com/questions/43419385/how-to-export-survfit-output-as-a-csv-table
+res <- summary(km_fit, times = c(12,36,60))
+save.df <- as.data.frame(res[c("strata", "time", "n.risk", "n.event", "surv", "std.err", "lower", "upper")])
+# write.csv(save.df, file = "./file.csv")
+```
 
 
 
