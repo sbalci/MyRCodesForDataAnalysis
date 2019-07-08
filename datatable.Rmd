@@ -8,6 +8,177 @@ output: html_notebook
 
 https://github.com/Rdatatable
 
+```{r}
+library(data.table)
+```
+
+
+## Introduction to data.table
+
+
+https://cloud.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
+
+
+```{r}
+input <- if (file.exists("flights14.csv")) {
+   "flights14.csv"
+} else {
+  "https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"
+}
+flights <- fread(input)
+flights
+```
+
+
+```{r}
+?fread
+```
+
+
+DT = data.table(
+  ID = c("b","b","b","a","a","c"),
+  a = 1:6,
+  b = 7:12,
+  c = 13:18
+)
+DT
+
+
+class(DT$ID)
+
+
+getOption("datatable.print.nrows")
+
+
+
+ans <- flights[origin == "JFK" & month == 6L]
+head(ans)
+
+
+ans <- flights[1:2]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L][1:2]
+head(ans)
+
+
+ans <- flights[order(origin, -dest)]
+head(ans)
+
+
+ans <- flights[, arr_delay]
+head(ans)
+
+
+
+ans <- flights[, arr_delay, dest]
+head(ans)
+
+ans <- flights[, list(arr_delay)]
+head(ans)
+
+
+ans <- flights[, .(arr_delay)]
+head(ans)
+
+ans <- flights[, .(arr_delay, dep_delay)]
+head(ans)
+
+
+ans <- flights[, .(delay_arr = arr_delay, delay_dep = dep_delay)]
+head(ans)
+
+
+ans <- flights[, sum( (arr_delay + dep_delay) < 0 )]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L,
+               .(m_arr = mean(arr_delay), m_dep = mean(dep_delay))]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L, length(dest)]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L, .N]
+ans
+
+ans <- flights[, c("arr_delay", "dep_delay")]
+head(ans)
+
+select_cols = c("arr_delay", "dep_delay")
+flights[ , ..select_cols]
+
+
+flights[ , select_cols, with = FALSE]
+
+ans <- flights[, !c("arr_delay", "dep_delay")]
+
+ans <- flights[, -c("arr_delay", "dep_delay")]
+
+ans <- flights[, year:day]
+
+ans <- flights[, day:year]
+
+ans <- flights[, -(year:day)]
+ans <- flights[, !(year:day)]
+
+
+ans <- flights[, .(.N), by = .(origin)]
+ans
+
+
+ans <- flights[, .(.N), by = "origin"]
+ans
+
+ans <- flights[, .N, by = origin]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = origin]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = .(origin, dest)]
+head(ans)
+
+
+ans <- flights[carrier == "AA", .N, by = c("origin", "dest")]
+ans
+
+
+ans <- flights[carrier == "AA",
+        .(mean(arr_delay), mean(dep_delay)),
+        by = .(origin, dest, month)]
+ans
+
+
+ans <- flights[carrier == "AA",
+        .(mean(arr_delay), mean(dep_delay)),
+        keyby = .(origin, dest, month)]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = .(origin, dest)]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = .(origin, dest)][order(origin, -dest)]
+head(ans, 10)
+
+
+ans <- flights[, .N, .(dep_delay>0, arr_delay>0)]
+ans
+
+flights[, .N, .(dep_delayed = dep_delay>0, arr_delayed = arr_delay>0)]
+
+
+
+
+#
+
+
+
+
 
 # cheat sheet
 
