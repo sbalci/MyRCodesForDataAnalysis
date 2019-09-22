@@ -2,8 +2,15 @@
 title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
 author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
+institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
   html_notebook:
     fig_caption: yes
     highlight: kate
@@ -28,18 +35,34 @@ output:
 
 
 <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
-</script> 
+</script>
+
+<!-- [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls) -->
 
 
+# R nerede kullanılır
 
+- Veri düzenleme
+- İstatistik analiz
+- Web sayfası hazırlama (Statik/Dinamik)
+- Sunum hazırlama
+- Programlama
+- Otomatik, periodik ve tekrarlanabilir rapor hazırlama
+- pdf, html, ppt oluşturma
+- tez yazma
+- kitap yazma
+- rapor şablonu oluşturma
+- ...
 
-[![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls)
+---
 
+# R generation
 
-- R generation
+R yıllar içinde çok fazla değişim gösterdi
 
 https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x
 
+---
 
 # R yükleme
 
@@ -83,18 +106,18 @@ https://cran.r-project.org/web/packages/addinslist/README.html
 https://rstudio.github.io/rstudioaddins/
 
 
-```{r}
-# devtools::install_github("rstudio/addinexamples", type = "source")
+```
+devtools::install_github("rstudio/addinexamples", type = "source")
 ```
 
 
 ---
 
+# MacOS için
+
 ## X11
 
 https://www.xquartz.org/
-
----
 
 ## Java OS
 
@@ -120,15 +143,6 @@ https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a> — There are always several ways to do the same thing... nice example on with the identity matrix by <a href="https://twitter.com/TeaStats?ref_src=twsrc%5Etfw">@TeaStats</a> <a href="https://t.co/O3GXdPiM32">https://t.co/O3GXdPiM32</a></p>&mdash; Colin Fay 🤘 (@_ColinFay) <a href="https://twitter.com/_ColinFay/status/1112746633467518977?ref_src=twsrc%5Etfw">April 1, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
-
-
-
-
-
-
 
 ---
 
@@ -180,6 +194,7 @@ https://github.com/RhoInc/CRANsearcher
 - Awesome R  
 https://awesome-r.com/  
 
+---
 
 ## Kendi paket evrenini oluştur
 
@@ -230,7 +245,7 @@ install.packages("summarytools")
 # example(merge)
 ```
 
-
+---
 
 - Vignette
 
@@ -252,7 +267,7 @@ https://stackoverflow.com/
 
 - Google uygun anahtar kelime
 
-
+---
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">How I use <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <br>h/t <a href="https://twitter.com/ThePracticalDev?ref_src=twsrc%5Etfw">@ThePracticalDev</a> <a href="https://t.co/erRnTG0Ujr">pic.twitter.com/erRnTG0Ujr</a></p>&mdash; Emily Bovee (@ebovee09) <a href="https://twitter.com/ebovee09/status/1028037594947485696?ref_src=twsrc%5Etfw">August 10, 2018</a></blockquote>
 
@@ -268,7 +283,6 @@ https://stackoverflow.com/
 
 ![](figures/Google-start-with-R.png)
 
----
 
 - Google'da ararken `[R]` yazmak da işe yarayabiliyor.
 
@@ -516,8 +530,9 @@ summarytools::freq(iris$Species, style = "rmarkdown")
 ```
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", omit.headings = TRUE)
+summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headings = FALSE)
 ```
+
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 with(tobacco, print(ctable(smoker, diseased), method = 'render'))
@@ -539,8 +554,11 @@ summarytools::descr(iris, style = "rmarkdown")
 
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-descr(iris, stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE, 
-      omit.headings = TRUE, style = "rmarkdown")
+descr(iris, 
+      stats = c("mean", "sd", "min", "med", "max"), 
+      transpose = TRUE, 
+      headings = FALSE,
+      style = "rmarkdown")
 ```
 
 
@@ -556,7 +574,9 @@ descr(iris, stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE,
 
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-dfSummary(tobacco, plain.ascii = FALSE, style = "grid")
+dfSummary(tobacco, 
+          plain.ascii = FALSE, 
+          style = "grid")
 ```
 
 
@@ -757,6 +777,7 @@ https://blog.jamovi.org/2018/07/30/rj.html
 
 # R nereden öğrenilir
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 
 ---
 
@@ -885,7 +906,7 @@ sessionInfo()
 Completed on `r Sys.time()`.  
 
 Serdar Balci, MD, Pathologist  
-d  rserdarbalci@gmail.com  
+drserdarbalci@gmail.com  
 https://rpubs.com/sbalci/CV   
 
   

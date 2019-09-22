@@ -1,0 +1,59 @@
+---
+title: "Table options"
+output: html_document
+---
+
+Several packages support making beautiful tables with R, such as
+
+* [xtable](https://cran.r-project.org/web/packages/xtable/)
+* [stargazer](https://cran.r-project.org/web/packages/stargazer/)
+* [pander](http://rapporter.github.io/pander/)
+* [tables](https://cran.r-project.org/web/packages/tables/)
+* [ascii](http://eusebe.github.io/ascii/)
+* etc.
+
+It is also very easy to make tables with knitr's `kable` function:
+
+
+```{r}
+knitr::kable(head(iris), caption = "Title of the table")
+
+```
+
+
+<!-- ```{r} -->
+<!-- tables::knit_print.tabular(mtcars) -->
+<!-- ``` -->
+
+
+
+
+```{r}
+pander::pander(mtcars)
+```
+
+
+
+```{r}
+stargazer::stargazer(mtcars)
+```
+
+
+
+
+```{r echo = FALSE, results = 'asis'}
+library(knitr)
+kable(mtcars[1:5, ], caption = "A knitr kable.")
+```
+
+
+```{r}
+library(rhandsontable)
+rhandsontable(mtcars)
+```
+
+
+```{r}
+xtable::xtable(mtcars)
+```
+

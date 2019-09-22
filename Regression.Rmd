@@ -1,8 +1,0 @@
----
-title: "Regression"
-output: html_notebook
----
-
-- Logistic Regression in R Tutorial
-
-https://www.datacamp.com/community/tutorials/logistic-regression-R

@@ -1,0 +1,81 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+---
+
+```
+print(paste0("Git Update Started at: ", Sys.time()))
+CommitMessage <- paste("updated on: ", Sys.time(), sep = "")
+wd <- "~/serdarbalci"
+setorigin <- "git remote set-url origin git@github.com:sbalci/MyJournalWatch.git \n"
+gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n", setorigin, "git push origin master \n",  sep = "")
+system(command = paste(gitCommand, "\n") , intern = TRUE, wait = TRUE)
+Sys.sleep(5)
+print(paste0("Git Update Ended at: ", Sys.time()))
+```
+
+
+
+
+
+
+---
+
+# Happy Git and GitHub for the useR
+
+https://happygitwithr.com
+
+---
+
+
+- An introduction to Git and how to use it with RStudio
+
+http://r-bio.github.io/intro-git-rstudio/
+
+https://andrewbtran.github.io/NICAR/2018/workflow/docs/03-integrating_github.html
+
+https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/
+
+http://r-bio.github.io/intro-git-rstudio/
+
+https://stackoverflow.com/questions/41688164/using-rstudio-to-make-pull-requests-in-git
+
+https://bookdown.org/rdpeng/RProgDA/version-control-and-github.html
+
+https://www.r-bloggers.com/rstudio-and-github/
+
+http://happygitwithr.com/fork.html
+
+https://kbroman.org/github_tutorial/
+
+https://kbroman.org/simple_site/
+
+- Helping you make your first pull request!
+
+https://github.com/thisisnic/first-contributions
+
+
+
+
+
+```{r}
+require(rstudioapi)
+CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+wd <- getwd()
+gitCommand <- paste("cd", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+Sys.sleep(time = 1)
+gitTerm <- rstudioapi::terminalCreate(show = FALSE)
+Sys.sleep(time = 1)
+rstudioapi::terminalSend(gitTerm, gitCommand)
+```
+
+
+```{r}
+CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+wd <- getwd()
+gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+system(command = gitCommand, intern = TRUE)
+```
+

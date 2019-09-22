@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -1483,7 +1484,7 @@ window.initializeCodeFolding = function(show) {
 
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
-    if (show)
+    if (show || $(this)[0].classList.contains('fold-show'))
       div.addClass('in');
     var id = 'rcode-643E0F36' + currentIndex++;
     div.attr('id', id);
@@ -1613,7 +1614,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1711,28 +1711,10 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 <style type="text/css">
 .code-folding-btn { margin-bottom: 4px; }
 </style>
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("WhereToLearnR.Rmd");
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
 
 
 
@@ -1767,6 +1749,10 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
+<div id="statistics-in-action-with-r" class="section level1">
+<h1>Statistics in Action with R</h1>
+<p><a href="http://sia.webpopix.org/index.html" class="uri">http://sia.webpopix.org/index.html</a></p>
+</div>
 <div id="swirlstats" class="section level1">
 <h1>swirlstats</h1>
 <p><a href="https://swirlstats.com/" class="uri">https://swirlstats.com/</a></p>
@@ -1877,6 +1863,10 @@ $(document).ready(function () {
 <div id="cran-task-views" class="section level1">
 <h1>CRAN Task Views</h1>
 <p><a href="https://cran.r-project.org/web/views/" class="uri">https://cran.r-project.org/web/views/</a></p>
+</div>
+<div id="wikibook-r-programming" class="section level1">
+<h1>WikiBook R Programming</h1>
+<p><a href="https://en.wikibooks.org/wiki/R_Programming" class="uri">https://en.wikibooks.org/wiki/R_Programming</a></p>
 <hr />
 </div>
 <div id="happy-git-and-github-for-the-user" class="section level1">
@@ -1885,7 +1875,7 @@ $(document).ready(function () {
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiV2hlcmUgdG8gbGVhcm4gUiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBzd2lybHN0YXRzCgpodHRwczovL3N3aXJsc3RhdHMuY29tLwoKCiMgRGF0YSBTa2lsbHMgZm9yIFJlcHJvZHVjaWJsZSBTY2llbmNlCgoKaHR0cHM6Ly9ndXBzeWNoLmdpdGh1Yi5pby9kYXRhX3NraWxscy9pbmRleC5odG1sCgoKIyByc3RhdHMtZWQKCgpodHRwczovL2dpdGh1Yi5jb20vcnN0dWRpby1lZHVjYXRpb24vcnN0YXRzLWVkCgoKIyBuZXcgb25saW5lIGNvdXJzZXMgcHN1CgpodHRwczovL25ld29ubGluZWNvdXJzZXMuc2NpZW5jZS5wc3UuZWR1L3N0YXRwcm9ncmFtLwoKCgoKIyBUaGluayBTdGF0cwoKaHR0cHM6Ly9ncmVlbnRlYXByZXNzLmNvbS93cC90aGluay1zdGF0cy0yZS8KCgojIHN0YXRzdGhpbmtpbmcyMQoKaHR0cDovL3N0YXRzdGhpbmtpbmcyMS5vcmcvaW5kZXguaHRtbAoKCiMgUlN0dWRpbyAgCgpodHRwczovL3d3dy5yc3R1ZGlvLmNvbS9vbmxpbmUtbGVhcm5pbmcvCgoKIyByLXN0YXRpc3RpY3MKCmh0dHA6Ly9yLXN0YXRpc3RpY3MuY28vUi1UdXRvcmlhbC5odG1sCgoKIyBBZHZhbmNlZCBEYXRhIFNjaWVuY2UKCmh0dHBzOi8vamh1LWFkdmRhdGFzY2kuZ2l0aHViLmlvLzIwMTgvCgojIEhvdyBEbyBJPyDigKYKCmh0dHBzOi8vc21hY2guZ2l0aHViLmlvL1I0Sm91cm5hbGlzbUJvb2svSG93RG9JLmh0bWwKCiMgRGF0YSBtYW5hZ2VtZW50IGFuZCBtYW5pcHVsYXRpb24gdXNpbmcgUiAKCmh0dHBzOi8vb3phbmouZ2l0aHViLmlvL3JjbGFzcy9yZXNvdXJjZXMvCgojIFRlYWNoaW5nIFJlcHJvZHVjaWJsZSBEYXRhIEFuYWx5c2lzIGluIFIKCmh0dHBzOi8vZ3Vwc3ljaC5naXRodWIuaW8vdHJkYWlyX3dvcmtzaG9wLwoKIyBBY2FkZW1pYyBXZWJzaXRlcwoKaHR0cHM6Ly9ndXBzeWNoLmdpdGh1Yi5pby9hY2Fkd2ViLwoKIyBEYXRhIFNraWxscyBmb3IgUmVwcm9kdWNpYmxlIFNjaWVuY2UKCmh0dHBzOi8vZ3Vwc3ljaC5naXRodWIuaW8vZGF0YV9za2lsbHMvCgojIE1ldGhvZG9sb2d5ICYgTWV0YXNjaWVuY2UgCgpodHRwczovL2d1cHN5Y2guZ2l0aHViLmlvL21tcy8KCiMgQ2F1c2FsIEluZmVyZW5jZSBCb29rCgpodHRwczovL3d3dy5oc3BoLmhhcnZhcmQuZWR1L21pZ3VlbC1oZXJuYW4vY2F1c2FsLWluZmVyZW5jZS1ib29rLwoKIyBJbnRyb1RvUgoKaHR0cHM6Ly9naXRodWIuY29tL3NiYWxjaS9JbnRyb1RvUi5naXQKCgojIFlvdVR1YmUgQ29sbGVjdGlvbnMKCi0tLQoKPGlmcmFtZSB3aWR0aD0iNTYwIiBoZWlnaHQ9IjMxNSIgc3JjPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC92aWRlb3Nlcmllcz9saXN0PVBMeFJCT2FvRW9QNEtVU2dtY05qU0dCRnU3UFlpcEdWclgiIGZyYW1lYm9yZGVyPSIwIiBhbGxvdz0iYWNjZWxlcm9tZXRlcjsgYXV0b3BsYXk7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmUiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4KCgotLS0KCi0gSmFtb3ZpICAKaHR0cHM6Ly93d3cueW91dHViZS5jb20vcGxheWxpc3Q/bGlzdD1QTGtrOTJ6enlydTVPQXRjX0l0VXViYVNTcTZTX1RHZlJuCgotIERvIE1vcmUgd2l0aCBSICAKCmh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3BsYXlsaXN0P2xpc3Q9UEw3RDJSTVNtUk85Sk92UEMxZ2JBOE1jM2F6dlNmbThWdgoKaHR0cHM6Ly93d3cueW91dHViZS5jb20vcGxheWxpc3Q/bGlzdD1QTFlhR1Nva09yME1QejF0Z3dUVzRKS2NlbGhkSnlVSXJiCgotIE5lYXQgcHJvb2ZzL3BlcnNwZWN0aXZlcwoKaHR0cHM6Ly93d3cueW91dHViZS5jb20vcGxheWxpc3Q/bGlzdD1QTFpIUU9iT1dUUURQU0tudFVjTUFyR2hleVNNNGdMN3dTCgotIExlYXJuaW5nIG1lZGljYWwgc3RhdGlzdGljcyB3aXRoIHB5dGhvbiBhbmQgSnVweXRlciBub3RlYm9va3MKCmh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3BsYXlsaXN0P2xpc3Q9UExzdTBUY2dMRFVpSXVlRE1mVFgzMzIyQVpoZEdiMF96bQoKLSBEYXRhIFZpc3VhbGl6YXRpb24gYW5kIFIKCmh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3BsYXlsaXN0P2xpc3Q9UExDajFMaEduaTNoUEd5NktqMUFGeEhZa0trbHhlbk85RAoKCiMgV2hhdCBUaGV5IEZvcmdvdCB0byBUZWFjaCBZb3UgQWJvdXQgUiAgCiAgCmh0dHBzOi8vd2hhdHRoZXlmb3Jnb3Qub3JnLwoKCgoKLS0tCgojIEtlZXBpbmcgdXAgdG8gZGF0ZSB3aXRoIFIgbmV3cyAgCmh0dHBzOi8vbWFzYWxtb24uZXUvMjAxOS8wMS8yNS91cHRvZGF0ZS8KCgoKIyBBZHZhbmNlZCBSIE1hcmtkb3duIFdvcmtzaG9wICAKaHR0cHM6Ly9hcm0ucmJpbmQuaW8vZGF5cy9kYXkxL2xlYXJuci8KCgojIENSQU4gVGFzayBWaWV3cwoKaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3ZpZXdzLwoKCgotLS0KCiMgSGFwcHkgR2l0IGFuZCBHaXRIdWIgZm9yIHRoZSB1c2VSCgpodHRwczovL2hhcHB5Z2l0d2l0aHIuY29tCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiV2hlcmUgdG8gbGVhcm4gUiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBTdGF0aXN0aWNzIGluIEFjdGlvbiB3aXRoIFIKCmh0dHA6Ly9zaWEud2VicG9waXgub3JnL2luZGV4Lmh0bWwKCiMgc3dpcmxzdGF0cwoKaHR0cHM6Ly9zd2lybHN0YXRzLmNvbS8KCgojIERhdGEgU2tpbGxzIGZvciBSZXByb2R1Y2libGUgU2NpZW5jZQoKCmh0dHBzOi8vZ3Vwc3ljaC5naXRodWIuaW8vZGF0YV9za2lsbHMvaW5kZXguaHRtbAoKCiMgcnN0YXRzLWVkCgoKaHR0cHM6Ly9naXRodWIuY29tL3JzdHVkaW8tZWR1Y2F0aW9uL3JzdGF0cy1lZAoKCiMgbmV3IG9ubGluZSBjb3Vyc2VzIHBzdQoKaHR0cHM6Ly9uZXdvbmxpbmVjb3Vyc2VzLnNjaWVuY2UucHN1LmVkdS9zdGF0cHJvZ3JhbS8KCgoKCiMgVGhpbmsgU3RhdHMKCmh0dHBzOi8vZ3JlZW50ZWFwcmVzcy5jb20vd3AvdGhpbmstc3RhdHMtMmUvCgoKIyBzdGF0c3RoaW5raW5nMjEKCmh0dHA6Ly9zdGF0c3RoaW5raW5nMjEub3JnL2luZGV4Lmh0bWwKCgojIFJTdHVkaW8gIAoKaHR0cHM6Ly93d3cucnN0dWRpby5jb20vb25saW5lLWxlYXJuaW5nLwoKCiMgci1zdGF0aXN0aWNzCgpodHRwOi8vci1zdGF0aXN0aWNzLmNvL1ItVHV0b3JpYWwuaHRtbAoKCiMgQWR2YW5jZWQgRGF0YSBTY2llbmNlCgpodHRwczovL2podS1hZHZkYXRhc2NpLmdpdGh1Yi5pby8yMDE4LwoKIyBIb3cgRG8gST8g4oCmCgpodHRwczovL3NtYWNoLmdpdGh1Yi5pby9SNEpvdXJuYWxpc21Cb29rL0hvd0RvSS5odG1sCgojIERhdGEgbWFuYWdlbWVudCBhbmQgbWFuaXB1bGF0aW9uIHVzaW5nIFIgCgpodHRwczovL296YW5qLmdpdGh1Yi5pby9yY2xhc3MvcmVzb3VyY2VzLwoKIyBUZWFjaGluZyBSZXByb2R1Y2libGUgRGF0YSBBbmFseXNpcyBpbiBSCgpodHRwczovL2d1cHN5Y2guZ2l0aHViLmlvL3RyZGFpcl93b3Jrc2hvcC8KCiMgQWNhZGVtaWMgV2Vic2l0ZXMKCmh0dHBzOi8vZ3Vwc3ljaC5naXRodWIuaW8vYWNhZHdlYi8KCiMgRGF0YSBTa2lsbHMgZm9yIFJlcHJvZHVjaWJsZSBTY2llbmNlCgpodHRwczovL2d1cHN5Y2guZ2l0aHViLmlvL2RhdGFfc2tpbGxzLwoKIyBNZXRob2RvbG9neSAmIE1ldGFzY2llbmNlIAoKaHR0cHM6Ly9ndXBzeWNoLmdpdGh1Yi5pby9tbXMvCgojIENhdXNhbCBJbmZlcmVuY2UgQm9vawoKaHR0cHM6Ly93d3cuaHNwaC5oYXJ2YXJkLmVkdS9taWd1ZWwtaGVybmFuL2NhdXNhbC1pbmZlcmVuY2UtYm9vay8KCiMgSW50cm9Ub1IKCmh0dHBzOi8vZ2l0aHViLmNvbS9zYmFsY2kvSW50cm9Ub1IuZ2l0CgoKIyBZb3VUdWJlIENvbGxlY3Rpb25zCgotLS0KCjxpZnJhbWUgd2lkdGg9IjU2MCIgaGVpZ2h0PSIzMTUiIHNyYz0iaHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvdmlkZW9zZXJpZXM/bGlzdD1QTHhSQk9hb0VvUDRLVVNnbWNOalNHQkZ1N1BZaXBHVnJYIiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBlbmNyeXB0ZWQtbWVkaWE7IGd5cm9zY29wZTsgcGljdHVyZS1pbi1waWN0dXJlIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+CgoKLS0tCgotIEphbW92aSAgCmh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3BsYXlsaXN0P2xpc3Q9UExrazkyenp5cnU1T0F0Y19JdFV1YmFTU3E2U19UR2ZSbgoKLSBEbyBNb3JlIHdpdGggUiAgCgpodHRwczovL3d3dy55b3V0dWJlLmNvbS9wbGF5bGlzdD9saXN0PVBMN0QyUk1TbVJPOUpPdlBDMWdiQThNYzNhenZTZm04VnYKCmh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3BsYXlsaXN0P2xpc3Q9UExZYUdTb2tPcjBNUHoxdGd3VFc0SktjZWxoZEp5VUlyYgoKLSBOZWF0IHByb29mcy9wZXJzcGVjdGl2ZXMKCmh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3BsYXlsaXN0P2xpc3Q9UExaSFFPYk9XVFFEUFNLbnRVY01BckdoZXlTTTRnTDd3UwoKLSBMZWFybmluZyBtZWRpY2FsIHN0YXRpc3RpY3Mgd2l0aCBweXRob24gYW5kIEp1cHl0ZXIgbm90ZWJvb2tzCgpodHRwczovL3d3dy55b3V0dWJlLmNvbS9wbGF5bGlzdD9saXN0PVBMc3UwVGNnTERVaUl1ZURNZlRYMzMyMkFaaGRHYjBfem0KCi0gRGF0YSBWaXN1YWxpemF0aW9uIGFuZCBSCgpodHRwczovL3d3dy55b3V0dWJlLmNvbS9wbGF5bGlzdD9saXN0PVBMQ2oxTGhHbmkzaFBHeTZLajFBRnhIWWtLa2x4ZW5POUQKCgojIFdoYXQgVGhleSBGb3Jnb3QgdG8gVGVhY2ggWW91IEFib3V0IFIgIAogIApodHRwczovL3doYXR0aGV5Zm9yZ290Lm9yZy8KCgoKCi0tLQoKIyBLZWVwaW5nIHVwIHRvIGRhdGUgd2l0aCBSIG5ld3MgIApodHRwczovL21hc2FsbW9uLmV1LzIwMTkvMDEvMjUvdXB0b2RhdGUvCgoKCiMgQWR2YW5jZWQgUiBNYXJrZG93biBXb3Jrc2hvcCAgCmh0dHBzOi8vYXJtLnJiaW5kLmlvL2RheXMvZGF5MS9sZWFybnIvCgoKIyBDUkFOIFRhc2sgVmlld3MKCmh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3dlYi92aWV3cy8KCiMgV2lraUJvb2sgUiBQcm9ncmFtbWluZwoKaHR0cHM6Ly9lbi53aWtpYm9va3Mub3JnL3dpa2kvUl9Qcm9ncmFtbWluZwoKCi0tLQoKIyBIYXBweSBHaXQgYW5kIEdpdEh1YiBmb3IgdGhlIHVzZVIKCmh0dHBzOi8vaGFwcHlnaXR3aXRoci5jb20KCgo=</div>
 
 
 
@@ -1914,6 +1904,29 @@ $(document).ready(function () {
 });
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("WhereToLearnR.Rmd");
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

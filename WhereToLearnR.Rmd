@@ -3,6 +3,10 @@ title: "Where to learn R"
 output: html_notebook
 ---
 
+# Statistics in Action with R
+
+http://sia.webpopix.org/index.html
+
 # swirlstats
 
 https://swirlstats.com/
@@ -137,6 +141,9 @@ https://arm.rbind.io/days/day1/learnr/
 
 https://cran.r-project.org/web/views/
 
+# WikiBook R Programming
+
+https://en.wikibooks.org/wiki/R_Programming
 
 
 ---

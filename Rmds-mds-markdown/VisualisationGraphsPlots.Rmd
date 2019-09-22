@@ -1,0 +1,92 @@
+---
+title: "Visualisation: Graphs & Plots"
+output: html_notebook
+---
+
+- Visualization of Biomedical Data
+ 
+ https://www.annualreviews.org/doi/10.1146/annurev-biodatasci-080917-013424
+
+- Regional population structures at a glance
+
+https://ikashnitsky.github.io/2018/the-lancet-paper/
+
+- Global Migration, animated with R
+
+http://blog.revolutionanalytics.com/2018/06/global-migration-animated-with-r.html
+
+- Creating a Geodemographic Classification Using K-means Clustering in R
+
+https://data.cdrc.ac.uk/tutorial/creating-a-geodemographic-classification-using-k-means-clustering-in-r
+
+
+- Tidy Eval Meets ggplot2
+
+http://www.onceupondata.com/2018/07/06/ggplot-tidyeval/
+
+- 
+http://serialmentor.com/dataviz/
+
+- You Can Design a Good Chart with R
+
+https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
+
+- Data to Viz
+
+https://www.data-to-viz.com/
+
+[![](https://www.data-to-viz.com/img/poster/poster_big.png)](https://www.data-to-viz.com/)
+
+-  ggpubr
+ggpubr: ‘ggplot2’ Based Publication Ready Plots
+http://www.sthda.com/english/rpkgs/ggpubr/
+
+- R Graph Gallery
+
+https://www.r-graph-gallery.com/
+
+- The Data Visualisation Catalogue
+
+https://datavizcatalogue.com/
+
+
+- Dataviz Project
+
+http://datavizproject.com/
+
+-  Python Graph Gallery
+
+https://python-graph-gallery.com/
+
+- Financial Times Visual Vocabulary
+
+https://github.com/ft-interactive/chart-doctor/tree/master/visual-vocabulary
+
+- Xenographics Weird but (sometimes) useful charts
+
+https://xeno.graphics/
+
+-
+
+https://vis.design/
+
+
+- Show Me Shiny Gallery of R Web Apps
+
+https://www.showmeshiny.com/
+
+- Where Work Pays: Occupations & Earnings across the United States
+
+http://www.hamiltonproject.org/charts/where_work_pays_interactive
+
+- You Can Design a Good Chart with R But do R users invest in design?
+
+https://towardsdatascience.com/you-can-design-a-good-chart-with-r-5d00ed7dd18e
+
+- Machine Learning Results in R: one plot to rule them all!
+
+https://datascienceplus.com/machine-learning-results-one-plot-to-rule-them-all/
+
+- data visualisation applications, tools and libraries
+
+http://www.visualisingdata.com/resources/

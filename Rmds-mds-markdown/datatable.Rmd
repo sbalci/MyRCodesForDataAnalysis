@@ -1,0 +1,515 @@
+---
+title: "data.table package"
+output: html_notebook
+---
+
+
+# Rdatatable
+
+https://github.com/Rdatatable
+
+```{r}
+library(data.table)
+```
+
+
+## Introduction to data.table
+
+
+https://cloud.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
+
+
+```{r}
+input <- if (file.exists("flights14.csv")) {
+   "flights14.csv"
+} else {
+  "https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"
+}
+flights <- fread(input)
+flights
+```
+
+
+```{r}
+?fread
+```
+
+
+DT = data.table(
+  ID = c("b","b","b","a","a","c"),
+  a = 1:6,
+  b = 7:12,
+  c = 13:18
+)
+DT
+
+
+class(DT$ID)
+
+
+getOption("datatable.print.nrows")
+
+
+
+ans <- flights[origin == "JFK" & month == 6L]
+head(ans)
+
+
+ans <- flights[1:2]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L][1:2]
+head(ans)
+
+
+ans <- flights[order(origin, -dest)]
+head(ans)
+
+
+ans <- flights[, arr_delay]
+head(ans)
+
+
+
+ans <- flights[, arr_delay, dest]
+head(ans)
+
+ans <- flights[, list(arr_delay)]
+head(ans)
+
+
+ans <- flights[, .(arr_delay)]
+head(ans)
+
+ans <- flights[, .(arr_delay, dep_delay)]
+head(ans)
+
+
+ans <- flights[, .(delay_arr = arr_delay, delay_dep = dep_delay)]
+head(ans)
+
+
+ans <- flights[, sum( (arr_delay + dep_delay) < 0 )]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L,
+               .(m_arr = mean(arr_delay), m_dep = mean(dep_delay))]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L, length(dest)]
+ans
+
+ans <- flights[origin == "JFK" & month == 6L, .N]
+ans
+
+ans <- flights[, c("arr_delay", "dep_delay")]
+head(ans)
+
+select_cols = c("arr_delay", "dep_delay")
+flights[ , ..select_cols]
+
+
+flights[ , select_cols, with = FALSE]
+
+ans <- flights[, !c("arr_delay", "dep_delay")]
+
+ans <- flights[, -c("arr_delay", "dep_delay")]
+
+ans <- flights[, year:day]
+
+ans <- flights[, day:year]
+
+ans <- flights[, -(year:day)]
+ans <- flights[, !(year:day)]
+
+
+ans <- flights[, .(.N), by = .(origin)]
+ans
+
+
+ans <- flights[, .(.N), by = "origin"]
+ans
+
+ans <- flights[, .N, by = origin]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = origin]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = .(origin, dest)]
+head(ans)
+
+
+ans <- flights[carrier == "AA", .N, by = c("origin", "dest")]
+ans
+
+
+ans <- flights[carrier == "AA",
+        .(mean(arr_delay), mean(dep_delay)),
+        by = .(origin, dest, month)]
+ans
+
+
+ans <- flights[carrier == "AA",
+        .(mean(arr_delay), mean(dep_delay)),
+        keyby = .(origin, dest, month)]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = .(origin, dest)]
+ans
+
+
+ans <- flights[carrier == "AA", .N, by = .(origin, dest)][order(origin, -dest)]
+head(ans, 10)
+
+
+ans <- flights[, .N, .(dep_delay>0, arr_delay>0)]
+ans
+
+flights[, .N, .(dep_delayed = dep_delay>0, arr_delayed = arr_delay>0)]
+
+
+
+
+#
+
+
+
+
+
+# cheat sheet
+
+
+
+https://www.datacamp.com/community/tutorials/data-table-cheat-sheet
+
+https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Sheet_R.pdf
+
+
+```{r}
+library(data.table)
+```
+http://r-datatable.com
+
+https://github.com/Rdatatable/data.table/wiki
+
+[![](https://raw.githubusercontent.com/wiki/Rdatatable/data.table/pictures/syntax1.jpg)](https://github.com/Rdatatable/data.table/wiki/talks/ArunSrinivasanSatRdaysBudapest2016.pdf)
+
+
+```{r}
+set.seed(45L)
+DT <- data.table(V1 = c(1L,2L),
+                 V2 = LETTERS[1:3],
+                 V3 = round(rnorm(4),4),
+                 V4 = 1:12)
+```
+
+
+```{r}
+DT
+```
+
+
+
+```{r}
+typeof(DT)
+```
+
+```{r}
+class(DT)
+```
+
+
+
+
+
+## Subsetting Rows Using i
+
+```{r}
+DT[3:5,]
+```
+
+
+
+```{r}
+DT[3:5]
+```
+
+```{r}
+DT[V2=="A"]
+```
+
+
+```{r}
+DT[V2 %in% c("A","C")]
+```
+
+
+## Manipulating on Columns in j
+
+sonuç vektör olarak alınacaksa sadece sütun ismi yazılıyor
+
+```{r}
+DT[,V2]
+```
+
+sonuç data.frame olarak alınacaksa sütun ismi önünde `.` yazılıyor
+
+```{r}
+DT[,.(V2)]
+```
+
+
+
+```{r}
+DT[,.(V2,V3)]
+```
+
+tek sütun üzerinden özet alma
+
+```{r}
+DT[,sum(V1)]
+```
+
+birden fazla sütun üzerinden özet alma
+
+```{r}
+DT[,.(sum(V1),sd(V3))]
+```
+
+```{r}
+DT[,.(Aggregate = sum(V1),
+      Sd.V3 = sd(V3))]
+```
+
+```{r}
+DT[,.(V1,Sd.V3=sd(V3))]
+```
+
+```{r}
+DT[,.(print(V2),
+      plot(V3),
+      NULL)]
+```
+
+
+## Doing j by Group
+
+```{r}
+DT[,.(V4.Sum = sum(V4)),by = V1]
+```
+
+
+```{r}
+DT[,.(V4.Sum = sum(V4)),
+   by = .(V1,V2)]
+```
+
+
+
+
+```{r}
+DT[,.(V4.Sum = sum(V4)),
+   by = sign(V1-1)]
+```
+
+
+
+```{r}
+DT[,.(V4.Sum = sum(V4)),
+   by = .(V1.01 = sign(V1 - 1))]
+```
+
+
+```{r}
+DT[1:5,.(V4.Sum = sum(V4)), 
+   by = V1]
+```
+
+```{r}
+DT[,.N,by = V1]
+```
+
+## Adding/Updating Columns By Reference in j Using :=
+
+```{r}
+DT[,V1:=round(exp(V1),2)]
+DT
+```
+
+
+```{r}
+DT[,V5:=round(exp(V1),2)]
+DT
+```
+
+
+```{r}
+DT[,c("V1","V2"):=list(round(exp(V1),2),
+                       LETTERS[4:6])]
+DT
+```
+
+
+
+```{r}
+DT[,':='(V1=round(exp(V1),2),
+         V2=LETTERS[4:6])][]
+```
+
+
+```{r}
+DT[,V1:=NULL]
+DT
+```
+
+```{r}
+DT[,c("V1","V2"):=NULL][]
+```
+
+
+```{r}
+Cols.chosen = c("A", "B")
+DT[,Cols.Chosen:=NULL]
+```
+
+```{r}
+Cols.chosen = c("A", "B")
+DT[,(Cols.Chosen):=NULL]
+```
+
+
+## Indexing And Keys
+
+
+```{r}
+setkey(DT,V2)
+```
+
+
+```{r}
+DT["A"]
+```
+
+
+```{r}
+DT[c("A","C")]
+```
+
+
+
+```{r}
+DT["A",mult="first"]
+```
+
+
+```{r}
+DT["A",mult="last"]
+```
+
+
+```{r}
+DT[c("A","D")]
+```
+
+
+```{r}
+DT[c("A","D"),nomatch=0]
+```
+
+
+```{r}
+DT[c("A","C"),sum(V4)]
+```
+
+
+```{r}
+DT[c("A","C"),
+   sum(V4),
+   by=.EACHI]
+```
+
+
+```{r}
+setkey(DT,V1,V2)
+```
+
+
+```{r}
+DT[.(2,"C")]
+```
+
+
+```{r}
+DT[.(2,c("A","C"))]
+```
+
+
+## Advanced Data Table Operations
+
+
+
+## .SD & .SDcols
+
+
+## Chaining
+
+
+## set()-Family
+
+### set()
+
+### setnames()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+# DataCamp Data Analysis in R, the data.table Way
+
+https://www.datacamp.com/courses/data-table-data-manipulation-r-tutorial
+

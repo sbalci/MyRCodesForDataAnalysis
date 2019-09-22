@@ -1,0 +1,71 @@
+---
+title: "Linear Regression"
+output: html_notebook
+---
+
+https://www.datacamp.com/community/tutorials/linear-regression-R
+
+```{r, include=TRUE}
+library(readxl)
+ageandheight <- read_excel("data/ageandheight.xls", sheet = "Hoja2") 
+lmHeight = lm(height~age, data = ageandheight)
+summary(lmHeight)
+```
+
+```{r}
+lmHeight2 = lm(height~age + no_siblings, data = ageandheight)
+summary(lmHeight2)
+```
+
+```{r}
+lmHeight2$coefficients
+```
+
+```{r}
+lmHeight2$residuals
+```
+
+
+```{r}
+pressure <- read_excel("data/pressure.xlsx")
+lmTemp <- lm(Pressure~Temperature, data = pressure)
+summary(lmTemp)
+plot(pressure, pch = 16, col = "blue")
+abline(lmTemp)
+```
+
+```{r}
+plot(lmTemp$residuals, pch = 16, col = "red")
+```
+
+
+```{r}
+lmTemp2 = lm(Pressure~Temperature + I(Temperature^2), data = pressure) #Create a linear regression with a quadratic coefficient
+summary(lmTemp2) #Review the results
+```
+
+
+```{r}
+plot(lmTemp2$residuals, pch = 16, col = "red")
+```
+
+
+```{r}
+ageandheight[2, 2] = 7.7
+head(ageandheight)
+```
+
+
+```{r}
+lmHeight3 = lm(height~age, data = ageandheight)#Create the linear regression
+summary(lmHeight3)#Review the results
+plot(cooks.distance(lmHeight3), pch = 16, col = "blue") #Plot the Cooks Distances.
+```
+
+
+
+```{r}
+plot(cooks.distance(lmHeight), pch = 16, col = "blue")
+```
+
+

@@ -1,0 +1,910 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+### Compare Means
+
+```{r}
+t.test(scabies$age[scabies$gender=="male"],scabies$age[scabies$gender=="female"])
+
+```
+
+```{r}
+test <- t.test(scabies$age[scabies$gender=="male"],scabies$age[scabies$gender=="female"])
+psycho::analyze(test)
+```
+
+
+# infer
+
+Randomization Examples using nycflights13 flights data
+
+https://cran.r-project.org/web/packages/infer/vignettes/flights_examples.html
+
+
+```{r}
+library(nycflights13)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(infer)
+set.seed(2017)
+```
+
+
+```{r}
+fli_small <- flights %>% 
+  na.omit() %>%
+  sample_n(size = 500) %>% 
+  mutate(season = case_when(
+    month %in% c(10:12, 1:3) ~ "winter",
+    month %in% c(4:9) ~ "summer"
+  )) %>% 
+  mutate(day_hour = case_when(
+    between(hour, 1, 12) ~ "morning",
+    between(hour, 13, 24) ~ "not morning"
+  )) %>% 
+  select(arr_delay, dep_delay, season, 
+         day_hour, origin, carrier)
+fli_small
+```
+
+
+Hypothesis tests
+One numerical variable (mean)
+
+
+```{r}
+x_bar <- fli_small %>%
+  summarize(mean(dep_delay)) %>%
+  pull()
+x_bar
+```
+
+
+```{r}
+null_distn <- fli_small %>%
+  specify(response = dep_delay) %>%
+  hypothesize(null = "point", mu = 10) %>%
+  generate(reps = 1000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+null_distn
+```
+
+
+```{r}
+ggplot(data = null_distn, mapping = aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = x_bar, color = "red")
+```
+
+
+```{r}
+null_distn %>%
+  summarize(p_value = mean(stat >= x_bar) * 2)
+```
+
+
+One numerical variable (median)
+
+```{r}
+x_tilde <- fli_small %>%
+  summarize(median(dep_delay)) %>%
+  pull()
+x_tilde
+```
+
+
+```{r}
+null_distn <- fli_small %>%
+  specify(response = dep_delay) %>%
+  hypothesize(null = "point", med = -1) %>% 
+  generate(reps = 1000, type = "bootstrap") %>% 
+  calculate(stat = "median")
+null_distn
+```
+
+
+```{r}
+ggplot(null_distn, aes(x = stat)) +
+  geom_bar() +
+  geom_vline(xintercept = x_tilde, color = "red")
+```
+
+
+```{r}
+null_distn %>%
+  summarize(p_value = mean(stat <= x_tilde) * 2)
+```
+
+
+
+One categorical (one proportion)
+
+
+```{r}
+p_hat <- fli_small %>%
+  summarize(mean(day_hour == "morning")) %>%
+  pull()
+p_hat
+```
+
+
+
+
+
+
+null_distn <- fli_small %>%
+  specify(response = day_hour, success = "morning") %>%
+  hypothesize(null = "point", p = .5) %>%
+  generate(reps = 1000, type = "simulate") %>%
+  calculate(stat = "prop")
+ggplot(null_distn, aes(x = stat)) +
+  geom_bar() +
+  geom_vline(xintercept = p_hat, color = "red")
+
+null_distn %>%
+  summarize(p_value = mean(stat <= p_hat) * 2)
+p_value
+0.132
+Logical variables will be coerced to factors:
+
+null_distn <- fli_small %>%
+  mutate(day_hour_logical = (day_hour == "morning")) %>%
+  specify(response = day_hour_logical, success = "TRUE") %>%
+  hypothesize(null = "point", p = .5) %>%
+  generate(reps = 1000, type = "simulate") %>%
+  calculate(stat = "prop")
+Two categorical (2 level) variables
+d_hat <- fli_small %>%
+  group_by(season) %>%
+  summarize(prop = mean(day_hour == "morning")) %>%
+  summarize(diff(prop)) %>%
+  pull()
+null_distn <- fli_small %>%
+  specify(day_hour ~ season, success = "morning") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("winter", "summer"))
+ggplot(null_distn, aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = d_hat, color = "red")
+
+null_distn %>%
+  summarize(p_value = mean(stat <= d_hat) * 2) %>%
+  pull()
+## [1] 0.758
+One categorical (>2 level) - GoF
+Chisq_hat <- fli_small %>%
+  specify(response = origin) %>%
+  hypothesize(null = "point", 
+              p = c("EWR" = .33, "JFK" = .33, "LGA" = .34)) %>% 
+  calculate(stat = "Chisq")
+null_distn <- fli_small %>%
+  specify(response = origin) %>%
+  hypothesize(null = "point", 
+              p = c("EWR" = .33, "JFK" = .33, "LGA" = .34)) %>% 
+  generate(reps = 1000, type = "simulate") %>% 
+  calculate(stat = "Chisq")
+ggplot(null_distn, aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = pull(Chisq_hat), color = "red")
+
+null_distn %>%
+  summarize(p_value = mean(stat >= pull(Chisq_hat))) %>%
+  pull()
+## [1] 0.002
+Two categorical (>2 level) variables
+Chisq_hat <- fli_small %>%
+  chisq_stat(formula = day_hour ~ origin)
+null_distn <- fli_small %>%
+  specify(day_hour ~ origin, success = "morning") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "Chisq")
+ggplot(null_distn, aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = pull(Chisq_hat), color = "red")
+
+null_distn %>%
+  summarize(p_value = mean(stat >= pull(Chisq_hat))) %>%
+  pull()
+## [1] 0.017
+One numerical variable, one categorical (2 levels) (diff in means)
+d_hat <- fli_small %>% 
+  group_by(season) %>% 
+  summarize(mean_stat = mean(dep_delay)) %>% 
+  # Since summer - winter
+  summarize(-diff(mean_stat)) %>% 
+  pull()
+null_distn <- fli_small %>%
+  specify(dep_delay ~ season) %>% # alt: response = dep_delay, 
+  # explanatory = season
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in means", order = c("summer", "winter"))
+ggplot(null_distn, aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = d_hat, color = "red")
+
+null_distn %>%
+  summarize(p_value = mean(stat <= d_hat) * 2) %>%
+  pull()
+## [1] 1.574
+One numerical variable, one categorical (2 levels) (diff in medians)
+d_hat <- fli_small %>% 
+  group_by(season) %>% 
+  summarize(median_stat = median(dep_delay)) %>% 
+  # Since summer - winter
+  summarize(-diff(median_stat)) %>% 
+  pull()
+null_distn <- fli_small %>%
+  specify(dep_delay ~ season) %>% # alt: response = dep_delay, 
+  # explanatory = season
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in medians", order = c("summer", "winter"))
+ggplot(null_distn, aes(x = stat)) +
+  geom_bar() +
+  geom_vline(xintercept = d_hat, color = "red")
+
+null_distn %>%
+  summarize(p_value = mean(stat >= d_hat) * 2) %>%
+  pull()
+## [1] 0.068
+One numerical, one categorical (>2 levels) - ANOVA
+F_hat <- anova(
+               aov(formula = arr_delay ~ origin, data = fli_small)
+               )$`F value`[1]
+null_distn <- fli_small %>%
+   specify(arr_delay ~ origin) %>% # alt: response = arr_delay, 
+   # explanatory = origin
+   hypothesize(null = "independence") %>%
+   generate(reps = 1000, type = "permute") %>%
+   calculate(stat = "F")
+ggplot(null_distn, aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = F_hat, color = "red")  
+
+null_distn %>% 
+  summarize(p_value = mean(stat >= F_hat)) %>%
+  pull()
+## [1] 0.351
+Two numerical vars - SLR
+slope_hat <- lm(arr_delay ~ dep_delay, data = fli_small) %>% 
+  broom::tidy() %>% 
+  filter(term == "dep_delay") %>% 
+  pull(estimate)
+null_distn <- fli_small %>%
+   specify(arr_delay ~ dep_delay) %>% 
+   hypothesize(null = "independence") %>%
+   generate(reps = 1000, type = "permute") %>%
+   calculate(stat = "slope")
+ggplot(null_distn, aes(x = stat)) +
+  geom_density() +
+  geom_vline(xintercept = slope_hat, color = "red")  
+
+null_distn %>% 
+  summarize(p_value = mean(stat >= slope_hat) * 2) %>%
+  pull()
+## [1] 0
+Confidence intervals
+One numerical (one mean)
+x_bar <- fli_small %>%
+   summarize(mean(arr_delay)) %>%
+   pull()
+boot <- fli_small %>%
+   specify(response = arr_delay) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "mean") %>%
+   pull()
+c(lower = x_bar - 2 * sd(boot),
+  upper = x_bar + 2 * sd(boot))
+##    lower    upper 
+## 1.122209 8.021791
+One categorical (one proportion)
+p_hat <- fli_small %>%
+ summarize(mean(day_hour == "morning")) %>%
+ pull()
+boot <- fli_small %>%
+ specify(response = day_hour, success = "morning") %>%
+ generate(reps = 1000, type = "bootstrap") %>%
+ calculate(stat = "prop") %>%
+ pull()
+c(lower = p_hat - 2 * sd(boot),
+ upper = p_hat + 2 * sd(boot))
+##     lower     upper 
+## 0.4194756 0.5125244
+One numerical variable, one categorical (2 levels) (diff in means)
+d_hat <- fli_small %>% 
+  group_by(season) %>% 
+  summarize(mean_stat = mean(arr_delay)) %>% 
+  # Since summer - winter
+  summarize(-diff(mean_stat)) %>% 
+  pull()
+boot <- fli_small %>%
+   specify(arr_delay ~ season) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "diff in means", order = c("summer", "winter")) %>% 
+   pull()
+c(lower = d_hat - 2 * sd(boot), 
+  upper = d_hat + 2 * sd(boot))
+##     lower     upper 
+## -7.704370  6.213971
+Two categorical variables (diff in proportions)
+d_hat <- fli_small %>%
+  group_by(season) %>%
+  summarize(prop = mean(day_hour == "morning")) %>%
+  # Since summer - winter
+  summarize(-diff(prop)) %>%
+  pull()
+boot <- fli_small %>%
+  specify(day_hour ~ season, success = "morning") %>%
+  generate(reps = 1000, type = "bootstrap") %>% 
+  calculate(stat = "diff in props", order = c("summer", "winter")) %>%
+  pull()
+c(lower = d_hat - 2 * sd(boot), 
+  upper = d_hat + 2 * sd(boot))
+##       lower       upper 
+## -0.07149487  0.11258550
+Two numerical vars - SLR
+slope_hat <- lm(arr_delay ~ dep_delay, data = fli_small) %>% 
+  broom::tidy() %>% 
+  filter(term == "dep_delay") %>% 
+  pull(estimate)
+boot <- fli_small %>%
+   specify(arr_delay ~ dep_delay) %>% 
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "slope") %>% 
+   pull()
+c(lower = slope_hat - 2 * sd(boot), 
+  upper = slope_hat + 2 * sd(boot))   
+##     lower     upper 
+## 0.9657595 1.0681384
+
+
+
+---
+
+
+Examples using mtcars data
+
+
+https://cran.r-project.org/web/packages/infer/vignettes/mtcars_examples.html
+
+
+Examples using mtcars data
+Chester Ismay and Andrew Bray
+2018-01-05
+Note: The type argument in generate() is automatically filled based on the entries for specify() and hypothesize(). It can be removed throughout the examples that follow. It is left in to reiterate the type of generation process being performed.
+
+Data preparation
+library(infer)
+library(dplyr)
+mtcars <- mtcars %>%
+  mutate(cyl = factor(cyl),
+         vs = factor(vs),
+         am = factor(am),
+         gear = factor(gear),
+         carb = factor(carb))
+# For reproducibility         
+set.seed(2018)         
+One numerical variable (mean)
+
+mtcars %>%
+  specify(response = mpg) %>% # formula alt: mpg ~ NULL
+  hypothesize(null = "point", mu = 25) %>% 
+  generate(reps = 100, type = "bootstrap") %>% 
+  calculate(stat = "mean")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1  26.6
+##  2         2  25.1
+##  3         3  25.2
+##  4         4  24.7
+##  5         5  24.6
+##  6         6  25.8
+##  7         7  24.7
+##  8         8  25.6
+##  9         9  25.0
+## 10        10  25.1
+## # ... with 90 more rows
+One numerical variable (median)
+
+mtcars %>%
+  specify(response = mpg) %>% # formula alt: mpg ~ NULL
+  hypothesize(null = "point", med = 26) %>% 
+  generate(reps = 100, type = "bootstrap") %>% 
+  calculate(stat = "median")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1  28.2
+##  2         2  27.2
+##  3         3  26.2
+##  4         4  26  
+##  5         5  26.5
+##  6         6  24.5
+##  7         7  26  
+##  8         8  28.2
+##  9         9  28.2
+## 10        10  23.2
+## # ... with 90 more rows
+One categorical (2 level) variable
+
+mtcars %>%
+  specify(response = am, success = "1") %>% # formula alt: am ~ NULL
+  hypothesize(null = "point", p = .25) %>% 
+  generate(reps = 100, type = "simulate") %>% 
+  calculate(stat = "prop")
+## # A tibble: 100 x 2
+##    replicate   stat
+##    <fct>      <dbl>
+##  1 1         0.375 
+##  2 2         0.0625
+##  3 3         0.125 
+##  4 4         0.25  
+##  5 5         0.188 
+##  6 6         0.406 
+##  7 7         0.219 
+##  8 8         0.375 
+##  9 9         0.344 
+## 10 10        0.188 
+## # ... with 90 more rows
+Two categorical (2 level) variables
+
+mtcars %>%
+  specify(am ~ vs, success = "1") %>% # alt: response = am, explanatory = vs
+  hypothesize(null = "independence") %>%
+  generate(reps = 100, type = "permute") %>%
+  calculate(stat = "diff in props", order = c("0", "1"))
+## # A tibble: 100 x 2
+##    replicate    stat
+##        <int>   <dbl>
+##  1         1 -0.421 
+##  2         2 -0.167 
+##  3         3 -0.421 
+##  4         4 -0.0397
+##  5         5  0.0873
+##  6         6 -0.0397
+##  7         7 -0.0397
+##  8         8 -0.0397
+##  9         9  0.0873
+## 10        10 -0.167 
+## # ... with 90 more rows
+One categorical (>2 level) - GoF
+
+mtcars %>%
+  specify(cyl ~ NULL) %>% # alt: response = cyl
+  hypothesize(null = "point", p = c("4" = .5, "6" = .25, "8" = .25)) %>%
+  generate(reps = 100, type = "simulate") %>%
+  calculate(stat = "Chisq")
+## # A tibble: 100 x 2
+##    replicate  stat
+##    <fct>     <dbl>
+##  1 1         6.75 
+##  2 2         1.69 
+##  3 3         3.19 
+##  4 4         1.69 
+##  5 5         6    
+##  6 6         2.69 
+##  7 7         4.75 
+##  8 8         0.75 
+##  9 9         0.688
+## 10 10        3.69 
+## # ... with 90 more rows
+Two categorical (>2 level) variables
+
+mtcars %>%
+  specify(cyl ~ am) %>% # alt: response = cyl, explanatory = am
+  hypothesize(null = "independence") %>%
+  generate(reps = 100, type = "permute") %>%
+  calculate(stat = "Chisq")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1 1.34 
+##  2         2 1.63 
+##  3         3 1.63 
+##  4         4 2.63 
+##  5         5 3.90 
+##  6         6 1.74 
+##  7         7 0.126
+##  8         8 1.74 
+##  9         9 1.34 
+## 10        10 1.34 
+## # ... with 90 more rows
+One numerical variable one categorical (2 levels) (diff in means)
+
+mtcars %>%
+  specify(mpg ~ am) %>% # alt: response = mpg, explanatory = am
+  hypothesize(null = "independence") %>%
+  generate(reps = 100, type = "permute") %>%
+  calculate(stat = "diff in means", order = c("0", "1"))
+## # A tibble: 100 x 2
+##    replicate   stat
+##        <int>  <dbl>
+##  1         1 -1.10 
+##  2         2  0.217
+##  3         3 -1.08 
+##  4         4 -3.80 
+##  5         5  3.08 
+##  6         6  0.489
+##  7         7  2.34 
+##  8         8  4.10 
+##  9         9 -1.86 
+## 10        10 -0.210
+## # ... with 90 more rows
+One numerical variable one categorical (2 levels) (diff in medians)
+
+mtcars %>%
+  specify(mpg ~ am) %>% # alt: response = mpg, explanatory = am
+  hypothesize(null = "independence") %>%
+  generate(reps = 100, type = "permute") %>%
+  calculate(stat = "diff in medians", order = c("0", "1"))
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1  0.5 
+##  2         2 -1.10
+##  3         3  5.20
+##  4         4  1.8 
+##  5         5  0.5 
+##  6         6  3.3 
+##  7         7 -1.60
+##  8         8 -2.3 
+##  9         9  2.90
+## 10        10 -0.5 
+## # ... with 90 more rows
+One numerical one categorical (>2 levels) - ANOVA
+
+mtcars %>%
+  specify(mpg ~ cyl) %>% # alt: response = mpg, explanatory = cyl
+  hypothesize(null = "independence") %>%
+  generate(reps = 100, type = "permute") %>%
+  calculate(stat = "F")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1 1.43 
+##  2         2 1.65 
+##  3         3 0.318
+##  4         4 0.393
+##  5         5 1.05 
+##  6         6 0.826
+##  7         7 1.32 
+##  8         8 0.833
+##  9         9 0.144
+## 10        10 0.365
+## # ... with 90 more rows
+Two numerical vars - SLR
+
+mtcars %>%
+  specify(mpg ~ hp) %>% # alt: response = mpg, explanatory = cyl
+  hypothesize(null = "independence") %>%
+  generate(reps = 100, type = "permute") %>%
+  calculate(stat = "slope")
+## # A tibble: 100 x 2
+##    replicate     stat
+##        <int>    <dbl>
+##  1         1 -0.0151 
+##  2         2  0.00224
+##  3         3 -0.0120 
+##  4         4  0.00292
+##  5         5  0.0203 
+##  6         6 -0.00730
+##  7         7 -0.0246 
+##  8         8  0.00555
+##  9         9  0.0109 
+## 10        10  0.0176 
+## # ... with 90 more rows
+One numerical variable (standard deviation)
+
+Not currently implemented
+
+mtcars %>%
+  specify(response = mpg) %>% # formula alt: mpg ~ NULL
+  hypothesize(null = "point", sigma = 5) %>% 
+  generate(reps = 100, type = "bootstrap") %>% 
+  calculate(stat = "sd")
+Confidence intervals
+One numerical (one mean)
+
+mtcars %>%
+  specify(response = mpg) %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "mean")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1  19.6
+##  2         2  21.8
+##  3         3  18.7
+##  4         4  19.2
+##  5         5  21.6
+##  6         6  19.9
+##  7         7  20.7
+##  8         8  19.3
+##  9         9  21.2
+## 10        10  21.3
+## # ... with 90 more rows
+One numerical (one median)
+
+mtcars %>%
+  specify(response = mpg) %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "median")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1  19.2
+##  2         2  20.1
+##  3         3  21  
+##  4         4  17.8
+##  5         5  20.1
+##  6         6  19.2
+##  7         7  18.4
+##  8         8  19.2
+##  9         9  19.2
+## 10        10  18.0
+## # ... with 90 more rows
+One numerical (standard deviation)
+
+mtcars %>%
+  specify(response = mpg) %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "sd")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1  5.28
+##  2         2  6.74
+##  3         3  5.29
+##  4         4  5.41
+##  5         5  5.56
+##  6         6  5.65
+##  7         7  6.17
+##  8         8  6.40
+##  9         9  6.31
+## 10        10  6.11
+## # ... with 90 more rows
+One categorical (one proportion)
+
+mtcars %>%
+  specify(response = am, success = "1") %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "prop")
+## # A tibble: 100 x 2
+##    replicate  stat
+##        <int> <dbl>
+##  1         1 0.375
+##  2         2 0.406
+##  3         3 0.406
+##  4         4 0.312
+##  5         5 0.312
+##  6         6 0.469
+##  7         7 0.438
+##  8         8 0.281
+##  9         9 0.438
+## 10        10 0.5  
+## # ... with 90 more rows
+One numerical variable one categorical (2 levels) (diff in means)
+
+mtcars %>%
+  specify(mpg ~ am) %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "diff in means", order = c("0", "1"))
+## # A tibble: 100 x 2
+##    replicate   stat
+##        <int>  <dbl>
+##  1         1  -9.38
+##  2         2  -5.11
+##  3         3  -4.88
+##  4         4  -5.39
+##  5         5  -9.19
+##  6         6  -7.20
+##  7         7  -5.34
+##  8         8  -3.20
+##  9         9  -5.95
+## 10        10 -11.0 
+## # ... with 90 more rows
+Two categorical variables (diff in proportions)
+
+mtcars %>%
+  specify(am ~ vs, success = "1") %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "diff in props", order = c("0", "1"))
+## # A tibble: 100 x 2
+##    replicate   stat
+##        <int>  <dbl>
+##  1         1 -0.352
+##  2         2 -0.15 
+##  3         3 -0.294
+##  4         4 -0.254
+##  5         5 -0.438
+##  6         6 -0.126
+##  7         7 -0.188
+##  8         8  0.167
+##  9         9 -0.143
+## 10        10 -0.5  
+## # ... with 90 more rows
+Two numerical vars - SLR
+
+mtcars %>%
+  specify(mpg ~ hp) %>% 
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "slope")
+## # A tibble: 100 x 2
+##    replicate    stat
+##        <int>   <dbl>
+##  1         1 -0.0850
+##  2         2 -0.0512
+##  3         3 -0.0736
+##  4         4 -0.0569
+##  5         5 -0.0930
+##  6         6 -0.0659
+##  7         7 -0.0710
+##  8         8 -0.0767
+##  9         9 -0.0556
+## 10        10 -0.0627
+## # ... with 90 more rows
+Two numerical vars - correlation
+
+mtcars %>%
+  specify(mpg ~ hp) %>% 
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "correlation")
+## # A tibble: 100 x 2
+##    replicate   stat
+##        <int>  <dbl>
+##  1         1 -0.821
+##  2         2 -0.812
+##  3         3 -0.802
+##  4         4 -0.723
+##  5         5 -0.885
+##  6         6 -0.777
+##  7         7 -0.752
+##  8         8 -0.758
+##  9         9 -0.826
+## 10        10 -0.779
+## # ... with 90 more rows
+
+
+---
+
+Two sample t test example using nycflights13 flights data
+
+https://cran.r-project.org/web/packages/infer/vignettes/two_sample_t.html
+
+
+Two sample t test example using nycflights13 flights data
+Chester Ismay
+2018-11-15
+Note: The type argument in generate() is automatically filled based on the entries for specify() and hypothesize(). It can be removed throughout the examples that follow. It is left in to reiterate the type of generation process being performed.
+
+Data preparation
+library(nycflights13)
+library(dplyr)
+library(stringr)
+library(infer)
+set.seed(2017)
+fli_small <- flights %>% 
+  sample_n(size = 500) %>% 
+  mutate(half_year = case_when(
+    between(month, 1, 6) ~ "h1",
+    between(month, 7, 12) ~ "h2"
+  )) %>% 
+  mutate(day_hour = case_when(
+    between(hour, 1, 12) ~ "morning",
+    between(hour, 13, 24) ~ "not morning"
+  )) %>% 
+  select(arr_delay, dep_delay, half_year, 
+         day_hour, origin, carrier)
+Two numeric - arr_delay, dep_delay
+Two categories
+half_year ("h1", "h2"),
+day_hour ("morning", "not morning")
+Three categories - origin ("EWR", "JFK", "LGA")
+Sixteen categories - carrier
+One numerical variable, one categorical (2 levels)
+Calculate observed statistic
+The recommended approach is to use specify() %>% calculate():
+
+obs_t <- fli_small %>%
+  specify(arr_delay ~ half_year) %>%
+  calculate(stat = "t", order = c("h1", "h2"))
+## Warning: Removed 15 rows containing missing values.
+The observed t statistic is
+stat
+0.8685
+.
+
+Or using t_test in infer
+
+obs_t <- fli_small %>% 
+  t_test(formula = arr_delay ~ half_year, alternative = "two_sided",
+         order = c("h1", "h2")) %>% 
+  dplyr::pull(statistic)
+The observed t statistic is 0.8685.
+
+Or using another shortcut function in infer:
+
+obs_t <- fli_small %>% 
+  t_stat(formula = arr_delay ~ half_year, order = c("h1", "h2"))
+The observed t statistic is
+statistic
+0.8685
+.
+
+Randomization approach to t-statistic
+t_null_perm <- fli_small %>%
+  # alt: response = arr_delay, explanatory = half_year
+  specify(arr_delay ~ half_year) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "t", order = c("h1", "h2"))
+## Warning: Removed 15 rows containing missing values.
+visualize(t_null_perm) +
+  shade_p_value(obs_stat = obs_t, direction = "two_sided")
+
+Calculate the randomization-based p-value
+t_null_perm %>% 
+  get_p_value(obs_stat = obs_t, direction = "two_sided")
+p_value
+0.408
+Theoretical distribution
+t_null_theor <- fli_small %>%
+  # alt: response = arr_delay, explanatory = half_year
+  specify(arr_delay ~ half_year) %>%
+  hypothesize(null = "independence") %>%
+  # generate() ## Not used for theoretical
+  calculate(stat = "t", order = c("h1", "h2"))
+## Warning: Removed 15 rows containing missing values.
+visualize(t_null_theor, method = "theoretical") +
+  shade_p_value(obs_stat = obs_t, direction = "two_sided")
+## Warning: Check to make sure the conditions have been met for the
+## theoretical method. {infer} currently does not check these for you.
+
+Overlay appropriate t distribution on top of permuted t-statistics
+visualize(t_null_perm, method = "both") +
+  shade_p_value(obs_stat = obs_t, direction = "two_sided")
+## Warning: Check to make sure the conditions have been met for the
+## theoretical method. {infer} currently does not check these for you.
+
+Compute theoretical p-value
+fli_small %>% 
+  t_test(formula = arr_delay ~ half_year,
+         alternative = "two_sided",
+         order = c("h1", "h2")) %>% 
+  dplyr::pull(p_value)
+## [1] 0.3855
+
+
+---
+
+
+
+

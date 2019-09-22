@@ -1,0 +1,703 @@
+---
+title: "Bibliographic Studies"
+subtitle: "SEER Research Per Countries / Who is doing SEER Research?"
+author: "Serdar Balcı, MD, Pathologist"
+date: '`r format(Sys.Date())`'
+output: 
+  html_notebook: 
+    code_folding: hide
+    fig_caption: yes
+    highlight: kate
+    theme: cerulean
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    fig_caption: yes
+    highlight: kate
+    keep_md: yes
+    theme: cerulean
+    toc_float: yes
+---
+
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'figure/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
+```
+
+```{r library, include=FALSE}
+library(tidyverse)
+```
+
+
+```{r}
+state.name
+```
+
+
+```{r}
+# install.packages("maps")
+# library(maps)
+# x <- map("world", plot=FALSE)
+# glimpse(x)
+# x$names
+
+```
+
+```{r}
+install.packages("rworldmap")
+library(rworldmap)
+vignette('rworldmap')
+data(countryExData)
+countryExData
+```
+
+
+
+
+
+
+
+
+
+
+
+
+SEER China vs others
+
+https://www.rdocumentation.org/packages/bayesTFR/versions/6.1-2/topics/country.names
+
+
+https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/state.html
+
+
+
+
+# Who works on SEER {.tabset .tabset-fade .tabset-pills}
+
+If you want to see the code used in the analysis please click the code button on the right upper corner or throughout the page.  
+Select from the tabs below.
+
+---
+
+## Aim 
+
+**Aim:**
+
+
+
+---
+
+## Data retriveal from PubMed using EDirect 
+
+Articles are downloaded as `xml`.
+
+```{r Search PubMed write all data as xml, eval=FALSE, include=FALSE}
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(
+    myTerm,
+    "esearch -db pubmed -query \"'SEER Program'[Mesh]
+\" -datetype PDAT -mindate 1800 -maxdate 3000 | efetch -format xml > data/pubmed_result_SEER_MeSH.xml \n"
+)
+Sys.sleep(1)
+repeat {
+    Sys.sleep(0.1)
+    if (rstudioapi::terminalBusy(myTerm) == FALSE) {
+        print("Code Executed")
+        break
+    }
+}
+```
+
+
+
+```{r extract journal names from all data xml, message=FALSE, warning=FALSE}
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(
+myTerm,
+"xtract -input data/pubmed_result_SEER_MeSH.xml -pattern PubmedArticle -sep ' ' -def 'na' -element MedlineCitation/PMID PubDate/Year Affiliation> data/SEER_countries.csv \n"
+)
+Sys.sleep(1)
+repeat {
+Sys.sleep(0.1)
+if (rstudioapi::terminalBusy(myTerm) == FALSE) {
+print("Code Executed")
+break
+}
+}
+```
+
+
+```{r}
+library(readr)
+SEER_countries <- read_delim("data/SEER_countries.csv", 
+    "\t", escape_double = FALSE, col_names = c("PMID", "year", "Affiliations"), 
+    na = "NA", trim_ws = TRUE)
+# View(SEER_countries)
+```
+
+```{r}
+countries <- read_delim("data/countries.txt", delim = "|", col_names = c("abb", "country"))
+
+country <- countries$country
+
+country <- c(country, state.name)
+
+country[80] <- "Georgia_"
+
+```
+
+
+
+```{r}
+# SEER_countries <- cbind(SEER_countries, setNames(lapply(country, function(x) x=NA), country))
+
+# names(SEER_countries)[254] <- "GeorgiaUSA"
+
+
+```
+
+```{r}
+# grepl(pattern = "China", x = SEER_countries$Affiliations)
+```
+
+
+```{r}
+# deneme1 <- grepl(pattern = country[44], x = SEER_countries$Affiliations)
+    
+# deneme2 <- sapply(country, function(x) grepl(x, SEER_countries$Affiliations))
+
+# sum(deneme1 != deneme2[,44])
+
+```
+
+```{r}
+# deneme2 <- as.data.frame(deneme2)
+
+# sum(deneme2$Turkey)
+```
+
+```{r}
+SEER_countries <- cbind(SEER_countries, sapply(country, function(x) grepl(x, SEER_countries$Affiliations)))
+```
+
+
+```{r}
+dim(SEER_countries)[1]
+```
+
+At the time of the research the number of articles with 'SEER Program'[Mesh] formula is `r dim(SEER_countries)[1]`.
+
+```{r}
+# deneme <- colSums(SEER_countries[,-(1:3)])
+
+# deneme <- as.data.frame(deneme)
+
+# deneme <- rownames_to_column(deneme, var = "countries")
+
+# names(deneme) <- c("countries", "number")
+
+# deneme %>% arrange(desc(number))
+
+
+```
+
+```{r}
+SEER_countries[SEER_countries == FALSE] <- 0
+
+SEER_countries[SEER_countries == TRUE] <- 1
+
+```
+
+
+
+```{r}
+countryTotals <- SEER_countries %>% 
+  select(-c(1:3)) %>% 
+  summarise_all(funs(sum)) 
+
+countryTotals[which(countryTotals>0)]
+
+publisherCountries <- names(countryTotals[which(countryTotals>0)])
+
+SEER_countries <- SEER_countries %>% 
+  select(c(1:3, publisherCountries))
+
+```
+
+
+
+```{r}
+deneme <- SEER_countries %>% 
+  gather(key = "Country", value = "Number", -c(1:3)) %>% 
+  group_by(Country, year) %>% 
+  summarise(total = sum(Number))
+```
+
+
+```{r}
+deneme %>% 
+  filter(year != "na") %>%
+  filter(year != "2017") %>% 
+  filter(year != "2018") %>% 
+ggplot() +
+  aes(y = total, x = year, group = Country, color = Country) +
+  geom_line() + 
+  guides(fill=FALSE, color=FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+
+```{r}
+USAnames <- names(SEER_countries) %in% state.name
+
+Others <- setdiff(names(SEER_countries[-c(1:3)]), c(USAnames,"United States", "China"))
+
+
+deneme2 <- SEER_countries %>% 
+  mutate(
+    sumUSA = rowSums(
+      select(., one_of(USAnames), `United States`)
+      )
+    ) %>% 
+mutate(
+    sumOthers = rowSums(
+      select(., one_of(Others))
+      )
+    ) %>% 
+  select(PMID, year, China, USA = sumUSA, Others = sumOthers)
+
+```
+
+```{r}
+deneme3 <- deneme2 %>% 
+  gather(key = "Country", value = "Number", -c(1:2)) %>% 
+  group_by(PMID, Country, year) %>% 
+  summarise(total = sum(Number)) %>% 
+  filter(year != "na") %>%
+  filter(year != "2017") %>% 
+  filter(year != "2018") %>% 
+  filter(total != "0")
+```
+
+
+```{r}
+# which(duplicated(deneme3$PMID))
+# which(duplicated(deneme3$PMID))-1
+
+# deneme3[which(duplicated(deneme3$PMID)),]
+
+together <- bind_cols(
+First = deneme3$Country[which(duplicated(deneme3$PMID))],
+Second = deneme3$Country[which(duplicated(deneme3$PMID))-1]
+)
+
+table(together$First, together$Second) %>% addmargins()
+bind_cols(
+
+```
+
+
+
+```{r}
+deneme4 <- deneme2 %>% 
+  gather(key = "Country", value = "Number", -c(1:2)) %>% 
+  group_by(Country, year) %>% 
+  summarise(total = sum(Number)) %>% 
+  filter(year != "na") %>%
+  filter(year != "2017") %>% 
+  filter(year != "2018") %>% 
+  filter(total != "0")
+```
+
+
+
+```{r}
+deneme4 %>% 
+ggplot() +
+  aes(y = total, x = year, group = Country, color = Country) +
+  geom_line() + 
+  # guides(fill=FALSE, color=FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+
+
+<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fserdarbalcimdpathologist%2Fposts%2F1919706581479009&width=500" width="500" height="529" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">While helping the preparation of <a href="https://twitter.com/hashtag/PBPath?src=hash&amp;ref_src=twsrc%5Etfw">#PBPath</a> Journal Watch (<a href="https://t.co/WiBsJixzlc">https://t.co/WiBsJixzlc</a>)  I thought that many SEER <a href="https://twitter.com/NCICancerStats?ref_src=twsrc%5Etfw">@NCICancerStats</a> studies are from China. So using edirect <a href="https://twitter.com/NCBI?ref_src=twsrc%5Etfw">@NCBI</a> and <a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a> I draw the attached graph. What do you think? Do Chinese do research on SEER that much? <a href="https://t.co/3Op5r9ofbK">pic.twitter.com/3Op5r9ofbK</a></p>&mdash; Serdar Balcı (@serdarbalci) <a href="https://twitter.com/serdarbalci/status/1048663302916788224?ref_src=twsrc%5Etfw">October 6, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+```{r}
+p <- deneme4 %>% 
+ggplot() +
+  aes(y = total, x = year, group = Country, color = Country) +
+  geom_line() + 
+  # guides(fill=FALSE, color=FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ```{r Search PubMed write 2018 data as xml, eval=FALSE, include=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!--     myTerm, -->
+<!--     "esearch -db pubmed -query \"Turkey[Affiliation]\" -datetype PDAT -mindate 2018 -maxdate 3000 | efetch -format xml > data/Turkey_2018.xml \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!--     Sys.sleep(0.1) -->
+<!--     if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!--         print("Code Executed") -->
+<!--         break -->
+<!--     } -->
+<!-- } -->
+<!-- ``` -->
+
+
+
+
+<!-- ```{r Search PubMed write all data as xml, eval=FALSE, include=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!--     myTerm, -->
+<!--     "esearch -db pubmed -query \"Turkey[Affiliation]\" -datetype PDAT -mindate 1800 -maxdate 3000 | efetch -format xml > data/Turkey_all.xml \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!--     Sys.sleep(0.1) -->
+<!--     if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!--         print("Code Executed") -->
+<!--         break -->
+<!--     } -->
+<!-- } -->
+<!-- ``` -->
+
+
+
+
+
+<!-- ```{r Search PubMed get 2018 data on the fly, eval=FALSE, include=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!--     myTerm, -->
+<!--     "esearch -db pubmed -query \"Turkey[Affiliation]\" -datetype PDAT -mindate 2018 -maxdate 3000 | efetch -format xml | xtract  -pattern PubmedArticle -element MedlineCitation/PMID PubDate/Year Journal/ISSN ISOAbbreviation> data/onthefly_Turkey_2018.csv \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!--     Sys.sleep(0.1) -->
+<!--     if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!--         print("Code Executed") -->
+<!--         break -->
+<!--     } -->
+<!-- } -->
+<!-- ``` -->
+
+
+
+<!-- ```{r Search PubMed get all data on the fly, eval=FALSE, include=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!--     myTerm, -->
+<!--     "esearch -db pubmed -query \"Turkey[Affiliation]\" -datetype PDAT -mindate 1800 -maxdate 3000 | efetch -format xml | xtract  -pattern PubmedArticle -element MedlineCitation/PMID PubDate/Year Journal/ISSN ISOAbbreviation> data/onthefly_Turkey_all.csv \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!--     Sys.sleep(0.1) -->
+<!--     if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!--         print("Code Executed") -->
+<!--         break -->
+<!--     } -->
+<!-- } -->
+<!-- ``` -->
+
+
+
+<!-- Journal Names are extracted from xml. -->
+
+
+
+<!-- ```{r extract journal names from 2018 xml, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!-- myTerm, -->
+<!-- "xtract -input data/Turkey_2018.xml -pattern PubmedArticle -element MedlineCitation/PMID PubDate/Year Journal/ISSN ISOAbbreviation > data/Turkey2018.csv \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!-- Sys.sleep(0.1) -->
+<!-- if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!-- print("Code Executed") -->
+<!-- break -->
+<!-- } -->
+<!-- } -->
+<!-- ``` -->
+
+
+<!-- ```{r extract journal names from all data xml, message=FALSE, warning=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!-- myTerm, -->
+<!-- "xtract -input data/Turkey_all.xml -pattern PubmedArticle -sep ' ' -def 'na' -element MedlineCitation/PMID Journal/ISSN ISOAbbreviation PubDate/Year > data/TurkeyAll.csv \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!-- Sys.sleep(0.1) -->
+<!-- if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!-- print("Code Executed") -->
+<!-- break -->
+<!-- } -->
+<!-- } -->
+<!-- ``` -->
+
+
+
+<!-- ---- -->
+
+
+<!-- ## Retrieval of Data of Properties of Journals -->
+
+
+
+<!-- [nlmcatalog_result_journals_pmc.xml](https://www.ncbi.nlm.nih.gov/portal/utils/file_backend.cgi?Db=nlmcatalog&HistoryId=NCID_1_69755278_130.14.18.97_5555_1534585934_3590606783_0MetA0_S_HStore&QueryKey=2&Sort=PubDate&Filter=all&CompleteResultCount=2559&Mode=file&View=xml&p$l=Email&portalSnapshot=%2Fprojects%2Fentrez%2Fpubmed%2FPubMedGroup@1.136&BaseUrl=&PortName=live&RootTag=NLMCatalogRecordSet&DocType=NLMCatalogRecordSet%20PUBLIC%20%22-%2F%2FNLM%2F%2FDTD%20NLMCatalogRecordSet,%201st%20June%202017%2F%2FEN%22%20%22https://www.nlm.nih.gov/databases/dtd/nlmcatalogrecordset_170601.dtd%22&FileName=&ContentType=xml) -->
+
+
+<!-- [nlmcatalog_result_currentlyindexed.xml](https://www.ncbi.nlm.nih.gov/portal/utils/file_backend.cgi?Db=nlmcatalog&HistoryId=NCID_1_69755278_130.14.18.97_5555_1534585934_3590606783_0MetA0_S_HStore&QueryKey=1&Sort=PubDate&Filter=all&CompleteResultCount=5242&Mode=file&View=xml&p$l=Email&portalSnapshot=%2Fprojects%2Fentrez%2Fpubmed%2FPubMedGroup@1.136&BaseUrl=&PortName=live&RootTag=NLMCatalogRecordSet&DocType=NLMCatalogRecordSet%20PUBLIC%20%22-%2F%2FNLM%2F%2FDTD%20NLMCatalogRecordSet,%201st%20June%202017%2F%2FEN%22%20%22https://www.nlm.nih.gov/databases/dtd/nlmcatalogrecordset_170601.dtd%22&FileName=&ContentType=xml) -->
+
+
+<!-- [scimagojr2017.csv](https://www.scimagojr.com/journalrank.php?out=xls) -->
+
+<!-- [scimagojr2017-wos.csv](https://www.scimagojr.com/journalrank.php?wos=true&out=xls) -->
+
+
+<!-- ![](images/scidata.png) -->
+
+
+
+
+
+<!-- --- -->
+
+
+
+
+
+
+<!-- ## Analysis -->
+
+<!-- ```{r Organize Journal Data 1, message=FALSE, warning=FALSE} -->
+<!-- library(tidyverse) -->
+<!-- library(readr) -->
+
+<!-- TurkeyAll <- read_delim("data/TurkeyAll.csv",  -->
+<!--     "\t", escape_double = FALSE, col_names = FALSE, -->
+<!--     na = "na", trim_ws = TRUE) -->
+
+<!-- names(TurkeyAll) <- c("PMID", "ISSN", "JournalName", "Year") -->
+
+<!-- # dim(TurkeyAll)[1] -->
+
+<!-- # min(TurkeyAll[,4], na.rm = TRUE) -->
+
+<!-- # max(TurkeyAll[,4], na.rm = TRUE) -->
+
+<!-- # glimpse(TurkeyAll) -->
+
+<!-- ``` -->
+
+
+
+<!-- ```{r Organize Journal Data 2} -->
+<!-- uniqueJournals <- TurkeyAll %>%  -->
+<!--     select(JournalName, ISSN) %>%  -->
+<!--     unique() -->
+
+<!-- # dim(uniqueJournals)[1] -->
+
+<!-- ``` -->
+
+
+<!-- ```{r Organize Journal Data 3} -->
+
+<!-- TurkeyAll2 <- TurkeyAll %>%  -->
+<!--     mutate(Journal = paste(JournalName, ISSN, sep = " ISSN ")) -->
+
+<!-- ArticlesByYear <- TurkeyAll2 %>%  -->
+<!--     group_by(Journal, Year) %>%  -->
+<!--     summarise(n = n()) -->
+
+<!-- ArticlesByYear <- ArticlesByYear %>%  -->
+<!--     spread(key = Year, value = n) -->
+
+<!-- TurkeyAll2 <- TurkeyAll2 %>%  -->
+<!--     select(Journal, JournalName, ISSN) %>%  -->
+<!--     unique() -->
+
+<!-- ArticlesByYear <- left_join(ArticlesByYear, TurkeyAll2, by = "Journal")  -->
+
+<!-- ArticlesByYear <- ArticlesByYear %>% -->
+<!--     select( -->
+<!--     Journal, JournalName, ISSN, everything() -->
+<!--     ) -->
+
+<!-- ``` -->
+
+
+<!-- ```{r scimagojr2017} -->
+
+<!-- ``` -->
+
+
+
+<!-- -element MedlineTA  NLMCatalogRecord/NlmUniqueID -def 'na' -sep '\t' -block TitleAlternate/Title   -element TitleAlternate/Title    -->
+
+<!-- "xtract -input data/nlmcatalog_result_currentlyindexed.xml -pattern NCBICatalogRecord -element ISSNLinking -def 'na' -sep ' ' -block TitleAlternate/Title -if TitleAlternate/Title@Sort -equals N -element TitleAlternate/Title  > data/nlmcatalog.csv \n" -->
+
+<!-- -sep '\t'  -->
+
+
+<!-- NLMCatalogRecord/NlmUniqueID ISSNLinking -->
+
+<!-- ```{r nlmcatalog, message=FALSE, warning=FALSE} -->
+<!-- myTerm <- rstudioapi::terminalCreate(show = FALSE) -->
+<!-- rstudioapi::terminalSend( -->
+<!-- myTerm, -->
+<!-- "xtract -input data/nlmcatalog_result_currentlyindexed.xml -pattern NCBICatalogRecord -tab '|' -element NLMCatalogRecord/NlmUniqueID -block ISSNLinking -tab '|' -element ISSNLinking -block Title -if Title@Sort -equals N -def 'na' -tab '|' -element TitleAlternate/Title > data/nlmcatalog.csv \n" -->
+<!-- ) -->
+<!-- Sys.sleep(1) -->
+<!-- repeat { -->
+<!-- Sys.sleep(0.1) -->
+<!-- if (rstudioapi::terminalBusy(myTerm) == FALSE) { -->
+<!-- print("Code Executed") -->
+<!-- break -->
+<!-- } -->
+<!-- } -->
+
+<!-- ```  -->
+
+
+<!-- ```{r} -->
+<!-- library(readr) -->
+<!-- nlmcatalog <- read_delim("data/nlmcatalog.csv",  -->
+<!--                          delim = "|", -->
+<!--                          escape_double = FALSE, -->
+<!--                          col_names = FALSE,  -->
+<!--                          trim_ws = TRUE) -->
+
+<!-- ``` -->
+
+<!-- ```{r} -->
+
+<!-- library(xml2) -->
+<!-- data <- read_xml("data/nlmcatalog_result_currentlyindexed.xml") -->
+
+<!-- # Point locations -->
+<!-- point <- data %>% xml_find_all("//pointer") -->
+<!-- point %>% xml_attr("latitude") %>% as.numeric() -->
+<!-- point %>% xml_attr("longitude") %>% as.numeric() -->
+
+<!-- # Start time -->
+<!-- data %>%  -->
+<!--   xml_find_all("//start-valid-time") %>%  -->
+<!--   xml_text() -->
+
+<!-- # Temperature -->
+<!-- data %>%  -->
+<!--   xml_find_all("//temperature[@type='hourly']/value") %>%  -->
+<!--   xml_text() %>%  -->
+<!--   as.integer() -->
+
+
+
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ## Results -->
+
+<!-- - PubMed'de **`r min(TurkeyAll[,4], na.rm = TRUE)`-`r max(TurkeyAll[,4], na.rm = TRUE)`** tarihleri arasında, *Türkiye* adresli **`r dim(TurkeyAll)[1]`** adet yayın mevcuttur. -->
+
+<!-- - PubMed'de **`r min(TurkeyAll[,4], na.rm = TRUE)`-`r max(TurkeyAll[,4], na.rm = TRUE)`** tarihleri arasında, *Türkiye* adresli yayınlar **`r dim(uniqueJournals)[1]`** farklı dergide yayımlanmıştır. -->
+
+
+
+
+
+<!-- --- -->
+
+<!-- ## Discussion -->
+
+<!-- türkiye adresli olup da pubmedde yer alan makaleler hangi dergilerde kaçar adet yayınlanmış -->
+
+
+<!-- The retrieved information was compiled in a table. -->
+
+
+
+
+
+<!-- **Methods:** -->
+
+
+
+
+
+
+
+
+
+<!-- **Result:** -->
+
+
+<!-- ```{r plot 1} -->
+<!-- ggplot(data = articles_per_journal, aes(x = Journal, y = n, group = Country, -->
+<!--                                      colour = Country, shape = Country, -->
+<!--                                      levels = Country -->
+<!-- )) + -->
+<!--     geom_point() + -->
+<!--     labs(x = "Journals with decreasing impact factor", y = "Number of Articles") + -->
+<!--     ggtitle("Pathology Articles Per Journal") +  -->
+<!--     theme(plot.title = element_text(hjust = 0.5), -->
+<!--           axis.text.x=element_blank()) -->
+
+<!-- ``` -->
+
+
+<!-- **Comment:** -->
+
+
+
+
+<!-- --- -->
+
+
+<!-- ## Feedback -->
+
+<!-- [Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3 -->
+
+<!-- This document will be continiously updated and the last update was on `r Sys.Date()`. -->
+
+<!-- --- -->
+
+<!-- ## Back to Main Menu -->
+
+<!-- [Main Page for Bibliographic Analysis](https://sbalci.github.io/pubmed/BibliographicStudies.html) -->
+
+<!-- --- -->

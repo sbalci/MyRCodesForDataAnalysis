@@ -1,0 +1,16 @@
+---
+title: "ORCID"
+output: html_notebook
+---
+
+
+
+- Introduction to ORCID Researcher Identifiers in R with rorcid
+
+https://www.pauloldham.net/introduction-to-orcid-with-rorcid/
+
+
+
+
+
+

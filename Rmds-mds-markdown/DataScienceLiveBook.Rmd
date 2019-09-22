@@ -1,0 +1,21 @@
+---
+title: "Data Science Live Book"
+output: html_notebook
+---
+
+
+https://livebook.datascienceheroes.com/
+
+
+```{r}
+# Loading funModeling!
+library(funModeling)
+library(dplyr)
+data(heart_disease)
+```
+
+```{r}
+# Profiling the data input
+df_status(heart_disease)
+```
+

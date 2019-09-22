@@ -1,0 +1,38 @@
+---
+title: "mxnet"
+output: html_notebook
+---
+
+https://mxnet.apache.org/versions/master/install/index.html?platform=MacOS&language=R&processor=CPU
+
+
+```{r}
+cran <- getOption("repos")
+cran["dmlc"] <- "https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/R/CRAN/"
+options(repos = cran)
+install.packages("mxnet")
+```
+
+https://mxnet.apache.org/versions/master/api/r/index.html
+
+
+https://mxnet.apache.org/versions/master/tutorials/index.html
+
+
+R Tutorials
+
+    Getting Started
+        Basic Classification
+        Using a pre-trained model for Image Classification
+
+    Models
+        MNIST Handwritten Digit Classification with Convolutional Network
+        Shakespeare generation with Character-level RNN
+
+    API Guides
+        NDArray API
+        Symbol API
+        Callbacks
+        Custom Data Iterators
+        Custom Loss Functions
+

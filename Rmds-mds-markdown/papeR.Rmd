@@ -1,0 +1,106 @@
+---
+title: "papeR"
+output: html_notebook
+---
+
+copied from: https://cran.r-project.org/web/packages/papeR/vignettes/papeR_introduction.html
+
+
+The package is intended to ease reporting of standard data analysis tasks such as descriptive statistics, simple test results, plots and to prettify the output of various statistical models.
+
+https://github.com/hofnerb/papeR
+
+
+
+```{r}
+# install.packages("papeR")
+# devtools::install_github("hofnerb/papeR")
+library("papeR")
+```
+
+
+```{r}
+# install.packages("nlme")
+data(Orthodont, package = "nlme")
+Orthodont_orig <- Orthodont
+Orthodont
+```
+
+```{r}
+is.ldf(Orthodont)
+```
+
+
+```{r}
+labels(Orthodont)
+```
+
+
+```{r}
+labels(Orthodont) <- c("fissure distance (mm)", "age (years)", "Subject", "Sex")
+Orthodont
+```
+
+```{r}
+is.ldf(Orthodont)
+```
+
+
+```{r}
+class(Orthodont)
+```
+
+
+```{r}
+labels(Orthodont)
+```
+
+```{r}
+labels(Orthodont, which = c("distance", "age")) <- c("Fissure distance (mm)", "Age (years)")
+```
+
+
+```{r}
+labels(Orthodont, which = "age")
+```
+
+```{r}
+labels(Orthodont, which = 1:2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
