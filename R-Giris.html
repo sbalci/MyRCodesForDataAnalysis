@@ -4,7 +4,7 @@
     <title>R ile analize başlarken</title>
     <meta charset="utf-8" />
     <meta name="author" content="Derleyen Serdar Balcı, MD, Pathologist" />
-    <meta name="date" content="2019-09-20" />
+    <meta name="date" content="2019-09-24" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # R ile analize başlarken<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
 ### Derleyen <a href="https://sbalci.github.io/">Serdar Balcı, MD, Pathologist</a>
 ### <a href="https://www.serdarbalci.com">serdarbalci.com</a>
-### 2019-09-20
+### 2019-09-24
 
 ---
 
@@ -37,6 +37,11 @@ class: center, middle, inverse, title-slide
 - Web sayfası hazırlama (Statik/Dinamik)
 - Sunum hazırlama
 - Programlama
+- Otomatik, periodik ve tekrarlanabilir rapor hazırlama
+- pdf, html, ppt oluşturma
+- tez yazma
+- kitap yazma
+- rapor şablonu oluşturma
 - ...
 
 ---
@@ -47,14 +52,22 @@ R yıllar içinde çok fazla değişim gösterdi
 
 https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x
 
+![](https://wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/17409713-1501384756037.jpg)
+
+![:scale 30%](https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg)
+
+
+
+
+
 ---
 
 # R yükleme
 
 http://www.youtube.com/watch?v=XcBLEVknqvY
 
-[![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)](http://www.youtube.com/watch?v=XcBLEVknqvY)
-
+![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)
+---
 
 ## R-project
 
@@ -62,17 +75,20 @@ https://cran.r-project.org/
 
 ---
 
-[![](https://ismayc.github.io/talks/ness-infer/img/engine.png)](https://ismayc.github.io/talks/ness-infer/slide_deck.html#6)
+## RStudio
+
+
+![](https://ismayc.github.io/talks/ness-infer/img/engine.png)
 
 ---
 
 ## RStudio
 
-https://www.rstudio.com/
+[https://www.rstudio.com/](https://www.rstudio.com/)
 
-https://www.rstudio.com/products/rstudio/download/
+[https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
 
-https://moderndive.com/2-getting-started.html
+[https://moderndive.com/2-getting-started.html](https://moderndive.com/2-getting-started.html)
 
 ---
 
@@ -124,6 +140,7 @@ R Syntax Comparison::CHEAT SHEET
 https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 
+---
 
 
 &lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;&lt;a href="https://twitter.com/hashtag/RStats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#RStats&lt;/a&gt; — There are always several ways to do the same thing... nice example on with the identity matrix by &lt;a href="https://twitter.com/TeaStats?ref_src=twsrc%5Etfw"&gt;@TeaStats&lt;/a&gt; &lt;a href="https://t.co/O3GXdPiM32"&gt;https://t.co/O3GXdPiM32&lt;/a&gt;&lt;/p&gt;&amp;mdash; Colin Fay 🤘 (@_ColinFay) &lt;a href="https://twitter.com/_ColinFay/status/1112746633467518977?ref_src=twsrc%5Etfw"&gt;April 1, 2019&lt;/a&gt;&lt;/blockquote&gt;
@@ -143,11 +160,9 @@ https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;I love the &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; community.&lt;br&gt;Someone is like, &amp;quot;oh hey peeps, I saw a big need for this mundane but difficult task that I infrequently do, so I created a package that will literally scrape the last bits of peanut butter out of the jar for you. It&amp;#39;s called pbplyr.&amp;quot;&lt;br&gt;What a tribe.&lt;/p&gt;&amp;mdash; Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly_Data) &lt;a href="https://twitter.com/Frankly_Data/status/1014189095294291968?ref_src=twsrc%5Etfw"&gt;July 3, 2018&lt;/a&gt;&lt;/blockquote&gt;
 
----
+&lt;!-- --- --&gt;
 
-
-
-https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/
+&lt;!-- https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/ --&gt;
 
 ---
 
@@ -179,6 +194,7 @@ https://github.com/RhoInc/CRANsearcher
 - Awesome R  
 https://awesome-r.com/  
 
+---
 
 ## Kendi paket evrenini oluştur
 
@@ -207,6 +223,9 @@ install.packages("summarytools")
 # install.packages("summarytools")
 ```
 
+---
+
+## Paket çağırma
 
 
 ```r
@@ -232,11 +251,11 @@ install.packages("summarytools")
 # example(merge)
 ```
 
-
+---
 
 - Vignette
 
-![](figures/vignette.png)
+![:scale 80%](figures/vignette.png)
 
 ---
 
@@ -254,7 +273,7 @@ https://stackoverflow.com/
 
 - Google uygun anahtar kelime
 
-
+---
 
 &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;How I use &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; &lt;br&gt;h/t &lt;a href="https://twitter.com/ThePracticalDev?ref_src=twsrc%5Etfw"&gt;@ThePracticalDev&lt;/a&gt; &lt;a href="https://t.co/erRnTG0Ujr"&gt;pic.twitter.com/erRnTG0Ujr&lt;/a&gt;&lt;/p&gt;&amp;mdash; Emily Bovee (@ebovee09) &lt;a href="https://twitter.com/ebovee09/status/1028037594947485696?ref_src=twsrc%5Etfw"&gt;August 10, 2018&lt;/a&gt;&lt;/blockquote&gt;
 
@@ -270,7 +289,6 @@ https://stackoverflow.com/
 
 ![](figures/Google-start-with-R.png)
 
----
 
 - Google'da ararken `[R]` yazmak da işe yarayabiliyor.
 
@@ -301,14 +319,14 @@ https://github.com/qinwf/awesome-R#readme
 https://awesome-r.com/
 
 
-
-
 - Twitter
 
 https://twitter.com/hashtag/rstats?src=hash
 
+---
 
-- Reproducible Examples  
+
+- Use Reproducible Examples When Asking  
 
 &lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Got a question to ask on &lt;a href="https://twitter.com/SlackHQ?ref_src=twsrc%5Etfw"&gt;@SlackHQ&lt;/a&gt; or post on &lt;a href="https://twitter.com/github?ref_src=twsrc%5Etfw"&gt;@github&lt;/a&gt;? No time to read the long post on how to use reprex? Here is a 20-second gif for you to format your R codes nicely and for others to reproduce your problem. (An example from a talk given by &lt;a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw"&gt;@JennyBryan&lt;/a&gt;) &lt;a href="https://twitter.com/hashtag/rstat?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstat&lt;/a&gt; &lt;a href="https://t.co/gpuGXpFIsX"&gt;pic.twitter.com/gpuGXpFIsX&lt;/a&gt;&lt;/p&gt;&amp;mdash; ZhiYang (@zhiiiyang) &lt;a href="https://twitter.com/zhiiiyang/status/1053006003711569920?ref_src=twsrc%5Etfw"&gt;October 18, 2018&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
@@ -347,7 +365,9 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;Spreadsheet users using &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt;:  where&amp;#39;s the data?&lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; users using spreadsheets:  where&amp;#39;s the code?&lt;/p&gt;&amp;mdash; Leonard Kiefer (@lenkiefer) &lt;a href="https://twitter.com/lenkiefer/status/1015587475580956672?ref_src=twsrc%5Etfw"&gt;July 7, 2018&lt;/a&gt;&lt;/blockquote&gt;
 
+---
 
+# Veriyi görüntüleme
 
 
 ```r
@@ -400,7 +420,7 @@ skimr::skim()
 
 ## Veriyi eklentilerle değiştirme
 
-![](figures/change_data.png)
+![:scale 50%](figures/change_data.png)
 
 
 ---
@@ -410,7 +430,7 @@ skimr::skim()
 
 *questionr* paketi kullanılacak
 
-![](figures/level_recode.png)
+![:scale 50%](figures/level_recode.png)
 
 
 ---
@@ -464,6 +484,8 @@ sd
 ```
 table()
 ```
+
+---
 
 
 
@@ -595,6 +617,8 @@ scatr::scat(
 
 ![](R-Giris_files/figure-html/scatter-1.png)&lt;!-- --&gt;
 
+---
+
 ## summarytools
 
 https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
@@ -625,6 +649,9 @@ summarytools::freq(iris$Species, style = "rmarkdown")
 |  **virginica** |   50 |   33.33 |       100.00 |   33.33 |       100.00 |
 |     **\&lt;NA\&gt;** |    0 |         |              |    0.00 |       100.00 |
 |      **Total** |  150 |  100.00 |       100.00 |  100.00 |       100.00 |
+
+
+---
 
 
 ```r
@@ -720,14 +747,14 @@ with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 </tr>
 </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-20</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-24</p>
 </div>
 
 
 
 ```r
-with(tobacco, 
-     print(ctable(smoker, diseased, prop = 'n', totals = FALSE), 
+with(tobacco,
+     print(ctable(smoker, diseased, prop = 'n', totals = FALSE),
            omit.headings = TRUE, method = "render"))
 ```
 
@@ -775,10 +802,10 @@ with(tobacco,
 </tr>
 </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-20</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-24</p>
 </div>
 
-
+---
 
 
 ```r
@@ -811,13 +838,13 @@ Non-numerical variable(s) ignored: Species
 |     **N.Valid** |       150.00 |      150.00 |       150.00 |      150.00 |
 |   **Pct.Valid** |       100.00 |      100.00 |       100.00 |      100.00 |
 
-
+---
 
 
 ```r
-descr(iris, 
-      stats = c("mean", "sd", "min", "med", "max"), 
-      transpose = TRUE, 
+descr(iris,
+      stats = c("mean", "sd", "min", "med", "max"),
+      transpose = TRUE,
       headings = FALSE,
       style = "rmarkdown")
 ```
@@ -834,7 +861,7 @@ Non-numerical variable(s) ignored: Species
 | **Sepal.Length** | 5.84 |    0.83 | 4.30 |   5.80 | 7.90 |
 |  **Sepal.Width** | 3.06 |    0.44 | 2.00 |   3.00 | 4.40 |
 
-
+---
 
 
 ```r
@@ -844,12 +871,12 @@ Non-numerical variable(s) ignored: Species
 
 ![](figures/dfsummary.png)
 
-
+---
 
 
 ```r
-dfSummary(tobacco, 
-          plain.ascii = FALSE, 
+dfSummary(tobacco,
+          plain.ascii = FALSE,
           style = "grid")
 ```
 
@@ -920,13 +947,15 @@ text graphs are displayed; set 'tmp.img.dir' parameter to activate png graphs
 +----+---------------+--------------------------+---------------------+------------------------------+---------+---------+
 
 
+---
+
 
 ```r
 # First save the results
 
-iris_stats_by_species &lt;- by(data = iris, 
-                            INDICES = iris$Species, 
-                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"), 
+iris_stats_by_species &lt;- by(data = iris,
+                            INDICES = iris$Species,
+                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"),
                             transpose = TRUE)
 
 # Then use view(), like so:
@@ -971,6 +1000,10 @@ Non-numerical variable(s) ignored: Species
 |  **Sepal.Width** | 2.97 |    0.32 | 2.20 |   3.00 | 3.80 |
 
 
+---
+
+
+
 ```r
 # view(iris_stats_by_species)
 ```
@@ -982,8 +1015,8 @@ Non-numerical variable(s) ignored: Species
 
 ```r
 data(tobacco) # tobacco is an example dataframe included in the package
-BMI_by_age &lt;- with(tobacco, 
-                   by(BMI, age.gr, descr, 
+BMI_by_age &lt;- with(tobacco,
+                   by(BMI, age.gr, descr,
                       stats = c("mean", "sd", "min", "med", "max")))
 view(BMI_by_age, "pander", style = "rmarkdown")
 ```
@@ -1005,7 +1038,7 @@ view(BMI_by_age, "pander", style = "rmarkdown")
 
 
 ```r
-BMI_by_age &lt;- with(tobacco, 
+BMI_by_age &lt;- with(tobacco,
                    by(BMI, age.gr, descr,  transpose = TRUE,
                       stats = c("mean", "sd", "min", "med", "max")))
 
@@ -1144,7 +1177,7 @@ print(freq(tobacco$gender), method = 'render')
     </tr>
   </tbody>
 </table>
-<p><p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-20</p></p>
+<p><p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-24</p></p>
 </div>
 
 ---
@@ -1309,8 +1342,11 @@ print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 </tr>
 </tbody>
 </table>
-<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-20</p>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.4 (<a href='https://www.r-project.org/'>R</a> version 3.6.0)<br/>2019-09-24</p>
 </div>
+
+
+---
 
 ```
 descr(tobacco, style = 'rmarkdown')
@@ -1340,9 +1376,8 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
 
----
 
-## Tablolar
+&lt;!-- ## Tablolar --&gt;
 
 
 
@@ -1354,7 +1389,6 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 # Bazı arayüzler
 
-Link
 
 ## Rcmdr
 
@@ -1388,14 +1422,16 @@ https://blog.jamovi.org/2018/07/30/rj.html
 
 # R nereden öğrenilir
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 
 ---
 
 # Sonraki Konular
 
-- RStudio ile GitHub
-- Hipotez testleri
+- RStudio ile GitHub kullanımı
 - R Markdown ve R Notebook ile tekrarlanabilir rapor
+- Hipotez testleri
+
 
 
 -----
@@ -1430,12 +1466,9 @@ s.setAttribute('data-timestamp', +new Date());
 &lt;/script&gt;
 &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
 
----
-
-
-\pagebreak
 
 ---
+
 
 ```
 # Save Final Data
@@ -1451,8 +1484,6 @@ file.info("Data-After-Analysis.xlsx")$ctime
 ```
 
 ---
-
-\pagebreak
 
 
 # Libraries Used
@@ -1519,8 +1550,6 @@ report::cite_packages(session = sessionInfo())
 ---
 
 
-
-
 ```r
 sessionInfo()
 ```
@@ -1569,25 +1598,21 @@ sessionInfo()
 
 ---
 
-\pagebreak
-
-
 
 # Notes  
 
-Completed on 2019-09-20 22:51:57.  
+Completed on 2019-09-24 10:45:34.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
 https://rpubs.com/sbalci/CV   
-
-  
 https://sbalci.github.io/  
-https://github.com/sbalci  
----
+https://github.com/sbalci
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,

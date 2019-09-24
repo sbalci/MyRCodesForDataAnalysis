@@ -5,12 +5,6 @@ author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
   html_notebook:
     fig_caption: yes
     highlight: kate
@@ -19,10 +13,17 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
   pdf_document:
     toc: yes
     toc_depth: '5'
-  html_document: 
+  html_document:
     fig_caption: yes
     keep_md: yes
     toc: yes
@@ -62,14 +63,24 @@ R yıllar içinde çok fazla değişim gösterdi
 
 https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x
 
+![](https://wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/17409713-1501384756037.jpg)
+
+![:scale 30%](https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg)
+
+
+```{r eval=FALSE, include=FALSE}
+knitr::include_graphics(path = "https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg")
+```
+
+
 ---
 
 # R yükleme
 
 http://www.youtube.com/watch?v=XcBLEVknqvY
 
-[![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)](http://www.youtube.com/watch?v=XcBLEVknqvY)
-
+![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)
+---
 
 ## R-project
 
@@ -77,17 +88,20 @@ https://cran.r-project.org/
 
 ---
 
-[![](https://ismayc.github.io/talks/ness-infer/img/engine.png)](https://ismayc.github.io/talks/ness-infer/slide_deck.html#6)
+## RStudio
+
+
+![](https://ismayc.github.io/talks/ness-infer/img/engine.png)
 
 ---
 
 ## RStudio
 
-https://www.rstudio.com/
+[https://www.rstudio.com/](https://www.rstudio.com/)
 
-https://www.rstudio.com/products/rstudio/download/
+[https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
 
-https://moderndive.com/2-getting-started.html
+[https://moderndive.com/2-getting-started.html](https://moderndive.com/2-getting-started.html)
 
 ---
 
@@ -139,6 +153,7 @@ R Syntax Comparison::CHEAT SHEET
 https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 
+---
 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a> — There are always several ways to do the same thing... nice example on with the identity matrix by <a href="https://twitter.com/TeaStats?ref_src=twsrc%5Etfw">@TeaStats</a> <a href="https://t.co/O3GXdPiM32">https://t.co/O3GXdPiM32</a></p>&mdash; Colin Fay 🤘 (@_ColinFay) <a href="https://twitter.com/_ColinFay/status/1112746633467518977?ref_src=twsrc%5Etfw">April 1, 2019</a></blockquote>
@@ -158,11 +173,9 @@ https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I love the <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> community.<br>Someone is like, &quot;oh hey peeps, I saw a big need for this mundane but difficult task that I infrequently do, so I created a package that will literally scrape the last bits of peanut butter out of the jar for you. It&#39;s called pbplyr.&quot;<br>What a tribe.</p>&mdash; Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly_Data) <a href="https://twitter.com/Frankly_Data/status/1014189095294291968?ref_src=twsrc%5Etfw">July 3, 2018</a></blockquote>
 
----
+<!-- --- -->
 
-
-
-https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/
+<!-- https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/ -->
 
 ---
 
@@ -222,6 +235,9 @@ install.packages("summarytools")
 # install.packages("summarytools")
 ```
 
+---
+
+## Paket çağırma
 
 ```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
 # require(tidyverse)
@@ -249,7 +265,7 @@ install.packages("summarytools")
 
 - Vignette
 
-![](figures/vignette.png)
+![:scale 80%](figures/vignette.png)
 
 ---
 
@@ -313,14 +329,14 @@ https://github.com/qinwf/awesome-R#readme
 https://awesome-r.com/
 
 
-
-
 - Twitter
 
 https://twitter.com/hashtag/rstats?src=hash
 
+---
 
-- Reproducible Examples  
+
+- Use Reproducible Examples When Asking  
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Got a question to ask on <a href="https://twitter.com/SlackHQ?ref_src=twsrc%5Etfw">@SlackHQ</a> or post on <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@github</a>? No time to read the long post on how to use reprex? Here is a 20-second gif for you to format your R codes nicely and for others to reproduce your problem. (An example from a talk given by <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a>) <a href="https://twitter.com/hashtag/rstat?src=hash&amp;ref_src=twsrc%5Etfw">#rstat</a> <a href="https://t.co/gpuGXpFIsX">pic.twitter.com/gpuGXpFIsX</a></p>&mdash; ZhiYang (@zhiiiyang) <a href="https://twitter.com/zhiiiyang/status/1053006003711569920?ref_src=twsrc%5Etfw">October 18, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -359,7 +375,9 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Spreadsheet users using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>:  where&#39;s the data?<a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> users using spreadsheets:  where&#39;s the code?</p>&mdash; Leonard Kiefer (@lenkiefer) <a href="https://twitter.com/lenkiefer/status/1015587475580956672?ref_src=twsrc%5Etfw">July 7, 2018</a></blockquote>
 
+---
 
+# Veriyi görüntüleme
 
 ```{r, results="markup"}
 # library(nycflights13)
@@ -411,7 +429,7 @@ skimr::skim()
 
 ## Veriyi eklentilerle değiştirme
 
-![](figures/change_data.png)
+![:scale 50%](figures/change_data.png)
 
 
 ---
@@ -421,7 +439,7 @@ skimr::skim()
 
 *questionr* paketi kullanılacak
 
-![](figures/level_recode.png)
+![:scale 50%](figures/level_recode.png)
 
 
 ---
@@ -476,6 +494,8 @@ sd
 table()
 ```
 
+---
+
 
 ```{r descriptive, echo=TRUE, include = TRUE}
 library(readr)
@@ -520,6 +540,8 @@ scatr::scat(
 
 ```
 
+---
+
 ## summarytools
 
 https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
@@ -528,6 +550,9 @@ https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
 library(summarytools)
 summarytools::freq(iris$Species, style = "rmarkdown")
 ```
+
+
+---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headings = FALSE)
@@ -540,28 +565,28 @@ with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-with(tobacco, 
-     print(ctable(smoker, diseased, prop = 'n', totals = FALSE), 
+with(tobacco,
+     print(ctable(smoker, diseased, prop = 'n', totals = FALSE),
            omit.headings = TRUE, method = "render"))
 ```
 
-
+---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 summarytools::descr(iris, style = "rmarkdown")
 ```
 
-
+---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-descr(iris, 
-      stats = c("mean", "sd", "min", "med", "max"), 
-      transpose = TRUE, 
+descr(iris,
+      stats = c("mean", "sd", "min", "med", "max"),
+      transpose = TRUE,
       headings = FALSE,
       style = "rmarkdown")
 ```
 
-
+---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # view(dfSummary(iris))
@@ -571,28 +596,34 @@ descr(iris,
 
 ![](figures/dfsummary.png)
 
-
+---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-dfSummary(tobacco, 
-          plain.ascii = FALSE, 
+dfSummary(tobacco,
+          plain.ascii = FALSE,
           style = "grid")
 ```
 
+
+---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 
 # First save the results
 
-iris_stats_by_species <- by(data = iris, 
-                            INDICES = iris$Species, 
-                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"), 
+iris_stats_by_species <- by(data = iris,
+                            INDICES = iris$Species,
+                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"),
                             transpose = TRUE)
 
 # Then use view(), like so:
 
 view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 ```
+
+
+---
+
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # view(iris_stats_by_species)
@@ -604,8 +635,8 @@ view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 data(tobacco) # tobacco is an example dataframe included in the package
-BMI_by_age <- with(tobacco, 
-                   by(BMI, age.gr, descr, 
+BMI_by_age <- with(tobacco,
+                   by(BMI, age.gr, descr,
                       stats = c("mean", "sd", "min", "med", "max")))
 view(BMI_by_age, "pander", style = "rmarkdown")
 ```
@@ -613,7 +644,7 @@ view(BMI_by_age, "pander", style = "rmarkdown")
 ---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-BMI_by_age <- with(tobacco, 
+BMI_by_age <- with(tobacco,
                    by(BMI, age.gr, descr,  transpose = TRUE,
                       stats = c("mean", "sd", "min", "med", "max")))
 
@@ -701,6 +732,9 @@ ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 ```
 
+
+---
+
 ```
 descr(tobacco, style = 'rmarkdown')
 
@@ -729,9 +763,8 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
----
 
-## Tablolar
+<!-- ## Tablolar -->
 
 
 
@@ -743,7 +776,6 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 # Bazı arayüzler
 
-Link
 
 ## Rcmdr
 
@@ -783,9 +815,10 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 
 # Sonraki Konular
 
-- RStudio ile GitHub
-- Hipotez testleri
+- RStudio ile GitHub kullanımı
 - R Markdown ve R Notebook ile tekrarlanabilir rapor
+- Hipotez testleri
+
 
 
 -----
@@ -820,12 +853,9 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
----
-
-
-\pagebreak
 
 ---
+
 
 ```
 # Save Final Data
@@ -841,8 +871,6 @@ file.info("Data-After-Analysis.xlsx")$ctime
 ```
 
 ---
-
-\pagebreak
 
 
 # Libraries Used
@@ -889,16 +917,11 @@ report::cite_packages(session = sessionInfo())
 
 ---
 
-
-
 ```{r}
 sessionInfo()
 ```
 
 ---
-
-\pagebreak
-
 
 
 # Notes  
@@ -908,12 +931,5 @@ Completed on `r Sys.time()`.
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
 https://rpubs.com/sbalci/CV   
-
-  
 https://sbalci.github.io/  
 https://github.com/sbalci  
----
-
-
-
-
