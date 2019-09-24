@@ -5,7 +5,6 @@ author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  revealjs::revealjs_presentation:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
@@ -14,6 +13,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
     self_contained: true
+  revealjs::revealjs_presentation:
   html_notebook:
     fig_caption: yes
     highlight: kate
