@@ -5,6 +5,15 @@ author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
+  revealjs::revealjs_presentation:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    self_contained: true
   html_notebook:
     fig_caption: yes
     highlight: kate
@@ -13,13 +22,6 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
   pdf_document:
     toc: yes
     toc_depth: '5'
@@ -34,11 +36,21 @@ output:
 <!-- Open all links in new tab-->  
 <base target="_blank"/>   
 
-
 <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
 </script>
 
 <!-- [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls) -->
+
+
+```{r setup global chunk settings}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	comment = NA,
+	include = FALSE,
+	tidy = TRUE
+)
+```
 
 
 # R nerede kullanılır
@@ -52,6 +64,8 @@ output:
 - pdf, html, ppt oluşturma
 - tez yazma
 - kitap yazma
+- CV oluşturma
+- poster hazırlama
 - rapor şablonu oluşturma
 - ...
 
@@ -767,11 +781,6 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 <!-- ## Tablolar -->
 
 
-
-
-
-
-
 ---
 
 # Bazı arayüzler
@@ -933,3 +942,26 @@ drserdarbalci@gmail.com
 https://rpubs.com/sbalci/CV   
 https://sbalci.github.io/  
 https://github.com/sbalci  
+
+
+---
+
+```{r}
+CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+
+wd <- getwd()
+
+gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+
+system(command = gitCommand, intern = TRUE
+)
+
+```
+
+
+
+
+
+
+
+
