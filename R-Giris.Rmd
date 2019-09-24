@@ -31,6 +31,8 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
+editor_options: 
+  chunk_output_type: inline
 ---
 
 <!-- Open all links in new tab-->  
@@ -93,8 +95,12 @@ knitr::include_graphics(path = "https://wol-prod-cdn.literatumonline.com/cms/att
 
 http://www.youtube.com/watch?v=XcBLEVknqvY
 
+
 ![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)
+
+
 ---
+
 
 ## R-project
 
@@ -109,7 +115,7 @@ https://cran.r-project.org/
 
 ---
 
-## RStudio
+### RStudio
 
 [https://www.rstudio.com/](https://www.rstudio.com/)
 
@@ -118,6 +124,9 @@ https://cran.r-project.org/
 [https://moderndive.com/2-getting-started.html](https://moderndive.com/2-getting-started.html)
 
 ---
+
+### RStudio
+
 
 [![](http://www-users.york.ac.uk/~er13/RStudio%20Anatomy.svg)](https://buzzrbeeline.blog/2018/07/04/rstudio-anatomy/)
 
@@ -141,13 +150,13 @@ devtools::install_github("rstudio/addinexamples", type = "source")
 
 ---
 
-# MacOS için
+## MacOS için
 
-## X11
+### X11
 
 https://www.xquartz.org/
 
-## Java OS
+### Java OS
 
 https://support.apple.com/kb/dl1572
 
@@ -254,11 +263,11 @@ install.packages("summarytools")
 ## Paket çağırma
 
 ```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
-# require(tidyverse)
-# require(jmv)
-# require(questionr)
-# library(summarytools)
-# library(gganimate)
+# require(tidyverse)  
+# require(jmv)  
+# require(questionr)  
+# library(summarytools)  
+# library(gganimate)  
 ```
 
 
@@ -268,7 +277,7 @@ install.packages("summarytools")
 # R için yardım bulma
 
 
-```{r yardım}
+```{r yardım, echo=TRUE}
 # ?mean
 # ??efetch
 # help(merge)
@@ -360,7 +369,7 @@ https://masalmon.eu/2019/01/25/uptodate/
 
 ---
 
-# R studio ile proje oluşturma
+# Rstudio ile proje oluşturma
 
 https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 
@@ -443,7 +452,7 @@ skimr::skim()
 
 ## Veriyi eklentilerle değiştirme
 
-![:scale 50%](figures/change_data.png)
+![:scale 30%](figures/change_data.png)
 
 
 ---
@@ -453,7 +462,7 @@ skimr::skim()
 
 *questionr* paketi kullanılacak
 
-![:scale 50%](figures/level_recode.png)
+![:scale 30%](figures/level_recode.png)
 
 
 ---
@@ -542,7 +551,6 @@ jmv::descriptives(
 
 ```{r scatter, echo=TRUE, include=TRUE}
 # install.packages("scatr")
-
 scatr::scat(
     data = irisdata,
     x = "Sepal.Length",
@@ -551,7 +559,6 @@ scatr::scat(
     marg = "dens",
     line = "linear",
     se = TRUE)
-
 ```
 
 ---
@@ -573,9 +580,15 @@ summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headin
 ```
 
 
+---
+
+
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 ```
+
+
+---
 
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
@@ -610,28 +623,24 @@ descr(iris,
 
 ![](figures/dfsummary.png)
 
+<!-- --- -->
+
+<!-- ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
+<!-- dfSummary(tobacco, -->
+<!--           plain.ascii = FALSE, -->
+<!--           style = "grid") -->
+<!-- ``` -->
+
+
 ---
 
 ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-dfSummary(tobacco,
-          plain.ascii = FALSE,
-          style = "grid")
-```
-
-
----
-
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-
 # First save the results
-
 iris_stats_by_species <- by(data = iris,
                             INDICES = iris$Species,
                             FUN = descr, stats = c("mean", "sd", "min", "med", "max"),
                             transpose = TRUE)
-
 # Then use view(), like so:
-
 view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 ```
 
@@ -665,14 +674,14 @@ BMI_by_age <- with(tobacco,
 view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
 ```
 
----
+<!-- --- -->
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")]
-freq_tables <- lapply(tobacco_subset, freq)
+<!-- ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
+<!-- tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")] -->
+<!-- freq_tables <- lapply(tobacco_subset, freq) -->
 
-# view(freq_tables, footnote = NA, file = 'freq-tables.html')
-```
+<!-- # view(freq_tables, footnote = NA, file = 'freq-tables.html') -->
+<!-- ``` -->
 
 ---
 
@@ -680,17 +689,17 @@ freq_tables <- lapply(tobacco_subset, freq)
 what.is(iris)
 ```
 
----
+<!-- --- -->
 
-```{r}
-freq(tobacco$gender, style = 'rmarkdown')
-```
+<!-- ```{r} -->
+<!-- freq(tobacco$gender, style = 'rmarkdown') -->
+<!-- ``` -->
 
----
+<!-- --- -->
 
-```{r}
-print(freq(tobacco$gender), method = 'render')
-```
+<!-- ```{r} -->
+<!-- print(freq(tobacco$gender), method = 'render') -->
+<!-- ``` -->
 
 ---
 
@@ -726,28 +735,28 @@ https://github.com/alastairrushworth/inspectdf
 
 ## Grafikler
 
-```{r}
+```{r echo=TRUE}
 # library(ggplot2)
 # library(mosaic)
 # mPlot(irisdata)
 ```
 
----
+<!-- --- -->
 
 
-```{r, results="asis"}
-ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
-```
+<!-- ```{r, results="asis"} -->
+<!-- ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown') -->
+<!-- ``` -->
 
----
-
-
-```{r}
-print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
-```
+<!-- --- -->
 
 
----
+<!-- ```{r} -->
+<!-- print(ctable(tobacco$gender, tobacco$smoker), method = 'render') -->
+<!-- ``` -->
+
+
+<!-- --- -->
 
 ```
 descr(tobacco, style = 'rmarkdown')
@@ -785,6 +794,10 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 # Bazı arayüzler
 
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Arayuzler.nb.html
+
+---
+
 
 ## Rcmdr
 
@@ -807,12 +820,12 @@ http://r4stats.com/articles/software-reviews/r-commander/
 
 https://www.jamovi.org/
 
-![![](https://www.jamovi.org/assets/main-screenshot.png)](https://www.jamovi.org/)
+<!-- ![![](https://www.jamovi.org/assets/main-screenshot.png)](https://www.jamovi.org/) -->
 
 
 https://blog.jamovi.org/2018/07/30/rj.html
 
-![![](https://blog.jamovi.org/assets/images/rj.png)](https://blog.jamovi.org/2018/07/30/rj.html)
+<!-- ![![](https://blog.jamovi.org/assets/images/rj.png)](https://blog.jamovi.org/2018/07/30/rj.html) -->
 
 ---
 
@@ -832,12 +845,14 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 
 -----
 
+
 # Geri Bildirim
 
 - Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
 
 
 ---
+
 
 <script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
 
@@ -866,20 +881,20 @@ s.setAttribute('data-timestamp', +new Date());
 ---
 
 
-```
-# Save Final Data
+<!-- ``` -->
+<!-- # Save Final Data -->
 
-saved data after analysis to `Data-After-Analysis.xlsx`.
+<!-- saved data after analysis to `Data-After-Analysis.xlsx`. -->
 
-saveRDS(mydata, "Data-After-Analysis.rds")
+<!-- saveRDS(mydata, "Data-After-Analysis.rds") -->
 
-writexl::write_xlsx(mydata, "Data-After-Analysis.xlsx")
+<!-- writexl::write_xlsx(mydata, "Data-After-Analysis.xlsx") -->
 
-file.info("Data-After-Analysis.xlsx")$ctime
+<!-- file.info("Data-After-Analysis.xlsx")$ctime -->
 
-```
+<!-- ``` -->
 
----
+<!-- --- -->
 
 
 # Libraries Used
@@ -916,15 +931,15 @@ citation("readxl")
 ```
 
 
----
+<!-- --- -->
 
 
-```{r, results='asis'}
-report::cite_packages(session = sessionInfo())
-```
+<!-- ```{r, results='asis'} -->
+<!-- report::cite_packages(session = sessionInfo()) -->
+<!-- ``` -->
 
 
----
+<!-- --- -->
 
 ```{r}
 sessionInfo()
@@ -933,16 +948,17 @@ sessionInfo()
 ---
 
 
-# Notes  
+# İletişim  
 
 Completed on `r Sys.time()`.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
+
 https://rpubs.com/sbalci/CV   
 https://sbalci.github.io/  
 https://github.com/sbalci  
-
+https://twitter.com/serdarbalci
 
 ---
 
