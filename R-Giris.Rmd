@@ -5,14 +5,9 @@ author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
+  pdf_document:
+    toc: yes
+    toc_depth: '5'
   revealjs::revealjs_presentation:
   html_notebook:
     fig_caption: yes
@@ -22,9 +17,14 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '5'
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    self_contained: true
   html_document:
     fig_caption: yes
     keep_md: yes
