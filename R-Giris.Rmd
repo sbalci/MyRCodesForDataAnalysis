@@ -5,9 +5,14 @@ author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '5'
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    self_contained: true
   revealjs::revealjs_presentation:
   html_notebook:
     fig_caption: yes
@@ -17,14 +22,9 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
+  pdf_document:
+    toc: yes
+    toc_depth: '5'
   html_document:
     fig_caption: yes
     keep_md: yes
@@ -42,7 +42,7 @@ output:
 <!-- [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls) -->
 
 
-```{r setup global chunk settings}
+```{r setup global chunk settings, include=FALSE}
 knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE,

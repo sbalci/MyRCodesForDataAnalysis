@@ -1,0 +1,1692 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={R ile analize başlarken},
+            pdfauthor={Derleyen Serdar Balcı, MD, Pathologist},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{R ile analize başlarken\footnote{Bu bir derlemedir, mümkün mertebe
+  alıntılara referans vermeye çalıştım.}}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Derleyen \href{https://sbalci.github.io/}{Serdar Balcı, MD, Pathologist}}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-09-24}
+
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{5}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}
+    \DataTypeTok{message =} \OtherTok{FALSE}\NormalTok{,}
+    \DataTypeTok{warning =} \OtherTok{FALSE}\NormalTok{,}
+    \DataTypeTok{comment =} \OtherTok{NA}\NormalTok{,}
+    \DataTypeTok{include =} \OtherTok{FALSE}\NormalTok{,}
+    \DataTypeTok{tidy =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{r-nerede-kullanilir}{%
+\section{R nerede kullanılır}\label{r-nerede-kullanilir}}
+
+\begin{itemize}
+\tightlist
+\item
+  Veri düzenleme
+\item
+  İstatistik analiz
+\item
+  Web sayfası hazırlama (Statik/Dinamik)
+\item
+  Sunum hazırlama
+\item
+  Programlama
+\item
+  Otomatik, periodik ve tekrarlanabilir rapor hazırlama
+\item
+  pdf, html, ppt oluşturma
+\item
+  tez yazma
+\item
+  kitap yazma
+\item
+  CV oluşturma
+\item
+  poster hazırlama
+\item
+  rapor şablonu oluşturma
+\item
+  \ldots{}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-generation}{%
+\section{R generation}\label{r-generation}}
+
+R yıllar içinde çok fazla değişim gösterdi
+
+\url{https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x}
+
+\includegraphics{https://wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/17409713-1501384756037.jpg}
+
+\begin{figure}
+\centering
+\includegraphics{https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg}
+\caption{:scale 30\%}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-yukleme}{%
+\section{R yükleme}\label{r-yukleme}}
+
+\url{http://www.youtube.com/watch?v=XcBLEVknqvY}
+
+\hypertarget{what-is-r}{%
+\subsection{\texorpdfstring{\protect\includegraphics{http://img.youtube.com/vi/XcBLEVknqvY/0.jpg}}{What is R?}}\label{what-is-r}}
+
+\hypertarget{r-project}{%
+\subsection{R-project}\label{r-project}}
+
+\url{https://cran.r-project.org/}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{rstudio}{%
+\subsection{RStudio}\label{rstudio}}
+
+\includegraphics{https://ismayc.github.io/talks/ness-infer/img/engine.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{rstudio-1}{%
+\subsection{RStudio}\label{rstudio-1}}
+
+\url{https://www.rstudio.com/}
+
+\url{https://www.rstudio.com/products/rstudio/download/}
+
+\url{https://moderndive.com/2-getting-started.html}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\href{https://buzzrbeeline.blog/2018/07/04/rstudio-anatomy/}{\includegraphics{http://www-users.york.ac.uk/~er13/RStudio\%20Anatomy.svg}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{rstudio-eklentileri}{%
+\subsubsection{RStudio eklentileri}\label{rstudio-eklentileri}}
+
+\begin{itemize}
+\tightlist
+\item
+  Discover and install useful RStudio addins
+\end{itemize}
+
+\url{https://cran.r-project.org/web/packages/addinslist/README.html}
+
+\url{https://rstudio.github.io/rstudioaddins/}
+
+\begin{verbatim}
+devtools::install_github("rstudio/addinexamples", type = "source")
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{macos-icin}{%
+\section{MacOS için}\label{macos-icin}}
+
+\hypertarget{x11}{%
+\subsection{X11}\label{x11}}
+
+\url{https://www.xquartz.org/}
+
+\hypertarget{java-os}{%
+\subsection{Java OS}\label{java-os}}
+
+\url{https://support.apple.com/kb/dl1572}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-zor-seyler-icin-kolay-kolay-seyler-icin-zor}{%
+\section{R zor şeyler için kolay, kolay şeyler için
+zor}\label{r-zor-seyler-icin-kolay-kolay-seyler-icin-zor}}
+
+\begin{itemize}
+\item
+  \href{http://r4stats.com/articles/why-r-is-hard-to-learn/}{R makes
+  easy things hard, and hard things easy}
+\item
+  Aynı şeyi çok fazla şekilde yapmak mümkün
+\end{itemize}
+
+R Syntax Comparison::CHEAT SHEET
+
+\url{https://www.amelia.mn/Syntax-cheatsheet.pdf}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\#RStats --- There are always several ways to do the same thing\ldots{}
+nice example on with the identity matrix by @TeaStats
+https://t.co/O3GXdPiM32
+
+--- Colin Fay 🤘 (@\_ColinFay) April 1, 2019
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-paketleri}{%
+\section{R paketleri}\label{r-paketleri}}
+
+\hypertarget{neden-paketler-var}{%
+\subsection{Neden paketler var}\label{neden-paketler-var}}
+
+\href{https://ismayc.github.io/talks/ness-infer/slide_deck.html\#7}{\includegraphics{https://ismayc.github.io/talks/ness-infer/img/appstore.png}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+I love the \#rstats community.Someone is like, ``oh hey peeps, I saw a
+big need for this mundane but difficult task that I infrequently do, so
+I created a package that will literally scrape the last bits of peanut
+butter out of the jar for you. It's called pbplyr.''What a tribe.
+
+--- Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly\_Data) July 3, 2018
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\includegraphics{https://blog.mitchelloharawild.com/blog/2018-07-11-user-2018-feature-wall_files/final.jpg}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{paketleri-nereden-bulabiliriz}{%
+\subsection{Paketleri nereden
+bulabiliriz}\label{paketleri-nereden-bulabiliriz}}
+
+\begin{itemize}
+\item
+  Available CRAN Packages By Name\\
+  \url{https://cran.r-project.org/web/packages/available_packages_by_name.html}
+\item
+  CRAN Task Views\\
+  \url{https://cran.r-project.org/web/views/}
+\item
+  Bioconductor\\
+  \url{https://www.bioconductor.org}
+\item
+  RecommendR\\
+  \url{http://recommendr.info/}
+\item
+  pkgsearch\\
+  CRAN package search\\
+  \url{https://github.com/metacran/pkgsearch}
+\item
+  CRANsearcher\\
+  \url{https://github.com/RhoInc/CRANsearcher}
+\item
+  Awesome R\\
+  \url{https://awesome-r.com/}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{kendi-paket-evrenini-olustur}{%
+\subsection{Kendi paket evrenini
+oluştur}\label{kendi-paket-evrenini-olustur}}
+
+\begin{itemize}
+\tightlist
+\item
+  pkgverse: Build a Meta-Package Universe\\
+  \url{https://cran.r-project.org/web/packages/pkgverse/index.html}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-paket-yukleme}{%
+\subsection{R paket yükleme}\label{r-paket-yukleme}}
+
+\begin{verbatim}
+install.packages("tidyverse", dependencies = TRUE)
+install.packages("jmv", dependencies = TRUE)
+install.packages("questionr", dependencies = TRUE)
+install.packages("Rcmdr", dependencies = TRUE)
+install.packages("summarytools")
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{paket-cagirma}{%
+\subsection{Paket çağırma}\label{paket-cagirma}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# require(tidyverse) require(jmv) require(questionr) library(summarytools)}
+\CommentTok{# library(gganimate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-icin-yardim-bulma}{%
+\section{R için yardım bulma}\label{r-icin-yardim-bulma}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  Vignette
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{figures/vignette.png}
+\caption{:scale 80\%}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{itemize}
+\item
+  RDocumentation \url{https://www.rdocumentation.org}
+\item
+  R Package Documentation \url{https://rdrr.io/}
+\item
+  GitHub
+\item
+  Stackoverflow
+\end{itemize}
+
+\url{https://stackoverflow.com/}
+
+\begin{itemize}
+\tightlist
+\item
+  Google uygun anahtar kelime
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+How I use \#rstats h/t @ThePracticalDev pic.twitter.com/erRnTG0Ujr
+
+--- Emily Bovee (@ebovee09) August 10, 2018
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\includegraphics{figures/Google-package-name.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\includegraphics{figures/Google-start-with-R.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Google'da ararken \texttt{{[}R{]}} yazmak da işe yarayabiliyor.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  searcher package 📦
+\end{itemize}
+
+\href{https://github.com/coatless/searcher}{\includegraphics{https://camo.githubusercontent.com/12f0e2d18047f1b5f36fbeb09a1d0e548236883f/68747470733a2f2f692e696d6775722e636f6d2f5a7132726736472e676966}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  Awesome Cheatsheet
+  \url{https://github.com/detailyang/awesome-cheatsheet}
+\end{itemize}
+
+\url{http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf}
+
+\url{https://www.rstudio.com/resources/cheatsheets/}
+
+\begin{itemize}
+\tightlist
+\item
+  Awesome R
+\end{itemize}
+
+\url{https://github.com/qinwf/awesome-R\#readme}
+
+\url{https://awesome-r.com/}
+
+\begin{itemize}
+\tightlist
+\item
+  Twitter
+\end{itemize}
+
+\url{https://twitter.com/hashtag/rstats?src=hash}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  Use Reproducible Examples When Asking
+\end{itemize}
+
+Got a question to ask on @SlackHQ or post on @github? No time to read
+the long post on how to use reprex? Here is a 20-second gif for you to
+format your R codes nicely and for others to reproduce your problem. (An
+example from a talk given by @JennyBryan) \#rstat
+pic.twitter.com/gpuGXpFIsX
+
+--- ZhiYang (@zhiiiyang) October 18, 2018
+
+\begin{itemize}
+\tightlist
+\item
+  Keeping up to date with R news\\
+  \url{https://masalmon.eu/2019/01/25/uptodate/}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-studio-ile-proje-olusturma}{%
+\section{R studio ile proje
+oluşturma}\label{r-studio-ile-proje-olusturma}}
+
+\url{https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects}
+
+\includegraphics{http://www.rstudio.com/images/docs/projects_new.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{rstudio-ile-veri-yukleme}{%
+\section{RStudio ile veri yükleme}\label{rstudio-ile-veri-yukleme}}
+
+\url{https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio}
+
+\includegraphics{https://support.rstudio.com/hc/en-us/article_attachments/206277618/data-import-overview.gif}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{excel}{%
+\subsection{Excel}\label{excel}}
+
+\hypertarget{spss}{%
+\subsection{SPSS}\label{spss}}
+
+\hypertarget{csv}{%
+\subsection{CSV}\label{csv}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{veriyi-goruntuleme}{%
+\section{Veriyi görüntüleme}\label{veriyi-goruntuleme}}
+
+Spreadsheet users using \#rstats: where's the data?\#rstats users using
+spreadsheets: where's the code?
+
+--- Leonard Kiefer (@lenkiefer) July 7, 2018
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{veriyi-goruntuleme-1}{%
+\section{Veriyi görüntüleme}\label{veriyi-goruntuleme-1}}
+
+\begin{verbatim}
+View(data)
+\end{verbatim}
+
+\begin{verbatim}
+data
+\end{verbatim}
+
+\begin{verbatim}
+head
+\end{verbatim}
+
+\begin{verbatim}
+tail
+\end{verbatim}
+
+\begin{verbatim}
+glimpse
+\end{verbatim}
+
+\begin{verbatim}
+str
+\end{verbatim}
+
+\begin{verbatim}
+skimr::skim()
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{veriyi-degistirme}{%
+\section{Veriyi değiştirme}\label{veriyi-degistirme}}
+
+\hypertarget{veriyi-kod-ile-degistirelim}{%
+\subsection{Veriyi kod ile
+değiştirelim}\label{veriyi-kod-ile-degistirelim}}
+
+\hypertarget{veriyi-eklentilerle-degistirme}{%
+\subsection{Veriyi eklentilerle
+değiştirme}\label{veriyi-eklentilerle-degistirme}}
+
+\begin{figure}
+\centering
+\includegraphics{figures/change_data.png}
+\caption{:scale 50\%}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{rstudio-araciligiyla-recode}{%
+\subsection{RStudio aracılığıyla
+recode}\label{rstudio-araciligiyla-recode}}
+
+\emph{questionr} paketi kullanılacak
+
+\begin{figure}
+\centering
+\includegraphics{figures/level_recode.png}
+\caption{:scale 50\%}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\url{https://juba.github.io/questionr/articles/recoding_addins.html}
+
+\includegraphics{https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_1.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\includegraphics{https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_2.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\includegraphics{https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_3.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{basit-tanimlayici-istatistikler}{%
+\section{Basit tanımlayıcı
+istatistikler}\label{basit-tanimlayici-istatistikler}}
+
+\begin{verbatim}
+summary()
+\end{verbatim}
+
+\begin{verbatim}
+mean
+\end{verbatim}
+
+\begin{verbatim}
+median
+\end{verbatim}
+
+\begin{verbatim}
+min
+\end{verbatim}
+
+\begin{verbatim}
+max
+\end{verbatim}
+
+\begin{verbatim}
+sd
+\end{verbatim}
+
+\begin{verbatim}
+table()
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readr)}
+\NormalTok{irisdata <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/iris.csv"}\NormalTok{)}
+
+\NormalTok{jmv}\OperatorTok{::}\KeywordTok{descriptives}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ irisdata, }\DataTypeTok{vars =} \StringTok{"Sepal.Length"}\NormalTok{, }\DataTypeTok{splitBy =} \StringTok{"Species"}\NormalTok{, }
+    \DataTypeTok{freq =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{hist =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{dens =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{bar =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{box =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{violin =} \OtherTok{TRUE}\NormalTok{, }
+    \DataTypeTok{dot =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{mode =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sum =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sd =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{range =} \OtherTok{TRUE}\NormalTok{, }
+    \DataTypeTok{se =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{skew =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{kurt =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quart =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{pcEqGr =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+ DESCRIPTIVES
+
+ Descriptives                                          
+ ───────────────────────────────────────────────────── 
+                          Species       Sepal.Length   
+ ───────────────────────────────────────────────────── 
+   N                      setosa                  50   
+                          versicolor              50   
+                          virginica               50   
+   Missing                setosa                   0   
+                          versicolor               0   
+                          virginica                0   
+   Mean                   setosa                5.01   
+                          versicolor            5.94   
+                          virginica             6.59   
+   Std. error mean        setosa              0.0498   
+                          versicolor          0.0730   
+                          virginica           0.0899   
+   Median                 setosa                5.00   
+                          versicolor            5.90   
+                          virginica             6.50   
+   Mode                   setosa                5.00   
+                          versicolor            5.50   
+                          virginica             6.30   
+   Sum                    setosa                 250   
+                          versicolor             297   
+                          virginica              329   
+   Standard deviation     setosa               0.352   
+                          versicolor           0.516   
+                          virginica            0.636   
+   Variance               setosa               0.124   
+                          versicolor           0.266   
+                          virginica            0.404   
+   Range                  setosa                1.50   
+                          versicolor            2.10   
+                          virginica             3.00   
+   Minimum                setosa                4.30   
+                          versicolor            4.90   
+                          virginica             4.90   
+   Maximum                setosa                5.80   
+                          versicolor            7.00   
+                          virginica             7.90   
+   Skewness               setosa               0.120   
+                          versicolor           0.105   
+                          virginica            0.118   
+   Std. error skewness    setosa               0.337   
+                          versicolor           0.337   
+                          virginica            0.337   
+   Kurtosis               setosa              -0.253   
+                          versicolor          -0.533   
+                          virginica           0.0329   
+   Std. error kurtosis    setosa               0.662   
+                          versicolor           0.662   
+                          virginica            0.662   
+   25th percentile        setosa                4.80   
+                          versicolor            5.60   
+                          virginica             6.23   
+   50th percentile        setosa                5.00   
+                          versicolor            5.90   
+                          virginica             6.50   
+   75th percentile        setosa                5.20   
+                          versicolor            6.30   
+                          virginica             6.90   
+ ───────────────────────────────────────────────────── 
+\end{verbatim}
+
+\includegraphics{R-Giris_files/figure-latex/descriptive-1.pdf}
+\includegraphics{R-Giris_files/figure-latex/descriptive-2.pdf}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# install.packages('scatr')}
+
+\NormalTok{scatr}\OperatorTok{::}\KeywordTok{scat}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ irisdata, }\DataTypeTok{x =} \StringTok{"Sepal.Length"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Sepal.Width"}\NormalTok{, }\DataTypeTok{group =} \StringTok{"Species"}\NormalTok{, }
+    \DataTypeTok{marg =} \StringTok{"dens"}\NormalTok{, }\DataTypeTok{line =} \StringTok{"linear"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Giris_files/figure-latex/scatter-1.pdf}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{summarytools}{%
+\subsection{summarytools}\label{summarytools}}
+
+\url{https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(summarytools)}
+\NormalTok{summarytools}\OperatorTok{::}\KeywordTok{freq}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Species, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{frequencies}{%
+\subsubsection{Frequencies}\label{frequencies}}
+
+\hypertarget{irisspecies}{%
+\paragraph{iris\$Species}\label{irisspecies}}
+
+\textbf{Type:} Factor
+
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule
+~ & Freq & \% Valid & \% Valid Cum. & \% Total & \% Total
+Cum.\tabularnewline
+\midrule
+\endhead
+\textbf{setosa} & 50 & 33.33 & 33.33 & 33.33 & 33.33\tabularnewline
+\textbf{versicolor} & 50 & 33.33 & 66.67 & 33.33 & 66.67\tabularnewline
+\textbf{virginica} & 50 & 33.33 & 100.00 & 33.33 & 100.00\tabularnewline
+\textbf{\textless NA\textgreater{}} & 0 & & & 0.00 &
+100.00\tabularnewline
+\textbf{Total} & 150 & 100.00 & 100.00 & 100.00 & 100.00\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{summarytools}\OperatorTok{::}\KeywordTok{freq}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Species, }\DataTypeTok{report.nas =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{, }\DataTypeTok{headings =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\toprule
+~ & Freq & \% & \% Cum.\tabularnewline
+\midrule
+\endhead
+\textbf{setosa} & 50 & 33.33 & 33.33\tabularnewline
+\textbf{versicolor} & 50 & 33.33 & 66.67\tabularnewline
+\textbf{virginica} & 50 & 33.33 & 100.00\tabularnewline
+\textbf{Total} & 150 & 100.00 & 100.00\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(tobacco, }\KeywordTok{print}\NormalTok{(}\KeywordTok{ctable}\NormalTok{(smoker, diseased), }\DataTypeTok{method =} \StringTok{"render"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Cross-Tabulation, Row Proportions
+
+smoker * diseased
+
+Data Frame: tobacco
+
+diseased
+
+smoker
+
+Yes
+
+No
+
+Total
+
+Yes
+
+125
+
+(
+
+41.9\%
+
+)
+
+173
+
+(
+
+58.1\%
+
+)
+
+298
+
+(
+
+100.0\%
+
+)
+
+No
+
+99
+
+(
+
+14.1\%
+
+)
+
+603
+
+(
+
+85.9\%
+
+)
+
+702
+
+(
+
+100.0\%
+
+)
+
+Total
+
+224
+
+(
+
+22.4\%
+
+)
+
+776
+
+(
+
+77.6\%
+
+)
+
+1000
+
+(
+
+100.0\%
+
+)
+
+Generated by summarytools 0.9.4 (R version 3.6.0)2019-09-24
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(tobacco, }\KeywordTok{print}\NormalTok{(}\KeywordTok{ctable}\NormalTok{(smoker, diseased, }\DataTypeTok{prop =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{totals =} \OtherTok{FALSE}\NormalTok{), }\DataTypeTok{omit.headings =} \OtherTok{TRUE}\NormalTok{, }
+    \DataTypeTok{method =} \StringTok{"render"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Cross-Tabulation
+
+smoker * diseased
+
+Data Frame: tobacco
+
+diseased
+
+smoker
+
+Yes
+
+No
+
+Yes
+
+{125}
+
+{173}
+
+No
+
+{99}
+
+{603}
+
+Generated by summarytools 0.9.4 (R version 3.6.0)2019-09-24
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{summarytools}\OperatorTok{::}\KeywordTok{descr}\NormalTok{(iris, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{descriptive-statistics}{%
+\subsubsection{Descriptive Statistics}\label{descriptive-statistics}}
+
+\hypertarget{iris}{%
+\paragraph{iris}\label{iris}}
+
+\textbf{N:} 150
+
+\begin{longtable}[]{@{}rrrrr@{}}
+\toprule
+~ & Petal.Length & Petal.Width & Sepal.Length &
+Sepal.Width\tabularnewline
+\midrule
+\endhead
+\textbf{Mean} & 3.76 & 1.20 & 5.84 & 3.06\tabularnewline
+\textbf{Std.Dev} & 1.77 & 0.76 & 0.83 & 0.44\tabularnewline
+\textbf{Min} & 1.00 & 0.10 & 4.30 & 2.00\tabularnewline
+\textbf{Q1} & 1.60 & 0.30 & 5.10 & 2.80\tabularnewline
+\textbf{Median} & 4.35 & 1.30 & 5.80 & 3.00\tabularnewline
+\textbf{Q3} & 5.10 & 1.80 & 6.40 & 3.30\tabularnewline
+\textbf{Max} & 6.90 & 2.50 & 7.90 & 4.40\tabularnewline
+\textbf{MAD} & 1.85 & 1.04 & 1.04 & 0.44\tabularnewline
+\textbf{IQR} & 3.50 & 1.50 & 1.30 & 0.50\tabularnewline
+\textbf{CV} & 0.47 & 0.64 & 0.14 & 0.14\tabularnewline
+\textbf{Skewness} & -0.27 & -0.10 & 0.31 & 0.31\tabularnewline
+\textbf{SE.Skewness} & 0.20 & 0.20 & 0.20 & 0.20\tabularnewline
+\textbf{Kurtosis} & -1.42 & -1.36 & -0.61 & 0.14\tabularnewline
+\textbf{N.Valid} & 150.00 & 150.00 & 150.00 & 150.00\tabularnewline
+\textbf{Pct.Valid} & 100.00 & 100.00 & 100.00 & 100.00\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{descr}\NormalTok{(iris, }\DataTypeTok{stats =} \KeywordTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{, }\StringTok{"min"}\NormalTok{, }\StringTok{"med"}\NormalTok{, }\StringTok{"max"}\NormalTok{), }\DataTypeTok{transpose =} \OtherTok{TRUE}\NormalTok{, }
+    \DataTypeTok{headings =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule
+~ & Mean & Std.Dev & Min & Median & Max\tabularnewline
+\midrule
+\endhead
+\textbf{Petal.Length} & 3.76 & 1.77 & 1.00 & 4.35 & 6.90\tabularnewline
+\textbf{Petal.Width} & 1.20 & 0.76 & 0.10 & 1.30 & 2.50\tabularnewline
+\textbf{Sepal.Length} & 5.84 & 0.83 & 4.30 & 5.80 & 7.90\tabularnewline
+\textbf{Sepal.Width} & 3.06 & 0.44 & 2.00 & 3.00 & 4.40\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# view(dfSummary(iris))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{figures/dfsummary.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dfSummary}\NormalTok{(tobacco, }\DataTypeTok{plain.ascii =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{style =} \StringTok{"grid"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-frame-summary}{%
+\subsubsection{Data Frame Summary}\label{data-frame-summary}}
+
+\hypertarget{tobacco}{%
+\paragraph{tobacco}\label{tobacco}}
+
+\textbf{Dimensions:} 1000 x 9\\
+\textbf{Duplicates:} 2
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+\begin{minipage}[b]{0.03\columnwidth}\raggedright
+No\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright
+Variable\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\raggedright
+Stats / Values\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright
+Freqs (\% of Valid)\strut
+\end{minipage} & \begin{minipage}[b]{0.21\columnwidth}\raggedright
+Graph\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright
+Valid\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright
+Missing\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+gender\\
+{[}factor{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+1. F\\
+2. M\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+489 (50.0\%)\\
+489 (50.0\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+IIIIIIIIII\\
+IIIIIIIIII\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+978\\
+(97.8\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+22\\
+(2.2\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+age\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+Mean (sd) : 49.6 (18.3)\\
+min \textless{} med \textless{} max:\\
+18 \textless{} 50 \textless{} 80\\
+IQR (CV) : 32 (0.4)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+63 distinct values\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+. ~~~~. ~~~~. . . :\\
+: : : : : . : : : :\\
+: : : : : : : : : :\\
+: : : : : : : : : :\\
+: : : : : : : : : :\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+975\\
+(97.5\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+25\\
+(2.5\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+age.gr\\
+{[}factor{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+1. 18-34\\
+2. 35-50\\
+3. 51-70\\
+4. 71 +\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+258 (26.5\%)\\
+241 (24.7\%)\\
+317 (32.5\%)\\
+159 (16.3\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+IIIII\\
+IIII\\
+IIIIII\\
+III\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+975\\
+(97.5\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+25\\
+(2.5\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+BMI\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+Mean (sd) : 25.7 (4.5)\\
+min \textless{} med \textless{} max:\\
+8.8 \textless{} 25.6 \textless{} 39.4\\
+IQR (CV) : 5.7 (0.2)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+974 distinct values\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+~~~~~~~~~~:\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}:
+: :\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}:
+: :\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}:
+: : : :\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}. :
+: : : : .\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+974\\
+(97.4\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+26\\
+(2.6\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+smoker\\
+{[}factor{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+1. Yes\\
+2. No\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+298 (29.8\%)\\
+702 (70.2\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+IIIII\\
+IIIIIIIIIIIIII\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+1000\\
+(100\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+0\\
+(0\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+cigs.per.day\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+Mean (sd) : 6.8 (11.9)\\
+min \textless{} med \textless{} max:\\
+0 \textless{} 0 \textless{} 40\\
+IQR (CV) : 11 (1.8)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+37 distinct values\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+:\\
+:\\
+:\\
+:\\
+: ~~. . . . . .\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+965\\
+(96.5\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+35\\
+(3.5\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+7\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+diseased\\
+{[}factor{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+1. Yes\\
+2. No\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+224 (22.4\%)\\
+776 (77.6\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+IIII\\
+IIIIIIIIIIIIIII\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+1000\\
+(100\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+0\\
+(0\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+disease\\
+{[}character{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+1. Hypertension\\
+2. Cancer\\
+3. Cholesterol\\
+4. Heart\\
+5. Pulmonary\\
+6. Musculoskeletal\\
+7. Diabetes\\
+8. Hearing\\
+9. Digestive\\
+10. Hypotension\\
+{[} 3 others {]}\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+36 (16.2\%)\\
+34 (15.3\%)\\
+21 ( 9.5\%)\\
+20 ( 9.0\%)\\
+20 ( 9.0\%)\\
+19 ( 8.6\%)\\
+14 ( 6.3\%)\\
+14 ( 6.3\%)\\
+12 ( 5.4\%)\\
+11 ( 5.0\%)\\
+21 ( 9.5\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+III\\
+III\\
+I\\
+I\\
+I\\
+I\\
+I\\
+I\\
+I\\
+~\\
+I\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+222\\
+(22.2\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+778\\
+(77.8\%)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+9\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+samp.wgts\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+Mean (sd) : 1 (0.1)\\
+min \textless{} med \textless{} max:\\
+0.9 \textless{} 1 \textless{} 1.1\\
+IQR (CV) : 0.2 (0.1)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+0.86!: 267 (26.7\%)\\
+1.04!: 249 (24.9\%)\\
+1.05!: 324 (32.4\%)\\
+1.06!: 160 (16.0\%)\\
+! rounded\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+IIIII\\
+IIII\\
+IIIIII\\
+III\\
+~\\
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+1000\\
+(100\%)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright
+0\\
+(0\%)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# First save the results}
+
+\NormalTok{iris_stats_by_species <-}\StringTok{ }\KeywordTok{by}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ iris, }\DataTypeTok{INDICES =}\NormalTok{ iris}\OperatorTok{$}\NormalTok{Species, }\DataTypeTok{FUN =}\NormalTok{ descr, }
+    \DataTypeTok{stats =} \KeywordTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{, }\StringTok{"min"}\NormalTok{, }\StringTok{"med"}\NormalTok{, }\StringTok{"max"}\NormalTok{), }\DataTypeTok{transpose =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# Then use view(), like so:}
+
+\KeywordTok{view}\NormalTok{(iris_stats_by_species, }\DataTypeTok{method =} \StringTok{"pander"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{descriptive-statistics-1}{%
+\subsubsection{Descriptive Statistics}\label{descriptive-statistics-1}}
+
+\hypertarget{iris-1}{%
+\paragraph{iris}\label{iris-1}}
+
+\textbf{Group:} Species = setosa\\
+\textbf{N:} 50
+
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule
+~ & Mean & Std.Dev & Min & Median & Max\tabularnewline
+\midrule
+\endhead
+\textbf{Petal.Length} & 1.46 & 0.17 & 1.00 & 1.50 & 1.90\tabularnewline
+\textbf{Petal.Width} & 0.25 & 0.11 & 0.10 & 0.20 & 0.60\tabularnewline
+\textbf{Sepal.Length} & 5.01 & 0.35 & 4.30 & 5.00 & 5.80\tabularnewline
+\textbf{Sepal.Width} & 3.43 & 0.38 & 2.30 & 3.40 & 4.40\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Group:} Species = versicolor\\
+\textbf{N:} 50
+
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule
+~ & Mean & Std.Dev & Min & Median & Max\tabularnewline
+\midrule
+\endhead
+\textbf{Petal.Length} & 4.26 & 0.47 & 3.00 & 4.35 & 5.10\tabularnewline
+\textbf{Petal.Width} & 1.33 & 0.20 & 1.00 & 1.30 & 1.80\tabularnewline
+\textbf{Sepal.Length} & 5.94 & 0.52 & 4.90 & 5.90 & 7.00\tabularnewline
+\textbf{Sepal.Width} & 2.77 & 0.31 & 2.00 & 2.80 & 3.40\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Group:} Species = virginica\\
+\textbf{N:} 50
+
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule
+~ & Mean & Std.Dev & Min & Median & Max\tabularnewline
+\midrule
+\endhead
+\textbf{Petal.Length} & 5.55 & 0.55 & 4.50 & 5.55 & 6.90\tabularnewline
+\textbf{Petal.Width} & 2.03 & 0.27 & 1.40 & 2.00 & 2.50\tabularnewline
+\textbf{Sepal.Length} & 6.59 & 0.64 & 4.90 & 6.50 & 7.90\tabularnewline
+\textbf{Sepal.Width} & 2.97 & 0.32 & 2.20 & 3.00 & 3.80\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# view(iris_stats_by_species)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{figures/DescriptiveStatistics.png}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(tobacco)  }\CommentTok{# tobacco is an example dataframe included in the package}
+\NormalTok{BMI_by_age <-}\StringTok{ }\KeywordTok{with}\NormalTok{(tobacco, }\KeywordTok{by}\NormalTok{(BMI, age.gr, descr, }\DataTypeTok{stats =} \KeywordTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{, }\StringTok{"min"}\NormalTok{, }
+    \StringTok{"med"}\NormalTok{, }\StringTok{"max"}\NormalTok{)))}
+\KeywordTok{view}\NormalTok{(BMI_by_age, }\StringTok{"pander"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{descriptive-statistics-2}{%
+\subsubsection{Descriptive Statistics}\label{descriptive-statistics-2}}
+
+\hypertarget{bmi-by-age.gr}{%
+\paragraph{BMI by age.gr}\label{bmi-by-age.gr}}
+
+\textbf{Data Frame:} tobacco\\
+\textbf{N:} 258
+
+\begin{longtable}[]{@{}rrrrr@{}}
+\toprule
+~ & 18-34 & 35-50 & 51-70 & 71 +\tabularnewline
+\midrule
+\endhead
+\textbf{Mean} & 23.84 & 25.11 & 26.91 & 27.45\tabularnewline
+\textbf{Std.Dev} & 4.23 & 4.34 & 4.26 & 4.37\tabularnewline
+\textbf{Min} & 8.83 & 10.35 & 9.01 & 16.36\tabularnewline
+\textbf{Median} & 24.04 & 25.11 & 26.77 & 27.52\tabularnewline
+\textbf{Max} & 34.84 & 39.44 & 39.21 & 38.37\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BMI_by_age <-}\StringTok{ }\KeywordTok{with}\NormalTok{(tobacco, }\KeywordTok{by}\NormalTok{(BMI, age.gr, descr, }\DataTypeTok{transpose =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{stats =} \KeywordTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }
+    \StringTok{"sd"}\NormalTok{, }\StringTok{"min"}\NormalTok{, }\StringTok{"med"}\NormalTok{, }\StringTok{"max"}\NormalTok{)))}
+
+\KeywordTok{view}\NormalTok{(BMI_by_age, }\StringTok{"pander"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{, }\DataTypeTok{omit.headings =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{descriptive-statistics-3}{%
+\subsubsection{Descriptive Statistics}\label{descriptive-statistics-3}}
+
+\hypertarget{bmi-by-age.gr-1}{%
+\paragraph{BMI by age.gr}\label{bmi-by-age.gr-1}}
+
+\textbf{Data Frame:} tobacco\\
+\textbf{N:} 258
+
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule
+~ & Mean & Std.Dev & Min & Median & Max\tabularnewline
+\midrule
+\endhead
+\textbf{18-34} & 23.84 & 4.23 & 8.83 & 24.04 & 34.84\tabularnewline
+\textbf{35-50} & 25.11 & 4.34 & 10.35 & 25.11 & 39.44\tabularnewline
+\textbf{51-70} & 26.91 & 4.26 & 9.01 & 26.77 & 39.21\tabularnewline
+\textbf{71 +} & 27.45 & 4.37 & 16.36 & 27.52 & 38.37\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tobacco_subset <-}\StringTok{ }\NormalTok{tobacco[, }\KeywordTok{c}\NormalTok{(}\StringTok{"gender"}\NormalTok{, }\StringTok{"age.gr"}\NormalTok{, }\StringTok{"smoker"}\NormalTok{)]}
+\NormalTok{freq_tables <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(tobacco_subset, freq)}
+
+\CommentTok{# view(freq_tables, footnote = NA, file = 'freq-tables.html')}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{what.is}\NormalTok{(iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\$properties property value 1 class data.frame 2 typeof list 3 mode list
+4 storage.mode list 5 dim 150 x 5 6 length 5 7 is.object TRUE 8
+object.type S3 9 object.size 7256 Bytes
+
+\$attributes.lengths names class row.names 5 1 150
+
+\$extensive.is {[}1{]} ``is.data.frame'' ``is.list'' ``is.object''
+``is.recursive'' {[}5{]} ``is.unsorted''
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{skimr}{%
+\subsection{skimr}\label{skimr}}
+
+\begin{verbatim}
+library(skimr)
+skim(df)
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{dataexplorer}{%
+\subsection{DataExplorer}\label{dataexplorer}}
+
+\begin{verbatim}
+library(DataExplorer)
+DataExplorer::create_report(df)
+\end{verbatim}
+
+\href{https://www.littlemissdata.com/blog/simple-eda}{\includegraphics{https://static1.squarespace.com/static/58eef8846a4963e429687a4d/t/5bdfc2fb4d7a9c04ee50b7aa/1541391160702/dataExplorerGifLg.gif?format=1500w}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{inspectdf}{%
+\subsection{inspectdf}\label{inspectdf}}
+
+\url{https://github.com/alastairrushworth/inspectdf}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{grafikler}{%
+\subsection{Grafikler}\label{grafikler}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{verbatim}
+descr(tobacco, style = 'rmarkdown')
+
+print(descr(tobacco), method = 'render', table.classes = 'st-small')
+
+dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
+
+print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+Here, building up a \#ggplot2 as slowly as possible, \#rstats.
+Incremental adjustments. \#rstatsteachingideas
+pic.twitter.com/nUulQl8bPh
+
+--- Gina Reynolds (@EvaMaeRey) August 13, 2018
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\href{https://github.com/dreamRs/esquisse}{\includegraphics{https://raw.githubusercontent.com/dreamRs/esquisse/master/man/figures/esquisse.gif}}
+
+Dreaming of a fancy \#Rstats \#ggplot \#dataviz but still scared of
+typing \#code? @\_pvictorr esquisse package has you covered
+https://t.co/1vIDXcVAAF pic.twitter.com/RlTkptnrNv
+
+--- Radoslaw Panczak (@RPanczak) October 2, 2018
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{bazi-arayuzler}{%
+\section{Bazı arayüzler}\label{bazi-arayuzler}}
+
+\hypertarget{rcmdr}{%
+\subsection{Rcmdr}\label{rcmdr}}
+
+\begin{verbatim}
+library(Rcmdr)
+
+Rcmdr::Commander()
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  A Comparative Review of the R Commander GUI for R
+\end{itemize}
+
+\url{http://r4stats.com/articles/software-reviews/r-commander/}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{jamovi}{%
+\subsection{jamovi}\label{jamovi}}
+
+\url{https://www.jamovi.org/}
+
+\begin{figure}
+\centering
+\includegraphics{https://www.jamovi.org/}
+\caption{\includegraphics{https://www.jamovi.org/assets/main-screenshot.png}}
+\end{figure}
+
+\url{https://blog.jamovi.org/2018/07/30/rj.html}
+
+\begin{figure}
+\centering
+\includegraphics{https://blog.jamovi.org/2018/07/30/rj.html}
+\caption{\includegraphics{https://blog.jamovi.org/assets/images/rj.png}}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{r-nereden-ogrenilir}{%
+\section{R nereden öğrenilir}\label{r-nereden-ogrenilir}}
+
+\url{https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{sonraki-konular}{%
+\section{Sonraki Konular}\label{sonraki-konular}}
+
+\begin{itemize}
+\tightlist
+\item
+  RStudio ile GitHub kullanımı
+\item
+  R Markdown ve R Notebook ile tekrarlanabilir rapor
+\item
+  Hipotez testleri
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{geri-bildirim}{%
+\section{Geri Bildirim}\label{geri-bildirim}}
+
+\begin{itemize}
+\tightlist
+\item
+  Geri bildirim için tıklayınız:
+  \emph{\href{https://goo.gl/forms/YjGZ5DHgtPlR1RnB3}{Geri bildirim
+  formu}}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{disqus_thread}{}
+
+Please enable JavaScript to view the comments powered by Disqus.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{verbatim}
+# Save Final Data
+
+saved data after analysis to `Data-After-Analysis.xlsx`.
+
+saveRDS(mydata, "Data-After-Analysis.rds")
+
+writexl::write_xlsx(mydata, "Data-After-Analysis.xlsx")
+
+file.info("Data-After-Analysis.xlsx")$ctime
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{libraries-used}{%
+\section{Libraries Used}\label{libraries-used}}
+
+\begin{verbatim}
+citation("tidyverse")
+citation("foreign")
+citation("tidylog")
+citation("janitor")
+citation("jmv")
+citation("tangram")
+citation("finalfit")
+citation("summarytools")
+citation("ggstatplot")
+citation("readxl")
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{notes}{%
+\section{Notes}\label{notes}}
+
+Completed on 2019-09-24 19:38:24.
+
+Serdar Balci, MD, Pathologist\\
+\href{mailto:drserdarbalci@gmail.com}{\nolinkurl{drserdarbalci@gmail.com}}\\
+\url{https://rpubs.com/sbalci/CV}~\\
+\url{https://sbalci.github.io/}~\\
+\url{https://github.com/sbalci}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+
+\end{document}
