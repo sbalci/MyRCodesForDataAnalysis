@@ -365,7 +365,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 # İletişim  
 
-Completed on `r Sys.time()`.  
+Completed on `r Sys.Date()`.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
