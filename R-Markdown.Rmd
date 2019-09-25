@@ -35,6 +35,20 @@ editor_options:
 ---
 
 
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
+```
+
+
+
+```{r eval=FALSE, include=FALSE}
+xaringan::inf_mr()
+```
+
+
+
+
+
 # Tekrarlanabilir Analiz ve Rapor
 
 Replication crisis
@@ -47,13 +61,10 @@ Articles and Tweets
 
 ---
 
-
-
 # RStudio ile proje oluştur
 
 
 ---
-
 
 # R Notebook
 
@@ -66,6 +77,7 @@ Articles and Tweets
 - R Markdown: The Definitive Guide
 
 https://bookdown.org/yihui/rmarkdown/
+
 
 
 
@@ -84,8 +96,6 @@ https://smithcollege-sds.github.io/sds-public/rmarkdown_problems.html
 
 ## Use R Markdown
 
-
-
 http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
 
 - Knitr & R Markdown
@@ -99,12 +109,9 @@ https://kbroman.org/knitr_knutshell/pages/markdown.html
 
 ---
 
-
 ## Use R Markdown
 
- 
 - render markdown via code
-
 
 *inside R*
 
@@ -122,7 +129,6 @@ R -e "markdown::markdownToHTML('markdown_example.md',
 
 
 ---
-
 
 ## Use R Markdown
 
@@ -155,7 +161,6 @@ https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
 
 https://onp4.com/
 
-
 ```
 csv {headers: true, title: "**Drawing Tables In Markdown**"}
 Name, Surname, Known As, Age
@@ -165,9 +170,6 @@ Nikola, Kovač, NiKo, 20
 Richard, Papillon, shox, 25
 Nicolai, Reedtz, dev1ce, 21
 ```
-
-
-
 
 ```
 {pgn}
@@ -195,14 +197,12 @@ Nc4 b5 34. Ne5 1-0
 
 ## Use R Markdown
 
-
 ```
 {r, results='asis'}
  iris %>%
   tibble::as_tibble() %>%
   details::details(summary = 'tibble')
 ```
-
 
 ``` {r, results='asis'}
 library(tidyverse)
@@ -216,29 +216,17 @@ library(tidyverse)
 
 ## Use R Markdown
 
-
 - Keeping Credentials Secret with Keyrings in R
 
 https://ras44.github.io/blog/2019/01/19/keeping-credentials-secret-with-keyrings-in-r.html
-
-
 
 - How to build a website with Blogdown in R
 
 http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 
-
-
-
-
-
-
 ---
 
 # Chunk Options
-
-
-
 
 > {r global_options, include=FALSE}
 > knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/', echo=FALSE, warning=FALSE, message=FALSE, include = FALSE)
@@ -250,20 +238,6 @@ http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
 ```
 
-
-
-
-
-```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
-```
-
-
-
-
-
-
-
 ---
 
 # Güncellemeler olunca kodlar çalışacak mı?
@@ -272,49 +246,53 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 - renv
 - docker
 
-
-
-
-
 ---
 
 # Yedekleme
 
-GitHub
+**GitHub**
 
+```
+{r github push}
+CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+wd <- getwd()
+gitCommand <- paste("cd ", 
+                    wd,
+                    " \n git add . \n git commit --message '",
+                    CommitMessage,
+                    "' \n git push origin master \n",
+                    sep = ""
+                    )
+system(command = gitCommand,
+       intern = TRUE
+)
+```
 
 
 
 ---
 
-
-
-
 # Libraries Used
 
-```{r library citation}
+```{r library citation, echo=TRUE}
 citation()
 ```
-
 
 ---
 
 # Session Info
 
-
-```{r session info}
+```{r session info, echo=TRUE}
 sessionInfo()
 ```
 
-
-
 ---
+
+# Yedekleme
 
 ```{r github push}
 CommitMessage <- paste("updated on ", Sys.time(), sep = "")
-
 wd <- getwd()
-
 gitCommand <- paste("cd ", 
                     wd,
                     " \n git add . \n git commit --message '",
@@ -323,11 +301,9 @@ gitCommand <- paste("cd ",
                     sep = ""
                     )
 
-
 system(command = gitCommand,
        intern = TRUE
 )
-
 ```
 
 

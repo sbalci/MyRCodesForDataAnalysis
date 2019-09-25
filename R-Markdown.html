@@ -308,7 +308,13 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ───────── tidyverse 1.2.1 ──
+## Registered S3 method overwritten by &#39;dplyr&#39;:
+##   method           from
+##   print.rowwise_df
+```
+
+```
+## ── Attaching packages ───────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -319,7 +325,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ──────────── tidyverse_conflicts() ──
+## ── Conflicts ──────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -328,21 +334,6 @@ library(tidyverse)
  iris %&gt;%
   tibble::as_tibble()
 ```
-
-# A tibble: 150 x 5
-   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
- 1          5.1         3.5          1.4         0.2 setosa 
- 2          4.9         3            1.4         0.2 setosa 
- 3          4.7         3.2          1.3         0.2 setosa 
- 4          4.6         3.1          1.5         0.2 setosa 
- 5          5           3.6          1.4         0.2 setosa 
- 6          5.4         3.9          1.7         0.4 setosa 
- 7          4.6         3.4          1.4         0.3 setosa 
- 8          5           3.4          1.5         0.2 setosa 
- 9          4.4         2.9          1.4         0.2 setosa 
-10          4.9         3.1          1.5         0.1 setosa 
-# … with 140 more rows
 
 
 
@@ -462,7 +453,7 @@ Platform: x86_64-apple-darwin15.6.0 (64-bit)
 Running under: macOS Mojave 10.14.6
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
 LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 
 locale:
@@ -477,23 +468,24 @@ other attached packages:
 [9] tidyverse_1.2.1
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.2             cellranger_1.1.0       pillar_1.4.2          
- [4] compiler_3.6.0         tools_3.6.0            zeallot_0.1.0         
- [7] digest_0.6.21          lubridate_1.7.4        jsonlite_1.6          
-[10] evaluate_0.14          lifecycle_0.1.0        nlme_3.1-141          
-[13] gtable_0.3.0           lattice_0.20-38        pkgconfig_2.0.3       
-[16] rlang_0.4.0.9002       cli_1.1.0              rstudioapi_0.10.0-9001
-[19] yaml_2.2.0             haven_2.1.1            xfun_0.9              
-[22] withr_2.1.2            xml2_1.2.2             httr_1.4.1            
-[25] knitr_1.25             hms_0.5.1              generics_0.0.2        
-[28] vctrs_0.2.0.9003       grid_3.6.0             tidyselect_0.2.5      
-[31] glue_1.3.1             R6_2.4.0               fansi_0.4.0           
-[34] readxl_1.3.1           rmarkdown_1.15         xaringan_0.12         
-[37] modelr_0.1.5           magrittr_1.5           backports_1.1.4       
-[40] scales_1.0.0           htmltools_0.3.6        rvest_0.3.4           
-[43] assertthat_0.2.1       colorspace_1.4-1       utf8_1.1.4            
-[46] stringi_1.4.3          lazyeval_0.2.2         munsell_0.5.0         
-[49] broom_0.5.2            crayon_1.3.4          
+ [1] revealjs_0.9           tidyselect_0.2.5       xfun_0.9              
+ [4] haven_2.1.1            lattice_0.20-38        colorspace_1.4-1      
+ [7] vctrs_0.2.0.9003       generics_0.0.2         htmltools_0.3.6       
+[10] yaml_2.2.0             base64enc_0.1-3        rlang_0.4.0.9002      
+[13] pillar_1.4.2           withr_2.1.2            glue_1.3.1            
+[16] modelr_0.1.5           readxl_1.3.1           lifecycle_0.1.0       
+[19] munsell_0.5.0          gtable_0.3.0           cellranger_1.1.0      
+[22] rvest_0.3.4            evaluate_0.14          knitr_1.25            
+[25] broom_0.5.2            Rcpp_1.0.2             backports_1.1.4       
+[28] scales_1.0.0           jsonlite_1.6           hms_0.5.1             
+[31] packrat_0.5.0          digest_0.6.21          stringi_1.4.3         
+[34] xaringan_0.12          grid_3.6.0             cli_1.1.0             
+[37] tools_3.6.0            magrittr_1.5           lazyeval_0.2.2        
+[40] crayon_1.3.4           pkgconfig_2.0.3        zeallot_0.1.0         
+[43] rsconnect_0.8.15       xml2_1.2.2             lubridate_1.7.4       
+[46] assertthat_0.2.1       rmarkdown_1.15         httr_1.4.1            
+[49] rstudioapi_0.10.0-9001 R6_2.4.0               nlme_3.1-141          
+[52] compiler_3.6.0        
 ```
 
 
@@ -502,8 +494,8 @@ loaded via a namespace (and not attached):
 
 
 ```
-[1] &quot;[master 77be991] updated on 2019-09-25 21:47:31&quot;   
-[2] &quot; 3 files changed, 14 insertions(+), 8 deletions(-)&quot;
+[1] &quot;[master 4a98420] updated on 2019-09-25 21:53:12&quot; 
+[2] &quot; 1 file changed, 8 insertions(+), 3 deletions(-)&quot;
 ```
 
 
@@ -565,7 +557,7 @@ s.setAttribute(&#39;data-timestamp&#39;, +new Date());
 
 # İletişim  
 
-Completed on 2019-09-25 21:47:35.  
+Completed on 2019-09-25 21:53:16.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
