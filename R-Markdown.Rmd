@@ -238,9 +238,15 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 # R Markdown örneği
 
 ```{r}
+library(tidyverse)
 library(survival)
 library(finalfit)
 ```
+
+---
+
+# R Markdown örneği
+
 
 ```{r}
 data("cancer")
