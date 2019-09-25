@@ -1,19 +1,10 @@
 ---
-title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans
+title: R, RStudio ve RMarkdown ile tekrarlanabilir rapor^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
-author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
+author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
-  revealjs::revealjs_presentation:
   html_notebook:
     fig_caption: yes
     highlight: kate
@@ -22,6 +13,15 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
+  revealjs::revealjs_presentation:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    self_contained: true
   pdf_document:
     toc: yes
     toc_depth: '5'
@@ -36,20 +36,42 @@ editor_options:
 ---
 
 
+# Tekrarlanabilir Analiz ve Rapor
 
----
-title: "R Notebook"
-output:
-  html_notebook: default
-  pdf_document: default
-  html_document:
-    df_print: paged
----
+Replication crisis
 
 
 
+# RStudio ile proje oluştur
 
-https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.nb.html
+
+
+# R Notebook
+
+
+# R Markdown
+
+
+# Chunk Options
+
+
+
+
+# Güncellemeler olunca kodlar çalışacak mı?
+
+- packrat
+- renv
+- docker
+
+
+
+# Yedekleme
+
+GitHub
+
+
+
+
 
 
 
@@ -251,7 +273,7 @@ http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 
 # Libraries Used
 
-```{r}
+```{r library citation}
 citation()
 ```
 
@@ -261,7 +283,7 @@ citation()
 # Session Info
 
 
-```{r}
+```{r session info}
 sessionInfo()
 ```
 
@@ -269,7 +291,7 @@ sessionInfo()
 
 ---
 
-```{r}
+```{r github push}
 CommitMessage <- paste("updated on ", Sys.time(), sep = "")
 
 wd <- getwd()
@@ -285,18 +307,22 @@ system(command = gitCommand, intern = TRUE
 
 ---
 
-
----
-
 # Sonraki Konular
 
 - RStudio ile GitHub kullanımı
-- R Markdown ve R Notebook ile tekrarlanabilir rapor
-- Hipotez testleri
+- ...
 
 
+---
 
------
+# Sunum Linkleri
+
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.nb.html
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.html
+
+https://forms.gle/UqGJBiAjB8uLPRon8
+
+---
 
 
 # Geri Bildirim
