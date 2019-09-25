@@ -4,6 +4,10 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
+  rmdshower::shower_presentation:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
   xaringan::moon_reader:
     lib_dir: libs
     nature:
@@ -21,6 +25,15 @@ output:
     toc_depth: 5
     toc_float: yes
   revealjs::revealjs_presentation:
+    theme: sky
+    highlight: pygments
+    center: true
+    smart: true
+    transition: fade
+    self_contained: true
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
   pdf_document:
     toc: yes
     toc_depth: '5'
@@ -42,6 +55,13 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 ```{r eval=FALSE, include=FALSE}
 xaringan::inf_mr()
 ```
+
+
+
+![](https://youtu.be/zNzZ1PfUDNk)
+
+
+---
 
 
 # Tekrarlanabilir Analiz ve Rapor
