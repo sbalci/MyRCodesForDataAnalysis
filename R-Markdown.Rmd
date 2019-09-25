@@ -1,6 +1,5 @@
 ---
-title: R, RStudio ve RMarkdown ile tekrarlanabilir rapor^[Bu bir derlemedir, mümkün mertebe alıntılara referans
-  vermeye çalıştım.]
+title: R, RStudio ve RMarkdown ile Tekrarlanabilir Rapor^[Bu bir derlemedir, mümkün mertebe alıntılara referans vermeye çalıştım.]
 author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
