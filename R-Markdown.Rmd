@@ -5,6 +5,7 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
+  revealjs::revealjs_presentation:
   html_notebook:
     fig_caption: yes
     highlight: kate
@@ -13,7 +14,6 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-  revealjs::revealjs_presentation:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
@@ -41,38 +41,21 @@ editor_options:
 Replication crisis
 
 
+---
+
 
 # RStudio ile proje oluştur
 
+
+---
 
 
 # R Notebook
 
 
+---
+
 # R Markdown
-
-
-# Chunk Options
-
-
-
-
-# Güncellemeler olunca kodlar çalışacak mı?
-
-- packrat
-- renv
-- docker
-
-
-
-# Yedekleme
-
-GitHub
-
-
-
-
-
 
 
 - R Markdown: The Definitive Guide
@@ -81,6 +64,7 @@ https://bookdown.org/yihui/rmarkdown/
 
 
 
+---
 
 ## Use R Markdown
 
@@ -93,24 +77,7 @@ https://smithcollege-sds.github.io/sds-public/rmarkdown_problems.html
 
 ---
 
-
-> {r global_options, include=FALSE}
-> knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/', echo=FALSE, warning=FALSE, message=FALSE, include = FALSE)
-> knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
-
-
-```
-{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
-```
-
-
-
-
-
-```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
-```
+## Use R Markdown
 
 
 
@@ -123,6 +90,12 @@ https://kbroman.org/knitr_knutshell/pages/overview.html
 https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
 
 https://kbroman.org/knitr_knutshell/pages/markdown.html
+
+
+---
+
+
+## Use R Markdown
 
  
 - render markdown via code
@@ -141,6 +114,12 @@ R -e "markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')"
 ```
 
 
+---
+
+
+## Use R Markdown
+
+
 - pandoc Rstudio integration
 
 *command line*
@@ -157,46 +136,15 @@ R -e "rmarkdown::render('markdown_example.md')"
 
 ---
 
+## Use R Markdown
+
 https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
 
-root                         ┌───────────────────────┐             ┌──────────────┐
- ├─branch-1                  |        Vehicle        ├── has-a ───→|    Engine    |
- │  ├─sub-branch-1           └───────────────────────┘             └──────────────┘
- │  └─sub-branch-2                 ↑              ↑                      ↑   ↑                 ------\\
- ├─branch-2                        |              |                      |   |                 ┤ ^_^ |
- │  └─sub-branch-3                 |            is-a                     |   |                 └──-──┘  
- │     ├─a                         |              |                      |   |       
- │     └─b                         |         ┌────┴─────────┐            |   |
- ├─branch-3                       is-a       |    Toyota    ├── has-a ───┘   |                 ------\\
- │  └─sub-branch-4                 |         └──────────────┘                |                 ┤ @_@ |
- └─branch-4                        |                                       is-a                └──-──┘
-    ├─sub-branch-5                 |                                         |       
-    ├─sub-branch-6           ┌─────┴──────────┐                     ┌────────┴────┐
-    │  └─c                   │   Lamborghini  ├───────has-a ───────→│  V12 Engine │
-    └─sub-branch-7           └────────────────┘                     └─────────────┘
-   
-    
----   
 
-
-root                    
- ├─branch-1             
- │  ├─sub-branch-1          
- │  └─sub-branch-2          
- ├─branch-2             
- │  └─sub-branch-3        
- │     ├─a              
- │     └─b              
- ├─branch-3             
- │  └─sub-branch-4      
- └─branch-4             
-    ├─sub-branch-5      
-    ├─sub-branch-6      
-    │  └─c              
-    └─sub-branch-7      
-    
 
 ---
+
+## Use R Markdown
 
 https://onp4.com/
 
@@ -236,6 +184,9 @@ Kg7 30. Rff8 Ne7 31. Na5 h5 32. h4 Rb8 33.
 Nc4 b5 34. Ne5 1-0
 ```
 
+---
+
+## Use R Markdown
 
 
 ```
@@ -254,6 +205,11 @@ library(tidyverse)
 
 
 
+---
+
+## Use R Markdown
+
+
 - Keeping Credentials Secret with Keyrings in R
 
 https://ras44.github.io/blog/2019/01/19/keeping-credentials-secret-with-keyrings-in-r.html
@@ -267,6 +223,62 @@ http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 
 
 
+
+
+
+---
+
+# Chunk Options
+
+
+
+
+> {r global_options, include=FALSE}
+> knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/', echo=FALSE, warning=FALSE, message=FALSE, include = FALSE)
+> knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
+
+
+```
+{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
+```
+
+
+
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
+```
+
+
+
+
+
+
+
+---
+
+# Güncellemeler olunca kodlar çalışacak mı?
+
+- packrat
+- renv
+- docker
+
+
+
+
+
+---
+
+# Yedekleme
+
+GitHub
+
+
+
+
+---
 
 
 
