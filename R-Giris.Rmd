@@ -800,9 +800,11 @@ print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 
 ---
 
+
 # Bazı arayüzler
 
 https://sbalci.github.io/MyRCodesForDataAnalysis/R-Arayuzler.nb.html
+
 
 ---
 

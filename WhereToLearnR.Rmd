@@ -29,8 +29,6 @@ https://github.com/rstudio-education/rstats-ed
 https://newonlinecourses.science.psu.edu/statprogram/
 
 
-
-
 # Think Stats
 
 https://greenteapress.com/wp/think-stats-2e/
@@ -153,3 +151,6 @@ https://en.wikibooks.org/wiki/R_Programming
 https://happygitwithr.com
 
 
+---
+
+https://r-bootcamp.netlify.com/
