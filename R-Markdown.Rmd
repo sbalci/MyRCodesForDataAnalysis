@@ -362,7 +362,6 @@ s.setAttribute('data-timestamp', +new Date());
 
 ---
 
-
 # İletişim  
 
 Completed on `r Sys.Date()`.  
