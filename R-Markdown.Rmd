@@ -4,6 +4,15 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    self_contained: true
+  rmdshower::shower_presentation:
   revealjs::revealjs_presentation:
     theme: sky
     highlight: pygments
@@ -14,15 +23,6 @@ output:
     reveal_options:
       slideNumber: true
       previewLinks: true
-  rmdshower::shower_presentation:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
   html_notebook:
     fig_caption: yes
     highlight: kate
