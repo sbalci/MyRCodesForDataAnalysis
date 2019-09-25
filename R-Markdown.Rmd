@@ -4,10 +4,10 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  rmdshower::shower_presentation:
   prettydoc::html_pretty:
     theme: leonids
     highlight: github
+  rmdshower::shower_presentation:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
