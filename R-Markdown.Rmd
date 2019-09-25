@@ -105,13 +105,15 @@ https://kbroman.org/knitr_knutshell/pages/markdown.html
 *inside R*
 
 ```
-markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')
+markdown::markdownToHTML('markdown_example.md', 
+'markdown_example.html')
 ```
 
 *command line*
 
 ```
-R -e "markdown::markdownToHTML('markdown_example.md', 'markdown_example.html')"
+R -e "markdown::markdownToHTML('markdown_example.md',
+'markdown_example.html')"
 ```
 
 
