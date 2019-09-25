@@ -238,9 +238,9 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 # R Markdown örneği
 
 ```{r}
-library(tidyverse)
-library(survival)
-library(finalfit)
+suppressPackageStartupMessages(library("tidyverse"))
+suppressPackageStartupMessages(library("survival"))
+suppressPackageStartupMessages(library("finalfit"))
 ```
 
 ---
@@ -253,6 +253,52 @@ data("cancer")
 cancer
 ```
 
+
+```{r}
+data("lung")
+lung
+```
+
+
+---
+
+# R Markdown örneği
+
+```{r warning=FALSE}
+summarytools::what.is(x = lung, 
+                      show.all = TRUE, 
+                      ignore.size.warn = TRUE)
+```
+
+
+---
+
+# R Markdown örneği
+
+summarytools
+descriptives
+
+
+---
+
+# R Markdown örneği
+
+recode
+
+
+
+---
+
+# R Markdown örneği
+
+crosstables
+
+---
+
+# R Markdown örneği
+
+
+survival
 
 
 ---
