@@ -133,6 +133,16 @@ class: center, middle, inverse, title-slide
 
 
 
+
+
+
+
+
+
+
+
+
+
 # Tekrarlanabilir Analiz ve Rapor
 
 Replication crisis
@@ -145,13 +155,10 @@ Articles and Tweets
 
 ---
 
-
-
 # RStudio ile proje oluştur
 
 
 ---
-
 
 # R Notebook
 
@@ -164,6 +171,7 @@ Articles and Tweets
 - R Markdown: The Definitive Guide
 
 https://bookdown.org/yihui/rmarkdown/
+
 
 
 
@@ -182,8 +190,6 @@ https://smithcollege-sds.github.io/sds-public/rmarkdown_problems.html
 
 ## Use R Markdown
 
-
-
 http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
 
 - Knitr &amp; R Markdown
@@ -197,12 +203,9 @@ https://kbroman.org/knitr_knutshell/pages/markdown.html
 
 ---
 
-
 ## Use R Markdown
 
- 
 - render markdown via code
-
 
 *inside R*
 
@@ -220,7 +223,6 @@ R -e &quot;markdown::markdownToHTML(&#39;markdown_example.md&#39;,
 
 
 ---
-
 
 ## Use R Markdown
 
@@ -253,7 +255,6 @@ https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
 
 https://onp4.com/
 
-
 ```
 csv {headers: true, title: &quot;**Drawing Tables In Markdown**&quot;}
 Name, Surname, Known As, Age
@@ -263,9 +264,6 @@ Nikola, Kovač, NiKo, 20
 Richard, Papillon, shox, 25
 Nicolai, Reedtz, dev1ce, 21
 ```
-
-
-
 
 ```
 {pgn}
@@ -293,7 +291,6 @@ Nc4 b5 34. Ne5 1-0
 
 ## Use R Markdown
 
-
 ```
 {r, results=&#39;asis&#39;}
  iris %&gt;%
@@ -301,39 +298,20 @@ Nc4 b5 34. Ne5 1-0
   details::details(summary = &#39;tibble&#39;)
 ```
 
-
-
-```r
-library(tidyverse)
-```
-
-```
-## Registered S3 method overwritten by &#39;dplyr&#39;:
-##   method           from
-##   print.rowwise_df
-```
-
-```
-## ── Attaching packages ───────────────────────────────── tidyverse 1.2.1 ──
-```
-
-```
-## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0
-```
-
-```
-## ── Conflicts ──────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-```
-
-```r
- iris %&gt;%
-  tibble::as_tibble()
-```
+# A tibble: 150 x 5
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+ 1          5.1         3.5          1.4         0.2 setosa 
+ 2          4.9         3            1.4         0.2 setosa 
+ 3          4.7         3.2          1.3         0.2 setosa 
+ 4          4.6         3.1          1.5         0.2 setosa 
+ 5          5           3.6          1.4         0.2 setosa 
+ 6          5.4         3.9          1.7         0.4 setosa 
+ 7          4.6         3.4          1.4         0.3 setosa 
+ 8          5           3.4          1.5         0.2 setosa 
+ 9          4.4         2.9          1.4         0.2 setosa 
+10          4.9         3.1          1.5         0.1 setosa 
+# … with 140 more rows
 
 
 
@@ -341,29 +319,17 @@ library(tidyverse)
 
 ## Use R Markdown
 
-
 - Keeping Credentials Secret with Keyrings in R
 
 https://ras44.github.io/blog/2019/01/19/keeping-credentials-secret-with-keyrings-in-r.html
-
-
 
 - How to build a website with Blogdown in R
 
 http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 
-
-
-
-
-
-
 ---
 
 # Chunk Options
-
-
-
 
 &gt; {r global_options, include=FALSE}
 &gt; knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path=&#39;Figs/&#39;, echo=FALSE, warning=FALSE, message=FALSE, include = FALSE)
@@ -375,18 +341,6 @@ http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = &#39;Figs/&#39;, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 # Güncellemeler olunca kodlar çalışacak mı?
@@ -395,26 +349,38 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = &#39;Figs/&#39;
 - renv
 - docker
 
-
-
-
-
 ---
 
 # Yedekleme
 
-GitHub
+**GitHub**
 
+```
+{r github push}
+CommitMessage &lt;- paste(&quot;updated on &quot;, Sys.time(), sep = &quot;&quot;)
+wd &lt;- getwd()
+gitCommand &lt;- paste(&quot;cd &quot;, 
+                    wd,
+                    &quot; \n git add . \n git commit --message &#39;&quot;,
+                    CommitMessage,
+                    &quot;&#39; \n git push origin master \n&quot;,
+                    sep = &quot;&quot;
+                    )
+system(command = gitCommand,
+       intern = TRUE
+)
+```
 
 
 
 ---
 
-
-
-
 # Libraries Used
 
+
+```r
+citation()
+```
 
 ```
 
@@ -440,12 +406,14 @@ cite it when using it for data analysis. See also
 &#39;citation(&quot;pkgname&quot;)&#39; for citing R packages.
 ```
 
-
 ---
 
 # Session Info
 
 
+```r
+sessionInfo()
+```
 
 ```
 R version 3.6.0 (2019-04-26)
@@ -471,31 +439,33 @@ loaded via a namespace (and not attached):
  [1] revealjs_0.9           tidyselect_0.2.5       xfun_0.9              
  [4] haven_2.1.1            lattice_0.20-38        colorspace_1.4-1      
  [7] vctrs_0.2.0.9003       generics_0.0.2         htmltools_0.3.6       
-[10] yaml_2.2.0             base64enc_0.1-3        rlang_0.4.0.9002      
-[13] pillar_1.4.2           withr_2.1.2            glue_1.3.1            
-[16] modelr_0.1.5           readxl_1.3.1           lifecycle_0.1.0       
-[19] munsell_0.5.0          gtable_0.3.0           cellranger_1.1.0      
-[22] rvest_0.3.4            evaluate_0.14          knitr_1.25            
-[25] broom_0.5.2            Rcpp_1.0.2             backports_1.1.4       
-[28] scales_1.0.0           jsonlite_1.6           hms_0.5.1             
-[31] packrat_0.5.0          digest_0.6.21          stringi_1.4.3         
-[34] xaringan_0.12          grid_3.6.0             cli_1.1.0             
-[37] tools_3.6.0            magrittr_1.5           lazyeval_0.2.2        
-[40] crayon_1.3.4           pkgconfig_2.0.3        zeallot_0.1.0         
-[43] rsconnect_0.8.15       xml2_1.2.2             lubridate_1.7.4       
-[46] assertthat_0.2.1       rmarkdown_1.15         httr_1.4.1            
-[49] rstudioapi_0.10.0-9001 R6_2.4.0               nlme_3.1-141          
-[52] compiler_3.6.0        
+[10] yaml_2.2.0             base64enc_0.1-3        utf8_1.1.4            
+[13] rlang_0.4.0.9002       later_0.8.0            pillar_1.4.2          
+[16] withr_2.1.2            glue_1.3.1             modelr_0.1.5          
+[19] readxl_1.3.1           lifecycle_0.1.0        munsell_0.5.0         
+[22] gtable_0.3.0           cellranger_1.1.0       rvest_0.3.4           
+[25] evaluate_0.14          knitr_1.25             httpuv_1.5.2          
+[28] fansi_0.4.0            broom_0.5.2            Rcpp_1.0.2            
+[31] formatR_1.7            promises_1.0.1         backports_1.1.4       
+[34] scales_1.0.0           jsonlite_1.6           mime_0.7              
+[37] servr_0.15             hms_0.5.1              packrat_0.5.0         
+[40] digest_0.6.21          stringi_1.4.3          xaringan_0.12         
+[43] grid_3.6.0             cli_1.1.0              tools_3.6.0           
+[46] magrittr_1.5           lazyeval_0.2.2         crayon_1.3.4          
+[49] pkgconfig_2.0.3        zeallot_0.1.0          rsconnect_0.8.15      
+[52] xml2_1.2.2             lubridate_1.7.4        assertthat_0.2.1      
+[55] rmarkdown_1.15         httr_1.4.1             rstudioapi_0.10.0-9001
+[58] R6_2.4.0               nlme_3.1-141           compiler_3.6.0        
 ```
-
-
 
 ---
 
+# Yedekleme
+
 
 ```
-[1] &quot;[master 4a98420] updated on 2019-09-25 21:53:12&quot; 
-[2] &quot; 1 file changed, 8 insertions(+), 3 deletions(-)&quot;
+[1] &quot;[master 56dbcdf] updated on 2019-09-25 22:00:34&quot;      
+[2] &quot; 3 files changed, 108 insertions(+), 125 deletions(-)&quot;
 ```
 
 
@@ -557,7 +527,7 @@ s.setAttribute(&#39;data-timestamp&#39;, +new Date());
 
 # İletişim  
 
-Completed on 2019-09-25 21:53:16.  
+Completed on 2019-09-25 22:00:39.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
