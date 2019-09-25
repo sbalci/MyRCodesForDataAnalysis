@@ -60,16 +60,24 @@ knitr::opts_chunk$set(
 - Veri düzenleme
 - İstatistik analiz
 - Web sayfası hazırlama (Statik/Dinamik)
-- Sunum hazırlama
+https://sbalci.github.io/  
+https://kevinrue.shinyapps.io/isee-shiny-contest/
+- Sunum hazırlama (bu sunum)
 - Programlama
+https://serdarbalci.netlify.com/pathtweets/
 - Otomatik, periodik ve tekrarlanabilir rapor hazırlama
+https://sbalci.github.io/AutoJournalWatch/GallbladderRecent.html
 - pdf, html, ppt oluşturma
 - tez yazma
 - kitap yazma
 - CV oluşturma
+https://rpubs.com/sbalci/CV   
 - poster hazırlama
 - rapor şablonu oluşturma
+- Robot uygulamaları (Arudino kodu)
 - ...
+
+
 
 ---
 
@@ -701,14 +709,14 @@ what.is(iris)
 <!-- print(freq(tobacco$gender), method = 'render') -->
 <!-- ``` -->
 
----
+<!-- --- -->
 
-## skimr
+<!-- ## skimr -->
 
-```
-library(skimr)
-skim(df)
-```
+<!-- ``` -->
+<!-- library(skimr) -->
+<!-- skim(df) -->
+<!-- ``` -->
 
 ---
 
