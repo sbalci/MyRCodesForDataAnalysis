@@ -222,13 +222,6 @@ Nc4 b5 34. Ne5 1-0
   details::details(summary = 'tibble')
 ```
 
-``` {r, results='asis'}
-library(tidyverse)
- iris %>%
-  tibble::as_tibble()
-```
-
-
 
 ---
 
