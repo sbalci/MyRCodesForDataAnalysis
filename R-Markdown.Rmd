@@ -282,13 +282,13 @@ lung
 
 
 ```{r}
-data("colon_s")
-colon_s
-
-writexl::write_xlsx(x = colon_s,
-                    path = "data/colon_s.xlsx",
-                    col_names = TRUE,
-                    format_headers = TRUE)
+# data("colon_s")
+# colon_s
+# 
+# writexl::write_xlsx(x = colon_s,
+#                     path = "data/colon_s.xlsx",
+#                     col_names = TRUE,
+#                     format_headers = TRUE)
 
 ```
 
