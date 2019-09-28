@@ -58,8 +58,6 @@ xaringan::inf_mr()
 ```
 
 
----
-
 
 # Tekrarlanabilir Analiz ve Rapor
 
