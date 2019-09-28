@@ -822,6 +822,12 @@
       "Source": "CRAN",
       "Hash": "40ccee5dc2b97e197648525aefcfd0ba"
     },
+    "servr": {
+      "Package": "servr",
+      "Version": "0.15",
+      "Source": "CRAN",
+      "Hash": "adcd3bbb5259abaf5d4dd667b5dbd62b"
+    },
     "shiny": {
       "Package": "shiny",
       "Version": "1.3.2",
@@ -965,6 +971,12 @@
       "Version": "1.1",
       "Source": "CRAN",
       "Hash": "b310cdec9c732bf5265155e0c896f0e1"
+    },
+    "xaringan": {
+      "Package": "xaringan",
+      "Version": "0.12",
+      "Source": "CRAN",
+      "Hash": "f5f73dc0e850a4e52e434fc74596a76b"
     },
     "xfun": {
       "Package": "xfun",
