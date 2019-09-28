@@ -4,15 +4,6 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  html_notebook:
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: flatly
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
-  rmdshower::shower_presentation:
   revealjs::revealjs_presentation:
     theme: sky
     highlight: pygments
@@ -23,6 +14,15 @@ output:
     reveal_options:
       slideNumber: true
       previewLinks: true
+  rmdshower::shower_presentation:
+  html_notebook:
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
   xaringan::moon_reader:
     lib_dir: libs
     nature:
@@ -271,6 +271,11 @@ suppressPackageStartupMessages(library("finalfit"))
 ```{r}
 data("cancer")
 cancer
+# foreign::write.foreign(df = cancer,
+#                        datafile = "data/cancer.sav",
+#                        codefile = "data/cancer.spo",
+#                        package = "SPSS"
+#                        )
 ```
 
 
@@ -278,6 +283,19 @@ cancer
 data("lung")
 lung
 ```
+
+
+```{r}
+data("colon_s")
+colon_s
+
+writexl::write_xlsx(x = colon_s,
+                    path = "data/colon_s.xlsx",
+                    col_names = TRUE,
+                    format_headers = TRUE)
+
+```
+
 
 
 ---
@@ -326,12 +344,42 @@ survival
 # Güncellemeler olunca kodlar çalışacak mı?
 
 - packrat
+
 - renv
+
+https://environments.rstudio.com
+
 - docker
 
 ---
 
 # Yedeklemeyi nasıl yapacağız
+
+
+## Save Final Data
+
+
+```
+{r}
+saved data after analysis to `mydata.xlsx`.
+
+save.image(file = here::here("data", "mydata_work_space.RData"))
+
+readr::write_rds(x = mydata, path = here::here("data", "mydata_afteranalysis.rds"))
+
+saveRDS(object = mydata, file = here::here("data", "mydata.rds"))
+
+writexl::write_xlsx(mydata, here::here("data", "mydata.xlsx"))
+
+paste0(rownames(file.info(here::here("data", "mydata.xlsx"))), " : ", file.info(here::here("data", "mydata.xlsx"))$ctime)
+
+```
+
+
+
+
+## Yedeklemeyi nasıl yapacağız
+
 
 **GitHub**
 
@@ -354,6 +402,7 @@ system(command = gitCommand,
 
 
 ---
+
 
 # Libraries Used
 
