@@ -53,7 +53,7 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 ```
 
 ```{r eval=FALSE, include=FALSE}
-xaringan::inf_mr()
+# xaringan::inf_mr()
 # servr::daemon_stop(1)
 ```
 
@@ -346,6 +346,18 @@ survival
 https://environments.rstudio.com
 
 - docker
+
+- Yeni R sürümleri 
+
+RSwitch
+
+https://rud.is/rswitch/
+
+Using RSwitch
+
+https://rud.is/rswitch/guide/
+
+
 
 ---
 
