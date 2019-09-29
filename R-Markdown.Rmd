@@ -55,6 +55,7 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 ```{r eval=FALSE, include=FALSE}
 # xaringan::inf_mr()
 # servr::daemon_stop(1)
+# servr::daemon_stop(2)
 ```
 
 
