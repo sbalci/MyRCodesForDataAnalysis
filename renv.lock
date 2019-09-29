@@ -786,6 +786,12 @@
       "Source": "CRAN",
       "Hash": "7009ca49bab0c053098ae99b595bbacb"
     },
+    "rmdshower": {
+      "Package": "rmdshower",
+      "Version": "2.1.1",
+      "Source": "CRAN",
+      "Hash": "4e1a1179c8b35736748b673e045cc3b9"
+    },
     "rpart": {
       "Package": "rpart",
       "Version": "4.1-15",

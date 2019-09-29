@@ -4,6 +4,23 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    self_contained: true
+  rmdshower::shower_presentation:
+  html_notebook:
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
   revealjs::revealjs_presentation:
     theme: sky
     highlight: pygments
@@ -14,23 +31,6 @@ output:
     reveal_options:
       slideNumber: true
       previewLinks: true
-  rmdshower::shower_presentation:
-  html_notebook:
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: flatly
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
   prettydoc::html_pretty:
     theme: leonids
     highlight: github
@@ -62,15 +62,17 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 
 # Tekrarlanabilir Analiz ve Rapor
 
-Replication crisis
+## Replication Crisis
+
+![](figures/replicationCrisis.png)
+https://en.wikipedia.org/wiki/Replication_crisis
 
 
-???
+## Replication Crisis
 
-Articles and Tweets
+[![](figures/geneNamesExcel.png)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
 
 
----
 
 # RStudio ile proje oluştur
 
@@ -359,16 +361,16 @@ https://environments.rstudio.com
 
 ## Yeni R sürümleri 
 
-RSwitch
+- RSwitch
 
 https://rud.is/rswitch/
 
-Using RSwitch
+- Using RSwitch
 
 https://rud.is/rswitch/guide/
 
 
-![: scale 50%](https://rud.is/rswitch/guide/menu-info.png)
+![: scale 30%](https://rud.is/rswitch/guide/menu-info.png)
 
 
 
