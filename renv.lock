@@ -966,12 +966,6 @@
       "Source": "CRAN",
       "Hash": "7c9aef08038f47e6c1532ed574a0e087"
     },
-    "writexl": {
-      "Package": "writexl",
-      "Version": "1.1",
-      "Source": "CRAN",
-      "Hash": "b310cdec9c732bf5265155e0c896f0e1"
-    },
     "xaringan": {
       "Package": "xaringan",
       "Version": "0.12",
