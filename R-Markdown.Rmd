@@ -4,14 +4,20 @@ author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
 date: "`r format(Sys.Date())`"
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+  revealjs::revealjs_presentation:
+    incremental: true
+    theme: sky
+    highlight: pygments
+    center: false
+    smart: true
+    transition: fade
     self_contained: true
+    ig_width: 7
+    fig_height: 6
+    fig_caption: true
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
   rmdshower::shower_presentation:
   html_notebook:
     fig_caption: yes
@@ -21,16 +27,14 @@ output:
     toc: yes
     toc_depth: 5
     toc_float: yes
-  revealjs::revealjs_presentation:
-    theme: sky
-    highlight: pygments
-    center: true
-    smart: true
-    transition: fade
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
     self_contained: true
-    reveal_options:
-      slideNumber: true
-      previewLinks: true
   prettydoc::html_pretty:
     theme: leonids
     highlight: github
@@ -68,27 +72,57 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 https://en.wikipedia.org/wiki/Replication_crisis
 
 
+---
+
+
+
 ## Replication Crisis
 
 [![](figures/geneNamesExcel.png)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
 
 
+---
 
 # RStudio ile proje oluştur
 
+
+
+![](images/RStudio-NewProject.gif)
+
+
+
+---
+
+# R Notebook  
+
+
+
+## R Notebook  
+
+
+![](images/RNotebook1.gif)
+
+---
+
+## R Notebook  
+
+
+![](images/RNotebook2.gif)
 
 
 
 
 ---
 
-# R Notebook
 
-## RNotebook vs RMarkdown
-
+## RNotebook vs RMarkdown  
 
 
-![](https://youtu.be/zNzZ1PfUDNk)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zNzZ1PfUDNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+
+
+
+https://youtu.be/zNzZ1PfUDNk
 
 
 
@@ -98,16 +132,43 @@ https://en.wikipedia.org/wiki/Replication_crisis
 # R Markdown
 
 
-- R Markdown: The Definitive Guide
+## R Markdown: The Definitive Guide
 
 https://bookdown.org/yihui/rmarkdown/
 
+Hem kendi kodları hem de html kodları yazılabilir.
+
+
+---
+
+## R Markdown syntax
+
+https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
+
+
+<script src="https://gist.github.com/MinhasKamal/7fdebb7c424d23149140.js"></script>
+
+
+
+---
+
+## Remedy  
+
+[<img src="https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/thinkr-hex-remedy.png" width=250px>](https://github.com/ThinkR-open/remedy)
+
+
+---
+
+### Remedy  
+
+[<img src="https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/remedy_example.gif" width=500px>](https://github.com/ThinkR-open/remedy)
 
 
 
 ---
 
 ## Use R Markdown
+
 
 https://andrewbtran.github.io/NICAR/2018/workflow/docs/02-rmarkdown.html
 
@@ -171,51 +232,46 @@ R -e "rmarkdown::render('markdown_example.md')"
 ```
 
 
----
-
-## Use R Markdown
-
-https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
 
 
+<!-- --- -->
 
----
+<!-- ## Use R Markdown -->
 
-## Use R Markdown
+<!-- https://onp4.com/ -->
 
-https://onp4.com/
+<!-- ``` -->
+<!-- csv {headers: true, title: "**Drawing Tables In Markdown**"} -->
+<!-- Name, Surname, Known As, Age -->
+<!-- Marcelo, David, coldzera, 22 -->
+<!-- Oleksandr, Kostyliev, s1mple, 19 -->
+<!-- Nikola, Kovač, NiKo, 20 -->
+<!-- Richard, Papillon, shox, 25 -->
+<!-- Nicolai, Reedtz, dev1ce, 21 -->
+<!-- ``` -->
 
-```
-csv {headers: true, title: "**Drawing Tables In Markdown**"}
-Name, Surname, Known As, Age
-Marcelo, David, coldzera, 22
-Oleksandr, Kostyliev, s1mple, 19
-Nikola, Kovač, NiKo, 20
-Richard, Papillon, shox, 25
-Nicolai, Reedtz, dev1ce, 21
-```
+<!-- ``` -->
+<!-- {pgn} -->
+<!-- [Event "Bled-Zagreb-Belgrade Candidates"] -->
+<!-- [Site "Bled, Zagreb & Belgrade YUG"] -->
+<!-- [Date "1959.10.11"] -->
+<!-- [Round "20"] -->
+<!-- [Result "1-0"] -->
+<!-- [White "Mikhail Tal"] -->
+<!-- [Black "Robert James Fischer"] -->
 
-```
-{pgn}
-[Event "Bled-Zagreb-Belgrade Candidates"]
-[Site "Bled, Zagreb & Belgrade YUG"]
-[Date "1959.10.11"]
-[Round "20"]
-[Result "1-0"]
-[White "Mikhail Tal"]
-[Black "Robert James Fischer"]
+<!-- 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5.                -->
+<!-- Be2 O-O 6. Nf3 e5 7. d5 Nbd7 8. Bg5 h6 9.  -->
+<!-- Bh4 a6 10. O-O Qe8 11. Nd2 Nh7 12. b4 Bf6  -->
+<!-- 13. Bxf6 Nhxf6 14. Nb3 Qe7 15. Qd2 Kh7 16.  -->
+<!-- Qe3 Ng8 17. c5 f5 18. exf5 gxf5 19. f4 exf4  -->
+<!-- 20. Qxf4 dxc5 21. Bd3 cxb4 22. Rae1 Qf6 23.  -->
+<!-- Re6 Qxc3 24. Bxf5+ Rxf5 25. Qxf5+ Kh8 26.  -->
+<!-- Rf3 Qb2 27. Re8 Nf6 28. Qxf6+ Qxf6 29. Rxf6  -->
+<!-- Kg7 30. Rff8 Ne7 31. Na5 h5 32. h4 Rb8 33.  -->
+<!-- Nc4 b5 34. Ne5 1-0 -->
+<!-- ``` -->
 
-1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5.               
-Be2 O-O 6. Nf3 e5 7. d5 Nbd7 8. Bg5 h6 9. 
-Bh4 a6 10. O-O Qe8 11. Nd2 Nh7 12. b4 Bf6 
-13. Bxf6 Nhxf6 14. Nb3 Qe7 15. Qd2 Kh7 16. 
-Qe3 Ng8 17. c5 f5 18. exf5 gxf5 19. f4 exf4 
-20. Qxf4 dxc5 21. Bd3 cxb4 22. Rae1 Qf6 23. 
-Re6 Qxc3 24. Bxf5+ Rxf5 25. Qxf5+ Kh8 26. 
-Rf3 Qb2 27. Re8 Nf6 28. Qxf6+ Qxf6 29. Rxf6 
-Kg7 30. Rff8 Ne7 31. Na5 h5 32. h4 Rb8 33. 
-Nc4 b5 34. Ne5 1-0
-```
 
 ---
 
@@ -244,10 +300,6 @@ http://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/
 ---
 
 # Chunk Options
-
-> {r global_options, include=FALSE}
-> knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/', echo=FALSE, warning=FALSE, message=FALSE, include = FALSE)
-> knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA)
 
 
 ```
@@ -345,6 +397,10 @@ survival
 
 # Güncellemeler olunca kodlar çalışacak mı?
 
+
+---
+
+
 ## Paket Kütüphaneleri
 
 - packrat
@@ -354,10 +410,15 @@ survival
 https://environments.rstudio.com
 
 
+---
+
+
 ## Docker
 
 
 - docker
+
+---
 
 ## Yeni R sürümleri 
 
@@ -401,10 +462,7 @@ paste0(rownames(file.info(here::here("data", "mydata.xlsx"))), " : ", file.info(
 
 
 
-## Yedeklemeyi nasıl yapacağız
-
-
-**GitHub**
+## GitHub  
 
 ```
 {r github push}
@@ -422,28 +480,9 @@ system(command = gitCommand,
 )
 ```
 
-
-
 ---
 
-
-# Libraries Used
-
-```{r library citation, echo=TRUE}
-citation()
-```
-
----
-
-# Session Info
-
-```{r session info, echo=TRUE}
-sessionInfo()
-```
-
----
-
-# GitHub Yedekleme
+## GitHub Yedekleme
 
 ```{r github push, echo=TRUE}
 CommitMessage <- paste("updated on ", Sys.time(), sep = "")
@@ -461,6 +500,59 @@ system(command = gitCommand,
 )
 ```
 
+
+
+
+---
+
+
+# Her dökümanın sonuna kullandığınız kütüphaneler için atıf yazdırabilirsiniz
+
+
+```
+{r library citation, echo=TRUE}
+citation()
+
+```
+
+
+
+
+---
+
+
+# Libraries Used
+
+```{r library citation, echo=TRUE}
+citation()
+```
+
+
+---
+
+
+
+# Her dökümanın sonuna oturum detaylarınızı yazdırabilirsiniz  
+
+
+```
+{r session info, echo=TRUE}
+sessionInfo()
+```
+
+
+
+
+---
+
+
+
+# Session Info
+
+
+```{r session info, echo=TRUE}
+sessionInfo()
+```
 
 
 ---
