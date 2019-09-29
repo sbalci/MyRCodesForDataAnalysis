@@ -80,6 +80,11 @@ bu nasıl oldu
 
 ---
 
+yani
+
+
+---
+
 # R Notebook
 
 ## RNotebook vs RMarkdown
