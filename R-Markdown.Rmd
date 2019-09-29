@@ -75,6 +75,9 @@ Articles and Tweets
 # RStudio ile proje oluştur
 
 
+bu nasıl oldu
+
+
 ---
 
 # R Notebook
