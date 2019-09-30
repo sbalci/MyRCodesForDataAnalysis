@@ -1,3 +1,50 @@
+
+
+Bir sonraki R-project sunumuna şu linkten belirtilen gün ve saatte erişebilirsiniz.  
+
+Bir sonraki sunum:  
+R, RStudio ve RMarkdown ile Tekrarlanabilir Rapor  
+Join Zoom Meeting  
+https://us04web.zoom.us/j/808337924  
+Meeting ID: 808 337 924  
+
+Sunum linkleri:   
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.nb.html  
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.html  
+
+25 Eylül 2019  
+https://youtu.be/GZ85WE9f2R0  
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Giris.html  
+https://sbalci.github.io/MyRCodesForDataAnalysis/R-Giris.nb.html  
+
+Anonim Geri Bildirim:   
+https://goo.gl/forms/YjGZ5DHgtPlR1RnB3  
+
+
+
+# Lecture Notes
+
+## Introduction
+
+[R-Giris](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Giris.nb.html)
+[R-Giris Sunum](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Giris.html)
+
+
+[R-Arayuzler](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Arayuzler.nb.html)
+
+[Where To Learn R](https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html)
+
+
+## Use R Markdown
+
+[R-Markdown](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.nb.html)
+
+[R-Markdown Sunum](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.html)
+
+
+---
+
+
 # My R Codes For Data Analysis
 
 [![HitCount](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis.svg)](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis)
@@ -109,7 +156,6 @@ KMeansClustering.Rmd
 lessR.Rmd
 LinearRegression.Rmd
 MachineLearning.Rmd
-Markdown.Rmd
 material.Rmd
 MultiplePages.Rmd
 mxnet.Rmd
@@ -181,13 +227,8 @@ WhereToLearnR.Rmd
 
 
 
-# Lecture Notes
 
-[R-Arayuzler](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Arayuzler.nb.html)
 
-[R-Giris](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Giris.nb.html)
-
-[Where To Learn R](https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html)
 
 
 # Getting Data into R / Veriyi R'a yükleme
@@ -311,10 +352,6 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/Graphs.nb.html
 
 [https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/ReproducibleResearch.nb.html)
 
-
-## Use R Markdown
-
-[https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html](https://sbalci.github.io/MyRCodesForDataAnalysis/Markdown.nb.html)
 
 
 
