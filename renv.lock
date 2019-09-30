@@ -18,6 +18,12 @@
       "Source": "CRAN",
       "Hash": "0fde015f5153e51df44981da0767f522"
     },
+    "BayesFactor": {
+      "Package": "BayesFactor",
+      "Version": "0.9.12-4.2",
+      "Source": "CRAN",
+      "Hash": "e8ba38f51533cd73c89ded869f92cd17"
+    },
     "DBI": {
       "Package": "DBI",
       "Version": "1.0.0",
@@ -41,6 +47,12 @@
       "Version": "1.4.0",
       "Source": "CRAN",
       "Hash": "644ffffe612e5d17f13e64215c679d3d"
+    },
+    "GPArotation": {
+      "Package": "GPArotation",
+      "Version": "2014.11-1",
+      "Source": "CRAN",
+      "Hash": "154ce3492a7d0f75c45119b4276be3d8"
     },
     "Hmisc": {
       "Package": "Hmisc",
@@ -72,6 +84,18 @@
       "Source": "CRAN",
       "Hash": "a60009c832f495604f54399f21d89cc8"
     },
+    "MatrixModels": {
+      "Package": "MatrixModels",
+      "Version": "0.4-1",
+      "Source": "CRAN",
+      "Hash": "90c434e285aaf2b8e9116a4009721021"
+    },
+    "PMCMR": {
+      "Package": "PMCMR",
+      "Version": "4.3",
+      "Source": "CRAN",
+      "Hash": "1957516fa5ecb25d5eefcb4d5de46cd3"
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.4.0",
@@ -89,6 +113,12 @@
       "Version": "1.95-4.12",
       "Source": "CRAN",
       "Hash": "da83dfabbb92098a20dada46869921a3"
+    },
+    "ROCR": {
+      "Package": "ROCR",
+      "Version": "1.0-7",
+      "Source": "CRAN",
+      "Hash": "7438cdbfed86be176e19412ae149e599"
     },
     "Rcpp": {
       "Package": "Rcpp",
@@ -108,11 +138,35 @@
       "Source": "CRAN",
       "Hash": "745eb16bc8d7b2bebd6ab84b4596ebd3"
     },
+    "SparseM": {
+      "Package": "SparseM",
+      "Version": "1.77",
+      "Source": "CRAN",
+      "Hash": "8cfc3b9a39a1f80b83962e66ddc9daa9"
+    },
+    "TH.data": {
+      "Package": "TH.data",
+      "Version": "1.0-10",
+      "Source": "CRAN",
+      "Hash": "92f2991bc898ab9c250f82c3c934ff67"
+    },
+    "abind": {
+      "Package": "abind",
+      "Version": "1.4-5",
+      "Source": "CRAN",
+      "Hash": "14cdb8eed4adcbe6e463b0dd82bd778c"
+    },
     "acepack": {
       "Package": "acepack",
       "Version": "1.4.1",
       "Source": "CRAN",
       "Hash": "3794f982df501c9d1503ea0d32648042"
+    },
+    "afex": {
+      "Package": "afex",
+      "Version": "0.25-1",
+      "Source": "CRAN",
+      "Hash": "92a43a18da50d6d0a3249f54d76c82f9"
     },
     "askpass": {
       "Package": "askpass",
@@ -156,11 +210,35 @@
       "Source": "CRAN",
       "Hash": "a6cfb50e5172a20815db00739aab4e78"
     },
+    "ca": {
+      "Package": "ca",
+      "Version": "0.71",
+      "Source": "CRAN",
+      "Hash": "0d3bf30aae91a976dbc0887fa1e64e27"
+    },
+    "caTools": {
+      "Package": "caTools",
+      "Version": "1.17.1.2",
+      "Source": "CRAN",
+      "Hash": "54626244d6196ab491e26d5b9590dff6"
+    },
     "callr": {
       "Package": "callr",
       "Version": "3.3.2",
       "Source": "CRAN",
       "Hash": "3826226af5ca33cd8fa0b1d9c190b300"
+    },
+    "car": {
+      "Package": "car",
+      "Version": "3.0-3",
+      "Source": "CRAN",
+      "Hash": "2dda47b579a78ab1565b0e2306dd1184"
+    },
+    "carData": {
+      "Package": "carData",
+      "Version": "3.0-2",
+      "Source": "CRAN",
+      "Hash": "7b9977f0204b85b63f0db6464b8e3314"
     },
     "cellranger": {
       "Package": "cellranger",
@@ -198,6 +276,12 @@
       "Source": "CRAN",
       "Hash": "d683a0521c6448259522eb63627c3807"
     },
+    "coda": {
+      "Package": "coda",
+      "Version": "0.19-3",
+      "Source": "CRAN",
+      "Hash": "a286fe19601803ce6d2cb5f35e07629c"
+    },
     "codetools": {
       "Package": "codetools",
       "Version": "0.2-16",
@@ -215,6 +299,12 @@
       "Version": "1.0",
       "Source": "CRAN",
       "Hash": "0adc41e3166c4b0474173fed460b5894"
+    },
+    "contfrac": {
+      "Package": "contfrac",
+      "Version": "1.1-12",
+      "Source": "CRAN",
+      "Hash": "386107d8b5e771a7c850019cd0bb602a"
     },
     "cowplot": {
       "Package": "cowplot",
@@ -252,6 +342,12 @@
       "Source": "CRAN",
       "Hash": "aa3740879c38e6c11a93bd981521035a"
     },
+    "deSolve": {
+      "Package": "deSolve",
+      "Version": "1.24",
+      "Source": "CRAN",
+      "Hash": "1fae23c6a85bdc505b994ab38568d7c2"
+    },
     "digest": {
       "Package": "digest",
       "Version": "0.6.21",
@@ -275,6 +371,24 @@
       "Version": "0.3.0",
       "Source": "CRAN",
       "Hash": "d9e858795a1a4ebfe6960e4514449d40"
+    },
+    "elliptic": {
+      "Package": "elliptic",
+      "Version": "1.4-0",
+      "Source": "CRAN",
+      "Hash": "a7050155b2d011d0cf383889884ecf2f"
+    },
+    "emmeans": {
+      "Package": "emmeans",
+      "Version": "1.4.1",
+      "Source": "CRAN",
+      "Hash": "1dd79b695671a7cc351e4d739410e991"
+    },
+    "estimability": {
+      "Package": "estimability",
+      "Version": "1.3",
+      "Source": "CRAN",
+      "Hash": "1b196fbb1596b952875b21e105f928b3"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -330,6 +444,12 @@
       "Source": "CRAN",
       "Hash": "dba7e43c4103d978cb7c95b97987cc68"
     },
+    "gdata": {
+      "Package": "gdata",
+      "Version": "2.18.0",
+      "Source": "CRAN",
+      "Hash": "712e6a703c385e5c9134d13346490b85"
+    },
     "gdtools": {
       "Package": "gdtools",
       "Version": "0.2.0",
@@ -360,6 +480,12 @@
       "Source": "CRAN",
       "Hash": "61257084e976294d3c97de988469d019"
     },
+    "ggridges": {
+      "Package": "ggridges",
+      "Version": "0.5.1",
+      "Source": "CRAN",
+      "Hash": "b464e7b51e82292003ad0691a79f1ef8"
+    },
     "ggsci": {
       "Package": "ggsci",
       "Version": "2.9",
@@ -372,11 +498,29 @@
       "Source": "CRAN",
       "Hash": "9e277d8d9d16fae2a45b90395961036a"
     },
+    "ggstance": {
+      "Package": "ggstance",
+      "Version": "0.3.3",
+      "Source": "CRAN",
+      "Hash": "6afa72e1216a09c2b969d398bfd5134e"
+    },
     "glue": {
       "Package": "glue",
       "Version": "1.3.1",
       "Source": "CRAN",
       "Hash": "e8436e647719b7c9d01409767cd88cc8"
+    },
+    "gnm": {
+      "Package": "gnm",
+      "Version": "1.1-0",
+      "Source": "CRAN",
+      "Hash": "6c523aeee1311e63e996e5e1dcae446c"
+    },
+    "gplots": {
+      "Package": "gplots",
+      "Version": "3.0.1.1",
+      "Source": "CRAN",
+      "Hash": "c30fb49dc7e33f450bcd50d2cdf08f6f"
     },
     "gridExtra": {
       "Package": "gridExtra",
@@ -389,6 +533,12 @@
       "Version": "0.3.0",
       "Source": "CRAN",
       "Hash": "6a58b2980a57345822ec5f9c7d2d1751"
+    },
+    "gtools": {
+      "Package": "gtools",
+      "Version": "3.8.1",
+      "Source": "CRAN",
+      "Hash": "a1f1f79c481c077e9dba0fdaac442372"
     },
     "haven": {
       "Package": "haven",
@@ -444,6 +594,24 @@
       "Source": "CRAN",
       "Hash": "5dbd937df2ed15043fd4b49e1e217030"
     },
+    "hypergeo": {
+      "Package": "hypergeo",
+      "Version": "1.2-13",
+      "Source": "CRAN",
+      "Hash": "0696bca6f7253eb776c63b101cbc65a8"
+    },
+    "jmv": {
+      "Package": "jmv",
+      "Version": "0.9.6.1",
+      "Source": "CRAN",
+      "Hash": "43da8655e0406e89cdeed66d0dfc6ae4"
+    },
+    "jmvcore": {
+      "Package": "jmvcore",
+      "Version": "1.0.0",
+      "Source": "CRAN",
+      "Hash": "5eea0941d2792610a337acbc83b1b3bd"
+    },
     "jomo": {
       "Package": "jomo",
       "Version": "2.6-9",
@@ -492,6 +660,12 @@
       "Source": "CRAN",
       "Hash": "693779e46ee894695df882436c360bbe"
     },
+    "lavaan": {
+      "Package": "lavaan",
+      "Version": "0.6-5",
+      "Source": "CRAN",
+      "Hash": "d40c8fe50166a1ef143c7ae84e71ea0e"
+    },
     "lazyeval": {
       "Package": "lazyeval",
       "Version": "0.2.2",
@@ -510,6 +684,18 @@
       "Source": "CRAN",
       "Hash": "0a3458480f4caf92fc26f7afc54340a4"
     },
+    "lmerTest": {
+      "Package": "lmerTest",
+      "Version": "3.1-0",
+      "Source": "CRAN",
+      "Hash": "65e490fda461a2300ab680dbbbc1c7da"
+    },
+    "lmtest": {
+      "Package": "lmtest",
+      "Version": "0.9-37",
+      "Source": "CRAN",
+      "Hash": "6b16ba7499ae5dffd8e751864d59b4e9"
+    },
     "lubridate": {
       "Package": "lubridate",
       "Version": "1.7.4",
@@ -527,6 +713,12 @@
       "Version": "1.5",
       "Source": "CRAN",
       "Hash": "dee1d97cffddfd3ed969e224bd0826d0"
+    },
+    "maptools": {
+      "Package": "maptools",
+      "Version": "0.9-5",
+      "Source": "CRAN",
+      "Hash": "79431ccd208e6158fce9f6e0ee81299b"
     },
     "markdown": {
       "Package": "markdown",
@@ -582,17 +774,35 @@
       "Source": "CRAN",
       "Hash": "5c77744011cf806266df1330da07aae5"
     },
+    "mnormt": {
+      "Package": "mnormt",
+      "Version": "1.5-5",
+      "Source": "CRAN",
+      "Hash": "9261d4d0dc099d55240daad994ea31b0"
+    },
     "modelr": {
       "Package": "modelr",
       "Version": "0.1.5",
       "Source": "CRAN",
       "Hash": "c1f44481db2b8ac0d3625da400abdc1e"
     },
+    "multcomp": {
+      "Package": "multcomp",
+      "Version": "1.4-10",
+      "Source": "CRAN",
+      "Hash": "4b06f8043d5ae53f19e6380886a3cf14"
+    },
     "munsell": {
       "Package": "munsell",
       "Version": "0.5.0",
       "Source": "CRAN",
       "Hash": "9111af6c6dec65538ebd3de6c0bae864"
+    },
+    "mvnormtest": {
+      "Package": "mvnormtest",
+      "Version": "0.1-9",
+      "Source": "CRAN",
+      "Hash": "ddb6576b445a48759334ced43e32f88e"
     },
     "mvtnorm": {
       "Package": "mvtnorm",
@@ -630,6 +840,12 @@
       "Source": "CRAN",
       "Hash": "6c438de366d5693238d1c400deb66cb6"
     },
+    "openxlsx": {
+      "Package": "openxlsx",
+      "Version": "4.1.0.1",
+      "Source": "CRAN",
+      "Hash": "70d7bf3b6565c00c63421240dfac651c"
+    },
     "ordinal": {
       "Package": "ordinal",
       "Version": "2019.4-25",
@@ -653,6 +869,24 @@
       "Version": "0.6.3",
       "Source": "CRAN",
       "Hash": "ccc723b9d7b4db7ef57a6109d7835380"
+    },
+    "pbapply": {
+      "Package": "pbapply",
+      "Version": "1.4-2",
+      "Source": "CRAN",
+      "Hash": "932054d00a28b77c69f75be15e87a6cf"
+    },
+    "pbivnorm": {
+      "Package": "pbivnorm",
+      "Version": "0.6.0",
+      "Source": "CRAN",
+      "Hash": "465befc040ef63dfd92edd1829eff2f4"
+    },
+    "pbkrtest": {
+      "Package": "pbkrtest",
+      "Version": "0.4-7",
+      "Source": "CRAN",
+      "Hash": "188d51e37526d3a5525daab0c6a92c3a"
     },
     "pillar": {
       "Package": "pillar",
@@ -720,11 +954,29 @@
       "Source": "CRAN",
       "Hash": "a38f3fd447d1595a3da538910054b911"
     },
+    "psych": {
+      "Package": "psych",
+      "Version": "1.8.12",
+      "Source": "CRAN",
+      "Hash": "88e1493a9f2b78590e088393e5e32bad"
+    },
     "purrr": {
       "Package": "purrr",
       "Version": "0.3.2",
       "Source": "CRAN",
       "Hash": "c360ab7eabd6e38a83f2475eb97c6344"
+    },
+    "quantreg": {
+      "Package": "quantreg",
+      "Version": "5.51",
+      "Source": "CRAN",
+      "Hash": "512fea94c9613e1bd127d56bc08f6162"
+    },
+    "qvcalc": {
+      "Package": "qvcalc",
+      "Version": "1.0.0",
+      "Source": "CRAN",
+      "Hash": "78cefcda93c7e4479685d42664adb530"
     },
     "rJava": {
       "Package": "rJava",
@@ -750,6 +1002,12 @@
       "Source": "CRAN",
       "Hash": "8a8b4695e87c90cc9423eb8994e76819"
     },
+    "relimp": {
+      "Package": "relimp",
+      "Version": "1.0-5",
+      "Source": "CRAN",
+      "Hash": "b2e8d6212af6e6afbcf669831e092656"
+    },
     "rematch": {
       "Package": "rematch",
       "Version": "1.0.1",
@@ -773,6 +1031,18 @@
       "Version": "1.4.3",
       "Source": "CRAN",
       "Hash": "ac685130d1a25e3f6470960fd29c5693"
+    },
+    "rio": {
+      "Package": "rio",
+      "Version": "0.5.16",
+      "Source": "CRAN",
+      "Hash": "da7bb885000eb8cb231ee4141466ecdb"
+    },
+    "rjson": {
+      "Package": "rjson",
+      "Version": "0.2.20",
+      "Source": "CRAN",
+      "Hash": "d3349736ec0f60d05591c316b926382e"
     },
     "rlang": {
       "Package": "rlang",
@@ -816,11 +1086,23 @@
       "Source": "CRAN",
       "Hash": "76bb112bc3833454dc701230aa9cb3ed"
     },
+    "sandwich": {
+      "Package": "sandwich",
+      "Version": "2.5-1",
+      "Source": "CRAN",
+      "Hash": "79e2ac9c226234d19dad0834484400f1"
+    },
     "scales": {
       "Package": "scales",
       "Version": "1.0.0",
       "Source": "CRAN",
       "Hash": "a96e9571cd875b7b934990d85b7a3c18"
+    },
+    "scatr": {
+      "Package": "scatr",
+      "Version": "1.0.1",
+      "Source": "CRAN",
+      "Hash": "08628e37e208e0582a6da20e7f3d83df"
     },
     "selectr": {
       "Package": "selectr",
@@ -851,6 +1133,12 @@
       "Version": "0.1.7",
       "Source": "CRAN",
       "Hash": "fc68fa34b8576eaa5a845a46ad75e214"
+    },
+    "sp": {
+      "Package": "sp",
+      "Version": "1.3-1",
+      "Source": "CRAN",
+      "Hash": "a8e1d618f252db052d85391d528c256f"
     },
     "stringi": {
       "Package": "stringi",
@@ -942,6 +1230,18 @@
       "Source": "CRAN",
       "Hash": "3f1a5a5b184f63379f8e6c08d5036c53"
     },
+    "vcd": {
+      "Package": "vcd",
+      "Version": "1.4-4",
+      "Source": "CRAN",
+      "Hash": "94c360d3c040f9a313f656e4c4a6c52e"
+    },
+    "vcdExtra": {
+      "Package": "vcdExtra",
+      "Version": "0.7-1",
+      "Source": "CRAN",
+      "Hash": "acef5526a7785734ee119b990784e4e2"
+    },
     "vctrs": {
       "Package": "vctrs",
       "Version": "0.2.0",
@@ -1019,6 +1319,12 @@
       "Version": "0.1.0",
       "Source": "CRAN",
       "Hash": "45d65588b02d47970fc84adecb2ee664"
+    },
+    "zip": {
+      "Package": "zip",
+      "Version": "2.0.4",
+      "Source": "CRAN",
+      "Hash": "46b867331ae12e0a3f5b7942cfac16ba"
     },
     "zoo": {
       "Package": "zoo",
