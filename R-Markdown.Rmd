@@ -19,14 +19,6 @@ output:
       slideNumber: true
       previewLinks: true
   rmdshower::shower_presentation:
-  html_notebook:
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: flatly
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
   xaringan::moon_reader:
     lib_dir: libs
     nature:
@@ -35,6 +27,14 @@ output:
       highlightLines: true
       countIncrementalSlides: false
     self_contained: true
+  html_notebook:
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
   prettydoc::html_pretty:
     theme: leonids
     highlight: github
@@ -75,9 +75,6 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 
 
 # Tekrarlanabilir Analiz ve Rapor
-
-
----
 
 
 ## Replication Crisis
@@ -356,14 +353,15 @@ glimpse(mydata)
 # Veri Düzenleme
 
 ```
-{r, eval=FALSE, include=FALSE, eval=FALSE, include=FALSE}
+{r}
 mydata <- janitor::clean_names(mydata)
-cat(names(mydata), sep = ",\n")
 ```
 
 ```
-{r, eval=FALSE, include=FALSE}
-mydata$sontarih <- janitor::excel_numeric_to_date(as.numeric(mydata$olum_tarihi))
+{r}
+mydata$sontarih <- janitor::excel_numeric_to_date(
+  as.numeric(mydata$olum_tarihi)
+  )
 ```
 
 
@@ -373,14 +371,14 @@ mydata$sontarih <- janitor::excel_numeric_to_date(as.numeric(mydata$olum_tarihi)
 
 
 ```
-{r, eval=FALSE, include=FALSE}
+{r}
 mydata$Outcome <- "Dead"
 mydata$Outcome[mydata$olum_tarihi == "yok"] <- "Alive"
 ```
 
 
 ```
-{r, eval=FALSE, include=FALSE, eval=FALSE, include=FALSE}
+{r}
 ## Recoding mydata$cinsiyet into mydata$Cinsiyet
 mydata$Cinsiyet <- recode(mydata$cinsiyet,
                "K" = "Kadin",
@@ -395,27 +393,21 @@ mydata$Cinsiyet <- factor(mydata$Cinsiyet)
 
 
 ```
-{r recode TNM stage, eval=FALSE, include=FALSE}
-mydata$Tstage <- stringr::str_match(mydata$patolojik_evre, paste('(.+)', "N", sep=''))[,2]
-
-mydata$Nstage <- paste0("N",
-    stringr::str_match(mydata$patolojik_evre, paste( "N", '(.+)', "M", sep=''))[,2]
-    )
-
-mydata$Mstage <- paste0("M", 
-    stringr::str_match(mydata$patolojik_evre, paste("M", '(.+)', sep=''))[,2]
+{r recode TNM stage}
+#pT2N0Mx -> 2
+mydata$Tstage <- stringr::str_match(
+  mydata$patolojik_evre, 
+  paste('(.+)', "N", sep=''))[,2]
 )
 ```
 
 
 ---
 
-
 # Recode regular expression case_when
 
-
 ```
-{r recode TNM2, eval=FALSE, include=FALSE}
+{r recode TNM2}
 mydata <- mydata %>% 
     mutate(
         T_stage = case_when(
@@ -425,22 +417,6 @@ mydata <- mydata %>%
             grepl(pattern = "T4", x = .$Tstage) == TRUE ~ "T4",
             TRUE ~ "Tx"
         )
-    ) %>% 
-mutate(
-        N_stage = case_when(
-            grepl(pattern = "N0", x = .$Nstage) == TRUE ~ "N0",
-            grepl(pattern = "N1", x = .$Nstage) == TRUE ~ "N1",
-            grepl(pattern = "N2", x = .$Nstage) == TRUE ~ "N2",
-            grepl(pattern = "N3", x = .$Nstage) == TRUE ~ "N3",
-            TRUE ~ "Nx"
-        )
-    ) %>% 
-mutate(
-        M_stage = case_when(
-            grepl(pattern = "M0", x = .$Mstage) == TRUE ~ "M0",
-            grepl(pattern = "M1", x = .$Mstage) == TRUE ~ "M1",
-            TRUE ~ "Mx"
-        )
     )
 ```
 
@@ -449,34 +425,15 @@ mutate(
 # Recode regular expression case_when
 
 ```
-{r, eval=FALSE, include=FALSE}
+{r}
 mydata <- mydata %>% 
     mutate(
 TumorPDL1gr1 = case_when(
         t_pdl1 < 1 ~ "kucuk1",
         t_pdl1 >= 1 ~ "buyukesit1"
     )
-    ) %>% 
-mutate(
-TumorPDL1gr5 = case_when(
-        t_pdl1 < 5 ~ "kucuk5",
-        t_pdl1 >= 5 ~ "buyukesit5"
-    )
-    )   %>% 
-mutate(
-inflPDL1gr1 = case_when(
-        i_pdl1 < 1 ~ "kucuk1",
-        i_pdl1 >= 1 ~ "buyukesit1"
-    )
-    ) %>% 
-mutate(
-inflPDL1gr5 = case_when(
-        i_pdl1 < 5 ~ "kucuk5",
-        i_pdl1 >= 5 ~ "buyukesit5"
-    )
     )
 ```
-
 
 ---
 
@@ -527,17 +484,18 @@ summary(tab1)
 ## Kategorik Veriler
 
 ```
-{r ", names(mydataCategorical)[i], "}
-mydataCategorical %>% 
-  janitor::tabyl(", names(mydataCategorical)[i], ") %>%
-  adorn_pct_formatting(rounding = 'half up', digits = 1) %>%
+{r}
+mydata %>% 
+  janitor::tabyl(Categorical) %>%
+  adorn_pct_formatting(rounding = 'half up',
+                       digits = 1) %>%
   knitr::kable()
 ```
 
 ```
-{r crosstable", dependent_variable, "}
+{r crosstable}
 mydata %>%
-    summary_factorlist(dependent = '", dependent_variable, "', 
+    summary_factorlist(dependent = dependent, 
                        explanatory = explanatory,
                        total_col = TRUE,
                        p = TRUE,
@@ -550,9 +508,12 @@ knitr::kable(table, row.names = FALSE, align = c('l', 'l', 'r', 'r', 'r'))
 ## Kategorik Veriler için Grafikler  
 
 ```
-{r ggstatplot ", dependent_variable , " vs ", mydataCategorical_variable, ", layout='l-page'}
+{r ggstatplot, layout='l-page'}
 mydata %>% 
-    ggstatsplot::ggbarstats(data = ., main = ", mydataCategorical_variable, ", condition = ", dependent_variable, ")
+    ggstatsplot::ggbarstats(data = .,
+                            main = Categorical_variable,
+                            condition =  dependent_variable
+                            )
 ```
 
 ---
@@ -562,7 +523,7 @@ mydata %>%
 
 ```
 {r}
-mydataContinious %>% 
+mydata %>% 
 jmv::descriptives(
     data = .,
     vars = c(yas),
@@ -596,7 +557,9 @@ mydata %>%
                        na_include=FALSE
                        # catTest = catTestfisher
                        ) -> table
-knitr::kable(table, row.names = FALSE, align = c('l', 'l', 'r', 'r', 'r'))
+knitr::kable(table,
+             row.names = FALSE,
+             align = c('l', 'l', 'r', 'r', 'r'))
 ```
 
 ---
@@ -675,7 +638,7 @@ summary(km_fit, times = c(12,36,60))
 
 ```
 {r}
-survminer::pairwise_survdiff(formula = Surv(time, Outcome) ~ ShellAnteriorOnly, 
+survminer::pairwise_survdiff(formula = Surv(time, Outcome) ~ Group, 
                              data = mydata,
                              p.adjust.method = "BH")
 ```
@@ -703,11 +666,17 @@ knitr::kable(tMultivariate, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r
 
 [Rj Editor – Analyse your data with R in jamovi](https://blog.jamovi.org/2018/07/30/rj.html)
 
+![](images/jamoviRjEditor.gif)
+
 ---
 
 ## {jmv} paket kodları
 
 [jamovi syntax mode](https://www.jamovi.org/user-manual.html#syntax-mode)
+
+
+![](images/jamoviSyntaxMode.gif)
+
 
 
 ---
@@ -783,7 +752,7 @@ https://rud.is/rswitch/guide/
 - bib
 
 ```
-{r load library, include=FALSE}
+{r load library}
 source(file = here::here("R", "loadLibrary.R"))
 ```
 
@@ -892,15 +861,15 @@ citation("ggstatplot")
 
 ## Jamovi ve R için atıf örneği
 
-The jamovi project (2019). jamovi. (Version 0.9) [Computer Software]. Retrieved from https://www.jamovi.org.
-R Core Team (2018). R: A Language and envionment for statistical computing. [Computer software]. Retrieved from https://cran.r-project.org/.
-Fox, J., & Weisberg, S. (2018). car: Companion to Applied Regression. [R package]. Retrieved from https://cran.r-project.org/package=car.
+- The jamovi project (2019). jamovi. (Version 0.9) [Computer Software]. Retrieved from https://www.jamovi.org.
+
+- R Core Team (2018). R: A Language and envionment for statistical computing. [Computer software]. Retrieved from https://cran.r-project.org/.
+
+- Fox, J., & Weisberg, S. (2018). car: Companion to Applied Regression. [R package]. Retrieved from https://cran.r-project.org/package=car.
 
 
 
 ---
-
-
 
 # Her dökümanın sonuna oturum detaylarınızı yazdırabilirsiniz  
 
@@ -935,7 +904,6 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.html
 https://forms.gle/UqGJBiAjB8uLPRon8
 
 ---
-
 
 # Geri Bildirim
 
