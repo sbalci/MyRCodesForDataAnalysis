@@ -123,16 +123,11 @@ https://en.wikipedia.org/wiki/Replication_crisis
 
 ---
 
-
 ## RNotebook vs RMarkdown  
-
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zNzZ1PfUDNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
-
 https://youtu.be/zNzZ1PfUDNk
-
-
 
 
 ---
@@ -151,8 +146,6 @@ https://rmarkdown.rstudio.com
 ## R Markdown: The Definitive Guide
 
 https://bookdown.org/yihui/rmarkdown/
-
-
 
 
 ---
@@ -245,7 +238,6 @@ R -e "rmarkdown::render('markdown_example.md')"
 ![](images/inlineRCode.png)
 
 
-
 ---
 
 # Chunk Options
@@ -292,9 +284,6 @@ foreign::write.foreign(df = cancer,
 ```
 
 
-
-
-
 ---
 
 # R Markdown Paket Çağırma 📦    
@@ -306,7 +295,7 @@ suppressPackageStartupMessages(library("tidyverse"))
 suppressPackageStartupMessages(library("survival"))
 ```
 
-
+---
 
 ## Sık kullandığım paketler 📦  
 
@@ -350,6 +339,20 @@ suppressPackageStartupMessages(library("survival"))
 
 ---
 
+# Veri Görüntüleme
+
+
+```
+{r}
+View(mydata)
+glimpse(mydata)
+```
+
+
+
+
+---
+
 # Veri Düzenleme
 
 ```
@@ -358,12 +361,22 @@ mydata <- janitor::clean_names(mydata)
 cat(names(mydata), sep = ",\n")
 ```
 
+```
+{r, eval=FALSE, include=FALSE}
+mydata$sontarih <- janitor::excel_numeric_to_date(as.numeric(mydata$olum_tarihi))
+```
+
+
+---
+
+# Recode
+
 
 ```
-{r}
-glimpse(mydata)
+{r, eval=FALSE, include=FALSE}
+mydata$Outcome <- "Dead"
+mydata$Outcome[mydata$olum_tarihi == "yok"] <- "Alive"
 ```
-
 
 
 ```
@@ -376,6 +389,9 @@ mydata$Cinsiyet <- factor(mydata$Cinsiyet)
 ```
 
 
+---
+
+# Recode regular expression
 
 
 ```
@@ -390,6 +406,12 @@ mydata$Mstage <- paste0("M",
     stringr::str_match(mydata$patolojik_evre, paste("M", '(.+)', sep=''))[,2]
 )
 ```
+
+
+---
+
+
+# Recode regular expression case_when
 
 
 ```
@@ -420,11 +442,11 @@ mutate(
             TRUE ~ "Mx"
         )
     )
-
-
 ```
 
+---
 
+# Recode regular expression case_when
 
 ```
 {r, eval=FALSE, include=FALSE}
@@ -453,30 +475,7 @@ inflPDL1gr5 = case_when(
         i_pdl1 >= 5 ~ "buyukesit5"
     )
     )
-
 ```
-
-
-
-
-```
-{r, eval=FALSE, include=FALSE}
-mydata$sontarih <- janitor::excel_numeric_to_date(as.numeric(mydata$olum_tarihi))
-```
-
-
-```
-{r, eval=FALSE, include=FALSE}
-mydata$Outcome <- "Dead"
-mydata$Outcome[mydata$olum_tarihi == "yok"] <- "Alive"
-```
-
-
-
-
-
-
-
 
 
 ---
@@ -509,6 +508,7 @@ TumorYerlesimi
 summary(tab1)
 ```
 
+---
 
 ## The Grammar of Tables
 
@@ -522,8 +522,9 @@ summary(tab1)
 [Easily generate information-rich, publication-quality tables from R](https://gt.rstudio.com)
 
 
-## Kategorik Veriler
+---
 
+## Kategorik Veriler
 
 ```
 {r ", names(mydataCategorical)[i], "}
@@ -533,8 +534,6 @@ mydataCategorical %>%
   knitr::kable()
 ```
 
-
-
 ```
 {r crosstable", dependent_variable, "}
 mydata %>%
@@ -543,12 +542,10 @@ mydata %>%
                        total_col = TRUE,
                        p = TRUE,
                        add_dependent_label = TRUE) -> table
-
 knitr::kable(table, row.names = FALSE, align = c('l', 'l', 'r', 'r', 'r'))
 ```
 
 ---
-
 
 ## Kategorik Veriler için Grafikler  
 
@@ -558,20 +555,17 @@ mydata %>%
     ggstatsplot::ggbarstats(data = ., main = ", mydataCategorical_variable, ", condition = ", dependent_variable, ")
 ```
 
-
 ---
 
 
 ## Continious Variables
 
-
-
 ```
-{r ", names(mydataContinious)[i], "}
+{r}
 mydataContinious %>% 
 jmv::descriptives(
     data = .,
-    vars = ", names(mydataContinious)[i], ",
+    vars = c(yas),
     hist = TRUE,
     dens = TRUE,
     box = TRUE,
@@ -585,28 +579,15 @@ jmv::descriptives(
     quart = TRUE)
 ```
 
-
-
-
----
-
-# R Markdown Recode  
-
-recode
-
-
-
 ---
 
 # R Markdown örneği Çapraz Tablolar  
 
-library(finalfit)
-
-
 ```
-{r crosstable", dependent_variable, ", message=FALSE, warning=FALSE}
+{r crosstable}
+library(finalfit)
 mydata %>%
-    summary_factorlist(dependent = '", dependent_variable, "', 
+    summary_factorlist(dependent = dependent, 
                        explanatory = explanatory,
                        column = TRUE,
                        total_col = TRUE,
@@ -615,10 +596,8 @@ mydata %>%
                        na_include=FALSE
                        # catTest = catTestfisher
                        ) -> table
-
 knitr::kable(table, row.names = FALSE, align = c('l', 'l', 'r', 'r', 'r'))
 ```
-
 
 ---
 
@@ -626,6 +605,29 @@ knitr::kable(table, row.names = FALSE, align = c('l', 'l', 'r', 'r', 'r'))
 
 - Drawing Survival Curves Using ggplot2  
 https://rpkgs.datanovia.com/survminer/reference/ggsurvplot.html
+
+## Sağkalım için veriyi düzenleme
+
+```
+{r define survival time}
+mydata$int <- lubridate::interval(
+  lubridate::ymd(mydata$CerrahiTarih),
+  lubridate::ymd(mydata$SonTarih)
+  )
+mydata$OverallTime <- lubridate::time_length(mydata$int, "month")
+mydata$OverallTime <- round(mydata$OverallTime, digits = 1)
+```
+
+```
+{r}
+## Recoding mydata$Outcome into mydata$Outcome2
+mydata$Outcome2 <- recode(mydata$Outcome,
+               "Alive" = "0",
+               "Dead" = "1")
+mydata$Outcome2 <- as.numeric(mydata$Outcome2)
+```
+
+---
 
 ## Kaplan-Meier
 
@@ -643,6 +645,8 @@ mydata %>%
 )
 ```
 
+---
+
 ## Sağkalım Tabloları
 
 ```
@@ -652,7 +656,6 @@ km_fit <- survfit(dependent ~ explanatory,
 km_fit
 ```
 
-
 ```
 {r, eval=FALSE, include=FALSE}
 library(survival)
@@ -661,34 +664,25 @@ km <- with(mydata, Surv(OverallTime, Outcome2))
 # plot(km)
 ```
 
-
-
-
-
 ```
 {r 1-3-5-yr}
 summary(km_fit, times = c(12,36,60))
 ```
 
+---
 
-
-
-
-# Pairwise comparison
+## Pairwise comparison
 
 ```
-{r eval=FALSE, include=FALSE}
+{r}
 survminer::pairwise_survdiff(formula = Surv(time, Outcome) ~ ShellAnteriorOnly, 
                              data = mydata,
                              p.adjust.method = "BH")
 ```
 
+---
 
-
-
-
-# Multivariate Analysis Survival
-
+## Multivariate Analysis Survival
 
 ```
 {r Multivariate Analysis, eval=FALSE, include=FALSE}
@@ -696,69 +690,24 @@ library(finalfit)
 library(survival)
 explanatoryMultivariate <- explanatoryKM
 dependentMultivariate <- dependentKM
-
 mydata %>%
   finalfit(dependentMultivariate, explanatoryMultivariate) -> tMultivariate
-
 knitr::kable(tMultivariate, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r"))
 ```
 
-
-
-
-```
-{r define survival time, eval=FALSE, include=FALSE}
-mydata$int <- lubridate::interval(
-  lubridate::ymd(mydata$CerrahiTarih),
-  lubridate::ymd(mydata$SonTarih)
-  )
-mydata$OverallTime <- lubridate::time_length(mydata$int, "month")
-mydata$OverallTime <- round(mydata$OverallTime, digits = 1)
-```
-
-
-```
-{r, eval=FALSE, include=FALSE}
-mydata$OverallTime <- mydata$genel_sagkalim
-```
-
-
-```
-{r, eval=FALSE, include=FALSE}
-## Recoding mydata$Outcome into mydata$Outcome2
-mydata$Outcome2 <- recode(mydata$Outcome,
-               "Alive" = "0",
-               "Dead" = "1")
-mydata$Outcome2 <- as.numeric(mydata$Outcome2)
-
-```
-
-
-
-
-
-
-
-
-
-
-
 ---
 
+# jamovi
 
-# jamovi ve R entegrasyonu
+## jamovi ve R entegrasyonu
 
 [Rj Editor – Analyse your data with R in jamovi](https://blog.jamovi.org/2018/07/30/rj.html)
 
+---
 
-
-
-
-# {jmv} paket kodları
+## {jmv} paket kodları
 
 [jamovi syntax mode](https://www.jamovi.org/user-manual.html#syntax-mode)
-
-
 
 
 ---
@@ -768,19 +717,15 @@ mydata$Outcome2 <- as.numeric(mydata$Outcome2)
 
 ---
 
-
 ## Paket Kütüphaneleri
 
 - packrat / renv
 
 https://environments.rstudio.com
 
-
 ---
 
-
 ## Docker
-
 
 - docker
 
@@ -803,14 +748,11 @@ docker run -e PASSWORD=yourpassword --rm -p 8787:8787 rocker/rstudio
 and point your browser to [localhost:8787](localhost:8787)
 Log in with user/password rstudio/yourpassword 
 
-
 ---
 
 [![](images/TheRockerProject.png)](https://www.rocker-project.org)
 
 [Managing containers](https://www.rocker-project.org/use/managing_containers/)
-
-
 
 
 ---
@@ -829,11 +771,9 @@ https://rud.is/rswitch/guide/
 ![: scale 30%](https://rud.is/rswitch/guide/menu-info.png)
 
 
-
 ---
 
 # Yedeklemeyi nasıl yapacağız
-
 
 ## Projeyi düzgün organize edin
 
@@ -847,13 +787,9 @@ https://rud.is/rswitch/guide/
 source(file = here::here("R", "loadLibrary.R"))
 ```
 
-
-
 ---
 
-
 ## Save Final Data
-
 
 ```
 {r}
@@ -871,8 +807,7 @@ paste0(rownames(file.info(here::here("data", "mydata.xlsx"))), " : ", file.info(
 
 ```
 
-
-
+---
 
 ## GitHub  
 
@@ -906,32 +841,21 @@ gitCommand <- paste("cd ",
                     "' \n git push origin master \n",
                     sep = ""
                     )
-
 system(command = gitCommand,
        intern = TRUE
 )
 ```
 
-
-
-
 ---
-
 
 # Her dökümanın sonuna kullandığınız kütüphaneler için atıf yazdırabilirsiniz
 
-
 ```
-{r library citation, echo=TRUE}
+{r}
 citation()
-
 ```
-
-
-
 
 ---
-
 
 ## Libraries Used  
 
@@ -939,14 +863,9 @@ citation()
 citation()
 ```
 
-
-
 ---
 
-
 ## Bu oturuma spesifik kullanılan paketler  
-
-
 
 ```{r library citation as report, echo=TRUE, results='asis'}
 report::cite_packages(session = sessionInfo())
@@ -961,12 +880,6 @@ report::cite_packages(session = sessionInfo())
 ```
 {r library citations}
 citation("tidyverse")
-
-```
-
-
-```
-{r}
 citation("readxl")
 citation("janitor")
 citation("report")
@@ -991,26 +904,18 @@ Fox, J., & Weisberg, S. (2018). car: Companion to Applied Regression. [R package
 
 # Her dökümanın sonuna oturum detaylarınızı yazdırabilirsiniz  
 
-
 ```
 {r session info, echo=TRUE}
 sessionInfo()
 ```
 
-
-
-
 ---
 
-
-
 ## Session Info
-
 
 ```{r session info, echo=TRUE}
 sessionInfo()
 ```
-
 
 ---
 
@@ -1039,7 +944,6 @@ https://forms.gle/UqGJBiAjB8uLPRon8
 
 ---
 
-
 <script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
 
 <div id="disqus_thread"></div>
@@ -1062,7 +966,6 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
 
 ---
 
