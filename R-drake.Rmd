@@ -1,0 +1,17 @@
+---
+title: "R drake"
+output: html_notebook
+---
+
+
+Reproducible workflows at scale with drake
+
+https://ropensci.org/commcalls/2019-09-24/
+
+
+
+
+
+
+
+

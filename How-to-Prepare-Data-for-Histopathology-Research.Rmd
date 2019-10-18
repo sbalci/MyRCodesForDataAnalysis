@@ -1,0 +1,217 @@
+---
+title: "How to Prepare Data for Histopathology Research?"
+author: '[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)'
+date: "`r format(Sys.Date())`"
+output:
+  revealjs::revealjs_presentation:
+    incremental: yes
+    theme: sky
+    highlight: pygments
+    center: no
+    smart: yes
+    transition: fade
+    self_contained: yes
+    ig_width: 7
+    fig_height: 6
+    fig_caption: yes
+    reveal_options:
+      slideNumber: yes
+      previewLinks: yes
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+  rmdshower::shower_presentation: null
+  beamer_presentation:
+    incremental: yes
+    highlight: tango
+  html_notebook:
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  slidy_presentation: null
+  pdf_document:
+    toc: yes
+    toc_depth: '5'
+  html_document:
+    fig_caption: yes
+    keep_md: yes
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      beforeInit:
+      - macros.js
+      - https://platform.twitter.com/widgets.js
+      highlightStyle: github
+      highlightLines: yes
+      countIncrementalSlides: no
+    self_contained: yes
+  ioslides_presentation:
+    incremental: yes
+    highlight: github
+institute: '[serdarbalci.com](https://www.serdarbalci.com)'
+editor_options:
+  chunk_output_type: inline
+---
+
+<!-- Open all links in new tab-->  
+<base target="_blank"/>  
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+</script>
+
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
+```
+
+
+```{r strings , include=FALSE}
+PubMedString <- "PubMed: https://www.ncbi.nlm.nih.gov/pubmed/?term="
+
+doiString <- "doi: https://doi.org/"
+
+dimensionString1 <- "<script async='' charset='utf-8' src='https://badge.dimensions.ai/badge.js'></script> <span class='__dimensions_badge_embed__' data-doi='"
+
+dimensionString2 <- "' data-style='small_circle' data-hide-zero-citations='true' data-legend='always'></span>"
+
+altmetricString1 <-"<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script> <span class='altmetric-embed' data-link-target='_blank' data-badge-details='right' data-badge-type='donut' data-doi='"
+
+altmetricString2 <- "' data-hide-no-mentions='true'></span>"
+
+addthis_String1 <- "<div class='addthis_inline_share_toolbox' data-url='pbpath.org/current-journal-watch/' data-title='See this abstract on #PBPath #JournalWatch : "
+
+addthis_String2 <- "'></div>"
+
+```
+
+
+```{r run xaringan, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# xaringan::inf_mr()
+# servr::daemon_stop(1)
+```
+
+
+# How to Prepare Data for Histopathology Research?
+
+**Outline**
+
+- Why is Data Preparation Important?
+- Do I need a specific Software?
+- What are the Golden Rules?
+- What do I do with Data after analysis?
+- I got all the tables from the biostatistician, is it enough?
+- What is a Good (Clean/Ideal/Tidy) Data?
+- What is a Bad (Dirty/Common/Untidy) Data?
+- Do I need to know statistics before collecting Data?
+- Do I need to have a hypothesis before collecting Data?
+- Do I need a research question before collecting Data?
+
+
+---
+
+
+# How to Prepare Data for Histopathology Research?
+
+**We Should Collect the Data Related to What We will Report**
+
+- Recommendations for reporting histopathology studies: a proposal
+
+```{r 25846513, include=FALSE}
+
+PMID_25846513 <- RefManageR::ReadPubMed('25846513', database = 'PubMed')
+
+citation_25846513 <- paste0(PMID_25846513$journal,' ', PMID_25846513$year, ' ', PMID_25846513$month,';', PMID_25846513$volume,'(', PMID_25846513$number,'):', PMID_25846513$pages)
+
+PubMed_25846513 <- paste0(PubMedString, PMID_25846513$eprint)
+
+doi_25846513 <- paste0(doiString, PMID_25846513$doi)
+
+dimensionBadge_25846513 <- paste0(dimensionString1, PMID_25846513$doi,dimensionString2)
+
+altmetricBadge_25846513 <- paste0(altmetricString1, PMID_25846513$doi, altmetricString2 )
+
+addthis_inline_25846513 <- paste0(addthis_String1, PMID_25846513$title , " PMID: 25846513" , addthis_String2)
+```
+
+<!-- <details open> <summary> -->
+- **`r PMID_25846513$title`**
+<!-- </summary>  -->
+
+*`r citation_25846513`*
+
+`r PubMed_25846513`
+
+`r addthis_inline_25846513`
+
+`r PMID_25846513$abstract`
+
+`r doi_25846513`
+
+`r dimensionBadge_25846513`
+
+`r altmetricBadge_25846513`
+
+<!-- </details> -->
+
+
+---
+
+
+# Tables and Graphs to be Formed  
+
+- Table One: Clinical Features Related to this disease and Histopathological Features (like a CAP synoptic)
+
+- Cross Tables
+
+- IHC Tables
+
+- Survival Tables and Graphs
+
+
+
+---
+
+# Age
+
+
+---
+
+
+# Gender
+
+- Male
+- Female
+- Non-binary (based on research)
+
+For missing values:
+
+{gender} 📦
+
+https://lincolnmullen.com/software/gender/
+
+https://github.com/ropensci/gender
+
+
+
+---
+
+# Surgery Type
+
+---
+
+
+
+
+
+
+
+

@@ -776,6 +776,24 @@ dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
 print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 ```
 
+---
+
+A beginner kit for #rstats
+The Landscape of R Packages for Automated Exploratory Data Analysis
+https://journal.r-project.org/archive/2019/RJ-2019-033/
+
+
+@article{RJ-2019-033,
+  author = {Mateusz Staniak and Przemysław Biecek},
+  title = {{The Landscape of R Packages for Automated Exploratory Data
+          Analysis}},
+  year = {2019},
+  journal = {{The R Journal}},
+  doi = {10.32614/RJ-2019-033},
+  url = {https://journal.r-project.org/archive/2019/RJ-2019-033/index.html}
+}
+
+
 
 ---
 
