@@ -77,6 +77,14 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 # Tekrarlanabilir Analiz ve Rapor
 
 
+[![](https://the-turing-way.netlify.com/figures/reproducibility/ReproducibleMatrix.jpg)](https://the-turing-way.netlify.com/reproducibility/03/definitions.html)
+
+
+
+
+---
+
+
 ## Replication Crisis
 
 ![](figures/replicationCrisis.png)

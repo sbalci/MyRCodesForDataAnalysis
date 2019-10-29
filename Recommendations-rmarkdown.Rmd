@@ -1,0 +1,119 @@
+---
+output:
+  rmarkdown::html_vignette: 
+    css: 
+    - !expr system.file("rmarkdown/templates/html_vignette/resources/vignette.css", package = "rmarkdown")
+vignette: >
+  %\VignetteIndexEntry{Recommendations for Rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r summarytool options 1, include=FALSE}
+library(knitr)
+opts_chunk$set(comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis')
+```
+
+
+```{r summarytool options 2, echo=FALSE}
+library(summarytools)
+st_css()
+```
+
+
+```{r summarytool options 3}
+st_options(bootstrap.css     = FALSE,       # Already part of the theme so no need for it
+           plain.ascii       = FALSE,       # One of the essential settings
+           style             = "rmarkdown", # Idem.
+           dfSummary.silent  = TRUE,        # Suppresses messages about temporary files
+           footnote          = NA,          # Keeping the results minimalistic
+           subtitle.emphasis = FALSE)       # For the vignette theme, this gives
+                                            # much better results. Your mileage may vary.
+``` 
+
+
+
+```{r summarytools freq Rmarkdown Style}
+freq(tobacco$gender, style = 'rmarkdown')
+```
+
+
+## HTML Rendering
+```{r}
+print(freq(tobacco$gender), method = 'render')
+```
+
+If you find the table too large, you can use `table.classes = 'st-small'` - an 
+example is provided further below.
+
+--------------------------------------------------------------------------------
+
+<a href="#top">Back to top</a>
+
+# ctable() {#ctable}
+
+## Rmarkdown Style
+
+Tables with heading spanning over 2 rows are not fully supported in markdown 
+(yet), but the result is getting close to acceptable. This, however, is not
+true for all themes. That's why the rendering method is preferred.
+
+```{r}
+ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
+```
+
+## HTML Rendering
+
+For best results, use this method.
+
+```{r ctable_html}
+print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
+```
+
+--------------------------------------------------------------------------------
+ 
+<a href="#top">Back to top</a>
+ 
+# descr() {#descr}
+`descr()` is also best used with `style = 'rmarkdown'`, and HTML rendering is 
+also supported.
+
+## Rmarkdown Style
+```{r}
+descr(tobacco, style = 'rmarkdown')
+```
+
+
+## HTML Rendering
+
+We'll use table.classes = 'st-small' to show how it affects the table's size
+(compare to the `freq()` table rendered earlier).
+
+```{r}
+print(descr(tobacco), method = 'render', table.classes = 'st-small')
+```
+ 
+--------------------------------------------------------------------------------
+
+<a href="#top">Back to top</a>
+
+# dfSummary() {#dfsummary}
+
+## Grid Style
+
+This style gives good results, and since v0.9, the graphs are shown as true 
+images. Don't forget to specify `plain.ascii = FALSE` (or set it as a global
+option with `st_options(plain.ascii = FALSE)`), or you won't get good results.
+
+```{r dfs_grid, eval=FALSE}
+dfSummary(tobacco, style = 'grid', graph.magnif = 0.75, tmp.img.dir = "/tmp")
+```
+
+
+
+
+```{r}
+print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
+```
+
+
