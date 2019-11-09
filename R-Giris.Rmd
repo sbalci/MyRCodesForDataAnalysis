@@ -250,7 +250,7 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 
 ## R paket yükleme
 
-```
+```r
 install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
 install.packages("questionr", dependencies = TRUE)
@@ -258,24 +258,16 @@ install.packages("Rcmdr", dependencies = TRUE)
 install.packages("summarytools")
 ```
 
-```{r paket yükleme}
-# install.packages("tidyverse", dependencies = TRUE)
-# install.packages("jmv", dependencies = TRUE)
-# install.packages("questionr", dependencies = TRUE)
-# install.packages("Rcmdr", dependencies = TRUE)
-# install.packages("summarytools")
-```
-
 ---
 
 ## Paket çağırma
 
-```{r paket cagirma, error=FALSE, message = FALSE, warning = FALSE, eval = TRUE, include = TRUE}
-# require(tidyverse)  
-# require(jmv)  
-# require(questionr)  
-# library(summarytools)  
-# library(gganimate)  
+```r
+require(tidyverse)  
+require(jmv)  
+require(questionr)  
+library(summarytools)  
+library(gganimate)  
 ```
 
 
@@ -285,11 +277,11 @@ install.packages("summarytools")
 # R için yardım bulma
 
 
-```{r yardım, echo=TRUE}
-# ?mean
-# ??efetch
-# help(merge)
-# example(merge)
+```r
+?mean
+??efetch
+help(merge)
+example(merge)
 ```
 
 ---
@@ -385,7 +377,7 @@ https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 
 ---
 
-                # RStudio ile veri yükleme
+# RStudio ile veri yükleme
 
 https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio
 
@@ -410,44 +402,39 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 # Veriyi görüntüleme
 
-```{r, results="markup"}
-# library(nycflights13)
-# summary(flights)
+```r
+library(nycflights13)
+summary(flights)
 ```
 
-
-
-```
+```r
 View(data)
 ```
 
-
-```
-data
-```
-
-
-```
-head
+```r
+data()
 ```
 
 
+```r
+head(data, n = 10)
 ```
-tail
+
+```r
+tail(data)
+```
+
+```r
+glimpse(data)
 ```
 
 
-```
-glimpse
-```
-
-
-```
-str
+```r
+str(data)
 ```
 
 
-```
+```r
 skimr::skim()
 ```
 

@@ -3,6 +3,10 @@ title: "Where to learn R"
 output: html_notebook
 ---
 
+# Introduction to Data Science
+
+https://rafalab.github.io/dsbook/
+
 # RStudio Education  
 
 https://education.rstudio.com/  
