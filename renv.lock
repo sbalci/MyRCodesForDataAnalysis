@@ -1098,6 +1098,12 @@
       "Source": "CRAN",
       "Hash": "10548c749c529a01a2c0e5cbc9d93aa2"
     },
+    "nycflights13": {
+      "Package": "nycflights13",
+      "Version": "1.0.1",
+      "Source": "CRAN",
+      "Hash": "63997ce87cced3914e5467aa859c07c5"
+    },
     "officer": {
       "Package": "officer",
       "Version": "0.3.5",

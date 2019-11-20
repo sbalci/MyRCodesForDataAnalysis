@@ -1,0 +1,34 @@
+### This is the child code block {{i}}
+
+#### Vanilla
+
+The value of value.to.match called through standard Rmd inline is `r value.to.match`. 
+
+Let's try and do something dynamic, showing flights only for the given origin specified in the variable value.to.match: 
+
+```{r echo=TRUE}
+my.data %>% 
+  filter(origin %in% value.to.match) %>%
+  select(origin,year,month,day,dep_time) %>%
+  head(2)
+```
+
+#### Double curly braces
+
+The value of value.to.match at the time this chunk was embedded can be referenced by enclosing it in double curly braces: 
+
+&#96;r &#123;&#123;value.to.match&#125;&#125;&#96;
+
+Without single quotes around the value an error is thrown (_object xxx not found_), so the fully working code is: 
+
+&#96;r '&#123;&#123;value.to.match&#125;&#125;'&#96;
+
+Hence, we can now say that the **actual** value of value.to.match is `r '{{value.to.match}}'`.
+
+```{r echo=TRUE}
+value.to.match <- '{{value.to.match}}'
+my.data %>% 
+  filter(origin %in% value.to.match) %>%
+  select(origin,year,month,day,dep_time) %>%
+  head(2)
+```
