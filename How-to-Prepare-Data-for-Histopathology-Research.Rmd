@@ -389,4 +389,24 @@ Hastaların kanser evresinin ortalama 2,5 , ya da tümör grade'inin ortalama 1,
 
 
 
+---
+
+# Tweets
+
+```{r eval=FALSE, include=FALSE}
+library(rtweet)
+
+how_to_prepare_data_tweet_1 <- paste0(
+  "1/n
+  
+  
+  "
+  )
+
+post_tweet(how_to_prepare_data_tweet_1)
+
+```
+
+
+
 

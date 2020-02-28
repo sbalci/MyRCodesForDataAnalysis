@@ -282,6 +282,7 @@ library(gganimate)
 ??efetch
 help(merge)
 example(merge)
+RSiteSearch("shiny")
 ```
 
 ---

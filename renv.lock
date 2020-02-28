@@ -122,9 +122,9 @@
     },
     "R6": {
       "Package": "R6",
-      "Version": "2.4.0",
+      "Version": "2.4.1",
       "Source": "CRAN",
-      "Hash": "92b50d943a7c76c67918c1e1beb68627"
+      "Hash": "32b894df8893259af194abdc2b1fc366"
     },
     "RColorBrewer": {
       "Package": "RColorBrewer",
@@ -144,11 +144,23 @@
       "Source": "CRAN",
       "Hash": "7438cdbfed86be176e19412ae149e599"
     },
+    "RSQLite": {
+      "Package": "RSQLite",
+      "Version": "2.1.2",
+      "Source": "CRAN",
+      "Hash": "fae18a167fe102db0947605844a54888"
+    },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.2",
+      "Version": "1.0.3",
       "Source": "CRAN",
-      "Hash": "c25fa7d5684fa7001ddfea3755243975"
+      "Hash": "084336e3a1a0d358337525d7a394bb8b"
+    },
+    "RcppArmadillo": {
+      "Package": "RcppArmadillo",
+      "Version": "0.9.800.1.0",
+      "Source": "CRAN",
+      "Hash": "e60ca677f31a2d149c5865f72498f9d8"
     },
     "RcppEigen": {
       "Package": "RcppEigen",
@@ -252,17 +264,47 @@
       "Source": "CRAN",
       "Hash": "d355963b4b1c3039bfe8d65611a11cca"
     },
+    "bayestestR": {
+      "Package": "bayestestR",
+      "Version": "0.4.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "bayestestR",
+      "RemoteUsername": "easystats",
+      "RemoteRef": "dev",
+      "RemoteSha": "01ec82bfe9ff839f1f63f4f6eb6604386f5c1425",
+      "Hash": "743a9c89f5aa8529c3009159698340ae"
+    },
     "bibtex": {
       "Package": "bibtex",
       "Version": "0.4.2",
       "Source": "CRAN",
       "Hash": "be63e68dae6e75f240cf5e674d20deaf"
     },
+    "bit": {
+      "Package": "bit",
+      "Version": "1.1-14",
+      "Source": "CRAN",
+      "Hash": "915a13dd2f8633d92971640ed1498e5b"
+    },
+    "bit64": {
+      "Package": "bit64",
+      "Version": "0.9-7",
+      "Source": "CRAN",
+      "Hash": "805d4ae996fa46f4f8436500959d669b"
+    },
     "bitops": {
       "Package": "bitops",
       "Version": "1.0-6",
       "Source": "CRAN",
       "Hash": "62408262624d9f8e436f51ca901424e2"
+    },
+    "blob": {
+      "Package": "blob",
+      "Version": "1.2.0",
+      "Source": "CRAN",
+      "Hash": "9ef42c7a122fb0bc78563a7d1da7ba4e"
     },
     "boot": {
       "Package": "boot",
@@ -588,6 +630,12 @@
       "Source": "CRAN",
       "Hash": "67ab21939991638218a37cb21ec0ce0c"
     },
+    "future": {
+      "Package": "future",
+      "Version": "1.14.0",
+      "Source": "CRAN",
+      "Hash": "2dd37a87b16d7ae973505d636d36d22c"
+    },
     "gdata": {
       "Package": "gdata",
       "Version": "2.18.0",
@@ -678,6 +726,12 @@
       "Source": "CRAN",
       "Hash": "22ea14e8f582d4a83a273f24ac43e27e"
     },
+    "globals": {
+      "Package": "globals",
+      "Version": "0.12.4",
+      "Source": "CRAN",
+      "Hash": "cf9ddd6b6fce90974d5bd9b5f80d08b0"
+    },
     "glue": {
       "Package": "glue",
       "Version": "1.3.1",
@@ -758,9 +812,9 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.3.6",
+      "Version": "0.4.0",
       "Source": "CRAN",
-      "Hash": "5132526e7fb28a2c20d1ef443d5c4644"
+      "Hash": "639ced211d4574cb149a7906b22e110f"
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
@@ -804,6 +858,12 @@
       "Source": "CRAN",
       "Hash": "23b8ec1bdea91c914af35b2c21dff286"
     },
+    "insight": {
+      "Package": "insight",
+      "Version": "0.6.0",
+      "Source": "CRAN",
+      "Hash": "781d556660e0aacd71c906c725ebdafe"
+    },
     "inum": {
       "Package": "inum",
       "Version": "1.0-1",
@@ -815,6 +875,12 @@
       "Version": "1.0.12",
       "Source": "CRAN",
       "Hash": "30ef58a17d970ae05c85793da79152d6"
+    },
+    "janitor": {
+      "Package": "janitor",
+      "Version": "1.2.0",
+      "Source": "CRAN",
+      "Hash": "e1310d9b920ef337ec2ecd8d73b21f0d"
     },
     "jmv": {
       "Package": "jmv",
@@ -854,9 +920,9 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.25",
+      "Version": "1.26",
       "Source": "CRAN",
-      "Hash": "33a3a009f5e7c3606d6851692bf703d9"
+      "Hash": "4a9bc248b52335212d8d36f9a4c6a6f0"
     },
     "labeling": {
       "Package": "labeling",
@@ -905,6 +971,12 @@
       "Version": "0.1.0",
       "Source": "CRAN",
       "Hash": "670a552ae202a4f69e2e644f524dfffd"
+    },
+    "listenv": {
+      "Package": "listenv",
+      "Version": "0.7.0",
+      "Source": "CRAN",
+      "Hash": "7cdee13e292d057fce33553ea7eebbd7"
     },
     "lme4": {
       "Package": "lme4",
@@ -1152,6 +1224,18 @@
       "Source": "CRAN",
       "Hash": "ccc723b9d7b4db7ef57a6109d7835380"
     },
+    "parameters": {
+      "Package": "parameters",
+      "Version": "0.2.5",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "parameters",
+      "RemoteUsername": "easystats",
+      "RemoteRef": "dev",
+      "RemoteSha": "eac6140081b637423ab4c99b41c5e73ae11c69c5",
+      "Hash": "521d3657243efd98d36cfb80ce74fbf8"
+    },
     "partykit": {
       "Package": "partykit",
       "Version": "1.2-5",
@@ -1175,6 +1259,12 @@
       "Version": "0.4-7",
       "Source": "CRAN",
       "Hash": "188d51e37526d3a5525daab0c6a92c3a"
+    },
+    "performance": {
+      "Package": "performance",
+      "Version": "0.4.0",
+      "Source": "CRAN",
+      "Hash": "071c703a3583b32e41db1a4fe7476d76"
     },
     "pillar": {
       "Package": "pillar",
@@ -1406,9 +1496,9 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "1.15",
+      "Version": "1.17",
       "Source": "CRAN",
-      "Hash": "7009ca49bab0c053098ae99b595bbacb"
+      "Hash": "b0829435ecf8d260997ac7afb01f29ca"
     },
     "rmdshower": {
       "Package": "rmdshower",
@@ -1640,9 +1730,9 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.16",
+      "Version": "0.17",
       "Source": "CRAN",
-      "Hash": "9349f30ae6ddce61d7fa26f7b6228a73"
+      "Hash": "077c604ce8fd8096a8a47eea31faab8e"
     },
     "tweenr": {
       "Package": "tweenr",
@@ -1736,9 +1826,9 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.9",
+      "Version": "0.11",
       "Source": "CRAN",
-      "Hash": "f577b2b637a64f3b5662430ccc6fa1b7"
+      "Hash": "7d51266ba491e922f72026a90552378b"
     },
     "xlsx": {
       "Package": "xlsx",

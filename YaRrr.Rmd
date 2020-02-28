@@ -1,0 +1,44 @@
+---
+title: "R Pirate YaRrr"
+output: html_notebook
+---
+
+
+```{r}
+install.packages("yarrr")
+library("yarrr")
+```
+
+
+```{r}
+pirateplot(formula = weight ~ Time,
+data = ChickWeight,
+pal = "xmen")
+```
+
+
+```{r}
+yarrr::pirateplot(formula = weight ~ Diet,
+                  data = ChickWeight)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
