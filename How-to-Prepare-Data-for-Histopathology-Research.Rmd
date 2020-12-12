@@ -1,7 +1,10 @@
 ---
 title: "How to Prepare Data for Histopathology Research?"
+---
+
+```
 author: '[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)'
-date: "`r format(Sys.Date())`"
+date: "`{r #  format(Sys.Date())`"
 output:
   revealjs::revealjs_presentation:
     incremental: yes
@@ -58,7 +61,7 @@ output:
 institute: '[serdarbalci.com](https://www.serdarbalci.com)'
 editor_options:
   chunk_output_type: inline
----
+```
 
 <!-- Open all links in new tab-->  
 <base target="_blank"/>  
@@ -69,8 +72,8 @@ editor_options:
 
 
 
-```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
 ```
 
 
@@ -144,22 +147,22 @@ addthis_inline_25846513 <- paste0(addthis_String1, PMID_25846513$title , " PMID:
 
 
 <!-- <details open> <summary> -->
-- **`r PMID_25846513$title`**
+- **`{r #  PMID_25846513$title`**
 <!-- </summary>  -->
 
-*`r citation_25846513`*
+*`{r #  citation_25846513`*
 
-`r PubMed_25846513`
+`{r #  PubMed_25846513`
 
-`r addthis_inline_25846513`
+`{r #  addthis_inline_25846513`
 
-`r PMID_25846513$abstract`
+`{r #  PMID_25846513$abstract`
 
-`r doi_25846513`
+`{r #  doi_25846513`
 
-`r dimensionBadge_25846513`
+`{r #  dimensionBadge_25846513`
 
-`r altmetricBadge_25846513`
+`{r #  altmetricBadge_25846513`
 
 <!-- </details> -->
 
@@ -393,7 +396,7 @@ Hastaların kanser evresinin ortalama 2,5 , ya da tümör grade'inin ortalama 1,
 
 # Tweets
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 
 how_to_prepare_data_tweet_1 <- paste0(

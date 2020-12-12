@@ -1,8 +1,5 @@
 ---
 title: "MyGIST"
-output:
-  html_document:
-    df_print: paged
 ---
 
 
@@ -14,7 +11,7 @@ https://docs.ropensci.org/gistr/
 https://docs.ropensci.org/gistr/articles/gistr.html
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 # install.packages("gistr")
 # devtools::install_github("ropensci/gistr")
 # renv::install("gistr")
@@ -29,7 +26,7 @@ library("gistr")
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 gistembedcodes <- purrr::map(.x = mygists, .f = gistr::embed)
 
 gistembedcodes <- unlist(gistembedcodes)
@@ -42,12 +39,12 @@ gistembedcodes <- cat(gistembedcodes, sep = '\n\n\n')
 
 
 ```
-`r gistembedcodes`
+`{r #  gistembedcodes`
 ```
 
 
 
-`r gistembedcodes`
+`{r #  gistembedcodes`
 
 
 
@@ -56,7 +53,7 @@ gistembedcodes <- cat(gistembedcodes, sep = '\n\n\n')
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 citation(package = 'gistr')
 ```
 

@@ -15,7 +15,7 @@ opts_chunk$set(comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis')
 ```
 
 
-```{r summarytool options 2, echo=FALSE}
+```{r summarytool options 2, echo=TRUE}
 library(summarytools)
 st_css()
 ```
@@ -39,7 +39,7 @@ freq(tobacco$gender, style = 'rmarkdown')
 
 
 ## HTML Rendering
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 print(freq(tobacco$gender), method = 'render')
 ```
 
@@ -58,7 +58,7 @@ Tables with heading spanning over 2 rows are not fully supported in markdown
 (yet), but the result is getting close to acceptable. This, however, is not
 true for all themes. That's why the rendering method is preferred.
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 ```
 
@@ -66,7 +66,7 @@ ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 
 For best results, use this method.
 
-```{r ctable_html}
+```{r }
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 ```
 
@@ -79,7 +79,7 @@ print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 also supported.
 
 ## Rmarkdown Style
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 descr(tobacco, style = 'rmarkdown')
 ```
 
@@ -89,7 +89,7 @@ descr(tobacco, style = 'rmarkdown')
 We'll use table.classes = 'st-small' to show how it affects the table's size
 (compare to the `freq()` table rendered earlier).
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 print(descr(tobacco), method = 'render', table.classes = 'st-small')
 ```
  
@@ -105,14 +105,14 @@ This style gives good results, and since v0.9, the graphs are shown as true
 images. Don't forget to specify `plain.ascii = FALSE` (or set it as a global
 option with `st_options(plain.ascii = FALSE)`), or you won't get good results.
 
-```{r dfs_grid, eval=FALSE}
+```{r , eval=FALSE}
 dfSummary(tobacco, style = 'grid', graph.magnif = 0.75, tmp.img.dir = "/tmp")
 ```
 
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 ```
 

@@ -1,9 +1,0 @@
----
-title: "News"
-output: html_notebook
----
-
-
-- Text Analysis of Newspaper News on Electoral Integrity and Electoral Violence in Turkey
-
-http://rpubs.com/emretoros/dievt

@@ -1,6 +1,5 @@
 ---
 title: "21 Recipes for Mining Twitter Data with rtweet"
-output: html_notebook
 ---
 
 # 21 Recipes for Mining Twitter Data with rtweet
@@ -10,30 +9,30 @@ https://rud.is/books/21-recipes/
 http://rtweet.info/index.html
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 # devtools::install_github("mkearney/rtweet")
 library(rtweet)
 library(tidyverse)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 (trends_avail <- trends_available())
 
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 (us <- get_trends("united states"))
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 (tr <- get_trends("turkey"))
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(DBI)
 library(RSQLite)
 library(rtweet) # mkearney/rtweet
@@ -49,7 +48,7 @@ repeat {
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(dplyr)
 
 trends_db <- src_sqlite("data/us-trends.db")
@@ -59,19 +58,19 @@ select(us, trend)
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 (rstats <- search_tweets("#rstats", n=300)) # pull 300 tweets that used the "#rstats" hashtag
 
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 glimpse(rstats)
 ```
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 rstats %>% 
 select(hashtags) %>% 
   unnest() %>% 
@@ -84,26 +83,26 @@ select(hashtags) %>%
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 rstats <- search_tweets("#rstats -filter:retweets") %>%
   select(text)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 rstats <- search_tweets("to:kearneymw") %>%
   select(text)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 rstats <- search_tweets("#rstats url:github -#python") %>% 
   select(text)
 
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(tidyverse)
 rstats <- search_tweets("#rstats", n=500)
@@ -117,7 +116,7 @@ filter(rstats, retweet_count > 0) %>%
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 # regex mod from https://stackoverflow.com/questions/655903/python-regular-expression-for-retweets
 filter(rstats, str_detect(text, "(RT|via)((?:[[:blank:]:]\\W*@\\w+)+)")) %>% 
   select(text, mentions_screen_name, retweet_count) %>% 
@@ -129,7 +128,7 @@ filter(rstats, str_detect(text, "(RT|via)((?:[[:blank:]:]\\W*@\\w+)+)")) %>%
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(igraph)
 library(hrbrthemes)
@@ -147,7 +146,7 @@ summary(rt_g)
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 ggplot(data_frame(y=degree_distribution(rt_g), x=1:length(y))) +
   geom_segment(aes(x, y, xend=x, yend=0), color="slateblue") +
   scale_y_continuous(expand=c(0,0), trans="sqrt") +
@@ -156,14 +155,14 @@ ggplot(data_frame(y=degree_distribution(rt_g), x=1:length(y))) +
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 V(rt_g)$node_label <- unname(ifelse(degree(rt_g)[V(rt_g)] > 20, names(V(rt_g)), "")) 
 V(rt_g)$node_size <- unname(ifelse(degree(rt_g)[V(rt_g)] > 20, degree(rt_g), 0)) 
 ```
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(ggraph)
 
 ggraph(rt_g, layout = 'linear', circular = TRUE) + 
@@ -179,7 +178,7 @@ ggraph(rt_g, layout = 'linear', circular = TRUE) +
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 stream_tweets(
   lookup_coords("usa"), # handy helper function in rtweet
   verbose = FALSE,
@@ -188,13 +187,13 @@ stream_tweets(
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 count(usa, place_full_name, sort=TRUE)
 ```
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 unnest(usa, hashtags) %>% 
   count(hashtags, sort=TRUE) %>% 
   filter(!is.na(hashtags))
@@ -203,21 +202,21 @@ unnest(usa, hashtags) %>%
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 count(usa, source, sort=TRUE)
 ```
 
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 rtweet::write_as_csv()
 ```
 
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(tidytext)
 library(magick)
@@ -294,7 +293,7 @@ library(tidyverse)
 ---
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(tidyverse)
 my_followers <- rtweet::get_followers("serdarbalci")
@@ -302,18 +301,18 @@ my_friends <- rtweet::get_friends("serdarbalci")
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 length(intersect(my_followers$user_id, my_friends$user_id))
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 length(setdiff(my_followers$user_id, my_friends$user_id))
 ```
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 length(setdiff(my_friends$user_id, my_followers$user_id))
 ```
 
@@ -322,7 +321,7 @@ length(setdiff(my_friends$user_id, my_followers$user_id))
 ---
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 rtweet::lookup_users(my_friends$user_id)
 ```
 
@@ -332,7 +331,7 @@ rtweet::lookup_users(my_friends$user_id)
 
 ---
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(hrbrthemes)
 library(tidyverse)
@@ -372,7 +371,7 @@ influence_snapshot <- function(user, trans=c("log10", "identity")) {
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 juliasilge <- influence_snapshot("juliasilge")
 ```
 
@@ -381,7 +380,7 @@ juliasilge <- influence_snapshot("juliasilge")
 ---
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(broom)
 library(eechidna)
@@ -396,7 +395,7 @@ user_info <- lookup_users(unique(rstats_us$user_id))
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 discard(user_info$location, `==`, "") %>% # ignore blank data
   str_match(sprintf("(%s)", paste0(state.abb, collapse="|"))) %>%  # try to match U.S. state abbreviations
   .[,2] %>% # the previous step creates a matrix with column 2 being the extracted information (if any)
@@ -421,7 +420,7 @@ glimpse(for_dor)
 
 
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 par(family=font_rc, col="white")
 
 eechidna:::dorling(
@@ -436,7 +435,7 @@ par(family=font_rc, col="black")
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(ggmap)
 library(tidyverse)
@@ -458,14 +457,14 @@ user_info <- left_join(user_info, coded, "location")
 ---
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 library(tidyverse)
 library(UpSetR)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 # get a list of twitter handles you want to compare
 rstaters <- c("dataandme", 
               "serdarbalci",
@@ -489,7 +488,7 @@ tail(followers)
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 # get a de-duplicated list of all followers
 aRdent_followers <- unique(followers$user_id)
 
@@ -509,7 +508,7 @@ glimpse(binaries)
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 # plot the sets with UpSetR
 upset(binaries, nsets = 7, main.bar.color = "SteelBlue", sets.bar.color = "DarkCyan", 
       sets.x.label = "Follower Count", text.scale = c(rep(1.4, 5), 1), order.by = "freq")

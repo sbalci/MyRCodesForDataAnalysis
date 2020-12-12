@@ -1,0 +1,21 @@
+---
+title: "Using Cloud for Research"
+---
+
+# rclone
+
+https://rclone.org/drive/
+
+# rmdrive
+
+https://github.com/ekothe/rmdrive
+
+
+
+
+
+
+
+
+
+

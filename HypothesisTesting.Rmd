@@ -1,0 +1,643 @@
+---
+title: "Hypothesis Testing"
+---
+
+# Glue
+Glue strings to data in R. Small, fast, dependency free interpreted string literals.
+
+https://glue.tidyverse.org/
+
+# infer package
+Statistical Inference: A Tidy Approach
+https://ismayc.github.io/talks/ness-infer/slide_deck.html
+
+https://infer.netlify.com/
+
+https://moderndive.netlify.com/
+
+https://cran.r-project.org/web/packages/infer/index.html
+
+
+# Hypothesis Testing
+
+## Test Selection
+
+### Statkat
+
+https://statkat.com/
+
+https://statkat.com/stattest_overview.php
+
+
+#### Jamovi Statkat module
+
+https://blog.jamovi.org/2018/06/25/statkat.html
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library(jmv)
+library(Statkat)
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+
+Statkat::correlational(
+    data = data,
+    dep = "len",
+    independents = "supp")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+# infer
+
+Full infer pipeline examples using nycflights13 flights data
+
+
+https://cran.r-project.org/web/packages/infer/vignettes/observed_stat_examples.html
+
+
+Full infer pipeline examples using nycflights13 flights data
+Chester Ismay
+Updated on 2018-06-14
+Data preparation
+library(nycflights13)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(infer)
+set.seed(2017)
+fli_small <- flights %>% 
+  na.omit() %>%
+  sample_n(size = 500) %>% 
+  mutate(season = case_when(
+    month %in% c(10:12, 1:3) ~ "winter",
+    month %in% c(4:9) ~ "summer"
+  )) %>% 
+  mutate(day_hour = case_when(
+    between(hour, 1, 12) ~ "morning",
+    between(hour, 13, 24) ~ "not morning"
+  )) %>% 
+  select(arr_delay, dep_delay, season, 
+         day_hour, origin, carrier)
+Two numeric - arr_delay, dep_delay
+Two categories
+season ("winter", "summer"),
+day_hour ("morning", "not morning")
+Three categories - origin ("EWR", "JFK", "LGA")
+Sixteen categories - carrier
+Hypothesis tests
+One numerical variable (mean)
+Observed stat
+
+( x_bar <- fli_small %>%
+  specify(response = dep_delay) %>%
+  calculate(stat = "mean") )
+stat
+10.4
+null_distn <- fli_small %>%
+  specify(response = dep_delay) %>%
+  hypothesize(null = "point", mu = 10) %>%
+  generate(reps = 1000) %>%
+  calculate(stat = "mean")
+## Setting `type = "bootstrap"` in `generate()`.
+visualize(null_distn) +
+  shade_p_value(obs_stat = x_bar, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = x_bar, direction = "two_sided")
+p_value
+0.794
+One numerical variable (standardized mean t)
+Observed stat
+
+( t_bar <- fli_small %>%
+  specify(response = dep_delay) %>%
+  calculate(stat = "t") )
+stat
+6.93
+null_distn <- fli_small %>%
+  specify(response = dep_delay) %>%
+  hypothesize(null = "point", mu = 8) %>%
+  generate(reps = 1000) %>%
+  calculate(stat = "t")
+## Setting `type = "bootstrap"` in `generate()`.
+visualize(null_distn) +
+  shade_p_value(obs_stat = t_bar, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = t_bar, direction = "two_sided")
+p_value
+0
+One numerical variable (median)
+Observed stat
+
+( x_tilde <- fli_small %>%
+  specify(response = dep_delay) %>%
+  calculate(stat = "median") )
+stat
+-2
+null_distn <- fli_small %>%
+  specify(response = dep_delay) %>%
+  hypothesize(null = "point", med = -1) %>% 
+  generate(reps = 1000) %>% 
+  calculate(stat = "median")
+## Setting `type = "bootstrap"` in `generate()`.
+visualize(null_distn) +
+  shade_p_value(obs_stat = x_tilde, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = x_tilde, direction = "two_sided")
+p_value
+0.15
+One categorical (one proportion)
+Observed stat
+
+( p_hat <- fli_small %>%
+  specify(response = day_hour, success = "morning") %>%
+  calculate(stat = "prop") )
+stat
+0.466
+null_distn <- fli_small %>%
+  specify(response = day_hour, success = "morning") %>%
+  hypothesize(null = "point", p = .5) %>%
+  generate(reps = 1000) %>%
+  calculate(stat = "prop")
+## Setting `type = "simulate"` in `generate()`.
+visualize(null_distn) +
+  shade_p_value(obs_stat = p_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = p_hat, direction = "two_sided")
+p_value
+0.11
+Logical variables will be coerced to factors:
+
+null_distn <- fli_small %>%
+  mutate(day_hour_logical = (day_hour == "morning")) %>%
+  specify(response = day_hour_logical, success = "TRUE") %>%
+  hypothesize(null = "point", p = .5) %>%
+  generate(reps = 1000) %>%
+  calculate(stat = "prop")
+## Setting `type = "simulate"` in `generate()`.
+One categorical variable (standardized proportion z)
+Not yet implemented.
+
+Two categorical (2 level) variables
+Observed stat
+
+( d_hat <- fli_small %>% 
+  specify(day_hour ~ season, success = "morning") %>%
+  calculate(stat = "diff in props", order = c("winter", "summer")) )
+stat
+-0.0205
+null_distn <- fli_small %>%
+  specify(day_hour ~ season, success = "morning") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps = 1000) %>% 
+  calculate(stat = "diff in props", order = c("winter", "summer"))
+## Setting `type = "permute"` in `generate()`.
+visualize(null_distn) +
+  shade_p_value(obs_stat = d_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = d_hat, direction = "two_sided")
+p_value
+0.708
+Two categorical (2 level) variables (z)
+Standardized observed stat
+
+( z_hat <- fli_small %>% 
+  specify(day_hour ~ season, success = "morning") %>%
+  calculate(stat = "z", order = c("winter", "summer")) )
+stat
+-0.4605
+null_distn <- fli_small %>%
+  specify(day_hour ~ season, success = "morning") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps = 1000) %>% 
+  calculate(stat = "z", order = c("winter", "summer"))
+## Setting `type = "permute"` in `generate()`.
+visualize(null_distn) +
+  shade_p_value(obs_stat = z_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = z_hat, direction = "two_sided")
+p_value
+0.684
+Note the similarities in this plot and the previous one.
+
+One categorical (>2 level) - GoF
+Observed stat
+
+Note the need to add in the hypothesized values here to compute the observed statistic.
+
+( Chisq_hat <- fli_small %>%
+  specify(response = origin) %>%
+  hypothesize(null = "point", 
+              p = c("EWR" = .33, "JFK" = .33, "LGA" = .34)) %>% 
+  calculate(stat = "Chisq") )
+stat
+10.4
+null_distn <- fli_small %>%
+  specify(response = origin) %>%
+  hypothesize(null = "point", 
+              p = c("EWR" = .33, "JFK" = .33, "LGA" = .34)) %>% 
+  generate(reps = 1000, type = "simulate") %>% 
+  calculate(stat = "Chisq")
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = Chisq_hat, direction = "greater")
+
+null_distn %>%
+  get_p_value(obs_stat = Chisq_hat, direction = "greater")
+p_value
+0.005
+Two categorical (>2 level) variables
+Observed stat
+
+( Chisq_hat <- fli_small %>%
+  specify(formula = day_hour ~ origin) %>% 
+  calculate(stat = "Chisq") )
+stat
+9.027
+null_distn <- fli_small %>%
+  specify(day_hour ~ origin) %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "Chisq")
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = Chisq_hat, direction = "greater")
+
+null_distn %>%
+  get_p_value(obs_stat = Chisq_hat, direction = "greater")
+p_value
+0.007
+One numerical variable, one categorical (2 levels) (diff in means)
+Observed stat
+
+( d_hat <- fli_small %>% 
+  specify(dep_delay ~ season) %>% 
+  calculate(stat = "diff in means", order = c("summer", "winter")) )
+stat
+2.266
+null_distn <- fli_small %>%
+  specify(dep_delay ~ season) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in means", order = c("summer", "winter"))
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = d_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = d_hat, direction = "two_sided")
+p_value
+0.488
+One numerical variable, one categorical (2 levels) (t)
+Standardized observed stat
+
+( t_hat <- fli_small %>% 
+  specify(dep_delay ~ season) %>% 
+  calculate(stat = "t", order = c("summer", "winter")) )
+stat
+0.7542
+null_distn <- fli_small %>%
+  specify(dep_delay ~ season) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "t", order = c("summer", "winter"))
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = t_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = t_hat, direction = "two_sided")
+p_value
+0.49
+Note the similarities in this plot and the previous one.
+
+One numerical variable, one categorical (2 levels) (diff in medians)
+Observed stat
+
+( d_hat <- fli_small %>% 
+  specify(dep_delay ~ season) %>% 
+  calculate(stat = "diff in medians", order = c("summer", "winter")) )
+stat
+2
+null_distn <- fli_small %>%
+  specify(dep_delay ~ season) %>% # alt: response = dep_delay, 
+  # explanatory = season
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in medians", order = c("summer", "winter"))
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = d_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = d_hat, direction = "two_sided")
+p_value
+0.084
+One numerical, one categorical (>2 levels) - ANOVA
+Observed stat
+
+( F_hat <- fli_small %>% 
+  specify(arr_delay ~ origin) %>%
+  calculate(stat = "F") )
+stat
+1.084
+null_distn <- fli_small %>%
+   specify(arr_delay ~ origin) %>%
+   hypothesize(null = "independence") %>%
+   generate(reps = 1000, type = "permute") %>%
+   calculate(stat = "F")
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = F_hat, direction = "greater")
+
+null_distn %>%
+  get_p_value(obs_stat = F_hat, direction = "greater")
+p_value
+0.353
+Two numerical vars - SLR
+Observed stat
+
+( slope_hat <- fli_small %>% 
+  specify(arr_delay ~ dep_delay) %>% 
+  calculate(stat = "slope") )
+stat
+1.017
+null_distn <- fli_small %>%
+   specify(arr_delay ~ dep_delay) %>% 
+   hypothesize(null = "independence") %>%
+   generate(reps = 1000, type = "permute") %>%
+   calculate(stat = "slope")
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = slope_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = slope_hat, direction = "two_sided")
+p_value
+0
+Two numerical vars - correlation
+Observed stat
+
+( correlation_hat <- fli_small %>% 
+  specify(arr_delay ~ dep_delay) %>% 
+  calculate(stat = "correlation") )
+stat
+0.8943
+null_distn <- fli_small %>%
+   specify(arr_delay ~ dep_delay) %>% 
+   hypothesize(null = "independence") %>%
+   generate(reps = 1000, type = "permute") %>%
+   calculate(stat = "correlation")
+
+visualize(null_distn) +
+  shade_p_value(obs_stat = correlation_hat, direction = "two_sided")
+
+null_distn %>%
+  get_p_value(obs_stat = correlation_hat, direction = "two_sided")
+p_value
+0
+Two numerical vars - SLR (t)
+Not currently implemented since t could refer to standardized slope or standardized correlation.
+
+Confidence intervals
+One numerical (one mean)
+Point estimate
+
+( x_bar <- fli_small %>% 
+  specify(response = arr_delay) %>%
+  calculate(stat = "mean") )
+stat
+4.572
+boot <- fli_small %>%
+   specify(response = arr_delay) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "mean")
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+1.436	7.819
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = x_bar) )
+lower	upper
+1.267	7.877
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+One numerical (one mean - standardized)
+Point estimate
+
+( t_hat <- fli_small %>% 
+  specify(response = arr_delay) %>%
+  calculate(stat = "t") )
+stat
+2.679
+boot <- fli_small %>%
+   specify(response = arr_delay) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "t")
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+0.9338	4.362
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = t_hat) )
+lower	upper
+0.9141	4.444
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+One categorical (one proportion)
+Point estimate
+
+( p_hat <- fli_small %>% 
+   specify(response = day_hour, success = "morning") %>%
+   calculate(stat = "prop") )
+stat
+0.466
+boot <- fli_small %>%
+ specify(response = day_hour, success = "morning") %>%
+ generate(reps = 1000, type = "bootstrap") %>%
+ calculate(stat = "prop")
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+0.42	0.508
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = p_hat) )
+lower	upper
+0.4218	0.5102
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+One categorical variable (standardized proportion z)
+Not yet implemented.
+
+One numerical variable, one categorical (2 levels) (diff in means)
+Point estimate
+
+( d_hat <- fli_small %>%
+  specify(arr_delay ~ season) %>%
+  calculate(stat = "diff in means", order = c("summer", "winter")) )
+stat
+-0.7452
+boot <- fli_small %>%
+   specify(arr_delay ~ season) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "diff in means", order = c("summer", "winter"))
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+-7.167	6.079
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = d_hat) )
+lower	upper
+-7.296	5.806
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+One numerical variable, one categorical (2 levels) (t)
+Standardized point estimate
+
+( t_hat <- fli_small %>%
+  specify(arr_delay ~ season) %>%
+  calculate(stat = "t", order = c("summer", "winter")) )
+stat
+-0.2182
+boot <- fli_small %>%
+   specify(arr_delay ~ season) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "t", order = c("summer", "winter"))
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+-2.236	1.718
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = t_hat) )
+lower	upper
+-2.183	1.746
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+Two categorical variables (diff in proportions)
+Point estimate
+
+( d_hat <- fli_small %>% 
+  specify(day_hour ~ season, success = "morning") %>%
+  calculate(stat = "diff in props", order = c("summer", "winter")) )
+stat
+0.0205
+boot <- fli_small %>%
+  specify(day_hour ~ season, success = "morning") %>%
+  generate(reps = 1000, type = "bootstrap") %>% 
+  calculate(stat = "diff in props", order = c("summer", "winter"))
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+-0.0648	0.1083
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = d_hat) )
+lower	upper
+-0.0676	0.1087
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+Two categorical variables (z)
+Standardized point estimate
+
+( z_hat <- fli_small %>% 
+  specify(day_hour ~ season, success = "morning") %>%
+  calculate(stat = "z", order = c("summer", "winter")) )
+stat
+0.4605
+boot <- fli_small %>%
+  specify(day_hour ~ season, success = "morning") %>%
+  generate(reps = 1000, type = "bootstrap") %>% 
+  calculate(stat = "z", order = c("summer", "winter"))
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+-1.479	2.501
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = z_hat) )
+lower	upper
+-1.522	2.443
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+Two numerical vars - SLR
+Point estimate
+
+( slope_hat <- fli_small %>% 
+  specify(arr_delay ~ dep_delay) %>%
+  calculate(stat = "slope") )
+stat
+1.017
+boot <- fli_small %>%
+   specify(arr_delay ~ dep_delay) %>% 
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "slope")
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+0.9728	1.074
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", point_estimate = slope_hat) )
+lower	upper
+0.9653	1.069
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+Two numerical vars - correlation
+Point estimate
+
+( correlation_hat <- fli_small %>% 
+  specify(arr_delay ~ dep_delay) %>%
+  calculate(stat = "correlation") )
+stat
+0.8943
+boot <- fli_small %>%
+   specify(arr_delay ~ dep_delay) %>% 
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "correlation")
+( percentile_ci <- get_ci(boot) )
+2.5%	97.5%
+0.8502	0.9218
+visualize(boot) +
+  shade_confidence_interval(endpoints = percentile_ci)
+
+( standard_error_ci <- get_ci(boot, type = "se", 
+                            point_estimate = correlation_hat) )
+lower	upper
+0.858	0.9306
+visualize(boot) +
+  shade_confidence_interval(endpoints = standard_error_ci)
+
+Two numerical vars - t
+Not currently implemented since t could refer to standardized slope or standardized correlation.
+
+
+

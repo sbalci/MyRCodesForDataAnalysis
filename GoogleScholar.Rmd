@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+---
+
+### scholar
+Analyse citation data from Google Scholar: https://github.com/jkeirstead/scholar/
+
+
+### coauthornetwork
+Exploring Google Scholar coauthorship: https://cimentadaj.github.io/blog/2018-06-19-exploring-google-scholar-coauthorship/exploring-google-scholar-coauthorship/
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github("cimentadaj/coauthornetwork")
+library(coauthornetwork)
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+network <- grab_network("citations?user=q40DcqYAAAAJ&hl=en")
+network
+```
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+plot_coauthors(grab_network("citations?user=q40DcqYAAAAJ&hl=en", n_coauthors = 15), size_labels = 2)
+
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+plot_coauthors(grab_network("citations?user=RJNKLHgAAAAJ&hl=en", n_coauthors = 15), size_labels = 2)
+
+```
+
+
+```{r eval=FALSE, fig.height=5, fig.width=6, include=FALSE}
+plot_coauthors(grab_network("citations?user=VYE2H0wAAAAJ&hl=en", n_coauthors = 15), size_labels = 3)
+
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+plot_coauthors(grab_network("citations?user=joN_UxsAAAAJ&hl=en", n_coauthors = 15), size_labels = 1)
+
+```
+
+## scholar.shiny
+
+A shiny application that interacts with Google Scholar
+
+https://github.com/agbarnett/scholar.shiny
+

@@ -1,38 +1,6 @@
 ---
 title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
-author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
-institute: "[serdarbalci.com](https://www.serdarbalci.com)"
-date: "`r format(Sys.Date())`"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
-  revealjs::revealjs_presentation:
-  html_notebook:
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: flatly
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '5'
-  html_document:
-    fig_caption: yes
-    keep_md: yes
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
-editor_options: 
-  chunk_output_type: inline
 ---
 
 <!-- Open all links in new tab-->  
@@ -92,7 +60,7 @@ https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x
 ![:scale 30%](https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg)
 
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::include_graphics(path = "https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg")
 ```
 
@@ -136,7 +104,7 @@ https://cran.r-project.org/
 ### RStudio
 
 
-[![](http://www-users.york.ac.uk/~er13/RStudio%20Anatomy.svg)](https://buzzrbeeline.blog/2018/07/04/rstudio-anatomy/)
+<!-- [![](http://www-users.york.ac.uk/~er13/RStudio%20Anatomy.svg)](https://buzzrbeeline.blog/2018/07/04/rstudio-anatomy/) -->
 
 
 
@@ -250,7 +218,7 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 
 ## R paket yükleme
 
-```r
+```{r # 
 install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
 install.packages("questionr", dependencies = TRUE)
@@ -262,7 +230,7 @@ install.packages("summarytools")
 
 ## Paket çağırma
 
-```r
+```{r # 
 require(tidyverse)  
 require(jmv)  
 require(questionr)  
@@ -277,7 +245,7 @@ library(gganimate)
 # R için yardım bulma
 
 
-```r
+```{r # 
 ?mean
 ??efetch
 help(merge)
@@ -403,39 +371,39 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 # Veriyi görüntüleme
 
-```r
+```{r # 
 library(nycflights13)
 summary(flights)
 ```
 
-```r
+```{r # 
 View(data)
 ```
 
-```r
+```{r # 
 data()
 ```
 
 
-```r
+```{r # 
 head(data, n = 10)
 ```
 
-```r
+```{r # 
 tail(data)
 ```
 
-```r
+```{r # 
 glimpse(data)
 ```
 
 
-```r
+```{r # 
 str(data)
 ```
 
 
-```r
+```{r # 
 skimr::skim()
 ```
 
@@ -516,7 +484,7 @@ table()
 ---
 
 
-```{r descriptive, echo=TRUE, include = TRUE}
+```{r, echo=TRUE, include = TRUE}
 library(readr)
 irisdata <- read_csv("data/iris.csv")
 
@@ -545,7 +513,7 @@ jmv::descriptives(
 
 ---
 
-```{r scatter, echo=TRUE, include=TRUE}
+```{r, echo=TRUE, include=FALSE}
 # install.packages("scatr")
 scatr::scat(
     data = irisdata,
@@ -563,7 +531,7 @@ scatr::scat(
 
 https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 library(summarytools)
 summarytools::freq(iris$Species, style = "rmarkdown")
 ```
@@ -571,7 +539,7 @@ summarytools::freq(iris$Species, style = "rmarkdown")
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headings = FALSE)
 ```
 
@@ -579,7 +547,7 @@ summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headin
 ---
 
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 ```
 
@@ -587,21 +555,21 @@ with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 ---
 
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 with(tobacco,
      print(ctable(smoker, diseased, prop = 'n', totals = FALSE),
-           omit.headings = TRUE, method = "render"))
+           headings = TRUE, method = "render"))
 ```
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 summarytools::descr(iris, style = "rmarkdown")
 ```
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 descr(iris,
       stats = c("mean", "sd", "min", "med", "max"),
       transpose = TRUE,
@@ -611,7 +579,7 @@ descr(iris,
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # view(dfSummary(iris))
 
 ```
@@ -621,7 +589,7 @@ descr(iris,
 
 <!-- --- -->
 
-<!-- ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
+<!-- ```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
 <!-- dfSummary(tobacco, -->
 <!--           plain.ascii = FALSE, -->
 <!--           style = "grid") -->
@@ -630,7 +598,7 @@ descr(iris,
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # First save the results
 iris_stats_by_species <- by(data = iris,
                             INDICES = iris$Species,
@@ -644,7 +612,7 @@ view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 ---
 
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # view(iris_stats_by_species)
 ```
 
@@ -652,7 +620,7 @@ view(iris_stats_by_species, method = "pander", style = "rmarkdown")
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 data(tobacco) # tobacco is an example dataframe included in the package
 BMI_by_age <- with(tobacco,
                    by(BMI, age.gr, descr,
@@ -662,17 +630,17 @@ view(BMI_by_age, "pander", style = "rmarkdown")
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 BMI_by_age <- with(tobacco,
                    by(BMI, age.gr, descr,  transpose = TRUE,
                       stats = c("mean", "sd", "min", "med", "max")))
 
-view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
+view(BMI_by_age, "pander", style = "rmarkdown", headings = TRUE)
 ```
 
 <!-- --- -->
 
-<!-- ```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
+<!-- ```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
 <!-- tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")] -->
 <!-- freq_tables <- lapply(tobacco_subset, freq) -->
 
@@ -681,19 +649,19 @@ view(BMI_by_age, "pander", style = "rmarkdown", omit.headings = TRUE)
 
 ---
 
-```{r, include=TRUE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 what.is(iris)
 ```
 
 <!-- --- -->
 
-<!-- ```{r} -->
+<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- freq(tobacco$gender, style = 'rmarkdown') -->
 <!-- ``` -->
 
 <!-- --- -->
 
-<!-- ```{r} -->
+<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- print(freq(tobacco$gender), method = 'render') -->
 <!-- ``` -->
 
@@ -747,7 +715,7 @@ https://github.com/alastairrushworth/inspectdf
 <!-- --- -->
 
 
-<!-- ```{r} -->
+<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- print(ctable(tobacco$gender, tobacco$smoker), method = 'render') -->
 <!-- ``` -->
 
@@ -915,7 +883,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 # Libraries Used
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 citation()
 ```
 
@@ -933,7 +901,7 @@ citation("readxl")
 ```
 
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 citation("tidyverse")
 citation("foreign")
 citation("tidylog")
@@ -957,7 +925,7 @@ citation("readxl")
 
 <!-- --- -->
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 sessionInfo()
 ```
 
@@ -966,7 +934,7 @@ sessionInfo()
 
 # İletişim  
 
-Completed on `r Sys.time()`.  
+Completed on `{r #  Sys.time()`.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
@@ -978,7 +946,7 @@ https://twitter.com/serdarbalci
 
 ---
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 CommitMessage <- paste("updated on ", Sys.time(), sep = "")
 
 wd <- getwd()

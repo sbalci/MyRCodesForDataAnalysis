@@ -1,8 +1,11 @@
 ---
 title: R, RStudio ve RMarkdown ile Tekrarlanabilir Rapor^[Bu bir derlemedir, mümkün mertebe alıntılara linklerle referans vermeye çalıştım.]
+---
+
+```
 author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
 institute: "[serdarbalci.com](https://www.serdarbalci.com)"
-date: "`r format(Sys.Date())`"
+date: "`{r #  format(Sys.Date())`"
 output:
   revealjs::revealjs_presentation:
     incremental: true
@@ -49,7 +52,7 @@ output:
     toc_float: yes
 editor_options: 
   chunk_output_type: inline
----
+```
 
 
 <!-- Open all links in new tab-->  
@@ -61,8 +64,8 @@ editor_options:
 
 
 
-```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
 ```
 
 
@@ -250,11 +253,11 @@ R -e "rmarkdown::render('markdown_example.md')"
 ## Global Options
 
 ```
-{r global_options, include=FALSE}
+{r , include=FALSE}
 knitr::opts_chunk$set(fig.width = 12,
                       fig.height = 8,
                       fig.path = 'Figs/',
-                      echo = FALSE,
+                      echo = TRUE,
                       warning = FALSE,
                       message = FALSE,
                       error = FALSE,
@@ -649,7 +652,7 @@ km_fit
 ```
 
 ```
-{r, eval=FALSE, include=FALSE}
+{r, eval=FALSE, include=FALSE, echo=TRUE}
 library(survival)
 km <- with(mydata, Surv(OverallTime, Outcome2))
 # head(km,80)
@@ -677,7 +680,7 @@ survminer::pairwise_survdiff(formula = Surv(time, Outcome) ~ Group,
 ## Multivariate Analysis Survival
 
 ```
-{r Multivariate Analysis, eval=FALSE, include=FALSE}
+{r Multivariate Analysis, eval=FALSE, include=FALSE, echo=TRUE}
 library(finalfit)
 library(survival)
 explanatoryMultivariate <- explanatoryKM
@@ -857,7 +860,7 @@ citation()
 
 ## Libraries Used  
 
-```{r library citation, echo=TRUE}
+```{r  citation, echo=TRUE}
 citation()
 ```
 
@@ -865,7 +868,7 @@ citation()
 
 ## Bu oturuma spesifik kullanılan paketler  
 
-```{r library citation as report, echo=TRUE, results='asis'}
+```{r  citation as report, echo=TRUE, results='asis'}
 report::cite_packages(session = sessionInfo())
 ```
 
@@ -876,7 +879,7 @@ report::cite_packages(session = sessionInfo())
 
 
 ```
-{r library citations}
+{r  citations}
 citation("tidyverse")
 citation("readxl")
 citation("janitor")
@@ -979,7 +982,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 # İletişim  
 
-Completed on `r Sys.Date()`.  
+Completed on `{r #  Sys.Date()`.  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  

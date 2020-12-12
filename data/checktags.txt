@@ -1,0 +1,33 @@
+Pregnancy
+Infant, Newborn
+Infant
+Child, Preschool
+Child
+Adolescent
+Young Adult
+Adult
+Middle Aged
+Aged
+Aged, 80 and over
+Cats
+Cattle
+Chick Embryo
+Dogs
+Guinea Pigs
+Cricetinae
+Mice
+Rabbits
+Rats
+Animals
+Humans
+Male
+Female
+History, Ancient
+History, Medieval
+History, 15th Century
+History, 16th Century
+History, 17th Century
+History, 18th Century
+History, 19th Century
+History, 20th Century
+History, 21st Century

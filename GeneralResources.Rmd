@@ -1,0 +1,166 @@
+---
+title: "General Resources"
+---
+
+# Data Science Live Book
+
+https://livebook.datascienceheroes.com/
+
+
+https://toolbox.google.com/datasetsearch
+
+http://archive.ics.uci.edu/ml/index.php
+
+
+http://asdfree.com/
+
+https://rstudio-education.github.io/hopr/
+
+
+- **What I Wish I Knew When I Started R**  
+
+https://www.williamrchase.com/slides/intro_r_anthropology_2018
+
+
+
+
+https://sbalci.gitbooks.io/pathology-notes/content/pathology-residents/computational-pathology.html
+
+http://web.stanford.edu/class/bios221/book/
+
+https://kbroman.org/minimal_make/
+
+https://www.gnu.org/software/make/
+
+https://kbroman.org/minimal_make/
+
+
+https://www.datacamp.com/community/tutorials/shell-commands-data-scientist
+
+https://moderndive.com/3-viz.html
+
+https://www.causeweb.org/cause/ecots/ecots18/breakouts/7
+
+https://plotly-book.cpsievert.me/
+
+http://r-bio.github.io/01-intro-R/
+
+https://www.rdatagen.net/post/by-vs-within/?platform=hootsuite
+
+http://www.biomart.org/download.html
+
+https://ropensci.org/blog/2018/07/24/educollab-challenges/
+
+
+
+https://www.datacamp.com/community/tutorials/data-science-pitfalls
+
+
+https://serialmentor.com/dataviz/preface.html
+
+
+- https://news.codecademy.com/errors-in-code-think-differently/?utm_source=customer.io&utm_medium=email&utm_campaign=fortnightly_8-1-18&utm_content=ErrorFortnightly
+
+
+
+
+- Data Science Live Book
+
+https://livebook.datascienceheroes.com/
+
+- School of Psychology at the University of New South Wales http://www.compcogscisydney.org/teaching/
+
+   - Of Minds and Machines
+http://www.compcogscisydney.org/mm/
+
+   - psyr: Using R in Psychological Science
+http://www.compcogscisydney.org/psyr/
+
+
+   - Perception and Cognition
+http://www.compcogscisydney.org/psyc2071/
+
+   - Learning Statistics with R
+http://www.compcogscisydney.org/learning-statistics-with-r/
+
+   - Computational Cognitive Science
+http://www.compcogscisydney.org/ccs/
+
+
+- Advanced R
+
+https://adv-r.hadley.nz/
+
+- One Page R
+
+https://togaware.com/onepager/
+
+- htmlwidgets for R
+
+http://www.htmlwidgets.org/
+
+http://gallery.htmlwidgets.org/
+
+- Learning R for Clinical Epidemiologists
+
+http://rpubs.com/michaelmarks/R-Clin-Epi
+
+- r-tutor
+
+http://www.r-tutor.com/
+
+- Statistics Meets Big Data
+
+http://www.statsoft.org/
+
+- ModernDive
+
+https://moderndive.com/
+
+<!-- ![](https://moderndive.com/images/flowcharts/flowchart/flowchart.002.png) -->
+
+- Laerd Statistics
+
+https://statistics.laerd.com/
+
+- statpages
+
+http://statpages.info/index.html
+
+- The R class R programming for biologists
+
+http://r-bio.github.io/
+
+- Sosyal Bilimler Araştırmaları İçin R
+
+https://bookdown.org/connect/#/apps/1531/access
+
+- R for Psychological Science An introductory resource
+
+http://compcogscisydney.org/psyr/
+
+
+- Jamovi tutorial
+
+https://datalab.cc/tools/jamovi
+
+https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
+
+
+---
+
+## master course links
+
+
+
+
+
+
+
+
+---
+
+# Do More with R
+
+https://www.infoworld.com/video/series/8563/do-more-with-r
+

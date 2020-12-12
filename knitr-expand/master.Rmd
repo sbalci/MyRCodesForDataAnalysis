@@ -3,13 +3,13 @@ title: "Child test"
 output: html_document
 ---
 
-```{r global_options, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, warning=FALSE,message=FALSE, cache=FALSE)
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(echo=TRUE, warning=FALSE,message=FALSE, cache=FALSE)
 ```
 
 # This is the main heading
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library('knitr')
 library('ggplot2')
 library('dplyr')
@@ -30,7 +30,7 @@ looplist <- my.data %>% distinct(origin) %>% select(origin)
 value.to.match <- looplist[1,]
 ```
 
-Here is some text. The next `child` embed works just fine. It shows the data for the current value of the variable (`r value.to.match`)
+Here is some text. The next `child` embed works just fine. It shows the data for the current value of the variable (`{r #  value.to.match`)
 
 ```{r child='child.Rmd'}
 ```
@@ -39,7 +39,7 @@ Here is some more text. Now I want to insert the child.Rmd code, but run once pe
 
 ## Using knit_expand, paste
 
-What I'm getting is the chunk three times, but taking only the **last** value that was passed (i.e. `r looplist[3,]`)
+What I'm getting is the chunk three times, but taking only the **last** value that was passed (i.e. `{r #  looplist[3,]`)
 
 ```{r include=FALSE}
 out = NULL
@@ -49,4 +49,4 @@ for (i in 1:3) {
 }
 ```
 
-`r paste(knit(text = out), collapse = '\n')`
+`{r #  paste(knit(text = out), collapse = '\n')`

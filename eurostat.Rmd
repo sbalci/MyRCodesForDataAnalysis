@@ -1,0 +1,115 @@
+---
+title: "Eurostat"
+---
+
+- eurostat
+
+http://ec.europa.eu/eurostat
+
+http://ec.europa.eu/eurostat/data/database
+
+
+
+- eurostat R package
+
+http://ropengov.github.io/eurostat/
+
+
+- Retrieval and Analysis of Eurostat Open Data with the eurostat Package
+
+https://journal.r-project.org/archive/2017/RJ-2017-019/index.html
+
+- CheatSheet
+
+https://github.com/rOpenGov/eurostat/blob/master/vignettes/cheatsheet/eurostat_cheatsheet.pdf
+
+https://github.com/rstudio/cheatsheets/raw/master/eurostat.pdf
+
+- Searching, downloading and manipulating Eurostat data with R
+
+http://ropengov.github.io/r/2015/05/01/eurostat-package-examples/
+
+- Mapping Eurostat information
+
+https://www.mytinyshinys.com/2017/07/11/eurostat/
+
+- eurostat-package published
+
+https://rpubs.com/muuankarski/27120
+
+- Tutorial (vignette) for the eurostat R package
+
+http://ropengov.github.io/eurostat/articles/eurostat_tutorial.html
+
+
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages("eurostat")
+library(eurostat)
+```
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+TOC <- get_eurostat_toc()
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+TOC
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+query <- search_eurostat("road accidents", type = "table")
+
+query
+```
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+query$code[[1]]
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+  query$title[[1]]
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+dat <- get_eurostat(id = "sdg_11_40", time_format = "num")
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+dat
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+countries <- c("UK", "SK", "FR", "PL", "ES", "PT", "TR")
+t1 <- get_eurostat("sdg_11_40", filters = list(geo = countries))
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+t1
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+t2 <- get_eurostat(id = "sdg_11_40", time_format = "num")
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+table(t2$geo)
+```
+
+
+
+

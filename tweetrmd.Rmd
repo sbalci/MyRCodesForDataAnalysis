@@ -25,7 +25,7 @@ devtools::install_github("gadenbuie/tweetrmd")
 
 ## Embed a Tweet
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 library(tweetrmd)
 
 tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
@@ -33,7 +33,7 @@ tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 
 Or if you would rather use the screen name and status id.
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 ```
 

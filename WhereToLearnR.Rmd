@@ -1,6 +1,5 @@
 ---
 title: "Where to learn R"
-output: html_notebook
 ---
 
 # Introduction to Data Science

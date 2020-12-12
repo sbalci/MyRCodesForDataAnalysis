@@ -1,0 +1,103 @@
+---
+title: "General Linear Models"
+---
+
+
+
+# 5 Alternatives to the Default R Outputs for GLMs and Linear Models
+
+
+https://www.displayr.com/5-alternatives-to-the-default-r-outputs-for-glms-and-linear-models/?utm_medium=Feed&utm_source=Syndication
+
+## Classic Output
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+churn <- read.csv("https://community.watsonanalytics.com/wp-content/uploads/2015/03/WA_Fn-UseC_-Telco-Customer-Churn.csv")
+my.glm <- glm(Churn ~ SeniorCitizen + tenure + InternetService + MonthlyCharges,
+             data = churn, 
+             family = binomial(logit))
+summary(my.glm)
+```
+
+## stargazer
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+write(stargazer::stargazer(my.glm, type = "html"), "stargazer.html")
+```
+
+
+## formattable
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library(formattable)
+my.glm
+```
+
+
+## flipRegression
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github("Displayr/flipPlots")
+# devtools::install_github("Displayr/flipRegression")
+library(flipPlots)
+library(flipRegression)
+my.regression <- Regression(Churn ~ SeniorCitizen + tenure + InternetService + MonthlyCharges,
+                           data = churn,
+                           show.labels = TRUE,
+                           type ="Binary Logit")
+
+my.regression
+```
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library(flipRegression)
+Regression(Churn ~ SeniorCitizen + tenure + InternetService + MonthlyCharges,
+           data = churn,
+           show.labels = TRUE,
+           output = "Relative Importance Analysis",
+           type ="Binary Logit")
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library(effects)
+my.glm = glm(Churn ~ SeniorCitizen + tenure + InternetService + MonthlyCharges,
+             data = churn, 
+             family = binomial(logit))
+effects = allEffects(my.glm)
+plot(effects,
+     col = 2,
+     ylab = "Probability(Churn)", 
+     ylim = c(0, .6),  
+     type = "response")
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library(httr)
+# GET("https://docs.displayr.com/images/f/f0/Churn.xlsx", 
+    # write_disk(tf <- tempfile(fileext = ".xlsx")))
+# df <- readxl::read_excel(tf, 1L)
+library(mgcv)
+my.gam <- gam(Churn ~ SeniorCitizen + s(tenure) + InternetService + s(MonthlyCharges), 
+                data = churn, 
+                family = binomial(logit))
+
+
+my.gam
+```
+
+### Building Online Interactive Simulators for Predictive Models in R
+
+https://www.displayr.com/building-online-interactive-simulators-for-predictive-models-in-r/
+
+
+
+
+

@@ -2,7 +2,7 @@
 
 #### Vanilla
 
-The value of value.to.match called through standard Rmd inline is `r value.to.match`. 
+The value of value.to.match called through standard Rmd inline is `{r #  value.to.match`. 
 
 Let's try and do something dynamic, showing flights only for the given origin specified in the variable value.to.match: 
 
@@ -23,7 +23,7 @@ Without single quotes around the value an error is thrown (_object xxx not found
 
 &#96;r '&#123;&#123;value.to.match&#125;&#125;'&#96;
 
-Hence, we can now say that the **actual** value of value.to.match is `r '{{value.to.match}}'`.
+Hence, we can now say that the **actual** value of value.to.match is `{r #  '{{value.to.match}}'`.
 
 ```{r echo=TRUE}
 value.to.match <- '{{value.to.match}}'

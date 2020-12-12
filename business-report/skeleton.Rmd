@@ -15,22 +15,22 @@ output:
     keep_tex: true
     latex_engine: xelatex
 header-includes: 
-  - \newcommand{\logo}{`r gsub("_", "\\_", params$logo)`}
-  - \newcommand{\cover}{`r gsub("_", "\\_", params$cover)`}
-  - \newcommand{\iblue}{`r params$iblue`}
-  - \newcommand{\igray}{`r params$igray`}
+  - \newcommand{\logo}{`{r #  gsub("_", "\\_", params$logo)`}
+  - \newcommand{\cover}{`{r #  gsub("_", "\\_", params$cover)`}
+  - \newcommand{\iblue}{`{r #  params$iblue`}
+  - \newcommand{\igray}{`{r #  params$igray`}
 ---
 
 
 
-```{r setup, include = FALSE}
+```{r , include = FALSE}
 # packages
 library(dplyr)
 library(knitr)
 library(xtable)
 
 # settings
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
 \maketitle

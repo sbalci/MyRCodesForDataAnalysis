@@ -1,47 +1,46 @@
 ---
 title: "RCookbook"
-output: html_notebook
 ---
 
 
 https://rc2e.com/index.html
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 data(cars)
 library(purrr)
 map_dbl(cars, mean)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 map_dbl(cars, sd)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 map_dbl(cars, median)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 var(cars)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 cor(cars)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 cov(cars)
 
 ```
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 v <- c(3, pi, 4)
 any(v == pi) # Return TRUE if any element of v equals pi
 all(v == 0) # Return TRUE if all elements of v are zero

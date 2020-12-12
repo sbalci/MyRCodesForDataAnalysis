@@ -3,7 +3,7 @@ title: "R-project giriş"
 subtitle: "⚔<br/>with xaringan"
 author: "Yihui Xie"
 institute: "RStudio, Inc."
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+date: "2016/12/12 (updated: `{r #  Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -15,7 +15,7 @@ output:
 
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
 
-```{r setup, include=FALSE}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 options(htmltools.dir.version = FALSE)
 ```
 
@@ -66,7 +66,7 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 ]
 
 ---
-background-image: url(`r xaringan:::karl`)
+background-image: url(`{r #  xaringan:::karl`)
 background-position: 50% 50%
 class: center, bottom, inverse
 
@@ -103,7 +103,7 @@ It is important to be familiar with remark.js before you can understand the opti
 .footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
 
 ---
-background-image: url(`r xaringan:::karl`)
+background-image: url(`{r #  xaringan:::karl`)
 background-size: cover
 class: center, bottom, inverse
 
@@ -205,7 +205,7 @@ grep('天', dojutsu, value = TRUE)
 
 # R Plots
 
-```{r cars, fig.height=4, dev='svg'}
+```{r , fig.height=4, dev='svg'}
 par(mar = c(4, 4, 1, .1))
 plot(cars, pch = 19, col = 'darkgray', las = 1)
 abline(fit, lwd = 2)
@@ -217,7 +217,7 @@ abline(fit, lwd = 2)
 
 If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::kable(head(iris), format = 'html')
 ```
 
@@ -227,7 +227,7 @@ knitr::kable(head(iris), format = 'html')
 
 I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
 
-Similarly, the Shiny mode (`runtime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
+Similarly, the Shiny mode (`{r # untime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
 
 See the next page for two HTML widgets.
 
@@ -253,7 +253,7 @@ DT::datatable(
 
 - When you use the "Infinite Moon Reader" addin in RStudio, your R session will be blocked by default. You can click the red button on the right of the console to stop serving the slides, or use the _daemonized_ mode so that it does not block your R session. To do the latter, you can set the option
 
-    ```r
+    ```{r # 
     options(servr.daemon = TRUE)
     ```
     
@@ -347,13 +347,13 @@ DT::datatable(
 .pull-left[
 An example using a leading `*`:
 
-    ```r
+    ```{r # 
     if (TRUE) {
     ** message("Very important!")
     }
     ```
 Output:
-```r
+```{r # 
 if (TRUE) {
 * message("Very important!")
 }
@@ -366,7 +366,7 @@ This is invalid R code, so it is a plain fenced code block that is not executed.
 An example using `{{}}`:
 
 ````
-`r ''````{r tidy=FALSE}
+`{r #  ''````{r tidy=FALSE}
 if (TRUE) {
 *{{ message("Very important!") }}
 }
@@ -389,7 +389,7 @@ It is valid R code so you can run it. Note that `{{}}` can wrap an R expression 
 An example of using the trailing comment `#<<` to highlight lines:
 
 ````markdown
-`r ''````{r tidy=FALSE}
+`{r #  ''````{r tidy=FALSE}
 library(ggplot2)
 ggplot(mtcars) + 
   aes(mpg, disp) + 
@@ -415,12 +415,12 @@ ggplot(mtcars) +
 When you enable line-highlighting, you can also use the chunk option `highlight.output` to highlight specific lines of the text output from a code chunk. For example, `highlight.output = TRUE` means highlighting all lines, and `highlight.output = c(1, 3)` means highlighting the first and third line.
 
 ````md
-`r ''````{r, highlight.output=c(1, 3)}
+`{r #  ''````{r, highlight.output=c(1, 3)}
 head(iris)
 ```
 ````
 
-```{r, highlight.output=c(1, 3), echo=FALSE}
+```{r, highlight.output=c(1, 3), echo=TRUE}
 head(iris)
 ```
 
@@ -484,7 +484,7 @@ Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about
 
     You save your remark.js macros in the file `macros.js`.
 
-- The `beforeInit` option can be used to insert arbitrary JS code before `remark.create()`. Inserting macros is just one of its possible applications.
+- The `beforeInit` option can be used to insert arbitrary JS code before `{r # emark.create()`. Inserting macros is just one of its possible applications.
 
 ---
 
@@ -524,7 +524,7 @@ See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an exam
 
 Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 names(xaringan:::list_css())
 ```
 

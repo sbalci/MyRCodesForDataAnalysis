@@ -1,0 +1,300 @@
+---
+title: "Bibliography"
+---
+
+
+A brief introduction to bibliometrix
+
+
+https://cran.r-project.org/web/packages/bibliometrix/vignettes/bibliometrix-vignette.html
+
+ Bibliographic Network Visualization for Academic Literature Reviews 
+ 
+ http://www.mburnamfink.com/blog/bibliographic-network-visualization-for-academic-literature-reviews
+ 
+ 
+ https://embed.kumu.io/0b991b02bb20975fde904f4bf7433333#jpsp-top-50?s=%23doi-101037-0022-35147451252
+ 
+  More Than Words? Computer-Aided Text Analysis in Organizational Behavior and Psychology Research
+  
+  https://www.annualreviews.org/doi/10.1146/annurev-orgpsych-032117-104622
+  
+  
+ 
+ 
+ https://www.kumu.io/nicholasjkelley/jpsp-top-50
+ 
+ 
+# knitcitations
+
+https://github.com/cboettig/knitcitations
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# library(devtools)
+# install_github("cboettig/knitcitations")
+install.packages("knitcitations")
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library("knitcitations")
+cleanbib()
+options("citation_format" = "pandoc")
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+knitcitations::citep("10.1890/11-0011.1")
+```
+
+
+```
+citation "r citep("10.1890/11-0011.1")" in text
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+knitcitations::citet("10.1098/rspb.2013.1372")
+```
+
+
+
+```
+citation "r citet("10.1098/rspb.2013.1372")" in text
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+knitcitations::citep("http://knowledgeblog.org/greycite")
+```
+
+
+```
+write.bibtex(file="references.bib")
+```
+
+
+# rcrossref
+
+https://github.com/ropensci/rcrossref
+
+
+
+# rorcid tutorial
+
+https://ropensci.org/tutorials/rorcid_tutorial/
+
+
+
+# rentrez tutorial
+
+https://ropensci.org/tutorials/rentrez_tutorial/  
+
+# WebSciCorpus
+
+https://www.clarehooper.net/WebSciCorpus/
+
+# WEB OF SCIENCE (WOS) CORPUS | PARSING SCRIPT
+
+https://docs.cortext.net/question/web-of-science-wos-corpus-parsing-script-2/
+
+# T-LAB PLUS 2019
+
+https://tlab.it/en/allegati/help_en_online/mmappe2.htm
+
+# Tools for bibliometric analyses
+
+https://ju.se/library/research--teaching-support/bibliometrics/tools-for-bibliometric-analyses.html
+
+
+# evidencepartners
+
+https://www.evidencepartners.com/
+
+# R script for creating a cross-citation network
+
+https://www.researchgate.net/publication/327790285_R_script_for_creating_a_cross-citation_network
+
+Repository: https://github.com/arsiders/citation-network
+
+
+
+```
+# RCitation - Quick Citation Network 
+# Fall 2018 
+# A.R. Siders (siders@alumni.stanford.edu)
+
+# Creates a network of the citations among a set of academic papers. 
+# Rationale: If full title of Article 2 is present in text of Article 1, Article 1 cites Article 2. 
+# NOTE: Will only work in fields where full, unabbreviated titles are used in reference/bibliography citation format. 
+# NOTE: Will have high error rate if titles are very short or comprised of common words (e.g., paper "Vulnerability" produced many false positives). Some errors result from authors using a shortened version of a title (e.g., only text before a colon) or incorrect citations or typos. Citation networks produced are therefore approximate and to be used primarily for exploration of the data.
+# NOTE: Error rate may be reduced by using only reference sections of the articles of interest, rather than full texts, but this will increase work required to prepare articles. 
+
+
+# ==> FIVE STEPS TO CITATION NETWORK
+
+# STEP 1. FORMAT INPUT
+# a. Papers: Folder of papers in txt format (UTF-8) organized *in SAME ORDER* as Titles 
+# b. Titles: Column of paper titles in csv spreadsheet (Column #1) *in SAME ORDER* as documents in Papers folder. Need a header cell or top title will be removed.
+# Recommend naming all texts in Papers folder using author last name listed alphabetically. Organize Titles using same order.
+
+
+# STEP 2.  PREP
+# set working directory
+setwd("C:\[name of working space]") # make sure \ not / in name
+setwd("C:/Users/User/OneDrive/Adaptive Capacity Text Mining/Citation Network Test/CitationNetwork Test Data")
+# load packages
+install.packages(c("tm","plyr"))
+library(tm)
+library(plyr)
+
+
+# STEP 3. LOAD INPUTS
+# a. Papers 
+papers<-Corpus(DirSource("[name of folder where papers located]"))
+papers<-Corpus(DirSource("Papers"))
+# b. Titles
+titletable<-read.csv("[name of titles file].csv") #make sure column has a header
+titletable<-read.csv("TestTitles.csv")
+titles<-as.vector(titletable[,1])
+# load functions at bottom of this script (below Step 5)
+
+length(papers)
+length(titles)
+
+# STEP 4. RUN FUNCTION 
+
+CitationNetwork<-CreateCitationNetwork(papers,titles)
+# add date
+currentDate <- Sys.Date()
+csvFileName <- paste("CitationEdges",currentDate,".csv",sep="")
+# save results
+write.csv(CitationNetwork, file=csvFileName) 
+
+  
+# STEP 5. VISUALIZE NETWORK
+
+# Install Gephi or other network visualization software and load CitationEdges.csv 
+# Load list of titles or other spreadsheet as nodes to visualize network 
+# Gephi available at https://gephi.org/
+
+
+# ===> FUNCTIONS TO LOAD 
+
+CreateCitationNetwork<-function(papers,titles){
+  # prep papers corpus
+  papers<-tm_map(papers, content_transformer(tolower))
+  papers<-tm_map(papers, removePunctuation)
+  papers<-tm_map(papers, removeNumbers)
+  papers<-tm_map(papers, stripWhitespace)
+  # prep titles 
+  titles<-removePunctuation(titles)
+  titles<-stripWhitespace(titles)
+  titles<-tolower(titles)
+  # create citation true/false matrix
+  Cites.TF<-CiteMatrix(titles, papers)
+  # format matrix into edges file 
+  CitationEdges<-EdgesFormat(Cites.TF, titles)
+  return(CitationEdges)
+}  
+
+# format true/false matrix into edges file 
+EdgesFormat<-function(Cites.TF, titles){
+  #create an empty object to put information in
+  edges<-data.frame(matrix(NA), nrow=NA, ncol=NA)
+  colnames(edges)<- c("Source","Target","Weight")
+  for (i in 1:length(Cites.TF)){
+  #for each document, run through all titles accross columns
+    for (j in 1:ncol(Cites.TF)){
+      # for each title, see if document [row] cited that title [column]
+      if (Cites.TF[i,j]==TRUE){  #if document is cited
+        temp<-data.frame(matrix(NA), nrow=NA, ncol=NA)
+        colnames(temp)<- c("Source","Target","Weight")
+        # first column <- document doing the citing 
+        temp[1,1]<-titles[i]
+        # second column <- document being cited
+        temp[1,2]<-titles[j]
+        # third column the yes/no [weight]
+        temp[1,3]<-1  
+        temp[1,4]<-"Directed"
+        edges<-rbind(edges,temp)    
+      } 
+    }
+  }  
+  return(edges[-1,]) #-1 removes initial row of null values
+}
+
+# Citation true/false matrix 
+CiteMatrix<-function(search.vector, Ref.corpus){
+  # Creates a csv matrix with True/False for citation patterns 
+  citations<-data.frame(matrix(NA, nrow = length(Ref.corpus), ncol=length(search.vector)))
+  #Columns are the document being cited
+  colnames(citations)<-search.vector
+  #Rows are the document doing the citing 
+  rownames(citations)<-search.vector
+  for (i in 1:length(search.vector)){
+    searchi<-search.vector[i]
+    papercite<-grepl(searchi, Ref.corpus$content, fixed=TRUE)
+    citations[,i]<-papercite
+  }
+  return(citations)
+}
+```
+
+---
+
+- The application of methods of social network analysis in bibliometrics and webometrics. Measures and tools
+
+https://www.researchgate.net/publication/327817518_The_application_of_methods_of_social_network_analysis_in_bibliometrics_and_webometrics_Measures_and_tools
+
+---
+
+# ScientoMiner ICR
+
+https://zenodo.org/record/1432557#.XItjfxO2k1J
+
+---
+
+# onodo
+
+https://onodo.org/dashboard
+
+https://onodo.org/tutorials
+
+---
+
+
+# BibExcel
+
+https://homepage.univie.ac.at/juan.gorraiz/bibexcel/
+
+---
+
+# Scientometric Portal
+
+https://sites.google.com/site/hjamali/scientometric-portal
+
+---
+
+# leydesdorff
+
+https://www.leydesdorff.net/software.htm
+
+
+---
+
+# Publish or Perish
+
+https://harzing.com/resources/publish-or-perish
+
+---
+
+# Pajek: analysis and visualization of large networks
+
+http://mrvar.fdv.uni-lj.si/pajek/
+
+---
+
+
+
+

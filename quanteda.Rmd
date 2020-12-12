@@ -1,6 +1,5 @@
 ---
 title: "Text Data"
-output: html_notebook
 ---
 
 # quanteda: Quantitative Analysis of Textual Data
@@ -78,7 +77,7 @@ https://github.com/quanteda/readtext
 
 # footer
 
-```{r citation}
+```{r citation 2}
 citation(package = "quanteda")
 ```
 

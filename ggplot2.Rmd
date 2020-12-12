@@ -1,4 +1,6 @@
----
+
+
+```
 output:
   pdf_document: default
   html_document: default
@@ -7,7 +9,7 @@ header-includes:
 - \usepackage{xcolor}
 - \newcommand{\blandscape}{\begin{landscape}}
 - \newcommand{\elandscape}{\end{landscape}}
----
+```
 
 
 # ggplot2 ----
@@ -85,7 +87,7 @@ p +
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 sometext <-strsplit(
     paste0("You can even try to make some crazy things like this paragraph. ","It may seem like a useless feature right now but it's so cool ","and nobody can resist. ;)"), " ")[[1]]
 
@@ -100,15 +102,15 @@ mytext <-  kableExtra::text_spec("Serdar", color = "blue", background = "black")
 ```
 
 
-`r mytext`
+`{r #  mytext`
 
 
-To display the text, type `r text_formatted` outside of the chunk
+To display the text, type `{r #  text_formatted` outside of the chunk
 
 
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 
 library(kableExtra)
 
@@ -159,10 +161,10 @@ my_text_latex <- paste(
 
 
 
-`r my_text_html`
+`r #  my_text_html`
 
 
-`r my_text_latex`
+`r #  my_text_latex`
 
 
 

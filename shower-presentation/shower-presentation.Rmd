@@ -15,7 +15,7 @@ scifi <- system.file('examples', 'scifi.jpg', package = 'rmdshower')
 
 ## Shower Presentations with R Markdown { .white }
 
-<img src="`r scifi`" class="cover">
+<img src="`{r #  scifi`" class="cover">
 
 <p class="white">
 Get it from GitHub: https://github.com/mangothecat/rmdshower.
@@ -72,13 +72,13 @@ How did I get into this mess? I really don't know how. We seem to be made
 to suffer. It's our lot in life. I've got to rest before I fall apart. My
 joints are almost frozen. What a desolate place this is. Where are you
 going?
-<img src="`r swjpg`" class="one-col-image">
+<img src="`{r #  swjpg`" class="one-col-image">
 </p>
 
 ## Two column layout, image and text
 
 <p class="double">
-<img src="`r swjpg`" class="one-col-image">
+<img src="`{r #  swjpg`" class="one-col-image">
 How did I get into this mess? I really don't know how. We seem to be made
 to suffer. It's our lot in life. I've got to rest before I fall apart. My
 joints are almost frozen. What a desolate place this is. Where are you
@@ -126,7 +126,7 @@ It supports both inline: \(y = x / 2\) and displayed formulas:
 
 ## Slide with R Code and Output
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(cars)
 ```
 
@@ -144,7 +144,7 @@ summary(cars)
 
 ## Pictures { .white }
 
-<img src="`r scifi`" class="cover">
+<img src="`{r #  scifi`" class="cover">
 
 <p class="white">
 And text on top of them.
@@ -162,7 +162,7 @@ And text on top of them.
 
 ## Slide with Plot
 
-```{r, echo=FALSE, dev='jpeg'}
+```{r, echo=TRUE, dev='jpeg'}
 par(mar = c(5, 4, 1, 2) + 0.1)
 pairs(iris[1:4], pch = 21,
       bg = c("red", "green3", "blue")[unclass(iris$Species)])
@@ -173,7 +173,7 @@ pairs(iris[1:4], pch = 21,
 ## { .fullpage }
 
 <div class="fullpage width">
-```{r, echo=FALSE, dev='jpeg'}
+```{r, echo=TRUE, dev='jpeg'}
 par(mar = c(5, 4, 1, 2) + 0.1)
 pairs(iris[1:4], pch = 21,
       bg = c("red", "green3", "blue")[unclass(iris$Species)])

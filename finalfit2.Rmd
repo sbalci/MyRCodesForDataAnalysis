@@ -1,0 +1,132 @@
+---
+title: "finalfit"
+---
+
+```
+devtools::install_github("ewenharrison/finalfit")
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+library(finalfit)
+library(dplyr)
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+colon_s
+```
+
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+dependent <- "differ.factor"
+
+# Specify explanatory variables of interest
+explanatory <- c("age", "sex.factor", 
+  "extent.factor", "obstruct.factor", 
+  "nodes")
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# colon_s %>%
+#   select(age, sex.factor, 
+#   extent.factor, obstruct.factor, nodes) %>% 
+#   names() -> explanatory
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+colon_s %>% 
+  summary_factorlist(dependent, explanatory, 
+  p=TRUE, na_include=FALSE)
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+Hmisc::label(colon_s$nodes) <- "Lymph nodes involved"
+explanatory = c("age", "sex.factor", 
+  "extent.factor", "nodes")
+
+colon_s %>% 
+  summary_factorlist(dependent, explanatory, 
+  p=TRUE, na_include=FALSE, 
+  add_dependent_label=TRUE) -> table1
+
+table1
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+explanatory <- c("age", "sex.factor", 
+  "extent.factor", "nodes", 
+  "differ.factor")
+dependent <- "mort_5yr"
+
+colon_s %>% 
+  finalfit(dependent = dependent, explanatory = explanatory, fit_id=TRUE, 
+  dependent_label_prefix = "") -> table2
+
+kableExtra::kable(table2)
+
+```
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+colon_s %>% 
+  or_plot(dependent, explanatory, 
+  breaks = c(0.5, 1, 5, 10, 20, 30))
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# Save objects for knitr/markdown
+save(table1, table2, dependent, explanatory, file = "out.rda")
+```
+
+
+---
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# Load data into global environment. 
+library(finalfit)
+library(dplyr)
+library(knitr)
+load("out.rda")
+```
+
+## Table 1 - Demographics
+```{r table1 4, echo = TRUE, results='asis'}
+kable(table1, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r"))
+```
+
+## Table 2 - Association between tumour factors and 5 year mortality
+```{r table2 4, echo = TRUE, results='asis'}
+kable(table2, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r"))
+```
+
+## Figure 1 - Association between tumour factors and 5 year mortality
+```{r figure1 4, eval=FALSE, include=FALSE, echo=TRUE, warning=FALSE, message=FALSE}
+colon_s %>% 
+  or_plot(dependent, explanatory)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

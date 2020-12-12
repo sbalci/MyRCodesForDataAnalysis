@@ -1,0 +1,186 @@
+#### Conversion to labeled data frames
+
+Instead of manually setting labels, we can simply convert a data frame to a
+labeled data frame, either with the function `as.ldf()` or with `convert.labels()`.
+Actually, both calls reference the same function (for an object of class `data.frame`).
+
+While `as.ldf()` can be seen as the classical counterpart of `is.ldf()`, the
+function name `convert.labels()` is inspired by the fact that these functions either
+convert the variable names to labels or convert other variable labels to **papeR**-type
+variable labels. Hence, these functions can, for example, be used to convert labels
+from data sets which are  imported via the function `{r # ead.spss()` to **papeR**-type
+variable labels.
+
+If no variable labels are specified, the original variable names are used.
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+Orthodont2 <- convert.labels(Orthodont_orig)
+class(Orthodont2)
+labels(Orthodont2)
+```
+
+### Plotting labeled data frames
+
+For data frames of class `'ldf'`, there exist special plotting functions:
+```{r plot_labeled_dataframe, eval=FALSE, include=FALSE}
+par(mfrow = c(2, 2))
+plot(Orthodont)
+```
+
+As one can see, the plot type is automatically determined
+based on the data type and the axis label is defined by
+the `labels()`.
+
+To obtain group comparisons, we can use grouped plots. To plot all variable in the
+groups of `Sex` one can use
+```{r grouped_plot, eval=FALSE, include=FALSE}
+par(mfrow = c(1, 3))
+plot(Orthodont, by = "Sex")
+```
+
+We can as well plot everything against the metrical variable `distance`
+```{r with_x, eval=FALSE, include=FALSE}
+par(mfrow = c(1, 3))
+plot(Orthodont, with = "distance")
+```
+
+To plot only a subset of the data, say all but `Subject`, against `distance` and
+suppress the regression line we can use
+```{r univariate_no_regressionline, eval=FALSE, include=FALSE}
+par(mfrow = c(1, 2))
+plot(Orthodont, variables = -3, with = "distance", regression.line = FALSE)
+```
+
+Note that again we can use either variable names or indices to specify the variables
+which are to be plotted.
+
+
+### Summary tables
+
+One can use the command `summarize()` to automatically produce summary tables for
+either numerical variables (i.e., variables where `is.numeric()` is `TRUE`) or
+categorical variables (where `is.factor()` is `TRUE`). We now extract a summary
+table for numerical variables of the `Orthodont` data set:
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+data(Orthodont, package = "nlme")
+summarize(Orthodont, type = "numeric")
+```
+
+Similarly, we can extract summaries for all factor variables. As one of the factors
+is the `Subject` which has `{r #  nlevels(Orthodont$Subject)` levels, each with
+`{r #  unique(table(Orthodont$Subject))` observations, we exclude this from the summary
+table and only have a look at `Sex`
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+summarize(Orthodont, type = "factor", variables = "Sex")
+```
+
+Again, as for the plots, one can specify `group`s to obtain grouped statistics:
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+summarize(Orthodont, type = "numeric", group = "Sex", test = FALSE)
+```
+
+Per default, one also gets `test`s for group differences:
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+summarize(Orthodont, type = "numeric", group = "Sex")
+```
+
+### Converting summaries to PDF
+
+So far, we only got standard R output. Yet, any of these summary tables can be
+easily converted to LaTeX code using the package **xtable**. In **papeR** two
+special functions `xtable.summary()` and `print.xtable.summary()` are defined
+for easy and pretty conversion. In `Sweave` we can use
+
+```
+{r # 
+<<echo = TRUE, results = tex>>=
+xtable(summarize(Orthodont, type = "numeric"))
+xtable(summarize(Orthodont, type = "factor", variables = "Sex"))
+xtable(summarize(Orthodont, type = "numeric", group = "Sex"))
+@
+```
+
+and in **knitr** we can use
+
+```
+{r # 
+<<echo = TRUE, results = 'asis'>>=
+xtable(summarize(Orthodont, type = "numeric"))
+xtable(summarize(Orthodont, type = "factor", variables = "Sex"))
+xtable(summarize(Orthodont, type = "numeric", group = "Sex"))
+@
+```
+to get the following PDF output
+
+![LaTeX Output](tables.png)
+
+Note that per default, `booktabs` is set to `TRUE` in `print.xtable.summary`, and
+thus `\usepackage{booktabs}` is needed in the header of the LaTeX report. For details
+on LaTeX summary tables see the dedicated vignette, which can be obtained, e.g., via
+`vignette("papeR\_with\_latex", package = "papeR")`. See also there for more details
+on summary tables in general.
+
+### Converting summaries to Markdown
+
+To obtain markdown output we can use, for example, the function `kable()` from
+package **knitr** on the summary objects:
+
+```{r , eval=FALSE, echo = TRUE, results = 'asis'}
+library("knitr")
+kable(summarize(Orthodont, type = "numeric"))
+kable(summarize(Orthodont, type = "factor", variables = "Sex", cumulative = TRUE))
+kable(summarize(Orthodont, type = "numeric", group = "Sex", test = FALSE))
+```
+
+which gives the following results
+
+```{r, eval=FALSE, echo = TRUE, results = 'asis'}
+library("knitr")
+kable(summarize(Orthodont, type = "numeric"))
+kable(summarize(Orthodont, type = "factor", variables = "Sex", cumulative = TRUE))
+kable(summarize(Orthodont, type = "numeric", group = "Sex"))
+```
+
+
+### Prettify model output
+
+To prettify the output of a linear model, one can use the function
+`prettify()`. This function adds confidence intervals, properly
+prints p-values, adds significance stars to the output (if desired)
+and additionally adds pretty formatting for factors.
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+linmod <- lm(distance ~ age + Sex, data = Orthodont)
+## Extract pretty summary
+(pretty_lm <- prettify(summary(linmod)))
+```
+
+The resulting table can now be formatted for printing using packages like
+**xtable** for LaTeX which can be used in `.Rnw` files with the option
+`{r # esults='asis'` (in **knitr**) or `{r # esults = tex` (in `Sweave`)
+
+```
+{r, results='hide'}
+xtable(pretty_lm)
+```
+
+In markdown files (`.Rmd`) one can instead use the function `kable()` with the
+chunk option `{r # esults='asis'`. The result looks as follows:
+
+```
+{r, results='asis'}
+kable(pretty_lm)
+```
+
+#### Supported objects
+
+The function `prettify` is *currently* implemented for objects of the following classes:
+
+* `lm` (linear models)
+* `glm` (generalized linear models)
+* `coxph` (Cox proportional hazards models)
+* `lme` (linear mixed models; implemented in package **nlme**)
+* `mer` (linear mixed models; implemented in package **lme4**, version < 1.0)
+* `merMod` (linear mixed models; implemented in package **lme4**, version >= 1.0)
+* `anova` (anova objects)

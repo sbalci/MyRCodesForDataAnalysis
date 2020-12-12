@@ -121,7 +121,7 @@ local({
   # failed to download or load renv; warn the user
   msg <- c(
     "Failed to find an renv installation: the project will not be loaded.",
-    "Use `renv::activate()` to re-initialize the project."
+    "Use `{r # env::activate()` to re-initialize the project."
   )
 
   warning(paste(msg, collapse = "\n"), call. = FALSE)

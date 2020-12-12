@@ -1,6 +1,5 @@
 ---
 title: "radiant"
-output: html_notebook
 ---
 
 

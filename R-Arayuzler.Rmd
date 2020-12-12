@@ -1,28 +1,6 @@
 ---
 title: R Arayüzler^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
-author: "Derleyen [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
-date: "`r format(Sys.Date())`"
-output:
-  html_notebook:
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: flatly
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '5'
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_float: yes
-    toc_depth: '5'
-    highlight: kate
-    number_sections: yes
-    theme: flatly
 ---
 
 <!-- Open all links in new tab-->  

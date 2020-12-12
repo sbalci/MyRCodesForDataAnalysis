@@ -147,10 +147,10 @@ tbl_m1 <- tbl_regression(m1, exponentiate = TRUE)
 tbl_m1
 
 
-`r inline_text(tbl_m1, variable = "age")`
+`{r #  inline_text(tbl_m1, variable = "age")`
 
 
-`r inline_text(tbl_m1, variable = "age", pattern = "(OR {estimate}; 95% CI {conf.low}, {conf.high}; {p.value})")`
+`{r #  inline_text(tbl_m1, variable = "age", pattern = "(OR {estimate}; 95% CI {conf.low}, {conf.high}; {p.value})")`
 
 
 tbl_regression(m1) %>% names()

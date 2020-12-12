@@ -1,23 +1,22 @@
 ---
 title: "R Pirate YaRrr"
-output: html_notebook
 ---
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 install.packages("yarrr")
 library("yarrr")
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 pirateplot(formula = weight ~ Time,
 data = ChickWeight,
 pal = "xmen")
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, echo=TRUE}
 yarrr::pirateplot(formula = weight ~ Diet,
                   data = ChickWeight)
 ```

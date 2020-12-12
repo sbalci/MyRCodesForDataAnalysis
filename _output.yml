@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  css: css/style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">My R Codes for Data Analysis</a></li>
+      after: |
+        <li><a href="https://twitter.com/serdarbalci" class="twitter-follow-button" data-show-count="false">Follow @serdarbalci</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+    in_header: tex/preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

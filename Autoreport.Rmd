@@ -1,0 +1,119 @@
+---
+title: "R Notebook"
+---
+
+
+
+```
+print(paste0("Git Update Started at: ", Sys.time()))
+CommitMessage <- paste("updated on: ", Sys.time(), sep = "")
+wd <- "~/serdarbalci"
+setorigin <- "git remote set-url origin git@github.com:sbalci/MyJournalWatch.git \n"
+gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n", setorigin, "git push origin master \n",  sep = "")
+system(command = paste(gitCommand, "\n") , intern = TRUE, wait = TRUE)
+Sys.sleep(5)
+print(paste0("Git Update Ended at: ", Sys.time()))
+```
+
+
+
+
+---
+
+## Describe results of analysis
+
+Copy/paste t-tests Directly to Manuscripts: https://neuropsychology.github.io/psycho.R//2018/06/19/analyze_ttest.html
+
+https://github.com/neuropsychology/psycho.R
+
+    
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# Load packages
+library(tidyverse)
+
+# devtools::install_github("neuropsychology/psycho.R")  # Install the latest psycho version
+library(psycho)
+
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+df <- psycho::affective  # Load the data
+
+df
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+
+results <- t.test(df$Age ~ df$Sex)  # Perform a simple t-test
+results
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+psycho::analyze(results)
+
+```
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+t.test(df$Adjusting ~ df$Sex,
+       var.equal=TRUE, 
+       conf.level = .90) %>% 
+  psycho::analyze()
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+
+t.test(df$Adjusting, 
+       mu = 0,
+       conf.level = .90) %>% 
+      psycho::analyze()
+
+```
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+
+t.test(df$Adjusting ~ df$Sex) %>% 
+  psycho::analyze() %>% 
+  summary()
+
+```
+
+# citation
+
+```{r PubMed references, eval=FALSE, include=FALSE, echo=TRUE}
+PMID_25783680 <- RefManageR::ReadPubMed("25783680", database = "PubMed")
+cit_25783680 <- paste0(PMID_25783680$title, " ", PMID_25783680$journal, " ", "PMID: https://www.ncbi.nlm.nih.gov/pubmed/?term=", PMID_25783680$eprint, " ", "doi: https://doi.org/", PMID_25783680$doi)
+```
+
+My next citation is here^["r cit_25783680"].
+
+
+```{r dimension badge, eval=FALSE, include=FALSE, echo=TRUE}
+PMID_25783680 <- RefManageR::ReadPubMed("25783680", database = "PubMed")
+dimensionBadge <- paste0(
+    "<script async='' charset='utf-8' src='https://badge.dimensions.ai/badge.js'></script>
+<span class='__dimensions_badge_embed__' data-doi='",
+PMID_25783680$doi,
+"' data-style='small_circle'></span>"
+)
+```
+
+"r dimensionBadge"
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+PMID_25783680 <- RefManageR::ReadPubMed("25783680", database = "PubMed")
+altmetricBadge <- paste0(
+    "<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+<span class='altmetric-embed' data-badge-popover='right' data-badge-type='donut' data-doi='",
+    PMID_25783680$doi,
+    "'></span>"
+)
+
+```
+
+
+"r altmetricBadge"
+
+

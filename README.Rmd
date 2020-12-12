@@ -80,8 +80,8 @@ https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
 
 # My R Codes For Data Analysis
 
-[![HitCount](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis.svg)](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis)
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/sbalci)
+<!-- [![HitCount](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis.svg)](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis) -->
+<!-- [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/sbalci) -->
 
 
 In this repository I am going to collect `R codes` for data analysis.
