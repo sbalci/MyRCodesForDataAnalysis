@@ -2510,13 +2510,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="css-3" class="section level1">
 <h1><span class="header-section-number">Chapter 405</span> CSS</h1>
 <p>For example, suppose you want to change the font for code from the default “Source Code Pro” to “Ubuntu Mono”. You can create a CSS file named, say, <code>ubuntu-mono.css</code>:</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb395-1"><a href="css-3.html#cb395-1"></a><span class="im">@import</span> <span class="fu">url(</span><span class="st">https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb395-2"><a href="css-3.html#cb395-2"></a></span>
-<span id="cb395-3"><a href="css-3.html#cb395-3"></a><span class="fu">.remark-code</span><span class="op">,</span> <span class="fu">.remark-inline-code</span> { <span class="kw">font-family</span>: <span class="st">&#39;Ubuntu Mono&#39;</span><span class="op">;</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb396-1"><a href="css-3.html#cb396-1"></a><span class="im">@import</span> <span class="fu">url(</span><span class="st">https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb396-2"><a href="css-3.html#cb396-2"></a></span>
+<span id="cb396-3"><a href="css-3.html#cb396-3"></a><span class="fu">.remark-code</span><span class="op">,</span> <span class="fu">.remark-inline-code</span> { <span class="kw">font-family</span>: <span class="st">&#39;Ubuntu Mono&#39;</span><span class="op">;</span> }</span></code></pre></div>
 <p>Then set the <code>css</code> option in the YAML metadata:</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb396-1"><a href="css-3.html#cb396-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb396-2"><a href="css-3.html#cb396-2"></a><span class="at">  xaringan:</span><span class="fu">:moon_reader</span><span class="kw">:</span></span>
-<span id="cb396-3"><a href="css-3.html#cb396-3"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;default&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;ubuntu-mono.css&quot;</span><span class="kw">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb397-1"><a href="css-3.html#cb397-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb397-2"><a href="css-3.html#cb397-2"></a><span class="at">  xaringan:</span><span class="fu">:moon_reader</span><span class="kw">:</span></span>
+<span id="cb397-3"><a href="css-3.html#cb397-3"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;default&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;ubuntu-mono.css&quot;</span><span class="kw">]</span></span></code></pre></div>
 <p>Here I assume <code>ubuntu-mono.css</code> is under the same directory as your Rmd.</p>
 <p>See <a href="https://github.com/yihui/xaringan/issues/83">yihui/xaringan#83</a> for an example of using the <a href="https://github.com/tonsky/FiraCode">Fira Code</a> font, which supports ligatures in program code.</p>
 <hr />

@@ -68,7 +68,7 @@ Note: When using `tweet_embed()`,
 you may need to add the following line to your YAML header
 for strict markdown output formats.
 
-```
+
 yaml
 always_allow_html: true
-```
+

@@ -1,6 +1,5 @@
 ---
 title: "R Packages Used"
-output: html_notebook
 ---
 
 <!-- ```{r , cache = F, warning = FALSE} -->

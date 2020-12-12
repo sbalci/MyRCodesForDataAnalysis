@@ -2510,13 +2510,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction-5" class="section level1">
 <h1><span class="header-section-number">Chapter 450</span> Introduction</h1>
 <p>The Tufte handout style is a style that Edward Tufte uses in his books and handouts. Tufte’s style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography. This style has been implemented in LaTeX and HTML/CSS<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, respectively. We have ported both implementations into the <a href="https://github.com/rstudio/tufte"><strong>tufte</strong> package</a>. If you want LaTeX/PDF output, you may use the <code>tufte_handout</code> format for handouts, and <code>tufte_book</code> for books. For HTML output, use <code>tufte_html</code>. These formats can be either specified in the YAML metadata at the beginning of an R Markdown document (see an example below), or passed to the <code>{r # markdown::render()</code> function. See <span class="citation">Allaire et al. (<a href="#ref-R-rmarkdown" role="doc-biblioref">2020</a>)</span> for more information about <strong>rmarkdown</strong>.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb457-1"><a href="introduction-5.html#cb457-1"></a><span class="pp">---</span></span>
-<span id="cb457-2"><a href="introduction-5.html#cb457-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;An Example Using the Tufte Style&quot;</span></span>
-<span id="cb457-3"><a href="introduction-5.html#cb457-3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;John Smith&quot;</span></span>
-<span id="cb457-4"><a href="introduction-5.html#cb457-4"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb457-5"><a href="introduction-5.html#cb457-5"></a><span class="at">  tufte:</span><span class="fu">:tufte_handout</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb457-6"><a href="introduction-5.html#cb457-6"></a><span class="at">  tufte:</span><span class="fu">:tufte_html</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb457-7"><a href="introduction-5.html#cb457-7"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb458-1"><a href="introduction-5.html#cb458-1"></a><span class="pp">---</span></span>
+<span id="cb458-2"><a href="introduction-5.html#cb458-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;An Example Using the Tufte Style&quot;</span></span>
+<span id="cb458-3"><a href="introduction-5.html#cb458-3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;John Smith&quot;</span></span>
+<span id="cb458-4"><a href="introduction-5.html#cb458-4"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb458-5"><a href="introduction-5.html#cb458-5"></a><span class="at">  tufte:</span><span class="fu">:tufte_handout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb458-6"><a href="introduction-5.html#cb458-6"></a><span class="at">  tufte:</span><span class="fu">:tufte_html</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb458-7"><a href="introduction-5.html#cb458-7"></a><span class="pp">---</span></span></code></pre></div>
 <p>There are two goals of this package:</p>
 <ol style="list-style-type: decimal">
 <li>To produce both PDF and HTML output with similar styles from the same R Markdown document;</li>

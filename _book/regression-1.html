@@ -2523,7 +2523,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cox-regression-example-using-a-single-covariate" class="section level2">
 <h2><span class="header-section-number">418.2</span> Cox regression example using a single covariate</h2>
 <p>We can fit regression models for survival data using the <code>survival::coxph</code> function, which takes a <code>survival::Surv</code> object on the left hand side and has standard syntax for regression formulas in <code>R</code> on the right hand side.</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="regression-1.html#cb406-1"></a>survival<span class="op">::</span><span class="kw">coxph</span>(survival<span class="op">::</span><span class="kw">Surv</span>(os_yrs, os) <span class="op">~</span><span class="st"> </span><span class="kw">factor</span>(bmi_cat), <span class="dt">data =</span> df)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="regression-1.html#cb407-1"></a>survival<span class="op">::</span><span class="kw">coxph</span>(survival<span class="op">::</span><span class="kw">Surv</span>(os_yrs, os) <span class="op">~</span><span class="st"> </span><span class="kw">factor</span>(bmi_cat), <span class="dt">data =</span> df)</span></code></pre></div>
 <p>We can see a tidy version of the output using the <code>tidy</code> function from the <code>broom</code> package:</p>
 </div>
 <div id="hazard-ratios" class="section level2">
@@ -2547,7 +2547,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>This tutorial provides an introduction to survival analysis, and to conducting a survival analysis in R.</p>
 <p>This tutorial was originally presented at the Memorial Sloan Kettering Cancer Center R-Presenters series on August 30, 2018.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="regression-1.html#cb407-1"></a><span class="co"># load(here::here(&#39;data&#39;, &#39;survival_data_example.RData&#39;))</span></span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="regression-1.html#cb408-1"></a><span class="co"># load(here::here(&#39;data&#39;, &#39;survival_data_example.RData&#39;))</span></span></code></pre></div>
 </div>
 </div>
             </section>

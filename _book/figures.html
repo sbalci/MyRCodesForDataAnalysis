@@ -2512,10 +2512,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="margin-figures" class="section level2">
 <h2><span class="header-section-number">452.1</span> Margin Figures</h2>
 <p>Images and graphics play an integral role in Tufte’s work. To place figures in the margin you can use the <strong>knitr</strong> chunk option <code>fig.margin = TRUE</code>. For example:</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="figures.html#cb458-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb458-2"><a href="figures.html#cb458-2"></a>mtcars2 &lt;-<span class="st"> </span>mtcars</span>
-<span id="cb458-3"><a href="figures.html#cb458-3"></a>mtcars2<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">factor</span>(mtcars<span class="op">$</span>am, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;automatic&quot;</span>, <span class="st">&quot;manual&quot;</span>))</span>
-<span id="cb458-4"><a href="figures.html#cb458-4"></a><span class="kw">ggplot</span>(mtcars2, <span class="kw">aes</span>(hp, mpg, <span class="dt">color =</span> am)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="figures.html#cb459-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb459-2"><a href="figures.html#cb459-2"></a>mtcars2 &lt;-<span class="st"> </span>mtcars</span>
+<span id="cb459-3"><a href="figures.html#cb459-3"></a>mtcars2<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">factor</span>(mtcars<span class="op">$</span>am, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;automatic&quot;</span>, <span class="st">&quot;manual&quot;</span>))</span>
+<span id="cb459-4"><a href="figures.html#cb459-4"></a><span class="kw">ggplot</span>(mtcars2, <span class="kw">aes</span>(hp, mpg, <span class="dt">color =</span> am)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:fig-margin"></span>
 <img src="MyRCodesForDataAnalysis_files/figure-html/fig-margin-1.png" alt="MPG vs horsepower, colored by transmission." width="336" />
 <p class="caption">
@@ -2535,7 +2535,7 @@ $$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$</code></pre>
 <div id="full-width-figures" class="section level2">
 <h2><span class="header-section-number">452.3</span> Full Width Figures</h2>
 <p>You can arrange for figures to span across the entire page by using the chunk option <code>fig.fullwidth = TRUE</code>.</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="figures.html#cb460-1"></a><span class="kw">ggplot</span>(diamonds, <span class="kw">aes</span>(carat, price)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="op">~</span>cut)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="figures.html#cb461-1"></a><span class="kw">ggplot</span>(diamonds, <span class="kw">aes</span>(carat, price)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="op">~</span>cut)</span></code></pre></div>
 <div class="figure"><span id="fig:fig-fullwidth"></span>
 <img src="MyRCodesForDataAnalysis_files/figure-html/fig-fullwidth-1.png" alt="A full width figure." width="960" />
 <p class="caption">
@@ -2547,7 +2547,7 @@ Figure 452.2: A full width figure.
 <div id="main-column-figures" class="section level2">
 <h2><span class="header-section-number">452.4</span> Main Column Figures</h2>
 <p>Besides margin and full width figures, you can of course also include figures constrained to the main column. This is the default type of figures in the LaTeX/HTML output.</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="figures.html#cb461-1"></a><span class="kw">ggplot</span>(diamonds, <span class="kw">aes</span>(cut, price)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="figures.html#cb462-1"></a><span class="kw">ggplot</span>(diamonds, <span class="kw">aes</span>(cut, price)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
 <div class="figure"><span id="fig:fig-main"></span>
 <img src="MyRCodesForDataAnalysis_files/figure-html/fig-main-1.png" alt="A figure in the main column." width="672" />
 <p class="caption">

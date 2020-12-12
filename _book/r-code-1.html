@@ -2512,12 +2512,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="r-code-1.html#cb371-1"></a><span class="co"># a boring regression</span></span>
 <span id="cb371-2"><a href="r-code-1.html#cb371-2"></a>fit =<span class="st"> </span><span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>speed, <span class="dt">data =</span> cars)</span>
 <span id="cb371-3"><a href="r-code-1.html#cb371-3"></a><span class="kw">coef</span>(<span class="kw">summary</span>(fit))</span></code></pre></div>
-<pre><code>          Estimate Std. Error   t value     Pr(&gt;|t|)</code></pre>
-<p>(Intercept) -17.579095 6.7584402 -2.601058 1.231882e-02
-speed 3.932409 0.4155128 9.463990 1.489836e-12</p>
+<pre><code>#               Estimate Std. Error   t value     Pr(&gt;|t|)
+# (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
+# speed         3.932409  0.4155128  9.463990 1.489836e-12</code></pre>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="r-code-1.html#cb373-1"></a>dojutsu =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;地爆天星&quot;</span>, <span class="st">&quot;天照&quot;</span>, <span class="st">&quot;加具土命&quot;</span>, <span class="st">&quot;神威&quot;</span>, <span class="st">&quot;須佐能乎&quot;</span>, <span class="st">&quot;無限月読&quot;</span>)</span>
 <span id="cb373-2"><a href="r-code-1.html#cb373-2"></a><span class="kw">grep</span>(<span class="st">&quot;天&quot;</span>, dojutsu, <span class="dt">value =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p>[1] “地爆天星” “天照”</p>
+<pre><code># [1] &quot;地爆天星&quot; &quot;天照&quot;</code></pre>
 <hr />
 </div>
             </section>
