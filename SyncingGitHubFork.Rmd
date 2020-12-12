@@ -1,6 +1,5 @@
 ---
 title: "Syncing a GitHub Fork"
-output: html_notebook
 ---
 
 # Configuring a remote for a fork
@@ -11,7 +10,8 @@ https://help.github.com/articles/configuring-a-remote-for-a-fork/
 
 ## List the current configured remote repository for your fork.
 
-```{bash}
+```
+{bash}
 git remote -v
 ```
 
@@ -25,7 +25,8 @@ origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
 ## Specify a new remote upstream repository that will be synced with the fork.
 
 
-```{bash}
+```
+{bash}
 git remote add upstream https://github.com/BIOP/IPA4LSx.git
 ```
 
@@ -39,7 +40,8 @@ git remote add upstream https://github.com/BIOP/IPA4LSx.git
 
 ## Verify the new upstream repository you've specified for your fork.
 
-```{bash}
+```
+{bash}
 git remote -v
 ```
 
@@ -62,7 +64,8 @@ https://help.github.com/articles/syncing-a-fork/
 
 ## Fetch the branches and their respective commits from the upstream repository. Commits to master will be stored in a local branch, upstream/master.
 
-```{bash}
+```
+{bash}
 git fetch upstream
 ```
 
@@ -80,7 +83,8 @@ From https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY
 ## Check out your fork's local master branch.
 
 
-```{bash}
+```
+{bash}
 git checkout master
 ```
 
@@ -93,7 +97,8 @@ Switched to branch 'master'
 ## Merge the changes from upstream/master into your local master branch. This brings your fork's master branch into sync with the upstream repository, without losing your local changes.
 
 
-```{bash}
+```
+{bash}
 git merge upstream/master
 ```
 
@@ -114,7 +119,8 @@ Fast-forward
 ## If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
 
 
-```{bash}
+```
+{bash}
 git merge upstream/master
 ```
 

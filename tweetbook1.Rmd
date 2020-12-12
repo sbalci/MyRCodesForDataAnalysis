@@ -1,9 +1,5 @@
 ---
 title: "tweetbook1"
-output:
-  html_notebook:
-  html_document:
-    df_print: paged
 ---
 
 
@@ -11,14 +7,16 @@ https://rtweet.info/
 
 
 
-```{r }
+```
+{r include=FALSE, eval=FALSE, echo = TRUE}
 library(tidyverse)
 library(rtweet)
 ```
 
 # get data
 
-```{r get data}
+```
+{r include=FALSE, eval=FALSE, echo = TRUE}
 gipath <- rtweet::search_tweets(q = "#gipath",
                                 n = 18000,
                                 include_rts = FALSE,
@@ -35,7 +33,8 @@ gipath <- rtweet::search_tweets(q = "#gipath",
 
 # filter tweet
 
-```{r filter tweet}
+```
+{r filter tweet}
 
 for (i in 1:dim(gipath)[1]) {
   nam <- paste0("gitweetid", i)
@@ -49,21 +48,24 @@ for (i in 1:dim(gipath)[1]) {
 
 # tweet owner
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$screen_name
 ```
 
 # tweet time
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$created_at
 ```
 
 
 # tweet text
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$text
 ```
 
@@ -71,23 +73,27 @@ gitweet1$text
 # tweet media
 
 
-```{r tweet media}
+```
+{r tweet media}
 unlist(gitweet2$ext_media_url)
 ```
 
 
-```{r tweet media length}
+```
+{r tweet media length}
 length(unlist(gitweet2$ext_media_url))
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 
 ```
 
 
 # download image, read image
 
-```{r download image read image, error=FALSE, comment=FALSE}
+```
+{r download image read image, error=FALSE, comment=FALSE}
 for (i in 1:length(unlist(gitweet2$ext_media_url))) {
     urls <- unlist(gitweet2$ext_media_url)[i]
     dest <- paste0("twfigure/jpeg",i,".jpg", collapse = "")
@@ -132,7 +138,8 @@ Tweet Time: **`{r #  gitweet2$created_at`**
 ---
     
     
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 tweetbody1 <- "gitweet1$screen_name; gitweet1$created_at; gitweet1$text; unlist(gitweet1$hashtags); unlist(gitweet1$symbols); unlist(gitweet1$urls_expanded_url)"
 
 evaluate::replay(evaluate::evaluate(tweetbody1))
@@ -140,14 +147,16 @@ evaluate::replay(evaluate::evaluate(tweetbody1))
 
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(evaluate)
 s <-  paste(capture.output(replay(evaluate::evaluate(tweetbody1))), collapse="\n")
 cat(s)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 dont_print_source = function(x){
     if (class(x)!="source"){
         cat(x)
@@ -178,7 +187,8 @@ https://community.rstudio.com/t/how-to-use-an-object-rather-than-a-file-as-sourc
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 tweetAutoOutput <- function(x) {
   
   
@@ -231,54 +241,65 @@ rtweet::get_collections("serdarbalci")
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1 <- gipath %>%
   filter(user_id == 3011337389)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$user_id
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$status_id
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$created_at
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$screen_name
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$ext_media_url
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 length(gitweet1$ext_media_url)
 ```
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 imageurl1 <- gitweet1$ext_media_url[[1]][1]
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 imageurl1
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 imageurl2 <- gitweet1$ext_media_url[[1]][2]
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 imageurl2
 ```
 
@@ -287,105 +308,124 @@ imageurl2
 ---
 
 
-![](http://pbs.twimg.com/media/DzjHIuEXgAEqNL3.jpg)
+<!-- ![](http://pbs.twimg.com/media/DzjHIuEXgAEqNL3.jpg) -->
 
 
-![](http://pbs.twimg.com/media/DzjHIuFXgAER5Op.jpg)
+<!-- ![](http://pbs.twimg.com/media/DzjHIuFXgAER5Op.jpg) -->
 
 ---
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$text
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$source
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$display_text_width
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$reply_to_status_id
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$reply_to_status_id
 ```
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$reply_to_user_id
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$reply_to_screen_name
 ```
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$is_quote
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$is_retweet
 ```
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$favorite_count
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$retweet_count
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$hashtags
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$symbols
 ```
 
 ---
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$urls_url
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$urls_t.co
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$urls_expanded_url
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$media_url
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$media_t.co
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gitweet1$media_expanded_url
 ```
 
@@ -792,7 +832,7 @@ dene1
 
 dene2
 
-![](twfigure/jpeg1.jpg)
+<!-- ![](twfigure/jpeg1.jpg) -->
 
 
 

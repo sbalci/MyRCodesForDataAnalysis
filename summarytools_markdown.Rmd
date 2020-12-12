@@ -119,7 +119,7 @@ ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 
 For best results, use this method.
 
-```{r }
+```{r include=FALSE, eval=FALSE, echo = TRUE}
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 ```
 
@@ -127,7 +127,8 @@ print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
  
 <a href="#top">Back to top</a>
  
-# descr() {#descr}
+# descr() 3 {#descr3}
+
 `descr()` is also best used with `style = 'rmarkdown'`, and HTML rendering is also supported.
 
 ## Rmarkdown Style

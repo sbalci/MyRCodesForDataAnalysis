@@ -50,7 +50,7 @@ example is provided further below.
 
 <a href="#top">Back to top</a>
 
-# ctable() {#ctable}
+<!-- ctable() {#ctable} -->
 
 ## Rmarkdown Style
 
@@ -66,7 +66,7 @@ ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 
 For best results, use this method.
 
-```{r }
+```{r include=FALSE, eval=FALSE, echo = TRUE}
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 ```
 
@@ -74,7 +74,8 @@ print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
  
 <a href="#top">Back to top</a>
  
-# descr() {#descr}
+# descr() 2 {#descr2}
+
 `descr()` is also best used with `style = 'rmarkdown'`, and HTML rendering is 
 also supported.
 
@@ -97,7 +98,7 @@ print(descr(tobacco), method = 'render', table.classes = 'st-small')
 
 <a href="#top">Back to top</a>
 
-# dfSummary() {#dfsummary}
+# dfSummary() 1 {#dfsummary1}
 
 ## Grid Style
 

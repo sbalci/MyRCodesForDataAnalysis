@@ -869,7 +869,7 @@ citation()
 ## Bu oturuma spesifik kullanılan paketler  
 
 ```{r  citation as report, echo=TRUE, results='asis'}
-report::cite_packages(session = sessionInfo())
+# report::cite_packages(session = sessionInfo())
 ```
 
 

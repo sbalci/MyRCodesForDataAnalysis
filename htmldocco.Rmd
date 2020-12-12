@@ -194,7 +194,7 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 ## R için yardım bulma
 
 
-
+```
 # ?mean
 # ??efetch
 # help(merge)
@@ -537,7 +537,7 @@ descr(iris, stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE,
 ```
 
 
-![](figures/dfsummary.png)
+<!-- ![](figures/dfsummary.png) -->
 
 
 

@@ -218,7 +218,8 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 
 ## R paket yükleme
 
-```{r # 
+```
+{r # 
 install.packages("tidyverse", dependencies = TRUE)
 install.packages("jmv", dependencies = TRUE)
 install.packages("questionr", dependencies = TRUE)
@@ -230,7 +231,8 @@ install.packages("summarytools")
 
 ## Paket çağırma
 
-```{r # 
+```
+{r # 
 require(tidyverse)  
 require(jmv)  
 require(questionr)  
@@ -245,7 +247,8 @@ library(gganimate)
 # R için yardım bulma
 
 
-```{r # 
+```
+{r # 
 ?mean
 ??efetch
 help(merge)
@@ -371,39 +374,47 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 # Veriyi görüntüleme
 
-```{r # 
+```
+{r # 
 library(nycflights13)
 summary(flights)
 ```
 
-```{r # 
+```
+{r # 
 View(data)
 ```
 
-```{r # 
+```
+{r # 
 data()
 ```
 
 
-```{r # 
+```
+{r # 
 head(data, n = 10)
 ```
 
-```{r # 
+```
+{r # 
 tail(data)
 ```
 
-```{r # 
+```
+{r # 
 glimpse(data)
 ```
 
 
-```{r # 
+```
+{r # 
 str(data)
 ```
 
 
-```{r # 
+```
+{r # 
 skimr::skim()
 ```
 
@@ -585,7 +596,7 @@ descr(iris,
 ```
 
 
-![](figures/dfsummary.png)
+<!-- ![](figures/dfsummary.png) -->
 
 <!-- --- -->
 

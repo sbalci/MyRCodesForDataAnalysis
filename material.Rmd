@@ -7,7 +7,8 @@ title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılar
 
 
 
-```{r , echo=TRUE, cache=FALSE}
+```
+{r , echo=TRUE, cache=FALSE}
 library(knitr)
 library(rmdformats)
 
@@ -175,7 +176,7 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 ## R için yardım bulma
 
 
-
+```
 # ?mean
 # ??efetch
 # help(merge)

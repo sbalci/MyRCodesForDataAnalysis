@@ -198,7 +198,7 @@ https://cran.r-project.org/web/packages/pkgverse/index.html
 ## R için yardım bulma
 
 
-
+```
 # ?mean
 # ??efetch
 # help(merge)

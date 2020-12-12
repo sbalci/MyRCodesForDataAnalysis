@@ -410,7 +410,7 @@ print.AsIs(table)
 
 
 
-```{r results='asis'}
+```{r results='asis', eval=FALSE, include=FALSE, echo=TRUE}
 knitr::kable(table, row.names=FALSE, 
     align=c("l", "l", "r", "r", "r", "r"))
 ```
@@ -428,7 +428,7 @@ table_surv <- colon_s2 %>%
 
 
 
-```{r results='asis'}
+```{r results='asis', eval=FALSE, include=FALSE, echo=TRUE}
 knitr::kable(table_surv, row.names = FALSE, 
     align = c("l", "l", "r", "r", "r", "r"))
 ```
@@ -488,7 +488,7 @@ table7 <- colon_s2 %>%
 
 
 
-```{r, echo=TRUE, results="asis"}
+```{r, eval=FALSE, include=FALSE, echo=TRUE, results="asis"}
 knitr::kable(table7[[1]], row.names=FALSE, align=c("l", "l", "r", "r", "r"))
 knitr::kable(table7[[2]], row.names=FALSE)
 ```
@@ -548,7 +548,7 @@ colon_s2 %>%
 ```
 
 
-```{r fig.height=5, fig.width=6}
+```{r fig.height=5, fig.width=6, eval=FALSE, include=FALSE, echo=TRUE}
 # HR plot
 explanatory = c("age.factor", "sex.factor", 
   "obstruct.factor", "perfor.factor")
@@ -571,22 +571,6 @@ plotKM <- colon_s2 %>%
 plotKM
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -791,7 +775,7 @@ dat
 ```
 
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```{r include=FALSE, eval=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 p <- paired(tp ~ Cat + Fac + Num + Ord + Lgl + Dat, data = dat, id = id, signed.rank.exact = FALSE)
 summary(p)
 ```

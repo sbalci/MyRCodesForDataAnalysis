@@ -1,5 +1,8 @@
 ---
 title: "The Lesser Known Stars of the Tidyverse"
+---
+
+```
 slug: the-lesser-known-stars-of-the-tidyverse
 tags:
 - tidyverse
@@ -7,7 +10,7 @@ tags:
 - Code
 categories: []
 output: html_notebook
----
+```
 
 
 *I copied this code just to learn myself. See original links below:*
@@ -36,7 +39,8 @@ https://github.com/robinsones/robinsones_blog/blob/master/content/post/2018-11-1
 
 ## Reading in the data
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::opts_chunk$set(echo = TRUE, warning = TRUE, message = FALSE, error = TRUE)
 
 library(tidyverse)
@@ -47,13 +51,15 @@ theme_set(theme_bw())
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses_base <- read.csv("data/multipleChoiceResponses.csv")
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # for one column
 sum(is.na(multiple_choice_responses_base$Country))
 ```
@@ -61,7 +67,8 @@ sum(is.na(multiple_choice_responses_base$Country))
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # for five columns
 multiple_choice_responses_base %>%
   summarise_at(1:5, ~sum(is.na(.))) 
@@ -76,14 +83,16 @@ multiple_choice_responses_base %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses_base %>%
   count(StudentStatus) 
 ```
 
 Yep. We see here we have a lot of `""` entries instead of NAs. We can correct this with `na_if` from `dplyr`, which takes as an argument what we want to turn into NAs. We can also use `%<>%`, which is a reassignment pipe. While this is nice to save some typing, it can make it confusing when reading a script, so use with caution. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses_base %<>%
   na_if("")
 
@@ -95,7 +104,8 @@ multiple_choice_responses_base <- multiple_choice_responses_base %>%
 
 Now let's count the NAs again. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses_base %>%
   summarise_at(1:5, ~sum(is.na(.))) 
 ```
@@ -110,20 +120,23 @@ If you're not familiar with `::`, it's for explicitly setting what package you'r
   2) if you only want to use one function from a package, you can use `::` to skip the library call. As long as you've installed the package, you don't need to have loaded it to get the function. 
   3) For teaching purposes, it's nice to remind people where the function is coming from. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses <- readr::read_csv("multipleChoiceResponses.csv")
 ```
 
 
 It's definitely faster, but it seems we have some errors. Let's inspect them. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 problems(multiple_choice_responses)
 ```
 
 We see each row and column where a problem occurs. What's happening is that `{r # ead_csv` uses the first 1000 rows of a column to guess its type. But in some cases, it's guessing the column is an integer, because the first 1000 rows are whole numbers, when actually it should be double, as some entries have decimal points. We can fix this by changing the number of rows `{r # ead_csv` uses to guess the column type (with the `guess_max` argument) to the number of rows in the data set. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses <- readr::read_csv("multipleChoiceResponses.csv", 
                                              guess_max = nrow(multiple_choice_responses))
 ```
@@ -134,7 +147,8 @@ Error-free!
 
 Let's see what we can glean from the column names themselves. I'll only look at the first 20 since there are so many. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colnames(multiple_choice_responses) %>%
   head(20)
 ```
@@ -143,7 +157,8 @@ We can see that there were categories of questions, like "LearningPlatform," wit
 
 Now let's take a look at our numeric columns with [skimr](https://github.com/ropensci/skimr). Skimr is a package from [rOpenSci](https://ropensci.org/) that allows you to quickly view summaries of your data. We  can use `select_if`  to select only columns where a certain condition, in this case whether it's a numeric column, is true.  
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses %>%
   select_if(is.numeric) %>%
   skimr::skim()
@@ -153,7 +168,8 @@ I love the histograms. We can quickly see from them that people self teach a lot
 
 Let's see how many distinct answers we have for each question. We can use `n_distinct()`, a shorter and faster version of `length(unique())`. We'll use `summarise_all`, which is the same as `summarise_at` except that you don't select a group of columns and so it applies to every one in the dataset.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses %>%
   summarise_all(n_distinct) %>%
   select(1:10)
@@ -161,7 +177,8 @@ multiple_choice_responses %>%
 
 This data would be more helpful if it was tidy and had two columns, `question` and `num_distinct_answers`. We can use `tidyr::gather` to change our data from "wide" to "long" format and then `arrange` it so we can see the columns with the most distinct answers first. If you've used (or are still using!) reshape2, check out tidyr; reshape2 is retired and is only updated with changes necessary for it to remain on CRAN. While not exactly equivalent, `tidyr::spread` replaces `{r # eshape2::dcast`, `tidyr::separate` `{r # eshape2::colsplit`, and `tidyr::gather` `{r # eshape2::melt`. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses %>%
   summarise_all(n_distinct) %>%
   tidyr::gather(question, num_distinct_answers) %>%
@@ -170,7 +187,8 @@ multiple_choice_responses %>%
 
 Let's take a look at the question with the most distinct answers, WorkMethodsSelect. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses %>%
   count(WorkMethodsSelect, sort = TRUE)
 ```
@@ -179,7 +197,8 @@ We can see this is a multiple select question, where if a person selected multip
 
 First, let's get rid of the NAs. We can use `!is.na(WorkMethodsSelect)`, short for `is.na(WorkMethodsSelect) == FALSE`, to filter out NAs. We then use `str_split`, from stringr, to divide the entries up. `str_split(WorkMethodsSelect, ",")`  says "Take this string and split it into a list by dividing it where there are `,`s." 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 nested_workmethods <- multiple_choice_responses %>%
   select(WorkMethodsSelect) %>%
   filter(!is.na(WorkMethodsSelect)) %>%
@@ -191,7 +210,8 @@ nested_workmethods %>%
 
 Now we have a list column, with each entry in the list being one work method. We can `unnest` this so we can get back a tidy dataframe. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 unnested_workmethods <- nested_workmethods %>%
   tidyr::unnest(work_method) %>%
   select(work_method)
@@ -201,7 +221,8 @@ unnested_workmethods
 
 Great! As a last step, let's `count` this data so we can find which are the most common work methods people use. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 unnested_workmethods %>%
   count(work_method, sort = TRUE)
 ```
@@ -214,7 +235,8 @@ Now let's move on to understanding what challenges people face at work. This was
 
 We can find the relevant columns by using the dplyr `select` helper `contains`. We then use `gather` to tidy the data for analysis, filter for only the non-NAs, and remove the `WorkChallengeFrequency` from each question using `stringr::str_remove`. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 WorkChallenges <- multiple_choice_responses %>%
   select(contains("WorkChallengeFrequency")) %>%
   gather(question, response) %>%
@@ -226,7 +248,8 @@ WorkChallenges
 
 Let's make a facet bar plot, one for each question with the frequency of responses.To make the x-axis tick labels readable, we'll change them to be vertical instead of horizontal. 
 
-```{r WorkChallenges_graph1, fig.width = 9, fig.height = 6}
+```
+{r WorkChallenges_graph1, fig.width = 9, fig.height = 6}
 ggplot(WorkChallenges, aes(x = response)) + 
   geom_bar() + 
   facet_wrap(~question) + 
@@ -235,7 +258,8 @@ ggplot(WorkChallenges, aes(x = response)) +
 
 This graph has two main problems. First, there are too many histograms for it to be really useful. But second, the order of the x-axis is wrong. We want it to go from least often to most, but instead `{r # arely` is in the middle. We can manually reorder the level of this variable using `forcats::fct_relevel`. 
 
-```{r WorkChallenges_graph2, fig.width = 9, fig.height = 6}
+```
+{r WorkChallenges_graph2, fig.width = 9, fig.height = 6}
 WorkChallenges %>%
   mutate(response = fct_relevel(response, "Rarely", "Sometimes", 
                                 "Often", "Most of the time")) %>%
@@ -249,14 +273,16 @@ Now we've got the x-axis in the order we want it. Let's try dichotomizing the va
 
 Grouping by the question, we can use `summarise` to reduce the dataset to one row per question, adding the variable `perc_problem` for the percentage of responses that thought something was a challenge often or most of the time. This way, we can make one graph with data for all the questions and easily compare them. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 perc_problem_work_challenge <- WorkChallenges %>%
   mutate(response = if_else(response %in% c("Most of the time", "Often"), 1, 0)) %>%
   group_by(question) %>%
   summarise(perc_problem = mean(response)) 
 ```
 
-```{r perc_problem_work_challenge_graph, fig.width = 8, fig.height = 5}
+```
+{r perc_problem_work_challenge_graph, fig.width = 8, fig.height = 5}
 ggplot(perc_problem_work_challenge, aes(x = question, y = perc_problem)) + 
   geom_point() +
   coord_flip()
@@ -266,7 +292,8 @@ This is better, but it's hard to read because the points are scattered all over 
 
 We can use `forcats:fct_reorder` to change the x-axis to be ordered by another variable, in this case the y-axis. While we're at it, we can use `scale_y_continuous` and`scales::percent` to update our axis to display in percent and `labs` to change our axis labels. 
 
-```{r perc_problem_work_challenge_graph2, fig.width = 8, fig.height = 5}
+```
+{r perc_problem_work_challenge_graph2, fig.width = 8, fig.height = 5}
 ggplot(perc_problem_work_challenge, 
        aes(x = perc_problem, 
            y = fct_reorder(question, perc_problem))) + 

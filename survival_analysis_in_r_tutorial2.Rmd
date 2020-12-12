@@ -23,7 +23,7 @@ devtools::install_github("zabore/ezfun")
 
 
 ```{r loaddata 2, echo = TRUE}
-load(here::here("data", "survival_data_example.RData"))
+# load(here::here("data", "survival_data_example.RData"))
 ```
 
 
@@ -91,7 +91,7 @@ Specifically these are examples of **right** censoring. Other common types of ce
 
 When the exact event time is unknown then some patients are censored, and survival analysis methods are required.
 
-```{r swimmer 2, echo = TRUE}
+```{r swimmer 2, eval=FALSE, include=FALSE}
 # make fake data
 set.seed(20180809)
 fkdt <- data_frame(Subject = as.factor(1:10), 
@@ -148,8 +148,8 @@ Conclusion: Musical genre is associated with early death among musicians.
 
 Problem: this graph does not account for the right-censored nature of the data.
 
-```{r echo = TRUE}
-include_graphics("./img/musician_death_graph.jpg")
+```{r include=FALSE, eval=FALSE, echo = TRUE}
+# include_graphics("./img/musician_death_graph.jpg")
 ```
 
 
@@ -184,7 +184,7 @@ Investigating the "obesity paradox" in kidney cancer patients.
 - Outcome: overall survival
 - Predictor: BMI
 
-```{r peekdata 2}
+```{r peekdata 2, eval=FALSE, include=FALSE}
 df[, c("os_yrs", "os", "bmi_cat")] %>% 
     head
 ```
@@ -220,7 +220,7 @@ str(df$proc_date)
 
 We see this is a character variable in a certain format, but we need it to be formatted as a Date.
 
-```{r format_date1 2}
+```{r format_date1 2, eval=FALSE, include=FALSE}
 df <- df %>% 
     mutate(proc_date_format1 = as.Date(proc_date, format = "%d%b%Y"))
 ```
@@ -247,7 +247,8 @@ str(df$proc_date)
 
 And now use the `lubridate::dmy` function to format this into a Date:
 
-```{r format_date2 2}
+```
+{r format_date2 2}
 df <- df %>% 
     mutate(proc_date_format2 = lubridate::dmy(proc_date))
 ```
@@ -288,7 +289,7 @@ Now that we have our dates formatted, we need to calculate the difference betwee
 
 A base `R` solution to calculate the number of years from surgery to death:
 
-```{r echo = TRUE}
+```{r include=FALSE, eval=FALSE, echo = TRUE}
 # need to actually properly format the real dates for use
 df <- df %>% 
     mutate(proc_date = as.Date(proc_date, format = "%d%b%Y"),
@@ -296,7 +297,8 @@ df <- df %>%
 ```
 
 
-```{r difftime_ex1 2}
+```
+{r difftime_ex1 2}
 df <- df %>% 
     mutate(os_yrs_opt1 = as.numeric(difftime(last_status_date, proc_date, 
                                              units = "days")) / 365.25)
@@ -317,7 +319,8 @@ summary(df$os_yrs_opt1)
 
 We can also use the `lubridate` package to calculate the number of years from surgery to death:
 
-```{r difftime_ex2 2, message = FALSE, warning = FALSE}
+```
+{r difftime_ex2 2, message = FALSE, warning = FALSE}
 library(lubridate)
 
 df <- df %>% 
@@ -391,7 +394,8 @@ plot(survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df),
 
 Alternatively, the `ggsurvplot` function from the `survminer` package is built on `ggplot2`, and can be used to create Kaplan-Meier plots:
 
-```{r, message = FALSE, warning = FALSE}
+```
+{r, message = FALSE, warning = FALSE}
 survminer::ggsurvplot(
     fit = survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df), 
     xlab = "Years", 
@@ -418,7 +422,8 @@ We find that the 5-year probability of survival in this study is `{r #  round(su
 
 The 5-year survival probability is the point on the y-axis that corresponds to 5 years on the x-axis for the survival curve.
 
-```{r, message = FALSE, echo = TRUE}
+```
+{r, message = FALSE, echo = TRUE}
 survplot1 <- survminer::ggsurvplot(survival::survfit(
     survival::Surv(os_yrs, os) ~ 1, data = df), 
            xlab = "Years",
@@ -467,7 +472,8 @@ We see the median survival time is `{r #  round(summary(f1)$table["median"], 1)`
 
 Median survival is the time corresponding to a survival probability of 0.5: 
 
-```{r, message = FALSE, echo = TRUE}
+```
+{r, message = FALSE, echo = TRUE}
 survplot2 <- survminer::ggsurvplot(survival::survfit(
     survival::Surv(os_yrs, os) ~ 1, data = df), 
            xlab = "Years",
@@ -519,7 +525,8 @@ We can add a covariate to the right-hand side of the `survival::survfit` object 
 
 Let's also look at some other customization we can do with `survminer::ggsurvplot`.
 
-```{r fig.height = 6}
+```
+{r fig.height = 6}
 survminer::ggsurvplot(
     fit = survival::survfit(survival::Surv(os_yrs, os) ~ bmi_cat, data = df), 
     xlab = "Years",
@@ -548,7 +555,7 @@ summary(survival::survfit(survival::Surv(os_yrs, os) ~ bmi_cat, data = df),
 
 To summarize:
 
-```{r echo = TRUE}
+```{r eval=FALSE, include=FALSE}
 library(survival)
 tab <- ezfun::uvsurv(NULL, "bmi_cat", "os", "os_yrs", 5, df)[-1, c(1, 3)]
 colnames(tab) <- c("BMI", "5-year estimate (95% CI)")
@@ -593,7 +600,8 @@ Some key assumptions of the model:
 
 We can fit regression models for survival data using the `survival::coxph` function, which takes a `survival::Surv` object on the left hand side and has standard syntax for regression formulas in `R` on the right hand side.
 
-```{r eval = FALSE}
+```
+{r eval = FALSE}
 survival::coxph(survival::Surv(os_yrs, os) ~ factor(bmi_cat), data = df)
 ```
 
