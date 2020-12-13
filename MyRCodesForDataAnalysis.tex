@@ -133,9 +133,9 @@
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-\subtitle{Articles per journals per country}
+\subtitle{Recent Articles from PubMed}
 \author{Serdar Balcı}
-\date{\texttt{\{r\ \#\ \ Sys.Date()}}
+\date{\texttt{\{r\ Sys.Date()}}
 
 \begin{document}
 \maketitle
@@ -144,8 +144,28 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
+\hypertarget{preface}{%
+\chapter{Preface}\label{preface}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# install.packages("bookdown")}
+\CommentTok{# or the development version}
+\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# automatically create a bib database for R packages}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{write_bib}\NormalTok{(}\KeywordTok{c}\NormalTok{(}
+  \KeywordTok{.packages}\NormalTok{(), }\StringTok{'bookdown'}\NormalTok{, }\StringTok{'knitr'}\NormalTok{, }\StringTok{'rmarkdown'}
+\NormalTok{), }\StringTok{'bib/packages.bib'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{getting-data-into-r}{%
+\chapter{Getting Data into R}\label{getting-data-into-r}}
 
 \hypertarget{intro}{%
 \chapter{Introduction}\label{intro}}
@@ -218,69 +238,21 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 
 You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
 
-\hypertarget{literature}{%
-\chapter{Literature}\label{literature}}
+\hypertarget{bibliographic-studies}{%
+\chapter{Bibliographic Studies}\label{bibliographic-studies}}
 
-Here is a review of existing methods.
-
-\hypertarget{literature-1}{%
-\chapter{Literature}\label{literature-1}}
-
-Here is a review of existing methods.
-
-\hypertarget{methods}{%
-\chapter{Methods}\label{methods}}
-
-We describe our methods in this chapter.
-
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
-
-Some \emph{significant} applications are demonstrated in this chapter.
-
-\hypertarget{example-one}{%
-\section{Example one}\label{example-one}}
-
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
-
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
-
-We have finished a nice book.
-
-\texttt{\{r\ \#\ \ if\ (knitr::is\_html\_output())\ \textquotesingle{}\ \#\ References\ \{-\}\ \textquotesingle{}}
-
-\begin{verbatim}
-output: 
-  html_notebook: 
-    code_folding: hide
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-  html_document: 
-    code_folding: hide
-    df_print: kable
-    keep_md: yes
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-    highlight: kate
-\end{verbatim}
+\hypertarget{articles-per-journals-per-country}{%
+\section{Articles per journals per country}\label{articles-per-journals-per-country}}
 
 If you want to see the code used in the analysis please click the code button on the right upper corner or throughout the page.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{analysis}{%
-\chapter{Analysis}\label{analysis}}
+\subsection{Analysis}\label{analysis}}
 
-\hypertarget{articles-per-journals-per-country}{%
-\section{Articles per journals per country}\label{articles-per-journals-per-country}}
+\hypertarget{articles-per-journals-per-country-1}{%
+\subsubsection{Articles per journals per country}\label{articles-per-journals-per-country-1}}
 
 \textbf{Aim:}
 
@@ -318,48 +290,14 @@ This may also be a clue that if a country has a journal listed in indexes, than 
 
 Whether this observation is a unique situation, or there is a tendency in the journals to publish article from their country of origin, merits further investigation.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{feedback}{%
-\chapter{Feedback}\label{feedback}}
-
-\href{https://github.com/sbalci}{Serdar Balcı, MD, Pathologist} would like to hear your feedback: \url{https://goo.gl/forms/YjGZ5DHgtPlR1RnB3}
-
-This document will be continiously updated and the last update was on \texttt{\{r\ \#\ \ Sys.Date()}.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{back-to-main-menu}{%
-\chapter{Back to Main Menu}\label{back-to-main-menu}}
-
-\href{https://sbalci.github.io/pubmed/BibliographicStudies.html}{Main Page for Bibliographic Analysis}
-
-\begin{verbatim}
-output: 
-  html_notebook: 
-    code_folding: hide
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-  html_document: 
-    code_folding: hide
-    df_print: kable
-    keep_md: yes
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-    highlight: kate
-\end{verbatim}
+\hypertarget{country-based-comparison}{%
+\chapter{Country Based Comparison}\label{country-based-comparison}}
 
 \hypertarget{analysis-1}{%
-\chapter{Analysis}\label{analysis-1}}
+\section{Analysis}\label{analysis-1}}
 
 \hypertarget{pubmed-indexed-peer-reviewed-articles-in-pathology-journals-a-country-based-comparison}{%
-\section{PubMed Indexed Peer Reviewed Articles in Pathology Journals: A country based comparison}\label{pubmed-indexed-peer-reviewed-articles-in-pathology-journals-a-country-based-comparison}}
+\subsection{PubMed Indexed Peer Reviewed Articles in Pathology Journals: A country based comparison}\label{pubmed-indexed-peer-reviewed-articles-in-pathology-journals-a-country-based-comparison}}
 
 \textbf{Aim:}
 
@@ -405,22 +343,6 @@ Turkey has a small increase in number of articles.
 \item
   Analyse adding journal impact as a factor.
 \end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{feedback-1}{%
-\chapter{Feedback}\label{feedback-1}}
-
-\href{https://github.com/sbalci}{Serdar Balcı, MD, Pathologist} would like to hear your feedback: \url{https://goo.gl/forms/YjGZ5DHgtPlR1RnB3}
-
-This document will be continiously updated and the last update was on \texttt{\{r\ \#\ \ Sys.Date()}.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{back-to-main-menu-1}{%
-\chapter{Back to Main Menu}\label{back-to-main-menu-1}}
-
-\href{https://sbalci.github.io/pubmed/BibliographicStudies.html}{Main Page for Bibliographic Analysis}
 
 \begin{verbatim}
 output: 
@@ -477,8 +399,8 @@ And the figure below shows this data in a line graph.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{feedback-2}{%
-\chapter{Feedback}\label{feedback-2}}
+\hypertarget{feedback}{%
+\chapter{Feedback}\label{feedback}}
 
 \href{https://github.com/sbalci}{Serdar Balcı, MD, Pathologist} would like to hear your feedback: \url{https://goo.gl/forms/YjGZ5DHgtPlR1RnB3}
 
@@ -486,8 +408,8 @@ This document will be continiously updated and the last update was on \texttt{\{
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{back-to-main-menu-2}{%
-\chapter{Back to Main Menu}\label{back-to-main-menu-2}}
+\hypertarget{back-to-main-menu}{%
+\chapter{Back to Main Menu}\label{back-to-main-menu}}
 
 \href{https://sbalci.github.io/pubmed/BibliographicStudies.html}{Main Page for Bibliographic Analysis}
 
@@ -563,8 +485,8 @@ The retrieved information was compiled in a table.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{feedback-3}{%
-\chapter{Feedback}\label{feedback-3}}
+\hypertarget{feedback-1}{%
+\chapter{Feedback}\label{feedback-1}}
 
 \href{https://github.com/sbalci}{Serdar Balcı, MD, Pathologist} would like to hear your feedback: \url{https://goo.gl/forms/YjGZ5DHgtPlR1RnB3}
 
@@ -572,8 +494,8 @@ This document will be continiously updated and the last update was on \texttt{\{
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{back-to-main-menu-3}{%
-\chapter{Back to Main Menu}\label{back-to-main-menu-3}}
+\hypertarget{back-to-main-menu-1}{%
+\chapter{Back to Main Menu}\label{back-to-main-menu-1}}
 
 \href{https://sbalci.github.io/pubmed/BibliographicStudies.html}{Main Page for Bibliographic Analysis}
 
@@ -606,7 +528,7 @@ It is also very easy to make tables with knitr's \texttt{kable} function:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-19}A knitr kable.}
+\caption{\label{tab:unnamed-chunk-18}A knitr kable.}
 \centering
 \begin{tabular}[t]{l|r|r|r|r|r|r|r|r|r|r|r}
 \hline
@@ -8384,7 +8306,7 @@ mpg
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-506-1.pdf}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-505-1.pdf}
 
 ggplot(mpg, aes(model, manufacturer)) + geom\_point()
 
@@ -9793,7 +9715,7 @@ table()
  ───────────────────────────────────────────────────── 
 \end{verbatim}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-576-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-576-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-576-3.pdf}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-575-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-575-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-575-3.pdf}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -11053,7 +10975,7 @@ table()
  ───────────────────────────────────────────────────── 
 \end{verbatim}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-628-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-628-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-628-3.pdf}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-627-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-627-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-627-3.pdf}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -11250,7 +11172,7 @@ Please enable JavaScript to view the comments powered by Disqus.
 \begin{centerbox}
 \begin{threeparttable}
 \captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-650} }
+\caption{\label{tab:unnamed-chunk-649} }
  \setlength{\tabcolsep}{0pt}
 \begin{tabular}{l l l l l l}
 
@@ -11259,8 +11181,19 @@ Please enable JavaScript to view the comments powered by Disqus.
 \arrayrulecolor{black}
 
 \multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 255, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{0, 0, 0}{~}} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{2}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textbf{h}} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textbf{\textcolor[RGB]{255, 255, 255}{h}}} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont u} \hspace{0pt}\huxbpad{0pt}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{255, 255, 255}{1.2}}->{\huxb{0, 0, 0}{1.2}}|>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{2}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\multirow[t]{-2}{*}[0ex]{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} \tabularnewline[-0.5pt]
 
@@ -11269,54 +11202,43 @@ Please enable JavaScript to view the comments powered by Disqus.
 \arrayrulecolor{black}
 
 \multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont u} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont x} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 255, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{0, 0, 0}{~}} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{2}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont t} \hspace{0pt}\huxbpad{0pt}} \tabularnewline[-0.5pt]
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}} \tabularnewline[-0.5pt]
 
 
-\hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{255, 255, 255}{1.2}}->{\huxb{0, 0, 0}{1.2}}|>{\huxb{0, 0, 0}{1.2}}-}
+\hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{255, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}|}
 \arrayrulecolor{black}
 
-\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont a} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont b} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{0, 0, 255}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\multirow[t]{-2}{*}[0ex]{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 255, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{0, 0, 0}{~}} \hspace{0pt}\huxbpad{0pt}} \tabularnewline[-0.5pt]
+\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont x} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont t} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 255, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{0, 0, 0}{~}} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont a} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\multirow[t]{-2}{*}[0ex]{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}}} \tabularnewline[-0.5pt]
 
 
 \hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}-}
 \arrayrulecolor{black}
 
-\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{2}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{b}} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont l} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont e} \hspace{0pt}\huxbpad{0pt}} \tabularnewline[-0.5pt]
 
 
-\hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}-}
+\hhline{>{\huxb{0, 0, 0}{1.2}}|>{\huxb{255, 255, 255}{1.2}}->{\huxb{0, 0, 0}{1.2}}|>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}-}
 \arrayrulecolor{black}
 
-\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
+\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\multirow[t]{-2}{*}[0ex]{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
 \multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{255, 255, 255}{1.2}}->{\huxb{0, 0, 0}{1.2}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{1.2}}c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\cellcolor[RGB]{255, 0, 0}\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont \textcolor[RGB]{255, 255, 255}{~}} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} &
-\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\multirow[t]{-2}{*}[0ex]{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}}} \tabularnewline[-0.5pt]
+\multicolumn{1}{c!{\huxvb{0, 0, 0}{1.2}}}{\huxtpad{0pt + 1em}\centering \hspace{0pt} {\fontfamily{cmss}\selectfont ~} \hspace{0pt}\huxbpad{0pt}} \tabularnewline[-0.5pt]
 
 
 \hhline{>{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}->{\huxb{0, 0, 0}{1.2}}-}
@@ -11327,6 +11249,8 @@ Please enable JavaScript to view the comments powered by Disqus.
 \end{table}
  
 
+\FloatBarrier
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# PLAN Make single document work in notebook format (maybe with minimal changes)}
@@ -11334,6 +11258,8 @@ Please enable JavaScript to view the comments powered by Disqus.
 \CommentTok{# output Cookbook?  Limitations}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
@@ -11386,6 +11312,8 @@ If you haven't already installed huxtable, you can do so from the R command line
 \KeywordTok{install.packages}\NormalTok{(}\StringTok{"huxtable"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \hypertarget{getting-started}{%
 \section{Getting started}\label{getting-started}}
@@ -11486,7 +11414,7 @@ HTML, though there are some exceptions.
 \begin{raggedright}
 \begin{threeparttable}
 \captionsetup{justification=raggedright,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-662} Huxtable properties}
+\caption{\label{tab:unnamed-chunk-661} Huxtable properties}
  \setlength{\tabcolsep}{0pt}
 \begin{tabularx}{0.9\textwidth}{p{0.18\textwidth} p{0.225\textwidth} p{0.135\textwidth} p{0.135\textwidth} p{0.225\textwidth}}
 
@@ -11689,6 +11617,8 @@ HTML, though there are some exceptions.
 \end{table}
  
 
+\FloatBarrier
+
 \hypertarget{tidyverse-syntax}{%
 \section{Tidyverse syntax}\label{tidyverse-syntax}}
 
@@ -11729,6 +11659,8 @@ To get the current properties of a huxtable, just use the properties function wi
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 As before, you can use subsetting to get particular rows or columns:
 
 \begin{Shaded}
@@ -11737,6 +11669,8 @@ As before, you can use subsetting to get particular rows or columns:
 \KeywordTok{bold}\NormalTok{(ht)[, }\StringTok{"Salary"}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \hypertarget{editing-content}{%
 \chapter{Editing content}\label{editing-content}}
@@ -11901,6 +11835,8 @@ installing a \texttt{knit\_print.data\_frame} command.
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 If you don't want this (e.g.~if you want to use \texttt{knitr::kable} or the \href{https://cran.r-project.org/web/packages/printr/vignettes/printr.html}{printr package}, then you can
 turn it off like this:
 
@@ -11940,6 +11876,8 @@ supports it, border, text and background colours are also displayed.
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 If you need to output to another format, file an
 \href{https://github.com/hughjonesd/huxtable}{issue request} on Github.
 
@@ -11960,6 +11898,8 @@ this keeps you from accidentally trashing your files.
 \KeywordTok{quick_pdf}\NormalTok{(mtcars, }\DataTypeTok{file =} \StringTok{"motorcars data.pdf"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \hypertarget{end-matter}{%
 \chapter{End matter}\label{end-matter}}
@@ -12898,12 +12838,16 @@ install.packages("summarytools")
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# require(tidyverse) require(jmv) require(questionr) library(summarytools)}
 \CommentTok{# library(gganimate)}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -12948,6 +12892,8 @@ Spreadsheet users using \#rstats: where's the data?\#rstats users using spreadsh
 \CommentTok{# library(nycflights13) summary(flights)}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \begin{verbatim}
 View(data)
@@ -13126,7 +13072,7 @@ table()
  ───────────────────────────────────────────────────── 
 \end{verbatim}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-717-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-717-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-717-3.pdf}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-716-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-716-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-716-3.pdf} \FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -13473,6 +13419,8 @@ Install the \textbf{xaringan} package from \href{https://github.com/yihui/xaring
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 --
 
 You are recommended to use the \href{https://www.rstudio.com/products/rstudio/}{RStudio IDE}, but you do not have to.
@@ -13669,6 +13617,8 @@ Limitations:
 # [1] "地爆天星" "天照"
 \end{verbatim}
 
+\FloatBarrier
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{r-plots}{%
@@ -13682,7 +13632,7 @@ Limitations:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-791-1.svg}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-790-1.svg} \FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -13711,7 +13661,9 @@ See the next page for two HTML widgets.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-a8b0aa9931fbb0905af1}{}
+\hypertarget{htmlwidget-3878fded85d86bbb3d2d}{}
+
+\FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -13724,7 +13676,9 @@ See the next page for two HTML widgets.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{htmlwidget-1c6a403e1410b4aad734}{}
+\hypertarget{htmlwidget-94dc4bedc21e30a5300d}{}
+
+\FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -13896,6 +13850,8 @@ Output:
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 It is valid R code so you can run it. Note that \texttt{\{\{\}\}} can wrap an R expression of multiple lines.
 {]}
 
@@ -13930,6 +13886,8 @@ Output:
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{some-tips-6}{%
@@ -13951,98 +13909,17 @@ When you enable line-highlighting, you can also use the chunk option \texttt{hig
 \end{Highlighting}
 \end{Shaded}
 
- 
-  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
-  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
-  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
-  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
+\begin{verbatim}
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa
+\end{verbatim}
 
-\begin{table}[ht]
-\begin{centerbox}
-\begin{threeparttable}
-\captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-797} }
- \setlength{\tabcolsep}{0pt}
-\begin{tabular}{l l l l l}
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Sepal.Length} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Sepal.Width} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Petal.Length} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Petal.Width} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Species} \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5.1 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.5 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4.9 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3~~ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4.7 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.3 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4.6 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.1 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.5 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5~~ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.6 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.9 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.7 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-\end{tabular}
-\end{threeparttable}\par\end{centerbox}
-
-\end{table}
- 
+\FloatBarrier
 
 Question: what does \texttt{highlight.output\ =\ c(TRUE,\ FALSE)} mean? (Hint: think about R's recycling of vectors)
 
@@ -14378,6 +14255,8 @@ package \textbf{knitr} on the summary objects:
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 which gives the following results
 
 \begin{Shaded}
@@ -14388,6 +14267,8 @@ which gives the following results
 \KeywordTok{kable}\NormalTok{(}\KeywordTok{summarize}\NormalTok{(Orthodont, }\DataTypeTok{type =} \StringTok{"numeric"}\NormalTok{, }\DataTypeTok{group =} \StringTok{"Sex"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \hypertarget{prettify-model-output}{%
 \subsection{Prettify model output}\label{prettify-model-output}}
@@ -14579,6 +14460,8 @@ The following code is based on boostrap and it takes a lot of time (several hour
 \KeywordTok{summary}\NormalTok{(power.result)}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \begin{itemize}
 \tightlist
@@ -14794,6 +14677,8 @@ An R package for the Quantitative Analysis of Textual Data
 \end{Highlighting}
 \end{Shaded}
 
+\FloatBarrier
+
 \hypertarget{readtext-import-and-handling-for-plain-and-formatted-text-files}{%
 \chapter{readtext: Import and handling for plain and formatted text files}\label{readtext-import-and-handling-for-plain-and-formatted-text-files}}
 
@@ -14877,6 +14762,8 @@ A BibTeX entry for LaTeX users is
     year = {2018},
   }
 \end{verbatim}
+
+\FloatBarrier
 
 \hypertarget{r-iuxe7in-arayuxfczler}{%
 \chapter{R için arayüzler}\label{r-iuxe7in-arayuxfczler}}
@@ -15682,7 +15569,7 @@ table()
  ───────────────────────────────────────────────────── 
 \end{verbatim}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-856-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-856-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-856-3.pdf}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-855-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-855-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-855-3.pdf} \FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -15740,12 +15627,6 @@ DataExplorer::create_report(df)
 
 \hypertarget{grafikler-5}{%
 \section{Grafikler}\label{grafikler-5}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# library(ggplot2) library(mosaic) mPlot(irisdata)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 descr(tobacco, style = 'rmarkdown')
@@ -16719,95 +16600,6 @@ system(command = gitCommand,
 \hypertarget{github-yedekleme}{%
 \section{GitHub Yedekleme}\label{github-yedekleme}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{CommitMessage <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"updated on "}\NormalTok{, }\KeywordTok{Sys.time}\NormalTok{(), }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
-\NormalTok{wd <-}\StringTok{ }\KeywordTok{getwd}\NormalTok{()}
-\NormalTok{gitCommand <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"cd "}\NormalTok{, wd, }\StringTok{" }\CharTok{\textbackslash{}n}\StringTok{ git add . }\CharTok{\textbackslash{}n}\StringTok{ git commit --message '"}\NormalTok{, CommitMessage, }
-    \StringTok{"' }\CharTok{\textbackslash{}n}\StringTok{ git push origin master }\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
-\KeywordTok{system}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ gitCommand, }\DataTypeTok{intern =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
- [1] "[master f8fa046] updated on 2020-12-12 23:19:01"                                                                                                                         
- [2] " 2421 files changed, 341 insertions(+), 7118 deletions(-)"                                                                                                               
- [3] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-fullwidth_acd84c923daacea21dcb81ed09aa97db.RData"                                                             
- [4] " rename MyRCodesForDataAnalysis_cache/html/{fig-fullwidth_d61365eb051d4e4937a597fe35fa2e6e.rdb => fig-fullwidth_acd84c923daacea21dcb81ed09aa97db.rdb} (100%)"            
- [5] " rename MyRCodesForDataAnalysis_cache/html/{fig-fullwidth_d61365eb051d4e4937a597fe35fa2e6e.rdx => fig-fullwidth_acd84c923daacea21dcb81ed09aa97db.rdx} (100%)"            
- [6] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-fullwidth_d61365eb051d4e4937a597fe35fa2e6e.RData"                                                             
- [7] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-main_1b57ba226b8edf17d155a723c246cf97.RData"                                                                  
- [8] " rename MyRCodesForDataAnalysis_cache/html/{fig-main_55c3bb200f6f7b8166bb0ca2f66ad009.rdb => fig-main_1b57ba226b8edf17d155a723c246cf97.rdb} (100%)"                      
- [9] " rename MyRCodesForDataAnalysis_cache/html/{fig-main_55c3bb200f6f7b8166bb0ca2f66ad009.rdx => fig-main_1b57ba226b8edf17d155a723c246cf97.rdx} (100%)"                      
-[10] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-main_55c3bb200f6f7b8166bb0ca2f66ad009.RData"                                                                  
-[11] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-margin-separate_8cd6ea24c13eb4a6edaf72e163ee4861.RData"                                                       
-[12] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-margin-separate_ac0ddde4a4d4730a1b9e54df431ecafe.RData"                                                       
-[13] " rename MyRCodesForDataAnalysis_cache/html/{fig-margin-separate_8cd6ea24c13eb4a6edaf72e163ee4861.rdb => fig-margin-separate_ac0ddde4a4d4730a1b9e54df431ecafe.rdb} (100%)"
-[14] " rename MyRCodesForDataAnalysis_cache/html/{fig-margin-separate_8cd6ea24c13eb4a6edaf72e163ee4861.rdx => fig-margin-separate_ac0ddde4a4d4730a1b9e54df431ecafe.rdx} (100%)"
-[15] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-margin-together_3a4168c50037bb886d2247e51b8ed87d.RData"                                                       
-[16] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-margin-together_47c95fdcf2a38dba2183970a75c5954e.RData"                                                       
-[17] " rename MyRCodesForDataAnalysis_cache/html/{fig-margin-together_3a4168c50037bb886d2247e51b8ed87d.rdb => fig-margin-together_47c95fdcf2a38dba2183970a75c5954e.rdb} (100%)"
-[18] " rename MyRCodesForDataAnalysis_cache/html/{fig-margin-together_3a4168c50037bb886d2247e51b8ed87d.rdx => fig-margin-together_47c95fdcf2a38dba2183970a75c5954e.rdx} (100%)"
-[19] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-margin_8973320a0bad93dc7d9f8559e1ec3b1d.RData"                                                                
-[20] " rename MyRCodesForDataAnalysis_cache/html/{fig-margin_f1073ea8fa8a04931646b1119f553a89.rdb => fig-margin_8973320a0bad93dc7d9f8559e1ec3b1d.rdb} (100%)"                  
-[21] " rename MyRCodesForDataAnalysis_cache/html/{fig-margin_f1073ea8fa8a04931646b1119f553a89.rdx => fig-margin_8973320a0bad93dc7d9f8559e1ec3b1d.rdx} (100%)"                  
-[22] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-margin_f1073ea8fa8a04931646b1119f553a89.RData"                                                                
-[23] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-nocap-fullwidth_60129452e4e1e78e04d1553b8b55161d.RData"                                                       
-[24] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-nocap-fullwidth_d2d1ad66214cf61430f4a6f9910637b8.RData"                                                       
-[25] " rename MyRCodesForDataAnalysis_cache/html/{fig-nocap-fullwidth_60129452e4e1e78e04d1553b8b55161d.rdb => fig-nocap-fullwidth_d2d1ad66214cf61430f4a6f9910637b8.rdb} (100%)"
-[26] " rename MyRCodesForDataAnalysis_cache/html/{fig-nocap-fullwidth_60129452e4e1e78e04d1553b8b55161d.rdx => fig-nocap-fullwidth_d2d1ad66214cf61430f4a6f9910637b8.rdx} (100%)"
-[27] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-nocap-main_a87de916d30bfe0e6b404dc2026ac82b.RData"                                                            
-[28] " rename MyRCodesForDataAnalysis_cache/html/{fig-nocap-main_b8e283e9c061938c1ff452f59100eadc.rdb => fig-nocap-main_a87de916d30bfe0e6b404dc2026ac82b.rdb} (100%)"          
-[29] " rename MyRCodesForDataAnalysis_cache/html/{fig-nocap-main_b8e283e9c061938c1ff452f59100eadc.rdx => fig-nocap-main_a87de916d30bfe0e6b404dc2026ac82b.rdx} (100%)"          
-[30] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-nocap-main_b8e283e9c061938c1ff452f59100eadc.RData"                                                            
-[31] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-nocap-margin_84dd21f0b0e734f21cd820d089996c67.RData"                                                          
-[32] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-nocap-margin_84e3ae9d0073c4696464fd0f605d6fad.RData"                                                          
-[33] " rename MyRCodesForDataAnalysis_cache/html/{fig-nocap-margin_84dd21f0b0e734f21cd820d089996c67.rdb => fig-nocap-margin_84e3ae9d0073c4696464fd0f605d6fad.rdb} (100%)"      
-[34] " rename MyRCodesForDataAnalysis_cache/html/{fig-nocap-margin_84dd21f0b0e734f21cd820d089996c67.rdx => fig-nocap-margin_84e3ae9d0073c4696464fd0f605d6fad.rdx} (100%)"      
-[35] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-two-separate_0b994dfc3aeec1b126e59fe5c6375c3d.RData"                                                          
-[36] " rename MyRCodesForDataAnalysis_cache/html/{fig-two-separate_4d5a16947449bcf281210ca0997bf258.rdb => fig-two-separate_0b994dfc3aeec1b126e59fe5c6375c3d.rdb} (100%)"      
-[37] " rename MyRCodesForDataAnalysis_cache/html/{fig-two-separate_4d5a16947449bcf281210ca0997bf258.rdx => fig-two-separate_0b994dfc3aeec1b126e59fe5c6375c3d.rdx} (100%)"      
-[38] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-two-separate_4d5a16947449bcf281210ca0997bf258.RData"                                                          
-[39] " create mode 100644 MyRCodesForDataAnalysis_cache/html/fig-two-together_8347695848981becabc4b870ab916870.RData"                                                          
-[40] " rename MyRCodesForDataAnalysis_cache/html/{fig-two-together_ee445bc5221dd23dd8236754efc34860.rdb => fig-two-together_8347695848981becabc4b870ab916870.rdb} (100%)"      
-[41] " rename MyRCodesForDataAnalysis_cache/html/{fig-two-together_ee445bc5221dd23dd8236754efc34860.rdx => fig-two-together_8347695848981becabc4b870ab916870.rdx} (100%)"      
-[42] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/fig-two-together_ee445bc5221dd23dd8236754efc34860.RData"                                                          
-[43] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1000_935390e4c89b9bac4d2a7b0e0ef7d72d.RData"                                                        
-[44] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1000_d1cabe0859510e9538b3d3dad27bd0fe.rdb => unnamed-chunk-1000_935390e4c89b9bac4d2a7b0e0ef7d72d.rdb} (100%)"  
-[45] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1000_d1cabe0859510e9538b3d3dad27bd0fe.rdx => unnamed-chunk-1000_935390e4c89b9bac4d2a7b0e0ef7d72d.rdx} (100%)"  
-[46] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1000_d1cabe0859510e9538b3d3dad27bd0fe.RData"                                                        
-[47] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1001_414751530a28550a13ed77c7a3f95547.RData"                                                        
-[48] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1001_ef68a950b9210ad77a98c731c1c1a2ba.rdb => unnamed-chunk-1001_414751530a28550a13ed77c7a3f95547.rdb} (100%)"  
-[49] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1001_ef68a950b9210ad77a98c731c1c1a2ba.rdx => unnamed-chunk-1001_414751530a28550a13ed77c7a3f95547.rdx} (100%)"  
-[50] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1001_ef68a950b9210ad77a98c731c1c1a2ba.RData"                                                        
-[51] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1002_0f36785629835feed4deea2f60e6a3cc.RData"                                                        
-[52] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1002_48564e4f54ec49951549286b3dcb1f59.rdb => unnamed-chunk-1002_0f36785629835feed4deea2f60e6a3cc.rdb} (100%)"  
-[53] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1002_48564e4f54ec49951549286b3dcb1f59.rdx => unnamed-chunk-1002_0f36785629835feed4deea2f60e6a3cc.rdx} (100%)"  
-[54] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1002_48564e4f54ec49951549286b3dcb1f59.RData"                                                        
-[55] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1003_054a2b81ccdaa254250299408d5fbe32.RData"                                                        
-[56] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1003_38a97c7edd5da30e3ea8ff2fca9a1ccb.rdb => unnamed-chunk-1003_054a2b81ccdaa254250299408d5fbe32.rdb} (100%)"  
-[57] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1003_38a97c7edd5da30e3ea8ff2fca9a1ccb.rdx => unnamed-chunk-1003_054a2b81ccdaa254250299408d5fbe32.rdx} (100%)"  
-[58] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1003_38a97c7edd5da30e3ea8ff2fca9a1ccb.RData"                                                        
-[59] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1004_1bdc0925ab019f659ad4d3d5bc0b5ba7.RData"                                                        
-[60] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1004_34b5761bea21906d247672566bd8f73f.RData"                                                        
-[61] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1004_1bdc0925ab019f659ad4d3d5bc0b5ba7.rdb => unnamed-chunk-1004_34b5761bea21906d247672566bd8f73f.rdb} (100%)"  
-[62] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1004_1bdc0925ab019f659ad4d3d5bc0b5ba7.rdx => unnamed-chunk-1004_34b5761bea21906d247672566bd8f73f.rdx} (100%)"  
-[63] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1005_6a992acc32969a63e8ccc73060823787.RData"                                                        
-[64] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1005_ed93526e7c049e8608b335e2600b5767.RData"                                                        
-[65] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1005_6a992acc32969a63e8ccc73060823787.rdb => unnamed-chunk-1005_ed93526e7c049e8608b335e2600b5767.rdb} (100%)"  
-[66] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1005_6a992acc32969a63e8ccc73060823787.rdx => unnamed-chunk-1005_ed93526e7c049e8608b335e2600b5767.rdx} (100%)"  
-[67] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1006_5cb7223393caea6cafa7546deb255aaf.RData"                                                        
-[68] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1006_d184865da4a55032b6d50ebadf10333c.rdb => unnamed-chunk-1006_5cb7223393caea6cafa7546deb255aaf.rdb} (100%)"  
-[69] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1006_d184865da4a55032b6d50ebadf10333c.rdx => unnamed-chunk-1006_5cb7223393caea6cafa7546deb255aaf.rdx} (100%)"  
-[70] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1006_d184865da4a55032b6d50ebadf10333c.RData"                                                        
-[71] " delete mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1007_81abde493004b48e37b35b1801d32fce.RData"                                                        
-[72] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1007_a17edd035a8d58b8bd3dbe1844b5c183.RData"                                                        
-[73] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1007_81abde493004b48e37b35b1801d32fce.rdb => unnamed-chunk-1007_a17edd035a8d58b8bd3dbe1844b5c183.rdb} (100%)"  
-[74] " rename MyRCodesForDataAnalysis_cache/html/{unnamed-chunk-1007_81abde493004b48e37b35b1801d32fce.rdx => unnamed-chunk-1007_a17edd035a8d58b8bd3dbe1844b5c183.rdx} (100%)"  
-[75] " create mode 100644 MyRCodesForDataAnalysis_cache/html/unnamed-chunk-1008_c74f79e0da188829d618e22862e53772.RData"                                                        
- [ reached getOption("max.print") -- omitted 2308 entries ]
-\end{verbatim}
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{her-duxf6kuxfcmanux131n-sonuna-kullandux131ux11fux131nux131z-kuxfctuxfcphaneler-iuxe7in-atux131f-yazdux131rabilirsiniz}{%
@@ -16823,46 +16615,10 @@ citation()
 \hypertarget{libraries-used-1}{%
 \section{Libraries Used}\label{libraries-used-1}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{citation}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-
-To cite R in publications use:
-
-  R Core Team (2020). R: A language and environment for statistical
-  computing. R Foundation for Statistical Computing, Vienna, Austria.
-  URL https://www.R-project.org/.
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {R: A Language and Environment for Statistical Computing},
-    author = {{R Core Team}},
-    organization = {R Foundation for Statistical Computing},
-    address = {Vienna, Austria},
-    year = {2020},
-    url = {https://www.R-project.org/},
-  }
-
-We have invested a lot of time and effort in creating R, please cite it
-when using it for data analysis. See also 'citation("pkgname")' for
-citing R packages.
-\end{verbatim}
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{bu-oturuma-spesifik-kullanux131lan-paketler}{%
 \section{Bu oturuma spesifik kullanılan paketler}\label{bu-oturuma-spesifik-kullanux131lan-paketler}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# report::cite_packages(session = sessionInfo())}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -16907,56 +16663,6 @@ sessionInfo()
 
 \hypertarget{session-info}{%
 \section{Session Info}\label{session-info}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{sessionInfo}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-R version 4.0.3 (2020-10-10)
-Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Catalina 10.15.7
-
-Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
-
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] DT_0.15            leaflet_2.0.3      readxl_1.3.1       huxtable_5.1.1    
- [5] summarytools_0.9.8 rmdformats_1.0.0   forcats_0.5.0      stringr_1.4.0     
- [9] dplyr_1.0.2        purrr_0.3.4        readr_1.4.0        tidyr_1.1.2       
-[13] tibble_3.0.4       ggplot2_3.3.2      tidyverse_1.3.0    knitr_1.30        
-
-loaded via a namespace (and not attached):
- [1] nlme_3.1-149       matrixStats_0.56.0 fs_1.5.0           lubridate_1.7.9.2 
- [5] webshot_0.5.2      httr_1.4.2         tools_4.0.3        backports_1.2.0   
- [9] R6_2.5.0           scatr_1.0.1        DBI_1.1.0          mgcv_1.8-33       
-[13] colorspace_2.0-0   withr_2.3.0        tidyselect_1.1.0   curl_4.3          
-[17] compiler_4.0.3     cli_2.2.0          rvest_0.3.6        formatR_1.7       
-[21] xml2_1.3.2         labeling_0.4.2     bookdown_0.21      scales_1.1.1      
-[25] checkmate_2.0.0    ggridges_0.5.2     commonmark_1.7     digest_0.6.27     
-[29] rmarkdown_2.5      base64enc_0.1-3    pkgconfig_2.0.3    htmltools_0.5.0   
-[33] dbplyr_2.0.0       htmlwidgets_1.5.1  rlang_0.4.9        rstudioapi_0.13   
-[37] pryr_0.1.4         jmvcore_1.2.23     farver_2.0.3       generics_0.1.0    
-[41] jsonlite_1.7.1     crosstalk_1.1.0.1  magrittr_2.0.1     rapportools_1.0   
-[45] Matrix_1.2-18      Rcpp_1.0.5         munsell_0.5.0      fansi_0.4.1       
-[49] RefManageR_1.3.0   lifecycle_0.2.0    stringi_1.5.3      yaml_2.2.1        
-[53] plyr_1.8.6         grid_4.0.3         crayon_1.3.4       lattice_0.20-41   
-[57] haven_2.3.1        cowplot_1.1.0      splines_4.0.3      pander_0.6.3      
-[61] hms_0.5.3          magick_2.5.2       pillar_1.4.7       tcltk_4.0.3       
-[65] codetools_0.2-16   reprex_0.3.0       glue_1.4.2         evaluate_0.14     
-[69] modelr_0.1.8       vctrs_0.3.5        cellranger_1.1.0   gtable_0.3.0      
-[73] assertthat_0.2.1   xfun_0.19          broom_0.7.2       
- [ reached getOption("max.print") -- omitted 2 entries ]
-\end{verbatim}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -17151,19 +16857,6 @@ Accidentally discovered if you copy \& paste a file into your \#R script you get
 \url{https://github.com/jbkunst/rchess}
 
 \url{https://rc2e.com/index.html}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(knitr)}
-\KeywordTok{library}\NormalTok{(rmdformats)}
-
-\CommentTok{## Global options}
-\KeywordTok{options}\NormalTok{(}\DataTypeTok{max.print =} \StringTok{"75"}\NormalTok{)}
-\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{echo =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{cache =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{prompt =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{tidy =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{comment =} \OtherTok{NA}\NormalTok{, }
-    \DataTypeTok{message =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{warning =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{opts_knit}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{width =} \DecValTok{75}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{itemize}
 \item
@@ -17424,18 +17117,12 @@ install.packages("summarytools")
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# install.packages('tidyverse', dependencies = TRUE) install.packages('jmv',}
-\CommentTok{# dependencies = TRUE) install.packages('questionr', dependencies = TRUE)}
-\CommentTok{# install.packages('Rcmdr', dependencies = TRUE) install.packages('summarytools')}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# require(tidyverse) require(jmv) require(questionr) library(summarytools)}
 \CommentTok{# library(gganimate)}
 \end{Highlighting}
 \end{Shaded}
+
+\FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -17474,12 +17161,6 @@ install.packages("summarytools")
 Spreadsheet users using \#rstats: where's the data?\#rstats users using spreadsheets: where's the code?
 
 --- Leonard Kiefer (\citet{lenkiefer}) July 7, 2018
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# library(nycflights13) summary(flights)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 View(data)
@@ -17658,7 +17339,7 @@ table()
  ───────────────────────────────────────────────────── 
 \end{verbatim}
 
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-891-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-891-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-891-3.pdf}
+\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-890-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-890-2.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-890-3.pdf} \FloatBarrier
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -17823,49 +17504,6 @@ Please enable JavaScript to view the comments powered by Disqus.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(summarytools)}
-\KeywordTok{st_css}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-<style type="text/css">
- img {   background-color: transparent;   border: 0; }  .st-table td, .st-table th {   padding: 8px; }  .st-table > thead > tr {    background-color: #eeeeee; }  .st-cross-table td {   text-align: center; }  .st-descr-table td {   text-align: right; }  table.st-table th {   text-align: center; }  table.st-table > thead > tr {    background-color: #eeeeee; }  table.st-table td span {   display: block; }  table.st-table > tfoot > tr > td {   border:none; }  .st-container {   width: 100%;   padding-right: 15px;   padding-left: 15px;   margin-right: auto;   margin-left: auto;   margin-top: 15px; }  .st-multiline {   white-space: pre; }  .st-table {     width: auto;     table-layout: auto;     margin-top: 20px;     margin-bottom: 20px;     max-width: 100%;     background-color: transparent;     border-collapse: collapse; }  .st-table > thead > tr > th, .st-table > tbody > tr > th, .st-table > tfoot > tr > th, .st-table > thead > tr > td, .st-table > tbody > tr > td, .st-table > tfoot > tr > td {   vertical-align: middle; }  .st-table-bordered {   border: 1px solid #bbbbbb; }  .st-table-bordered > thead > tr > th, .st-table-bordered > tbody > tr > th, .st-table-bordered > thead > tr > td, .st-table-bordered > tbody > tr > td {   border: 1px solid #cccccc; }  .st-table-bordered > thead > tr > th, .st-table-bordered > thead > tr > td, .st-table thead > tr > th {   border-bottom: none; }  .st-freq-table > thead > tr > th, .st-freq-table > tbody > tr > th, .st-freq-table > tfoot > tr > th, .st-freq-table > thead > tr > td, .st-freq-table > tbody > tr > td, .st-freq-table > tfoot > tr > td, .st-freq-table-nomiss > thead > tr > th, .st-freq-table-nomiss > tbody > tr > th, .st-freq-table-nomiss > tfoot > tr > th, .st-freq-table-nomiss > thead > tr > td, .st-freq-table-nomiss > tbody > tr > td, .st-freq-table-nomiss > tfoot > tr > td, .st-cross-table > thead > tr > th, .st-cross-table > tbody > tr > th, .st-cross-table > tfoot > tr > th, .st-cross-table > thead > tr > td, .st-cross-table > tbody > tr > td, .st-cross-table > tfoot > tr > td {   padding-left: 20px;   padding-right: 20px; }  .st-table-bordered > thead > tr > th, .st-table-bordered > tbody > tr > th, .st-table-bordered > thead > tr > td, .st-table-bordered > tbody > tr > td {   border: 1px solid #cccccc; }  .st-table-striped > tbody > tr:nth-of-type(odd) {   background-color: #ffffff; }  .st-table-striped > tbody > tr:nth-of-type(even) {   background-color: #f9f9f9; }  .st-descr-table > thead > tr > th, .st-descr-table > tbody > tr > th, .st-descr-table > thead > tr > td, .st-descr-table > tbody > tr > td {   padding-left: 24px;   padding-right: 24px;   word-wrap: break-word; }  .st-freq-table, .st-freq-table-nomiss, .st-cross-table {   border: medium none; }  .st-freq-table > thead > tr:nth-child(1) > th:nth-child(1), .st-cross-table > thead > tr:nth-child(1) > th:nth-child(1), .st-cross-table > thead > tr:nth-child(1) > th:nth-child(3) {   border: none;   background-color: #ffffff;   text-align: center; }  .st-protect-top-border {   border-top: 1px solid #cccccc !important; }  .st-ws-char {   display: inline;   color: #999999;   letter-spacing: 0.2em; }  /* Optionnal classes */ .st-small {   font-size: 13px; }  .st-small td, .st-small th {   padding: 8px; }  .st-small > thead > tr > th, .st-small > tbody > tr > th, .st-small > thead > tr > td, .st-small > tbody > tr > td {   padding-left: 12px;   padding-right: 12px; } </style>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{st_options}\NormalTok{(}\DataTypeTok{bootstrap.css     =} \OtherTok{FALSE}\NormalTok{,       }\CommentTok{# Already part of the theme so no need for it}
-           \DataTypeTok{plain.ascii       =} \OtherTok{FALSE}\NormalTok{,       }\CommentTok{# One of the essential settings}
-           \DataTypeTok{style             =} \StringTok{"rmarkdown"}\NormalTok{, }\CommentTok{# Idem.}
-           \DataTypeTok{dfSummary.silent  =} \OtherTok{TRUE}\NormalTok{,        }\CommentTok{# Suppresses messages about temporary files}
-           \DataTypeTok{footnote          =} \OtherTok{NA}\NormalTok{,          }\CommentTok{# Keeping the results minimalistic}
-           \DataTypeTok{subtitle.emphasis =} \OtherTok{FALSE}\NormalTok{)       }\CommentTok{# For the vignette theme, this gives}
-                                            \CommentTok{# much better results. Your mileage may vary.}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{freq}\NormalTok{(tobacco}\OperatorTok{$}\NormalTok{gender, }\DataTypeTok{style =} \StringTok{"rmarkdown"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-### Frequencies  
-**tobacco$gender**   
-**Type:** Factor  
-
-|     &nbsp; | Freq | % Valid | % Valid Cum. | % Total | % Total Cum. |
-|-----------:|-----:|--------:|-------------:|--------:|-------------:|
-|      **F** |  489 |   50.00 |        50.00 |   48.90 |        48.90 |
-|      **M** |  489 |   50.00 |       100.00 |   48.90 |        97.80 |
-| **\<NA\>** |   22 |         |              |    2.20 |       100.00 |
-|  **Total** | 1000 |  100.00 |       100.00 |  100.00 |       100.00 |
-\end{verbatim}
-
 \hypertarget{html-rendering}{%
 \section{HTML Rendering}\label{html-rendering}}
 
@@ -17920,12 +17558,6 @@ Back to top
 This style gives good results, and since v0.9, the graphs are shown as true
 images. Don't forget to specify \texttt{plain.ascii\ =\ FALSE} (or set it as a global
 option with \texttt{st\_options(plain.ascii\ =\ FALSE)}), or you won't get good results.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dfSummary}\NormalTok{(tobacco, }\DataTypeTok{style =} \StringTok{"grid"}\NormalTok{, }\DataTypeTok{graph.magnif =} \FloatTok{0.75}\NormalTok{, }\DataTypeTok{tmp.img.dir =} \StringTok{"/tmp"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{itemize}
 \tightlist
@@ -18268,28 +17900,7 @@ The minimum requirements for an R Markdown website are:
 
 A basic example of a \texttt{\_site.yml} file for a website with two pages:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{name}\OperatorTok{:}\StringTok{"my-website"}
-\NormalTok{navbar}\OperatorTok{:}\NormalTok{title}\OperatorTok{:}\StringTok{"My Website"}
-\NormalTok{left}\OperatorTok{:-}\NormalTok{text}\OperatorTok{:}\StringTok{"Home"}
-\NormalTok{href}\OperatorTok{:}\NormalTok{index.html}
-\OperatorTok{-}\NormalTok{text}\OperatorTok{:}\StringTok{"About"}
-\NormalTok{href}\OperatorTok{:}\NormalTok{about.html}
-\end{Highlighting}
-\end{Shaded}
-
 And a basic \texttt{index.Rmd} to create the Home page:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{---}
-\NormalTok{title}\OperatorTok{:}\StringTok{ "My Website"}
-\OperatorTok{---}
-\StringTok{    }
-\NormalTok{Hello, Website}\OperatorTok{!}\StringTok{ }\NormalTok{Welcome to the world.}
-\end{Highlighting}
-\end{Shaded}
 
 You can find an overview of R Markdown website basics \href{http://rmarkdown.rstudio.com/rmarkdown_websites.html}{here}.
 
@@ -18364,59 +17975,9 @@ Edit the \texttt{\_site.yml} file to change the metadata, layout, and theme of y
 
 For example, the \texttt{\_site.yml} for my personal website looks like this:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{name}\OperatorTok{:}\StringTok{ "Emily C. Zabor"}
-\NormalTok{output_dir}\OperatorTok{:}\StringTok{ "."}
-\NormalTok{navbar}\OperatorTok{:}
-\StringTok{  }\NormalTok{title}\OperatorTok{:}\StringTok{ "Emily C. Zabor"}
-\NormalTok{  left}\OperatorTok{:}
-\StringTok{    }\OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Writing"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{research.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Speaking"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{talks.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Programming"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{software.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Teaching"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{teaching.html}
-\NormalTok{  right}\OperatorTok{:}
-\StringTok{    }\OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{envelope fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{contact.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{github fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{http}\OperatorTok{:}\ErrorTok{//}\NormalTok{github.com}\OperatorTok{/}\NormalTok{zabore}
-    \OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{twitter fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{https}\OperatorTok{:}\ErrorTok{//}\NormalTok{twitter.com}\OperatorTok{/}\NormalTok{zabormetrics}
-    \OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{linkedin fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.linkedin.com}\OperatorTok{/}\ControlFlowTok{in}\OperatorTok{/}\NormalTok{emily}\OperatorTok{-}\NormalTok{zabor}\OperatorTok{-}\NormalTok{59b902b7}\OperatorTok{/}
-\NormalTok{output}\OperatorTok{:}
-\StringTok{  }\NormalTok{html_document}\OperatorTok{:}
-\StringTok{    }\NormalTok{theme}\OperatorTok{:}\StringTok{ }\NormalTok{paper}
-\NormalTok{    css}\OperatorTok{:}\StringTok{ 'styles.css'}
-\end{Highlighting}
-\end{Shaded}
-
 Edit and create \texttt{.Rmd} files that contain your website content, which will produce the html pages of your website when you knit them.
 
 For example, the \texttt{index.Rmd} file for my personal website homepage looks like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{---}
-\OperatorTok{---}
-
-\ErrorTok{<}\NormalTok{link rel=}\StringTok{"stylesheet"}\NormalTok{ href=}\StringTok{"styles.css"}\NormalTok{ type=}\StringTok{"text/css"}\OperatorTok{>}
-
-\ErrorTok{<}\NormalTok{img src=}\StringTok{"images/emily_2.jpg"}\NormalTok{ style=}\StringTok{"width:25%; border:10px solid; margin-right: 20px"}\NormalTok{ align=}\StringTok{"left"}\OperatorTok{>}
-
-\NormalTok{I like to analyze data to answer research questions and test hypotheses. Currently I investigate questions related to breast cancer through my work as a Research Biostatistician at [Memorial Sloan Kettering Cancer Center](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mskcc.org}\OperatorTok{/}\NormalTok{departments}\OperatorTok{/}\NormalTok{epidemiology}\OperatorTok{-}\NormalTok{biostatistics) }\ControlFlowTok{in}\NormalTok{ the department of Epidemiology }\OperatorTok{&}\StringTok{ }\NormalTok{Biostatistics. }
-
-\NormalTok{I graduated from the [University of Minnesota](http}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.sph.umn.edu}\OperatorTok{/}\NormalTok{academics}\OperatorTok{/}\NormalTok{divisions}\OperatorTok{/}\NormalTok{biostatistics}\OperatorTok{/}\NormalTok{) with a MS }\ControlFlowTok{in}\NormalTok{ biostatistics }\ControlFlowTok{in} \FloatTok{2010.}\NormalTok{ In }\DecValTok{2012}\NormalTok{ I began working toward my DrPH }\ControlFlowTok{in}\NormalTok{ biostatistics as a part}\OperatorTok{-}\NormalTok{time student at [Columbia University](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mailman.columbia.edu}\OperatorTok{/}\NormalTok{become}\OperatorTok{-}\NormalTok{student}\OperatorTok{/}\NormalTok{departments}\OperatorTok{/}\NormalTok{biostatistics), where I am investigating statistical methods }\ControlFlowTok{for}\NormalTok{ the study of etiologic heterogeneity }\ControlFlowTok{in}\NormalTok{ epidemiologic studies under the advisement of [Dr. Shuang Wang](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mailman.columbia.edu}\OperatorTok{/}\NormalTok{people}\OperatorTok{/}\NormalTok{our}\OperatorTok{-}\NormalTok{faculty}\OperatorTok{/}\NormalTok{sw2206) at Columbia University and [Dr. Colin Begg](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mskcc.org}\OperatorTok{/}\NormalTok{profile}\OperatorTok{/}\NormalTok{colin}\OperatorTok{-}\NormalTok{begg) at Memorial Sloan Kettering Cancer Center. I expect to graduate by the end of }\FloatTok{2018.}
-
-\NormalTok{I am a well}\OperatorTok{-}\NormalTok{known R enthusiast, including serving on the board and being an active member of [R Ladies NYC](http}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.rladiesnyc.org}\OperatorTok{/}\NormalTok{). }
-
-\NormalTok{My full CV is available [here](files}\OperatorTok{/}\NormalTok{Zabor_CV_}\DecValTok{2017}\NormalTok{_Q4.pdf).}
-\end{Highlighting}
-\end{Shaded}
 
 Once you have your content written and the layout setup, on the Build tab in RStudio, select ``Build Website'':
 
@@ -18487,13 +18048,6 @@ Use Hadley Wickham's great package \texttt{pkgdown} to easily build a website fr
 This assumes you already have an R package with a local directory and a GitHub repository.
 
 From within your package directory run:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"hadley/pkgdown"}\NormalTok{)}
-\NormalTok{pkgdown}\OperatorTok{::}\KeywordTok{build_site}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{itemize}
 \item
@@ -18582,32 +18136,13 @@ Next we get started with \texttt{blogdown}.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
-\tightlist
 \item
   Install \texttt{blogdown} and Hugo
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"blogdown"}\NormalTok{)}
-\NormalTok{blogdown}\OperatorTok{::}\KeywordTok{install_hugo}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
 \item
   Choose a \href{https://themes.gohugo.io/}{theme} and find the link to the theme's GitHub repository. In this case themes aren't quite as easy to change as with basic R Markdown websites, so choose carefully.
 \item
   Within your project session, generate a new site. The option \texttt{theme\_example\ =\ TRUE} will obtain the files for an example site that you can then customize for your needs. Below ``user/repo'' refers to the GitHub username and GitHub repository for your selected theme.
 \end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{blogdown}\OperatorTok{::}\KeywordTok{new_site}\NormalTok{(}\DataTypeTok{theme =} \StringTok{"user/repo"}\NormalTok{, }\DataTypeTok{theme_example =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 This will generate all of the file structure for your new blog.
 
@@ -18724,28 +18259,7 @@ The minimum requirements for an R Markdown website are:
 
 A basic example of a \texttt{\_site.yml} file for a website with two pages:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{name}\OperatorTok{:}\StringTok{"my-website"}
-\NormalTok{navbar}\OperatorTok{:}\NormalTok{title}\OperatorTok{:}\StringTok{"My Website"}
-\NormalTok{left}\OperatorTok{:-}\NormalTok{text}\OperatorTok{:}\StringTok{"Home"}
-\NormalTok{href}\OperatorTok{:}\NormalTok{index.html}
-\OperatorTok{-}\NormalTok{text}\OperatorTok{:}\StringTok{"About"}
-\NormalTok{href}\OperatorTok{:}\NormalTok{about.html}
-\end{Highlighting}
-\end{Shaded}
-
 And a basic \texttt{index.Rmd} to create the Home page:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{---}
-\NormalTok{title}\OperatorTok{:}\StringTok{ "My Website"}
-\OperatorTok{---}
-\StringTok{    }
-\NormalTok{Hello, Website}\OperatorTok{!}\StringTok{ }\NormalTok{Welcome to the world.}
-\end{Highlighting}
-\end{Shaded}
 
 You can find an overview of R Markdown website basics \href{http://rmarkdown.rstudio.com/rmarkdown_websites.html}{here}.
 
@@ -18820,59 +18334,9 @@ Edit the \texttt{\_site.yml} file to change the metadata, layout, and theme of y
 
 For example, the \texttt{\_site.yml} for my personal website looks like this:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{name}\OperatorTok{:}\StringTok{ "Emily C. Zabor"}
-\NormalTok{output_dir}\OperatorTok{:}\StringTok{ "."}
-\NormalTok{navbar}\OperatorTok{:}
-\StringTok{  }\NormalTok{title}\OperatorTok{:}\StringTok{ "Emily C. Zabor"}
-\NormalTok{  left}\OperatorTok{:}
-\StringTok{    }\OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Writing"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{research.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Speaking"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{talks.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Programming"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{software.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{text}\OperatorTok{:}\StringTok{ "Teaching"}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{teaching.html}
-\NormalTok{  right}\OperatorTok{:}
-\StringTok{    }\OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{envelope fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{contact.html}
-    \OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{github fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{http}\OperatorTok{:}\ErrorTok{//}\NormalTok{github.com}\OperatorTok{/}\NormalTok{zabore}
-    \OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{twitter fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{https}\OperatorTok{:}\ErrorTok{//}\NormalTok{twitter.com}\OperatorTok{/}\NormalTok{zabormetrics}
-    \OperatorTok{-}\StringTok{ }\NormalTok{icon}\OperatorTok{:}\StringTok{ }\NormalTok{fa}\OperatorTok{-}\NormalTok{linkedin fa}\OperatorTok{-}\NormalTok{lg}
-\NormalTok{      href}\OperatorTok{:}\StringTok{ }\NormalTok{https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.linkedin.com}\OperatorTok{/}\ControlFlowTok{in}\OperatorTok{/}\NormalTok{emily}\OperatorTok{-}\NormalTok{zabor}\OperatorTok{-}\NormalTok{59b902b7}\OperatorTok{/}
-\NormalTok{output}\OperatorTok{:}
-\StringTok{  }\NormalTok{html_document}\OperatorTok{:}
-\StringTok{    }\NormalTok{theme}\OperatorTok{:}\StringTok{ }\NormalTok{paper}
-\NormalTok{    css}\OperatorTok{:}\StringTok{ 'styles.css'}
-\end{Highlighting}
-\end{Shaded}
-
 Edit and create \texttt{.Rmd} files that contain your website content, which will produce the html pages of your website when you knit them.
 
 For example, the \texttt{index.Rmd} file for my personal website homepage looks like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{---}
-\OperatorTok{---}
-
-\ErrorTok{<}\NormalTok{link rel=}\StringTok{"stylesheet"}\NormalTok{ href=}\StringTok{"styles.css"}\NormalTok{ type=}\StringTok{"text/css"}\OperatorTok{>}
-
-\ErrorTok{<}\NormalTok{img src=}\StringTok{"images/emily_2.jpg"}\NormalTok{ style=}\StringTok{"width:25%; border:10px solid; margin-right: 20px"}\NormalTok{ align=}\StringTok{"left"}\OperatorTok{>}
-
-\NormalTok{I like to analyze data to answer research questions and test hypotheses. Currently I investigate questions related to breast cancer through my work as a Research Biostatistician at [Memorial Sloan Kettering Cancer Center](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mskcc.org}\OperatorTok{/}\NormalTok{departments}\OperatorTok{/}\NormalTok{epidemiology}\OperatorTok{-}\NormalTok{biostatistics) }\ControlFlowTok{in}\NormalTok{ the department of Epidemiology }\OperatorTok{&}\StringTok{ }\NormalTok{Biostatistics. }
-
-\NormalTok{I graduated from the [University of Minnesota](http}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.sph.umn.edu}\OperatorTok{/}\NormalTok{academics}\OperatorTok{/}\NormalTok{divisions}\OperatorTok{/}\NormalTok{biostatistics}\OperatorTok{/}\NormalTok{) with a MS }\ControlFlowTok{in}\NormalTok{ biostatistics }\ControlFlowTok{in} \FloatTok{2010.}\NormalTok{ In }\DecValTok{2012}\NormalTok{ I began working toward my DrPH }\ControlFlowTok{in}\NormalTok{ biostatistics as a part}\OperatorTok{-}\NormalTok{time student at [Columbia University](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mailman.columbia.edu}\OperatorTok{/}\NormalTok{become}\OperatorTok{-}\NormalTok{student}\OperatorTok{/}\NormalTok{departments}\OperatorTok{/}\NormalTok{biostatistics), where I am investigating statistical methods }\ControlFlowTok{for}\NormalTok{ the study of etiologic heterogeneity }\ControlFlowTok{in}\NormalTok{ epidemiologic studies under the advisement of [Dr. Shuang Wang](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mailman.columbia.edu}\OperatorTok{/}\NormalTok{people}\OperatorTok{/}\NormalTok{our}\OperatorTok{-}\NormalTok{faculty}\OperatorTok{/}\NormalTok{sw2206) at Columbia University and [Dr. Colin Begg](https}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.mskcc.org}\OperatorTok{/}\NormalTok{profile}\OperatorTok{/}\NormalTok{colin}\OperatorTok{-}\NormalTok{begg) at Memorial Sloan Kettering Cancer Center. I expect to graduate by the end of }\FloatTok{2018.}
-
-\NormalTok{I am a well}\OperatorTok{-}\NormalTok{known R enthusiast, including serving on the board and being an active member of [R Ladies NYC](http}\OperatorTok{:}\ErrorTok{//}\NormalTok{www.rladiesnyc.org}\OperatorTok{/}\NormalTok{). }
-
-\NormalTok{My full CV is available [here](files}\OperatorTok{/}\NormalTok{Zabor_CV_}\DecValTok{2017}\NormalTok{_Q4.pdf).}
-\end{Highlighting}
-\end{Shaded}
 
 Once you have your content written and the layout setup, on the Build tab in RStudio, select ``Build Website'':
 
@@ -18943,13 +18407,6 @@ Use Hadley Wickham's great package \texttt{pkgdown} to easily build a website fr
 This assumes you already have an R package with a local directory and a GitHub repository.
 
 From within your package directory run:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"hadley/pkgdown"}\NormalTok{)}
-\NormalTok{pkgdown}\OperatorTok{::}\KeywordTok{build_site}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{itemize}
 \item
@@ -19038,32 +18495,13 @@ Next we get started with \texttt{blogdown}.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
-\tightlist
 \item
   Install \texttt{blogdown} and Hugo
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"blogdown"}\NormalTok{)}
-\NormalTok{blogdown}\OperatorTok{::}\KeywordTok{install_hugo}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
 \item
   Choose a \href{https://themes.gohugo.io/}{theme} and find the link to the theme's GitHub repository. In this case themes aren't quite as easy to change as with basic R Markdown websites, so choose carefully.
 \item
   Within your project session, generate a new site. The option \texttt{theme\_example\ =\ TRUE} will obtain the files for an example site that you can then customize for your needs. Below ``user/repo'' refers to the GitHub username and GitHub repository for your selected theme.
 \end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{blogdown}\OperatorTok{::}\KeywordTok{new_site}\NormalTok{(}\DataTypeTok{theme =} \StringTok{"user/repo"}\NormalTok{, }\DataTypeTok{theme_example =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 This will generate all of the file structure for your new blog.
 
@@ -19980,8 +19418,8 @@ devtools::install\_github(``lbusett/insert\_table'')
 \hypertarget{memoise}{%
 \section{memoise}\label{memoise}}
 
-\hypertarget{methods-1}{%
-\section{methods}\label{methods-1}}
+\hypertarget{methods}{%
+\section{methods}\label{methods}}
 
 \hypertarget{mgcv}{%
 \section{mgcv}\label{mgcv}}
@@ -21681,8 +21119,8 @@ Automatic Error and Warning Search
 \hypertarget{metafor}{%
 \section{metafor}\label{metafor}}
 
-\hypertarget{methods-2}{%
-\section{methods}\label{methods-2}}
+\hypertarget{methods-1}{%
+\section{methods}\label{methods-1}}
 
 \hypertarget{mgcv-1}{%
 \section{mgcv}\label{mgcv-1}}
@@ -23101,12 +22539,6 @@ To generate a summary report and have it displayed in
 \href{http://www.rstudio.com/}{\emph{RStudio}}'s Viewer pane (or in your default
 Web Browser if working with another interface), we simply do like this:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{view}\NormalTok{(}\KeywordTok{dfSummary}\NormalTok{(iris))}
-\end{Highlighting}
-\end{Shaded}
-
 It is also possible to use \texttt{dfSummary()} in \emph{Rmarkdown} documents. In this next example,
 note that due to rmarkdown compatibility issues, histograms are not shown. We're working
 on this. Further down, we'll see how tu use \emph{html} rendering to go around this problem.
@@ -23143,12 +22575,6 @@ broken down by Species.
 
 To see an \emph{html} version of these results, we'd simply do this (results not shown):
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{view}\NormalTok{(iris_stats_by_species)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{special-case---using-descr-with-by-for-a-single-variable}{%
 \subsection{Special Case - Using descr() With by() For A Single Variable}\label{special-case---using-descr-with-by-for-a-single-variable}}
 
@@ -23162,14 +22588,6 @@ The transposed version looks like this:
 
 As is the case for \texttt{by()}, the \texttt{view()} function is essential for making
 results nice and tidy.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tobacco_subset <-}\StringTok{ }\NormalTok{tobacco[, }\KeywordTok{c}\NormalTok{(}\StringTok{"gender"}\NormalTok{, }\StringTok{"age.gr"}\NormalTok{, }\StringTok{"smoker"}\NormalTok{)]}
-\NormalTok{freq_tables <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(tobacco_subset, freq)}
-\KeywordTok{view}\NormalTok{(freq_tables, }\DataTypeTok{footnote =} \OtherTok{NA}\NormalTok{, }\DataTypeTok{file =} \StringTok{"freq-tables.html"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{using-summarytools-in-rmarkdown-documents}{%
 \section{Using summarytools in Rmarkdown documents}\label{using-summarytools-in-rmarkdown-documents}}
@@ -23186,12 +22604,6 @@ get started:
   Always set the \texttt{knitr} chunk option \texttt{\{r\ \#\ esults\ =\ \textquotesingle{}asis\textquotesingle{}}. You can do
   this on a chunk-by-chunk basis, but here is how to do it globally:
 \end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{    knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{echo =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{results =} \StringTok{'asis'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 ~~~~~~~~~~Refer to \href{https://yihui.name/knitr/options/}{this page} for
 more on \emph{knitr}'s options.
@@ -23224,12 +22636,6 @@ the corresponding vignette.
 The console will always tell you the location of the temporary \emph{html}
 file that is created in the process. However, you can specify the name
 and location of that file explicitly if you need to reuse it later on:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{view}\NormalTok{(iris_stats_by_species, }\DataTypeTok{file =} \StringTok{"~/iris_stats_by_species.html"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 Based on the file extension you provide (\emph{.html} vs others), \emph{summarytools} will
 use the appropriate method; there is no need to specify the \texttt{method} argument.
@@ -23285,16 +22691,6 @@ Version 0.8.3 introduced the following set of global options:
 
 \hypertarget{examples}{%
 \subsubsection{Examples}\label{examples}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{st_options}\NormalTok{()  }\CommentTok{# display all global options' values}
-\KeywordTok{st_options}\NormalTok{(}\StringTok{"round.digits"}\NormalTok{)  }\CommentTok{# display only one option}
-\KeywordTok{st_options}\NormalTok{(}\StringTok{"headings"}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)  }\CommentTok{# change an option's value}
-\KeywordTok{st_options}\NormalTok{(}\StringTok{"footnote"}\NormalTok{, }\OtherTok{NA}\NormalTok{)  }\CommentTok{# Turn off the footnote on all outputs.}
-\CommentTok{# This option was used prior to generating the present document.}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{overriding-formatting-attributes}{%
 \section{Overriding formatting attributes}\label{overriding-formatting-attributes}}
@@ -23355,12 +22751,6 @@ as the following:
 
 Then, to apply it to a \emph{summarytools} object and display it in your browser:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{view}\NormalTok{(}\KeywordTok{dfSummary}\NormalTok{(tobacco), }\DataTypeTok{custom.css =} \StringTok{"path/to/custom.css"}\NormalTok{, }\DataTypeTok{table.classes =} \StringTok{"table-condensed"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{working-with-shiny-apps}{%
 \section{\texorpdfstring{Working with \emph{shiny} apps}{Working with shiny apps}}\label{working-with-shiny-apps}}
 
@@ -23387,38 +22777,6 @@ To include \emph{summarytools} functions into \emph{shiny} apps, it is recommend
 When developing, we often use a number of functions to obtain an object's properties.
 \texttt{what.is()} proposes to lump together the results of most of these functions (\texttt{class()},
 \texttt{typeof()}, \texttt{attributes()} and others).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{what.is}\NormalTok{(iris)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Checking object against known 'is...' functions (59)
-\end{verbatim}
-
-\begin{verbatim}
-$properties
-      property      value
-1        class data.frame
-2       typeof       list
-3         mode       list
-4 storage.mode       list
-5          dim    150 x 5
-6       length          5
-7    is.object       TRUE
-8  object.type         S3
-9  object.size 7256 Bytes
-
-$attributes.lengths
-    names     class row.names 
-        5         1       150 
-
-$extensive.is
-[1] "is.data.frame" "is.list"       "is.object"     "is.recursive" 
-[5] "is.unsorted"  
-\end{verbatim}
 
 \hypertarget{limitations}{%
 \section{Limitations}\label{limitations}}
@@ -23592,165 +22950,6 @@ This gives good results, although the histograms are not shown. This has to do w
 but we're working hard to figure out a solution. Don't forget to specify \texttt{plain.ascii\ =\ FALSE}, or
 you won't get good results.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dfSummary}\NormalTok{(tobacco, }\DataTypeTok{style =} \StringTok{"grid"}\NormalTok{, }\DataTypeTok{plain.ascii =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
- 
-  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
-  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
-  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
-  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
-
-\begin{table}[ht]
-\begin{centerbox}
-\begin{threeparttable}
-\captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-983} }
- \setlength{\tabcolsep}{0pt}
-\begin{tabular}{l l l l l l l l}
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{No} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Variable} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Stats / Values} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Freqs (\% of Valid)} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Graph} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{text.graph} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Valid} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Missing} \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} gender$\backslash$ \newline [factor] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1$\backslash$. F$\backslash$ \newline 2$\backslash$. M \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$489 (50.0\%)$\backslash$ \newline $\backslash$489 (50.0\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFgAAAA3CAQAAAAiPkUwAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAAAiklEQVRo3u3YMQ6AIAxG4dZ4R+/gffQOnFJXMLKQAP3Je1sX8g1dqD+m1TYbADhaez7cQRf69ArY7Jht+ykVk9xKAAYMGDBgwIBDBRgwYMCLgT9/utT2ysA8/yh78zN9y41yKyEHLnb4CnpIMQ4pAwMMGDBgwIABhwowYMCAFwNrH1IUklsJwL17AbI4C1zud1IRAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTEyLTEyVDIwOjMyOjA4KzAwOjAwUt+JkwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMCOCMS8AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} IIIIIIIIII $\backslash$  \newline IIIIIIIIII \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 978$\backslash$ \newline (97.8\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 22$\backslash$ \newline (2.2\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} age$\backslash$ \newline [numeric] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} Mean (sd) : 49.6 (18.3)$\backslash$ \newline min $<$ med $<$ max:$\backslash$ \newline 18 $<$ 50 $<$ 80$\backslash$ \newline IQR (CV) : 32 (0.4) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 63 distinct values \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAJgAAABuCAQAAABxABKuAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAABqElEQVR42u3cXU7CQBhAUWvco3vQ9eAeXKW+Vi2Bw48zJfe8SSKBy7T92hSWr6eI59EvYG8KhgqGXtZ/LKNfzV0cNnfT7/Bm10/wcv6/7dfrn0c+L36ufwh2OHIgls94Hv+ywl43Hrv8Mx6rnT4qGCoYKhgqGNrpHHYYds3g4mDXz8/X2R5V7j/AXLHCbjk/z+Houl0tgzOCjVv+97T9rk6v0LNW2CNN6te+p46SqGCoYKhgqGDoxpP+Y44gazcO9ogDyE8DzyW3VuP8l60HBtvnqVU7fTTZ5Z3R10BOmyzY/AeNNklUMFQwVDA02U5/20wnXLsINtOI2yaJCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoZ+3Cow0z0Ms/p1b8X8dwCO1iaJCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoYKhgqGCoaW9bdlPvrqzKa31Y+HLzUybZKoYKhg6BvI0CkKx+5FawAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMFLfiZMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMTItMTJUMjA6MzI6MDgrMDA6MDAjgjEvAAAAPXRFWHRpY2M6Y29weXJpZ2h0AENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQunmbcKQAAACN0RVh0aWNjOmRlc2NyaXB0aW9uAEdlbmVyaWMgUkdCIFByb2ZpbGUapziOAAAAAElFTkSuQmCC"$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$ \newline . $\backslash$ $\backslash$ $\backslash$ $\backslash$ . $\backslash$ $\backslash$ $\backslash$ $\backslash$ . . . :$\backslash$ \newline : : : : : . : : : :$\backslash$ \newline : : : : : : : : : :$\backslash$ \newline : : : : : : : : : :$\backslash$ \newline : : : : : : : : : : \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 975$\backslash$ \newline (97.5\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 25$\backslash$ \newline (2.5\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} age.gr$\backslash$ \newline [factor] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1$\backslash$. 18-34$\backslash$ \newline 2$\backslash$. 35-50$\backslash$ \newline 3$\backslash$. 51-70$\backslash$ \newline 4$\backslash$. 71 + \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$258 (26.5\%)$\backslash$ \newline $\backslash$241 (24.7\%)$\backslash$ \newline $\backslash$317 (32.5\%)$\backslash$ \newline $\backslash$159 (16.3\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAD0AAABmCAQAAADSIlFWAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAAAu0lEQVRo3u3Yyw2AIBBFUTH0aBHUoz1YpW4HjAGUzyRzZ6cknsXD5IG7llmzTpON0l4+HI2DDy59IwEfL20N4TOzbjNraGhoaGhoaP10UpBypablOFnU3OfPlI7UyHrZG/bwkE2vUw8v2a42s4aGhoaGhobWT9PDB49NutsR4GXEdup4Ff+c+P+xmTU0NDQ0NDS0fpojwODRknV9D89fuBfStT3836a0mTU0NDQ0NDS0flpLDx87NrOeSN85XBgUiroJAwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMFLfiZMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMTItMTJUMjA6MzI6MDgrMDA6MDAjgjEvAAAAPXRFWHRpY2M6Y29weXJpZ2h0AENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQunmbcKQAAACN0RVh0aWNjOmRlc2NyaXB0aW9uAEdlbmVyaWMgUkdCIFByb2ZpbGUapziOAAAAAElFTkSuQmCC"$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} IIIII $\backslash$  \newline IIII $\backslash$  \newline IIIIII $\backslash$  \newline III \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 975$\backslash$ \newline (97.5\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 25$\backslash$ \newline (2.5\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} BMI$\backslash$ \newline [numeric] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} Mean (sd) : 25.7 (4.5)$\backslash$ \newline min $<$ med $<$ max:$\backslash$ \newline 8.8 $<$ 25.6 $<$ 39.4$\backslash$ \newline IQR (CV) : 5.7 (0.2) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 974 distinct values \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAJgAAABuCAQAAABxABKuAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAABtklEQVR42u3cy63CMBQAUYLokR6gHuiBKmHDwtiIaPKxfc2cXTZP0YhLEju86XkQcWx9AtEYDDIYdEoPptZnk7gVX67XZqeXnspp8V/Z3fnj6NH6dN4cSchgkMEgg0EGgwwGGQwyGGQwyGCQwSCDQR0/fOf6WL8IFOycHbdZv3AkoU4+YbcwezGdBOtl4OY5kpDBIINBBoMMBhkMMhhkMMhgkMEgg0EGgwwGGQwyGGQwyGCQwSCDQQaDDAYZDOpmm22JfDezxqsDoYO1+OmDIwkZDDIYZDCoyZd+nHd1So2uklHe1Sk5kpDBIINBoe/0czXesx4qWI1LiSMJGQwyGGQwyGCQwSCDQQaDDAYZDDIYZDDIYJDBIINBBoMMBhkMqrJEHXnjNldpTb/P/8m6hCMJDbVrVNp+423wYNtvvDmSkMEgg0EGgwwGGQwyGGQwyGDQDnf6I61NlHZ5NIr7Uvk8RxIyGDT4akVp7Y9S/y7Y2rVfRxIyGGQwyGCQwaDVV8noD0J0X2mD24rYD0Ll2X/5CCQJ/+4+bN7vD8BHsOjjVcOUNrob7KtLMpKTjRhvKyCDQQaDXtw9LRTdb6Y+AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTEyLTEyVDIwOjMyOjA4KzAwOjAwUt+JkwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMCOCMS8AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$ \newline $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ :$\backslash$ \newline $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ : : :$\backslash$ \newline $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ : : :$\backslash$ \newline $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ $\backslash$ : : : : :$\backslash$ \newline $\backslash$ $\backslash$ $\backslash$ $\backslash$ . : : : : : . \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 974$\backslash$ \newline (97.4\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 26$\backslash$ \newline (2.6\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} smoker$\backslash$ \newline [factor] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1$\backslash$. Yes$\backslash$ \newline 2$\backslash$. No \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$298 (29.8\%)$\backslash$ \newline $\backslash$702 (70.2\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAHYAAAA3CAQAAABzqnZTAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAAAoElEQVRo3u3ZQQ5AQAxAUSPu6BDOwx2ckm3HVkbl9/+dWPCSjkW1a6rTnP0CYsW+b4kXx7ADvLUsYCQt/a11yAPPLOmjUmMslppYamKpiaUmlppYamKpiaUmltpjB/WXbdGYWty+pa0ABxZ9pca4FLY7szvxL1c4m58syfPqP7ilxlgsNbHUxFITS00sNbHUxFITS00stbpLcnqlxlgstRvzMQxcS8hrcgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMFLfiZMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMTItMTJUMjA6MzI6MDgrMDA6MDAjgjEvAAAAPXRFWHRpY2M6Y29weXJpZ2h0AENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQunmbcKQAAACN0RVh0aWNjOmRlc2NyaXB0aW9uAEdlbmVyaWMgUkdCIFByb2ZpbGUapziOAAAAAElFTkSuQmCC"$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} IIIII $\backslash$  \newline IIIIIIIIIIIIII \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1000$\backslash$ \newline (100.0\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 0$\backslash$ \newline (0.0\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 6 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} cigs.per.day$\backslash$ \newline [numeric] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} Mean (sd) : 6.8 (11.9)$\backslash$ \newline min $<$ med $<$ max:$\backslash$ \newline 0 $<$ 0 $<$ 40$\backslash$ \newline IQR (CV) : 11 (1.8) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 37 distinct values \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAJgAAABuCAQAAABxABKuAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAABaElEQVR42u3dy22DQBRAUYjo0T0k9Tg9uEpnS7JhjgMmVu7ZWRZouMNn+eb7FPF29gJeTcFQwdCy/vE59EL7mM9e9LOtsyzf/7psHnw7e/Un65FEBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDBUMFQwVDy+9P8dN1YCTe6w7EOyDY9ki8vzMQb2Rzp2labe8hwZ51KVv36cg5dN7hA8EGd+XwS7kNnGX/e/2BYHssYp85lmc8+n0lUcFQwdC8fm+ODRX+f95XX+O5RqZHEhUMFQx9AeUgHMrg0as9AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTEyLTEyVDIwOjMyOjA4KzAwOjAwUt+JkwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMCOCMS8AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$ \newline :$\backslash$ \newline :$\backslash$ \newline :$\backslash$ \newline :$\backslash$ \newline : $\backslash$ $\backslash$ . . . . . . \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 965$\backslash$ \newline (96.5\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 35$\backslash$ \newline (3.5\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 7 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} diseased$\backslash$ \newline [factor] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1$\backslash$. Yes$\backslash$ \newline 2$\backslash$. No \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$224 (22.4\%)$\backslash$ \newline $\backslash$776 (77.6\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAIEAAAA3CAQAAACBOuGzAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAAAq0lEQVRo3u3ZQQqEMAwF0FS84xxizuPcYU6p21RciBZK6fs7EcQ8SBZJ2WP2LL1/oH8QIIhY88OvwWD4lt4l3UkudK1ffV5++t+7tgfRCAgQIECAAAECBAgQIECAAAECBAgQXOS0Oxxx9/c2Je9Sh1j+NkmuWiMgOM2CbZ4ba+r5xqeUMVIPfY2AAAECBAgQIECAAAECBAgQIECAAMFFnFLqU8qc0QgIEETEARxmDFzppUJdAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTEyLTEyVDIwOjMyOjA4KzAwOjAwUt+JkwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMCOCMS8AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} IIII $\backslash$  \newline IIIIIIIIIIIIIII \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1000$\backslash$ \newline (100.0\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 0$\backslash$ \newline (0.0\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 8 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} disease$\backslash$ \newline [character] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1$\backslash$. Hypertension$\backslash$ \newline 2$\backslash$. Cancer$\backslash$ \newline 3$\backslash$. Cholesterol$\backslash$ \newline 4$\backslash$. Heart$\backslash$ \newline 5$\backslash$. Pulmonary$\backslash$ \newline 6$\backslash$. Musculoskeletal$\backslash$ \newline 7$\backslash$. Diabetes$\backslash$ \newline 8$\backslash$. Hearing$\backslash$ \newline 9$\backslash$. Digestive$\backslash$ \newline 10$\backslash$. Hypotension$\backslash$ \newline [ 3 others ] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $\backslash$36 (16.2\%)$\backslash$ \newline $\backslash$34 (15.3\%)$\backslash$ \newline $\backslash$21 ( 9.5\%)$\backslash$ \newline $\backslash$20 ( 9.0\%)$\backslash$ \newline $\backslash$20 ( 9.0\%)$\backslash$ \newline $\backslash$19 ( 8.6\%)$\backslash$ \newline $\backslash$14 ( 6.3\%)$\backslash$ \newline $\backslash$14 ( 6.3\%)$\backslash$ \newline $\backslash$12 ( 5.4\%)$\backslash$ \newline $\backslash$11 ( 5.0\%)$\backslash$ \newline $\backslash$21 ( 9.5\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACUAAAELCAQAAAD0Rod6AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAABC0lEQVR42u3bQW7CQAxA0Zmqd+wd4DztHTgl3Ua0ydiIKJ7wvGORJ8WW8lf0e3vVfLxMKkp9Ln/8pBd36StUa18p6LbXC6JQKNQbUg8f5NtzSmuttb4sQ08/vnx6gl19Jzt47atUroOPJ6q5KxQKhZqF0sH4JDp47Qlqq4Pjg9TcFQqFQs1C6WB8wh0cVTDcwcg5au4KhUKhdqXE6xBKB1EoFKoIpYPxES8UCoU6H6WD8Rl2cNy/f6m/HcycoeauUCgUahZKB+OjgygUCnU+SgfjM+hgvIKDDuaOUHNXKBQKNQulg/HZ7GCmgpsdzJ6g5q5QKBRqV0q8DqH86Q+FQqGKUHt1sMwL1qR+AeANQIR95RuZAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTEyLTEyVDIwOjMyOjA4KzAwOjAwUt+JkwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0xMi0xMlQyMDozMjowOCswMDowMCOCMS8AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="$>$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} III $\backslash$  \newline III $\backslash$  \newline I $\backslash$  \newline I $\backslash$  \newline I $\backslash$  \newline I $\backslash$  \newline I $\backslash$  \newline I $\backslash$  \newline I $\backslash$  \newline  $\backslash$  \newline I \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 222$\backslash$ \newline (22.2\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 778$\backslash$ \newline (77.8\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 9 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} samp.wgts$\backslash$ \newline [numeric] \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} Mean (sd) : 1 (0.1)$\backslash$ \newline min $<$ med $<$ max:$\backslash$ \newline 0.9 $<$ 1 $<$ 1.1$\backslash$ \newline IQR (CV) : 0.2 (0.1) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 0.86!: 267 (26.7\%)$\backslash$ \newline 1.04!: 249 (24.9\%)$\backslash$ \newline 1.05!: 324 (32.4\%)$\backslash$ \newline 1.06!: 160 (16.0\%)$\backslash$ \newline ! rounded \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} $<$img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAD0AAABmCAQAAADSIlFWAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfkDAwUIAhOVwaxAAAAvElEQVRo3u3Yyw2AIBBFUcfQo0VYj/ZglbodTBREPpPMfTtiwlk8TAbknEZlHiY7pYNe7NWLXyVeayDEn5aq8PH61WfX0NDQ0NDQ0Pbp24B0lO1SFNGDmhRvkxut0fW0VZzD12R7jebwnOPqs2toaGhoaGho+zRzeOf4pJtdAR6ijlPTp/h74v/HZ9fQ0NDQ0NDQ9mmuAJ1jpevvc3j6wT2T/jqH/zuUPruGhoaGhoaGtk9bmcP7xmfXA+kLNzIYFPix1vAAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTItMTJUMjA6MzI6MDgrMDA6MDBS34mTAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEyLTEyVDIwOjMyOjA4KzAwOjAwI4IxLwAAAD10RVh0aWNjOmNvcHlyaWdodABDb3B5cmlnaHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLp5m3CkAAAAjdEVYdGljYzpkZXNjcmlwdGlvbgBHZW5lcmljIFJHQiBQcm9maWxlGqc4jgAAAABJRU5ErkJggg=="$>$ \newline  \newline  \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} IIIII $\backslash$  \newline IIII $\backslash$  \newline IIIIII $\backslash$  \newline III $\backslash$  \newline  $\backslash$ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 1000$\backslash$ \newline (100.0\%) \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} 0$\backslash$ \newline (0.0\%) \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-\end{tabular}
-\end{threeparttable}\par\end{centerbox}
-
-\end{table}
- 
-
 \hypertarget{html-rendering-6}{%
 \section{HTML Rendering}\label{html-rendering-6}}
 
@@ -23777,12 +22976,6 @@ class: inverse, center, middle
 \chapter{Hello World}\label{hello-world-1}}
 
 Install the \textbf{xaringan} package from \href{https://github.com/yihui/xaringan}{Github}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"yihui/xaringan"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 --
 
@@ -23955,45 +23148,10 @@ Limitations:
 \hypertarget{r-code-1}{%
 \chapter{R Code}\label{r-code-1}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# a boring regression}
-\NormalTok{fit =}\StringTok{ }\KeywordTok{lm}\NormalTok{(dist }\OperatorTok{~}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{speed, }\DataTypeTok{data =}\NormalTok{ cars)}
-\KeywordTok{coef}\NormalTok{(}\KeywordTok{summary}\NormalTok{(fit))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-#               Estimate Std. Error   t value     Pr(>|t|)
-# (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
-# speed         3.932409  0.4155128  9.463990 1.489836e-12
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dojutsu =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"地爆天星"}\NormalTok{, }\StringTok{"天照"}\NormalTok{, }\StringTok{"加具土命"}\NormalTok{, }\StringTok{"神威"}\NormalTok{, }\StringTok{"須佐能乎"}\NormalTok{, }\StringTok{"無限月読"}\NormalTok{)}
-\KeywordTok{grep}\NormalTok{(}\StringTok{"天"}\NormalTok{, dojutsu, }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-# [1] "地爆天星" "天照"
-\end{verbatim}
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{r-plots-1}{%
 \chapter{R Plots}\label{r-plots-1}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(cars, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{, }\DataTypeTok{col =} \StringTok{"darkgray"}\NormalTok{, }\DataTypeTok{las =} \DecValTok{1}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(fit, }\DataTypeTok{lwd =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-988-1.svg}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -24015,27 +23173,7 @@ See the next page for two HTML widgets.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(leaflet)}
-\KeywordTok{leaflet}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }\KeywordTok{addTiles}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }\KeywordTok{setView}\NormalTok{(}\OperatorTok{-}\FloatTok{93.65}\NormalTok{, }\FloatTok{42.0285}\NormalTok{, }\DataTypeTok{zoom =} \DecValTok{17}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{htmlwidget-f2d83c4855d67c5a0903}{}
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DT}\OperatorTok{::}\KeywordTok{datatable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{10}\NormalTok{),}
-  \DataTypeTok{fillContainer =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{options =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{pageLength =} \DecValTok{8}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{htmlwidget-c7f5c16af25f94aa84b0}{}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -24199,14 +23337,6 @@ if (TRUE) {
 
 Output:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ (}\OtherTok{TRUE}\NormalTok{) \{}
-\NormalTok{\{\{ }\KeywordTok{message}\NormalTok{(}\StringTok{"Very important!"}\NormalTok{) \}\}}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
 It is valid R code so you can run it. Note that \texttt{\{\{\}\}} can wrap an R expression of multiple lines.
 {]}
 
@@ -24231,16 +23361,6 @@ An example of using the trailing comment \texttt{\#\textless{}\textless{}} to hi
 
 Output:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\KeywordTok{ggplot}\NormalTok{(mtcars) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{aes}\NormalTok{(mpg, disp) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{   }\CommentTok{#<<}
-\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{()    }\CommentTok{#<<}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{some-tips-14}{%
@@ -24255,105 +23375,6 @@ When you enable line-highlighting, you can also use the chunk option \texttt{hig
 \BaseNTok{```}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{head}\NormalTok{(iris)}
-\end{Highlighting}
-\end{Shaded}
-
- 
-  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
-  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
-  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
-  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
-
-\begin{table}[ht]
-\begin{centerbox}
-\begin{threeparttable}
-\captionsetup{justification=centering,singlelinecheck=off}
-\caption{\label{tab:unnamed-chunk-994} }
- \setlength{\tabcolsep}{0pt}
-\begin{tabular}{l l l l l}
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Sepal.Length} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Sepal.Width} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Petal.Length} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} \textbf{Petal.Width} \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} \textbf{Species} \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5.1 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.5 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4.9 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3~~ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4.7 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.3 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 4.6 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.1 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.5 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5~~ \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.6 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.2 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\cellcolor[RGB]{242, 242, 242}\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}|>{\huxb{0, 0, 0}{0.4}}|}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{0, 0, 0}{0.4}}r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 5.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 3.9 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 1.7 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{r!{\huxvb{0, 0, 0}{0}}}{\huxtpad{6pt + 1em}\raggedleft \hspace{6pt} 0.4 \hspace{6pt}\huxbpad{6pt}} &
-\multicolumn{1}{l!{\huxvb{0, 0, 0}{0.4}}}{\huxtpad{6pt + 1em}\raggedright \hspace{6pt} setosa \hspace{6pt}\huxbpad{6pt}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}->{\huxb{0, 0, 0}{0.4}}-}
-\arrayrulecolor{black}
-\end{tabular}
-\end{threeparttable}\par\end{centerbox}
-
-\end{table}
- 
 
 Question: what does \texttt{highlight.output\ =\ c(TRUE,\ FALSE)} mean? (Hint: think about R's recycling of vectors)
 
@@ -24578,12 +23599,6 @@ The chakra comes from \href{https://remarkjs.com}{remark.js}, \href{http://yihui
 This tutorial provides an introduction to survival analysis, and to conducting a survival analysis in R.
 
 This tutorial was originally presented at the Memorial Sloan Kettering Cancer Center R-Presenters series on August 30, 2018.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# load(here::here('data', 'survival_data_example.RData'))}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{introduction-2}{%
 \chapter{Introduction}\label{introduction-2}}
@@ -25174,12 +24189,6 @@ Some key assumptions of the model:
 
 We can fit regression models for survival data using the \texttt{survival::coxph} function, which takes a \texttt{survival::Surv} object on the left hand side and has standard syntax for regression formulas in \texttt{R} on the right hand side.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{survival}\OperatorTok{::}\KeywordTok{coxph}\NormalTok{(survival}\OperatorTok{::}\KeywordTok{Surv}\NormalTok{(os_yrs, os) }\OperatorTok{~}\StringTok{ }\KeywordTok{factor}\NormalTok{(bmi_cat), }\DataTypeTok{data =}\NormalTok{ df)}
-\end{Highlighting}
-\end{Shaded}
-
 We can see a tidy version of the output using the \texttt{tidy} function from the \texttt{broom} package:
 
 \hypertarget{hazard-ratios}{%
@@ -25217,12 +24226,6 @@ So we would say that obese BMI kidney cancer patients have 0.64 times reduced ha
 This tutorial provides an introduction to survival analysis, and to conducting a survival analysis in R.
 
 This tutorial was originally presented at the Memorial Sloan Kettering Cancer Center R-Presenters series on August 30, 2018.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# load(here::here('data', 'survival_data_example.RData'))}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{introduction-3}{%
 \chapter{Introduction}\label{introduction-3}}
@@ -26755,32 +25758,12 @@ This style provides first and second-level headings (that is, \texttt{\#} and \t
 
 Images and graphics play an integral role in Tufte's work. To place figures in the margin you can use the \textbf{knitr} chunk option \texttt{fig.margin\ =\ TRUE}. For example:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\NormalTok{mtcars2 <-}\StringTok{ }\NormalTok{mtcars}
-\NormalTok{mtcars2}\OperatorTok{$}\NormalTok{am <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{am, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"automatic"}\NormalTok{, }\StringTok{"manual"}\NormalTok{))}
-\KeywordTok{ggplot}\NormalTok{(mtcars2, }\KeywordTok{aes}\NormalTok{(hp, mpg, }\DataTypeTok{color =}\NormalTok{ am)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-margin-1.pdf}
-\caption{\label{fig:fig-margin}MPG vs horsepower, colored by transmission.}
-\end{figure}
-
 Note the use of the \texttt{fig.cap} chunk option to provide a figure caption. You can adjust the proportions of figures using the \texttt{fig.width} and \texttt{fig.height} chunk options. These are specified in inches, and will be automatically scaled down to fit within the handout margin.
 
 \hypertarget{arbitrary-margin-content}{%
 \section{Arbitrary Margin Content}\label{arbitrary-margin-content}}
 
 In fact, you can include anything in the margin using the \textbf{knitr} engine named \texttt{marginfigure}. Unlike R code chunks \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\ eval=FALSE,\ include=FALSE,\ echo=TRUE\}}, you write a chunk starting with \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{marginfigure\}} instead, then put the content in the chunk. See an example on the right about the first fundamental theorem of calculus.
-
-\begin{verbatim}
-We know from _the first fundamental theorem of calculus_ that for $x$ in $[a, b]$:
-$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
-\end{verbatim}
 
 For the sake of portability between LaTeX and HTML, you should keep the margin content as simple as possible (syntax-wise) in the \texttt{marginefigure} blocks. You may use simple Markdown syntax like \texttt{**bold**} and \texttt{\_italic\_} text, but please refrain from using footnotes, citations, or block-level elements (e.g.~blockquotes and lists) there.
 
@@ -26791,36 +25774,12 @@ Note: if you set \texttt{echo\ =\ TRUE} in your global chunk options, you will h
 
 You can arrange for figures to span across the entire page by using the chunk option \texttt{fig.fullwidth\ =\ TRUE}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(carat, price)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{facet_grid}\NormalTok{(}\OperatorTok{~}\NormalTok{cut)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-fullwidth-1.pdf}
-\caption{\label{fig:fig-fullwidth}A full width figure.}
-\end{figure}
-
 Other chunk options related to figures can still be used, such as \texttt{fig.width}, \texttt{fig.cap}, \texttt{out.width}, and so on. For full width figures, usually \texttt{fig.width} is large and \texttt{fig.height} is small. In the above example, the plot size is \(10 \times 2\).
 
 \hypertarget{main-column-figures}{%
 \section{Main Column Figures}\label{main-column-figures}}
 
 Besides margin and full width figures, you can of course also include figures constrained to the main column. This is the default type of figures in the LaTeX/HTML output.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(cut, price)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_boxplot}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-main-1.pdf}
-\caption{\label{fig:fig-main}A figure in the main column.}
-\end{figure}
 
 \hypertarget{sidenotes}{%
 \chapter{Sidenotes}\label{sidenotes}}
@@ -26870,213 +25829,17 @@ The HTML page is responsive in the sense that when the page width is smaller tha
 
 The rest of this document consists of a few test cases to make sure everything still works well in slightly more complicated scenarios. First we generate two plots in one figure environment with the chunk option \texttt{fig.show\ =\ \textquotesingle{}hold\textquotesingle{}}:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mtcars2, }\KeywordTok{aes}\NormalTok{(hp, mpg, }\DataTypeTok{color =}\NormalTok{ am)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
-\NormalTok{p}
-\NormalTok{p }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-two-together-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-two-together-2.pdf}
-
 Then two plots in separate figure environments (the code is identical to the previous code chunk, but the chunk option is the default \texttt{fig.show\ =\ \textquotesingle{}asis\textquotesingle{}} now):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mtcars2, }\KeywordTok{aes}\NormalTok{(hp, mpg, }\DataTypeTok{color =}\NormalTok{ am)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
-\NormalTok{p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-two-separate-1.pdf}
-\caption{\label{fig:fig-two-separate-1}Two plots in separate figure environments (the first plot).}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-two-separate-2.pdf}
-\caption{\label{fig:fig-two-separate-2}Two plots in separate figure environments (the second plot).}
-\end{figure}
 
 You may have noticed that the two figures have different captions, and that is because we used a character vector of length 2 for the chunk option \texttt{fig.cap} (something like \texttt{fig.cap\ =\ c(\textquotesingle{}first\ plot\textquotesingle{},\ \textquotesingle{}second\ plot\textquotesingle{})}).
 
 Next we show multiple plots in margin figures. Similarly, two plots in the same figure environment in the margin:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p}
-\NormalTok{p }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-margin-together-1.pdf} \includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-margin-together-2.pdf}
-
 Then two plots from the same code chunk placed in different figure environments:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(iris, }\DecValTok{15}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{tabular}{r|r|r|r|l}
-\hline
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\hline
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-\hline
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-\hline
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-\hline
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-\hline
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\hline
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-\hline
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-\hline
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-\hline
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-\hline
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\hline
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-\hline
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-\hline
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-\hline
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-\hline
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\hline
-\end{tabular}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-margin-separate-1.pdf}
-\caption{\label{fig:fig-margin-separate-1}Two plots in separate figure environments in the margin (the first plot).}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(iris, }\DecValTok{12}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{tabular}{r|r|r|r|l}
-\hline
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\hline
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-\hline
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-\hline
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-\hline
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-\hline
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\hline
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-\hline
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-\hline
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-\hline
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-\hline
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\hline
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-\hline
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-\hline
-\end{tabular}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-margin-separate-2.pdf}
-\caption{\label{fig:fig-margin-separate-2}Two plots in separate figure environments in the margin (the second plot).}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(iris, }\DecValTok{5}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{tabular}{r|r|r|r|l}
-\hline
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\hline
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-\hline
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-\hline
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-\hline
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-\hline
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\hline
-\end{tabular}
 
 We blended some tables in the above code chunk only as \emph{placeholders} to make sure there is enough vertical space among the margin figures, otherwise they will be stacked tightly together. For a practical document, you should not insert too many margin figures consecutively and make the margin crowded.
 
 You do not have to assign captions to figures. We show three figures with no captions below in the margin, in the main column, and in full width, respectively.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# a boxplot of weight vs transmission; this figure will be placed in the margin}
-\KeywordTok{ggplot}\NormalTok{(mtcars2, }\KeywordTok{aes}\NormalTok{(am, wt)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_boxplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_flip}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-nocap-margin-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# a figure in the main column}
-\NormalTok{p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mtcars, }\KeywordTok{aes}\NormalTok{(wt, hp)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
-\NormalTok{p}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-nocap-main-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# a fullwidth figure}
-\NormalTok{p }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{facet_grid}\NormalTok{(}\OperatorTok{~}\NormalTok{gear)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MyRCodesForDataAnalysis_files/figure-latex/fig-nocap-fullwidth-1.pdf}
 
 \hypertarget{some-notes-on-tufte-css}{%
 \chapter{Some Notes on Tufte CSS}\label{some-notes-on-tufte-css}}

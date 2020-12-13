@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.12.12)  12 DEC 2020 23:37
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.12.12)  13 DEC 2020 10:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1048,53 +1048,53 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 ]
 Chapter 1.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 161.
 [5] [6
 
 ]
 Chapter 2.
+[7] [8
 
-LaTeX Warning: Reference `intro' on page 7 undefined on input line 153.
+]
+Chapter 3.
+
+LaTeX Warning: Reference `intro' on page 9 undefined on input line 173.
 
 
-LaTeX Warning: Reference `methods' on page 7 undefined on input line 153.
+LaTeX Warning: Reference `methods' on page 9 undefined on input line 173.
 
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 159.
 File: MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-3-1.pdf Graphic 
 file (type pdf)
 <use MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-3-1.pdf>
 
-LaTeX Warning: Reference `fig:' on page 7 undefined on input line 173.
+LaTeX Warning: Reference `fig:' on page 9 undefined on input line 193.
 
 
-LaTeX Warning: Reference `tab:' on page 7 undefined on input line 173.
+LaTeX Warning: Reference `tab:' on page 9 undefined on input line 193.
 
-[7]
+[9]
 
-Package natbib Warning: Citation `R-bookdown' on page 8 undefined on input line
- 219.
+Package natbib Warning: Citation `R-bookdown' on page 10 undefined on input lin
+e 239.
 
 
-Package natbib Warning: Citation `xie2015' on page 8 undefined on input line 21
-9.
+Package natbib Warning: Citation `xie2015' on page 10 undefined on input line 2
+39.
 
-[8]
-Chapter 3.
-[9
-
-] [10
-
-]
+[10]
 Chapter 4.
-[11] [12
+[11
 
-]
+] [12]
 Chapter 5.
-[13] [14
+[13
 
-]
+] [14]
 Chapter 6.
-[15] [16
+[15
+
+] [16
 
 ]
 Chapter 7.
@@ -1106,6 +1106,12 @@ Chapter 8.
 
 ]
 Chapter 9.
+
+Overfull \hbox (50.61pt too wide) in paragraph at lines 466--466
+[]\TU/lmtt/m/n/10 JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categori
+es: 'PATHOLOGY' Selected Category Scheme: WoS[] 
+ []
+
 [21] [22
 
 ]
@@ -1118,52 +1124,14 @@ Chapter 11.
 
 ]
 Chapter 12.
-[27] [28
-
-]
-Chapter 13.
-[29] [30
-
-]
-Chapter 14.
-[31] [32
-
-]
-Chapter 15.
-[33] [34
-
-]
-Chapter 16.
-[35] [36
-
-]
-Chapter 17.
-
-Overfull \hbox (50.61pt too wide) in paragraph at lines 544--544
-[]\TU/lmtt/m/n/10 JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categori
-es: 'PATHOLOGY' Selected Category Scheme: WoS[] 
- []
-
-[37] [38
-
-]
-Chapter 18.
-[39] [40
-
-]
-Chapter 19.
-[41] [42
-
-]
-Chapter 20.
-[43]
-Overfull \hbox (103.11pt too wide) in paragraph at lines 5136--5136
+[27]
+Overfull \hbox (103.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For example, to ignore case in variable names (so that Arm an
 d arm are considered the same), pass tol.vars = "case".[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 summary(compare(mockstudy, mockstudy2, by = "case", control =
  comparison.control(tol.vars = "case")))[] 
  []
@@ -1171,15 +1139,15 @@ Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[44]
-Overfull \hbox (313.11pt too wide) in paragraph at lines 5136--5136
+[28]
+Overfull \hbox (313.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 It is possible to treat certain characters or sets of charact
 ers as the same by passing a character vector of equivalence classes to the tol
 .vars= argument.[] 
  []
 
 
-Overfull \hbox (2407.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (2407.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In short, each string in the vector is split into single char
 acters, and the resulting set of characters is replaced by the first character 
 in the string. For example, passing c("._") would replace all underscores with 
@@ -1191,7 +1159,7 @@ g.) c("._", "case").[]
  []
 
 
-Overfull \hbox (496.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (496.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Passing a single character as an element this vector will rep
 lace that character with the empty string. For example, passing c(" “,”.“) woul
 d remove all spaces and dots from the column names.[] 
@@ -1200,17 +1168,17 @@ d remove all spaces and dots from the column names.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[45]
+[29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[46]
-Overfull \hbox (134.61pt too wide) in paragraph at lines 5136--5136
+[30]
+Overfull \hbox (134.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Use the tol.logical= argument to change how logicals are comp
 ared. By default, they’re expected to be equal to each other.[] 
  []
 
 
-Overfull \hbox (990.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (990.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To allow numeric differences of a certain tolerance, use the 
 tol.num= and tol.num.val= options. tol.num.val= determines the maximum (unsigne
 d) difference tolerated if tol.num="absolute" (default), and determines the max
@@ -1218,7 +1186,7 @@ imum (unsigned) percent difference tolerated if tol.num="percent".[]
  []
 
 
-Overfull \hbox (785.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (785.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Also note the option int.as.num=, which determines whether in
 tegers and numerics should be compared despite their class difference. If TRUE,
  the integers are coerced to numeric. Note that mockstudy$ast is integer, while
@@ -1228,11 +1196,11 @@ tegers and numerics should be compared despite their class difference. If TRUE,
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47]
+[31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[48]
-Overfull \hbox (633.36pt too wide) in paragraph at lines 5136--5136
+[32]
+Overfull \hbox (633.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 By default, factors are compared to each other based on both 
 the labels and the underlying numeric levels. Set tol.factor="levels" to match 
 only the numeric levels, or set tol.factor="labels" to match only the labels.[]
@@ -1242,8 +1210,8 @@ only the numeric levels, or set tol.factor="labels" to match only the labels.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[49]
-Overfull \hbox (859.11pt too wide) in paragraph at lines 5136--5136
+[33]
+Overfull \hbox (859.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Also note the option factor.as.char=, which determines whethe
 r factors and characters should be compared despite their class difference. If 
 TRUE, the factors are coerced to characters. Note that mockstudy$race is a char
@@ -1253,8 +1221,8 @@ acter, while mockstudy2$race is a factor:[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[50]
-Overfull \hbox (481.11pt too wide) in paragraph at lines 5136--5136
+[34]
+Overfull \hbox (481.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Use the tol.char= argument to change how character variables 
 are compared. By default, they are compared as-is, but they can be compared aft
 er ignoring case or trimming whitespace or both.[] 
@@ -1263,23 +1231,23 @@ er ignoring case or trimming whitespace or both.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[51]
+[35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[52]
-Overfull \hbox (103.11pt too wide) in paragraph at lines 5136--5136
+[36]
+Overfull \hbox (103.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Use the tol.date= argument to change how dates are compared. 
 By default, they’re expected to be equal to each other.[] 
  []
 
 
-Overfull \hbox (108.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (108.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Use the tol.other= argument to change how other objects are c
 ompared. By default, they’re expected to be identical().[] 
  []
 
 
-Overfull \hbox (628.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (628.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The comparison.control() function accepts functions for any o
 f the tolerance arguments in addition to the short-hand character strings. This
  allows the user to create custom tolerance functions to suit his/her needs.[] 
@@ -1287,7 +1255,7 @@ f the tolerance arguments in addition to the short-hand character strings. This
  []
 
 
-Overfull \hbox (1231.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1231.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Any custom tolerance function must accept two vectors as argu
 ments and return a logical vector of the same length. The TRUEs in the results 
 should correspond to elements which are deemed “different”. Note that the numer
@@ -1296,7 +1264,7 @@ nce size (even if it’s not used).[]
  []
 
 
-Overfull \hbox (790.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (790.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 CAUTION: the results should not include NAs, since the logica
 l vector is used to subset the input data.frames. The tol.NA() function is usef
 ul for considering any NAs in the two vectors (but not both) as differences, in
@@ -1304,13 +1272,13 @@ ul for considering any NAs in the two vectors (but not both) as differences, in
  []
 
 
-Overfull \hbox (166.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (166.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Suppose we want to ignore any dates which are later in the se
 cond dataset than the first. We define a custom tolerance function.[] 
  []
 
 
-Overfull \hbox (66.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (66.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 n.diffs(compare(date.df1, date.df2, tol.date = my.tol)) # our
  function identifies only the NA as different...[] 
  []
@@ -1318,15 +1286,15 @@ Overfull \hbox (66.36pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[53]
-Overfull \hbox (302.61pt too wide) in paragraph at lines 5136--5136
+[37]
+Overfull \hbox (302.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Differences can be easily extracted using the diffs() functio
 n. If you only want to determine how many differences were found, use the n.dif
 fs() function.[] 
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 cmp <- compare(mockstudy, mockstudy2, by = "case", tol.vars =
  c("._ ", "case"), int.as.num = TRUE)[] 
  []
@@ -1334,8 +1302,8 @@ Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[54]
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+[38]
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To report differences from only a few variables, one can pass
  a list of variable names to diffs().[] 
  []
@@ -1343,124 +1311,124 @@ Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[55]
-Overfull \hbox (334.11pt too wide) in paragraph at lines 5136--5136
+[39]
+Overfull \hbox (334.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 variable name, column number, and class vector (with possibly
  more than one element) for each x and y. These are all NA if there isn’t a mat
 ch in both datasets.[] 
  []
 
 
-Overfull \hbox (244.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (244.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 values, a list-column of the text string "by-variable" for th
 e by-variables, NULL for columns that aren’t compared, or a data.frame containi
 ng:[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []         \TU/lmtt/m/n/10 var.x pos.x         class.x       var.y pos.y       
   class.y           values        attrs[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 8         case     1         integer        case     1       
   integer      by-variable 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 17         sex     4          factor         sex     2       
    factor 1495 differences 2 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 16        race     5       character        race     3       
    factor     Not compared 3 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 15          ps     8         integer          ps     4       
   integer    1 differences 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 13         hgb     9         numeric         hgb     5       
   numeric  266 differences 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 7          bmi    10         numeric         bmi     6       
   numeric    0 differences 1 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 4     alk.phos    11         integer    alk.phos     7       
   integer    0 differences 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 6          ast    12         integer         ast     8       
   numeric     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 14 mdquality.s    13         integer mdquality.s     9       
   integer    0 differences 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 3      age.ord    14 ordered, factor     age.ord    10 ordere
 d, factor    0 differences 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 2          age     2         integer        <NA>    NA       
        NA     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 5          arm     3       character        <NA>    NA       
        NA     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 11     fu.time     6         integer        <NA>    NA       
        NA     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 10     fu.stat     7         integer        <NA>    NA       
        NA     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 12        <NA>    NA              NA     fu_time    11       
   integer     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 9         <NA>    NA              NA     fu stat    12       
   integer     Not compared 0 attributes[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 1         <NA>    NA              NA         Arm    13       
 character     Not compared 0 attributes[] 
  []
@@ -1468,8 +1436,8 @@ character     Not compared 0 attributes[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[56]
-Overfull \hbox (1158.36pt too wide) in paragraph at lines 5136--5136
+[40]
+Overfull \hbox (1158.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 freqlist() is a function meant to produce output similar to S
 AS’s PROC FREQ procedure when using the /list option of the TABLE statement. fr
 eqlist() provides options for handling missing or sparse data and can provide c
@@ -1478,7 +1446,7 @@ ckage for printing.[]
  []
 
 
-Overfull \hbox (1504.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1504.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For our examples, we’ll load the mockstudy data included with
  this package and use it to create a basic table. Because they have fewer level
 s, for brevity, we’ll use the variables arm, sex, and mdquality.s to create the
@@ -1488,26 +1456,26 @@ tes regarding default NA handling and other useful information regarding tables
  []
 
 
-Overfull \hbox (92.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (92.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The freqlist() function returns an object of class "freqlist"
 , which has three parts: freqlist, byVar, and labels.[] 
  []
 
 
-Overfull \hbox (328.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (328.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 freqlist is a single data frame containing all contingency ta
 bles with calculated frequencies, cumulative frequencies, percentages, and cumu
 lative percentages.[] 
  []
 
 
-Overfull \hbox (134.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (134.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 byVar and labels are used in the summary method for subgroups
  and variable names, which will be covered in later examples.[] 
  []
 
 
-Overfull \hbox (733.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (733.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The summary method for freqlist() relies on the kable() funct
 ion (in the knitr package) for printing. knitr::kable() converts the output to 
 markdown which can be printed in the console or easily rendered in Word, PDF, o
@@ -1517,15 +1485,15 @@ r HTML documents.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[57]
-Overfull \hbox (444.36pt too wide) in paragraph at lines 5136--5136
+[41]
+Overfull \hbox (444.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 You can also easily pull out the freqlist data frame for more
  complicated formatting or manipulation (e.g. with another function such as xta
 ble() or pander()) using as.data.frame():[] 
  []
 
 
-Overfull \hbox (706.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (706.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Instead of passing a pre-computed table to freqlist(), you ca
 n instead pass a formula, which will be in turn passed to the xtabs() function.
  Additional freqlist() arguments are passed through the ... to the freqlist() t
@@ -1535,15 +1503,15 @@ able method.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[58]
-Overfull \hbox (229.11pt too wide) in paragraph at lines 5136--5136
+[42]
+Overfull \hbox (229.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Note that the addNA= argument was added to xtabs() in R 3.4.0
 . In previous versions, NAs have to be added to relevant columns using addNA().
 [] 
  []
 
 
-Overfull \hbox (1583.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1583.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The digits= argument takes a single numeric value and control
 s the rounding of percentages in the output. The  labelTranslations= argument i
 s a character vector or list whose length must be equal to the number of factor
@@ -1555,8 +1523,8 @@ he following example.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[59]
-Overfull \hbox (1048.11pt too wide) in paragraph at lines 5136--5136
+[43]
+Overfull \hbox (1048.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The sparse= argument takes a single logical value as input. T
 he default option is FALSE. If set to TRUE, the sparse option will include comb
 inations with frequencies of zero in the list of results. As our initial table 
@@ -1567,8 +1535,8 @@ did not have any such levels, we create a second table to use in our example.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[60]
-Overfull \hbox (1090.11pt too wide) in paragraph at lines 5136--5136
+[44]
+Overfull \hbox (1090.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The various na.options= allow you to include or exclude data 
 with missing values for one or more factor levels in the counts and percentages
 , as well as show the missing data but exclude it from the cumulative counts an
@@ -1579,8 +1547,8 @@ alues.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[61]
-Overfull \hbox (1048.11pt too wide) in paragraph at lines 5136--5136
+[45]
+Overfull \hbox (1048.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The groupBy= argument internally subsets the data by the spec
 ified factor prior to calculating cumulative counts and percentages. By default
 , when used each subset will print in a separate table. Using the single = TRUE
@@ -1591,8 +1559,8 @@ ified factor prior to calculating cumulative counts and percentages. By default
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[62]
-Overfull \hbox (171.36pt too wide) in paragraph at lines 5136--5136
+[46]
+Overfull \hbox (171.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Fair warning: xtable() has kind of a steep learning curve. Th
 ese examples are given without explanation, for more advanced users.[] 
  []
@@ -1600,8 +1568,8 @@ ese examples are given without explanation, for more advanced users.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[63]
-Overfull \hbox (1137.36pt too wide) in paragraph at lines 5136--5136
+[47]
+Overfull \hbox (1137.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Since the backbone of freqlist() is knitr::kable(), tables st
 ill render well in bookdown. However, print.summary.freqlist() doesn’t use the 
 caption= argument of kable(), so some tables may not have a properly numbered c
@@ -1610,7 +1578,7 @@ table a tag/ID.[]
  []
 
 
-Overfull \hbox (743.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (743.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 There are several widely used options for basic tables in R. 
 The table() function in base R is probably the most common; by default it exclu
 des NA values. You can change NA handling in base::table() using the useNA= or 
@@ -1620,8 +1588,8 @@ exclude= arguments.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[64]
-Overfull \hbox (1000.86pt too wide) in paragraph at lines 5136--5136
+[48]
+Overfull \hbox (1000.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 xtabs() is similar to table(), but uses a formula-based synta
 x. However, there is not an option for retaining NAs in the xtabs() function; i
 nstead, NAs must be added to each level of the factor where present using the a
@@ -1631,28 +1599,28 @@ ddNA() function, or (in R >= 3.4.0) using the argument addNA = TRUE.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[65]
-Overfull \hbox (334.11pt too wide) in paragraph at lines 5136--5136
+[49]
+Overfull \hbox (334.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Since the formula method of freqlist() uses xtabs(), NAs shou
 ld be treated in the same way. includeNA() can also be helpful here for setting
  explicit NA values.[] 
  []
 
 
-Overfull \hbox (297.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (297.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Supplying a data.frame to the table() function without giving
  columns individually will create a contingency table using all variables in th
 e data.frame.[] 
  []
 
 
-Overfull \hbox (171.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (171.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 However, if the columns of a data.frame or matrix are supplie
 d separately (i.e., as vectors), column names will not be preserved.[] 
  []
 
 
-Overfull \hbox (82.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (82.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 If using freqlist(), you can provide the labels directly to f
 reqlist() or to summary() using labelTranslations=.[] 
  []
@@ -1660,8 +1628,8 @@ reqlist() or to summary() using labelTranslations=.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[66]
-Overfull \hbox (1200.36pt too wide) in paragraph at lines 5136--5136
+[50]
+Overfull \hbox (1200.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The arsenal package relies somewhat heavily on variable label
 s to make output more “pretty”. A label here is understood to be a single chara
 cter string with “pretty” text (i.e., not an “ugly” variable name). Three of th
@@ -1670,7 +1638,7 @@ l ways to set these labels.[]
  []
 
 
-Overfull \hbox (1121.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1121.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The summary() method for tableby(), modelsum(), and freqlist(
 ) objects contains a labelTranslations = argument to specify labels in the func
 tion call. Note that the freqlist() function matches labels in order, whereas t
@@ -1681,15 +1649,15 @@ cter vector.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[67]
-Overfull \hbox (344.61pt too wide) in paragraph at lines 5136--5136
+[51]
+Overfull \hbox (344.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Another option is to add labels after you have created the ob
 ject. To do this, you can use the form labels(x) <- value or use the pipe-able 
 version, set_labels().[] 
  []
 
 
-Overfull \hbox (691.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (691.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 tableby() and modelsum() also allow you to have label attribu
 tes on the data. Note that by default these attributes usually get dropped upon
  subsetting, but tableby() and modelsum() use the keep.labels() function to ret
@@ -1699,14 +1667,14 @@ ain them.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[68]
+[52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[69]
+[53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[70]
-Overfull \hbox (2371.11pt too wide) in paragraph at lines 5136--5136
+[54]
+Overfull \hbox (2371.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Very often we are asked to summarize model results from multi
 ple fits into a nice table. The endpoint might be of different types (e.g., sur
 vival, case/control, continuous) and there may be several independent variables
@@ -1718,7 +1686,7 @@ i were written to create such summary tables. With the increasing interest in R
  []
 
 
-Overfull \hbox (2150.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (2150.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In developing the modelsum function, the goal was to bring th
 e best features of these macros into an R function. However, the task was not s
 imply to duplicate all the functionality, but rather to make use of R’s strengt
@@ -1729,7 +1697,7 @@ es could be displayed within an R markdown report.[]
  []
 
 
-Overfull \hbox (1310.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1310.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This report provides step-by-step directions for using the fu
 nctions associated with modelsum. All functions presented here are available wi
 thin the arsenal package. An assumption is made that users are somewhat familia
@@ -1738,7 +1706,7 @@ r with R markdown documents. For those who are new to the topic, a good initial
  []
 
 
-Overfull \hbox (1042.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1042.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The first step when using the modelsum function is to load th
 e arsenal package. All the examples in this report use a dataset called mockstu
 dy made available by Paul Novotny which includes a variety of types of variable
@@ -1747,14 +1715,14 @@ s (character, numeric, factor, ordered factor, survival) to use as examples.[]
  []
 
 
-Overfull \hbox (517.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (517.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To create a simple linear regression table (the default), use
  a formula statement to specify the variables that you want summarized. The exa
 mple below predicts BMI with the variables sex and age.[] 
  []
 
 
-Overfull \hbox (922.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (922.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 If you want to take a quick look at the table, you can use su
 mmary on your modelsum object and the table will print out as text in your R co
 nsole window. If you use summary without any options you will see a number of &
@@ -1764,8 +1732,8 @@ nbsp; statements which translates to “space” in HTML.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[71]
-Overfull \hbox (643.86pt too wide) in paragraph at lines 5136--5136
+[55]
+Overfull \hbox (643.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In order for the report to look nice within an R markdown (kn
 itr) report, you just need to specify results="asis" when creating the r chunk.
  This changes the layout slightly (compresses it) and bolds the variable names.
@@ -1773,20 +1741,20 @@ itr) report, you just need to specify results="asis" when creating the r chunk.
  []
 
 
-Overfull \hbox (50.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (50.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The argument adjust allows the user to indicate that all the 
 variables should be adjusted for these terms.[] 
  []
 
 
-Overfull \hbox (591.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (591.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To make sure the correct model is run you need to specify “fa
 mily”. The options available right now are : gaussian, binomial, survival, and 
 poisson. If there is enough interest, additional models can be added.[] 
  []
 
 
-Overfull \hbox (255.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (255.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Look at whether there is any evidence that AlkPhos values var
 y by study arm after adjusting for sex and age (assuming a linear age relations
 hip).[] 
@@ -1795,8 +1763,8 @@ hip).[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[72]
-Overfull \hbox (202.86pt too wide) in paragraph at lines 5136--5136
+[56]
+Overfull \hbox (202.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The results suggest that the endpoint may need to be transfor
 med. Calculating the Box-Cox transformation suggests a log transformation.[] 
  []
@@ -1804,14 +1772,14 @@ med. Calculating the Box-Cox transformation suggests a log transformation.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[73]
-Overfull \hbox (29.61pt too wide) in paragraph at lines 5136--5136
+[57]
+Overfull \hbox (29.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In this instance it looks like there isn’t enough evidence to
  say that the relationship is non-linear.[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 +                     gaussian.stats=c("estimate","CI.lower.e
 stimate","CI.upper.estimate","p.value"))[] 
  []
@@ -1819,8 +1787,8 @@ stimate","CI.upper.estimate","p.value"))[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[74]
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+[58]
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > boxplot(age ~ mdquality.s, data=mockstudy, ylab=attr(mockst
 udy$age,'label'), xlab='mdquality.s')[] 
  []
@@ -1828,8 +1796,8 @@ udy$age,'label'), xlab='mdquality.s')[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[75]
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+[59]
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > tmp <- pROC::roc(mockstudy$mdquality.s[!is.na(mockstudy$mdq
 uality.s)]~ pred, plot=TRUE, percent=TRUE)[] 
  []
@@ -1837,11 +1805,11 @@ uality.s)]~ pred, plot=TRUE, percent=TRUE)[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[76]
+[60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[77]
-Overfull \hbox (1977.36pt too wide) in paragraph at lines 5136--5136
+[61]
+Overfull \hbox (1977.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Poisson regression is useful when predicting an outcome varia
 ble representing counts. It can also be useful when looking at survival data. C
 ox models and Poisson models are very closely related and survival data can be 
@@ -1852,7 +1820,7 @@ side of modelsum.[]
  []
 
 
-Overfull \hbox (150.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (150.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For the first example, use the solder dataset available in th
 e rpart package. The endpoint skips has a definite Poisson look.[] 
  []
@@ -1860,8 +1828,8 @@ e rpart package. The endpoint skips has a definite Poisson look.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[78]
-Overfull \hbox (481.11pt too wide) in paragraph at lines 5136--5136
+[62]
+Overfull \hbox (481.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Overdispersion is when the Residual deviance is larger than t
 he degrees of freedom. This can be tested, approximately using the following co
 de. The goal is to have a p-value that is >0.05.[] 
@@ -1870,8 +1838,8 @@ de. The goal is to have a p-value that is >0.05.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[79]
-Overfull \hbox (139.86pt too wide) in paragraph at lines 5136--5136
+[63]
+Overfull \hbox (139.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 One possible solution is to use the quasipoisson family inste
 ad of the poisson family. This adjusts for the overdispersion.[] 
  []
@@ -1879,8 +1847,8 @@ ad of the poisson family. This adjusts for the overdispersion.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[80]
-Overfull \hbox (880.11pt too wide) in paragraph at lines 5136--5136
+[64]
+Overfull \hbox (880.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This second example uses the survival endpoint available in t
 he mockstudy dataset. There is a close relationship between survival and Poisso
 n models, and often it is easier to fit the model using Poisson regression, esp
@@ -1888,7 +1856,7 @@ ecially if you want to present absolute risk.[]
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > fit <- glm(fu.stat ~ offset(log(fu.time+.01)) + age + sex +
  arm, data=mockstudy, family=poisson)[] 
  []
@@ -1896,8 +1864,8 @@ Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[81]
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+[65]
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > # results from the Poisson model can then be described as r
 isk ratios (similar to the hazard ratio)[] 
  []
@@ -1905,8 +1873,8 @@ isk ratios (similar to the hazard ratio)[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[82]
-Overfull \hbox (733.11pt too wide) in paragraph at lines 5136--5136
+[66]
+Overfull \hbox (733.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Remember that the result from modelsum is different from the 
 fit above. The modelsum summary shows the results for age + offset(log(fu.time+
 .01)) then sex + offset(log(fu.time+.01)) instead of age + sex + arm + offset(l
@@ -1914,7 +1882,7 @@ og(fu.time+.01)).[]
  []
 
 
-Overfull \hbox (801.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (801.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 There are standard settings for each type of model regarding 
 what information is summarized in the table. This behavior can be modified usin
 g the modelsum.control function. In fact, you can save your standard settings a
@@ -1922,13 +1890,13 @@ nd use that for future tables.[]
  []
 
 
-Overfull \hbox (13.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (13.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > mycontrols  <- modelsum.control(gaussian.stats=c("estimate"
 ,"std.error","adj.r.squared","Nmiss"),[] 
  []
 
 
-Overfull \hbox (738.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (738.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In the above example, age is shown with a label (Age in Years
 ), but sex is listed “as is”. This is because the data was created in SAS and i
 n the SAS dataset, age had a label but sex did not. The label is stored as an a
@@ -1938,15 +1906,15 @@ ttribute within R.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[83]
-Overfull \hbox (218.61pt too wide) in paragraph at lines 5136--5136
+[67]
+Overfull \hbox (218.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 If you want to add labels to other variables, there are a cou
 ple of options. First, you could add labels to the variables in your dataset.[]
  
  []
 
 
-Overfull \hbox (202.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (202.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Alternatively, you can check the variable labels and manipula
 te them with a function called labels, which works on the modelsum object.[] 
  []
@@ -1954,8 +1922,8 @@ te them with a function called labels, which works on the modelsum object.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[84]
-Overfull \hbox (565.11pt too wide) in paragraph at lines 5136--5136
+[68]
+Overfull \hbox (565.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Often one wants to summarize a number of variables. Instead o
 f typing by hand each individual variable, an alternative approach is to create
  a formula using the paste command with the collapse="+" option.[] 
@@ -1964,33 +1932,33 @@ f typing by hand each individual variable, an alternative approach is to create
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[85]
-Overfull \hbox (113.61pt too wide) in paragraph at lines 5136--5136
+[69]
+Overfull \hbox (113.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Here are two ways to get the same result (limit the analysis 
 to subjects age>50 and in the F: FOLFOX treatment group).[] 
  []
 
 
-Overfull \hbox (481.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (481.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The first approach uses the subset function applied to the da
 taset mockstudy. This example also selects a subset of variables. The modelsum 
 function is then applied to this subsetted data.[] 
  []
 
 
-Overfull \hbox (13.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (13.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > newdata <- subset(mockstudy, subset=age>50 & arm=='F: FOLFO
 X', select = c(age,sex, bmi:alk.phos))[] 
  []
 
 
-Overfull \hbox (55.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (55.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The second approach does the same analysis but uses the subse
 t argument within modelsum to subset the data.[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > summary(modelsum(log(alk.phos) ~ sex + ps + bmi, subset=age
 >50 & arm=="F: FOLFOX", data=mockstudy))[] 
  []
@@ -1998,8 +1966,8 @@ Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[86]
-Overfull \hbox (775.11pt too wide) in paragraph at lines 5136--5136
+[70]
+Overfull \hbox (775.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Certain transformations need to be surrounded by I() so that 
 R knows to treat it as a variable transformation and not some special model fea
 ture. If the transformation includes any of the symbols / - + ^ * then surround
@@ -2007,7 +1975,7 @@ ture. If the transformation includes any of the symbols / - + ^ * then surround
  []
 
 
-Overfull \hbox (1483.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1483.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 It is possible to combine two modelsum objects so that they p
 rint out together, however you need to pay attention to the columns that are be
 ing displayed. It is easier to combine two models of the same family (such as t
@@ -2019,8 +1987,8 @@ l.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[87]
-Overfull \hbox (360.36pt too wide) in paragraph at lines 5136--5136
+[71]
+Overfull \hbox (360.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When creating a pdf the tables are automatically numbered and
  the title appears below the table. In Word and HTML, the titles appear un-numb
 ered and above the table.[] 
@@ -2029,21 +1997,21 @@ ered and above the table.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[88]
-Overfull \hbox (61.11pt too wide) in paragraph at lines 5136--5136
+[72]
+Overfull \hbox (61.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Within modelsum.control function there are 3 options for cont
 rolling the number of significant digits shown.[] 
  []
 
 
-Overfull \hbox (386.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (386.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Occasionally it is of interest to fit models using case weigh
 ts. The modelsum function allows you to pass on the weights to the models and i
 t will do the appropriate fit.[] 
  []
 
 
-Overfull \hbox (3.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (3.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 > index <- with(mockstudy, cbind(as.numeric(agegp), as.numeri
 c(sex), as.numeric(as.factor(arm))))[] 
  []
@@ -2051,8 +2019,8 @@ c(sex), as.numeric(as.factor(arm))))[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[89]
-Overfull \hbox (29.61pt too wide) in paragraph at lines 5136--5136
+[73]
+Overfull \hbox (29.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For those users who wish to create tables within an Sweave do
 cument, the following code seems to work.[] 
  []
@@ -2060,29 +2028,29 @@ cument, the following code seems to work.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[90]
-Overfull \hbox (559.86pt too wide) in paragraph at lines 5136--5136
+[74]
+Overfull \hbox (559.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When looking at multiple variables it is sometimes useful to 
 export the results to a csv file. The as.data.frame function creates a data fra
 me object that can be exported or further manipulated within R.[] 
  []
 
 
-Overfull \hbox (481.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (481.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The easiest way to output a modelsum() object in an R Shiny a
 pp is to use the tableOutput() UI in combination with the renderTable() server 
 function and as.data.frame(summary(modelsum())):[] 
  []
 
 
-Overfull \hbox (218.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (218.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This can be especially powerful if you feed the selections fr
 om a selectInput(multiple = TRUE) into formulize() to make the table dynamic![]
  
  []
 
 
-Overfull \hbox (1137.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1137.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Since the backbone of modelsum() is knitr::kable(), tables st
 ill render well in bookdown. However, print.summary.modelsum() doesn’t use the 
 caption= argument of kable(), so some tables may not have a properly numbered c
@@ -2093,36 +2061,36 @@ table a tag/ID.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[91]
-Overfull \hbox (360.36pt too wide) in paragraph at lines 5136--5136
+[75]
+Overfull \hbox (360.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 optional: estimate, CI.OR, CI.estimate, CI.lower.estimate, CI
 .upper.estimate, N, Nmiss2, endpoint, std.error, statistic, logLik, AIC, BIC, e
 df, deviance, df.residual[] 
  []
 
 
-Overfull \hbox (460.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (460.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 optional: estimate, CI.OR, CI.estimate, CI.lower.estimate, CI
 .upper.estimate, N, Nmiss2, endpoint, std.error, statistic, logLik, AIC, BIC, n
 ull.deviance, deviance, df.residual, df.null[] 
  []
 
 
-Overfull \hbox (349.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (349.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 optional: CI.estimate, CI.lower.estimate, CI.upper.estimate, 
 N, Nmiss2, statistic, standard.estimate, endpoint, r.squared, AIC, BIC, logLik,
  statistic.F, p.value.F[] 
  []
 
 
-Overfull \hbox (544.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (544.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 optional: CI.RR, CI.estimate, CI.lower.estimate, CI.upper.est
 imate, CI.RR, Nmiss2, std.error, estimate, statistic, endpoint, AIC, BIC, logLi
 k, dispersion, null.deviance, deviance, df.residual, df.null[] 
  []
 
 
-Overfull \hbox (633.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (633.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 optional: CI.RR, CI.estimate, CI.lower.estimate, CI.upper.est
 imate, CI.RR, Nmiss2, std.error, estimate, statistic, endpoint, AIC, BIC, logLi
 k, dispersion, null.deviance, deviance, df.residual, df.null, theta, SE.theta[]
@@ -2130,7 +2098,7 @@ k, dispersion, null.deviance, deviance, df.residual, df.null, theta, SE.theta[]
  []
 
 
-Overfull \hbox (733.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (733.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 optional: CI.HR, CI.estimate, CI.lower.estimate, CI.upper.est
 imate, N, Nmiss2, estimate, std.error, endpoint, Nevents, statistic, r.squared,
  logLik, AIC, BIC, statistic.sc, p.value.sc, p.value.log, p.value.wald, N, std.
@@ -2140,21 +2108,21 @@ error.concordance[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[92]
-Overfull \hbox (523.11pt too wide) in paragraph at lines 5136--5136
+[76]
+Overfull \hbox (523.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 A quick way to see what arguments are possible to utilize in 
 a function is to use the args() command. Settings involving the number of digit
 s can be set in modelsum.control or in summary.modelsum.[] 
  []
 
 
-Overfull \hbox (129.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (129.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The summary.modelsum function has options that modify how the
  table appears (such as adding a title or modifying labels).[] 
  []
 
 
-Overfull \hbox (1399.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1399.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Another one of the most common tables in medical literature i
 ncludes summary statistics for a set of variables paired across two time points
 . Locally at Mayo, the SAS macro %paired was written to create summary tables w
@@ -2163,13 +2131,13 @@ ction paired() to create similar tables within the R environment.[]
  []
 
 
-Overfull \hbox (108.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (108.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This vignette is light on purpose; paired() piggybacks off of
  tableby, so most documentation there applies here, too.[] 
  []
 
 
-Overfull \hbox (502.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (502.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The first step when using the paired() function is to load th
 e arsenal package. We can’t use mockstudy here because we need a dataset with p
 aired observations, so we’ll create our own dataset.[] 
@@ -2178,28 +2146,28 @@ aired observations, so we’ll create our own dataset.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[93]
-Overfull \hbox (449.61pt too wide) in paragraph at lines 5136--5136
+[77]
+Overfull \hbox (449.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To create a simple table stratified by time point, use a form
 ula= statement to specify the variables that you want summarized and the id= ar
 gument to specify the paired observations.[] 
  []
 
 
-Overfull \hbox (13.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (13.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 p <- paired(tp ~ Cat + Fac + Num + Ord + Lgl + Dat, data = da
 t, id = id, signed.rank.exact = FALSE)[] 
  []
 
 
-Overfull \hbox (496.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (496.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The third column shows the difference between time point 1 an
 d time point 2. For categorical variables, it reports the percent of observatio
 ns from time point 1 which changed in time point 2.[] 
  []
 
 
-Overfull \hbox (376.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (376.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Note that by default, observations which do not have both tim
 epoints are removed. This is easily changed using the na.action = na.paired("<a
 rg>") argument. For example:[] 
@@ -2208,22 +2176,22 @@ rg>") argument. For example:[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[94]
-Overfull \hbox (281.61pt too wide) in paragraph at lines 5136--5136
+[78]
+Overfull \hbox (281.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The tests used to calculate p-values differ by the variable t
 ype, but can be specified explicitly in the formula statement or in the control
  function.[] 
  []
 
 
-Overfull \hbox (507.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (507.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 A quick way to see what arguments are possible to utilize in 
 a function is to use the args() command. Settings involving the number of digit
 s can be set in paired.control or in summary.tableby.[] 
  []
 
 
-Overfull \hbox (171.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (171.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Since the “paired” object inherits “tableby”, the summary.tab
 leby function is what’s actually used to format and print the table.[] 
  []
@@ -2231,14 +2199,14 @@ leby function is what’s actually used to format and print the table.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[95]
-Overfull \hbox (61.11pt too wide) in paragraph at lines 5136--5136
+[79]
+Overfull \hbox (61.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 10. Subsetting (change the ordering of the variables, delete 
 a variable, sort by p-value, filter by p-value)[] 
  []
 
 
-Overfull \hbox (1546.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1546.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 One of the most common tables in medical literature includes 
 summary statistics for a set of variables, often stratified by some group (e.g.
  treatment arm). Locally at Mayo, the SAS macros %table and %summary were writt
@@ -2248,7 +2216,7 @@ R environment.[]
  []
 
 
-Overfull \hbox (2155.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (2155.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In developing the tableby() function, the goal was to bring t
 he best features of these macros into an R function. However, the task was not 
 simply to duplicate all the functionality, but rather to make use of R’s streng
@@ -2259,7 +2227,7 @@ les could be displayed within an R markdown report.[]
  []
 
 
-Overfull \hbox (1315.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1315.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This report provides step-by-step directions for using the fu
 nctions associated with tableby(). All functions presented here are available w
 ithin the arsenal package. An assumption is made that users are somewhat famili
@@ -2270,8 +2238,8 @@ l resource is available at rmarkdown.rstudio.com.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[96]
-Overfull \hbox (1037.61pt too wide) in paragraph at lines 5136--5136
+[80]
+Overfull \hbox (1037.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The first step when using the tableby function is to load the
  arsenal package. All the examples in this report use a dataset called mockstud
 y made available by Paul Novotny which includes a variety of types of variables
@@ -2279,14 +2247,14 @@ y made available by Paul Novotny which includes a variety of types of variables
  []
 
 
-Overfull \hbox (533.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (533.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To create a simple table stratified by treament arm, use a fo
 rmula statement to specify the variables that you want summarized. The example 
 below uses age (a continuous variable) and sex (a factor).[] 
  []
 
 
-Overfull \hbox (937.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (937.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 If you want to take a quick look at the table, you can use su
 mmary() on your tableby object and the table will print out as text in your R c
 onsole window. If you use summary() without any options you will see a number o
@@ -2294,55 +2262,55 @@ f &nbsp; statements which translates to “space” in HTML.[]
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |             | A: IFL (N=428)  | F: FOLFOX (N=691) | G: I
 ROX (N=380) | Total (N=1499)  | p value|[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |:------------|:---------------:|:-----------------:|:----
 -----------:|:---------------:|-------:|[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |sex          |                 |                   |     
             |                 |   0.190|[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |-  Male      |   277 (64.7%)   |    411 (59.5%)    |   22
 8 (60.0%)   |   916 (61.1%)   |        |[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |-  Female    |   151 (35.3%)   |    280 (40.5%)    |   15
 2 (40.0%)   |   583 (38.9%)   |        |[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |Age in Years |                 |                   |     
             |                 |   0.614|[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |-  Mean (SD) | 59.673 (11.365) |  60.301 (11.632)  | 59.7
 63 (11.499) | 59.985 (11.519) |        |[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |-  Range     | 27.000 - 88.000 |  19.000 - 88.000  | 26.0
 00 - 85.000 | 19.000 - 88.000 |        |[] 
  []
 
 
-Overfull \hbox (643.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (643.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In order for the report to look nice within an R markdown (kn
 itr) report, you just need to specify results="asis" when creating the r chunk.
  This changes the layout slightly (compresses it) and bolds the variable names.
@@ -2352,8 +2320,8 @@ itr) report, you just need to specify results="asis" when creating the r chunk.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[97]
-Overfull \hbox (864.36pt too wide) in paragraph at lines 5136--5136
+[81]
+Overfull \hbox (864.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In the above example, age is shown with a label (Age in Years
 ), but sex is listed “as is” with lower case letters. This is because the data 
 was created in SAS and in the SAS dataset, age had a label but sex did not. The
@@ -2363,15 +2331,15 @@ was created in SAS and in the SAS dataset, age had a label but sex did not. The
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[98]
-Overfull \hbox (218.61pt too wide) in paragraph at lines 5136--5136
+[82]
+Overfull \hbox (218.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 If you want to add labels to other variables, there are a cou
 ple of options. First, you could add labels to the variables in your dataset.[]
  
  []
 
 
-Overfull \hbox (197.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (197.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Alternatively, you can check the variable labels and manipula
 te them with a function called labels, which works on the tableby object.[] 
  []
@@ -2379,8 +2347,8 @@ te them with a function called labels, which works on the tableby object.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[99]
-Overfull \hbox (2581.11pt too wide) in paragraph at lines 5136--5136
+[83]
+Overfull \hbox (2581.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Currently the default behavior is to summarize continuous var
 iables with: Number of missing values, Mean (SD), 25th - 75th quantiles, and Mi
 nimum-Maximum values with an ANOVA (t-test with equal variances) p-value. For c
@@ -2392,7 +2360,7 @@ he total column and p-value column not being printed.[]
  []
 
 
-Overfull \hbox (1940.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1940.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In addition to modifying summary options globally, it is poss
 ible to modify the test and summary statistics for specific variables within th
 e formula statement. For example, both the kwt (Kruskal-Wallis rank-based) and 
@@ -2403,7 +2371,7 @@ st for the variable “ast”. A list of all the options is shown at the end of 
  []
 
 
-Overfull \hbox (3.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (3.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The tests function can do a quick check on what tests were pe
 rformed on each variable in tableby.[] 
  []
@@ -2411,8 +2379,8 @@ rformed on each variable in tableby.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[100]
-Overfull \hbox (990.36pt too wide) in paragraph at lines 5136--5136
+[84]
+Overfull \hbox (990.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Summary statistics for any individual variable can also be mo
 dified, but it must be done as secondary arguments to the test function. The fu
 nction names must be strings that are functions already written for tableby, bu
@@ -2420,7 +2388,7 @@ ilt-in R functions like mean and range, or user-defined functions.[]
  []
 
 
-Overfull \hbox (685.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (685.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The formal tests for categorical variables against the levels
  of the by variable, chisq and fe, have options to simulate p-values. We show h
 ow to turn on the simulations for these with 500 replicates for the Fisher’s te
@@ -2428,13 +2396,13 @@ st (fe).[]
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 tab.catsim <- tableby(arm ~ sex + race, cat.test="fe", simula
 te.p.value=TRUE, B=500, data=mockstudy)[] 
  []
 
 
-Overfull \hbox (659.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (659.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 sex Gender 0.2195609 race Race 0.3093812 Method sex Fisher’s 
 Exact Test for Count Data with simulated p-value(based on 500 replicates) race 
 Fisher’s Exact Test for Count Data with simulated p-value(based on 500 replicat
@@ -2442,7 +2410,7 @@ es)[]
  []
 
 
-Overfull \hbox (1006.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1006.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The chis-square test on 2x2 tables applies Yates’ continuity 
 correction by default, so we provide an option to turn off the correction. We s
 how the results with and without the correction that is applied to treatment ar
@@ -2450,20 +2418,20 @@ m by sex, if we use subset to ignore one of the three treatment arms.[]
  []
 
 
-Overfull \hbox (29.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (29.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 cat.correct <- tableby(arm ~ sex + race, cat.test="chisq", su
 bset = !grepl("^F", arm), data=mockstudy)[] 
  []
 
 
-Overfull \hbox (496.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (496.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 You can easily create Word versions of tableby output via an 
 Rmarkdown report and the default options will give you a reasonable table in Wo
 rd - just select the “Knit Word” option in RStudio.[] 
  []
 
 
-Overfull \hbox (2008.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (2008.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The functionality listed in this next paragraph is coming soo
 n but needs an upgraded version of RStudio If you want to modify fonts used for
  the table, then you’ll need to add an extra line to your header at the beginni
@@ -2474,7 +2442,7 @@ StylesReference02.docx.[]
  []
 
 
-Overfull \hbox (71.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (71.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For more informating on changing the look/feel of your Word d
 ocument, see the Rmarkdown documentation website.[] 
  []
@@ -2482,8 +2450,8 @@ ocument, see the Rmarkdown documentation website.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[101]
-Overfull \hbox (1132.11pt too wide) in paragraph at lines 5136--5136
+[85]
+Overfull \hbox (1132.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When comparing groups of ordered data there are a couple of o
 ptions. The default uses a general independence test available from the coin pa
 ckage. For two-group comparisons, this is essentially the Armitage trend test. 
@@ -2494,8 +2462,8 @@ The other option is to specify the Kruskal Wallis test. The example below shows
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[102]
-Overfull \hbox (670.11pt too wide) in paragraph at lines 5136--5136
+[86]
+Overfull \hbox (670.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 First look at the information that is presented by the survfi
 t() function, then see how the same results can be seen with tableby. The defau
 lt is to show the median survival (time at which the probability of survival = 
@@ -2503,7 +2471,7 @@ lt is to show the median survival (time at which the probability of survival =
  []
 
 
-Overfull \hbox (139.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (139.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 It is also possible to obtain summaries of the % survival at 
 certain time points (say the probability of surviving 1-year).[] 
  []
@@ -2511,21 +2479,21 @@ certain time points (say the probability of surviving 1-year).[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[103]
-Overfull \hbox (129.36pt too wide) in paragraph at lines 5136--5136
+[87]
+Overfull \hbox (129.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 summary(tableby(sex ~ Surv(fu.time/365.25, fu.stat), data=moc
 kstudy, times=1:5, surv.stats=c("NeventsSurv","NriskSurv")))[] 
  []
 
 
-Overfull \hbox (612.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (612.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Date variables by default are summarized with the number of m
 issing values, the median, and the range. For example purposes we’ve created a 
 random date. Missing values are introduced for impossible February dates.[] 
  []
 
 
-Overfull \hbox (565.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (565.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Often one wants to summarize a number of variables. Instead o
 f typing by hand each individual variable, an alternative approach is to create
  a formula using the paste command with the collapse="+" option.[] 
@@ -2534,14 +2502,14 @@ f typing by hand each individual variable, an alternative approach is to create
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[104]
-Overfull \hbox (108.36pt too wide) in paragraph at lines 5136--5136
+[88]
+Overfull \hbox (108.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Here are two ways to get the same result (limit the analysis 
 to subjects age>5 and in the F: FOLFOX treatment group).[] 
  []
 
 
-Overfull \hbox (475.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (475.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The first approach uses the subset function applied to the da
 taset mockstudy. This example also selects a subset of variables. The tableby f
 unction is then applied to this subsetted data.[] 
@@ -2550,20 +2518,20 @@ unction is then applied to this subsetted data.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[105]
-Overfull \hbox (50.61pt too wide) in paragraph at lines 5136--5136
+[89]
+Overfull \hbox (50.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The second approach does the same analysis but uses the subse
 t argument within tableby to subset the data.[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 summary(tableby(interaction(mdquality.s, sex) ~  age + bmi, d
 ata=mockstudy, subset=arm=="F: FOLFOX"))[] 
  []
 
 
-Overfull \hbox (775.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (775.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Certain transformations need to be surrounded by I() so that 
 R knows to treat it as a variable transformation and not some special model fea
 ture. If the transformation includes any of the symbols / - + ^ * then surround
@@ -2571,7 +2539,7 @@ ture. If the transformation includes any of the symbols / - + ^ * then surround
  []
 
 
-Overfull \hbox (3.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (3.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 trans <- tableby(arm ~ I(age/10) + log(bmi) + factor(mdqualit
 y.s, levels=0:1, labels=c('N','Y')),[] 
  []
@@ -2579,21 +2547,21 @@ y.s, levels=0:1, labels=c('N','Y')),[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[106]
-Overfull \hbox (544.11pt too wide) in paragraph at lines 5136--5136
+[90]
+Overfull \hbox (544.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The labels for these variables isn’t exactly what we’d like s
 o we can change modify those after the fact. Instead of typing out the very lon
 g variable names you can modify specific labels by position.[] 
  []
 
 
-Overfull \hbox (160.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (160.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Note that if we had not changed mdquality.s to a factor, it w
 ould have been summarized as though it were a continuous variable.[] 
  []
 
 
-Overfull \hbox (853.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (853.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Another option would be to specify the test and summary stati
 stics. In fact, if I had a set of variables coded 0/1 and that was all I was su
 mmarizing, then I could change the global option for continuous variables to us
@@ -2601,7 +2569,7 @@ e the chi-square test and show countpct.[]
  []
 
 
-Overfull \hbox (61.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (61.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 10. Subsetting (change the ordering of the variables, delete 
 a variable, sort by p-value, filter by p-value)[] 
  []
@@ -2609,11 +2577,11 @@ a variable, sort by p-value, filter by p-value)[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[107]
+[91]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[108]
-Overfull \hbox (360.36pt too wide) in paragraph at lines 5136--5136
+[92]
+Overfull \hbox (360.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When creating a pdf the tables are automatically numbered and
  the title appears below the table. In Word and HTML, the titles appear un-numb
 ered and above the table.[] 
@@ -2622,32 +2590,32 @@ ered and above the table.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[109]
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+[93]
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ##        case         age         arm         sex        rac
 e     fu.time     fu.stat          ps[] 
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ##           0           0           0           0           
 7           0           0         266[] 
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ##         hgb         bmi    alk.phos         ast mdquality.
 s     age.ord  age.ordnew     dtentry[] 
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ##         266          33         266         266         25
 2           0           1           5[] 
  []
 
 
-Overfull \hbox (97.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (97.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 One might also consider the use of includeNA() to include NAs
  in the counts and percents for categorical variables.[] 
  []
@@ -2655,21 +2623,21 @@ Overfull \hbox (97.86pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[110]
-Overfull \hbox (55.86pt too wide) in paragraph at lines 5136--5136
+[94]
+Overfull \hbox (55.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Within tableby.control function there are 4 options for contr
 olling the number of significant digits shown.[] 
  []
 
 
-Overfull \hbox (281.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (281.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 With the exception of digits.p, all of these can be specified
  on a per-variable basis using the in-formula functions that specify which test
 s are run:[] 
  []
 
 
-Overfull \hbox (1604.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1604.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For purposes of this example, the code below creates a trimme
 d mean function (trims 10%) and use that to summarize the data. Note the use of
  the ... which tells R to pass extra arguments on - this is required for user-d
@@ -2679,7 +2647,7 @@ nt is also required, even though it isn’t passed on to the internal function i
  []
 
 
-Overfull \hbox (738.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (738.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When comparing groups, they are often unbalanced when it come
 s to nuisances such as age and sex. The tableby function allows you to create w
 eighted summary statistics. If this option us used then p-values are not calcul
@@ -2687,7 +2655,7 @@ ated (test=FALSE).[]
  []
 
 
-Overfull \hbox (103.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (103.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 mockstudy$fake_arm <- ifelse(mockstudy$age>60 & mockstudy$sex
 =='Female',sample(c('A','B'),replace=T, prob=c(.2,.8)),[] 
  []
@@ -2695,8 +2663,8 @@ Overfull \hbox (103.11pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[111]
-Overfull \hbox (19.11pt too wide) in paragraph at lines 5136--5136
+[95]
+Overfull \hbox (19.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 index <- with(mockstudy, cbind(as.numeric(agegp), as.numeric(
 sex), as.numeric(as.factor(fake_arm))))[] 
  []
@@ -2704,8 +2672,8 @@ sex), as.numeric(as.factor(fake_arm))))[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[112]
-Overfull \hbox (1263.36pt too wide) in paragraph at lines 5136--5136
+[96]
+Overfull \hbox (1263.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When using weighted summary statistics, it is often desirable
  to then show a p-value from a model that corresponds to the weighted analysis.
  It is possible to add your own p-value and modify the column title for that ne
@@ -2714,7 +2682,7 @@ fidence intervals instead of a p-value.[]
  []
 
 
-Overfull \hbox (1588.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1588.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To add the p-value you simply need to create a data frame and
  use the function modpval.tableby. The first 2 columns in the dataframe are req
 uired and are the variable name and the new p-value. The third column can be us
@@ -2724,7 +2692,7 @@ n the tableby summary.[]
  []
 
 
-Overfull \hbox (1956.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1956.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 If the cat.simplify option is set to TRUE, then only the seco
 nd level of two-level categorical varialbes is shown. In the example below, sex
  has two levels, and “Female” is the second level, hence only the counts and pe
@@ -2735,7 +2703,7 @@ on one line).[]
  []
 
 
-Overfull \hbox (675.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (675.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Similarly, if numeric.simplify is set to TRUE, then any numer
 ics which only have one row of summary statistics are simplified into a single 
 row. Note again that ast has missing values and so is not simplified to a singl
@@ -2743,13 +2711,13 @@ e row.[]
  []
 
 
-Overfull \hbox (150.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (150.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The in-formula functions to change which tests are run can al
 so be used to specify these options for each variable at a time.[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |             | A: IFL (N=428)  | F: FOLFOX (N=691) | G: I
 ROX (N=380) | Total (N=1499)  | p value|[] 
  []
@@ -2757,32 +2725,32 @@ ROX (N=380) | Total (N=1499)  | p value|[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[113]
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+[97]
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |:------------|:---------------:|:-----------------:|:----
 -----------:|:---------------:|-------:|[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**Age, yrs** | 59.673 (11.365) |  60.301 (11.632)  | 59.7
 63 (11.499) | 59.985 (11.519) |   0.614|[] 
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (24.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**Gender**   |   151 (35.3%)   |    280 (40.5%)    |   15
 2 (40.0%)   |   583 (38.9%)   |   0.190|[] 
  []
 
 
-Overfull \hbox (29.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (29.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For those users who wish to create tables within an Sweave do
 cument, the following code seems to work.[] 
  []
 
 
-Overfull \hbox (559.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (559.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 When looking at multiple variables it is sometimes useful to 
 export the results to a csv file. The as.data.frame function creates a data fra
 me object that can be exported or further manipulated within R.[] 
@@ -2791,22 +2759,22 @@ me object that can be exported or further manipulated within R.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[114]
-Overfull \hbox (470.61pt too wide) in paragraph at lines 5136--5136
+[98]
+Overfull \hbox (470.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The easiest way to output a tableby() object in an R Shiny ap
 p is to use the tableOutput() UI in combination with the renderTable() server f
 unction and as.data.frame(summary(tableby())):[] 
  []
 
 
-Overfull \hbox (218.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (218.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This can be especially powerful if you feed the selections fr
 om a selectInput(multiple = TRUE) into formulize() to make the table dynamic![]
  
  []
 
 
-Overfull \hbox (1126.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1126.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Since the backbone of tableby() is knitr::kable(), tables sti
 ll render well in bookdown. However, print.summary.tableby() doesn’t use the ca
 ption= argument of kable(), so some tables may not have a properly numbered cap
@@ -2815,133 +2783,133 @@ ble a tag/ID.[]
  []
 
 
-Overfull \hbox (166.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (166.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The padjust() function is a new S3 generic piggybacking off o
 f p.adjust(). It works on both tableby and summary.tableby objects:[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |                             |   Male (N=916)    |  Femal
 e (N=583)   |  Total (N=1499)   | p value|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |:----------------------------|:-----------------:|:------
 -----------:|:-----------------:|-------:|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**Age, yrs**                 |                   |       
             |                   |   0.048|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |  60.455 (11.369)  |  59.24
 7 (11.722)  |  59.985 (11.519)  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      |  19.000 - 88.000  |  22.00
 0 - 88.000  |  19.000 - 88.000  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**fu.time**                  |                   |       
             |                   |   0.978|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  | 649.345 (454.332) | 648.67
 4 (475.472) | 649.084 (462.511) |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      | 0.000 - 2472.000  | 9.000 
 - 2441.000  | 0.000 - 2472.000  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**Body Mass Index (kg/m^2)** |                   |       
             |                   |   0.012|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;N-Miss     |        22         |       
  11         |        33         |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |  27.491 (5.030)   |  26.76
 0 (5.984)   |  27.206 (5.432)   |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      |  14.053 - 60.243  |  15.43
 0 - 53.008  |  14.053 - 60.243  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**mdquality.s**              |                   |       
             |                   |   0.827|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;N-Miss     |        153        |       
  99         |        252        |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |   0.899 (0.301)   |   0.90
 3 (0.296)   |   0.901 (0.299)   |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      |   0.000 - 1.000   |   0.00
 0 - 1.000   |   0.000 - 1.000   |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |                             |   Male (N=916)    |  Femal
 e (N=583)   |  Total (N=1499)   | p value|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |:----------------------------|:-----------------:|:------
 -----------:|:-----------------:|-------:|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**Age, yrs**                 |                   |       
             |                   |   0.191|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |  60.455 (11.369)  |  59.24
 7 (11.722)  |  59.985 (11.519)  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      |  19.000 - 88.000  |  22.00
 0 - 88.000  |  19.000 - 88.000  |        |[] 
  []
@@ -2949,127 +2917,127 @@ Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[115]
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+[99]
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**fu.time**                  |                   |       
             |                   |   1.000|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  | 649.345 (454.332) | 648.67
 4 (475.472) | 649.084 (462.511) |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      | 0.000 - 2472.000  | 9.000 
 - 2441.000  | 0.000 - 2472.000  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**Body Mass Index (kg/m^2)** |                   |       
             |                   |   0.048|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;N-Miss     |        22         |       
  11         |        33         |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |  27.491 (5.030)   |  26.76
 0 (5.984)   |  27.206 (5.432)   |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      |  14.053 - 60.243  |  15.43
 0 - 53.008  |  14.053 - 60.243  |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |**mdquality.s**              |                   |       
             |                   |   1.000|[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;N-Miss     |        153        |       
  99         |        252        |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |   0.899 (0.301)   |   0.90
 3 (0.296)   |   0.901 (0.299)   |        |[] 
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 ## |&nbsp;&nbsp;&nbsp;Range      |   0.000 - 1.000   |   0.00
 0 - 1.000   |   0.000 - 1.000   |        |[] 
  []
 
 
-Overfull \hbox (507.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (507.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Any summary statistics standardly defined in R (e.g. mean, me
 dian, sd, med, range) can be specified, however there are a number of extra fun
 ctions defined specifically for the tableby function.[] 
  []
 
 
-Overfull \hbox (3.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (3.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 countpct: print the number of values in a category plus the c
 olumn-percentage in the format N (%)[] 
  []
 
 
-Overfull \hbox (3.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (3.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 countrowpct: print the number of values in a category plus th
 e row-percentage in the format N (%)[] 
  []
 
 
-Overfull \hbox (13.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (13.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 countcellpct: print the number of values in a category plus t
 he cell-percentage in the format N (%)[] 
  []
 
 
-Overfull \hbox (281.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (281.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The tests used to calculate p-values differ by the variable t
 ype, but can be specified explicitly in the formula statement or in the control
  function.[] 
  []
 
 
-Overfull \hbox (449.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (449.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 anova: analysis of variance test; the default test for contin
 uous variables. When the grouping variable has two levels, it is equivalent to 
 the two-sample t-test with equal variance.[] 
  []
 
 
-Overfull \hbox (313.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (313.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 kwt: Kruskal-Wallis test, optional test for continuous variab
 les. When the grouping variable has two levels, it is equivalent to the Wilcoxo
 n Rank Sum test.[] 
  []
 
 
-Overfull \hbox (271.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (271.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 chisq: chi-square goodness of fit test for equal counts of a 
 categorical variable across categories; the default for categorical or factor v
 ariables[] 
  []
 
 
-Overfull \hbox (575.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (575.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 trend: The independence_test function from the coin is used t
 o test for trends. Whenthe grouping variable has two levels, it is equivalent t
 o the Armitage trend test. This is the default for ordered factors[] 
@@ -3078,15 +3046,15 @@ o the Armitage trend test. This is the default for ordered factors[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[116]
-Overfull \hbox (512.61pt too wide) in paragraph at lines 5136--5136
+[100]
+Overfull \hbox (512.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 A quick way to see what arguments are possible to utilize in 
 a function is to use the args() command. Settings involving the number of digit
 s can be set in tableby.control or in summary.tableby.[] 
  []
 
 
-Overfull \hbox (124.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (124.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The summary.tableby function has options that modify how the 
 table appears (such as adding a title or modifying labels).[] 
  []
@@ -3094,15 +3062,15 @@ table appears (such as adding a title or modifying labels).[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[117]
-Overfull \hbox (575.61pt too wide) in paragraph at lines 5136--5136
+[101]
+Overfull \hbox (575.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The write2*() functions were designed as an alternative to SA
 S’s ODS procedure for useRs who want to save R Markdown tables to separate Word
 , HTML, or PDF files without needing separate R Markdown programs.[] 
  []
 
 
-Overfull \hbox (1478.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1478.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 There are three shortcut functions for the most common output
  types: HTML, PDF, and Word. Each of these three functions calls write2(), an S
 3 function which accepts many file output types (see the help pages for rmarkdo
@@ -3112,14 +3080,14 @@ qlist(), but also knitr::kable(), xtable::xtable(), and pander::pander_return()
  []
 
 
-Overfull \hbox (538.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (538.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Which function is being used to output the object. Sometimes 
 the write2 functions use summary(), while other times they will use print(). Th
 e details for each object specifically are described below.[] 
  []
 
 
-Overfull \hbox (785.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (785.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 How the ... arguments are passed. To change the options for t
 he summary-like or print-like function, you can pass named arguments which will
  in turn get passed to the appropriate function. Details for each object specif
@@ -3127,7 +3095,7 @@ ically are described below.[]
  []
 
 
-Overfull \hbox (1830.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (1830.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The write2*() functions are probably the most useful place to
  take advantage of the magrittr package’s piping framework, since commands are 
 often nested several functions deep in the context of write2*(). Piping also al
@@ -3137,13 +3105,13 @@ instead of needing to write separate R Markdown programs, intermediate analysis
  []
 
 
-Overfull \hbox (134.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (134.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This vignette will sprinkle the foward pipe (%>%) throughout 
 as a hint at the power and flexibility of arsenal and piping.[] 
  []
 
 
-Overfull \hbox (827.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (827.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For tableby objects, the output function in write2() is summa
 ry(). For summary.tableby objects, the output function is print(). For availabl
 e arguments, see the help pages for summary.tableby(). Don’t use the option tex
@@ -3151,7 +3119,7 @@ t = TRUE with the write2 functions.[]
  []
 
 
-Overfull \hbox (843.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (843.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For modelsum objects, the output function in write2() is summ
 ary(). For summary.modelsum objects, the output function is print(). For availa
 ble arguments, see the help pages for summary.modelsum(). Don’t use the option 
@@ -3159,13 +3127,13 @@ text = TRUE with the write2 functions.[]
  []
 
 
-Overfull \hbox (34.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (34.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 tab2 <- modelsum(alk.phos ~ arm + ps + hgb, adjust= ~ age + s
 ex, family = "gaussian", data = mockstudy)[] 
  []
 
 
-Overfull \hbox (528.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (528.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For freqlist objects, the output function in write2() is summ
 ary(). For summary.freqlist objects, the output function is print(). For availa
 ble arguments, see the help pages for summary.freqlist().[] 
@@ -3174,40 +3142,40 @@ ble arguments, see the help pages for summary.freqlist().[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[118]
-Overfull \hbox (276.36pt too wide) in paragraph at lines 5136--5136
+[102]
+Overfull \hbox (276.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For compare.data.frame objects, the output function in write2
 () is summary(). For summary.compare.data.frame objects, the output function is
  print().[] 
  []
 
 
-Overfull \hbox (297.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (297.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For objects resulting from a call to kable(), the output func
 tion in write2() is print(). There aren’t any arguments to the print.knitr_kabl
 e() function.[] 
  []
 
 
-Overfull \hbox (160.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (160.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For xtable objects, the output function in write2() is print(
 ). For available arguments, see the help pages for print.xtable().[] 
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []    \TU/lmtt/m/n/10 comment = FALSE, # passed to print.xtable to turn off the
  default message about xtable version[] 
  []
 
 
-Overfull \hbox (8.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (8.61pt too wide) in paragraph at lines 5058--5058
 []    \TU/lmtt/m/n/10 comment = FALSE, # passed to print.xtable to turn off the
  default message about xtable version[] 
  []
 
 
-Overfull \hbox (727.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (727.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 Pander is a little bit more tricky. Since pander::pander() do
 esn’t return an object, the useR should instead use pander::pander_return(). Fo
 r this (and for all character vectors), the the output function in write2() is 
@@ -3215,13 +3183,13 @@ cat(sep = '\n').[]
  []
 
 
-Overfull \hbox (55.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (55.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 write2word(pander::pander_return(head(mockstudy)), file = pas
 te0(tmpdir, "/test.pander.doc"), quiet = TRUE)[] 
  []
 
 
-Overfull \hbox (55.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (55.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 To output multiple tables into a document, simply make a list
  of them and call the same function as before.[] 
  []
@@ -3229,40 +3197,40 @@ Overfull \hbox (55.86pt too wide) in paragraph at lines 5136--5136
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[119]
-Overfull \hbox (92.61pt too wide) in paragraph at lines 5136--5136
+[103]
+Overfull \hbox (92.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 One neat side-effect of this function is that you can output 
 text and headers, etc. The possibilities are endless![] 
  []
 
 
-Overfull \hbox (538.86pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (538.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 It may be useful at times to write output that would normally
  be copied from the terminal. The default method for write2() does this automat
 ically. To output the results of summary.lm(), for example:[] 
  []
 
 
-Overfull \hbox (276.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (276.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 The verbatim() function is another option to explicitly alert
  write2() to do this. This becomes particularly helpful to overrule existing S3
  methods.[] 
  []
 
 
-Overfull \hbox (40.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (40.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 For example, suppose you wanted to just print a tableby objec
 t (as if it were to print in the terminal):[] 
  []
 
 
-Overfull \hbox (187.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (187.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 In fact, all detected YAML pieces will be moved as the first 
 output, so that the above code chunk gives the same output as this one:[] 
  []
 
 
-Overfull \hbox (61.11pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (61.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This is easily accomplished by using the argument quiet = TRU
 E (passed to the rmarkdown::render() function).[] 
  []
@@ -3270,20 +3238,20 @@ E (passed to the rmarkdown::render() function).[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[120]
-Overfull \hbox (103.11pt too wide) in paragraph at lines 5136--5136
+[104]
+Overfull \hbox (103.11pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This is easily accomplished by using the option render. = FAL
 SE. Note that this will then default to keep.md = TRUE.[] 
  []
 
 
-Overfull \hbox (66.36pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (66.36pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 See the help pages for rmarkdown::word_document(), rmarkdown:
 :html_document(), and rmarkdown::pdf_document().[] 
  []
 
 
-Overfull \hbox (512.61pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (512.61pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 This can be done using the generic write2() function. The las
 t argument in the function can be another format specification. For details on 
 the acceptable inputs, see the help page for write2().[] 
@@ -3292,31 +3260,63 @@ the acceptable inputs, see the help page for write2().[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[121]
-Overfull \hbox (160.86pt too wide) in paragraph at lines 5136--5136
+[105]
+Overfull \hbox (160.86pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10 There are now write2() methods for the summary objects of ars
 enal functions. This allows you to specify a title for each table:[] 
  []
 
 
-Overfull \hbox (323.61pt too wide) in paragraph at lines 5148--5148
+Overfull \hbox (323.61pt too wide) in paragraph at lines 5070--5070
 []\TU/lmtt/m/n/10 from: https://datascienceplus.com/automated-dashboard-visuali
 zations-with-deviation-in-r/?fbclid=IwAR2JcAMQ4eNRMrEBPGL79HDbS818vGZX0evs-ateB
 X0d9SRFIilY7U44Szw[] 
  []
 
 
-Overfull \hbox (265.86pt too wide) in paragraph at lines 5174--5174
+Overfull \hbox (265.86pt too wide) in paragraph at lines 5096--5096
 []\TU/lmtt/m/n/10 gitCommand <- paste("cd ", wd, " \n git add . \n git commit -
 -message '", CommitMessage, "' \n", setorigin, "git push origin master \n",  se
 p = "")[] 
  []
 
-[122]
-Chapter 21.
-[123
+[106]
+Chapter 13.
+[107
 
-] [124
+] [108
+
+]
+Chapter 14.
+[109] [110
+
+]
+Chapter 15.
+[111] [112
+
+]
+Chapter 16.
+[113] [114
+
+]
+Chapter 17.
+[115] [116
+
+]
+Chapter 18.
+[117] [118
+
+]
+Chapter 19.
+[119] [120
+
+]
+Chapter 20.
+[121] [122
+
+]
+Chapter 21.
+[123] [124
 
 ]
 Chapter 22.
@@ -3328,52 +3328,20 @@ Chapter 23.
 
 ]
 Chapter 24.
-[129] [130
 
-]
-Chapter 25.
-[131] [132
-
-]
-Chapter 26.
-[133] [134
-
-]
-Chapter 27.
-[135] [136
-
-]
-Chapter 28.
-[137] [138
-
-]
-Chapter 29.
-[139] [140
-
-]
-Chapter 30.
-[141] [142
-
-]
-Chapter 31.
-[143] [144
-
-]
-Chapter 32.
-
-Overfull \hbox (13.86pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (13.86pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 # Rationale: If full title of Article 2 is present in text of
  Article 1, Article 1 cites Article 2.[] 
  []
 
 
-Overfull \hbox (108.36pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (108.36pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 # NOTE: Will only work in fields where full, unabbreviated ti
 tles are used in reference/bibliography citation format.[] 
  []
 
 
-Overfull \hbox (1541.61pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (1541.61pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 # NOTE: Will have high error rate if titles are very short or
  comprised of common words (e.g., paper "Vulnerability" produced many false pos
 itives). Some errors result from authors using a shortened version of a title (
@@ -3383,42 +3351,102 @@ rks produced are therefore approximate and to be used primarily for exploration
  []
 
 
-Overfull \hbox (423.36pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (423.36pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 # NOTE: Error rate may be reduced by using only reference sec
 tions of the articles of interest, rather than full texts, but this will increa
 se work required to prepare articles.[] 
  []
 
 
-Overfull \hbox (344.61pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (344.61pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 # b. Titles: Column of paper titles in csv spreadsheet (Colum
 n #1) *in SAME ORDER* as documents in Papers folder. Need a header cell or top 
 title will be removed.[] 
  []
 
 
-Overfull \hbox (150.36pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (150.36pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 # Recommend naming all texts in Papers folder using author la
 st name listed alphabetically. Organize Titles using same order.[] 
  []
 
 
-Overfull \hbox (66.36pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (66.36pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10 setwd("C:/Users/User/OneDrive/Adaptive Capacity Text Mining/C
 itation Network Test/CitationNetwork Test Data")[] 
  []
 
-[145]
+[129]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[146]
-Underfull \hbox (badness 10000) in paragraph at lines 5409--5410
+[130]
+Underfull \hbox (badness 10000) in paragraph at lines 5331--5332
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][] [] [][][] [] [][][]
 [][][][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][][][][][][][] [] [
 ][] [] [][][][][][][] [] [][] [] [][][][][][] [] [][][][][][][] []
  []
 
-[147] [148
+[131] [132
+
+]
+Chapter 25.
+[133] [134
+
+]
+Chapter 26.
+[135] [136
+
+]
+Chapter 27.
+[137] [138
+
+]
+Chapter 28.
+[139] [140
+
+]
+Chapter 29.
+[141] [142
+
+]
+Chapter 30.
+[143] [144
+
+]
+Chapter 31.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5407--5408
+[][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][]
+ [] [][][][][][][][][][][][] [] [][][][][][][][][][][][][] [] [][][][][][] [] [
+][][] [] [][][][][][] [] [][][][][][][][][][][] [] [][][] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5413--5414
+[][]$[][][][][] [] [] [] [][][][][][] [] [][][][] [] [][][] [] [][][] [][] [][]
+[] [] [][][][][][][][] [] [][][][][] [] [][][][][][][][][] [] [][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5413--5414
+[][][][][][][][][][] [] [][][][][][][][] [] [][][][][][][][][] [] [][][][][] []
+ [][][][][][][][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][] [
+] [][][][][] [] [][][][][][] []
+ []
+
+
+Overfull \hbox (20.52997pt too wide) in paragraph at lines 5413--5414
+[][][][][][][][][][] [] [][][][][][][][][][][][][][][] [] [][][][] [] [][][][][
+][][][][][][] [][] [][][][][][][][][][][][][][] [] [][][][][][][][][][] [] [][]
+[][][][][][][][][][][][][][][] [] [][][][][][][][][][][][]$[] 
+ []
+
+[145] [146]
+Chapter 32.
+[147
+
+] [148
 
 ]
 Chapter 33.
@@ -3446,39 +3474,11 @@ Chapter 38.
 
 ]
 Chapter 39.
+[161] [162
 
-Underfull \hbox (badness 10000) in paragraph at lines 5485--5486
-[][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][]
- [] [][][][][][][][][][][][] [] [][][][][][][][][][][][][] [] [][][][][][] [] [
-][][] [] [][][][][][] [] [][][][][][][][][][][] [] [][][] [][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5491--5492
-[][]$[][][][][] [] [] [] [][][][][][] [] [][][][] [] [][][] [] [][][] [][] [][]
-[] [] [][][][][][][][] [] [][][][][] [] [][][][][][][][][] [] [][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5491--5492
-[][][][][][][][][][] [] [][][][][][][][] [] [][][][][][][][][] [] [][][][][] []
- [][][][][][][][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][] [
-] [][][][][] [] [][][][][][] []
- []
-
-
-Overfull \hbox (20.52997pt too wide) in paragraph at lines 5491--5492
-[][][][][][][][][][] [] [][][][][][][][][][][][][][][] [] [][][][] [] [][][][][
-][][][][][][] [][] [][][][][][][][][][][][][][] [] [][][][][][][][][][] [] [][]
-[][][][][][][][][][][][][][][] [] [][][][][][][][][][][][]$[] 
- []
-
-[161] [162]
+]
 Chapter 40.
-[163
-
-] [164
+[163] [164
 
 ]
 Chapter 41.
@@ -3550,59 +3550,27 @@ Chapter 57.
 
 ]
 Chapter 58.
-[199] [200
 
-]
-Chapter 59.
-[201] [202
-
-]
-Chapter 60.
-[203] [204
-
-]
-Chapter 61.
-[205] [206
-
-]
-Chapter 62.
-[207] [208
-
-]
-Chapter 63.
-[209] [210
-
-]
-Chapter 64.
-[211] [212
-
-]
-Chapter 65.
-[213] [214
-
-]
-Chapter 66.
-
-Overfull \hbox (10.58403pt too wide) in paragraph at lines 5763--5765
+Overfull \hbox (10.58403pt too wide) in paragraph at lines 5685--5687
 []\TU/lmr/m/n/10 subset(airquality, Day == 1, select = -Temp) # select Day=1 an
 d exclude ‘Temp’ airquality[which(airquality$Day==1),
  []
 
-[215] [216
+[199] [200
 
 ]
-Chapter 67.
-[217]
+Chapter 59.
+[201]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[218]
+[202]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[219]
+[203]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[220]
-Overfull \hbox (780.36pt too wide) in paragraph at lines 6546--6546
+[204]
+Overfull \hbox (780.36pt too wide) in paragraph at lines 6468--6468
 []\TU/lmtt/m/n/10 Note: The type argument in generate() is automatically filled
  based on the entries for specify() and hypothesize(). It can be removed throug
 hout the examples that follow. It is left in to reiterate the type of generatio
@@ -3612,26 +3580,26 @@ n process being performed.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[221]
+[205]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[222]
+[206]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[223]
+[207]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[224]
+[208]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[225]
+[209]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[226]
+[210]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[227]
-Overfull \hbox (780.36pt too wide) in paragraph at lines 6546--6546
+[211]
+Overfull \hbox (780.36pt too wide) in paragraph at lines 6468--6468
 []\TU/lmtt/m/n/10 Note: The type argument in generate() is automatically filled
  based on the entries for specify() and hypothesize(). It can be removed throug
 hout the examples that follow. It is left in to reiterate the type of generatio
@@ -3641,17 +3609,17 @@ n process being performed.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[228]
+[212]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[229]
-Overfull \hbox (29.61pt too wide) in paragraph at lines 6680--6680
+[213]
+Overfull \hbox (29.61pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 a numeric vector; ignored if x is a matrix. If x is a factor,
  y should be a factor of the same length.[] 
  []
 
 
-Overfull \hbox (1021.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (1021.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 a logical indicating whether to apply continuity correction w
 hen computing the test statistic for 2 by 2 tables: one half is subtracted from
  all |O - E| differences; however, the correction will not be bigger than the d
@@ -3659,20 +3627,20 @@ ifferences themselves. No correction is done if simulate.p.value = TRUE.[]
  []
 
 
-Overfull \hbox (13.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (13.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 a vector of probabilities of the same length of x. An error i
 s given if any entry of p is negative.[] 
  []
 
 
-Overfull \hbox (223.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (223.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 a logical scalar; if TRUE then p is rescaled (if necessary) t
 o sum to 1. If rescale.p is FALSE, and p does not sum to 1, an error is given.[
 ] 
  []
 
-[230]
-Overfull \hbox (1352.61pt too wide) in paragraph at lines 6680--6680
+[214]
+Overfull \hbox (1352.61pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 If x is a matrix with one row or column, or if x is a vector 
 and y is not given, then a goodness-of-fit test is performed (x is treated as a
  one-dimensional contingency table). The entries of x must be non-negative inte
@@ -3681,7 +3649,7 @@ es equal those in p, or are all equal if p is not given.[]
  []
 
 
-Overfull \hbox (2344.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (2344.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 If x is a matrix with at least two rows and columns, it is ta
 ken as a two-dimensional contingency table: the entries of x must be non-negati
 ve integers. Otherwise, x and y must be vectors or factors of the same length; 
@@ -3693,7 +3661,7 @@ rginals.[]
  []
 
 
-Overfull \hbox (1063.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (1063.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 If simulate.p.value is FALSE, the p-value is computed from th
 e asymptotic chi-squared distribution of the test statistic; continuity correct
 ion is only used in the 2-by-2 case (if correct is TRUE, the default). Otherwis
@@ -3702,7 +3670,7 @@ e the p-value is computed for a Monte Carlo test (Hope, 1968) with B replicates
  []
 
 
-Overfull \hbox (1515.36pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (1515.36pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 In the contingency table case simulation is done by random sa
 mpling from the set of all contingency tables with given marginals, and works o
 nly if the marginals are strictly positive. Continuity correction is never used
@@ -3712,46 +3680,46 @@ ct test.[]
  []
 
 
-Overfull \hbox (523.11pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (523.11pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 In the goodness-of-fit case simulation is done by random samp
 ling from the discrete distribution specified by p, each sample being of size n
  = sum(x). This simulation is done in R and may be slow.[] 
  []
 
 
-Overfull \hbox (260.61pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (260.61pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 the degrees of freedom of the approximate chi-squared distrib
 ution of the test statistic, NA if the p-value is computed by Monte Carlo simul
 ation.[] 
  []
 
 
-Overfull \hbox (160.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (160.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 a character string indicating the type of test performed, and
  whether Monte Carlo simulation or continuity correction was used.[] 
  []
 
 
-Overfull \hbox (470.61pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (470.61pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 standardized residuals, (observed - expected) / sqrt(V), wher
 e V is the residual cell variance (Agresti, 2007, section 2.4.5 for the case wh
 ere x is a matrix, n * p * (1 - p) otherwise).[] 
  []
 
 
-Overfull \hbox (19.11pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (19.11pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 The code for Monte Carlo simulation is a C translation of the
  Fortran algorithm of Patefield (1981).[] 
  []
 
 
-Overfull \hbox (208.11pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (208.11pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 Hope, A. C. A. (1968). A simplified Monte Carlo significance 
 test procedure. Journal of the Royal Statistical Society Series B, 30, 582–
  []
 
 
-Overfull \hbox (286.86pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (286.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 Patefield, W. M. (1981). Algorithm AS 159: An efficient metho
 d of generating r x c tables with given row and column totals. Applied Statisti
 cs, 30, 91–
@@ -3760,71 +3728,71 @@ cs, 30, 91–
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[231]
-Overfull \hbox (76.86pt too wide) in paragraph at lines 6680--6680
+[215]
+Overfull \hbox (76.86pt too wide) in paragraph at lines 6602--6602
 []\TU/lmtt/m/n/10 Agresti, A. (2007). An Introduction to Categorical Data Analy
 sis, 2nd ed. New York: John Wiley & Sons. Page 38.[] 
  []
 
-[232]
-Chapter 68.
-[233
+[216]
+Chapter 60.
+[217
 
-] [234
-
-]
-Chapter 69.
-[235] [236
+] [218
 
 ]
-Chapter 70.
-[237] [238
+Chapter 61.
+[219] [220
 
 ]
-Chapter 71.
-[239] [240]
-Chapter 72.
-[241
+Chapter 62.
+[221] [222
+
+]
+Chapter 63.
+[223] [224]
+Chapter 64.
+[225
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[242] [243] [244
+[226] [227] [228
 
 ]
-Chapter 73.
-[245]
-Overfull \hbox (817.11pt too wide) in paragraph at lines 7028--7028
+Chapter 65.
+[229]
+Overfull \hbox (817.11pt too wide) in paragraph at lines 6950--6950
 []\TU/lmtt/m/n/10 rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query '
 (diabetes AND pregnancy) AND (\"2017/01/01\"[PDAT] : \"2017/12/31\"[PDAT])' | e
 fetch -format xml | xtract -pattern Grant -element Agency | sort-uniq-count-ran
 k | head -n 10 > myquery.txt \n")[] 
  []
 
-[246]
-Chapter 74.
+[230]
+Chapter 66.
 
-Overfull \hbox (145.11pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (145.11pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 It's a bit shallower than previous trees, and you can actuall
 y read the labels. Let's evaluate it on the test dataset again.[] 
  []
 
 
-Overfull \hbox (575.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (575.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Seems like the correct classifications dropped a little bit. 
 It has done about the same as your original tree, so pruning did not hurt much 
 with respect to misclassification errors, and gave a simpler tree.[] 
  []
 
 
-Overfull \hbox (586.11pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (586.11pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Often case, trees don't give very good prediction errors, so 
 let's go ahead take a look at random forests and boosting, which tend to outper
 form trees as far as prediction and misclassification are concerned.[] 
  []
 
 
-Overfull \hbox (738.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (738.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 For this part, you will use the Boston housing data to explor
 e random forests and boosting. The dataset is located in the MASS package. It g
 ives housing values and other statistics in each of 506 suburbs of Boston based
@@ -3832,13 +3800,13 @@ ives housing values and other statistics in each of 506 suburbs of Boston based
  []
 
 
-Overfull \hbox (55.86pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (55.86pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 To prepare data for random forest, let's set the seed and cre
 ate a sample training set of 300 observations.[] 
  []
 
 
-Overfull \hbox (1184.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1184.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 In this dataset, there are 506 surburbs of Boston. For each s
 urburb, you have variables such as crime per capita, types of industry, average
  # of rooms per dwelling, average proportion of age of the houses etc. Let's us
@@ -3847,14 +3815,14 @@ s the response variable.[]
  []
 
 
-Overfull \hbox (381.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (381.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Let's fit a random forest and see how well it performs. As be
 ing said, you use the response medv, the median housing value (in $1K dollars),
  and the training sample set.[] 
  []
 
 
-Overfull \hbox (1069.11pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1069.11pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Printing out the random forest gives its summary: the # of tr
 ees (500 were grown), the mean squared residuals (MSR), and the percentage of v
 ariance explained. The MSR and % variance explained are based on the out-of-bag
@@ -3863,7 +3831,7 @@ s.[]
  []
 
 
-Overfull \hbox (2029.86pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (2029.86pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 The only tuning parameter in a random Forests is the argument
  called mtry, which is the number of variables that are selected at each split 
 of each tree when you make a split. As seen here, mtry is 4 of the 13 explorato
@@ -3874,28 +3842,28 @@ ts de-correlates the trees.[]
  []
 
 
-Overfull \hbox (71.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (71.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 You're going to fit a series of random forests. There are 13 
 variables, so let's have mtry range from 1 to 13:[] 
  []
 
 
-Overfull \hbox (286.86pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (286.86pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 In a loop of mtry from 1 to 13, you first fit the randomFores
 t with that value of mtry on the train dataset, restricting the number of trees
  to be 350.[] 
  []
 
-[247
+[231
 
 ]
-Overfull \hbox (24.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (24.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Lastly, you compute the test error: mean-squared error, which
  is equals to mean( (medv - pred) ^ 2 ).[] 
  []
 
 
-Overfull \hbox (2166.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (2166.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Basically you just grew 4550 trees (13 times 350). Now let's 
 make a plot using the matplot command. The test error and the out-of-bag error 
 are binded together to make a 2-column matrix. There are a few other arguments 
@@ -3906,13 +3874,13 @@ lso put a legend at the top right corner of the plot.[]
  []
 
 
-Overfull \hbox (92.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (92.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 matplot(1:mtry, cbind(test.err, oob.err), pch = 23, col = c("
 red", "blue"), type = "b", ylab="Mean Squared Error")[] 
  []
 
 
-Overfull \hbox (1326.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1326.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Ideally, these 2 curves should line up, but it seems like the
  test error is a bit lower. However, there's a lot of variability in these test
  error estimates. Since the out-of-bag error estimate was computed on one datas
@@ -3921,7 +3889,7 @@ es are pretty much well within the standard errors.[]
  []
 
 
-Overfull \hbox (1515.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1515.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Notice that the red curve is smoothly above the blue curve? T
 hese error estimates are very correlated, because the randomForest with mtry = 
 4 is very similar to the one with mtry = 5. That's why each of the curves is qu
@@ -3931,7 +3899,7 @@ quals 9.[]
  []
 
 
-Overfull \hbox (1457.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1457.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 So with very few tiers, you have fitted a very powerful predi
 ction model using random forests. How so? The left-hand side shows the performa
 nce of a single tree. The mean squared error on out-of-bag is 26, and you've dr
@@ -3941,14 +3909,14 @@ r by half. Likewise for the test error, you reduced the error from 20 to 12.[]
  []
 
 
-Overfull \hbox (307.86pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (307.86pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Compared to random forests, boosting grows smaller and stubbi
 er trees and goes at the bias. You will use the package GBM (Gradient Boosted M
 odeling), in R.[] 
  []
 
 
-Overfull \hbox (1378.86pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1378.86pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 GBM asks for the distribution, which is Gaussian, because you
 'll be doing squared error loss. You're going to ask GBM for 10,000 trees, whic
 h sounds like a lot, but these are going to be shallow trees. Interaction depth
@@ -3957,13 +3925,13 @@ h sounds like a lot, but these are going to be shallow trees. Interaction depth
  []
 
 
-Overfull \hbox (197.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (197.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 boost.boston = gbm(medv~., data = boston[train,], distributio
 n = "gaussian", n.trees = 10000, shrinkage = 0.01, interaction.depth = 4)[] 
  []
 
 
-Overfull \hbox (806.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (806.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 The summary function gives a variable importance plot. It see
 ms like there are 2 variables that have high relative importance: rm (number of
  rooms) and lstat (percentage of lower economic status people in the community)
@@ -3971,7 +3939,7 @@ ms like there are 2 variables that have high relative importance: rm (number of
  []
 
 
-Overfull \hbox (943.11pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (943.11pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 The 1st plot shows that the higher the proportion of lower st
 atus people in the suburb, the lower the value of the housing prices. The 2nd p
 lot shows the reversed relationship with the number of rooms: the average numbe
@@ -3979,26 +3947,26 @@ r of rooms in the house increases as the price increases.[]
  []
 
 
-Overfull \hbox (176.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (176.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 It's time to predict a boosted model on the test dataset. Let
 's look at the test performance as a function of the number of trees:[] 
  []
 
 
-Overfull \hbox (250.11pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (250.11pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Then, you run the predict function on the boosted model. It t
 akes n.trees as an argument, and produces a matrix of predictions on the test d
 ata.[] 
  []
 
 
-Overfull \hbox (150.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (150.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 The dimensions of the matrix are 206 test observations and 10
 0 different predict vectors at the 100 different values of tree.[] 
  []
 
 
-Overfull \hbox (822.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (822.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 predmat is a matrix, medv is a vector, thus (predmat - medv) 
 is a matrix of differences. You can use the apply function to the columns of th
 ese square differences (the mean). That would compute the column-wise mean squa
@@ -4006,7 +3974,7 @@ red error for the predict vectors.[]
  []
 
 
-Overfull \hbox (113.61pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (113.61pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 Then you make a plot using similar parameters to that one use
 d for Random Forest. It would show a boosting error plot.[] 
  []
@@ -4014,14 +3982,14 @@ d for Random Forest. It would show a boosting error plot.[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[248]
-Overfull \hbox (76.86pt too wide) in paragraph at lines 7141--7141
+[232]
+Overfull \hbox (76.86pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 plot(n.trees, boost.err, pch = 23, ylab = "Mean Squared Error
 ", xlab = "# Trees", main = "Boosting Test Error")[] 
  []
 
 
-Overfull \hbox (1069.11pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (1069.11pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 The boosting error pretty much drops down as the number of tr
 ees increases. This is an evidence showing that boosting is reluctant to overfi
 t. Let's also include the best test error from the randomForest into the plot. 
@@ -4030,7 +3998,7 @@ t.[]
  []
 
 
-Overfull \hbox (2124.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (2124.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 So that's the end of this R tutorial on building decision tre
 e models: classification trees, random forests, and boosted trees. The latter 2
  are powerful methods that you can use anytime as needed. In my experience, boo
@@ -4041,16 +4009,68 @@ ding the shrinkage and the interaction depth.[]
  []
 
 
-Overfull \hbox (24.36pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (24.36pt too wide) in paragraph at lines 7063--7063
 []\TU/lmtt/m/n/10 If you would like to learn more, be sure to take a look at ou
 r Machine Learning Toolbox course for R.[] 
  []
 
-[249] [250
+[233] [234
 
 ]
+Chapter 67.
+[235] [236
+
+]
+Chapter 68.
+[237] [238
+
+]
+Chapter 69.
+[239] [240
+
+]
+Chapter 70.
+[241] [242
+
+]
+Chapter 71.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7128--7129
+[][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][] [] [][]
+[][][][][][][][] [] [][][][] [] [][][][] [] [][][][][][] [] [][][][][][][] [] [
+][][][] [] [][][][] [][] [][] [][] [][] [][] [][][] [][] [][][][][][] [][] [][]
+[][][] [][] [][][][][] [][] [][] [][]
+ []
+
+[243] [244
+
+]
+Chapter 72.
+[245] [246
+
+]
+Chapter 73.
+[247] [248
+
+]
+Chapter 74.
+
+Package natbib Warning: Citation `NCICancerStats' on page 249 undefined on inpu
+t line 7168.
+
+
+Package natbib Warning: Citation `NCBI' on page 249 undefined on input line 716
+8.
+
+
+Package natbib Warning: Citation `serdarbalci' on page 249 undefined on input l
+ine 7170.
+
+[249] [250]
 Chapter 75.
-[251] [252
+[251
+
+] [252
 
 ]
 Chapter 76.
@@ -4066,140 +4086,88 @@ Chapter 78.
 
 ]
 Chapter 79.
-
-Underfull \hbox (badness 10000) in paragraph at lines 7206--7207
-[][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][] [] [][]
-[][][][][][][][] [] [][][][] [] [][][][] [] [][][][][][] [] [][][][][][][] [] [
-][][][] [] [][][][] [][] [][] [][] [][] [][] [][][] [][] [][][][][][] [][] [][]
-[][][] [][] [][][][][] [][] [][] [][]
- []
-
-[259] [260
-
-]
-Chapter 80.
-[261] [262
-
-]
-Chapter 81.
-[263] [264
-
-]
-Chapter 82.
-
-Package natbib Warning: Citation `NCICancerStats' on page 265 undefined on inpu
-t line 7246.
-
-
-Package natbib Warning: Citation `NCBI' on page 265 undefined on input line 724
-6.
-
-
-Package natbib Warning: Citation `serdarbalci' on page 265 undefined on input l
-ine 7248.
-
-[265] [266]
-Chapter 83.
-[267
-
-] [268
-
-]
-Chapter 84.
-[269] [270
-
-]
-Chapter 85.
-[271] [272
-
-]
-Chapter 86.
-[273] [274
-
-]
-Chapter 87.
-[275]
+[259]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7485.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7407.
 Missing character: There is no ≤ in font [lmroman12-bold]:mapping=tex-text;!
 Missing character: There is no ≤ in font [lmroman12-bold]:mapping=tex-text;!
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7504.
-[276] [277]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7426.
+[260] [261]
 Underfull \vbox (badness 1596) has occurred while \output is active []
 
-[278] [279] [280] [281] [282]
-Chapter 88.
+[262] [263] [264] [265] [266]
+Chapter 80.
 
-Underfull \hbox (badness 10000) in paragraph at lines 7917--7918
+Underfull \hbox (badness 10000) in paragraph at lines 7839--7840
 []$[][][][][] [] [] [] [][][] [] [][][][][][][][] [] [][][] [] [] [][] [][][][]
 [][][][][][][][] [][] [][] [][] [][][] [][] [][][][][][][] [][] [] [][] [][][][
 ][][][] [][] [][][] [][] [][][][] [][] [][][] [][] [][][][][][] [][] [][][][][]
 [] [] [][][][] [] [][][][][][] []
  []
 
-[283
+[267
 
-] [284
+] [268
 
 ]
-Chapter 89.
+Chapter 81.
 
-Underfull \hbox (badness 10000) in paragraph at lines 7989--7991
+Underfull \hbox (badness 10000) in paragraph at lines 7911--7913
 [][]$[][][][][] [] [] [] [][][][] [] [][][][][][][][][][] [] [][][] [] [][][][]
 [][] [][] [][] [][] [][][][] [][] [][][][][] [][] [][][][][][][][][][][] [] [][
 ][][] [] [][][][][][] [] [][][][][][][][] [] [][][][][][] [] [][][][][][] []
  []
 
-[285] [286] [287] [288
+[269] [270] [271] [272
+
+]
+Chapter 82.
+[273] [274
+
+]
+Chapter 83.
+[275] [276]
+Chapter 84.
+[277
+
+] [278]
+Chapter 85.
+[279
+
+] [280
+
+]
+Chapter 86.
+[281] [282
+
+]
+Chapter 87.
+[283] [284
+
+]
+Chapter 88.
+[285] [286
+
+]
+Chapter 89.
+[287] [288
 
 ]
 Chapter 90.
-[289] [290
-
-]
-Chapter 91.
-[291] [292]
-Chapter 92.
-[293
-
-] [294]
-Chapter 93.
-[295
-
-] [296
-
-]
-Chapter 94.
-[297] [298
-
-]
-Chapter 95.
-[299] [300
-
-]
-Chapter 96.
-[301] [302
-
-]
-Chapter 97.
-[303] [304
-
-]
-Chapter 98.
-File: MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-506-1.pdf Graphi
+File: MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-505-1.pdf Graphi
 c file (type pdf)
-<use MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-506-1.pdf>
-[305] [306]
-Chapter 99.
-[307
+<use MyRCodesForDataAnalysis_files/figure-latex/unnamed-chunk-505-1.pdf>
+[289] [290]
+Chapter 91.
+[291
 
-] [308
+] [292
 
 ]
-Chapter 100.
-[309]
-Overfull \hbox (3.36pt too wide) in paragraph at lines 8629--8629
+Chapter 92.
+[293]
+Overfull \hbox (3.36pt too wide) in paragraph at lines 8551--8551
 []  \TU/lmtt/m/n/10 stat_compare_means(comparisons = my_comparisons, label = "p
 .signif")+ # Add significance levels[] 
  []
@@ -4207,33 +4175,65 @@ Overfull \hbox (3.36pt too wide) in paragraph at lines 8629--8629
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[310]
+[294]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[311]
-Overfull \hbox (265.86pt too wide) in paragraph at lines 8642--8642
+[295]
+Overfull \hbox (265.86pt too wide) in paragraph at lines 8564--8564
 []\TU/lmtt/m/n/10 gitCommand <- paste("cd ", wd, " \n git add . \n git commit -
 -message '", CommitMessage, "' \n", setorigin, "git push origin master \n",  se
 p = "")[] 
  []
 
-[312]
+[296]
+Chapter 93.
+[297
+
+] [298]
+Chapter 94.
+[299
+
+] [300
+
+]
+Chapter 95.
+[301] [302
+
+]
+Chapter 96.
+[303] [304
+
+]
+Chapter 97.
+[305] [306
+
+]
+Chapter 98.
+[307] [308
+
+]
+Chapter 99.
+[309] [310
+
+]
+Chapter 100.
+[311] [312
+
+]
 Chapter 101.
-[313
+[313] [314
 
-] [314]
+]
 Chapter 102.
-[315
-
-] [316
+[315] [316
 
 ]
 Chapter 103.
-[317] [318
-
-]
+[317] [318]
 Chapter 104.
-[319] [320
+[319
+
+] [320
 
 ]
 Chapter 105.
@@ -4249,6 +4249,7 @@ Chapter 107.
 
 ]
 Chapter 108.
+Missing character: There is no 📦 in font [lmroman10-regular]:mapping=tex-text;!
 [327] [328
 
 ]
@@ -4257,39 +4258,6 @@ Chapter 109.
 
 ]
 Chapter 110.
-[331] [332
-
-]
-Chapter 111.
-[333] [334]
-Chapter 112.
-[335
-
-] [336
-
-]
-Chapter 113.
-[337] [338
-
-]
-Chapter 114.
-[339] [340
-
-]
-Chapter 115.
-[341] [342
-
-]
-Chapter 116.
-Missing character: There is no 📦 in font [lmroman10-regular]:mapping=tex-text;!
-[343] [344
-
-]
-Chapter 117.
-[345] [346
-
-]
-Chapter 118.
 
 ! LaTeX Error: Bad math environment delimiter.
 
@@ -4297,15 +4265,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.8998 ...teratürdeki önerileri \(Virchows Arch \(
+l.8920 ...teratürdeki önerileri \(Virchows Arch \(
                                                   2015\) 466:611--615) derle...
  
 Here is how much of TeX's memory you used:
- 22267 strings out of 479291
- 415930 string characters out of 5875731
- 1070548 words of memory out of 5000000
- 41436 multiletter control sequences out of 15000+600000
- 410131 words of font info for 99 fonts, out of 8000000 for 9000
+ 22270 strings out of 479291
+ 415981 string characters out of 5875731
+ 1070542 words of memory out of 5000000
+ 41437 multiletter control sequences out of 15000+600000
+ 410139 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,9n,118p,795b,872s stack positions out of 5000i,500n,10000p,200000b,80000s
-Output written on MyRCodesForDataAnalysis.pdf (346 pages).
+Output written on MyRCodesForDataAnalysis.pdf (330 pages).
