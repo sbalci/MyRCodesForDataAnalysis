@@ -1,39 +1,40 @@
 --- 
 title: "My R Codes for Data Analysis"
 author: "Serdar Balcı"
-date: "`{r #  Sys.Date()`"
+date: "`{r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: ['bib/book.bib', 'bib/packages.bib']
 biblio-style: apalike
 link-citations: yes
 description: "This is a collection of R codes I use for data analysis"
+always_allow_html: true
 ---
 
-# Prerequisites
+# Preface
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-The **bookdown** package can be installed from CRAN or Github:
-
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-install.packages("bookdown")
+```{r echo=TRUE}
+# install.packages("bookdown")
 # or the development version
 # devtools::install_github("rstudio/bookdown")
 ```
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
-
-```{r include=FALSE}
+```{r echo=TRUE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'bib/packages.bib')
 ```
 
+
 <!--chapter:end:index.Rmd-->
+
+# Getting Data into R
+
+
+
+<!--chapter:end:00100-GettingData.Rmd-->
 
 # Introduction {#intro}
 
@@ -59,79 +60,16 @@ You can write citations, too. For example, we are using the **bookdown** package
 
 <!--chapter:end:01-intro.Rmd-->
 
-# Literature
+# Bibliographic Studies
 
-Here is a review of existing methods.
+## Articles per journals per country
 
-<!--chapter:end:02-literature-1.Rmd-->
-
-# Literature
-
-Here is a review of existing methods.
-
-<!--chapter:end:02-literature.Rmd-->
-
-# Methods
-
-We describe our methods in this chapter.
-
-<!--chapter:end:03-method.Rmd-->
-
-# Applications
-
-Some _significant_ applications are demonstrated in this chapter.
-
-## Example one
-
-## Example two
-
-<!--chapter:end:04-application.Rmd-->
-
-# Final Words
-
-We have finished a nice book.
-
-<!--chapter:end:05-summary.Rmd-->
-
-`{r #  if (knitr::is_html_output()) '
-# References {-}
-'`
-
-<!--chapter:end:06-references.Rmd-->
-
----
-title: "Bibliographic Studies"
-subtitle: "Articles per journals per country"
-author: "Serdar Balcı, MD, Pathologist"
-date: '`{r #  format(Sys.Date())`'
----
-
-```
-output: 
-  html_notebook: 
-    code_folding: hide
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-  html_document: 
-    code_folding: hide
-    df_print: kable
-    keep_md: yes
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-    highlight: kate
-```
 
 If you want to see the code used in the analysis please click the code button on the right upper corner or throughout the page.
 
 ---
 
-# Analysis
+### Analysis
 
 ```{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::opts_chunk$set(
@@ -143,7 +81,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Articles per journals per country
+#### Articles per journals per country
 
 **Aim:**
 
@@ -265,67 +203,15 @@ This may also be a clue that if a country has a journal listed in indexes, than 
 Whether this observation is a unique situation, or there is a tendency in the journals to publish article from their country of origin, merits further investigation. 
 
 
+<!--chapter:end:12000-ArticlesPerJournalsPerCountry.Rmd-->
 
----
-
-
-# Feedback
-
-[Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
-
-This document will be continiously updated and the last update was on `{r #  Sys.Date()`.
-
----
-
-# Back to Main Menu
-
-[Main Page for Bibliographic Analysis](https://sbalci.github.io/pubmed/BibliographicStudies.html)
-
-<!--chapter:end:12-ArticlesPerJournalsPerCountry.Rmd-->
-
----
-title: "Bibliographic Studies"
-subtitle: "Country Based Comparison"
-author: "Serdar Balcı, MD, Pathologist"
-date: '`{r #  format(Sys.Date())`'
----
-
-```
-output: 
-  html_notebook: 
-    code_folding: hide
-    fig_caption: yes
-    highlight: kate
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-  html_document: 
-    code_folding: hide
-    df_print: kable
-    keep_md: yes
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-    highlight: kate
-```
+# Country Based Comparison
 
 
-# Analysis
-
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-knitr::opts_chunk$set(
-	eval = FALSE,
-	message = FALSE,
-	warning = FALSE,
-	include = FALSE,
-	tidy = TRUE
-)
-```
+## Analysis
 
 
-## PubMed Indexed Peer Reviewed Articles in Pathology Journals: A country based comparison
+### PubMed Indexed Peer Reviewed Articles in Pathology Journals: A country based comparison
 
 **Aim:**
 
@@ -457,24 +343,9 @@ Turkey has a small increase in number of articles.
 * Analyse multinational studies.
 * Analyse adding journal impact as a factor. 
 
----
 
 
-
-
-# Feedback
-
-[Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
-
-This document will be continiously updated and the last update was on `{r #  Sys.Date()`.
-
----
-
-# Back to Main Menu
-
-[Main Page for Bibliographic Analysis](https://sbalci.github.io/pubmed/BibliographicStudies.html)
-
-<!--chapter:end:13-CountryBasedComparison.Rmd-->
+<!--chapter:end:13000-CountryBasedComparison.Rmd-->
 
 ---
 title: "PBPath Journal Watch"
@@ -943,6 +814,12 @@ xtable::xtable(mtcars)
 
 
 <!--chapter:end:16-6-tables.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:90000-references.Rmd-->
 
 ---
 title: "R Notebook"
@@ -40833,8 +40710,8 @@ you may need to add the following line to your YAML header
 for strict markdown output formats.
 
 
-yaml
-always_allow_html: true
+<!-- yaml -->
+<!-- always_allow_html: true -->
 
 
 <!--chapter:end:tweetrmd.Rmd-->
