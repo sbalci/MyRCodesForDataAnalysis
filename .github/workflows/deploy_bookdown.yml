@@ -41,8 +41,6 @@ jobs:
          name: _book # optional
          # Destination path
          path: _book # optional
-         
-
       - name: Commit files
         run: |
           git config --local user.email "drserdarbalci@gmail.com"
