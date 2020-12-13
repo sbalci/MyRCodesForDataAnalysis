@@ -2,12 +2,12 @@
 ## revision date: 2020-11-14
 on:
   workflow_dispatch:
-  push:
-  pull_request:
+  # push:
+  # pull_request:
   # for now, CRON jobs only run on the default branch of the repo (i.e. usually on master)
-  schedule:
+  # schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "0 4 * * *"
+    # - cron: "0 4 * * *"
 
 name: tic
 
@@ -23,7 +23,7 @@ jobs:
         config:
           # use a different tic template type if you do not want to build on all listed platforms
           - { os: macOS-latest, r: "release", pkgdown: "true", latex: "true" }
-          - { os: ubuntu-latest, r: "devel" }
+          # - { os: ubuntu-latest, r: "devel" }
 
     env:
       # otherwise remotes::fun() errors cause the build to fail. Example: Unavailability of binaries
