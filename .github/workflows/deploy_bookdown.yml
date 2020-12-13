@@ -41,11 +41,27 @@ jobs:
          name: _book # optional
          # Destination path
          path: _book # optional
-     - name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@master
-       env:
-          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-          GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
-          BUILD_DIR: _book/                     # "_site/" by default
+         
+
+      - name: Commit files
+        run: |
+          git config --local user.email "drserdarbalci@gmail.com"
+          git config --local user.name "sbalci"
+          git add .
+          git commit -m "CI added changes `date +'%Y-%m-%d %H:%M:%S'`"
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          # branch: B77 #ignore if your branch is master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
+
+     # - name: Deploy to GitHub Pages
+     #   uses: Cecilapp/GitHub-Pages-deploy@master
+     #   env:
+     #      EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
+     #      GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
+     #      BUILD_DIR: _book/                     # "_site/" by default
     
  
