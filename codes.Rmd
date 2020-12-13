@@ -1,10 +1,4 @@
----
-title: "My R Codes For Data Analysis"
-subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
-author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
-date: '`{r #  format(Sys.Date())`'
----
-
+# My R Codes For Data Analysis
 
 rstudioapi::selectDirectory()
 
@@ -24,21 +18,24 @@ xaringan:::inf_mr()
 
 
 
-```{r  1, message=FALSE, warning=FALSE}
+```
+{r  1, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
 
 
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- library(tidyverse) -->
 <!-- library(readxl) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- path <- "ICPN_RAW.xls" -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- path <-  ICPN_RAW.xls  -->
 <!-- icpn <- path %>%  -->
 <!--     excel_sheets() %>%  -->
 <!--     set_names() %>% -->
@@ -47,7 +44,7 @@ library(tidyverse)
 <!-- icpn <- icpn[-29] -->
 
 <!-- icpn <- icpn %>%  -->
-<!--     reduce(left_join, by = "Respondant") -->
+<!--     reduce(left_join, by =  Respondant ) -->
 
 <!-- # names(icpn) -->
 
@@ -58,7 +55,7 @@ library(tidyverse)
 <!-- # length(names(icpn)) -->
 <!-- # length(namesColumn) -->
 
-<!-- names(icpn) <- c("Respondant", paste(namesColumn, rep(1:28, each = 11), sep = "")) -->
+<!-- names(icpn) <- c( Respondant , paste(namesColumn, rep(1:28, each = 11), sep =   )) -->
 
 
 <!-- ``` -->
@@ -69,32 +66,35 @@ library(tidyverse)
 
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- # glimpse(icpn) -->
 
 <!-- icpn$country <- icpn$ID1 -->
 
 <!-- icpn <- icpn %>%  -->
-<!--     select(-starts_with("X.plastic")) %>%  -->
-<!--     select(-starts_with("COMMENTS")) %>%  -->
-<!--     select(-starts_with("ID")) -->
+<!--     select(-starts_with( X.plastic )) %>%  -->
+<!--     select(-starts_with( COMMENTS )) %>%  -->
+<!--     select(-starts_with( ID )) -->
 
 <!-- # glimpse(icpn) -->
 
 <!-- ``` -->
 
 <!-- <!-- -->
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- jmv::descriptives(vars = names(select(icpn, starts_with("DX")) -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- jmv::descriptives(vars = names(select(icpn, starts_with( DX )) -->
 <!--                                ), data = icpn, freq = TRUE, n = FALSE, missing = FALSE, mean = FALSE, median = FALSE, min = FALSE, max = FALSE) -->
 
 <!-- ``` -->
 <!-- -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- icpn %>%  -->
-<!--     select(starts_with("y.n")) %>%  -->
+<!--     select(starts_with( y.n )) %>%  -->
 <!--     gather() %>%  -->
 <!--     select(value) %>%  -->
 <!--     unique() -->
@@ -102,11 +102,12 @@ library(tidyverse)
 
 <!-- ``` -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 
 <!-- # recode invasion N = 0, Y = 1 -->
 <!-- namesYN <- icpn %>%  -->
-<!--     select(starts_with("y.n")) %>%  -->
+<!--     select(starts_with( y.n )) %>%  -->
 <!--     names() -->
 
 
@@ -120,27 +121,27 @@ library(tidyverse)
 <!--      mutate_at(namesYN, funs(as.character)) %>%  -->
 <!--     mutate_at(namesYN, funs(factor(., -->
 <!--                                     levels = c(0,1),  -->
-<!--                                     labels = c("no", "invasion") -->
+<!--                                     labels = c( no ,  invasion ) -->
 <!--                                     ))) -->
 
 <!-- ``` -->
 
 
 <!-- WHOclass <- icpn %>%  -->
-<!--     select(starts_with("WHO..2010.classification")) %>%  -->
+<!--     select(starts_with( WHO..2010.classification )) %>%  -->
 <!--     gather() %>%  -->
 <!--     select(value) %>%  -->
 <!--     unique() -->
 
 
 
-<!-- write(lineage$value, "lineage.txt", sep = "\n") -->
+<!-- write(lineage$value,  lineage.txt , sep =  \n ) -->
 
-<!-- write(paste("'", readLines("lineage.txt"), "'", " =   ,", sep = ""), "lineage2.txt") -->
+<!-- write(paste( ' , readLines( lineage.txt ),  ' ,   =   , , sep =   ),  lineage2.txt ) -->
 
 
 <!-- icpn <- icpn %>% -->
-<!--     select(-starts_with("DX")) -->
+<!--     select(-starts_with( DX )) -->
 
 
 <!-- file.choose() -->
@@ -151,7 +152,7 @@ library(tidyverse)
 
 
 
----
+
 
 <!-- Stratified MH Odds Ratios for Confounding -->
 <!-- We can also stratify our odds ratio by a third variable to look for confounding -->
@@ -162,7 +163,7 @@ library(tidyverse)
 
 <!-- We can get (if we desire) the stratum specific odds ratios out -->
 
-<!-- stratum <- epi.2by2(table(relevel(scabies$scabies_infestation,"yes"), relevel(scabies$impetigo_active,"yes"),scabies$gender)) -->
+<!-- stratum <- epi.2by2(table(relevel(scabies$scabies_infestation, yes ), relevel(scabies$impetigo_active, yes ),scabies$gender)) -->
 
 
 <!--  #Note this time I'm saving the 2*2 table -->
@@ -178,7 +179,7 @@ library(tidyverse)
 <!-- ##  -->
 <!-- ##  -->
 <!-- ## Point estimates and 95 % CIs: -->
-<!-- ## ------------------------------------------------------------------- -->
+<!-- ## - -->
 <!-- ## Inc risk ratio (crude)                       1.70 (1.49, 1.94) -->
 <!-- ## Inc risk ratio (M-H)                         1.58 (1.39, 1.79) -->
 <!-- ## Inc risk ratio (crude:M-H)                   1.08 -->
@@ -188,7 +189,7 @@ library(tidyverse)
 <!-- ## Attrib risk (crude) *                        20.11 (14.52, 25.71) -->
 <!-- ## Attrib risk (M-H) *                          17.75 (5.52, 29.99) -->
 <!-- ## Attrib risk (crude:M-H)                      1.13 -->
-<!-- ## ------------------------------------------------------------------- -->
+<!-- ## - -->
 <!-- ##  Test of homogeneity of IRR: X2 test statistic: 8.011 p-value: 0.005 -->
 <!-- ##  Test of homogeneity of  OR: X2 test statistic: 0.629 p-value: 0.428 -->
 <!-- ##  Wald confidence limits -->
@@ -210,7 +211,8 @@ library(tidyverse)
 
 <!-- ## Histogram -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- hist(scabies$age) -->
 
 <!-- ``` -->
@@ -227,10 +229,10 @@ library(tidyverse)
 <!-- Colour Scatter -->
 <!-- We might make this look nicer by adding some colours representing key variables -->
 
-<!-- scabies$scatter_colour[scabies$scabies_infestation == "yes"] <- "red"  -->
+<!-- scabies$scatter_colour[scabies$scabies_infestation ==  yes ] <-  red   -->
 <!-- #If scabies_infestation is 0 then the colour is red -->
 
-<!-- scabies$scatter_colour[scabies$scabies_infestation == "no"] <- "blue" -->
+<!-- scabies$scatter_colour[scabies$scabies_infestation ==  no ] <-  blue  -->
 <!-- #If scabies_infestation is 0 then the colour is blue -->
 
 <!-- plot(scabies$house_inhabitants,scabies$room_cohabitation, col = scabies$scatter_colour) -->
@@ -248,14 +250,14 @@ library(tidyverse)
 <!-- Sample Dataset 3 -->
 <!-- The examples here use the “scabies dataset” again. For ease I quickly repeat below the code needed to implement the data-cleaning steps demonstrated above on the dataset -->
 
-<!-- scabies <- read.csv(file = "S1-Dataset_CSV.csv", header = TRUE, sep = ",") -->
+<!-- scabies <- read.csv(file =  S1-Dataset_CSV.csv , header = TRUE, sep =  , ) -->
 <!-- #Load dataset -->
-<!-- scabies$agegroups <- as.factor(cut(scabies$age, c(0,10,20,Inf), labels = c("0-10","11-20","21+"), include.lowest = TRUE))  -->
-<!-- scabies$agegroups <-relevel(scabies$agegroups, ref = "21+") -->
+<!-- scabies$agegroups <- as.factor(cut(scabies$age, c(0,10,20,Inf), labels = c( 0-10 , 11-20 , 21+ ), include.lowest = TRUE))  -->
+<!-- scabies$agegroups <-relevel(scabies$agegroups, ref =  21+ ) -->
 <!-- #Categorise age and set a baseline -->
 
-<!-- scabies$house_cat <- as.factor(cut(scabies$house_inhabitants, c(0,5,10,Inf), labels = c("0-5","6-10","10+"), include.lowest = TRUE)) -->
-<!-- scabies$house_cat <- relevel(scabies$house_cat, ref = "0-5") -->
+<!-- scabies$house_cat <- as.factor(cut(scabies$house_inhabitants, c(0,5,10,Inf), labels = c( 0-5 , 6-10 , 10+ ), include.lowest = TRUE)) -->
+<!-- scabies$house_cat <- relevel(scabies$house_cat, ref =  0-5 ) -->
 <!-- #Categorise housesize and set a baseline -->
 <!-- We can perform logistic regression in a straightforward fashion in. The formula for any logistic regression is -->
 
@@ -341,7 +343,7 @@ library(tidyverse)
 <!-- ##   #Df  LogLik Df  Chisq Pr(>Chisq)   -->
 <!-- ## 1   6 -900.44                        -->
 <!-- ## 2   4 -902.80 -2 4.7328    0.09382 . -->
-<!-- ## --- -->
+<!-- ##  -->
 <!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
 <!-- We se that overall there is borderline significance between household size and scabies risk. This makes sense if we look at the Wald-Test for each category as one house size category was associated and one was not. -->
 
@@ -416,14 +418,14 @@ library(tidyverse)
 <!-- For the purpose of Poisson and cox regression we will initially go back to a clean version of our “Ebola dataset”. For ease I quickly repeat below the code needed to implement the data-cleaning steps demonstrated above on the dataset -->
 
 <!-- ##This is the ebola dataset again -->
-<!-- ebola <- read.csv(file = "mmc1.txt", header = TRUE, sep = ",") -->
+<!-- ebola <- read.csv(file =  mmc1.txt , header = TRUE, sep =  , ) -->
 
 <!-- #Lets set 'person_to_person' route of transmission as baseline -->
-<!-- ebola$transmission <- relevel(ebola$transmission, "person_to_person") -->
+<!-- ebola$transmission <- relevel(ebola$transmission,  person_to_person ) -->
 
 <!-- #Replace blank values of sex as missing -->
-<!-- ebola$sex[ebola$sex ==""] <- is.null(ebola$sex)  -->
-<!-- ## Warning in `[<-.factor`(`*tmp*`, ebola$sex == "", value = structure(c(3L, : -->
+<!-- ebola$sex[ebola$sex ==  ] <- is.null(ebola$sex)  -->
+<!-- ## Warning in `[<-.factor`(`*tmp*`, ebola$sex ==   , value = structure(c(3L, : -->
 <!-- ## invalid factor level, NA generated -->
 <!-- Setting up our time variables -->
 <!-- The package we are using for the Poisson and Cox Regression needs the dates in a particular format to work. -->
@@ -431,10 +433,10 @@ library(tidyverse)
 <!-- Specifically it needs them in a ‘decimal year’ i.e 1982.145 If our data isn’t already like this then we set it up using the ‘cal.yr’ command. The cal.yr command wants a date as an input - so remember if your dates are stored as strings and not dates in the raw data then you need to convert them to a date and then to a decimal date. You can do this in one step. -->
 
 <!-- class(ebola$disease_onset) -->
-<!-- ## [1] "factor" -->
+<!-- ## [1]  factor  -->
 <!-- #We see that the timein variable is currently a factor (i.e just recognisd as a bunch of characters), so we need to convert factor>data>decimal date.  -->
-<!-- ebola$disease_onset <- cal.yr(as.Date(ebola$disease_onset, format = "%Y-%m-%d")) -->
-<!-- ebola$disease_ended <- cal.yr(as.Date(ebola$disease_ended, format = "%Y-%m-%d")) -->
+<!-- ebola$disease_onset <- cal.yr(as.Date(ebola$disease_onset, format =  %Y-%m-%d )) -->
+<!-- ebola$disease_ended <- cal.yr(as.Date(ebola$disease_ended, format =  %Y-%m-%d )) -->
 <!-- Declaring our periods of follow-up: Making a lexis model -->
 <!-- We need to declare the way time is modelled when doing this kind of analysis. This is like STSET in STATA. -->
 
@@ -450,16 +452,16 @@ library(tidyverse)
 <!--   data = data_frame) -->
 <!-- For example if we might be interested in time in follow-up and chronological age as time scales. So we might do: -->
 
-<!-- ebola_lexis_model <- Lexis(entry = list("calendar_time"=disease_onset), exit = list("calendar_time" = disease_ended), exit.status = status =="died", data = ebola) -->
+<!-- ebola_lexis_model <- Lexis(entry = list( calendar_time =disease_onset), exit = list( calendar_time  = disease_ended), exit.status = status == died , data = ebola) -->
 <!-- ## NOTE: entry.status has been set to FALSE for all. -->
 <!-- ## Warning in Lexis(entry = list(calendar_time = disease_onset), exit = list(calendar_time = disease_ended), : Dropping NA rows with duration of follow up < tol -->
 <!-- #We define the beginning of calendar time in the study as the date in the 'disease_onset' variable -->
-<!-- #We call time on this scale "calendar_time" -->
+<!-- #We call time on this scale  calendar_time  -->
 <!-- #Time out is on the same timescale as time in - i.e calendar_time -->
 <!-- #If people are missing either a time in or time-out so they get dropped -->
 <!-- R is also happy if we just have a duration of follow-up as opposed to a Date of Entry and a Date of Exit. In that case we can just say: -->
 
-<!-- lexis_model <- Lexis(exit = list("calendar_time" = duration), exit.status = died, data = dataset) -->
+<!-- lexis_model <- Lexis(exit = list( calendar_time  = duration), exit.status = died, data = dataset) -->
 <!-- ##Here we specify the exit time as being the duration of follow-up -->
 <!-- ##We haven't stated an entry time so R assumes it to be 0 - i.e people were followed up from time 0 for the duration of time specified as the exit time -->
 <!-- Key variables in the Lexis model -->
@@ -549,27 +551,27 @@ library(tidyverse)
 <!-- We need a different dataset for this example. Again the dataset is freely available on the LSHTM Data Repository: “Alcohol outcomes” This is a simulated dataset (a fully-anoynmised, tweaked dataset based on a real-one) looking at the association between age, alcohol and death. -->
 
 <!-- #Load in our new dataset -->
-<!-- alcohol <- read.csv(file = "alcohol_outcomes.csv", header = TRUE, sep=",") -->
+<!-- alcohol <- read.csv(file =  alcohol_outcomes.csv , header = TRUE, sep= , ) -->
 
 <!-- #Check how dates are saved -->
 <!-- class(alcohol$timein) -->
-<!-- ## [1] "factor" -->
+<!-- ## [1]  factor  -->
 <!-- #time is saved as a factor so we need to convert it -->
-<!-- alcohol$timein <- cal.yr(as.Date(alcohol$timein, format = "%d/%m/%Y")) -->
-<!-- alcohol$timeout <- cal.yr(as.Date(alcohol$timeout, format = "%d/%m/%Y")) -->
-<!-- alcohol$timebth <- cal.yr(as.Date(alcohol$timebth, format = "%d/%m/%Y")) -->
+<!-- alcohol$timein <- cal.yr(as.Date(alcohol$timein, format =  %d/%m/%Y )) -->
+<!-- alcohol$timeout <- cal.yr(as.Date(alcohol$timeout, format =  %d/%m/%Y )) -->
+<!-- alcohol$timebth <- cal.yr(as.Date(alcohol$timebth, format =  %d/%m/%Y )) -->
 <!-- #Setup our lexis model -->
-<!-- alcohol_lexis <- Lexis(entry = list("calendar_time"=timein, "age" = timein - timebth), exit = list("calendar_time" = timeout), exit.status = death ==1, data = alcohol) -->
+<!-- alcohol_lexis <- Lexis(entry = list( calendar_time =timein,  age  = timein - timebth), exit = list( calendar_time  = timeout), exit.status = death ==1, data = alcohol) -->
 <!-- ## NOTE: entry.status has been set to FALSE for all. -->
 <!-- #We define the beginning of calendar time in the study as the date in the 'timein' variable -->
-<!-- #We call time on this scale "calendar_time" -->
-<!-- #We define the beginning of the age-time scale as the difference between when you joined the study and your date of birth. We call this time scale "age" -->
+<!-- #We call time on this scale  calendar_time  -->
+<!-- #We define the beginning of the age-time scale as the difference between when you joined the study and your date of birth. We call this time scale  age  -->
 <!-- #Time out is on the same timescale as time in - i.e calendar_time -->
 
 <!-- #Perform a lexis expansion -->
-<!-- split_alcohol_lexis <- splitLexis(alcohol_lexis, breaks = c(50,60,70,80), time.scale = "age") -->
+<!-- split_alcohol_lexis <- splitLexis(alcohol_lexis, breaks = c(50,60,70,80), time.scale =  age ) -->
 <!-- #We say we want to split our lexis_model -->
-<!-- #We want to do this on our defined "age" time scale -->
+<!-- #We want to do this on our defined  age  time scale -->
 <!-- #We want the breaks to be at the listed points -->
 <!-- Now we need to tell R we want to use those Time-Blocks as a variable in our regression. NB Compare to STATA - In stata we cut the time and make it a new variable in one go with -->
 
@@ -581,9 +583,9 @@ library(tidyverse)
 
 <!-- expanded_model$block_name <- timeBand(expanded_model, “name_of_split”, type = “factor”) -->
 
-<!-- split_alcohol_lexis$age_blocks <- timeBand(split_alcohol_lexis, "age", type = "factor") -->
+<!-- split_alcohol_lexis$age_blocks <- timeBand(split_alcohol_lexis,  age , type =  factor ) -->
 <!-- #We make a new variable called age_blocks. -->
-<!-- #We used the splits we defined on the "age" time-scale for this -->
+<!-- #We used the splits we defined on the  age  time-scale for this -->
 <!-- #Make each segment of this time-scale an element of a categorical variable -->
 <!-- #We then remove any blank 'time-blocks' i.e segments with no observations -->
 <!-- #This is done by re-factoring the variable -->
@@ -642,7 +644,7 @@ library(tidyverse)
 <!-- ##   #Df  LogLik Df Chisq Pr(>Chisq)     -->
 <!-- ## 1   5 -1487.5                         -->
 <!-- ## 2   6 -1478.1  1 18.72  1.514e-05 *** -->
-<!-- ## --- -->
+<!-- ##  -->
 <!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
 <!-- #Perform a likelihood test of the model with Age&Alcohol compared to the model with only Age -->
 <!-- If we wanted to test if age was associated we would compare: Lexis Expanded Dataset - controlling for Age & Alcohol Lexis Expanded Dataset - controlling for Alcohol Only Note even though strictly we don’t need to expand the dataset for the Alcohol model (as its not a time varying factor) we need the two models to have the same number of observations so it does need to be run against the Lexis Expanded dataset -->
@@ -720,10 +722,10 @@ library(tidyverse)
 <!-- Sample Dataset 6 -->
 <!-- To look at a random effects logistic regression we are using a (simulated) dataset about trachoma. This is a clustered dataset with many individuals per household. Again the dataset is freely available on the LSHTM Data Repository: “Trachoma Household Survey” We want to find out if a latrine is protective from getting trachoma. -->
 
-<!-- hh_tf <- read.csv (file = "hh_tf.csv", header = TRUE, sep = ",") -->
+<!-- hh_tf <- read.csv (file =  hh_tf.csv , header = TRUE, sep =  , ) -->
 <!-- #Read in data -->
 
-<!-- re_hh_tf <- glmer(trachoma~factor(latrine)+ (1 | household),family = "binomial", data = hh_tf) -->
+<!-- re_hh_tf <- glmer(trachoma~factor(latrine)+ (1 | household),family =  binomial , data = hh_tf) -->
 <!-- summary(re_hh_tf) -->
 <!-- ## Generalized linear mixed model fit by maximum likelihood (Laplace -->
 <!-- ##   Approximation) [glmerMod] -->
@@ -747,7 +749,7 @@ library(tidyverse)
 <!-- ##                  Estimate Std. Error z value Pr(>|z|)     -->
 <!-- ## (Intercept)       -8.0091     0.3434 -23.321   <2e-16 *** -->
 <!-- ## factor(latrine)1  -1.2450     0.5981  -2.082   0.0374 *   -->
-<!-- ## --- -->
+<!-- ##  -->
 <!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
 <!-- ##  -->
 <!-- ## Correlation of Fixed Effects: -->
@@ -757,7 +759,7 @@ library(tidyverse)
 <!-- #Individuals share a household which is designated by the 'household' variable -->
 <!-- #This therefore is the unit of clustering -->
 
-<!-- re_hh_tf_OR <- cbind(OR = exp(fixef(re_hh_tf)),exp(confint(re_hh_tf,parm="beta_"))) -->
+<!-- re_hh_tf_OR <- cbind(OR = exp(fixef(re_hh_tf)),exp(confint(re_hh_tf,parm= beta_ ))) -->
 <!-- ## Computing profile confidence intervals ... -->
 <!-- re_hh_tf_out <- summary(re_hh_tf) -->
 <!-- #We still want our P-Values and raw data just like before -->
@@ -779,26 +781,26 @@ library(tidyverse)
 
 <!-- For your information: PCR is coded 2 for positive and 1 for negative. Clinical evidence of active trachoma is recorded as RE.Grade == TF -->
 
-<!-- tf_pcr <- read.csv (file = "TF_PCR.csv", header = TRUE, sep = ",") -->
+<!-- tf_pcr <- read.csv (file =  TF_PCR.csv , header = TRUE, sep =  , ) -->
 <!-- #Read in data -->
 
-<!-- tf_pcr$timein <- cal.yr(as.Date(tf_pcr$timein, format = "%d-%b-%y")) -->
-<!-- tf_pcr$timeout <- cal.yr(as.Date(tf_pcr$timeout, format = "%d-%b-%y")) -->
+<!-- tf_pcr$timein <- cal.yr(as.Date(tf_pcr$timein, format =  %d-%b-%y )) -->
+<!-- tf_pcr$timeout <- cal.yr(as.Date(tf_pcr$timeout, format =  %d-%b-%y )) -->
 <!-- #Convert dates in to decimal dates -->
 
-<!-- tf_pcr$RE.Grade <- relevel(tf_pcr$RE.Grade,"N") -->
+<!-- tf_pcr$RE.Grade <- relevel(tf_pcr$RE.Grade, N ) -->
 <!-- #Make a normal clinical examination of the eye the baseline level -->
 
-<!-- tf_pcr_lexis <- Lexis(entry = list("calendar" = timein), exit = list("calendar" = timeout), exit.status = PCR==2, data = tf_pcr) -->
+<!-- tf_pcr_lexis <- Lexis(entry = list( calendar  = timein), exit = list( calendar  = timeout), exit.status = PCR==2, data = tf_pcr) -->
 <!-- ## NOTE: entry.status has been set to FALSE for all. -->
 <!-- #Setup a lexis model -->
 
-<!-- re_tf_pcr <- glmer(lex.Xst~factor(RE.Grade)+offset(log(lex.dur))+(1|ID), family = "poisson", data = tf_pcr_lexis) -->
+<!-- re_tf_pcr <- glmer(lex.Xst~factor(RE.Grade)+offset(log(lex.dur))+(1|ID), family =  poisson , data = tf_pcr_lexis) -->
 <!-- #Multiple readings from the same invdividual -->
 <!-- #The ID for the individuals is in the 'ID' variable -->
 <!-- #This therefore is the unit of clustering -->
 
-<!-- re_tf_OR <- cbind(HR = exp(fixef(re_tf_pcr)),exp(confint(re_tf_pcr,parm="beta_"))) -->
+<!-- re_tf_OR <- cbind(HR = exp(fixef(re_tf_pcr)),exp(confint(re_tf_pcr,parm= beta_ ))) -->
 <!-- ## Computing profile confidence intervals ... -->
 <!-- ##Rather than the co-efficients we want the Fixed-Effects for our Odds Ratios -->
 <!-- ##And we want the confidence intervals specifcally for those rather than all the other variabls a RE-Model makes -->
@@ -827,9 +829,9 @@ library(tidyverse)
 
 <!-- We can do the same by fitting a model without clustering and running an LRT comparing it to our RE-model. We can also get the equivalent estimate of rho. -->
 
-<!-- no_re_hh_tf <- glm(trachoma~factor(latrine),family = "binomial", data = hh_tf) -->
+<!-- no_re_hh_tf <- glm(trachoma~factor(latrine),family =  binomial , data = hh_tf) -->
 
-<!-- re_hh_tf <- glmer(trachoma~factor(latrine)+ (1 | household),family = "binomial", data = hh_tf) -->
+<!-- re_hh_tf <- glmer(trachoma~factor(latrine)+ (1 | household),family =  binomial , data = hh_tf) -->
 
 <!-- icc(re_hh_tf) -->
 <!-- ##  -->
@@ -842,7 +844,7 @@ library(tidyverse)
 
 <!-- lrtest(re_hh_tf,no_re_hh_tf) -->
 <!-- ## Warning in modelUpdate(objects[[i - 1]], objects[[i]]): original model was -->
-<!-- ## of class "glmerMod", updated model is of class "glm" -->
+<!-- ## of class  glmerMod , updated model is of class  glm  -->
 <!-- ## Likelihood ratio test -->
 <!-- ##  -->
 <!-- ## Model 1: trachoma ~ factor(latrine) + (1 | household) -->
@@ -850,7 +852,7 @@ library(tidyverse)
 <!-- ##   #Df   LogLik Df  Chisq Pr(>Chisq)     -->
 <!-- ## 1   3  -958.15                          -->
 <!-- ## 2   2 -1188.67 -1 461.05  < 2.2e-16 *** -->
-<!-- ## --- -->
+<!-- ##  -->
 <!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
 <!-- #Test the null hypothesis that rho = 0 and that there is therefore no evidence of clustering -->
 <!-- The difference between the two models is not Zero and the p-value is highly suggestive that there is evidence of clustering -->
@@ -937,7 +939,7 @@ library(tidyverse)
 <!-- ##  -->
 <!-- ## $OR -->
 <!-- ## [1] 2 -->
-<!-- help("epi.ccsize") -->
+<!-- help( epi.ccsize ) -->
 <!-- #Calculate sample size required to detect an Odds Ratio of 2 given an expected prevalence of 20% in the control group -->
 
 <!-- epi.ccsize(OR = 4, p0 = 0.3, n = NA, power = 0.8, r =4) -->
@@ -959,7 +961,7 @@ library(tidyverse)
 <!-- Sample size for detecting a specific prevalence -->
 <!-- The general syntax is > epi.simplesize(Py = prevalence_to_find, epsilon.R = variation_around_prevalence, method = “proportion”) #epsilon.R is specified as a proportion of Py #So if we want to find 10% +/- 2% we would set epsion.R as 0.2 -->
 
-<!-- epi.simplesize(Py = 0.2, epsilon.r = 0.3, method = "proportion") -->
+<!-- epi.simplesize(Py = 0.2, epsilon.r = 0.3, method =  proportion ) -->
 <!-- ## [1] 171 -->
 <!-- #Calculate sample size required to detect a true prevalence of 10% +/- 3% -->
 
@@ -971,7 +973,7 @@ library(tidyverse)
 
 <!-- OR alternatively (using same package as other sample size calculations) >epi.meansize(treat = X, control = Y, n = Z, power = Z, sigma = A) #Specify either n - to compute power OR power to compute sample size #Specify the other as NA #Sigma is the anticipated Standard Deviation -->
 
-<!-- power.t.test(delta = 2, power = 0.8, type ="two.sample", sd = 1) -->
+<!-- power.t.test(delta = 2, power = 0.8, type = two.sample , sd = 1) -->
 <!-- ##  -->
 <!-- ##      Two-sample t test power calculation  -->
 <!-- ##  -->
@@ -985,7 +987,7 @@ library(tidyverse)
 <!-- ## NOTE: n is number in *each* group -->
 <!-- #Calculate sample size needed to have 80% power to show difference of 2 in the mean value between two groups -->
 
-<!-- power.t.test(delta = 2, power = 0.8, type ="paired", sd = 1) -->
+<!-- power.t.test(delta = 2, power = 0.8, type = paired , sd = 1) -->
 <!-- ##  -->
 <!-- ##      Paired t test power calculation  -->
 <!-- ##  -->
@@ -1035,7 +1037,7 @@ library(tidyverse)
 
 <!-- Again the dataset with missing data is available on the LSHTM Data-Repository: “Scabies Missing Data” -->
 
-<!-- scabies_missing <- read.csv(file = "scabies_results_missing.csv", header = TRUE, sep = ",") -->
+<!-- scabies_missing <- read.csv(file =  scabies_results_missing.csv , header = TRUE, sep =  , ) -->
 <!-- Looking at what data is missing -->
 <!-- We can see what data is missing using the ‘md.pattern’ command. The general syntax is: -->
 
@@ -1155,7 +1157,7 @@ library(tidyverse)
 
 <!-- coded_imputed_data <- as.mids(imputed_long) -->
 
-<!-- complete_scabies_data <- mice::complete(imputed_scabies_data,"long", include = TRUE) -->
+<!-- complete_scabies_data <- mice::complete(imputed_scabies_data, long , include = TRUE) -->
 <!-- #Take out imputed data and make a long data-table. Include the original dataset with missing values. -->
 
 
@@ -1167,7 +1169,7 @@ library(tidyverse)
 <!-- #Set the baseline value -->
 
 <!-- coded_imputed_scabies <- as.mids(complete_scabies_data) -->
-<!-- #Convert back to "Imputed" format -->
+<!-- #Convert back to  Imputed  format -->
 <!-- Fitting a model across all the imputed datasets -->
 <!-- If we want to fit a model across all the different imputed datasets then we can do that! The general syntax is very similar to a normal logistic regression but with a few changes as we are working with multiple imputed datasets and then pooling the results. -->
 
@@ -1184,7 +1186,7 @@ library(tidyverse)
 <!-- #Imputed Data -->
 <!-- imputed_scabies_model <- with(coded_imputed_scabies,glm(impetigo_active~ factor(scabies_infestation)+factor(gender)+factor(agegroups), family = binomial())) -->
 <!-- imputed_scabies_model_summary <- (summary(pool(imputed_scabies_model))) -->
-<!-- imputed_scabies_model_OR <- exp(cbind(imputed_scabies_model_summary[,"est"],imputed_scabies_model_summary[,"lo 95"],imputed_scabies_model_summary[,"hi 95"])) -->
+<!-- imputed_scabies_model_OR <- exp(cbind(imputed_scabies_model_summary[, est ],imputed_scabies_model_summary[, lo 95 ],imputed_scabies_model_summary[, hi 95 ])) -->
 <!-- imputed_scabies_model_summary <- (cbind(imputed_scabies_model_OR,imputed_scabies_model_summary)) -->
 
 <!-- #Let us also fit this same model to the full-original dataset -->
@@ -1255,13 +1257,13 @@ library(tidyverse)
 <!-- We can then calculate the frequency of our outcome (say presence of Trachoma) adjusting for clustering and then get out the design effect of our data compared to SRS with replacement. >svymean(~outcome,survey_dataset,proportion = TRUE, deff = “replace”) -->
 
 <!-- #Lets look at our scabies survey again -->
-<!-- scabies <- read.csv(file = "S1-Dataset_CSV.csv", header = TRUE, sep = ",") -->
+<!-- scabies <- read.csv(file =  S1-Dataset_CSV.csv , header = TRUE, sep =  , ) -->
 
 <!-- #Declare the survey design -->
 <!-- survey_scabies <- svydesign(id=~Village, data = scabies) -->
 <!-- ## Warning in svydesign.default(id = ~Village, data = scabies): No weights or -->
 <!-- ## probabilities supplied, assuming equal probability -->
-<!-- svymean(~scabies_infestation,survey_scabies,proportion = TRUE, deff = "replace") -->
+<!-- svymean(~scabies_infestation,survey_scabies,proportion = TRUE, deff =  replace ) -->
 <!-- ##                            mean       SE   DEff -->
 <!-- ## scabies_infestationno  0.808176 0.010242 1.2903 -->
 <!-- ## scabies_infestationyes 0.191824 0.010242 1.2903 -->
@@ -1274,7 +1276,7 @@ library(tidyverse)
 <!-- It expects outcome_var to be coded numerically -->
 
 <!-- scabies$hasscabies <- 0 -->
-<!-- scabies$hasscabies[scabies$scabies_infestation == "yes"] <- 1 -->
+<!-- scabies$hasscabies[scabies$scabies_infestation ==  yes ] <- 1 -->
 <!-- #Convert our yes/no variable to 0 / 1 variable as expected by ICCest -->
 
 <!-- ICCest(Village,hasscabies, data = scabies) -->
@@ -1312,7 +1314,7 @@ library(tidyverse)
 
 <!-- The command for this is just: > icc (re_model) -->
 
-<!-- re_village_scabies <- glmer(scabies_infestation~ + (1 | Village),family = "binomial", data = scabies, nAGQ = 10) -->
+<!-- re_village_scabies <- glmer(scabies_infestation~ + (1 | Village),family =  binomial , data = scabies, nAGQ = 10) -->
 <!-- #Run a model clustered at household level. Ten intgration points. -->
 <!-- icc(re_village_scabies) -->
 <!-- ##  -->
@@ -1328,7 +1330,7 @@ library(tidyverse)
 
 <!-- The general syntax is > metaprop(Number_Events, Number_Observations) -->
 
-<!-- metaprop(c(267,175,219,117),c(406,329,223,137),method="GLMM") -->
+<!-- metaprop(c(267,175,219,117),c(406,329,223,137),method= GLMM ) -->
 <!-- ##   proportion           95%-CI %W(fixed) %W(random) -->
 <!-- ## 1     0.6576 [0.6092; 0.7037]        --         -- -->
 <!-- ## 2     0.5319 [0.4764; 0.5869]        --         -- -->
@@ -1356,7 +1358,7 @@ library(tidyverse)
 <!-- ## - Clopper-Pearson confidence interval for individual studies -->
 <!-- #Calculate the weighted proportion of events across four studies -->
 <!-- #Method = GLMM specifies that a random-intercept should be used -->
-<!-- meta_data <- metaprop(c(267,175,219,117),c(406,329,223,137),method="GLMM", comb.fixed = FALSE) -->
+<!-- meta_data <- metaprop(c(267,175,219,117),c(406,329,223,137),method= GLMM , comb.fixed = FALSE) -->
 <!-- #As above but don't give a fixed-effec estimate and store the results so we can use them in our plot -->
 
 <!-- meta_forest <- forest(meta_data) -->
@@ -1410,7 +1412,7 @@ library(tidyverse)
 <!--   geom_point(aes(colour = factor(gender))) + -->
 
 <!-- #I'm drawing a scatter plot and colouring dots based on gender   -->
-<!--   labs(title = "House size vs Number people sharing a room", x ="House Size", y = "People sharing a room") -->
+<!--   labs(title =  House size vs Number people sharing a room , x = House Size , y =  People sharing a room ) -->
 
 <!-- #I'm giving some labels to the graph -->
 
@@ -1425,7 +1427,7 @@ library(tidyverse)
 <!-- geom_histogram() + -->
 
 <!-- #With which I will draw a scatterplot   -->
-<!-- labs(title = "Distribution of age in study", y = "No. participants", x = "Age (yrs)") -->
+<!-- labs(title =  Distribution of age in study , y =  No. participants , x =  Age (yrs) ) -->
 
 <!-- #I will give some axis and graph labels -->
 <!-- gg_histo -->
@@ -1439,7 +1441,7 @@ library(tidyverse)
 <!--   geom_boxplot(aes(colour = factor(gender))) + -->
 
 <!-- #I am drawing a box plot and colouring them in by age -->
-<!--   labs(title = "Distribution of age by gender", y = "Age", x = "Gender") -->
+<!--   labs(title =  Distribution of age by gender , y =  Age , x =  Gender ) -->
 
 <!-- #I have some axis labels -->
 <!-- gg_boxplot -->
@@ -1456,10 +1458,10 @@ library(tidyverse)
 <!--   geom_histogram(breaks = seq(0,80, by = 2)) + -->
 
 <!-- #I'm plotting a histogram. I've divided the data between 0 to 80 it to blocks 5 years wide. -->
-<!--   labs(title = "Distribution of age in study", y = "No. participants", x = "Age (yrs)")+ -->
+<!--   labs(title =  Distribution of age in study , y =  No. participants , x =  Age (yrs) )+ -->
 
 <!-- #I've given some labels -->
-<!--   facet_wrap("Village") -->
+<!--   facet_wrap( Village ) -->
 
 <!-- #I've broken the data down in to several facets based on the village -->
 <!-- gg_histo_by_village -->
@@ -1467,9 +1469,10 @@ library(tidyverse)
 
 # tips
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-my_string1 <- "3+4"
-my_string2 <- "plot(cars)"
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+my_string1 <-  3+4 
+my_string2 <-  plot(cars) 
 eval(parse(text = my_string1))
 eval(parse(text = my_string2))
 
@@ -1493,7 +1496,7 @@ However if you choose, you can create a new environment and store them there.
 
 rm(list=ls())  # remove all objects in work space
 env1 <- new.env()  # create a new environment
-assign("a", 3, envir = env1)  # store a=3 inside env1
+assign( a , 3, envir = env1)  # store a=3 inside env1
 ls()  # returns objects in .GlobalEnv
 ls(env1)  # returns objects in env1
 get('a', envir=env1)  # retrieve value from env1

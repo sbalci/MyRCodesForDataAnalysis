@@ -1,6 +1,4 @@
----
-title: "Cancer Packages"
----
+# Cancer Packages
 
 # BCRA
 
@@ -16,19 +14,22 @@ https://cran.r-project.org/web/packages/cgdsr/index.html
 
 # TCGAbiolinksGUI
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("TCGAbiolinksGUI", version = "3.8")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if (!requireNamespace( BiocManager , quietly = TRUE))
+    install.packages( BiocManager )
+BiocManager::install( TCGAbiolinksGUI , version =  3.8 )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-browseVignettes("TCGAbiolinksGUI")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+browseVignettes( TCGAbiolinksGUI )
 ```
 
 https://bioconductor.org/packages/release/bioc/html/TCGAbiolinksGUI.html
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(TCGAbiolinksGUI)
 TCGAbiolinksGUI()
 ```
@@ -38,17 +39,20 @@ TCGAbiolinksGUI()
 # RTCGA
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("RTCGA", version = "3.8")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if (!requireNamespace( BiocManager , quietly = TRUE))
+    install.packages( BiocManager )
+BiocManager::install( RTCGA , version =  3.8 )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-browseVignettes("RTCGA")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+browseVignettes( RTCGA )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 RTCGA::infoTCGA()
 ```
 
@@ -56,16 +60,18 @@ RTCGA::infoTCGA()
 # CancerSubtypes
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("CancerSubtypes", version = "3.8")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if (!requireNamespace( BiocManager , quietly = TRUE))
+    install.packages( BiocManager )
+BiocManager::install( CancerSubtypes , version =  3.8 )
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-browseVignettes("CancerSubtypes")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+browseVignettes( CancerSubtypes )
 ```
 
 
@@ -78,34 +84,40 @@ browseVignettes("CancerSubtypes")
 
 # canceR
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("canceR", version = "3.8")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if (!requireNamespace( BiocManager , quietly = TRUE))
+    install.packages( BiocManager )
+BiocManager::install( canceR , version =  3.8 )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-browseVignettes("canceR")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+browseVignettes( canceR )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 canceR::canceR()
 ```
 
 
 # bioCancer
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("bioCancer", version = "3.8")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if (!requireNamespace( BiocManager , quietly = TRUE))
+    install.packages( BiocManager )
+BiocManager::install( bioCancer , version =  3.8 )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-browseVignettes("bioCancer")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+browseVignettes( bioCancer )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 bioCancer::bioCancer()
 ```
 

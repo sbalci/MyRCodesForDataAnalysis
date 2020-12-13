@@ -1,6 +1,6 @@
----
-title: "Power Analysis"
----
+
+# Power Analysis 
+
 
 
 - How to calculate statistical power for your meta-analysis

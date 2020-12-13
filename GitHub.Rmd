@@ -1,18 +1,18 @@
----
-title: "R Notebook"
----
 
----
+# R Notebook 
+
+
+
 
 ```
-print(paste0("Git Update Started at: ", Sys.time()))
-CommitMessage <- paste("updated on: ", Sys.time(), sep = "")
-wd <- "~/serdarbalci"
-setorigin <- "git remote set-url origin git@github.com:sbalci/MyJournalWatch.git \n"
-gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n", setorigin, "git push origin master \n",  sep = "")
-system(command = paste(gitCommand, "\n") , intern = TRUE, wait = TRUE)
+print(paste0( Git Update Started at:  , Sys.time()))
+CommitMessage <- paste( updated on:  , Sys.time(), sep =   )
+wd <-  ~/serdarbalci 
+setorigin <-  git remote set-url origin git@github.com:sbalci/MyJournalWatch.git \n 
+gitCommand <- paste( cd  , wd,   \n git add . \n git commit --message ' , CommitMessage,  ' \n , setorigin,  git push origin master \n ,  sep =   )
+system(command = paste(gitCommand,  \n ) , intern = TRUE, wait = TRUE)
 Sys.sleep(5)
-print(paste0("Git Update Ended at: ", Sys.time()))
+print(paste0( Git Update Ended at:  , Sys.time()))
 ```
 
 
@@ -20,13 +20,13 @@ print(paste0("Git Update Ended at: ", Sys.time()))
 
 
 
----
+
 
 # Happy Git and GitHub for the useR
 
 https://happygitwithr.com
 
----
+
 
 
 - An introduction to Git and how to use it with RStudio
@@ -59,11 +59,12 @@ https://github.com/thisisnic/first-contributions
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 require(rstudioapi)
-CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+CommitMessage <- paste( updated on  , Sys.time(), sep =   )
 wd <- getwd()
-gitCommand <- paste("cd", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+gitCommand <- paste( cd , wd,   \n git add . \n git commit --message ' , CommitMessage,  ' \n git push origin master \n , sep =   )
 Sys.sleep(time = 1)
 gitTerm <- rstudioapi::terminalCreate(show = FALSE)
 Sys.sleep(time = 1)
@@ -71,10 +72,11 @@ rstudioapi::terminalSend(gitTerm, gitCommand)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+CommitMessage <- paste( updated on  , Sys.time(), sep =   )
 wd <- getwd()
-gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+gitCommand <- paste( cd  , wd,   \n git add . \n git commit --message ' , CommitMessage,  ' \n git push origin master \n , sep =   )
 system(command = gitCommand, intern = TRUE)
 ```
 

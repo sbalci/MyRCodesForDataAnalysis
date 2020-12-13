@@ -1,6 +1,4 @@
----
-title: "Correlations"
----
+# Correlations
 
 # comparisons between correlations
 

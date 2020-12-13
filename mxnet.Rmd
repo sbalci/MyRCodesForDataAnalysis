@@ -1,15 +1,16 @@
----
-title: "mxnet"
----
+
+# mxnet 
+
 
 https://mxnet.apache.org/versions/master/install/index.html?platform=MacOS&language=R&processor=CPU
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-cran <- getOption("repos")
-cran["dmlc"] <- "https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/R/CRAN/"
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+cran <- getOption( repos )
+cran[ dmlc ] <-  https://apache-mxnet.s3-accelerate.dualstack.amazonaws.com/R/CRAN/ 
 options(repos = cran)
-install.packages("mxnet")
+install.packages( mxnet )
 ```
 
 https://mxnet.apache.org/versions/master/api/r/index.html

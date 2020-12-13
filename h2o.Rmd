@@ -1,25 +1,26 @@
----
-title: "h2o"
----
+
+# h2o 
+
 
 
 http://h2o-release.s3.amazonaws.com/h2o/rel-wright/10/docs-website/h2o-r/docs/articles/getting_started.html
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if ("package:h2o" %in% search()) { detach("package:h2o", unload=TRUE) }
-if ("h2o" %in% rownames(installed.packages())) { remove.packages("h2o") }
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if ( package:h2o  %in% search()) { detach( package:h2o , unload=TRUE) }
+if ( h2o  %in% rownames(installed.packages())) { remove.packages( h2o ) }
 
 # Next, download packages that H2O depends on.
 
-pkgs <- c("RCurl","jsonlite")
+pkgs <- c( RCurl , jsonlite )
 for (pkg in pkgs) {
   if (! (pkg %in% rownames(installed.packages()))) { install.packages(pkg) }
 }
 
 # Download and install the latest H2O package for R.
 
-install.packages("h2o", type="source", repos=(c("http://h2o-release.s3.amazonaws.com/h2o/latest_stable_R")))
+install.packages( h2o , type= source , repos=(c( http://h2o-release.s3.amazonaws.com/h2o/latest_stable_R )))
 
 # Initialize H2O and run a demo to see H2O at work.
 

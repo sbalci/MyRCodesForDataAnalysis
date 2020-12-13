@@ -1,6 +1,6 @@
----
-title: "Eurostat"
----
+
+# Eurostat 
+
 
 - eurostat
 
@@ -45,68 +45,80 @@ http://ropengov.github.io/eurostat/articles/eurostat_tutorial.html
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("eurostat")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( eurostat )
 library(eurostat)
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 TOC <- get_eurostat_toc()
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 TOC
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-query <- search_eurostat("road accidents", type = "table")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+query <- search_eurostat( road accidents , type =  table )
 
 query
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 query$code[[1]]
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
   query$title[[1]]
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-dat <- get_eurostat(id = "sdg_11_40", time_format = "num")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+dat <- get_eurostat(id =  sdg_11_40 , time_format =  num )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 dat
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-countries <- c("UK", "SK", "FR", "PL", "ES", "PT", "TR")
-t1 <- get_eurostat("sdg_11_40", filters = list(geo = countries))
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+countries <- c( UK ,  SK ,  FR ,  PL ,  ES ,  PT ,  TR )
+t1 <- get_eurostat( sdg_11_40 , filters = list(geo = countries))
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 t1
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-t2 <- get_eurostat(id = "sdg_11_40", time_format = "num")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+t2 <- get_eurostat(id =  sdg_11_40 , time_format =  num )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 table(t2$geo)
 ```
 

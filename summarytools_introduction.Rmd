@@ -1,19 +1,20 @@
----
-title: "Introduction to summarytools"
-author: "Dominic Comtois"
-date: "`{r #  Sys.Date()`"
+
+# Introduction to summarytools 
+author:  Dominic Comtois 
+date:   
 output: 
   rmarkdown::html_vignette: 
     css: 
-    - !expr system.file("rmarkdown/templates/html_vignette/resources/vignette.css", package = "rmarkdown")
-    - !expr system.file("includes/stylesheets/summarytools.css", package = "summarytools")
+    - !expr system.file( rmarkdown/templates/html_vignette/resources/vignette.css , package =  rmarkdown )
+    - !expr system.file( includes/stylesheets/summarytools.css , package =  summarytools )
 vignette: >
   %\VignetteIndexEntry{Introduction to summarytools 0.8}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
----
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(knitr)
 opts_chunk$set(comment=NA, prompt=FALSE, cache=FALSE, results='asis')
 library(summarytools)
@@ -56,7 +57,7 @@ Version 0.8.3 brings several improvements to *summarytools*, notably:
 
  - Introduction of global settings (customizable defaults)
  - Options to make content fit more naturally in _shiny_ apps or _Rmarkdown_ documents
- - A better handling of "split-group" statistics with `by()`
+ - A better handling of  split-group  statistics with `by()`
  - A more thorough documentation
 
 ## summarytool's Core Functions
@@ -67,15 +68,17 @@ The `freq()` function generates a table of frequencies with counts and
 proportions. Since this page use *markdown* rendering, we’ll set `style
 = 'rmarkdown'` to take advantage of it.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(summarytools)
-freq(iris$Species, style = "rmarkdown")
+freq(iris$Species, style =  rmarkdown )
 ```
 
 If we do not worry about missing data, we can set `{r # eport.nas = FALSE`:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headings = TRUE)
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+freq(iris$Species, report.nas = FALSE, style =  rmarkdown , headings = TRUE)
 ```
 
 We could simplify further and omit the _Totals_ row by setting `totals = FALSE`.
@@ -93,7 +96,8 @@ but we’ll include the full syntax anyway.
 Since *markdown* has not support (yet) for multi-line headings, we’ll
 show an image of the resulting html table.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 ```
 
@@ -106,10 +110,11 @@ we used the `with()` function, making the syntax less redundant.
 It is possible to display *column*, *total*, or no proportions at all.
 We can also omit the marginal totals to have a simple “2 x 2” table.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 with(tobacco, 
      print(ctable(smoker, diseased, prop = 'n', totals = FALSE), 
-           headings = TRUE, method = "render"))
+           headings = TRUE, method =  render ))
 ```
 
 ## 3 - descr() : Descriptive Univariate Stats 
@@ -119,8 +124,9 @@ measures of dispersion for numerical data. It can handle single vectors
 as well as data frames, in which case it just ignores non-numerical
 columns (and displays a message to that effect).
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-descr(iris, style = "rmarkdown")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+descr(iris, style =  rmarkdown )
 ```
 
 ### Transposing and selecting only the stats you need
@@ -130,9 +136,10 @@ If your eyes/brain prefer seeing things the other way around, just use
 see, and specify `headings = TRUE` to avoid reprinting the same
 information as above.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-descr(iris, stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE, 
-      headings = TRUE, style = "rmarkdown")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+descr(iris, stats = c( mean ,  sd ,  min ,  med ,  max ), transpose = TRUE, 
+      headings = TRUE, style =  rmarkdown )
 ```
 
 ## 4 - dfSummary() : Data Frame Summaries
@@ -144,7 +151,8 @@ To generate a summary report and have it displayed in
 [*RStudio*](http://www.rstudio.com/)’s Viewer pane (or in your default
 Web Browser if working with another interface), we simply do like this:
 
-```{r, eval=FALSE}
+```
+{r, eval=FALSE}
 view(dfSummary(iris))
 ```
 
@@ -153,8 +161,9 @@ It is also possible to use `dfSummary()` in *Rmarkdown* documents. In this next 
 note that due to rmarkdown compatibility issues, histograms are not shown. We’re working
 on this. Further down, we'll see how tu use _html_ rendering to go around this problem.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-dfSummary(tobacco, plain.ascii = FALSE, style = "grid")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+dfSummary(tobacco, plain.ascii = FALSE, style =  grid )
 ```
 
 ## The print() and view() Functions
@@ -184,20 +193,22 @@ will not give as much satisfactory results.
 Using the _iris_ data frame, we will display descriptive statistics
 broken down by Species.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # First save the results
 iris_stats_by_species <- by(data = iris, 
                             INDICES = iris$Species, 
-                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"), 
+                            FUN = descr, stats = c( mean ,  sd ,  min ,  med ,  max ), 
                             transpose = TRUE)
 
 # Then use view(), like so:
-view(iris_stats_by_species, method = "pander", style = "rmarkdown")
+view(iris_stats_by_species, method =  pander , style =  rmarkdown )
 ```
 
 To see an *html* version of these results, we'd simply do this (results not shown):
 
-```{r, eval=FALSE}
+```
+{r, eval=FALSE}
 view(iris_stats_by_species)
 ```
 
@@ -206,21 +217,23 @@ view(iris_stats_by_species)
 Instead of showing several tables having only one column each, the
 `view()` function will assemble the results into a single table:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 data(tobacco) # tobacco is an example dataframe included in the package
 BMI_by_age <- with(tobacco, 
                    by(BMI, age.gr, descr, 
-                      stats = c("mean", "sd", "min", "med", "max")))
-view(BMI_by_age, "pander", style = "rmarkdown")
+                      stats = c( mean ,  sd ,  min ,  med ,  max )))
+view(BMI_by_age,  pander , style =  rmarkdown )
 ```
 
 The transposed version looks like this:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 BMI_by_age <- with(tobacco, 
                    by(BMI, age.gr, descr,  transpose = TRUE,
-                      stats = c("mean", "sd", "min", "med", "max")))
-view(BMI_by_age, "pander", style = "rmarkdown", headings = TRUE)
+                      stats = c( mean ,  sd ,  min ,  med ,  max )))
+view(BMI_by_age,  pander , style =  rmarkdown , headings = TRUE)
 ```
 
 ## Using lapply() to Show Several freq() tables at once
@@ -229,8 +242,9 @@ As is the case for `by()`, the `view()` function is essential for making
 results nice and tidy.
 
 
-```{r, eval=FALSE}
-tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")]
+```
+{r, eval=FALSE}
+tobacco_subset <- tobacco[ ,c( gender ,  age.gr ,  smoker )]
 freq_tables <- lapply(tobacco_subset, freq)
 view(freq_tables, footnote = NA, file = 'freq-tables.html')
 ```
@@ -246,7 +260,8 @@ get started:
  - Always set the `knitr` chunk option `{r # esults = 'asis'`. You can do
    this on a chunk-by-chunk basis, but here is how to do it globally:
 
-```{r, eval=FALSE, tidy=FALSE}
+```
+{r, eval=FALSE, tidy=FALSE}
     knitr::opts_chunk$set(echo = TRUE, results = 'asis')
 ```
 
@@ -259,12 +274,12 @@ more on _knitr_'s options.
 #### Example
 
 ````
-# ---
-# title: "RMarkdown using summarytools"
+# 
+# # RMarkdown using summarytools 
 # output: 
 #   html_document: 
 #     css: C:/R/win-library/3.4/summarytools/includes/stylesheets/summarytools.css
-# ---
+# 
 ````
 
 For more details on using *summarytools* in *Rmarkdown* documents, please refer to
@@ -276,8 +291,9 @@ The console will always tell you the location of the temporary *html*
 file that is created in the process. However, you can specify the name
 and location of that file explicitly if you need to reuse it later on:
 
-```{r, eval=FALSE}
-view(iris_stats_by_species, file = "~/iris_stats_by_species.html")
+```
+{r, eval=FALSE}
+view(iris_stats_by_species, file =  ~/iris_stats_by_species.html )
 ```
 Based on the file extension you provide (_.html_ vs others), _summarytools_ will
 use the appropriate method; there is no need to specify the `method` argument.
@@ -314,7 +330,8 @@ Version 0.8.3 introduced the following set of global options:
 
 #### Examples
 
-```{r, eval=FALSE}
+```
+{r, eval=FALSE}
 st_options()                      # display all global options' values
 st_options('round.digits')        # display only one option
 st_options('headings', TRUE) # change an option's value
@@ -333,10 +350,11 @@ functions.
 
 #### Example 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 age_stats <- freq(tobacco$age.gr)  # age_stats contains a regular output for freq 
                                    # including headings, NA counts, and Totals
-print(age_stats, style = "rmarkdown", report.nas = FALSE, 
+print(age_stats, style =  rmarkdown , report.nas = FALSE, 
                  totals = FALSE, headings = TRUE)
 ```
 
@@ -377,7 +395,8 @@ as the following:
 
 Then, to apply it to a *summarytools* object and display it in your browser:
 
-```{r, eval=FALSE}
+```
+{r, eval=FALSE}
 view(dfSummary(tobacco), custom.css = 'path/to/custom.css', 
      table.classes = 'table-condensed')
 ```
@@ -392,7 +411,8 @@ To include _summarytools_ functions into _shiny_ apps, it is recommended that yo
  
 #### Example
 
-```{r # 
+```
+{r # 
 print(dfSummary(somedata, graph.magnif = 0.8), 
       method = 'render',
       headings = TRUE,
@@ -405,7 +425,8 @@ When developing, we often use a number of functions to obtain an object's proper
 `what.is()` proposes to lump together the results of most of these functions (`class()`,
 `typeof()`, `attributes()` and others).
 
-```{r what_is, warning=FALSE, results='markup'}
+```
+{r what_is, warning=FALSE, results='markup'}
 what.is(iris)
 ```
 
@@ -424,7 +445,8 @@ from there you can see the latest updates and also submit feature requests.
 To install the version of summarytools that is on CRAN, but that might have
 benefited from quick fixes:
 
-```{r # 
+```
+{r # 
 install.packages('devtools')
 library(devtools)
 install_github('dcomtois/summarytools')
@@ -432,7 +454,8 @@ install_github('dcomtois/summarytools')
 
 To install the package in its development version, use
 
-```{r # 
+```
+{r # 
 install_github('dcomtois/summarytools', ref='dev-current')
 ```
 

@@ -1,25 +1,19 @@
----
-title: "My R Codes For Data Analysis"
-subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
-author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
-date: '`{r #  format(Sys.Date())`'
----
+# Compare Proportions
 
-
-
-### Compare Proportions
-
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 prop.test(numerator,denominator)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 table(impetigo = scabies$impetigo_active, scabies = scabies$scabies_infestation)
 # dependent ~ independent
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 #See that because 'no' is the 'base' level the table is laid out
 #               No Disease      Has Disease
 
@@ -33,7 +27,7 @@ table(impetigo = scabies$impetigo_active, scabies = scabies$scabies_infestation)
 #epi.2by2 wants the data with the exposed/disease group in top right corner
 #So we just tell R to order the variables differently when we draw the table
 
-epiR::epi.2by2(table(relevel(scabies$scabies_infestation,"yes"), relevel(scabies$impetigo_active,"yes")))
+epiR::epi.2by2(table(relevel(scabies$scabies_infestation, yes ), relevel(scabies$impetigo_active, yes )))
 ```
 
 

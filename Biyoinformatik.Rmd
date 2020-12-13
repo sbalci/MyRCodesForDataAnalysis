@@ -1,6 +1,4 @@
----
-title: "Biyoinformatik"
----
+# Biyoinformatik
 
 - DESeq results to pathways in 60 Seconds with the fgsea package
 

@@ -1,26 +1,31 @@
---- 
-title: "My R Codes for Data Analysis"
-author: "Serdar Balcı"
-date: "`{r Sys.Date()`"
+---
+title: 'My R Codes for Data Analysis'
+author: 'Serdar Balcı'
+date: '`r Sys.Date()`'
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: ['bib/book.bib', 'bib/packages.bib']
 biblio-style: apalike
 link-citations: yes
-description: "This is a collection of R codes I use for data analysis"
+description: 'This is a collection of R codes I use for data analysis'
 always_allow_html: true
 ---
 
 # Preface
 
-```{r echo=TRUE}
-# install.packages("bookdown")
+
+
+
+```
+{r echo=TRUE}
+# install.packages( bookdown )
 # or the development version
-# devtools::install_github("rstudio/bookdown")
+# devtools::install_github( rstudio/bookdown )
 ```
 
 
-```{r echo=TRUE}
+```
+{r echo=TRUE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
@@ -40,7 +45,7 @@ repository on GitHub.
 These templates will allow me to make histopathology research data
 analysis easier and more standard.
 
------
+--
 
 Bir sonraki R-project sunumuna şu linkten belirtilen gün ve saatte
 erişebilirsiniz.
@@ -83,13 +88,12 @@ R](https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html)
 [R-Markdown
 Sunum](https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.html)
 
------
+--
 
 # My R Codes For Data Analysis
 
-[![HitCount](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis.svg)](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis)
-[![Say
-Thanks\!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/sbalci)
+<!-- [![HitCount](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis.svg)](http://hits.dwyl.io/sbalci/MyRCodesForDataAnalysis) -->
+<!-- [![Say Thanks\!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/sbalci) -->
 
 In this repository I am going to collect `R codes` for data analysis.
 
@@ -108,9 +112,9 @@ can refer later and then update them as I learn more.
 
 **See the links for the Codes below:**
 
------
+--
 
-WorldBankCountryAnalysis.R 1 cards.R 2 DataCamp.R 3 GABAHip.R 4
+WorldBankCountryAnalysis.R 1 cards.R 2 .R 3 GABAHip.R 4
 googleCite.R 5 makenames.R 6 R-Program-Env-1-2.R 8 SurvivalAnalysis.R 9
 SurvivalAnalysisR.R 10 tangram.R 11 TurkPathScholar.R deneme.R
 geom\_bartext.R gilbert-dahl.R GitHubUpdateV2.R
@@ -118,7 +122,7 @@ join-animations-with-gganimate.R plumber.R plumberRun.R
 power\_multiplot.R quRan-data-raw-clean\_data.R
 Retrieve\_pubmed\_citation\_data.R sf\_transitions.R silge.R
 
------
+--
 
 12 ArticlesPerJournalsPerCountry.Rmd 13 CountryBasedComparison.Rmd 14
 JournalWatchPBPath.Rmd 15
@@ -155,7 +159,7 @@ tweetbook1.Rmd Twitter.Rmd TwitterDashboard.Rmd Untitled1.Rmd
 Untitled22.Rmd VisualisationGraphsPlots.Rmd WebScrapping.Rmd
 WhereToLearnR.Rmd
 
------
+--
 
 # Getting Data into R / Veriyi R’a yükleme
 
@@ -414,13 +418,13 @@ Other Bibliographic Studies:
 
 You may also contact with me with the comment field below.
 
------
+--
 
 {% if page.comments %}
 
-<script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
+<script id= dsq-count-scr  src= //https-sbalci-github-io.disqus.com/count.js  async></script>
 
-<div id="disqus_thread">
+<div id= disqus_thread >
 
 </div>
 
@@ -446,14 +450,14 @@ s.setAttribute('data-timestamp', +new Date());
 <noscript>
 
 Please enable JavaScript to view the
-<a href="https://disqus.com/?ref_noscript">comments powered by
+<a href= https://disqus.com/?ref_noscript >comments powered by
 Disqus.</a>
 
 </noscript>
 
 {% endif %}
 
------
+--
 
 
 

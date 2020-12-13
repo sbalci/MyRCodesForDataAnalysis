@@ -14,7 +14,8 @@ Here, we are going to compare 3 countries (German, Japan and Turkey), in terms o
 
 If you want to see the code used in the analysis please click the code button on the right upper corner or throughout the page.
 
-```{r , eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r , eval=FALSE, include=FALSE, echo=TRUE}
 # load required packages
 library(tidyverse)
 library(RISmed)
@@ -22,32 +23,35 @@ library(RISmed)
 
 Pathology Journal ISSN List was retrieved from [In Cites Clarivate](https://jcr.incites.thomsonreuters.com/), and Journal Data Filtered as follows: `JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categories: 'PATHOLOGY' Selected Category Scheme: WoS`
 
-```{r Get ISSN List from data downloaded from WoS 2, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Get ISSN List from data downloaded from WoS 2, eval=FALSE, include=FALSE, echo=TRUE}
 # Get ISSN List from data downloaded from WoS
-ISSNList <- JournalHomeGrid <- read_csv("data/JournalHomeGrid.csv", 
+ISSNList <- JournalHomeGrid <- read_csv( data/JournalHomeGrid.csv , 
                                         skip = 1) %>% 
     select(ISSN) %>% 
     filter(!is.na(ISSN)) %>% 
     t() %>% 
-    paste("OR ", collapse = "") # add OR between ISSN List
+    paste( OR  , collapse =   ) # add OR between ISSN List
 
-ISSNList <- gsub(" OR $","" ,ISSNList) # to remove last OR
+ISSNList <- gsub(  OR $ ,   ,ISSNList) # to remove last OR
 ```
 
 Data is retrieved from PubMed via RISmed package.
 PubMed collection from National Library of Medicine (https://www.ncbi.nlm.nih.gov/pubmed/), has the most comprehensive information about peer reviewed articles in medicine.
 The API (https://dataguide.nlm.nih.gov/), and R packages are available for getting and fetching data from the server.
 
-The search formula for PubMed is generated as "ISSN List AND Country[Affiliation]" like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
+The search formula for PubMed is generated as  ISSN List AND Country[Affiliation]  like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
 
-```{r Generate Search Formula For Pathology Journals AND Countries 2, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Generate Search Formula For Pathology Journals AND Countries 2, eval=FALSE, include=FALSE, echo=TRUE}
 # Generate Search Formula For Pathology Journals AND Countries
-searchformulaTR <- paste("'",ISSNList,"'", " AND ", "Turkey[Affiliation]")
-searchformulaDE <- paste("'",ISSNList,"'", " AND ", "Germany[Affiliation]")
-searchformulaJP <- paste("'",ISSNList,"'", " AND ", "Japan[Affiliation]")
+searchformulaTR <- paste( ' ,ISSNList, ' ,   AND  ,  Turkey[Affiliation] )
+searchformulaDE <- paste( ' ,ISSNList, ' ,   AND  ,  Germany[Affiliation] )
+searchformulaJP <- paste( ' ,ISSNList, ' ,   AND  ,  Japan[Affiliation] )
 ```
 
-```{r Search PubMed 2, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Search PubMed 2, eval=FALSE, include=FALSE, echo=TRUE}
 # Search PubMed, Get and Fetch
 TurkeyArticles <- EUtilsSummary(searchformulaTR, type = 'esearch', db = 'pubmed', mindate = 2007, maxdate = 2017, retmax = 10000)
 fetchTurkey <- EUtilsGet(TurkeyArticles)
@@ -61,7 +65,8 @@ fetchJapan <- EUtilsGet(JapanArticles)
 
 From the fetched data the year of articles are grouped and counted by country.
 
-```{r Articles per countries per year 2, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Articles per countries per year 2, eval=FALSE, include=FALSE, echo=TRUE}
 # Articles per countries per year
 tableTR <- table(YearPubmed(fetchTurkey)) %>% 
     as_tibble() %>% 
@@ -81,18 +86,19 @@ articles_per_year_table <- list(
     tableDE,
     tableJP
     ) %>%
-    reduce(left_join, by = "Year", .id = "id")
+    reduce(left_join, by =  Year , .id =  id )
 
 ```
 
 
-```{r Prepare table for output 2, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Prepare table for output 2, eval=FALSE, include=FALSE, echo=TRUE}
 # Prepare table for output
 articles_per_year <- articles_per_year_table %>% 
     gather(Country, n, 2:4)
 
 articles_per_year$Country <- factor(articles_per_year$Country,
-                                       levels =c("Japan", "Germany", "Turkey"))
+                                       levels =c( Japan ,  Germany ,  Turkey ))
 ```
 
 
@@ -100,23 +106,25 @@ articles_per_year$Country <- factor(articles_per_year$Country,
 
 In the below table we see the number of articles per country in the last decade.
 
-```{r Print the Table of Articles per year per country 2, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Print the Table of Articles per year per country 2, eval=FALSE, include=FALSE, echo=TRUE}
 # Print the Table of Articles per year, per country
-knitr::kable(articles_per_year_table, caption = "Table of Articles per year, per country")
+knitr::kable(articles_per_year_table, caption =  Table of Articles per year, per country )
 ```
 
 
 And the figure below shows this data in a line graph. 
 
-```{r Graph of Table of Articles per year per country 2, eval=FALSE, fig.align="center", include=FALSE}
+```
+{r Graph of Table of Articles per year per country 2, eval=FALSE, fig.align= center , include=FALSE}
 ggplot(data = articles_per_year, aes(x = Year, y = n, group = Country,
                                      colour = Country, shape = Country,
                                      levels = Country
                                      )) +
     geom_line() +
     geom_point() +
-    labs(x = "Year", y = "Number of Articles") +
-    ggtitle("Pathology Articles Per Year") +
+    labs(x =  Year , y =  Number of Articles ) +
+    ggtitle( Pathology Articles Per Year ) +
     theme(plot.title = element_text(hjust = 0.4), 
           text = element_text(size = 9))
 ```

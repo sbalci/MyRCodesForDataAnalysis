@@ -1,6 +1,4 @@
----
-title: "Where to learn R"
----
+# Where to learn R
 
 # Introduction to Data Science
 
@@ -95,12 +93,12 @@ https://github.com/sbalci/IntroToR.git
 
 # YouTube Collections
 
----
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLxRBOaoEoP4KUSgmcNjSGBFu7PYipGVrX" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
----
+<iframe width= 560  height= 315  src= https://www.youtube.com/embed/videoseries?list=PLxRBOaoEoP4KUSgmcNjSGBFu7PYipGVrX  frameborder= 0  allow= accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture  allowfullscreen></iframe>
+
+
+
 
 - Jamovi  
 https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
@@ -131,7 +129,7 @@ https://whattheyforgot.org/
 
 
 
----
+
 
 # Keeping up to date with R news  
 https://masalmon.eu/2019/01/25/uptodate/
@@ -151,14 +149,14 @@ https://cran.r-project.org/web/views/
 https://en.wikibooks.org/wiki/R_Programming
 
 
----
+
 
 # Happy Git and GitHub for the useR
 
 https://happygitwithr.com
 
 
----
+
 
 https://r-bootcamp.netlify.com/
 

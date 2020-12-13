@@ -1,9 +1,9 @@
----
-title: "reprex"
-author: "Serdar Balcı, MD, Pathologist"
-date: "21 09 2018"
+
+# reprex 
+author:  Serdar Balcı, MD, Pathologist 
+date:  21 09 2018 
 output: html_document
----
+
 
 https://www.youtube.com/watch?v=MmTPhGQWPUo
 
@@ -11,8 +11,9 @@ https://reprex.tidyverse.org/index.html
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("reprex")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( reprex )
 # library(reprex)
 ```
 

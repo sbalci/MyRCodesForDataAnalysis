@@ -1,7 +1,7 @@
----
-title: "R in Pathology Research"
-output: html_notebook
----
+
+# R in Pathology Research 
+
+
 
 
 - Progesterone Receptor Status Predicts Response to Progestin Therapy in Endometriosis

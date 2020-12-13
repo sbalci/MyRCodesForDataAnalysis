@@ -1,6 +1,6 @@
----
-title: "General Resources"
----
+
+# General Resources 
+
 
 # Data Science Live Book
 
@@ -35,7 +35,7 @@ https://www.gnu.org/software/make/
 https://kbroman.org/minimal_make/
 
 
-https://www.datacamp.com/community/tutorials/shell-commands-data-scientist
+https://www..com/community/tutorials/shell-commands-data-scientist
 
 https://moderndive.com/3-viz.html
 
@@ -53,7 +53,7 @@ https://ropensci.org/blog/2018/07/24/educollab-challenges/
 
 
 
-https://www.datacamp.com/community/tutorials/data-science-pitfalls
+https://www..com/community/tutorials/data-science-pitfalls
 
 
 https://serialmentor.com/dataviz/preface.html
@@ -147,7 +147,7 @@ https://datalab.cc/tools/jamovi
 https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
 
 
----
+
 
 ## master course links
 
@@ -158,7 +158,7 @@ https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
 
 
 
----
+
 
 # Do More with R
 

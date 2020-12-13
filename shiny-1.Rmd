@@ -1,7 +1,7 @@
----
-title: "Shiny"
-output: html_notebook
----
+
+# Shiny 
+
+
 
 - Some notes on my first shiny app
 

@@ -1,6 +1,6 @@
----
-title: "Syncing a GitHub Fork"
----
+
+# Syncing a GitHub Fork 
+
 
 # Configuring a remote for a fork
 
@@ -108,7 +108,7 @@ git merge upstream/master
 git merge upstream/master
 Updating a422352..5fdff0f
 Fast-forward
- README                    |    9 -------
+ README                    |    9 -
  README.md                 |    7 ++++++
  2 files changed, 7 insertions(+), 9 deletions(-)
  delete mode 100644 README
@@ -116,7 +116,7 @@ Fast-forward
 ```
 
 
-## If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
+## If your local branch didn't have any unique commits, Git will instead perform a  fast-forward :
 
 
 ```

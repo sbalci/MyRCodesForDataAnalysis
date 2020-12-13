@@ -1,10 +1,10 @@
----
-title: "How to Prepare Data for Histopathology Research?"
----
+
+# How to Prepare Data for Histopathology Research? 
+
 
 ```
 author: '[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)'
-date: "`{r #  format(Sys.Date())`"
+date:  `{r #  format(Sys.Date())` 
 output:
   revealjs::revealjs_presentation:
     incremental: yes
@@ -64,40 +64,43 @@ editor_options:
 ```
 
 <!-- Open all links in new tab-->  
-<base target="_blank"/>  
+<base target= _blank />  
 
 
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type= text/javascript  src= //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b >  
 </script>
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
 ```
 
 
-```{r strings , include=FALSE}
-PubMedString <- "PubMed: https://www.ncbi.nlm.nih.gov/pubmed/?term="
+```
+{r strings , include=FALSE}
+PubMedString <-  PubMed: https://www.ncbi.nlm.nih.gov/pubmed/?term= 
 
-doiString <- "doi: https://doi.org/"
+doiString <-  doi: https://doi.org/ 
 
-dimensionString1 <- "<script async='' charset='utf-8' src='https://badge.dimensions.ai/badge.js'></script> <span class='__dimensions_badge_embed__' data-doi='"
+dimensionString1 <-  <script async='' charset='utf-8' src='https://badge.dimensions.ai/badge.js'></script> <span class='__dimensions_badge_embed__' data-doi=' 
 
-dimensionString2 <- "' data-style='small_circle' data-hide-zero-citations='true' data-legend='always'></span>"
+dimensionString2 <-  ' data-style='small_circle' data-hide-zero-citations='true' data-legend='always'></span> 
 
-altmetricString1 <-"<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script> <span class='altmetric-embed' data-link-target='_blank' data-badge-details='right' data-badge-type='donut' data-doi='"
+altmetricString1 <- <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script> <span class='altmetric-embed' data-link-target='_blank' data-badge-details='right' data-badge-type='donut' data-doi=' 
 
-altmetricString2 <- "' data-hide-no-mentions='true'></span>"
+altmetricString2 <-  ' data-hide-no-mentions='true'></span> 
 
-addthis_String1 <- "<div class='addthis_inline_share_toolbox' data-url='pbpath.org/current-journal-watch/' data-title='See this abstract on #PBPath #JournalWatch : "
+addthis_String1 <-  <div class='addthis_inline_share_toolbox' data-url='pbpath.org/current-journal-watch/' data-title='See this abstract on #PBPath #JournalWatch :  
 
-addthis_String2 <- "'></div>"
+addthis_String2 <-  '></div> 
 
 ```
 
 
-```{r run xaringan, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```
+{r run xaringan, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # xaringan::inf_mr()
 # servr::daemon_stop(1)
 ```
@@ -119,7 +122,7 @@ addthis_String2 <- "'></div>"
 - Do I need a research question before collecting Data?
 
 
----
+
 
 
 # How to Prepare Data for Histopathology Research?
@@ -128,7 +131,8 @@ addthis_String2 <- "'></div>"
 
 - Recommendations for reporting histopathology studies: a proposal
 
-```{r 25846513, include=FALSE}
+```
+{r 25846513, include=FALSE}
 
 PMID_25846513 <- RefManageR::ReadPubMed('25846513', database = 'PubMed')
 
@@ -142,7 +146,7 @@ dimensionBadge_25846513 <- paste0(dimensionString1, PMID_25846513$doi,dimensionS
 
 altmetricBadge_25846513 <- paste0(altmetricString1, PMID_25846513$doi, altmetricString2 )
 
-addthis_inline_25846513 <- paste0(addthis_String1, PMID_25846513$title , " PMID: 25846513" , addthis_String2)
+addthis_inline_25846513 <- paste0(addthis_String1, PMID_25846513$title ,   PMID: 25846513  , addthis_String2)
 ```
 
 
@@ -167,7 +171,7 @@ addthis_inline_25846513 <- paste0(addthis_String1, PMID_25846513$title , " PMID:
 <!-- </details> -->
 
 
----
+
 
 
 # Tables and Graphs to be Formed  
@@ -182,12 +186,12 @@ addthis_inline_25846513 <- paste0(addthis_String1, PMID_25846513$title , " PMID:
 
 
 
----
+
 
 # Age
 
 
----
+
 
 
 # Gender
@@ -206,11 +210,11 @@ https://github.com/ropensci/gender
 
 
 
----
+
 
 # Surgery Type
 
----
+
 
 
 
@@ -218,7 +222,7 @@ https://github.com/ropensci/gender
 
 # Histopatoloji çalışmalarında istatistik analizi için nasıl veri hazırlanır?
 
-İstatistik analizlerinde en çok vakit alan kısım verilerin düzenlenmesi ve analize hazır hale getirilmesidir. Bu durum o kadar belirgindir ki veri analizi ile ilgili eğitimlerin de özel bir kısmını "veri temizleme" dersleri oluşturmaktadır \(Coursera\). Analize hazır haldeki veri "temiz veri" olarak adlandırılır \(Tidy Data, H.Wickham\). İstatistikçilerin kısıtlı vakti olduğunu düşünüldüğünde verinin temiz olarak teslim edilmesi onların veriyi rahat anlamalarına ve veri temizleme için ayıracakları vakit yerine sizin araştırmanızdaki ilginç noktalara odaklanmalarına yardımcı olacaktır. Ayrıca temiz veri ile çalışmanın istatistikçileri daha mutlu ettiğini ve özen gösterilmiş bir veride onların da daha özenli çalıştığını gözlemlediğimi belirtmek isterim.
+İstatistik analizlerinde en çok vakit alan kısım verilerin düzenlenmesi ve analize hazır hale getirilmesidir. Bu durum o kadar belirgindir ki veri analizi ile ilgili eğitimlerin de özel bir kısmını  veri temizleme  dersleri oluşturmaktadır \(Coursera\). Analize hazır haldeki veri  temiz veri  olarak adlandırılır \(Tidy Data, H.Wickham\). İstatistikçilerin kısıtlı vakti olduğunu düşünüldüğünde verinin temiz olarak teslim edilmesi onların veriyi rahat anlamalarına ve veri temizleme için ayıracakları vakit yerine sizin araştırmanızdaki ilginç noktalara odaklanmalarına yardımcı olacaktır. Ayrıca temiz veri ile çalışmanın istatistikçileri daha mutlu ettiğini ve özen gösterilmiş bir veride onların da daha özenli çalıştığını gözlemlediğimi belirtmek isterim.
 
 Bu yazıda hipotetik bir histopatoloji çalışması için basamak basamak veri hazırlanma süreci anlatılacaktır.
 
@@ -230,7 +234,7 @@ Statistical Problems to Document and to Avoid Manuscript Checklist for Authors
 
 [http://biostat.mc.vanderbilt.edu/wiki/Main/ManuscriptChecklist](http://biostat.mc.vanderbilt.edu/wiki/Main/ManuscriptChecklist)
 
-Aslında bir "eski tümöre yeni boya" olarak adlandırılan ve sık yapılan bir çalışma türünü inceleyeceğiz. Bunun için yapılacak ilk iş çalışılacak tümörle ilgili CAP protokolünü dikkatlice okumaktır. CAP protokollerinin özellikle not ve açıklama kısımlarındaki detaylar çok faydalı olacaktır. Bundan sonra bir boş kağıt alıp CAP protokolünde raporda belirtilmesi gereken konular maddeler halinde sıralanmalıdır. Bu maddeler çalışmanın tasarlamasından, analizine, yorumuna ve tartışmasına çok yardımcı olacaktır.
+Aslında bir  eski tümöre yeni boya  olarak adlandırılan ve sık yapılan bir çalışma türünü inceleyeceğiz. Bunun için yapılacak ilk iş çalışılacak tümörle ilgili CAP protokolünü dikkatlice okumaktır. CAP protokollerinin özellikle not ve açıklama kısımlarındaki detaylar çok faydalı olacaktır. Bundan sonra bir boş kağıt alıp CAP protokolünde raporda belirtilmesi gereken konular maddeler halinde sıralanmalıdır. Bu maddeler çalışmanın tasarlamasından, analizine, yorumuna ve tartışmasına çok yardımcı olacaktır.
 
 * # Temiz veri için dikkat edilmesi gereken kurallar:
 * Her satır tek hasta
@@ -296,13 +300,13 @@ Lenfovasküler invazyon çoğu tümör raporlarında belirtilmesi gereken bir ö
 
 Lenfatik ve vasküler invazyon ayrı ayrı da kodlanabilir. Mesela kolon tümörlerinde ekstramural venöz invazyonun belirtilmesi gibi.
 
-CAP protokollerinde "equivocal" olarak belirtilen şüpheli durumlardan mümkün oldukça kaçınmak analizlerin daha rahat yapılabilmesi için gereklidir.
+CAP protokollerinde  equivocal  olarak belirtilen şüpheli durumlardan mümkün oldukça kaçınmak analizlerin daha rahat yapılabilmesi için gereklidir.
 
-"Extensive retraction artefact" gibi özellikli durumlar çalışmıyorsa immünohistokimyasal çalışmalara gerek olmadan rutin H&E değerlendirme yeterlidir.
+ Extensive retraction artefact  gibi özellikli durumlar çalışmıyorsa immünohistokimyasal çalışmalara gerek olmadan rutin H&E değerlendirme yeterlidir.
 
 Raporlardan elde edilen bulgular da analiz için kullanılabilir. Özellikle rutin rapora göre tedavi planlanan durumlarda, doğal seyri seyretmek istediğiniz çalışmalarda bunu yapabilirsiniz.
 
-Patologların ise yaptıkları çalışmalarda mutlaka tüm vakalara yeniden bakmaları önerilir. Bazen araştırmacılar sadece "negatif" olarak raporlanan vakalara bakıp, bunlarda "atlanan" lenfovasküler invazyonu yakalamaya çalışırlar. Bu durumda lenfovasküler invazyon yüzdeniz literatürden yüksek çıkacaktır \(Yanlış negatifler azalacaktır\). Pozitif olan olgulara da bakılmalı, "pozitif" olarak raporlanan ve aslında lenfovasküler invazyonu olmayan vakalar \(yanlış pozitif\) ise negatif olarak analize alınmalıdır.
+Patologların ise yaptıkları çalışmalarda mutlaka tüm vakalara yeniden bakmaları önerilir. Bazen araştırmacılar sadece  negatif  olarak raporlanan vakalara bakıp, bunlarda  atlanan  lenfovasküler invazyonu yakalamaya çalışırlar. Bu durumda lenfovasküler invazyon yüzdeniz literatürden yüksek çıkacaktır \(Yanlış negatifler azalacaktır\). Pozitif olan olgulara da bakılmalı,  pozitif  olarak raporlanan ve aslında lenfovasküler invazyonu olmayan vakalar \(yanlış pozitif\) ise negatif olarak analize alınmalıdır.
 
 Lenf nodunda metastaz olan olgularda lenfovasküler invazyonu pozitif olarak kabul etmek uygun değildir. Lenf noduna metastaz yapmanın ayrı peritümöral lenfovasküler invazyon tespit edilmesinin ayrı tümör gelişim basamakları olduğu düşünülmelidir.
 
@@ -365,7 +369,7 @@ Eksik verileri excelde kontrol etme
 * # Tek merkez, çok merkezli çalışma
 * # İstatistikçiye sorulması gereken sorular
 
-Çalışmaya başlamadan önce, hangi soruları soracağınızı zaten planlamış olmanız ve buna göre verilerinizi düzenlemiş olmanız gerekir. Yine de çalışma sürerken ve çalışmanın sonunda yeni sorular ve düşünceler ortaya çıkabilir. Sorulacak sorular ve yapılacak analizler için bir ön hazırlık yapmak ve bunları düzgün cümleler halinde kaydetmek önemlidir. Mesela "tümör tipleri ile X protein ekspresyonunu karşılaştırmak istiyorum" bir soru olabilir. Ama daha iyisi "X proteininin ekspresyonunun A tümöründe B tümörüne göre daha fazla olduğunu düşünüyorum, bunun öyle olup olmadığını analiz etmenizi istiyorum" daha da anlaşılır bir soru olacaktır.
+Çalışmaya başlamadan önce, hangi soruları soracağınızı zaten planlamış olmanız ve buna göre verilerinizi düzenlemiş olmanız gerekir. Yine de çalışma sürerken ve çalışmanın sonunda yeni sorular ve düşünceler ortaya çıkabilir. Sorulacak sorular ve yapılacak analizler için bir ön hazırlık yapmak ve bunları düzgün cümleler halinde kaydetmek önemlidir. Mesela  tümör tipleri ile X protein ekspresyonunu karşılaştırmak istiyorum  bir soru olabilir. Ama daha iyisi  X proteininin ekspresyonunun A tümöründe B tümörüne göre daha fazla olduğunu düşünüyorum, bunun öyle olup olmadığını analiz etmenizi istiyorum  daha da anlaşılır bir soru olacaktır.
 
 * # Bana p değeri ver
 * # Hangi istatistik yöntemlerini bilmem lazım
@@ -392,18 +396,19 @@ Hastaların kanser evresinin ortalama 2,5 , ya da tümör grade'inin ortalama 1,
 
 
 
----
+
 
 # Tweets
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rtweet)
 
 how_to_prepare_data_tweet_1 <- paste0(
-  "1/n
+   1/n
   
   
-  "
+   
   )
 
 post_tweet(how_to_prepare_data_tweet_1)

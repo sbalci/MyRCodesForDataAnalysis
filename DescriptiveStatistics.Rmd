@@ -1,16 +1,18 @@
----
-title: "My R Codes For Data Analysis"
----
+
+# My R Codes For Data Analysis 
+
 
 ## Descriptive Statistics
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 Epi::stat.table(gender,mean(age), data = scabies)
 
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 table <- Epi::stat.table(gender,mean(age), data = scabies)
 
 pander::pander(table)
@@ -18,13 +20,15 @@ pander::pander(table)
 
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 #Tabulate, by gender, the mean age from the scabies dataset
 
 Epi::stat.table(gender,list(mean(age),median(age)), data = scabies)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary_data <- arsenal::tableby(gender~age+scabies_infestation,data=scabies)
 summary(summary_data)
 
@@ -35,35 +39,42 @@ summary(summary_data)
 
 https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 require(skimr)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(iris)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(iris$Sepal.Length)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 fivenum(iris$Sepal.Length)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(iris$Species)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 skim(iris)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 iris_results <- skim(iris)
 str(iris_results)
 iris_results$variable
@@ -71,18 +82,21 @@ iris_results$type
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 skimr::skim(iris) %>%
-  dplyr::filter(stat == "mean")
+  dplyr::filter(stat ==  mean )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 head(iris_results, n=15)
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 mtcars %>%
   dplyr::group_by(gear) %>%
   skim()
@@ -90,18 +104,21 @@ mtcars %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 skim(iris, Sepal.Length, Species)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-skim(iris, starts_with("Sepal"))
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+skim(iris, starts_with( Sepal ))
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 skim(datasets::lynx)
 ```
 
@@ -112,7 +129,8 @@ skim(datasets::lynx)
 https://blog.datascienceheroes.com/exploratory-data-analysis-in-r-intro/
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(tidyverse)
 library(summarytools)
 # library(funModeling) 
@@ -132,7 +150,7 @@ basic_eda <- function(data)
 basic_eda(irisdata)
 ```
 
----
+
 
 - **What's so hard about histograms?**
 
@@ -140,21 +158,21 @@ http://tinlizzie.org/~aran/histograms/
 
 
 
----
+
 
 
 # DataExplorer
 
 
----
+
 
 # Webinar: Tidyverse Exploratory Analysis (Emily Robinson)
 
 
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F726282547396228%2Fvideos%2F584417861986887%2F&show_text=1&width=560" width="560" height="529" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
+<iframe src= https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F726282547396228%2Fvideos%2F584417861986887%2F&show_text=1&width=560  width= 560  height= 529  style= border:none;overflow:hidden  scrolling= no  frameborder= 0  allowTransparency= true  allow= encrypted-media  allowFullScreen= true ></iframe>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uG3igAGX7UE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width= 560  height= 315  src= https://www.youtube.com/embed/uG3igAGX7UE  frameborder= 0  allow= accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture  allowfullscreen></iframe>
 
 
 https://hookedondata.org/the-lesser-known-stars-of-the-tidyverse/

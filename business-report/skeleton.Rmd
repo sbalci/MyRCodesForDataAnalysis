@@ -1,4 +1,4 @@
----
+
 title: Document Title
 author: INWTlab 
 date: \today
@@ -15,15 +15,16 @@ output:
     keep_tex: true
     latex_engine: xelatex
 header-includes: 
-  - \newcommand{\logo}{`{r #  gsub("_", "\\_", params$logo)`}
-  - \newcommand{\cover}{`{r #  gsub("_", "\\_", params$cover)`}
+  - \newcommand{\logo}{`{r #  gsub( _ ,  \\_ , params$logo)`}
+  - \newcommand{\cover}{`{r #  gsub( _ ,  \\_ , params$cover)`}
   - \newcommand{\iblue}{`{r #  params$iblue`}
   - \newcommand{\igray}{`{r #  params$igray`}
----
 
 
 
-```{r , include = FALSE}
+
+```
+{r , include = FALSE}
 # packages
 library(dplyr)
 library(knitr)
@@ -46,18 +47,19 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 
 \section{Second Section}
 
-```{r results = "asis"}
-tab <- xtable(head(iris, n = 20), align = "|C|C|C|C|C|C|")
+```
+{r results =  asis }
+tab <- xtable(head(iris, n = 20), align =  |C|C|C|C|C|C| )
 
 addtorow <- list()
 addtorow$pos <- list()
 addtorow$pos[[1]] <- -1
-addtorow$command <- c("\\rowcolor{igray}")
+addtorow$command <- c( \\rowcolor{igray} )
 
 print(tab,
       include.rownames = FALSE,
-      tabular.environment = "tabularx",
-      width = "\\textwidth",
+      tabular.environment =  tabularx ,
+      width =  \\textwidth ,
       comment = FALSE,
       add.to.row = addtorow)
 ```

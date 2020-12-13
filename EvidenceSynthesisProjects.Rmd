@@ -1,6 +1,6 @@
----
-title: "Evidence Synthesis Projects"
----
+
+# Evidence Synthesis Projects 
+
 
 # revtools
 
@@ -14,25 +14,27 @@ https://revtools.net/user_manual/1_introduction.html
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("revtools")
-# devtools:: install_github("mjwestgate/revtools")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( revtools )
+# devtools:: install_github( mjwestgate/revtools )
 library(revtools)
 ```
 
 
 
 ```
-data1 <- read_bibliography("my_data.ris")
-data2 <- read_bibliography("my_data.bib")
+data1 <- read_bibliography( my_data.ris )
+data2 <- read_bibliography( my_data.bib )
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # data1 <- read_bibliography(file.choose())
 
-data1 <- read_bibliography("data/citations.nbib")
+data1 <- read_bibliography( data/citations.nbib )
 
 
 ```
@@ -44,8 +46,8 @@ file_names <- list.files()
 
 # Or if they are in a subdirectory:
 file_names <- paste0(
-  "./raw_data/",
-  list.files(path = "./raw_data/")
+   ./raw_data/ ,
+  list.files(path =  ./raw_data/ )
 )
 
 # Then import to a list
@@ -55,9 +57,10 @@ data_list <- lapply(
 )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 data2 <- read_bibliography(
-  "data/citations.nbib",
+   data/citations.nbib ,
   return_df = FALSE
 )
 
@@ -69,25 +72,27 @@ names(data2[[1]])
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-write_bibliography(data2, "data/denemeRIS", format = "ris")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+write_bibliography(data2,  data/denemeRIS , format =  ris )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # revtools::format_citation()
 ```
 
 
 ```
-data <- read_bibliography("my_data.ris")
+data <- read_bibliography( my_data.ris )
 
 matches <- find_duplicates(
   data = data,
-  match_variable = "title",
+  match_variable =  title ,
   group_variable = NULL,
-  match_function = "fuzzdist",
-  method = "fuzz_partial_ratio",
+  match_function =  fuzzdist ,
+  method =  fuzz_partial_ratio ,
   threshold = 0
 )
 ```
@@ -100,7 +105,8 @@ data_unique <- extract_unique_references(data, matches)
 
 https://revtools.net/user_manual/4_removing_duplicates.html
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 screen_duplicates(data1)
 ```
 
@@ -113,7 +119,7 @@ screen_titles()
 # 2. the same, but save back to workspace on exit
 result <- screen_titles() # ditto,
 
-data <- read_bibliography("my_data.ris") # load in data
+data <- read_bibliography( my_data.ris ) # load in data
 
 # 3. launch the app using data from the workspace
 screen_titles(data)  
@@ -122,26 +128,30 @@ screen_titles(data)
 result <- screen_titles(data)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 screen_titles(data1)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 screen_abstracts(data1)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 screen_topics(data1)
 ```
 
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(revtools)
-data <- read_bibliography("data/deneme2.ris")
+data <- read_bibliography( data/deneme2.ris )
 dtm <- make_DTM(data)
 model <- topicmodels::LDA(
   dtm,
@@ -156,7 +166,8 @@ model <- topicmodels::LDA(
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 articles <- as.data.frame(data)
 articles$topic <- topics(model)
 
@@ -177,19 +188,20 @@ popularity$topic <- as.factor(popularity$topic)
 # create a mixed model
 library(lme4)
 popularity_model <- glmer(Freq ~ 1 + (1 | topic) + (year -1 | topic),
-	family = poisson(link = "log"),
+	family = poisson(link =  log ),
 	data = popularity
 )
 
 # export the results of this model
 popularity_results <- ranef(popularity_model)$topic
-colnames(popularity_results) <- c("intercept", "slope")
+colnames(popularity_results) <- c( intercept ,  slope )
 
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(ggplot2)
 p <- ggplot(popularity_results,
   aes(x = intercept, y = slope)

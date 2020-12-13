@@ -6,7 +6,8 @@ The value of value.to.match called through standard Rmd inline is `{r #  value.t
 
 Let's try and do something dynamic, showing flights only for the given origin specified in the variable value.to.match: 
 
-```{r echo=TRUE}
+```
+{r echo=TRUE}
 my.data %>% 
   filter(origin %in% value.to.match) %>%
   select(origin,year,month,day,dep_time) %>%
@@ -25,7 +26,8 @@ Without single quotes around the value an error is thrown (_object xxx not found
 
 Hence, we can now say that the **actual** value of value.to.match is `{r #  '{{value.to.match}}'`.
 
-```{r echo=TRUE}
+```
+{r echo=TRUE}
 value.to.match <- '{{value.to.match}}'
 my.data %>% 
   filter(origin %in% value.to.match) %>%

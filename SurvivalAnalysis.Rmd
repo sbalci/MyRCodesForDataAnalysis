@@ -1,35 +1,11 @@
----
-title: "My R Codes For Data Analysis"
-subtitle: "Survival Analysis"
-author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
-date: '`{r #  format(Sys.Date())`'
-output: 
-  html_notebook: 
-    fig_caption: yes
-    highlight: tango
-    number_sections: yes
-    theme: paper
-    toc: yes
-    toc_depth: 5
-    toc_float: yes
-  html_document: 
-    code_folding: hide
-    df_print: kable
-    keep_md: yes
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_float: yes
-    highlight: kate
----
-
 ## Survival Analysis in R
 
 
 https://rviews.rstudio.com/2017/09/25/survival-analysis-with-r/
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(survival)
 library(ranger)
 library(ggplot2)
@@ -38,14 +14,16 @@ library(ggfortify)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 data(veteran)
 head(veteran)
 ```
 
 ### Censored Data
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 km <- with(veteran, Surv(time, status))
 
 head(km,80)
@@ -55,7 +33,8 @@ head(km,80)
 
 ### Kaplan Meier 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 km_fit <- survfit(Surv(time, status) ~ 1, data = veteran)
 
 km_fit
@@ -64,20 +43,23 @@ km_fit
 
 ### Life Table
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(km_fit, times = c(1,30,60,90*(1:10)))
 
 ```
 
 ### KM Graph Overall
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-plot(km_fit, xlab="Days", main = 'Kaplan Meyer Plot') #base graphics is always ready
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+plot(km_fit, xlab= Days , main = 'Kaplan Meyer Plot') #base graphics is always ready
 
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 autoplot(km_fit)
 
 ```
@@ -86,7 +68,8 @@ autoplot(km_fit)
 ### KM per treatment group
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 km_trt_fit <- survfit(Surv(time, status) ~ trt, data = veteran)
 km_trt_fit
 
@@ -96,7 +79,8 @@ km_trt_fit
 ### KM Graph per treatment group
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 autoplot(km_trt_fit)
 ```
 
@@ -111,10 +95,10 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 
 
-<!-- vet <- mutate(veteran, AG = ifelse((age < 60), "LT60", "OV60"), -->
+<!-- vet <- mutate(veteran, AG = ifelse((age < 60),  LT60 ,  OV60 ), -->
 <!--               AG = factor(AG), -->
-<!--               trt = factor(trt,labels=c("standard","test")), -->
-<!--               prior = factor(prior,labels=c("N0","Yes"))) -->
+<!--               trt = factor(trt,labels=c( standard , test )), -->
+<!--               prior = factor(prior,labels=c( N0 , Yes ))) -->
 
 <!-- km_AG_fit <- survfit(Surv(time, status) ~ AG, data = vet) -->
 <!-- km_AG_fit -->
@@ -129,7 +113,7 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 <!-- cox_fit <- survfit(cox) -->
 <!-- cox_fit -->
-<!-- plot(cox_fit, main = "cph model", xlab="Days") -->
+<!-- plot(cox_fit, main =  cph model , xlab= Days ) -->
 <!-- autoplot(cox_fit) -->
 
 <!-- aa_fit <-aareg(Surv(time, status) ~ trt + celltype + -->
@@ -147,8 +131,8 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 <!--                     karno + diagtime + age + prior, -->
 <!--                 data = vet, -->
 <!--                 mtry = 4, -->
-<!--                 importance = "permutation", -->
-<!--                 splitrule = "extratrees", -->
+<!--                 importance =  permutation , -->
+<!--                 splitrule =  extratrees , -->
 <!--                 verbose = TRUE) -->
 
 
@@ -159,42 +143,42 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 <!-- # Plot the survival models for each patient -->
 <!-- plot(r_fit$unique.death.times,r_fit$survival[1,],  -->
-<!--      type = "l",  -->
+<!--      type =  l ,  -->
 <!--      ylim = c(0,1), -->
-<!--      col = "red", -->
-<!--      xlab = "Days", -->
-<!--      ylab = "survival", -->
-<!--      main = "Patient Survival Curves") -->
+<!--      col =  red , -->
+<!--      xlab =  Days , -->
+<!--      ylab =  survival , -->
+<!--      main =  Patient Survival Curves ) -->
 
 <!-- # -->
 <!-- cols <- colors() -->
 <!-- for (n in sample(c(2:dim(vet)[1]), 20)){ -->
-<!--     lines(r_fit$unique.death.times, r_fit$survival[n,], type = "l", col = cols[n]) -->
+<!--     lines(r_fit$unique.death.times, r_fit$survival[n,], type =  l , col = cols[n]) -->
 <!-- } -->
 <!-- lines(death_times, avg_prob, lwd = 2) -->
 <!-- legend(500, 0.7, legend = c('Average = black')) -->
 
 
 <!-- vi <- data.frame(sort(round(r_fit$variable.importance, 4), decreasing = TRUE)) -->
-<!-- names(vi) <- "importance" -->
+<!-- names(vi) <-  importance  -->
 <!-- head(vi) -->
 
 
-<!-- cat("Prediction Error = 1 - Harrell's c-index = ", r_fit$prediction.error) -->
+<!-- cat( Prediction Error = 1 - Harrell's c-index =  , r_fit$prediction.error) -->
 
 
 <!-- # Set up for ggplot -->
-<!-- kmi <- rep("KM",length(km_fit$time)) -->
+<!-- kmi <- rep( KM ,length(km_fit$time)) -->
 <!-- km_df <- data.frame(km_fit$time,km_fit$surv,kmi) -->
-<!-- names(km_df) <- c("Time","Surv","Model") -->
+<!-- names(km_df) <- c( Time , Surv , Model ) -->
 
-<!-- coxi <- rep("Cox",length(cox_fit$time)) -->
+<!-- coxi <- rep( Cox ,length(cox_fit$time)) -->
 <!-- cox_df <- data.frame(cox_fit$time,cox_fit$surv,coxi) -->
-<!-- names(cox_df) <- c("Time","Surv","Model") -->
+<!-- names(cox_df) <- c( Time , Surv , Model ) -->
 
-<!-- rfi <- rep("RF",length(r_fit$unique.death.times)) -->
+<!-- rfi <- rep( RF ,length(r_fit$unique.death.times)) -->
 <!-- rf_df <- data.frame(r_fit$unique.death.times,avg_prob,rfi) -->
-<!-- names(rf_df) <- c("Time","Surv","Model") -->
+<!-- names(rf_df) <- c( Time , Surv , Model ) -->
 
 <!-- plot_df <- rbind(km_df,cox_df,rf_df) -->
 
@@ -210,7 +194,7 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 
 
-<!-- install.packages("OIsurv") -->
+<!-- install.packages( OIsurv ) -->
 <!-- library(OIsurv) -->
 
 <!-- library(help=KMsurv) -->
@@ -235,62 +219,69 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- library("survival") -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- library( survival ) -->
 <!-- fit <- survfit(Surv(time,status) -->
 <!-- ~ sex, data = lung) -->
 <!-- class(fit) -->
-<!-- ## [1] "survfit" -->
-<!-- library("survminer") -->
+<!-- ## [1]  survfit  -->
+<!-- library( survminer ) -->
 <!-- ggsurvplot(fit, data = lung) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- ggsurvplot(fit, data = lung, fun = "event") -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ggsurvplot(fit, data = lung, fun =  event ) -->
 
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- ggsurvplot(fit, data = lung, fun = "cumhaz") -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ggsurvplot(fit, data = lung, fun =  cumhaz ) -->
 <!-- ``` -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- ggsurvplot(fit, data = lung, -->
 <!-- conf.int = TRUE, -->
 <!-- pval = TRUE, -->
-<!-- fun = "pct", -->
+<!-- fun =  pct , -->
 <!-- risk.table = TRUE, -->
 <!-- tables.height = 0.3, -->
 <!-- size = 0.8, -->
-<!-- linetype = "strata", -->
-<!-- palette = c("#E7B800", -->
-<!-- "#2E9FDF"), -->
-<!-- legend = "top", -->
-<!-- legend.title = "Sex", -->
-<!-- legend.labs = c("Male", -->
-<!-- "Female"), -->
+<!-- linetype =  strata , -->
+<!-- palette = c( #E7B800 , -->
+<!--  #2E9FDF ), -->
+<!-- legend =  top , -->
+<!-- legend.title =  Sex , -->
+<!-- legend.labs = c( Male , -->
+<!--  Female ), -->
 <!-- cex = 0.2 -->
 <!-- ) -->
 <!-- ``` -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- library("survival") -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- library( survival ) -->
 <!-- fit <- coxph(Surv(time, status) ~ sex + age, data = lung) -->
 <!-- ftest <- cox.zph(fit) -->
 <!-- ftest -->
 <!-- ``` -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- library("survminer") -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- library( survminer ) -->
 <!-- ggcoxzph(ftest) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- library("survival") -->
-<!-- library("survminer") -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- library( survival ) -->
+<!-- library( survminer ) -->
 <!-- fit <- coxph(Surv(time, status) ~ -->
 <!-- sex + age, data = lung) -->
 
@@ -299,19 +290,21 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- ggcoxdiagnostics(fit, -->
-<!-- type = "deviance", -->
-<!-- ox.scale = "linear.predictions") -->
+<!-- type =  deviance , -->
+<!-- ox.scale =  linear.predictions ) -->
 
 <!-- ``` -->
 
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- ggcoxdiagnostics(fit, -->
-<!-- type = "schoenfeld", -->
-<!-- ox.scale = "time") -->
+<!-- type =  schoenfeld , -->
+<!-- ox.scale =  time ) -->
 <!-- ``` -->
 
 
@@ -321,12 +314,13 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 
 <!-- ## Survival Analysis -->
 
-<!-- https://github.com/datacamp/tutorial -->
+<!-- https://github.com//tutorial -->
 
-<!-- Based on https://www.datacamp.com/community/tutorials/survival-analysis-R -->
+<!-- Based on https://www..com/community/tutorials/survival-analysis-R -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- library(tutorial) -->
 <!-- library(survival) -->
 <!-- library(survminer) -->
@@ -335,19 +329,22 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- data(ovarian) -->
 <!-- glimpse(ovarian) -->
 <!-- help(ovarian) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- summary(ovarian) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- varOvarian <- names(ovarian) -->
 
 <!-- ovarian2 <- ovarian %>%  -->
@@ -360,31 +357,34 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- # Dichotomize age and change data labels -->
 <!-- ovarian$rx <- factor(ovarian$rx,  -->
-<!--                      levels = c("1", "2"),  -->
-<!--                      labels = c("A", "B")) -->
+<!--                      levels = c( 1 ,  2 ),  -->
+<!--                      labels = c( A ,  B )) -->
 <!-- ovarian$resid.ds <- factor(ovarian$resid.ds,  -->
-<!--                            levels = c("1", "2"),  -->
-<!--                            labels = c("no", "yes")) -->
+<!--                            levels = c( 1 ,  2 ),  -->
+<!--                            labels = c( no ,  yes )) -->
 <!-- ovarian$ecog.ps <- factor(ovarian$ecog.ps,  -->
-<!--                           levels = c("1", "2"),  -->
-<!--                           labels = c("good", "bad")) -->
+<!--                           levels = c( 1 ,  2 ),  -->
+<!--                           labels = c( good ,  bad )) -->
 
 <!-- jmv::descriptives(ovarian, varOvarian, freq = TRUE) -->
 
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- # Data seems to be bimodal -->
 <!-- hist(ovarian$age) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
-<!-- ovarian <- ovarian %>% mutate(age_group = ifelse(age >= 50, "old", "young")) -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ovarian <- ovarian %>% mutate(age_group = ifelse(age >= 50,  old ,  young )) -->
 <!-- ovarian$age_group <- factor(ovarian$age_group) -->
 
 <!-- varOvarian <- names(ovarian) -->
@@ -393,30 +393,35 @@ http://www.sthda.com/english/rpkgs/survminer/#uber-platinum-customized-survival-
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- # Fit survival data using the Kaplan-Meier method -->
 <!-- surv_object <- Surv(time = ovarian$futime, event = ovarian$fustat) -->
 <!-- surv_object -->
 <!-- ``` -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- fit1 <- survfit(surv_object ~ rx, data = ovarian) -->
 <!-- summary(fit1) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- ggsurvplot(fit1, data = ovarian, pval = TRUE) -->
 <!-- ``` -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- # Examine prdictive value of residual disease status -->
 <!-- fit2 <- survfit(surv_object ~ resid.ds, data = ovarian) -->
 <!-- ggsurvplot(fit2, data = ovarian, pval = TRUE) -->
 <!-- ``` -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- # Fit a Cox proportional hazards model -->
 <!-- fit.coxph <- coxph(surv_object ~ rx + resid.ds + age_group + ecog.ps,  -->
 <!--                    data = ovarian) -->
@@ -437,12 +442,14 @@ https://www.openintro.org/download.php?file=survival_analysis_in_R_code&referrer
 https://www.openintro.org/download.php?file=survival_analysis_in_R_code_df-cp&referrer=/stat/surv.php
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("OIsurv")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( OIsurv )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # library(OIsurv)
 library(survival)
 library(splines)
@@ -450,29 +457,34 @@ library(KMsurv)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(help=KMsurv)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 data(aids)
 aids
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
  data(tongue)
 tongue
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 my.surv.object <- Surv(tongue$time[tongue$type==1], tongue$delta[tongue$type==1])
 my.surv.object
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 data(psych)
 psych
 my.surv.object <- Surv(psych$age, psych$age + psych$time, psych$death)
@@ -487,11 +499,12 @@ my.surv.object
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 rm(list=ls())
 
 #===> loading packages and such <===#
-#install.packages("OIsurv")
+#install.packages( OIsurv )
 library(OIsurv)
 data(aids)
 aids
@@ -525,26 +538,26 @@ summary(my.fit)$std.err  # standard error of the K-M estimate at {t_i}
 summary(my.fit)$lower    # lower pointwise estimates (alternatively, $upper)
 str(my.fit)              # full summary of the my.fit object
 str(summary(my.fit))     # full summary of the my.fit object
-pdf("../figures/kmPlot.pdf", 7, 4.5)
-plot(my.fit, main="Kaplan-Meier estimate with 95% confidence bounds",
-   xlab="time", ylab="survival function")
+pdf( ../figures/kmPlot.pdf , 7, 4.5)
+plot(my.fit, main= Kaplan-Meier estimate with 95% confidence bounds ,
+   xlab= time , ylab= survival function )
 dev.off()
-my.fit1 <- survfit( Surv(time, delta) ~ type )   # here the key is "type"
+my.fit1 <- survfit( Surv(time, delta) ~ type )   # here the key is  type 
 detach(tongue)
 
 #===> confidence bands <===#
 data(bmt); attach(bmt)
 my.surv <- Surv(t2[group==1], d3[group==1])
-my.cb <- confBands(my.surv, confLevel=0.95, type="hall")
-pdf("../figures/confBand.pdf", 8, 5)
-plot(survfit(my.surv ~ 1), xlim=c(100, 600), xlab="time",
-  ylab="Estimated Survival Function",
-  main="Reproducing Confidence Bands for Example 4.2 in Klein/Moeschberger")
+my.cb <- confBands(my.surv, confLevel=0.95, type= hall )
+pdf( ../figures/confBand.pdf , 8, 5)
+plot(survfit(my.surv ~ 1), xlim=c(100, 600), xlab= time ,
+  ylab= Estimated Survival Function ,
+  main= Reproducing Confidence Bands for Example 4.2 in Klein/Moeschberger )
 
-lines(my.cb$time, my.cb$lower, lty=3, type="s")
-lines(my.cb$time, my.cb$upper, lty=3, type="s")
-legend(100, 0.3, legend=c("K-M survival estimate",
-  "pointwise intervals","confidence bands"), lty=1:3)
+lines(my.cb$time, my.cb$lower, lty=3, type= s )
+lines(my.cb$time, my.cb$upper, lty=3, type= s )
+legend(100, 0.3, legend=c( K-M survival estimate ,
+   pointwise intervals , confidence bands ), lty=1:3)
 dev.off()
 detach(bmt)
 
@@ -558,11 +571,11 @@ H.hat   <- c(H.hat, tail(H.hat, 1))
 h.sort.of <- my.fit$n.event / my.fit$n.risk
 H.tilde   <- cumsum(h.sort.of)
 H.tilde   <- c(H.tilde, tail(H.tilde, 1))
-pdf("../figures/cumHazard.pdf", 6, 4)
-plot(c(my.fit$time, 250), H.hat, xlab="time", ylab="cumulative hazard",
-  main="comparing cumulative hazards", ylim=range(c(H.hat, H.tilde)), type="s")
-points(c(my.fit$time, 250), H.tilde, lty=2, type="s")
-legend("topleft", legend=c("H.hat","H.tilde"), lty=1:2)
+pdf( ../figures/cumHazard.pdf , 6, 4)
+plot(c(my.fit$time, 250), H.hat, xlab= time , ylab= cumulative hazard ,
+  main= comparing cumulative hazards , ylim=range(c(H.hat, H.tilde)), type= s )
+points(c(my.fit$time, 250), H.tilde, lty=2, type= s )
+legend( topleft , legend=c( H.hat , H.tilde ), lty=1:2)
 dev.off()
 detach(tongue)
 
@@ -583,14 +596,14 @@ detach(btrial)
 #===> coxph, time-independent <===#
 data(burn); attach(burn)
 my.surv   <- Surv(T1, D1)
-coxph.fit <- coxph(my.surv ~ Z1 + as.factor(Z11), method="breslow")
+coxph.fit <- coxph(my.surv ~ Z1 + as.factor(Z11), method= breslow )
 coxph.fit
 co <- coxph.fit$coefficients  # may use coxph.fit$coeff instead
 va <- coxph.fit$var           # I^(-1), estimated cov matrix of the estimates
 ll <- coxph.fit$loglik        # log-likelihood for alt and null MLEs, resp.
 my.survfit.object <- survfit(coxph.fit)
 hold <- survfit(my.surv ~ 1)
-#source("http://www.stat.ucla.edu/~david/teac/surv/local-coxph-test.R")
+#source( http://www.stat.ucla.edu/~david/teac/surv/local-coxph-test.R )
 coxph.fit
 C   <- matrix(c(0, 1, 0, 0,
                 0, 0, 1, 0,
@@ -639,17 +652,17 @@ mySurv <- Surv(t1, t2, d)        # pg 3 discusses left-trunc. right-cens. data
 myCPH  <- coxph(mySurv ~ g + i)
 
 #data(burn); attach(burn)
-##source("http://www.stat.ucla.edu/~david/teac/surv/time-dep-coxph.R")
-#td.coxph <- timeDepCoxph(burn, "T1", "D1", 2:4, "Z1", verbose=FALSE)
+##source( http://www.stat.ucla.edu/~david/teac/surv/time-dep-coxph.R )
+#td.coxph <- timeDepCoxph(burn,  T1 ,  D1 , 2:4,  Z1 , verbose=FALSE)
 #td.coxph   # some model output is omitted for brevity
 #detach(burn)
 
 #===> AFT models <===#
 data(larynx)
 attach(larynx)
-srFit <- survreg(Surv(time, delta) ~ as.factor(stage) + age, dist="weibull")
+srFit <- survreg(Surv(time, delta) ~ as.factor(stage) + age, dist= weibull )
 summary(srFit)
-srFitExp <- survreg(Surv(time, delta) ~ as.factor(stage) + age, dist="exponential")
+srFitExp <- survreg(Surv(time, delta) ~ as.factor(stage) + age, dist= exponential )
 summary(srFitExp)
 srFitExp$coeff    # covariate coefficients
 srFitExp$icoef    # intercept and scale coefficients
@@ -663,7 +676,8 @@ detach(larynx)
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 
 # Posted with permission of the code author:
 # Beau Benjamin Bruce
@@ -680,8 +694,8 @@ data(burn)
 #=====> Allows for time dependent variables to be introduced <=====#
 df.cp = function(data,t.var,status.var,covars=setdiff(names(data),c(t.var,status.var))) {
   # data: data frame that represents the dataset
-  # t.var: the column name of "data" that represents the survival time variable
-  # status.var: the column name of "data" that represents the status variable
+  # t.var: the column name of  data  that represents the survival time variable
+  # status.var: the column name of  data  that represents the status variable
   # covars: list other covariates to retain
   
   # Returned object: a data frame that breaks each event down to a counting process
@@ -726,7 +740,7 @@ coxph(Surv(start,stop,D1) ~ Z1+Z2+Z3+T1Z1,data=burn.cp)
 ```
 
 
----
+
 
 # survsup
 
@@ -738,12 +752,14 @@ https://cran.r-project.org/web/packages/survsup/vignettes/survsup_intro.html
 http://github.com/dlindholm/survsup/
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("survsup")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( survsup )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(survsup)
 library(ggplot2)
 library(survival)
@@ -751,26 +767,30 @@ library(dplyr)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 fit <- survfit(Surv(time, status) ~ 1, data = lung)
 plot_survfit(fit)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ 1, data = .) %>%
   plot_survfit()
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ 1, data = .) %>%
   plot_survfit(cuminc = FALSE)
@@ -778,29 +798,33 @@ lung %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE, ci = TRUE)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
-  plot_survfit(cuminc = FALSE, ci = TRUE) + # <--- NOTE!
-  labs(x = "Time (days)", y = "Survival (%)")
+  plot_survfit(cuminc = FALSE, ci = TRUE) + # < NOTE!
+  labs(x =  Time (days) , y =  Survival (%) )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE) %>%
@@ -809,7 +833,8 @@ lung %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 lung %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE) %>%
@@ -818,21 +843,24 @@ lung %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ rx, data = .) %>%
   plot_survfit() %>%
   nar() +
-  scale_color_manual(values = c("darkorange", "steelblue", "darkred"))
+  scale_color_manual(values = c( darkorange ,  steelblue ,  darkred ))
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit() %>%
@@ -841,7 +869,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit() %>%
@@ -851,7 +880,8 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit() %>%
@@ -862,7 +892,8 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit() %>%
@@ -871,7 +902,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit() %>%
@@ -880,7 +912,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(lwd = 2)
@@ -888,7 +921,8 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(lwd = 0.5)
@@ -896,16 +930,18 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
-  plot_survfit(legend.title = "Extent of disease")
+  plot_survfit(legend.title =  Extent of disease )
 ```
 
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(ylim = c(0, 100)) %>%
@@ -913,7 +949,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(xmax = 2000) %>%
@@ -921,7 +958,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(xmax = 2000, xbreaks = c(0, 1000, 2000)) %>%
@@ -930,7 +968,8 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -938,7 +977,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -947,7 +987,8 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -956,7 +997,8 @@ colon %>%
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -964,7 +1006,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -972,7 +1015,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -980,7 +1024,8 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
@@ -988,11 +1033,12 @@ colon %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 colon %>%
   survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit() %>%
-  nar(sep_color = "grey90", sep_lwd = 1.5)
+  nar(sep_color =  grey90 , sep_lwd = 1.5)
 ```
 
 
@@ -1000,67 +1046,70 @@ colon %>%
 https://cran.r-project.org/package=gridExtra
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(gridExtra)
 ```
   
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 p <- list(
   p1 = colon %>%
     survfit(Surv(time, status) ~ sex, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar() +
-    labs(tag = "A"),
+    labs(tag =  A ),
 
   p2 = colon %>%
     survfit(Surv(time, status) ~ node4, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar() +
-    labs(tag = "B")
+    labs(tag =  B )
 )
 
 grid.arrange(grobs = p, ncol = 2)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # Store plots in a list
 p <- list(
   p1 = colon %>%
     survfit(Surv(time, status) ~ 1, data = .) %>%
     plot_survfit(ylim = c(0, 100)) +
-    labs(tag = "A"),
+    labs(tag =  A ),
 
   p2 = colon %>%
     survfit(Surv(time, status) ~ rx, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
-    labs(tag = "B"),
+    labs(tag =  B ),
 
   p3 = colon %>%
     survfit(Surv(time, status) ~ extent, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
-    labs(tag = "C"),
+    labs(tag =  C ),
 
   p4 = colon %>%
     survfit(Surv(time, status) ~ sex, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
-    labs(tag = "D"),
+    labs(tag =  D ),
 
   p5 = colon %>%
     survfit(Surv(time, status) ~ node4, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
-    labs(tag = "E"),
+    labs(tag =  E ),
 
   p6 = colon %>%
     survfit(Surv(time, status) ~ surg, data = .) %>%
     plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
-    labs(tag = "F")
+    labs(tag =  F )
 
 )
 
@@ -1074,8 +1123,9 @@ grid.arrange(grobs = p, layout_matrix = lay)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-p[["p3"]]
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+p[[ p3 ]]
 ```
 
 
@@ -1091,12 +1141,14 @@ https://cran.r-project.org/web/packages/survivalAnalysis/vignettes/univariate.ht
 
 # breast cancer wisconsin 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(tidyverse)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 UCI_data_URL <- RCurl::getURL('https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data')
 
 
@@ -1108,41 +1160,45 @@ UCI_data_URL <- RCurl::getURL('https://archive.ics.uci.edu/ml/machine-learning-d
 # Lung Cancer
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(survival)
 km_fit <- survfit(Surv(time, status) ~ sex, data = lung)
 km_fit
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(km_fit, times = c(12,36,60))
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # View fit
 View(km_fit)
 
 # Get formula
-km_fit[["call"]][["formula"]]
+km_fit[[ call ]][[ formula ]]
 
 # Get formula 2
-km_fit[["call"]]
+km_fit[[ call ]]
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(tidyverse)
 # make a dataframe from fit list
 fitDF <- bind_cols(
-time = km_fit[["time"]],
-n.risk = km_fit[["n.risk"]],
-n.event = km_fit[["n.event"]],
-n.censor = km_fit[["n.censor"]],
-surv = km_fit[["surv"]],
-lower = km_fit[["lower"]],
-upper = km_fit[["upper"]],
+time = km_fit[[ time ]],
+n.risk = km_fit[[ n.risk ]],
+n.event = km_fit[[ n.event ]],
+n.censor = km_fit[[ n.censor ]],
+surv = km_fit[[ surv ]],
+lower = km_fit[[ lower ]],
+upper = km_fit[[ upper ]],
 ) %>% 
   mutate(
     timeyear = time / 365.25
@@ -1151,7 +1207,8 @@ upper = km_fit[["upper"]],
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # this gives the result for the time = 0.5
 fitDF[which.min(abs(fitDF$timeyear - 0.5)),]
 
@@ -1165,7 +1222,8 @@ fitDF[which.min(abs(fitDF$timeyear - 2)),]
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 fitDF[which.min(abs(fitDF$timeyear - 0.5)),]
 
 fitDF[which.min(abs(fitDF$timeyear - 1)),]
@@ -1175,11 +1233,12 @@ fitDF[which.min(abs(fitDF$timeyear - 2)),]
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # https://stackoverflow.com/questions/43419385/how-to-export-survfit-output-as-a-csv-table
 res <- summary(km_fit, times = c(12,36,60))
-save.df <- as.data.frame(res[c("strata", "time", "n.risk", "n.event", "surv", "std.err", "lower", "upper")])
-# write.csv(save.df, file = "./file.csv")
+save.df <- as.data.frame(res[c( strata ,  time ,  n.risk ,  n.event ,  surv ,  std.err ,  lower ,  upper )])
+# write.csv(save.df, file =  ./file.csv )
 ```
 
 

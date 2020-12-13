@@ -1,22 +1,23 @@
----
-title: "R Pirate YaRrr"
----
+# R Pirate YaRrr
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-install.packages("yarrr")
-library("yarrr")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+install.packages( yarrr )
+library( yarrr )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 pirateplot(formula = weight ~ Time,
 data = ChickWeight,
-pal = "xmen")
+pal =  xmen )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 yarrr::pirateplot(formula = weight ~ Diet,
                   data = ChickWeight)
 ```

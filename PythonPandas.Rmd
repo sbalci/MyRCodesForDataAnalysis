@@ -1,6 +1,6 @@
----
-title: "Python Pandas"
----
+
+# Python Pandas 
+
 
 http://nbviewer.jupyter.org/github/justmarkham/pandas-videos/blob/master/pandas.ipynb
 

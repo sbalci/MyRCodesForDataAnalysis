@@ -12,14 +12,15 @@ header-includes:
 ```
 
 
-# ggplot2 ----
+# ggplot2 -
 
 mpg
 
 
 
-```{r, background='#fff5e6'}
-library("tidyverse")
+```
+{r, background='#fff5e6'}
+library( tidyverse )
 ggplot(mpg) + 
     geom_point(aes(x = displ, y = hwy))
 ```
@@ -61,7 +62,7 @@ ggplot(mpg, aes(class, hwy)) + geom_boxplot()
 ggplot(mpg, aes(reorder(class, hwy), hwy)) + geom_boxplot()
 
 
-# gganimate ----
+# gganimate -
 
 
 
@@ -87,17 +88,18 @@ p +
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 sometext <-strsplit(
-    paste0("You can even try to make some crazy things like this paragraph. ","It may seem like a useless feature right now but it's so cool ","and nobody can resist. ;)"), " ")[[1]]
+    paste0( You can even try to make some crazy things like this paragraph.  , It may seem like a useless feature right now but it's so cool  , and nobody can resist. ;) ),    )[[1]]
 
 text_formatted <-paste(
     kableExtra::text_spec(sometext,
-              "latex",
+               latex ,
               color = kableExtra::spec_color(1:length(sometext), end = 0.9),
-              font_size =kableExtra::spec_font_size(1:length(sometext), begin = 5, end = 20)),collapse = " ")
+              font_size =kableExtra::spec_font_size(1:length(sometext), begin = 5, end = 20)),collapse =    )
 
-mytext <-  kableExtra::text_spec("Serdar", color = "blue", background = "black")
+mytext <-  kableExtra::text_spec( Serdar , color =  blue , background =  black )
 
 ```
 
@@ -110,51 +112,52 @@ To display the text, type `{r #  text_formatted` outside of the chunk
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 
 library(kableExtra)
 
-my_text <- paste0("İstatistik Metod:",
-"Sürekli verilerin ortalama, standart sapma, median, minimum ve maksimum değerleri verildi.",
+my_text <- paste0( İstatistik Metod: ,
+ Sürekli verilerin ortalama, standart sapma, median, minimum ve maksimum değerleri verildi. ,
 
-"R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.",
+ R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/. ,
   
-"Therneau T (2015). A Package for Survival Analysis in S. version 2.38, URL:https://CRAN.R-project.org/package=survival",
+ Therneau T (2015). A Package for Survival Analysis in S. version 2.38, URL:https://CRAN.R-project.org/package=survival ,
 
-"Terry M. Therneau, Patricia M. Grambsch (2000). Modeling Survival Data: Extending the Cox Model. Springer, New York. ISBN 0-387-98784-3.",
+ Terry M. Therneau, Patricia M. Grambsch (2000). Modeling Survival Data: Extending the Cox Model. Springer, New York. ISBN 0-387-98784-3. ,
 
-"Ewen Harrison, Tom Drake and Riinu Ots (2019). finalfit: Quickly Create Elegant Regression Results Tables and Plots when Modelling. R package version 0.9.6. https://github.com/ewenharrison/finalfit",
+ Ewen Harrison, Tom Drake and Riinu Ots (2019). finalfit: Quickly Create Elegant Regression Results Tables and Plots when Modelling. R package version 0.9.6. https://github.com/ewenharrison/finalfit ,
 
-sep = "\n"
+sep =  \n 
 )
 
 my_text <- paste0(
-  "You can even try to make some crazy things like this paragraph. ",
-  "It may seem like a useless feature right now but it's so cool ",
-  "and nobody can resist. ;)")
+   You can even try to make some crazy things like this paragraph.  ,
+   It may seem like a useless feature right now but it's so cool  ,
+   and nobody can resist. ;) )
 
 
 my_text_html <- paste(
   text_spec(
     my_text,
-    "html",
-    color = "red",
-    background = "yellow"
+     html ,
+    color =  red ,
+    background =  yellow 
     ),
-  collapse = " ")
+  collapse =    )
 
 
 
-sometext <-strsplit(my_text, " ")[[1]]
+sometext <-strsplit(my_text,    )[[1]]
 
 my_text_latex <- paste(
   text_spec(
     sometext,
-    "latex",
-    color = "red",
-    background = "yellow"
+     latex ,
+    color =  red ,
+    background =  yellow 
     ),
-  collapse = " ")
+  collapse =    )
 
 
 ```

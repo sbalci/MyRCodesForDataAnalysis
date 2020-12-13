@@ -1,29 +1,31 @@
 
-<!-- --- -->
-<!-- title: "" -->
-<!-- author: "" -->
-<!-- date: "" -->
+<!--  -->
+<!-- #   -->
+<!-- author:    -->
+<!-- date:    -->
 <!-- params: -->
-<!--   gdrive_folder_url: "https://drive.google.com/drive/u/0/folders/FIXME" -->
+<!--   gdrive_folder_url:  https://drive.google.com/drive/u/0/folders/FIXME  -->
 <!-- output: -->
 <!--   html_document: -->
 <!--     keep_md: true -->
 <!--     theme: simplex -->
 <!--     highlight: monochrome -->
-<!-- --- -->
-<!-- ```{r init, include=FALSE} -->
+<!--  -->
+<!-- ```
+{r init, include=FALSE} -->
 <!-- knitr::opts_chunk$set( -->
 <!--   message = FALSE, -->
-<!--   warning = FALSE, dev = c("png", "cairo_pdf"), -->
+<!--   warning = FALSE, dev = c( png ,  cairo_pdf ), -->
 <!--   echo = TRUE, -->
 <!--   fig.retina = 2, -->
 <!--   fig.width = 10, -->
 <!--   fig.height = 6, -->
-<!--   fig.path = "prod/charts/" -->
+<!--   fig.path =  prod/charts/  -->
 <!-- ) -->
 <!-- ``` -->
 
-<!-- ```{r boilerplate-libraries, cache=FALSE} -->
+<!-- ```
+{r boilerplate-libraries, cache=FALSE} -->
 <!-- library(gt) -->
 <!-- library(stringi) -->
 <!-- library(hrbrthemes) -->
@@ -31,16 +33,17 @@
 <!-- library(tidyverse) -->
 
 <!-- # ensure fonts are available -->
-<!-- extrafont::loadfonts("postscript", quiet = TRUE) -->
-<!-- extrafont::loadfonts("pdf", quiet = TRUE) -->
+<!-- extrafont::loadfonts( postscript , quiet = TRUE) -->
+<!-- extrafont::loadfonts( pdf , quiet = TRUE) -->
 <!-- ``` -->
 
-<!-- # analysis code goes here ------------------------------------------------- -->
+<!-- # analysis code goes here - -->
 
 
-<!-- # Upload to production ---------------------------------------------------- -->
+<!-- # Upload to production - -->
 
-<!-- ```{r prod-upload, echo = TRUE, message = TRUE, warning = TRUE} -->
+<!-- ```
+{r prod-upload, echo = TRUE, message = TRUE, warning = TRUE} -->
 <!-- googledrive::drive_auth() -->
 
 <!-- # locate the folder -->
@@ -54,6 +57,6 @@
 <!-- } -->
 
 <!-- # upload new -->
-<!-- list.files(here::here("prod/charts"), recursive = TRUE, full.names = TRUE) %>% -->
+<!-- list.files(here::here( prod/charts ), recursive = TRUE, full.names = TRUE) %>% -->
 <!--   purrr::walk(googledrive::drive_upload, path = gdrive_prod_folder) -->
 <!-- ``` -->

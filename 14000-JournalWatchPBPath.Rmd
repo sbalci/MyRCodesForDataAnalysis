@@ -26,7 +26,8 @@ Member list vs worldmap
 
 
 
-```{r , eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r , eval=FALSE, include=FALSE, echo=TRUE}
 # load required packages
 library(tidyverse)
 library(knitr)
@@ -34,7 +35,8 @@ library(rstudioapi)
 ```
 
     
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::opts_chunk$set(
 	eval = FALSE,
 	message = FALSE,
@@ -46,41 +48,44 @@ knitr::opts_chunk$set(
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 myTerm <- rstudioapi::terminalCreate(show = FALSE)
-rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query 'pancreas[Title/Abstract]) AND pathology' -datetype EDAT -min 2018/05/01 -max 3000 | \
+rstudioapi::terminalSend(myTerm,  esearch -db pubmed -query 'pancreas[Title/Abstract]) AND pathology' -datetype EDAT -min 2018/05/01 -max 3000 | \
 efetch -format xml | \
 xtract -pattern PubmedArticle -element MedlineCitation/PMID \
--block ArticleId -if ArticleId@IdType -equals doi -element ArticleId &> myquery.txt")
+-block ArticleId -if ArticleId@IdType -equals doi -element ArticleId &> myquery.txt )
 Sys.sleep(1)
 repeat{
     Sys.sleep(0.1)
     if(rstudioapi::terminalBusy(myTerm) == FALSE){
-        print("Code Executed")
+        print( Code Executed )
         break
     }
 }
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-readLines("myquery.txt")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+readLines( myquery.txt )
 ```
 
 
 
 Pathology Journal ISSN List was retrieved from [In Cites Clarivate](https://jcr.incites.thomsonreuters.com/), and Journal Data Filtered as follows: `JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categories: 'PATHOLOGY' Selected Category Scheme: WoS`
 
-```{r Get ISSN List from data downloaded from WoS 1, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Get ISSN List from data downloaded from WoS 1, eval=FALSE, include=FALSE, echo=TRUE}
 # Get ISSN List from data downloaded from WoS
-ISSNList <- JournalHomeGrid <- read_csv("data/JournalHomeGrid.csv",
+ISSNList <- JournalHomeGrid <- read_csv( data/JournalHomeGrid.csv ,
                                         skip = 1) %>%
     select(ISSN) %>%
     filter(!is.na(ISSN)) %>%
     t() %>%
-    paste("OR ", collapse = "") # add OR between ISSN List
+    paste( OR  , collapse =   ) # add OR between ISSN List
 
-ISSNList <- gsub(" OR $","" ,ISSNList) # to remove last OR
+ISSNList <- gsub(  OR $ ,   ,ISSNList) # to remove last OR
 ```
 
 Data is retrieved from PubMed via E-direct.
@@ -88,21 +93,23 @@ Data is retrieved from PubMed via E-direct.
 PubMed collection from National Library of Medicine (https://www.ncbi.nlm.nih.gov/pubmed/), has the most comprehensive information about peer reviewed articles in medicine.
 The API (https://dataguide.nlm.nih.gov/) is available for getting and fetching data from the server.
 
-The query for PubMed is generated as "ISSN List AND keywords" like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
+The query for PubMed is generated as  ISSN List AND keywords  like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
 
 
-```{r Generate Search Formula For Pathology Journals AND Countries 1, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Generate Search Formula For Pathology Journals AND Countries 1, eval=FALSE, include=FALSE, echo=TRUE}
 # Generate Search Formula For Pathology Journals AND Countries
-searchformulaTR <- paste("'",ISSNList,"'", " AND ", "Turkey[Affiliation]")
-searchformulaDE <- paste("'",ISSNList,"'", " AND ", "Germany[Affiliation]")
-searchformulaJP <- paste("'",ISSNList,"'", " AND ", "Japan[Affiliation]")
+searchformulaTR <- paste( ' ,ISSNList, ' ,   AND  ,  Turkey[Affiliation] )
+searchformulaDE <- paste( ' ,ISSNList, ' ,   AND  ,  Germany[Affiliation] )
+searchformulaJP <- paste( ' ,ISSNList, ' ,   AND  ,  Japan[Affiliation] )
 ```
 
 
 
 From the fetched data articles are grouped by country and keywords.
 
-```{r Articles per countries per year 1, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Articles per countries per year 1, eval=FALSE, include=FALSE, echo=TRUE}
 # Articles per countries per year
 tableTR <- table(YearPubmed(fetchTurkey)) %>%
     as_tibble() %>%
@@ -122,27 +129,29 @@ articles_per_year_table <- list(
     tableDE,
     tableJP
 ) %>%
-    reduce(left_join, by = "Year", .id = "id")
+    reduce(left_join, by =  Year , .id =  id )
 
 ```
 
 
-```{r Prepare table for output 1, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Prepare table for output 1, eval=FALSE, include=FALSE, echo=TRUE}
 # Prepare table for output
 articles_per_year <- articles_per_year_table %>%
     gather(Country, n, 2:4)
 
 articles_per_year$Country <- factor(articles_per_year$Country,
-                                    levels =c("Japan", "Germany", "Turkey"))
+                                    levels =c( Japan ,  Germany ,  Turkey ))
 ```
 
 
 **Result:**
 
 
-```{r Print the Table of Articles per year per country 1, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Print the Table of Articles per year per country 1, eval=FALSE, include=FALSE, echo=TRUE}
 # Print the Table of Articles per year, per country
-knitr::kable(articles_per_year_table, caption = "Table of Articles per year, per country")
+knitr::kable(articles_per_year_table, caption =  Table of Articles per year, per country )
 ```
 
 mapgraph

@@ -1,20 +1,21 @@
----
-title: "Recommendations for Using summarytools With Rmarkdown"
-author: "Dominic Comtois"
-date: "`{r #  Sys.Date()`"
+
+# Recommendations for Using summarytools With Rmarkdown 
+author:  Dominic Comtois 
+date:   
 output: 
   rmarkdown::html_vignette: 
     css: 
-    - !expr system.file("rmarkdown/templates/html_vignette/resources/vignette.css", package = "rmarkdown")
-    - !expr system.file("includes/stylesheets/summarytools.css", package = "summarytools")
+    - !expr system.file( rmarkdown/templates/html_vignette/resources/vignette.css , package =  rmarkdown )
+    - !expr system.file( includes/stylesheets/summarytools.css , package =  summarytools )
 vignette: >
   %\VignetteIndexEntry{Recommendations for Rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 
----
 
-```{r, include=FALSE}
+
+```
+{r, include=FALSE}
 library(knitr)
 opts_chunk$set(comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis')
 library(summarytools)
@@ -39,7 +40,8 @@ For `freq()`, `descr()` (and `ctable()`, although with caveats), _rmarkdown_ sty
 `opts_chunk$set(results='asis')`, or in the individual chunks.
 
 The following summarytools global options have been set:
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 #st_options('headings', TRUE)
 st_options('bootstrap.css', FALSE)
 st_options('footnote', NA)
@@ -55,19 +57,19 @@ the current vignette uses this configuration:
 output: 
   rmarkdown::html_vignette: 
     css: 
-    - !expr system.file("rmarkdown/templates/html_vignette/resources/vignette.css", package = "rmarkdown")
-    - !expr system.file("includes/stylesheets/summarytools.css", package = "summarytools")
+    - !expr system.file( rmarkdown/templates/html_vignette/resources/vignette.css , package =  rmarkdown )
+    - !expr system.file( includes/stylesheets/summarytools.css , package =  summarytools )
 ````
 
 An alternative is to point to the directory on your system containing _summarytools.css_:
 
 ````
----
-title: "RMarkdown using summarytools"
+
+# RMarkdown using summarytools 
 output: 
   html_document: 
     css: C:/R/win-library/3.4/summarytools/includes/stylesheets/summarytools.css
----
+
 ````
 
 Starting with `freq()`, we'll review the recommended methods and styles to get going with _summarytools_
@@ -80,29 +82,31 @@ Jump to...
 - [dfSummary()](#dfsummary)  
 
 
---------------------------------------------------------------------------------
+--
 
 # freq()
 
 `freq()` is best used with `style = 'rmarkdown'; html rendering is also possible.
 
 ## Rmarkdown Style
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 freq(tobacco$gender, style = 'rmarkdown')
 ```
 
 
 ## HTML Rendering
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 print(freq(tobacco$gender), method = 'render')
 ```
 
 If you find the table too large, you can use `table.classes = 'st-small'` - an example is provided 
 further below.
 
---------------------------------------------------------------------------------
+--
 
-<a href="#top">Back to top</a>
+<a href= #top >Back to top</a>
 
 # ctable() {#ctable}
 
@@ -111,7 +115,8 @@ further below.
 Tables with heading spanning over 2 rows are not fully supported in markdown (yet), but the result is 
 getting close to acceptable. 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 ```
 
@@ -119,20 +124,22 @@ ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown')
 
 For best results, use this method.
 
-```{r include=FALSE, eval=FALSE, echo = TRUE}
+```
+{r include=FALSE, eval=FALSE, echo = TRUE}
 print(ctable(tobacco$gender, tobacco$smoker), method = 'render')
 ```
 
---------------------------------------------------------------------------------------------------
+--
  
-<a href="#top">Back to top</a>
+<a href= #top >Back to top</a>
  
 # descr() 3 {#descr3}
 
 `descr()` is also best used with `style = 'rmarkdown'`, and HTML rendering is also supported.
 
 ## Rmarkdown Style
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 descr(tobacco, style = 'rmarkdown')
 ```
 
@@ -142,13 +149,14 @@ descr(tobacco, style = 'rmarkdown')
 We'll use table.classes = 'st-small' to show how it affects the table's size (compare to the `freq()`
 table rendered earlier).
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 print(descr(tobacco), method = 'render', table.classes = 'st-small')
 ```
  
---------------------------------------------------------------------------------
+--
 
-<a href="#top">Back to top</a>
+<a href= #top >Back to top</a>
 
 # dfSummary() {#dfsummary}
 
@@ -158,7 +166,8 @@ This gives good results, although the histograms are not shown. This has to do w
 but we're working hard to figure out a solution. Don't forget to specify `plain.ascii = FALSE`, or
 you won't get good results.
 
-```{r , results='asis'}
+```
+{r , results='asis'}
 dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
 ```
 
@@ -168,8 +177,9 @@ Although the results are not as neat as they are when simply generating an html 
 the R interpreter -- the transparency of the graphs is lost in translation --, this is the
 best method still.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 ```
 
-<a href="#top">Back to top</a>
+<a href= #top >Back to top</a>

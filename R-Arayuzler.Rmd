@@ -1,13 +1,13 @@
----
+
 title: R Arayüzler^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
----
+
 
 <!-- Open all links in new tab-->  
-<base target="_blank"/>   
+<base target= _blank />   
 
 
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type= text/javascript  src= //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b >  
 </script> 
 
 
@@ -30,7 +30,7 @@ names.available.packages <- rownames(available.packages())
 
 #### Extract packages names that contain Rcmdr
 
-Rcmdr.related.packages <- names.available.packages[grep("Rcmdr", names.available.packages)]
+Rcmdr.related.packages <- names.available.packages[grep( Rcmdr , names.available.packages)]
 Rcmdr.related.packages
 
 #### Install these packages
@@ -104,13 +104,13 @@ https://r4stats.com/2018/06/13/deducer/
 
 
 ```
-install.packages(c("JGR","Deducer","DeducerExtras"))
+install.packages(c( JGR , Deducer , DeducerExtras ))
 ```
 
 
 
 ```
-library("JGR")
+library( JGR )
 JGR()
 ```
 
@@ -176,24 +176,24 @@ https://github.com/cargomoose/ggraptR
 https://datascienceplus.com/eclipse-an-alternative-to-rstudio-part-1/
 
 
----
+
 
 # Diğer kodlar
 
 - Diğer kodlar için bakınız: [https://sbalci.github.io/](https://sbalci.github.io/)
 
 
----
+
 
 # Geri Bildirim
 
 - Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
 
----
 
-<script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
 
-<div id="disqus_thread"></div>
+<script id= dsq-count-scr  src= //https-sbalci-github-io.disqus.com/count.js  async></script>
+
+<div id= disqus_thread ></div>
 <script>
 
 /**
@@ -212,7 +212,7 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href= https://disqus.com/?ref_noscript >comments powered by Disqus.</a></noscript>
 
----
+
 

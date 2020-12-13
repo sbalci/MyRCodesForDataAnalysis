@@ -1,11 +1,11 @@
----
+
 title: R, RStudio ve RMarkdown ile Tekrarlanabilir Rapor^[Bu bir derlemedir, mümkün mertebe alıntılara linklerle referans vermeye çalıştım.]
----
+
 
 ```
-author: "[Serdar Balcı, MD, Pathologist](https://sbalci.github.io/)"
-institute: "[serdarbalci.com](https://www.serdarbalci.com)"
-date: "`{r #  format(Sys.Date())`"
+author:  [Serdar Balcı, MD, Pathologist](https://sbalci.github.io/) 
+institute:  [serdarbalci.com](https://www.serdarbalci.com) 
+date:  `{r #  format(Sys.Date())` 
 output:
   revealjs::revealjs_presentation:
     incremental: true
@@ -25,7 +25,7 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
-      beforeInit: ["macros.js", "https://platform.twitter.com/widgets.js"]
+      beforeInit: [ macros.js ,  https://platform.twitter.com/widgets.js ]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -56,21 +56,23 @@ editor_options:
 
 
 <!-- Open all links in new tab-->  
-<base target="_blank"/>  
+<base target= _blank />  
 
 
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type= text/javascript  src= //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b >  
 </script>
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, eval = TRUE, tidy = TRUE, comment = NA, cache = TRUE)
 ```
 
 
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```
+{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # xaringan::inf_mr()
 # servr::daemon_stop(1)
 ```
@@ -85,7 +87,7 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 
 
 
----
+
 
 
 ## Replication Crisis
@@ -95,14 +97,14 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8, fig.path = 'Figs/', echo =
 https://en.wikipedia.org/wiki/Replication_crisis
 
 
----
+
 
 ## Replication Crisis Excel Version
 
 [![](figures/geneNamesExcel.png)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
 
 
----
+
 
 # RStudio ile proje oluştur
 
@@ -112,7 +114,7 @@ https://en.wikipedia.org/wiki/Replication_crisis
 
 
 
----
+
 
 # R Notebook  
 
@@ -121,7 +123,7 @@ https://en.wikipedia.org/wiki/Replication_crisis
 
 ![](images/RNotebook1.gif)
 
----
+
 
 ## R Notebook'tan html, pdf ve word oluşturma  
 
@@ -129,16 +131,16 @@ https://en.wikipedia.org/wiki/Replication_crisis
 ![](images/RNotebook2.gif)
 
 
----
+
 
 ## RNotebook vs RMarkdown  
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zNzZ1PfUDNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+<iframe width= 560  height= 315  src= https://www.youtube.com/embed/zNzZ1PfUDNk  frameborder= 0  allow= accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture  allowfullscreen></iframe>  
 
 https://youtu.be/zNzZ1PfUDNk
 
 
----
+
 
 # R Markdown
 
@@ -146,42 +148,42 @@ https://youtu.be/zNzZ1PfUDNk
 
 https://rmarkdown.rstudio.com
 
-<iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" width="640" height="400" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<iframe src= https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0  width= 640  height= 400  frameborder= 0  allow= autoplay; fullscreen  allowfullscreen></iframe>
+<p><a href= https://vimeo.com/178485416 >What is R Markdown?</a> from <a href= https://vimeo.com/rstudioinc >RStudio, Inc.</a> on <a href= https://vimeo.com >Vimeo</a>.</p>
 
----
+
 
 ## R Markdown: The Definitive Guide
 
 https://bookdown.org/yihui/rmarkdown/
 
 
----
+
 
 ## R Markdown syntax
 
 https://gist.github.com/MinhasKamal/7fdebb7c424d23149140
 
 
-<script src="https://gist.github.com/MinhasKamal/7fdebb7c424d23149140.js"></script>
+<script src= https://gist.github.com/MinhasKamal/7fdebb7c424d23149140.js ></script>
 
 
 
----
+
 
 ## Remedy Package  
 
-[<img src="https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/thinkr-hex-remedy.png" width=250px>](https://github.com/ThinkR-open/remedy)
+[<img src= https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/thinkr-hex-remedy.png  width=250px>](https://github.com/ThinkR-open/remedy)
 
 
----
+
 
 ### Remedy  
 
-[<img src="https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/remedy_example.gif" width=500px>](https://github.com/ThinkR-open/remedy)
+[<img src= https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/remedy_example.gif  width=500px>](https://github.com/ThinkR-open/remedy)
 
 
----
+
 
 ## R Markdown paket ve şablonları  
 
@@ -191,7 +193,7 @@ https://bookdown.org/yihui/rmarkdown/document-templates.html
 ![](images/RMarkdownTemplates.gif)
 
 
----
+
 
 ## Render Markdown via code
 
@@ -205,11 +207,11 @@ markdown::markdownToHTML('markdown_example.md',
 *command line*
 
 ```
-R -e "markdown::markdownToHTML('markdown_example.md',
-'markdown_example.html')"
+R -e  markdown::markdownToHTML('markdown_example.md',
+'markdown_example.html') 
 ```
 
----
+
 
 
 ## pandoc Rstudio integration
@@ -222,11 +224,11 @@ export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
 
 
 ```
-R -e "rmarkdown::render('markdown_example.md')"
+R -e  rmarkdown::render('markdown_example.md') 
 ```
 
 
----
+
 
 # RMarkdown `chunk` içinde `R` kodlarını çalıştırma
 
@@ -238,7 +240,7 @@ R -e "rmarkdown::render('markdown_example.md')"
   details::details(summary = 'tibble')
 ```
 
----
+
 
 # Metin arasında `R` kodlarını çalıştırma
 
@@ -246,7 +248,7 @@ R -e "rmarkdown::render('markdown_example.md')"
 ![](images/inlineRCode.png)
 
 
----
+
 
 # Chunk Options
 
@@ -266,7 +268,7 @@ knitr::opts_chunk$set(fig.width = 12,
                       comment = NA)
 ```
 
----
+
 
 ## Other Code Languages
 
@@ -274,7 +276,7 @@ knitr::opts_chunk$set(fig.width = 12,
 [![](https://d33wubrfki0l68.cloudfront.net/162347ef5afe219da22fb7d7d9a5989f2c3e5a85/59316/lesson-images/languages-1-demos.png)](https://rmarkdown.rstudio.com/lesson-5.html)
 
 
----
+
 
 
 # R Markdown kod örneği  
@@ -282,28 +284,28 @@ knitr::opts_chunk$set(fig.width = 12,
 
 ```
 {r}
-data("cancer")
+data( cancer )
 cancer
 foreign::write.foreign(df = cancer,
-                        datafile = "data/cancer.sav",
-                        codefile = "data/cancer.spo",
-                        package = "SPSS"
+                        datafile =  data/cancer.sav ,
+                        codefile =  data/cancer.spo ,
+                        package =  SPSS 
                         )
 ```
 
 
----
+
 
 # R Markdown Paket Çağırma 📦    
 
 
 ```
 {r}
-suppressPackageStartupMessages(library("tidyverse"))
-suppressPackageStartupMessages(library("survival"))
+suppressPackageStartupMessages(library( tidyverse ))
+suppressPackageStartupMessages(library( survival ))
 ```
 
----
+
 
 ## Sık kullandığım paketler 📦  
 
@@ -329,14 +331,14 @@ suppressPackageStartupMessages(library("survival"))
 {report}
 {kableExtra}
 
----
+
 
 # R Markdown Veri Yükleme SPSS  
 
 ![](images/importSPSS.gif)
 
 
----
+
 
 # R Markdown Veri Yükleme Excel  
 
@@ -345,7 +347,7 @@ suppressPackageStartupMessages(library("survival"))
 ![](images/importExcel.gif)
 
 
----
+
 
 # Veri Görüntüleme
 
@@ -359,7 +361,7 @@ glimpse(mydata)
 
 
 
----
+
 
 # Veri Düzenleme
 
@@ -376,15 +378,15 @@ mydata$sontarih <- janitor::excel_numeric_to_date(
 ```
 
 
----
+
 
 # Recode
 
 
 ```
 {r}
-mydata$Outcome <- "Dead"
-mydata$Outcome[mydata$olum_tarihi == "yok"] <- "Alive"
+mydata$Outcome <-  Dead 
+mydata$Outcome[mydata$olum_tarihi ==  yok ] <-  Alive 
 ```
 
 
@@ -392,13 +394,13 @@ mydata$Outcome[mydata$olum_tarihi == "yok"] <- "Alive"
 {r}
 ## Recoding mydata$cinsiyet into mydata$Cinsiyet
 mydata$Cinsiyet <- recode(mydata$cinsiyet,
-               "K" = "Kadin",
-               "E" = "Erkek")
+                K  =  Kadin ,
+                E  =  Erkek )
 mydata$Cinsiyet <- factor(mydata$Cinsiyet)
 ```
 
 
----
+
 
 # Recode regular expression
 
@@ -408,12 +410,12 @@ mydata$Cinsiyet <- factor(mydata$Cinsiyet)
 #pT2N0Mx -> 2
 mydata$Tstage <- stringr::str_match(
   mydata$patolojik_evre, 
-  paste('(.+)', "N", sep=''))[,2]
+  paste('(.+)',  N , sep=''))[,2]
 )
 ```
 
 
----
+
 
 # Recode regular expression case_when
 
@@ -422,16 +424,16 @@ mydata$Tstage <- stringr::str_match(
 mydata <- mydata %>% 
     mutate(
         T_stage = case_when(
-            grepl(pattern = "T1", x = .$Tstage) == TRUE ~ "T1",
-            grepl(pattern = "T2", x = .$Tstage) == TRUE ~ "T2",
-            grepl(pattern = "T3", x = .$Tstage) == TRUE ~ "T3",
-            grepl(pattern = "T4", x = .$Tstage) == TRUE ~ "T4",
-            TRUE ~ "Tx"
+            grepl(pattern =  T1 , x = .$Tstage) == TRUE ~  T1 ,
+            grepl(pattern =  T2 , x = .$Tstage) == TRUE ~  T2 ,
+            grepl(pattern =  T3 , x = .$Tstage) == TRUE ~  T3 ,
+            grepl(pattern =  T4 , x = .$Tstage) == TRUE ~  T4 ,
+            TRUE ~  Tx 
         )
     )
 ```
 
----
+
 
 # Recode regular expression case_when
 
@@ -440,13 +442,13 @@ mydata <- mydata %>%
 mydata <- mydata %>% 
     mutate(
 TumorPDL1gr1 = case_when(
-        t_pdl1 < 1 ~ "kucuk1",
-        t_pdl1 >= 1 ~ "buyukesit1"
+        t_pdl1 < 1 ~  kucuk1 ,
+        t_pdl1 >= 1 ~  buyukesit1 
     )
     )
 ```
 
----
+
 
 # R Markdown Tanımlayıcı İstatistikler  
 
@@ -458,7 +460,7 @@ view(dfSummary(colon_s))
 ```
 
 
----
+
 
 
 A beginner kit for #rstats
@@ -479,7 +481,7 @@ https://journal.r-project.org/archive/2019/RJ-2019-033/
 
 
 
----
+
 
 
 ## Table One  
@@ -487,7 +489,7 @@ https://journal.r-project.org/archive/2019/RJ-2019-033/
 
 ```
 {r, results='asis'}
-# cat(names(mydata), sep = " + \n")
+# cat(names(mydata), sep =   + \n )
 library(arsenal)
 tab1 <- tableby(~ Cinsiyet + 
 Yas + 
@@ -497,7 +499,7 @@ TumorYerlesimi
 summary(tab1)
 ```
 
----
+
 
 ## The Grammar of Tables
 
@@ -511,7 +513,7 @@ summary(tab1)
 [Easily generate information-rich, publication-quality tables from R](https://gt.rstudio.com)
 
 
----
+
 
 ## Kategorik Veriler
 
@@ -535,7 +537,7 @@ mydata %>%
 knitr::kable(table, row.names = FALSE, align = c('l', 'l', 'r', 'r', 'r'))
 ```
 
----
+
 
 ## Kategorik Veriler için Grafikler  
 
@@ -548,7 +550,7 @@ mydata %>%
                             )
 ```
 
----
+
 
 
 ## Continious Variables
@@ -572,7 +574,7 @@ jmv::descriptives(
     quart = TRUE)
 ```
 
----
+
 
 # R Markdown örneği Çapraz Tablolar  
 
@@ -594,7 +596,7 @@ knitr::kable(table,
              align = c('l', 'l', 'r', 'r', 'r'))
 ```
 
----
+
 
 # R Markdown örneği Sağkalım  
 
@@ -609,7 +611,7 @@ mydata$int <- lubridate::interval(
   lubridate::ymd(mydata$CerrahiTarih),
   lubridate::ymd(mydata$SonTarih)
   )
-mydata$OverallTime <- lubridate::time_length(mydata$int, "month")
+mydata$OverallTime <- lubridate::time_length(mydata$int,  month )
 mydata$OverallTime <- round(mydata$OverallTime, digits = 1)
 ```
 
@@ -617,12 +619,12 @@ mydata$OverallTime <- round(mydata$OverallTime, digits = 1)
 {r}
 ## Recoding mydata$Outcome into mydata$Outcome2
 mydata$Outcome2 <- recode(mydata$Outcome,
-               "Alive" = "0",
-               "Dead" = "1")
+                Alive  =  0 ,
+                Dead  =  1 )
 mydata$Outcome2 <- as.numeric(mydata$Outcome2)
 ```
 
----
+
 
 ## Kaplan-Meier
 
@@ -640,7 +642,7 @@ mydata %>%
 )
 ```
 
----
+
 
 ## Sağkalım Tabloları
 
@@ -664,7 +666,7 @@ km <- with(mydata, Surv(OverallTime, Outcome2))
 summary(km_fit, times = c(12,36,60))
 ```
 
----
+
 
 ## Pairwise comparison
 
@@ -672,10 +674,10 @@ summary(km_fit, times = c(12,36,60))
 {r}
 survminer::pairwise_survdiff(formula = Surv(time, Outcome) ~ Group, 
                              data = mydata,
-                             p.adjust.method = "BH")
+                             p.adjust.method =  BH )
 ```
 
----
+
 
 ## Multivariate Analysis Survival
 
@@ -687,10 +689,10 @@ explanatoryMultivariate <- explanatoryKM
 dependentMultivariate <- dependentKM
 mydata %>%
   finalfit(dependentMultivariate, explanatoryMultivariate) -> tMultivariate
-knitr::kable(tMultivariate, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r"))
+knitr::kable(tMultivariate, row.names=FALSE, align=c( l ,  l ,  r ,  r ,  r ,  r ))
 ```
 
----
+
 
 # jamovi
 
@@ -700,7 +702,7 @@ knitr::kable(tMultivariate, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r
 
 ![](images/jamoviRjEditor.gif)
 
----
+
 
 ## {jmv} paket kodları
 
@@ -711,12 +713,12 @@ knitr::kable(tMultivariate, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r
 
 
 
----
+
 
 # Güncellemeler olunca kodlar çalışacak mı?
 
 
----
+
 
 ## Paket Kütüphaneleri
 
@@ -724,13 +726,13 @@ knitr::kable(tMultivariate, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r
 
 https://environments.rstudio.com
 
----
+
 
 ## Docker
 
 - docker
 
----
+
 
 ### The Rocker Project
 
@@ -749,14 +751,14 @@ docker run -e PASSWORD=yourpassword --rm -p 8787:8787 rocker/rstudio
 and point your browser to [localhost:8787](localhost:8787)
 Log in with user/password rstudio/yourpassword 
 
----
+
 
 [![](images/TheRockerProject.png)](https://www.rocker-project.org)
 
 [Managing containers](https://www.rocker-project.org/use/managing_containers/)
 
 
----
+
 
 ## Yeni R sürümleri 
 
@@ -772,7 +774,7 @@ https://rud.is/rswitch/guide/
 ![: scale 30%](https://rud.is/rswitch/guide/menu-info.png)
 
 
----
+
 
 # Yedeklemeyi nasıl yapacağız
 
@@ -785,10 +787,10 @@ https://rud.is/rswitch/guide/
 
 ```
 {r load library}
-source(file = here::here("R", "loadLibrary.R"))
+source(file = here::here( R ,  loadLibrary.R ))
 ```
 
----
+
 
 ## Save Final Data
 
@@ -796,58 +798,59 @@ source(file = here::here("R", "loadLibrary.R"))
 {r}
 saved data after analysis to `mydata.xlsx`.
 
-save.image(file = here::here("data", "mydata_work_space.RData"))
+save.image(file = here::here( data ,  mydata_work_space.RData ))
 
-readr::write_rds(x = mydata, path = here::here("data", "mydata_afteranalysis.rds"))
+readr::write_rds(x = mydata, path = here::here( data ,  mydata_afteranalysis.rds ))
 
-saveRDS(object = mydata, file = here::here("data", "mydata.rds"))
+saveRDS(object = mydata, file = here::here( data ,  mydata.rds ))
 
-writexl::write_xlsx(mydata, here::here("data", "mydata.xlsx"))
+writexl::write_xlsx(mydata, here::here( data ,  mydata.xlsx ))
 
-paste0(rownames(file.info(here::here("data", "mydata.xlsx"))), " : ", file.info(here::here("data", "mydata.xlsx"))$ctime)
+paste0(rownames(file.info(here::here( data ,  mydata.xlsx ))),   :  , file.info(here::here( data ,  mydata.xlsx ))$ctime)
 
 ```
 
----
+
 
 ## GitHub  
 
 ```
 {r github push}
-CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+CommitMessage <- paste( updated on  , Sys.time(), sep =   )
 wd <- getwd()
-gitCommand <- paste("cd ", 
+gitCommand <- paste( cd  , 
                     wd,
-                    " \n git add . \n git commit --message '",
+                      \n git add . \n git commit --message ' ,
                     CommitMessage,
-                    "' \n git push origin master \n",
-                    sep = ""
+                     ' \n git push origin master \n ,
+                    sep =   
                     )
 system(command = gitCommand,
        intern = TRUE
 )
 ```
 
----
+
 
 ## GitHub Yedekleme
 
-```{r github push, echo=TRUE}
-CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+```
+{r github push, echo=TRUE}
+CommitMessage <- paste( updated on  , Sys.time(), sep =   )
 wd <- getwd()
-gitCommand <- paste("cd ", 
+gitCommand <- paste( cd  , 
                     wd,
-                    " \n git add . \n git commit --message '",
+                      \n git add . \n git commit --message ' ,
                     CommitMessage,
-                    "' \n git push origin master \n",
-                    sep = ""
+                     ' \n git push origin master \n ,
+                    sep =   
                     )
 system(command = gitCommand,
        intern = TRUE
 )
 ```
 
----
+
 
 # Her dökümanın sonuna kullandığınız kütüphaneler için atıf yazdırabilirsiniz
 
@@ -856,40 +859,42 @@ system(command = gitCommand,
 citation()
 ```
 
----
+
 
 ## Libraries Used  
 
-```{r  citation, echo=TRUE}
+```
+{r  citation, echo=TRUE}
 citation()
 ```
 
----
+
 
 ## Bu oturuma spesifik kullanılan paketler  
 
-```{r  citation as report, echo=TRUE, results='asis'}
+```
+{r  citation as report, echo=TRUE, results='asis'}
 # report::cite_packages(session = sessionInfo())
 ```
 
 
----
+
 
 ## Tek tek paket atıfları
 
 
 ```
 {r  citations}
-citation("tidyverse")
-citation("readxl")
-citation("janitor")
-citation("report")
-citation("finalfit")
-citation("ggstatplot")
+citation( tidyverse )
+citation( readxl )
+citation( janitor )
+citation( report )
+citation( finalfit )
+citation( ggstatplot )
 ```
 
 
----
+
 
 ## Jamovi ve R için atıf örneği
 
@@ -901,7 +906,7 @@ citation("ggstatplot")
 
 
 
----
+
 
 # Her dökümanın sonuna oturum detaylarınızı yazdırabilirsiniz  
 
@@ -910,22 +915,23 @@ citation("ggstatplot")
 sessionInfo()
 ```
 
----
+
 
 ## Session Info
 
-```{r session info, echo=TRUE}
+```
+{r session info, echo=TRUE}
 sessionInfo()
 ```
 
----
+
 
 # Sonraki Konular
 
 - RStudio ile GitHub kullanımı
 - ...
 
----
+
 
 # Önerilen Kaynaklar
 
@@ -937,7 +943,7 @@ sessionInfo()
 
 
 
----
+
 
 # Sunum Linkleri
 
@@ -946,18 +952,18 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/R-Markdown.html
 
 https://forms.gle/UqGJBiAjB8uLPRon8
 
----
+
 
 # Geri Bildirim
 
 - Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
 
 
----
 
-<script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
 
-<div id="disqus_thread"></div>
+<script id= dsq-count-scr  src= //https-sbalci-github-io.disqus.com/count.js  async></script>
+
+<div id= disqus_thread ></div>
 <script>
 
 /**
@@ -976,13 +982,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href= https://disqus.com/?ref_noscript >comments powered by Disqus.</a></noscript>
 
----
+
 
 # İletişim  
 
-Completed on `{r #  Sys.Date()`.  
+Completed on .  
 
 Serdar Balci, MD, Pathologist  
 drserdarbalci@gmail.com  
@@ -993,13 +999,13 @@ https://github.com/sbalci
 https://twitter.com/serdarbalci
 
 
----
+
 
    
 
 
 
----
+
 
 
 # Other Links
@@ -1026,7 +1032,7 @@ https://onp4.com/
 
 
 ```
-csv {headers: true, title: "**Drawing Tables In Markdown**"}
+csv {headers: true, # **Drawing Tables In Markdown** }
 Name, Surname, Known As, Age
 Marcelo, David, coldzera, 22
 Oleksandr, Kostyliev, s1mple, 19
@@ -1037,13 +1043,13 @@ Nicolai, Reedtz, dev1ce, 21
 
 ```
 {pgn}
-[Event "Bled-Zagreb-Belgrade Candidates"]
-[Site "Bled, Zagreb & Belgrade YUG"]
-[Date "1959.10.11"]
-[Round "20"]
-[Result "1-0"]
-[White "Mikhail Tal"]
-[Black "Robert James Fischer"]
+[Event  Bled-Zagreb-Belgrade Candidates ]
+[Site  Bled, Zagreb & Belgrade YUG ]
+[Date  1959.10.11 ]
+[Round  20 ]
+[Result  1-0 ]
+[White  Mikhail Tal ]
+[Black  Robert James Fischer ]
 
 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5.
 Be2 O-O 6. Nf3 e5 7. d5 Nbd7 8. Bg5 h6 9.

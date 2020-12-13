@@ -1,9 +1,6 @@
----
-title: "Bibliographic Studies"
-subtitle: "MeSH Terms In Pathology Articles From Turkey"
-author: "Serdar Balcı, MD, Pathologist"
-date: '`{r #  format(Sys.Date())`'
----
+# Bibliographic Studies
+
+
 
 ```
 output: 
@@ -28,11 +25,12 @@ output:
 
 If you want to see the code used in the analysis please click the code button on the right upper corner or throughout the page.
 
----
+
 
 # Analysis
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 knitr::opts_chunk$set(
 	eval = FALSE,
 	message = FALSE,
@@ -59,7 +57,8 @@ In this analysis we aimed to identify the common research topics Turkish patholo
 
 Packages used for analysis. Tidyverse is used for data manipulation, and [rstudioapi to run e-utilities commands from RStudio](https://github.com/rstudio/rstudio/issues/2193).
 
-```{r load -if not present install- required packages 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r load -if not present install- required packages 3, eval=FALSE, include=FALSE, echo=TRUE}
 usePackage <- function(p) 
 {
     if (!is.element(p, installed.packages()[,1]))
@@ -67,8 +66,8 @@ usePackage <- function(p)
     require(p, character.only = TRUE)
 }
 
-usePackage("tidyverse")
-usePackage("rstudioapi")
+usePackage( tidyverse )
+usePackage( rstudioapi )
 ```
 
 
@@ -76,38 +75,41 @@ Pathology Journal ISSN List was retrieved from [In Cites Clarivate](https://jcr.
 
     JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categories: 'PATHOLOGY' Selected Category Scheme: WoS
 
-```{r Get ISSN List from data downloaded from WoS 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Get ISSN List from data downloaded from WoS 3, eval=FALSE, include=FALSE, echo=TRUE}
 # Get ISSN List from data downloaded from WoS
-ISSNList <- JournalHomeGrid <- read_csv("data/JournalHomeGrid.csv", 
+ISSNList <- JournalHomeGrid <- read_csv( data/JournalHomeGrid.csv , 
                                         skip = 1) %>% 
     select(ISSN) %>% 
     filter(!is.na(ISSN)) %>% 
     t() %>% 
-    paste("OR ", collapse = "") # add OR between ISSN List
+    paste( OR  , collapse =   ) # add OR between ISSN List
 
-ISSNList <- gsub(" OR $","" ,ISSNList) # to remove last OR
+ISSNList <- gsub(  OR $ ,   ,ISSNList) # to remove last OR
 ```
 
 Data is retrieved from PubMed via [e-Utilities](https://dataguide.nlm.nih.gov/).
 
-The search formula for PubMed is generated as "ISSN List AND Country[Affiliation]" like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
+The search formula for PubMed is generated as  ISSN List AND Country[Affiliation]  like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
 
-```{r Generate Search Formula For Pathology Journals AND Countries 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Generate Search Formula For Pathology Journals AND Countries 3, eval=FALSE, include=FALSE, echo=TRUE}
 # Generate Search Formula For Pathology Journals AND Countries
-searchformula <- paste("'",ISSNList,"'", " AND ", "Turkey[Affiliation]")
-write(searchformula, "data/searchformula.txt")
+searchformula <- paste( ' ,ISSNList, ' ,   AND  ,  Turkey[Affiliation] )
+write(searchformula,  data/searchformula.txt )
 ```
 
 Articles are downloaded as xml.
 
-```{r Search PubMed 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r Search PubMed 3, eval=FALSE, include=FALSE, echo=TRUE}
 myTerm <- rstudioapi::terminalCreate(show = FALSE)
-rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query \"$(cat data/searchformula.txt)\" -datetype PDAT -mindate 1900 -maxdate 3000 | efetch -format xml > data/PathologyTurkey.xml \n")
+rstudioapi::terminalSend(myTerm,  esearch -db pubmed -query \ $(cat data/searchformula.txt)\  -datetype PDAT -mindate 1900 -maxdate 3000 | efetch -format xml > data/PathologyTurkey.xml \n )
 Sys.sleep(1)
 repeat{
     Sys.sleep(0.1)
     if(rstudioapi::terminalBusy(myTerm) == FALSE){
-        print("Code Executed")
+        print( Code Executed )
         break
     }
 }
@@ -115,17 +117,18 @@ repeat{
 
 MeSH terms are extracted from xml. [Common terms](https://www.nlm.nih.gov/bsd/indexing/training/CHK_010.html) are excluded and [major topics](https://www.nlm.nih.gov/bsd/disted/meshtutorial/principlesofmedlinesubjectindexing/majortopics/) are selected.
 
-```{r extract major MeSH topics -excluding common tags- from xml 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r extract major MeSH topics -excluding common tags- from xml 3, eval=FALSE, include=FALSE, echo=TRUE}
 myTerm <- rstudioapi::terminalCreate(show = FALSE)
-rstudioapi::terminalSend(myTerm, "xtract -input data/PathologyTurkey.xml
+rstudioapi::terminalSend(myTerm,  xtract -input data/PathologyTurkey.xml
 -pattern MeshHeading -if DescriptorName@MajorTopicYN -equals Y
 -or QualifierName@MajorTopicYN -equals Y -element DescriptorName| 
-grep -vxf data/checktags.txt | sort-uniq-count-rank > data/PathologyTurkeyMeSH.txt \n")
+grep -vxf data/checktags.txt | sort-uniq-count-rank > data/PathologyTurkeyMeSH.txt \n )
 Sys.sleep(1)
 repeat{
     Sys.sleep(0.1)
     if(rstudioapi::terminalBusy(myTerm) == FALSE){
-        print("Code Executed")
+        print( Code Executed )
         break
     }
 }
@@ -133,14 +136,15 @@ repeat{
 
 Keywords are extracted from xml.
 
-```{r extract author keywords from xml 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r extract author keywords from xml 3, eval=FALSE, include=FALSE, echo=TRUE}
 myTerm <- rstudioapi::terminalCreate(show = FALSE)
-rstudioapi::terminalSend(myTerm, "xtract -input data/PathologyTurkey.xml -pattern Keyword -element Keyword | sort-uniq-count-rank > authorkeywords.txt \n")
+rstudioapi::terminalSend(myTerm,  xtract -input data/PathologyTurkey.xml -pattern Keyword -element Keyword | sort-uniq-count-rank > authorkeywords.txt \n )
 Sys.sleep(1)
 repeat{
     Sys.sleep(0.1)
     if(rstudioapi::terminalBusy(myTerm) == FALSE){
-        print("Code Executed")
+        print( Code Executed )
         break
     }
 }
@@ -152,7 +156,8 @@ repeat{
 
 The retrieved information was compiled in a table.
 
-```{r display results as table 3, eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r display results as table 3, eval=FALSE, include=FALSE, echo=TRUE}
 
 my_tbl <- tibble::tribble(
   ~Col_1, ~Col_2, ~Col_3,
@@ -195,16 +200,16 @@ rhandsontable(my_tbl, rowHeaders = NULL,
 
 
 
----
+
 
 
 # Feedback
 
 [Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
 
-This document will be continiously updated and the last update was on `{r #  Sys.Date()`.
+This document will be continiously updated and the last update was on .
 
----
+
 
 # Back to Main Menu
 

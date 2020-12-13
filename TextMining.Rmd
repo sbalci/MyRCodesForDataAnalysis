@@ -1,7 +1,7 @@
----
-title: "Text Mining"
-output: html_notebook
----
+
+# Text Mining 
+
+
 
 
 https://regexr.com/
@@ -15,7 +15,8 @@ https://cran.r-project.org/web/packages/readtext/vignettes/readtext_vignette.htm
 
 # qdapRegex
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(qdapRegex)
 ```
 
@@ -38,9 +39,10 @@ stringr::str_view()
 https://www.garrickadenbuie.com/project/regexplain/
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# devtools::install_github("gadenbuie/regexplain")
-# source("https://install-github.me/gadenbuie/regexplain")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github( gadenbuie/regexplain )
+# source( https://install-github.me/gadenbuie/regexplain )
 ```
 
 
@@ -97,12 +99,14 @@ https://www.andrewheiss.com/blog/2018/12/26/tidytext-pos-john/
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# devtools::install_github("andrewheiss/scriptuRs")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github( andrewheiss/scriptuRs )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(tidyverse)  # For dplyr, ggplot2, and friends
 library(scriptuRs)  # For full text of bible
 library(tidytext)   # For analyzing text
@@ -110,49 +114,55 @@ library(cleanNLP)   # For fancier natural language processing
 
 # Load data
 gospels <- kjv_bible() %>% 
-  filter(book_title %in% c("Matthew", "Mark", "Luke", "John"))
+  filter(book_title %in% c( Matthew ,  Mark ,  Luke ,  John ))
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # Set up NLP backend
-# reticulate::use_python("/Users/serdarbalciold/.conda")  # I use homebrew python3
-# reticulate::use_condaenv(condaenv = "/anaconda3/envs", conda = "auto", required = FALSE)
+# reticulate::use_python( /Users/serdarbalciold/.conda )  # I use homebrew python3
+# reticulate::use_condaenv(condaenv =  /anaconda3/envs , conda =  auto , required = FALSE)
 # cnlp_init_spacy()  # Use spaCy
 cnlp_init_udpipe()  # Or use this R-only one without external dependencies
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# Determine the parts of speech of the "text" column and use "verse_title" as the id
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# Determine the parts of speech of the  text  column and use  verse_title  as the id
 gospels_annotated <- cnlp_annotate(gospels, as_strings = TRUE,
-                                   text_var = "text", doc_var = "verse_title")
+                                   text_var =  text , doc_var =  verse_title )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gospels_annotated
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 glimpse(gospels_annotated)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gospel_terms <- gospels_annotated %>% 
   cnlp_get_token()
 head(gospel_terms)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 gospels_lookup <- gospels %>% 
   select(verse_title, book_title, chapter_number, verse_number)
 
 gospel_terms <- gospel_terms %>% 
-  left_join(gospels_lookup, by = c("id" = "verse_title"))
+  left_join(gospels_lookup, by = c( id  =  verse_title ))
 
 glimpse(gospel_terms)
 ```

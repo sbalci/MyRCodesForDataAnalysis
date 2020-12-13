@@ -1,19 +1,19 @@
----
-title: "Data Science Live Book"
----
+# Data Science Live Book
 
 
 https://livebook.datascienceheroes.com/
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # Loading funModeling!
 library(funModeling)
 library(dplyr)
 data(heart_disease)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # Profiling the data input
 df_status(heart_disease)
 ```

@@ -1,7 +1,7 @@
----
-title: "Tutorials"
-output: html_notebook
----
+
+# Tutorials 
+
+
 
 
 - Exploratory Data Analysis & Data Preparation with 'funModeling'
@@ -9,7 +9,7 @@ output: html_notebook
 https://blog.datascienceheroes.com/exploratory-data-analysis-data-preparation-with-funmodeling/
 
 
-- Content for "Wrangling data in the Tidyverse" - a tutorial given at useR! 2018
+- Content for  Wrangling data in the Tidyverse  - a tutorial given at useR! 2018
 
 https://github.com/drsimonj/tidyverse_tutorial-useR2018
 

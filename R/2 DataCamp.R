@@ -520,8 +520,8 @@ emails[hits]
 emails <- c("john.doe@ivyleague.edu", "education@world.gov", "global@peace.org",
             "invalid.edu", "quant@bigdatacollege.edu", "cookie.monster@sesame.tv")
 
-# Use sub() to convert the email domains to datacamp.edu
-sub("@.*\\.edu$", "@datacamp.edu", emails)
+# Use sub() to convert the email domains to .edu
+sub("@.*\\.edu$", "@.edu", emails)
 
 
 awards <- c("Won 1 Oscar.",
@@ -1134,7 +1134,7 @@ con <- dbConnect(RMySQL::MySQL(),
                  host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
                  port = 3306,
                  user = "student",
-                 password = "datacamp")
+                 password = "")
 
 class(con)
 
@@ -1160,7 +1160,7 @@ con <- dbConnect(RMySQL::MySQL(),
                  host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
                  port = 3306,
                  user = "student",
-                 password = "datacamp")
+                 password = "")
 
 # Import tweat_id column of comments where user_id is 1: elisabeth
 elisabeth <- dbGetQuery(con, "SELECT tweat_id FROM comments WHERE user_id = 1")
@@ -1202,7 +1202,7 @@ con <- dbConnect(RMySQL::MySQL(),
                  host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
                  port = 3306,
                  user = "student",
-                 password = "datacamp")
+                 password = "")
 
 # Send query to the database
 res <- dbSendQuery(con, "SELECT * FROM comments WHERE user_id > 4")
@@ -1228,11 +1228,11 @@ dbDisconnect(con)
 library(readr)
 
 # Import the csv file: pools
-url_csv <-"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/swimming_pools.csv"
+url_csv <-"http://s3.amazonaws.com/assets..com/production/course_1478/datasets/swimming_pools.csv"
 pools <- read_csv(url_csv)
 
 # Import the txt file: potatoes
-url_delim <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/potatoes.txt"
+url_delim <- "http://s3.amazonaws.com/assets..com/production/course_1478/datasets/potatoes.txt"
 potatoes <- read_tsv(url_delim)
 
 # Print pools and potatoes
@@ -1241,7 +1241,7 @@ potatoes
 
 
 # https URL to the swimming_pools csv file.
-url_csv <- "https://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/swimming_pools.csv"
+url_csv <- "https://s3.amazonaws.com/assets..com/production/course_1478/datasets/swimming_pools.csv"
 
 # Import the file using read.csv(): pools1
 pools1 <- read.csv(url_csv)
@@ -1262,7 +1262,7 @@ library(readxl)
 library(gdata)
 
 # Specification of url: url_xls
-url_xls <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/latitude.xls"
+url_xls <- "http://s3.amazonaws.com/assets..com/production/course_1478/datasets/latitude.xls"
 
 # Import the .xls file with gdata: excel_gdata
 excel_gdata <- read.xls(url_xls)
@@ -1275,7 +1275,7 @@ excel_readxl <- read_excel("local_latitude.xls")
 
 
 # https URL to the wine RData file.
-url_rdata <- "https://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/wine.RData"
+url_rdata <- "https://s3.amazonaws.com/assets..com/production/course_1478/datasets/wine.RData"
 
 # Download the wine file to your working directory
 download.file(url_rdata, "wine_local.RData")
@@ -1382,7 +1382,7 @@ fromJSON(json2)
 # jsonlite is already loaded
 
 # URL pointing to the .csv file
-url_csv <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/water.csv"
+url_csv <- "http://s3.amazonaws.com/assets..com/production/course_1478/datasets/water.csv"
 
 # Import the .csv file located at url_csv
 water <- read.csv(url_csv, stringsAsFactors=FALSE)
@@ -1414,7 +1414,7 @@ library(haven)
 library(haven)
 
 # Import sales.sas7bdat: sales
-sales <- read_sas("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/sales.sas7bdat")
+sales <- read_sas("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/sales.sas7bdat")
 
 # Display the structure of sales
 str(sales)
@@ -1424,7 +1424,7 @@ str(sales)
 # haven is already loaded
 
 # Import the data from the URL: sugar
-sugar <- read_dta("http://assets.datacamp.com/production/course_1478/datasets/trade.dta")
+sugar <- read_dta("http://assets..com/production/course_1478/datasets/trade.dta")
 
 # Structure of sugar
 str(sugar)
@@ -1439,7 +1439,7 @@ str(sugar)
 # haven is already loaded
 
 # Import person.sav: traits
-traits <- read_sav("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/person.sav")
+traits <- read_sav("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/person.sav")
 
 # Summarize traits
 summary(traits)
@@ -1451,7 +1451,7 @@ subset(traits, traits$Extroversion>40 & traits$Agreeableness>40)
 # haven is already loaded
 
 # Import SPSS data from the URL: work
-work <- read_sav("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/employee.sav")
+work <- read_sav("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/employee.sav")
 
 # Display summary of work$GENDER
 summary(work$GENDER)
@@ -1475,7 +1475,7 @@ library(foreign)
 library(foreign)
 
 # Import florida.dta and name the resulting data frame florida
-florida <- read.dta("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/florida.dta")
+florida <- read.dta("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/florida.dta")
 
 # Check tail() of florida
 tail(florida)
@@ -1486,7 +1486,7 @@ tail(florida)
 
 # Specify the file path using file.path(): path
 path <- file.path("worldbank/edequality.dta")
-path <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/edequality.dta"
+path <- "http://s3.amazonaws.com/assets..com/production/course_1478/datasets/edequality.dta"
 # Create and print structure of edu_equal_1
 edu_equal_1 <- read.dta(path)
 edu_equal_1
@@ -1507,7 +1507,7 @@ nrow(subset(edu_equal_1, ethnicity_head == "Bulgaria" & income > 1000))
 # foreign is already loaded
 
 # Import international.sav as a data frame: demo
-demo <- read.spss("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/international.sav", to.data.frame = TRUE)
+demo <- read.spss("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/international.sav", to.data.frame = TRUE)
 View(demo)
 
 # Create boxplot of gdp variable of demo
@@ -1516,13 +1516,13 @@ boxplot(demo$gdp)
 cor(demo$gdp, demo$f_illit)
 
 # Import international.sav as demo_1
-demo_1 <- read.spss("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/international.sav", to.data.frame = TRUE)
+demo_1 <- read.spss("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/international.sav", to.data.frame = TRUE)
 
 # Print out the head of demo_1
 head(demo_1)
 View(demo_1)
 # Import international.sav as demo_2
-demo_2 <- read.spss("http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/international.sav", to.data.frame = TRUE, use.value.labels = FALSE)
+demo_2 <- read.spss("http://s3.amazonaws.com/assets..com/production/course_1478/datasets/international.sav", to.data.frame = TRUE, use.value.labels = FALSE)
 
 # Print out the head of demo_2
 head(demo_2)
@@ -2030,7 +2030,7 @@ sales6 <- unite(sales5, venue_city_state, venue_city, venue_state, sep=", ")
 head(sales6)
 
 
-# http://s3.amazonaws.com/assets.datacamp.com/production/course_1294/datasets/mbta.xlsx
+# http://s3.amazonaws.com/assets..com/production/course_1294/datasets/mbta.xlsx
 
 # Load readxl
 library(readxl)
@@ -2151,14 +2151,14 @@ sum(plastic)
 
 
 
-# http://s3.amazonaws.com/assets.datacamp.com/production/course_1294/datasets/attendance.xls
+# http://s3.amazonaws.com/assets..com/production/course_1294/datasets/attendance.xls
 
 # Load the gdata package
 library(gdata)
 
 # Import the spreadsheet: att
 att <- read.xls("attendance.xls")
-att <- read.xls("http://s3.amazonaws.com/assets.datacamp.com/production/course_1294/datasets/attendance.xls")
+att <- read.xls("http://s3.amazonaws.com/assets..com/production/course_1294/datasets/attendance.xls")
 
 View(att)
 # Print the column names 
@@ -2616,7 +2616,7 @@ my_db <- src_mysql(dbname = "dplyr",
                    host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com", 
                    port = 3306, 
                    user = "student",
-                   password = "datacamp")
+                   password = "")
 
 # Reference a table within that source: nycflights
 nycflights <- tbl(my_db, "dplyr")

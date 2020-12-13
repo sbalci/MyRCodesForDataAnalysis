@@ -1,8 +1,9 @@
----
-title: "R Packages Used"
----
 
-<!-- ```{r , cache = F, warning = FALSE} -->
+# R Packages Used 
+
+
+<!-- ```
+{r , cache = F, warning = FALSE} -->
 
 <!-- knitr::opts_chunk$set( -->
 <!-- 	error = TRUE, -->
@@ -14,7 +15,7 @@ title: "R Packages Used"
 <!-- ``` -->
 
 
----
+
 
 
 # R package development  
@@ -40,7 +41,7 @@ https://r-pkgs.org
 https://github.com/r-lib/devtools
 
 
----
+
 
 
 
@@ -92,7 +93,7 @@ https://github.com/MangoTheCat/tidyshiny/
 
 https://cran.r-project.org/web/packages/rio/README.html
 
-install.packages("rio")
+install.packages( rio )
 install_formats()
 
 
@@ -202,8 +203,9 @@ https://kbroman.org/pkg_primer/
 ## Packages to be studied
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-packagefinder::findPackage(c("pubmed", "bibliography"))
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+packagefinder::findPackage(c( pubmed ,  bibliography ))
 ```
 
 https://cran.rstudio.com/web/packages/sys/
@@ -214,8 +216,9 @@ Scale Functions for Visualization
 
 https://cran.r-project.org/web/packages/scales/index.html
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-paste0(round(.20394*100, 1), "%")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+paste0(round(.20394*100, 1),  % )
 scales::percent(.20394)
 ```
 
@@ -248,7 +251,7 @@ https://cran.r-project.org/web/packages/rticles/rticles.pdf
 
 https://colinfay.me/build-api-wrapper-package-r/
 
-https://www.datacamp.com/community/tutorials/setup-data-science-environment
+https://www..com/community/tutorials/setup-data-science-environment
 
 https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html####installation
 
@@ -392,11 +395,12 @@ https://cran.r-project.org/web/packages/stargazer/index.html
 
 ## psycho
 
-```{r, eval=FALSE, include=FALSE}
-install.packages("devtools")
-library("devtools")
-install_github("neuropsychology/psycho.R")
-library("psycho")
+```
+{r, eval=FALSE, include=FALSE}
+install.packages( devtools )
+library( devtools )
+install_github( neuropsychology/psycho.R )
+library( psycho )
 ```
 
 
@@ -414,85 +418,86 @@ https://www.r-bloggers.com/the-splitstackshape-package-for-r/
 
 Basic Epi
 
-install.packages("epiR")
+install.packages( epiR )
 
 ## lmtest
 
 Some useful epitools especially 2*2 tables and stratified MH Odds
 
-install.packages("lmtest")
+install.packages( lmtest )
 
 ## popEpi
 
-install.packages("popEpi")
+install.packages( popEpi )
 
 ## Extra tools to go with 'Epi' and make nice rate tables
 
 ## survival
 
-install.packages("survival")
+install.packages( survival )
 
 for survial analysis, kaplan-meier plots and cox regression
 
 ## survminer
 
-install.packages("survminer")
+install.packages( survminer )
 
 Really nice KM plots!
 
 ## Random-Effects Modeks
 
-install.packages("lme4")
+install.packages( lme4 )
 
-install.packages("sjstats")
+install.packages( sjstats )
 
 
 ## Multiple Imputation
 
-install.packages("mice")
+install.packages( mice )
 
 
-install.packages("arsenal")
+install.packages( arsenal )
 
 ## Really nice summmary tables
 
 ## Complex survey data analysis
 
-install.packages("survey")
+install.packages( survey )
 
 ## For handling complex survey data
 
-install.packages("ICC")
+install.packages( ICC )
 
 
 ## Alternative methods for ICC calculation from survey data
 
 ## Meta-analysis
 
-install.packages("meta")
+install.packages( meta )
 
 
-install.packages("metafor")
+install.packages( metafor )
 
 
-install.packages("workflowr")
+install.packages( workflowr )
 
 
-install.packages("DiagrammeR")
+install.packages( DiagrammeR )
 
 
-install.packages("tangram")
+install.packages( tangram )
 
 
-devtools::install_github("lbusett/insert_table")
+devtools::install_github( lbusett/insert_table )
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 #### Obtain names of all packages on CRAN
 names.available.packages <- rownames(available.packages())
 
 #### Extract packages names that contain Rcmdr
-Rcmdr.related.packages <- names.available.packages[grep("Rcmdr", names.available.packages)]
+Rcmdr.related.packages <- names.available.packages[grep( Rcmdr , names.available.packages)]
 Rcmdr.related.packages
 
 #### Install these packages
@@ -501,7 +506,8 @@ install.packages(pkgs = Rcmdr.related.packages)
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 usePackage <- function(p) {
   if (!is.element(p, installed.packages()[, 1])) {
     install.packages(p, dep = TRUE)
@@ -512,8 +518,9 @@ usePackage <- function(p) {
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-file.edit("~/Desktop/foo/.Rprofile")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+file.edit( ~/Desktop/foo/.Rprofile )
 ## This opens up a script window, within which you can enter in your library commands
 library(ggplot2)
 library(scales)
@@ -1585,63 +1592,65 @@ https://github.com/rstudio/tufte
 
 
 
-install.packages("stargazer")
+install.packages( stargazer )
 
-install.packages("pander")
+install.packages( pander )
 
-install.packages("tables")
+install.packages( tables )
 
-install.packages("ascii")
+install.packages( ascii )
 
-install.packages("xtable")
+install.packages( xtable )
 
-devtools::install_github("hadley/dplyr")
-
-
-install.packages("gapminder")
-
-install.packages("alluvial")
+devtools::install_github( hadley/dplyr )
 
 
-vignette("databases", package = "dplyr")
+install.packages( gapminder )
 
-install.packages("robustbase")
-
-install.packages("insuranceData")
-
-install.packages("Lahman")
+install.packages( alluvial )
 
 
-install.packages("tidyverse")
+vignette( databases , package =  dplyr )
 
-install.packages("qdap")
+install.packages( robustbase )
 
-install.packages("openxlsx")
+install.packages( insuranceData )
+
+install.packages( Lahman )
 
 
-devtools::install_github("kassambara/r2excel")
+install.packages( tidyverse )
 
-install.packages("WriteXLS")
+install.packages( qdap )
 
-install.packages("XLConnect")
+install.packages( openxlsx )
+
+
+devtools::install_github( kassambara/r2excel )
+
+install.packages( WriteXLS )
+
+install.packages( XLConnect )
 
 library(XLConnect)
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 if (!require(wordcloud)) {
-  install.packages("wordcloud")
+  install.packages( wordcloud )
   library(wordcloud)
 }
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 installed <- as.data.frame(installed.packages())
-write.csv(installed, "installed_previously.csv")
+write.csv(installed,  installed_previously.csv )
 
-installedPreviously <- read.csv("installed_previously.csv")
+installedPreviously <- read.csv( installed_previously.csv )
 baseR <- as.data.frame(installed.packages())
 toInstall <- setdiff(installedPreviously, baseR)
 
@@ -1658,97 +1667,100 @@ packagelist[, 1]
 
 ## Rcmdr
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-install.packages("Rcmdr")
-install.packages("RcmdrPlugin.BCA")
-install.packages("RcmdrPlugin.coin")
-install.packages("RcmdrPlugin.depthTools")
-install.packages("RcmdrPlugin.doBy")
-install.packages("RcmdrPlugin.DoE")
-install.packages("RcmdrPlugin.doex")
-install.packages("RcmdrPlugin.EACSPIR")
-install.packages("RcmdrPlugin.EBM")
-install.packages("RcmdrPlugin.epack")
-install.packages("RcmdrPlugin.EZR")
-install.packages("RcmdrPlugin.HH")
-install.packages("RcmdrPlugin.IPSUR")
-install.packages("RcmdrPlugin.KMggplot2")
-install.packages("RcmdrPlugin.mosaic")
-install.packages("RcmdrPlugin.MPAStats")
-install.packages("RcmdrPlugin.orloca")
-install.packages("RcmdrPlugin.plotByGroup")
-install.packages("RcmdrPlugin.qcc")
-install.packages("RcmdrPlugin.qual")
-install.packages("RcmdrPlugin.SCDA")
-install.packages("RcmdrPlugin.seeg")
-install.packages("RcmdrPlugin.SLC")
-install.packages("RcmdrPlugin.SM")
-install.packages("RcmdrPlugin.StatisticalURV")
-install.packages("RcmdrPlugin.steepness")
-install.packages("RcmdrPlugin.survival")
-install.packages("RcmdrPlugin.TeachingDemos")
-install.packages("RcmdrPlugin.temis")
-install.packages("RcmdrPlugin.UCA")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+install.packages( Rcmdr )
+install.packages( RcmdrPlugin.BCA )
+install.packages( RcmdrPlugin.coin )
+install.packages( RcmdrPlugin.depthTools )
+install.packages( RcmdrPlugin.doBy )
+install.packages( RcmdrPlugin.DoE )
+install.packages( RcmdrPlugin.doex )
+install.packages( RcmdrPlugin.EACSPIR )
+install.packages( RcmdrPlugin.EBM )
+install.packages( RcmdrPlugin.epack )
+install.packages( RcmdrPlugin.EZR )
+install.packages( RcmdrPlugin.HH )
+install.packages( RcmdrPlugin.IPSUR )
+install.packages( RcmdrPlugin.KMggplot2 )
+install.packages( RcmdrPlugin.mosaic )
+install.packages( RcmdrPlugin.MPAStats )
+install.packages( RcmdrPlugin.orloca )
+install.packages( RcmdrPlugin.plotByGroup )
+install.packages( RcmdrPlugin.qcc )
+install.packages( RcmdrPlugin.qual )
+install.packages( RcmdrPlugin.SCDA )
+install.packages( RcmdrPlugin.seeg )
+install.packages( RcmdrPlugin.SLC )
+install.packages( RcmdrPlugin.SM )
+install.packages( RcmdrPlugin.StatisticalURV )
+install.packages( RcmdrPlugin.steepness )
+install.packages( RcmdrPlugin.survival )
+install.packages( RcmdrPlugin.TeachingDemos )
+install.packages( RcmdrPlugin.temis )
+install.packages( RcmdrPlugin.UCA )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-source("https://bioconductor.org/biocLite.R")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+source( https://bioconductor.org/biocLite.R )
 biocLite()
 ```
 
 
-install.packages("tidyverse")
+install.packages( tidyverse )
 
-install.packages("devtools")
+install.packages( devtools )
 
-devtools::install_github("hadley/colformat")
+devtools::install_github( hadley/colformat )
 
-devtools::install_github("ropenscilabs/skimr")
+devtools::install_github( ropenscilabs/skimr )
 
-install.packages("hflights")
+install.packages( hflights )
 
-install.packages("dbplyr")
+install.packages( dbplyr )
 
-install.packages("xlsx")
+install.packages( xlsx )
 
 require(devtools)
 
-install_github("ProjectMOSAIC/mosaic")
+install_github( ProjectMOSAIC/mosaic )
 
-install.packages("jmv")
+install.packages( jmv )
 
 
-install.packages("wordcloud")
+install.packages( wordcloud )
 
-install.packages("https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz", repos = NULL)
+install.packages( https://cran.r-project.org/src/contrib/Archive/tm/tm_0.6.tar.gz , repos = NULL)
 
-install.packages("SnowballC")
+install.packages( SnowballC )
 
-install.packages("RColorBrewer")
+install.packages( RColorBrewer )
 
-install.packages("tidytext")
+install.packages( tidytext )
 
-install.packages("packrat")
+install.packages( packrat )
 
-install.packages("testthat")
+install.packages( testthat )
 
-install.packages("prettydoc")
+install.packages( prettydoc )
 
-install.packages("rmdformats")
+install.packages( rmdformats )
 
-install.packages(c("fivethirtyeight", "tidyverse", "knitr", "kableExtra", "ggthemes"))
+install.packages(c( fivethirtyeight ,  tidyverse ,  knitr ,  kableExtra ,  ggthemes ))
 
 library(devtools)
 
-install_github("SPSStoR", username = "lebebr01")
+install_github( SPSStoR , username =  lebebr01 )
 
 library(SPSStoR)
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 ip <- installed.packages()
-pkgs.to.remove <- ip[!(ip[, "Priority"] %in% c("base", "recommended")), 1]
+pkgs.to.remove <- ip[!(ip[,  Priority ] %in% c( base ,  recommended )), 1]
 sapply(pkgs.to.remove, remove.packages)
 sapply(pkgs.to.remove, install.packages)
 ```
@@ -1756,11 +1768,12 @@ sapply(pkgs.to.remove, install.packages)
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-install.packages("devtools")
-devtools::install_github("AndreaCirilloAC/updateR")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+install.packages( devtools )
+devtools::install_github( AndreaCirilloAC/updateR )
 library(updateR)
-updateR(admin_password = "") ## Where "PASSWORD" stands for your system password
+updateR(admin_password =   ) ## Where  PASSWORD  stands for your system password
 
 ```
 
@@ -1773,22 +1786,23 @@ survival
 
 survminer
 
-install.packages("tutorial")
+install.packages( tutorial )
 
 
-devtools::install_github("romainfrancois/highlight")
+devtools::install_github( romainfrancois/highlight )
 
-install.packages("highr", repos = "http://rforge.net", type = "source")
-
-
-
-install.packages("xplain")
+install.packages( highr , repos =  http://rforge.net , type =  source )
 
 
 
+install.packages( xplain )
 
 
-```{r remove all user installed packages in R, eval=FALSE, include=FALSE}
+
+
+
+```
+{r remove all user installed packages in R, eval=FALSE, include=FALSE}
 ## How to remove all user installed packages in R
 ## https://www.r-bloggers.com/how-to-remove-all-user-installed-packages-in-r/
 
@@ -1796,9 +1810,9 @@ install.packages("xplain")
 ip <- as.data.frame(installed.packages())
 head(ip)
 ## if you use MRO, make sure that no packages in this library will be removed
-ip <- subset(ip, !grepl("MRO", ip$LibPath))
+ip <- subset(ip, !grepl( MRO , ip$LibPath))
 ## we don't want to remove base or recommended packages either\
-ip <- ip[!(ip[,"Priority"] %in% c("base", "recommended")),]
+ip <- ip[!(ip[, Priority ] %in% c( base ,  recommended )),]
 ## determine the library where the packages are installed
 path.lib <- unique(ip$LibPath)
 ## create a vector with all the names of the packages you want to remove
@@ -1816,11 +1830,11 @@ library(knitr)
 library(markdown)
  
 
-knit("SchedulePubMedAnalysis.Rmd")
+knit( SchedulePubMedAnalysis.Rmd )
 
-markdownToHTML("SchedulePubMedAnalysis.md", "docs/SchedulePubMedAnalysis.html")
+markdownToHTML( SchedulePubMedAnalysis.md ,  docs/SchedulePubMedAnalysis.html )
 
-setwd("~")
+setwd( ~ )
 
 file.choose()
 
@@ -1856,22 +1870,23 @@ Preperation Packages Schedule R Script
 
  install.packages('shinyFiles')
  
- install.packages("taskscheduleR", repos = "http://www.datatailor.be/rcube", type = "source")
+ install.packages( taskscheduleR , repos =  http://www.datatailor.be/rcube , type =  source )
  
- devtools::install_github("bnosac/cronR")
+ devtools::install_github( bnosac/cronR )
 
  install.packages('scholar')
  
  
- install.packages("git2r")
+ install.packages( git2r )
 
 
 ## flatxml
 
 http://www.zuckarelli.de/flatxml/articles/example/example.html
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-xmldata <- flatxml::fxml_importXMLFlat("data/PathologyTurkey.xml")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+xmldata <- flatxml::fxml_importXMLFlat( data/PathologyTurkey.xml )
 
 ```
 
@@ -1882,7 +1897,8 @@ General purpose API response tidier
 
 https://github.com/ropenscilabs/roomba/
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 roomba::shiny_roomba()
 ```
 
@@ -1894,8 +1910,9 @@ Tufte-style html document format for rmarkdown
 
 https://cran.r-project.org/web/packages/tufterhandout/index.html
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-## install.packages("tufterhandout")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+## install.packages( tufterhandout )
 library(tufterhandout)
 ```
 
@@ -1905,16 +1922,16 @@ library(tufterhandout)
 
 ## tm
 
-install.packages("tm")
+install.packages( tm )
 
 https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf
 
----
+
 
 https://atom.io/packages/hydrogen
 
 
----
+
 
 R Package Documentation
 https://rdrr.io/
@@ -2937,7 +2954,8 @@ https://cran.r-project.org/package=jmvconnect
 https://cran.r-project.org/web/packages/magicfor/vignettes/magicfor.html
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 magicfor::magic_for(silent = TRUE)
 
 for (i in 1:3) {
@@ -3994,9 +4012,10 @@ https://cran.r-project.org/web/packages/tangram/vignettes/summary-example.html
 - Global Style for Rmd Example
 
 
-     <style type="text/css">
-     \```{r, results='asis'}
-     cat(custom_css("lancet.css"))
+     <style type= text/css >
+     \```
+{r, results='asis'}
+     cat(custom_css( lancet.css ))
      ```
      .figbody thead
      {

@@ -1,7 +1,3 @@
----
-title: "arsenal"
----
-
 # arsenal
 
 ## The compare function
@@ -9,46 +5,52 @@ title: "arsenal"
 https://cran.r-project.org/web/packages/arsenal/vignettes/compare.html
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
 library(arsenal)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-df1 <- data.frame(id = paste0("person", 1:3),
-                  a = c("a", "b", "c"),
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
+df1 <- data.frame(id = paste0( person , 1:3),
+                  a = c( a ,  b ,  c ),
                   b = c(1, 3, 4),
-                  c = c("f", "e", "d"),
-                  row.names = paste0("rn", 1:3),
+                  c = c( f ,  e ,  d ),
+                  row.names = paste0( rn , 1:3),
                   stringsAsFactors = FALSE)
-df2 <- data.frame(id = paste0("person", 3:1),
-                  a = c("c", "b", "a"),
+df2 <- data.frame(id = paste0( person , 3:1),
+                  a = c( c ,  b ,  a ),
                   b = c(1, 3, 4),
-                  d = paste0("rn", 1:3),
-                  row.names = paste0("rn", c(1,3,2)),
+                  d = paste0( rn , 1:3),
+                  row.names = paste0( rn , c(1,3,2)),
                   stringsAsFactors = FALSE)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
 compare(df1, df2)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
 summary(compare(df1, df2))
 ```
 
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-summary(compare(df1, df2, by = "id"))
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
+summary(compare(df1, df2, by =  id ))
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
 data(mockstudy)
 mockstudy2 <- muck_up_mockstudy()
 ```
@@ -56,8 +58,9 @@ mockstudy2 <- muck_up_mockstudy()
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-summary(compare(mockstudy, mockstudy2, by = "case"))
+```
+{ eval=FALSE, include=FALSE, echo=TRUE}
+summary(compare(mockstudy, mockstudy2, by =  case ))
 ```
 
 
@@ -138,14 +141,14 @@ Column name comparison options
 It is possible to change which column names are considered “the same variable”.
 
 Ignoring case
-For example, to ignore case in variable names (so that Arm and arm are considered the same), pass tol.vars = "case".
+For example, to ignore case in variable names (so that Arm and arm are considered the same), pass tol.vars =  case .
 
 You can do this using comparison.control()
 
-summary(compare(mockstudy, mockstudy2, by = "case", control = comparison.control(tol.vars = "case")))
+summary(compare(mockstudy, mockstudy2, by =  case , control = comparison.control(tol.vars =  case )))
 or pass it through the ... arguments.
 
-summary(compare(mockstudy, mockstudy2, by = "case", tol.vars = "case"))
+summary(compare(mockstudy, mockstudy2, by =  case , tol.vars =  case ))
 Summary of data.frames
 version	arg	ncol	nrow
 x	mockstudy	14	1499
@@ -212,14 +215,14 @@ bmi	bmi	label
 Treating dots and underscores the same (equivalence classes)
 It is possible to treat certain characters or sets of characters as the same by passing a character vector of equivalence classes to the tol.vars= argument.
 
-In short, each string in the vector is split into single characters, and the resulting set of characters is replaced by the first character in the string. For example, passing c("._") would replace all underscores with dots in the column names of both datasets. Similarly, passing c("aA", "BbCc") would replace all instances of "A" with "a" and all instances of "b", "C", or "c" with "B". This is one way to ignore case for certain letters. Otherwise, it’s possible to combine the equivalence classes with ignoring case, by passing (e.g.) c("._", "case").
+In short, each string in the vector is split into single characters, and the resulting set of characters is replaced by the first character in the string. For example, passing c( ._ ) would replace all underscores with dots in the column names of both datasets. Similarly, passing c( aA ,  BbCc ) would replace all instances of  A  with  a  and all instances of  b ,  C , or  c  with  B . This is one way to ignore case for certain letters. Otherwise, it’s possible to combine the equivalence classes with ignoring case, by passing (e.g.) c( ._ ,  case ).
 
-Passing a single character as an element this vector will replace that character with the empty string. For example, passing c(" “,”.“) would remove all spaces and dots from the column names.
+Passing a single character as an element this vector will replace that character with the empty string. For example, passing c(  “,”.“) would remove all spaces and dots from the column names.
 
 For mockstudy, let’s treat dots, underscores, and spaces as the same, and ignore case:
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case") # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ) # dots=underscores=spaces, ignore case
 ))
 Summary of data.frames
 version	arg	ncol	nrow
@@ -287,12 +290,12 @@ Logical tolerance
 Use the tol.logical= argument to change how logicals are compared. By default, they’re expected to be equal to each other.
 
 Numeric tolerance
-To allow numeric differences of a certain tolerance, use the tol.num= and tol.num.val= options. tol.num.val= determines the maximum (unsigned) difference tolerated if tol.num="absolute" (default), and determines the maximum (unsigned) percent difference tolerated if tol.num="percent".
+To allow numeric differences of a certain tolerance, use the tol.num= and tol.num.val= options. tol.num.val= determines the maximum (unsigned) difference tolerated if tol.num= absolute  (default), and determines the maximum (unsigned) percent difference tolerated if tol.num= percent .
 
 Also note the option int.as.num=, which determines whether integers and numerics should be compared despite their class difference. If TRUE, the integers are coerced to numeric. Note that mockstudy$ast is integer, while mockstudy2$ast is numeric:
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case"), # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ), # dots=underscores=spaces, ignore case
                 int.as.num = TRUE            # compare integers and numerics
 ))
 Summary of data.frames
@@ -361,8 +364,8 @@ race	race	levels
 bmi	bmi	label
 Suppose a tolerance of up to 10 is allowed for ast:
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case"), # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ), # dots=underscores=spaces, ignore case
                 int.as.num = TRUE,           # compare integers and numerics
                 tol.num.val = 10             # allow absolute differences <= 10
 ))
@@ -429,13 +432,13 @@ race	race	label
 race	race	levels
 bmi	bmi	label
 Factor tolerance
-By default, factors are compared to each other based on both the labels and the underlying numeric levels. Set tol.factor="levels" to match only the numeric levels, or set tol.factor="labels" to match only the labels.
+By default, factors are compared to each other based on both the labels and the underlying numeric levels. Set tol.factor= levels  to match only the numeric levels, or set tol.factor= labels  to match only the labels.
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case"), # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ), # dots=underscores=spaces, ignore case
                 int.as.num = TRUE,           # compare integers and numerics
                 tol.num.val = 10,            # allow absolute differences <= 10
-                tol.factor = "labels"        # match only factor labels
+                tol.factor =  labels         # match only factor labels
 ))
 Summary of data.frames
 version	arg	ncol	nrow
@@ -491,11 +494,11 @@ race	race	levels
 bmi	bmi	label
 Also note the option factor.as.char=, which determines whether factors and characters should be compared despite their class difference. If TRUE, the factors are coerced to characters. Note that mockstudy$race is a character, while mockstudy2$race is a factor:
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case"), # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ), # dots=underscores=spaces, ignore case
                 int.as.num = TRUE,           # compare integers and numerics
                 tol.num.val = 10,            # allow absolute differences <= 10
-                tol.factor = "labels",       # match only factor labels
+                tol.factor =  labels ,       # match only factor labels
                 factor.as.char = TRUE        # compare factors and characters
 ))
 Summary of data.frames
@@ -563,13 +566,13 @@ bmi	bmi	label
 Character tolerance
 Use the tol.char= argument to change how character variables are compared. By default, they are compared as-is, but they can be compared after ignoring case or trimming whitespace or both.
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case"), # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ), # dots=underscores=spaces, ignore case
                 int.as.num = TRUE,           # compare integers and numerics
                 tol.num.val = 10,            # allow absolute differences <= 10
-                tol.factor = "labels",       # match only factor labels
+                tol.factor =  labels ,       # match only factor labels
                 factor.as.char = TRUE,       # compare factors and characters
-                tol.char = "case"            # ignore case in character vectors
+                tol.char =  case             # ignore case in character vectors
 ))
 Summary of data.frames
 version	arg	ncol	nrow
@@ -654,8 +657,8 @@ my.tol <- function(x, y, tol)
   tol.NA(x, y, x > y)
 }
 
-date.df1 <- data.frame(dt = as.Date(c("2017-09-07", "2017-08-08", "2017-07-09", NA)))
-date.df2 <- data.frame(dt = as.Date(c("2017-10-01", "2017-08-08", "2017-07-10", "2017-01-01")))
+date.df1 <- data.frame(dt = as.Date(c( 2017-09-07 ,  2017-08-08 ,  2017-07-09 , NA)))
+date.df2 <- data.frame(dt = as.Date(c( 2017-10-01 ,  2017-08-08 ,  2017-07-10 ,  2017-01-01 )))
 n.diffs(compare(date.df1, date.df2)) # default finds any differences
 [1] 3
 n.diffs(compare(date.df1, date.df2, tol.date = my.tol)) # our function identifies only the NA as different...
@@ -674,13 +677,13 @@ tol.minus9 <- function(x, y, tol)
   return(!idx1 & idx2)
 }
 
-summary(compare(mockstudy, mockstudy2, by = "case",
-                tol.vars = c("._ ", "case"), # dots=underscores=spaces, ignore case
+summary(compare(mockstudy, mockstudy2, by =  case ,
+                tol.vars = c( ._  ,  case ), # dots=underscores=spaces, ignore case
                 int.as.num = TRUE,           # compare integers and numerics
                 tol.num.val = 10,            # allow absolute differences <= 10
-                tol.factor = "labels",       # match only factor labels
+                tol.factor =  labels ,       # match only factor labels
                 factor.as.char = TRUE,       # compare factors and characters
-                tol.char = "case",           # ignore case in character vectors
+                tol.char =  case ,           # ignore case in character vectors
                 tol.num = tol.minus9         # ignore NA -> -9 changes
 ))
 Summary of data.frames
@@ -728,7 +731,7 @@ bmi	bmi	label
 Extract Differences
 Differences can be easily extracted using the diffs() function. If you only want to determine how many differences were found, use the n.diffs() function.
 
-cmp <- compare(mockstudy, mockstudy2, by = "case", tol.vars = c("._ ", "case"), int.as.num = TRUE)
+cmp <- compare(mockstudy, mockstudy2, by =  case , tol.vars = c( ._  ,  case ), int.as.num = TRUE)
 n.diffs(cmp)
 [1] 1765
 head(diffs(cmp))
@@ -756,11 +759,11 @@ diffs(cmp, by.var = TRUE)
 11     age.ord     age.ord    0   0
 To report differences from only a few variables, one can pass a list of variable names to diffs().
 
-diffs(cmp, vars = c("ps", "ast"), by.var = TRUE)
+diffs(cmp, vars = c( ps ,  ast ), by.var = TRUE)
   var.x var.y n NAs
 5    ps    ps 1   1
 9   ast   ast 3   0
-diffs(cmp, vars = c("ps", "ast"))
+diffs(cmp, vars = c( ps ,  ast ))
      var.x var.y   case values.x values.y row.x row.y
 1496    ps    ps  86205        0       NA     6     3
 1763   ast   ast  86205       27       36     6     3
@@ -770,8 +773,8 @@ Appendix
 Stucture of the Object
 (This section is just as much for my use as for yours!)
 
-obj <- compare(mockstudy, mockstudy2, by = "case")
-There are two main objects in the "compare.data.frame" object, each with its own print method.
+obj <- compare(mockstudy, mockstudy2, by =  case )
+There are two main objects in the  compare.data.frame  object, each with its own print method.
 
 The frame.summary contains:
 
@@ -795,7 +798,7 @@ The vars.summary contains:
 
 variable name, column number, and class vector (with possibly more than one element) for each x and y. These are all NA if there isn’t a match in both datasets.
 
-values, a list-column of the text string "by-variable" for the by-variables, NULL for columns that aren’t compared, or a data.frame containing:
+values, a list-column of the text string  by-variable  for the by-variables, NULL for columns that aren’t compared, or a data.frame containing:
 
 The by-variables for differences found
 
@@ -832,7 +835,7 @@ print(obj$vars.summary)
 1         <NA>    NA              NA         Arm    13       character     Not compared 0 attributes
 
 
----
+
 
 ## The freqlist function
 
@@ -869,9 +872,9 @@ For our examples, we’ll load the mockstudy data included with this package and
 data(mockstudy)
 
 # retain NAs when creating the table using the useNA argument
-tab.ex <- table(mockstudy[, c("arm", "sex", "mdquality.s")], useNA = "ifany")
+tab.ex <- table(mockstudy[, c( arm ,  sex ,  mdquality.s )], useNA =  ifany )
 The freqlist object
-The freqlist() function returns an object of class "freqlist", which has three parts: freqlist, byVar, and labels.
+The freqlist() function returns an object of class  freqlist , which has three parts: freqlist, byVar, and labels.
 
 freqlist is a single data frame containing all contingency tables with calculated frequencies, cumulative frequencies, percentages, and cumulative percentages.
 
@@ -884,18 +887,18 @@ noby <- freqlist(tab.ex)
 str(noby)
 List of 3
  $ freqlist:'data.frame':   18 obs. of  7 variables:
-  ..$ arm        : Factor w/ 3 levels "A: IFL","F: FOLFOX",..: 1 1 1 1 1 1 2 2 2 2 ...
-  ..$ sex        : Factor w/ 2 levels "Male","Female": 1 1 1 2 2 2 1 1 1 2 ...
-  ..$ mdquality.s: Factor w/ 2 levels "0","1": 1 2 NA 1 2 NA 1 2 NA 1 ...
+  ..$ arm        : Factor w/ 3 levels  A: IFL , F: FOLFOX ,..: 1 1 1 1 1 1 2 2 2 2 ...
+  ..$ sex        : Factor w/ 2 levels  Male , Female : 1 1 1 2 2 2 1 1 1 2 ...
+  ..$ mdquality.s: Factor w/ 2 levels  0 , 1 : 1 2 NA 1 2 NA 1 2 NA 1 ...
   ..$ Freq       : int [1:18] 29 214 34 12 118 21 31 285 95 21 ...
   ..$ cumFreq    : int [1:18] 29 243 277 289 407 428 459 744 839 860 ...
   ..$ freqPercent: num [1:18] 1.93 14.28 2.27 0.8 7.87 ...
   ..$ cumPercent : num [1:18] 1.93 16.21 18.48 19.28 27.15 ...
  $ byVar   : NULL
  $ labels  : NULL
- - attr(*, "class")= chr "freqlist"
+ - attr(*,  class )= chr  freqlist 
 # view the data frame portion of freqlist output
-head(noby[["freqlist"]])  ## or use as.data.frame(noby)
+head(noby[[ freqlist ]])  ## or use as.data.frame(noby)
      arm    sex mdquality.s Freq cumFreq freqPercent cumPercent
 1 A: IFL   Male           0   29      29        1.93       1.93
 2 A: IFL   Male           1  214     243       14.28      16.21
@@ -906,7 +909,7 @@ head(noby[["freqlist"]])  ## or use as.data.frame(noby)
 Basic output using summary()
 The summary method for freqlist() relies on the kable() function (in the knitr package) for printing. knitr::kable() converts the output to markdown which can be printed in the console or easily rendered in Word, PDF, or HTML documents.
 
-Note that you must supply results="asis" to properly format the markdown output.
+Note that you must supply results= asis  to properly format the markdown output.
 
 summary(noby)
 arm	sex	mdquality.s	Freq	cumFreq	freqPercent	cumPercent
@@ -930,7 +933,7 @@ Female	0	14	1361	0.93	90.79
 NA	17	1499	1.13	100.00
 You can print a title for the table using the title= argument.
 
-summary(noby, title = "Basic freqlist output")
+summary(noby, title =  Basic freqlist output )
 Basic freqlist output
 arm	sex	mdquality.s	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	1.93	1.93
@@ -974,7 +977,7 @@ summary(freqlist(~arm + sex + addNA(mdquality.s), data = mockstudy))
 
 
 |arm       |sex    |addNA.mdquality.s. | Freq| cumFreq| freqPercent| cumPercent|
-|:---------|:------|:------------------|----:|-------:|-----------:|----------:|
+|:|:|:|-:|-:|--:|-:|
 |A: IFL    |Male   |0                  |   29|      29|        1.93|       1.93|
 |          |       |1                  |  214|     243|       14.28|      16.21|
 |          |       |NA                 |   34|     277|        2.27|      18.48|
@@ -995,11 +998,11 @@ summary(freqlist(~arm + sex + addNA(mdquality.s), data = mockstudy))
 |          |       |NA                 |   17|    1499|        1.13|     100.00|
 One can also set NAs to an explicit value using includeNA().
 
-summary(freqlist(~arm + sex + includeNA(mdquality.s, "Missing"), data = mockstudy))
+summary(freqlist(~arm + sex + includeNA(mdquality.s,  Missing ), data = mockstudy))
 
 
 |arm       |sex    |includeNA.mdquality.s...Missing.. | Freq| cumFreq| freqPercent| cumPercent|
-|:---------|:------|:---------------------------------|----:|-------:|-----------:|----------:|
+|:|:|:|-:|-:|--:|-:|
 |A: IFL    |Male   |0                                 |   29|      29|        1.93|       1.93|
 |          |       |1                                 |  214|     243|       14.28|      16.21|
 |          |       |Missing                           |   34|     277|        2.27|      18.48|
@@ -1021,7 +1024,7 @@ summary(freqlist(~arm + sex + includeNA(mdquality.s, "Missing"), data = mockstud
 Rounding percentage digits or changing variable names for printing
 The digits= argument takes a single numeric value and controls the rounding of percentages in the output. The  labelTranslations= argument is a character vector or list whose length must be equal to the number of factors used in the table. Note: this does not change the names of the data frame in the freqlist object, only those used in printing. Both options are applied in the following example.
 
-withnames <- freqlist(tab.ex, labelTranslations = c("Treatment Arm", "Gender", "LASA QOL"), 
+withnames <- freqlist(tab.ex, labelTranslations = c( Treatment Arm ,  Gender ,  LASA QOL ), 
     digits = 0)
 summary(withnames)
 Treatment Arm	Gender	LASA QOL	Freq	cumFreq	freqPercent	cumPercent
@@ -1094,7 +1097,7 @@ G: IROX	0	1492	0.0	100.0
 Options for NA handling
 The various na.options= allow you to include or exclude data with missing values for one or more factor levels in the counts and percentages, as well as show the missing data but exclude it from the cumulative counts and percentages. The default option is to include all combinations with missing values.
 
-summary(freqlist(tab.ex, na.options = "include"))
+summary(freqlist(tab.ex, na.options =  include ))
 arm	sex	mdquality.s	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	1.93	1.93
 1	214	243	14.28	16.21
@@ -1114,7 +1117,7 @@ NA	24	1347	1.60	89.86
 Female	0	14	1361	0.93	90.79
 1	121	1482	8.07	98.87
 NA	17	1499	1.13	100.00
-summary(freqlist(tab.ex, na.options = "showexclude"))
+summary(freqlist(tab.ex, na.options =  showexclude ))
 arm	sex	mdquality.s	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	2.33	2.33
 1	214	243	17.16	19.49
@@ -1134,7 +1137,7 @@ NA	24	NA	NA	NA
 Female	0	14	1126	1.12	90.30
 1	121	1247	9.70	100.00
 NA	17	NA	NA	NA
-summary(freqlist(tab.ex, na.options = "remove"))
+summary(freqlist(tab.ex, na.options =  remove ))
 arm	sex	mdquality.s	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	2.33	2.33
 1	214	243	17.16	19.49
@@ -1151,7 +1154,7 @@ Female	0	14	1126	1.12	90.30
 Frequency counts and percentages subset by factor levels
 The groupBy= argument internally subsets the data by the specified factor prior to calculating cumulative counts and percentages. By default, when used each subset will print in a separate table. Using the single = TRUE option when printing will collapse the subsetted result into a single table.
 
-withby <- freqlist(tab.ex, groupBy = c("arm", "sex"))
+withby <- freqlist(tab.ex, groupBy = c( arm ,  sex ))
 summary(withby)
 arm	sex	mdquality.s	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	10.47	10.47
@@ -1202,7 +1205,7 @@ NA	17	152	11.18	100.00
 Change labels on the fly
 At this time, the labels can be changed just for the variables (e.g. not the frequency columns).
 
-labels(noby) <- c("Arm", "Sex", "QOL")
+labels(noby) <- c( Arm ,  Sex ,  QOL )
 summary(noby)
 Arm	Sex	QOL	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	1.93	1.93
@@ -1225,7 +1228,7 @@ Female	0	14	1361	0.93	90.79
 NA	17	1499	1.13	100.00
 You can also supply labelTranslations= to summary().
 
-summary(noby, labelTranslations = c("Arm", "Sex", "QOL"))
+summary(noby, labelTranslations = c( Arm ,  Sex ,  QOL ))
 Arm	Sex	QOL	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	1.93	1.93
 1	214	243	14.28	16.21
@@ -1252,15 +1255,15 @@ require(xtable)
 Loading required package: xtable
 # set up custom function for xtable text
 italic <- function(x) {
-    paste0("<i>", x, "</i>")
+    paste0( <i> , x,  </i> )
 }
-xftbl <- xtable(noby[["freqlist"]], caption = "xtable formatted output of freqlist data frame", 
-    align = "|r|r|r|r|c|c|c|r|")
+xftbl <- xtable(noby[[ freqlist ]], caption =  xtable formatted output of freqlist data frame , 
+    align =  |r|r|r|r|c|c|c|r| )
 
 # change the column names
-names(xftbl)[1:3] <- c("Arm", "Gender", "LASA QOL")
+names(xftbl)[1:3] <- c( Arm ,  Gender ,  LASA QOL )
 
-print(xftbl, sanitize.colnames.function = italic, include.rownames = FALSE, type = "html", 
+print(xftbl, sanitize.colnames.function = italic, include.rownames = FALSE, type =  html , 
     comment = FALSE)
 xtable formatted output of freqlist data frame
 Arm	Gender	LASA QOL	Freq	cumFreq	freqPercent	cumPercent
@@ -1285,13 +1288,13 @@ G: IROX	Female		17	1499	1.13	100.00
 Use freqlist in bookdown
 Since the backbone of freqlist() is knitr::kable(), tables still render well in bookdown. However, print.summary.freqlist() doesn’t use the caption= argument of kable(), so some tables may not have a properly numbered caption. To fix this, use the method described on the bookdown site to give the table a tag/ID.
 
-summary(freqlist(~sex + age, data = mockstudy), title = "(\\#tab:mytableby) Caption here")
+summary(freqlist(~sex + age, data = mockstudy), title =  (\\#tab:mytableby) Caption here )
 Appendix: Notes regarding table options in R
 NAs
 There are several widely used options for basic tables in R. The table() function in base R is probably the most common; by default it excludes NA values. You can change NA handling in base::table() using the useNA= or exclude= arguments.
 
 # base table default removes NAs
-tab.d1 <- base::table(mockstudy[, c("arm", "sex", "mdquality.s")], useNA = "ifany")
+tab.d1 <- base::table(mockstudy[, c( arm ,  sex ,  mdquality.s )], useNA =  ifany )
 tab.d1
 , , mdquality.s = 0
 
@@ -1390,8 +1393,8 @@ tab.d4
 If desired, you can use the dnn= argument to pass variable names.
 
 # add the column name labels back using dnn option in base::table
-tab.dnn <- base::table(mockstudy$arm, mockstudy$sex, mockstudy$mdquality.s, dnn = c("Arm", 
-    "Sex", "QOL"))
+tab.dnn <- base::table(mockstudy$arm, mockstudy$sex, mockstudy$mdquality.s, dnn = c( Arm , 
+     Sex ,  QOL ))
 tab.dnn
 , , QOL = 0
 
@@ -1412,7 +1415,7 @@ If using freqlist(), you can provide the labels directly to freqlist() or to sum
 
 
 
----
+
 
 ## A Few Notes on Labels
 
@@ -1437,13 +1440,13 @@ data(mockstudy)
 library(magrittr)
 
 # for 'freqlist' examples
-tab.ex <- table(mockstudy[, c("arm", "sex", "mdquality.s")], useNA="ifany")
+tab.ex <- table(mockstudy[, c( arm ,  sex ,  mdquality.s )], useNA= ifany )
 Examples
 Set labels in the function call
 The summary() method for tableby(), modelsum(), and freqlist() objects contains a labelTranslations = argument to specify labels in the function call. Note that the freqlist() function matches labels in order, whereas the other two match labels by name. The labels can be input as a list or a character vector.
 
 summary(freqlist(tab.ex),
-        labelTranslations = c("Treatment Arm", "Gender", "LASA QOL"))
+        labelTranslations = c( Treatment Arm ,  Gender ,  LASA QOL ))
 Treatment Arm	Gender	LASA QOL	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	1.93	1.93
 1	214	243	14.28	16.21
@@ -1464,7 +1467,7 @@ Female	0	14	1361	0.93	90.79
 1	121	1482	8.07	98.87
 NA	17	1499	1.13	100.00
 summary(tableby(arm ~ sex + age, data = mockstudy),
-        labelTranslations = c(sex = "SEX", age = "Age, yrs"))
+        labelTranslations = c(sex =  SEX , age =  Age, yrs ))
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 SEX					0.190
    Male	277 (64.7%)	411 (59.5%)	228 (60.0%)	916 (61.1%)	
@@ -1473,7 +1476,7 @@ Age, yrs					0.614
    Mean (SD)	59.673 (11.365)	60.301 (11.632)	59.763 (11.499)	59.985 (11.519)	
    Range	27.000 - 88.000	19.000 - 88.000	26.000 - 85.000	19.000 - 88.000	
 summary(modelsum(bmi ~ age, adjust = ~sex, data = mockstudy),
-        labelTranslations = list(sexFemale = "Female", age = "Age, yrs"))
+        labelTranslations = list(sexFemale =  Female , age =  Age, yrs ))
 estimate	std.error	p.value	adj.r.squared
 (Intercept)	26.793	0.766	< 0.001	0.004
 Age, yrs	0.012	0.012	0.348	
@@ -1483,7 +1486,7 @@ Another option is to add labels after you have created the object. To do this, y
 
 # the non-pipe version; somewhat clunky
 tmp <- freqlist(tab.ex)
-labels(tmp) <- c("Treatment Arm", "Gender", "LASA QOL")
+labels(tmp) <- c( Treatment Arm ,  Gender ,  LASA QOL )
 summary(tmp)
 Treatment Arm	Gender	LASA QOL	Freq	cumFreq	freqPercent	cumPercent
 A: IFL	Male	0	29	29	1.93	1.93
@@ -1507,7 +1510,7 @@ NA	17	1499	1.13	100.00
 # piped--much cleaner
 mockstudy %>% 
   tableby(arm ~ sex + age, data = .) %>% 
-  set_labels(c(sex = "SEX", age = "Age, yrs")) %>% 
+  set_labels(c(sex =  SEX , age =  Age, yrs )) %>% 
   summary()
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 SEX					0.190
@@ -1518,7 +1521,7 @@ Age, yrs					0.614
    Range	27.000 - 88.000	19.000 - 88.000	26.000 - 85.000	19.000 - 88.000	
 mockstudy %>% 
   modelsum(bmi ~ age, adjust = ~ sex, data = .) %>% 
-  set_labels(list(sexFemale = "Female", age = "Age, yrs")) %>% 
+  set_labels(list(sexFemale =  Female , age =  Age, yrs )) %>% 
   summary()
 estimate	std.error	p.value	adj.r.squared
 (Intercept)	26.793	0.766	< 0.001	0.004
@@ -1530,11 +1533,11 @@ tableby() and modelsum() also allow you to have label attributes on the data. No
 mockstudy.lab <- keep.labels(mockstudy)
 You can set attributes one at a time in two ways:
 
-attr(mockstudy.lab$sex, "label") <- "Sex"
-labels(mockstudy.lab$age) <- "Age, yrs"
+attr(mockstudy.lab$sex,  label ) <-  Sex 
+labels(mockstudy.lab$age) <-  Age, yrs 
 …or all at once:
 
-labels(mockstudy.lab) <- list(sex = "Sex", age = "Age, yrs")
+labels(mockstudy.lab) <- list(sex =  Sex , age =  Age, yrs )
 summary(tableby(arm ~ sex + age, data = mockstudy.lab))
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 Sex					0.190
@@ -1546,7 +1549,7 @@ Age, yrs					0.614
 You can pipe this, too.
 
 mockstudy %>% 
-  set_labels(list(sex = "SEX", age = "Age, yrs")) %>% 
+  set_labels(list(sex =  SEX , age =  Age, yrs )) %>% 
   modelsum(bmi ~ age, adjust = ~ sex, data = .) %>% 
   summary()
 estimate	std.error	p.value	adj.r.squared
@@ -1560,16 +1563,16 @@ labels(mockstudy.lab)
 ## NULL
 ## 
 ## $age
-## [1] "Age, yrs"
+## [1]  Age, yrs 
 ## 
 ## $arm
-## [1] "Treatment Arm"
+## [1]  Treatment Arm 
 ## 
 ## $sex
-## [1] "Sex"
+## [1]  Sex 
 ## 
 ## $race
-## [1] "Race"
+## [1]  Race 
 ## 
 ## $fu.time
 ## NULL
@@ -1584,7 +1587,7 @@ labels(mockstudy.lab)
 ## NULL
 ## 
 ## $bmi
-## [1] "Body Mass Index (kg/m^2)"
+## [1]  Body Mass Index (kg/m^2) 
 ## 
 ## $alk.phos
 ## NULL
@@ -1599,7 +1602,7 @@ labels(mockstudy.lab)
 ## NULL
 
 
----
+
 
 ## The modelsum function
 
@@ -1677,22 +1680,22 @@ The first step when using the modelsum function is to load the arsenal package. 
 'data.frame':   1499 obs. of  14 variables:
  $ case       : int  110754 99706 105271 105001 112263 86205 99508 90158 88989 90515 ...
  $ age        : atomic  67 74 50 71 69 56 50 57 51 63 ...
-  ..- attr(*, "label")= chr "Age in Years"
+  ..- attr(*,  label )= chr  Age in Years 
  $ arm        : atomic  F: FOLFOX A: IFL A: IFL G: IROX ...
-  ..- attr(*, "label")= chr "Treatment Arm"
- $ sex        : Factor w/ 2 levels "Male","Female": 1 2 2 2 2 1 1 1 2 1 ...
+  ..- attr(*,  label )= chr  Treatment Arm 
+ $ sex        : Factor w/ 2 levels  Male , Female : 1 2 2 2 2 1 1 1 2 1 ...
  $ race       : atomic  Caucasian Caucasian Caucasian Caucasian ...
-  ..- attr(*, "label")= chr "Race"
+  ..- attr(*,  label )= chr  Race 
  $ fu.time    : int  922 270 175 128 233 120 369 421 387 363 ...
  $ fu.stat    : int  2 2 2 2 2 2 2 2 2 2 ...
  $ ps         : int  0 1 1 1 0 0 0 0 1 1 ...
  $ hgb        : num  11.5 10.7 11.1 12.6 13 10.2 13.3 12.1 13.8 12.1 ...
  $ bmi        : atomic  25.1 19.5 NA 29.4 26.4 ...
-  ..- attr(*, "label")= chr "Body Mass Index (kg/m^2)"
+  ..- attr(*,  label )= chr  Body Mass Index (kg/m^2) 
  $ alk.phos   : int  160 290 700 771 350 569 162 152 231 492 ...
  $ ast        : int  35 52 100 68 35 27 16 12 25 18 ...
  $ mdquality.s: int  NA 1 1 1 NA 1 1 1 1 1 ...
- $ age.ord    : Ord.factor w/ 8 levels "10-19"<"20-29"<..: 6 7 4 7 6 5 4 5 5 6 ...
+ $ age.ord    : Ord.factor w/ 8 levels  10-19 < 20-29 <..: 6 7 4 7 6 5 4 5 5 6 ...
 To create a simple linear regression table (the default), use a formula statement to specify the variables that you want summarized. The example below predicts BMI with the variables sex and age.
 
 > tab1 <- modelsum(bmi ~ sex + age, data=mockstudy)
@@ -1705,13 +1708,13 @@ If you want a nicer version in your console window then adding the text=TRUE opt
 
 
 |             |estimate |std.error |p.value |adj.r.squared |
-|:------------|:--------|:---------|:-------|:-------------|
+|:|:--|:|:-|:-|
 |(Intercept)  |27.491   |0.181     |< 0.001 |0.004         |
 |sex Female   |-0.731   |0.290     |0.012   |              |
 |(Intercept)  |26.424   |0.752     |< 0.001 |0.000         |
 |Age in Years |0.013    |0.012     |0.290   |              |
 Pretty Rmarkdown version of table
-In order for the report to look nice within an R markdown (knitr) report, you just need to specify results="asis" when creating the r chunk. This changes the layout slightly (compresses it) and bolds the variable names.
+In order for the report to look nice within an R markdown (knitr) report, you just need to specify results= asis  when creating the r chunk. This changes the layout slightly (compresses it) and bolds the variable names.
 
 > summary(tab1)
 estimate	std.error	p.value	adj.r.squared
@@ -1776,7 +1779,7 @@ armF: FOLFOX -13.70062    8.72963  -1.569    0.117
 armG: IROX    -2.24498    9.86004  -0.228    0.820    
 age           -0.01741    0.31878  -0.055    0.956    
 sexFemale      3.01598    7.52097   0.401    0.688    
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 128.5 on 1228 degrees of freedom
@@ -1807,7 +1810,7 @@ armF: FOLFOX -0.0766798  0.0434746  -1.764    0.078 .
 armG: IROX   -0.0192828  0.0491041  -0.393    0.695    
 age          -0.0004058  0.0015876  -0.256    0.798    
 sexFemale     0.0179253  0.0374553   0.479    0.632    
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.6401 on 1228 degrees of freedom
@@ -1830,7 +1833,7 @@ Model 2: log(alk.phos) ~ arm + ns(age, df = 2) + sex
   Res.Df    RSS Df Sum of Sq      F  Pr(>F)  
 1   1228 503.19                              
 2   1227 502.07  1    1.1137 2.7218 0.09924 .
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > # look at functional form of age
@@ -1843,7 +1846,7 @@ The broom package makes it easy to extract information from the fit.
 
 > tmp <- tidy(fit3) # coefficients, p-values
 > class(tmp)
-[1] "tbl_df"     "tbl"        "data.frame"
+[1]  tbl_df       tbl          data.frame 
 > tmp
 # A tibble: 6 x 5
   term             estimate std.error statistic   p.value
@@ -1864,7 +1867,7 @@ The broom package makes it easy to extract information from the fit.
 Create a summary table using modelsum
 > ms.logy <- modelsum(log(alk.phos) ~ arm + ps + hgb, data=mockstudy, adjust= ~age + sex, 
 +                     family=gaussian,  
-+                     gaussian.stats=c("estimate","CI.lower.estimate","CI.upper.estimate","p.value"))
++                     gaussian.stats=c( estimate , CI.lower.estimate , CI.upper.estimate , p.value ))
 > summary(ms.logy)
 estimate	CI.lower.estimate	CI.upper.estimate	p.value
 (Intercept)	4.969	4.768	5.170	< 0.001
@@ -1900,7 +1903,7 @@ Coefficients:
 (Intercept)  2.329442   0.514684   4.526 6.01e-06 ***
 age         -0.002353   0.008256  -0.285    0.776    
 sexFemale    0.039227   0.195330   0.201    0.841    
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
@@ -1967,7 +1970,7 @@ Body Mass Index (kg/m^2)	1.023	0.987	1.063	0.220
 sex Female	1.053	0.717	1.561	0.794		
 > 
 > fitall <- modelsum(mdquality.s ~ age, data=mockstudy, family=binomial,
-+                    binomial.stats=c("Nmiss2","OR","p.value"))
++                    binomial.stats=c( Nmiss2 , OR , p.value ))
 > summary(fitall)
 OR	p.value	Nmiss2
 (Intercept)	10.493	< 0.001	0
@@ -1995,7 +1998,7 @@ age           0.004600  1.004611  0.002501  1.839   0.0659 .
 sexFemale     0.039893  1.040699  0.056039  0.712   0.4765    
 armF: FOLFOX -0.454650  0.634670  0.064878 -7.008 2.42e-12 ***
 armG: IROX   -0.140785  0.868676  0.072760 -1.935   0.0530 .  
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
              exp(coef) exp(-coef) lower .95 upper .95
@@ -2085,10 +2088,10 @@ The broom package makes it easy to extract information from the fit.
 #   r.squared <dbl>, r.squared.max <dbl>, concordance <dbl>,
 #   std.error.concordance <dbl>, logLik <dbl>, AIC <dbl>, BIC <dbl>
 Create a summary table using modelsum
-> ##Note: You must use quotes when specifying family="survival" 
+> ##Note: You must use quotes when specifying family= survival  
 > ##      family=survival will not work
 > summary(modelsum(Surv(fu.time, fu.stat) ~ arm, 
-+                  adjust=~age + sex, data=mockstudy, family="survival"))
++                  adjust=~age + sex, data=mockstudy, family= survival ))
 HR	CI.lower.HR	CI.upper.HR	p.value	concordance
 Treatment Arm F: FOLFOX	0.635	0.559	0.721	< 0.001	0.563
 Treatment Arm G: IROX	0.869	0.753	1.002	0.053	
@@ -2124,7 +2127,7 @@ NULL                      899     8788.2
 Opening  2   2920.5       897     5867.7 < 2.2e-16 ***
 Solder   1   1168.4       896     4699.3 < 2.2e-16 ***
 Mask     4   2015.7       892     2683.7 < 2.2e-16 ***
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > summary(fit)
 
@@ -2146,7 +2149,7 @@ MaskA3       0.51315    0.07098    7.23 4.83e-13 ***
 MaskA6       1.81103    0.06609   27.40  < 2e-16 ***
 MaskB3       1.20225    0.06697   17.95  < 2e-16 ***
 MaskB6       1.86648    0.06310   29.58  < 2e-16 ***
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for poisson family taken to be 1)
@@ -2183,7 +2186,7 @@ MaskA3       0.51315    0.12361   4.151 3.62e-05 ***
 MaskA6       1.81103    0.11510  15.735  < 2e-16 ***
 MaskB3       1.20225    0.11663  10.308  < 2e-16 ***
 MaskB6       1.86648    0.10989  16.984  < 2e-16 ***
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for quasipoisson family taken to be 3.033198)
@@ -2215,7 +2218,7 @@ The broom package makes it easy to extract information from the fit.
           <dbl>   <int>  <dbl> <dbl> <dbl>    <dbl>       <int>
 1         8788.     899 -2393. 4802. 4841.    2684.         892
 Create a summary table using modelsum
-> summary(modelsum(skips~Opening + Solder + Mask, data=solder, family="quasipoisson"))
+> summary(modelsum(skips~Opening + Solder + Mask, data=solder, family= quasipoisson ))
 RR	CI.lower.RR	CI.upper.RR	p.value
 (Intercept)	1.533	1.179	1.952	< 0.001
 Opening M	2.328	1.733	3.167	< 0.001
@@ -2227,7 +2230,7 @@ Mask A3	1.469	0.995	2.214	0.059
 Mask A6	8.331	5.839	12.222	< 0.001
 Mask B3	3.328	2.309	4.920	< 0.001
 Mask B6	6.466	4.598	9.378	< 0.001
-> summary(modelsum(skips~Opening + Solder + Mask, data=solder, family="poisson"))
+> summary(modelsum(skips~Opening + Solder + Mask, data=solder, family= poisson ))
 RR	CI.lower.RR	CI.upper.RR	p.value
 (Intercept)	1.533	1.397	1.678	< 0.001
 Opening M	2.328	2.089	2.599	< 0.001
@@ -2261,7 +2264,7 @@ age           0.003724   0.001705   2.184   0.0290 *
 sexFemale     0.027321   0.038575   0.708   0.4788    
 armF: FOLFOX -0.335141   0.044600  -7.514 5.72e-14 ***
 armG: IROX   -0.107776   0.050643  -2.128   0.0333 *  
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for poisson family taken to be 1)
@@ -2306,7 +2309,7 @@ age           0.003724   0.008867   0.420    0.675
 sexFemale     0.027321   0.200572   0.136    0.892    
 armF: FOLFOX -0.335141   0.231899  -1.445    0.149    
 armG: IROX   -0.107776   0.263318  -0.409    0.682    
----
+
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for quasipoisson family taken to be 27.03493)
@@ -2351,7 +2354,7 @@ Here are multiple examples showing how to use some of the different options.
 1. Change summary statistics globally
 There are standard settings for each type of model regarding what information is summarized in the table. This behavior can be modified using the modelsum.control function. In fact, you can save your standard settings and use that for future tables.
 
-> mycontrols  <- modelsum.control(gaussian.stats=c("estimate","std.error","adj.r.squared","Nmiss"),
+> mycontrols  <- modelsum.control(gaussian.stats=c( estimate , std.error , adj.r.squared , Nmiss ),
 +                                 show.adjust=FALSE, show.intercept=FALSE)                            
 > tab2 <- modelsum(bmi ~ age, adjust=~sex, data=mockstudy, control=mycontrols)
 > summary(tab2)
@@ -2360,7 +2363,7 @@ Age in Years	0.012	0.012	0.004
 You can also change these settings directly in the modelsum call.
 
 > tab3 <- modelsum(bmi ~  age, adjust=~sex, data=mockstudy,
-+                  gaussian.stats=c("estimate","std.error","adj.r.squared","Nmiss"), 
++                  gaussian.stats=c( estimate , std.error , adj.r.squared , Nmiss ), 
 +                  show.intercept=FALSE, show.adjust=FALSE)
 > summary(tab3)
 estimate	std.error	adj.r.squared
@@ -2370,28 +2373,28 @@ In the above example, age is shown with a label (Age in Years), but sex is liste
 
 > ## Look at one variable's label
 > attr(mockstudy$age,'label')
-[1] "Age in Years"
+[1]  Age in Years 
 > 
 > ## See all the variables with a label
 > unlist(lapply(mockstudy,'attr','label'))
                        age                        arm 
-            "Age in Years"            "Treatment Arm" 
+             Age in Years              Treatment Arm  
                       race                        bmi 
-                    "Race" "Body Mass Index (kg/m^2)" 
+                     Race   Body Mass Index (kg/m^2)  
 > 
 > ## or
 > cbind(sapply(mockstudy,attr,'label'))
             [,1]                      
 case        NULL                      
-age         "Age in Years"            
-arm         "Treatment Arm"           
+age          Age in Years             
+arm          Treatment Arm            
 sex         NULL                      
-race        "Race"                    
+race         Race                     
 fu.time     NULL                      
 fu.stat     NULL                      
 ps          NULL                      
 hgb         NULL                      
-bmi         "Body Mass Index (kg/m^2)"
+bmi          Body Mass Index (kg/m^2) 
 alk.phos    NULL                      
 ast         NULL                      
 mdquality.s NULL                      
@@ -2418,7 +2421,7 @@ Age, yrs	0.012	0.012	0.348
 sex Female	-0.718	0.291	0.014	
 Another option is to add labels after you have created the table
 
-> mylabels <- list(sexFemale = "Female", age ="Age, yrs")
+> mylabels <- list(sexFemale =  Female , age = Age, yrs )
 > summary(tab1, labelTranslations = mylabels)
 estimate	std.error	p.value	adj.r.squared
 (Intercept)	26.793	0.766	< 0.001	0.004
@@ -2428,15 +2431,15 @@ Alternatively, you can check the variable labels and manipulate them with a func
 
 > labels(tab1)
                        bmi                        age 
-"Body Mass Index (kg/m^2)"                 "Age, yrs" 
+ Body Mass Index (kg/m^2)                   Age, yrs  
                  sexFemale 
-              "sex Female" 
-> labels(tab1) <- c(sexFemale="Female", age="Baseline Age (yrs)")
+               sex Female  
+> labels(tab1) <- c(sexFemale= Female , age= Baseline Age (yrs) )
 > labels(tab1)
                        bmi                        age 
-"Body Mass Index (kg/m^2)"       "Baseline Age (yrs)" 
+ Body Mass Index (kg/m^2)         Baseline Age (yrs)  
                  sexFemale 
-                  "Female" 
+                   Female  
 > summary(tab1)
 estimate	std.error	p.value	adj.r.squared
 (Intercept)	26.793	0.766	< 0.001	0.004
@@ -2456,14 +2459,14 @@ Age, yrs	0.998	0.981	1.014	0.776
 (Intercept)	4.814	1.709	13.221	0.003	0.550	33
 Body Mass Index (kg/m^2)	1.023	0.987	1.063	0.220		
 5. Summarize multiple variables without typing them out
-Often one wants to summarize a number of variables. Instead of typing by hand each individual variable, an alternative approach is to create a formula using the paste command with the collapse="+" option.
+Often one wants to summarize a number of variables. Instead of typing by hand each individual variable, an alternative approach is to create a formula using the paste command with the collapse= +  option.
 
 > # create a vector specifying the variable names
 > myvars <- names(mockstudy)
 > 
 > # select the 8th through the 12th
 > # paste them together, separated by the + sign
-> RHS <- paste(myvars[8:12], collapse="+")
+> RHS <- paste(myvars[8:12], collapse= + )
 > RHS
 [1] “ps+hgb+bmi+alk.phos+ast”
 
@@ -2520,7 +2523,7 @@ The first approach uses the subset function applied to the dataset mockstudy. Th
 > dim(newdata)
 [1] 557   4
 > names(newdata)
-[1] "age"      "sex"      "bmi"      "alk.phos"
+[1]  age        sex        bmi        alk.phos 
 > summary(modelsum(alk.phos ~ ., data=newdata))
 estimate	std.error	p.value	adj.r.squared	Nmiss
 (Intercept)	122.577	46.924	0.009	-0.001	0
@@ -2530,7 +2533,7 @@ sex Female	-5.497	12.118	0.650
 (Intercept)	238.658	33.705	< 0.001	0.010	15
 bmi	-2.776	1.207	0.022		
 The second approach does the same analysis but uses the subset argument within modelsum to subset the data.
-> summary(modelsum(log(alk.phos) ~ sex + ps + bmi, subset=age>50 & arm=="F: FOLFOX", data=mockstudy))
+> summary(modelsum(log(alk.phos) ~ sex + ps + bmi, subset=age>50 & arm== F: FOLFOX , data=mockstudy))
 estimate	std.error	p.value	adj.r.squared	Nmiss
 (Intercept)	4.872	0.039	< 0.001	-0.002	0
 sex Female	-0.005	0.062	0.931		
@@ -2569,7 +2572,7 @@ interaction(mdquality.s, sex) 1.Female	-1.021	1.425	0.474
 8. Transform variables on the fly
 Certain transformations need to be surrounded by I() so that R knows to treat it as a variable transformation and not some special model feature. If the transformation includes any of the symbols / - + ^ * then surround the new variable by I().
 
-> summary(modelsum(arm=="F: FOLFOX" ~ I(age/10) + log(bmi) + mdquality.s,
+> summary(modelsum(arm== F: FOLFOX  ~ I(age/10) + log(bmi) + mdquality.s,
 +                  data=mockstudy, family=binomial))
 OR	CI.lower.OR	CI.upper.OR	p.value	concordance	Nmiss
 (Intercept)	0.656	0.382	1.124	0.126	0.514	0
@@ -2644,7 +2647,7 @@ mdquality.s     age.ord
         252           0 
 > ## Show how many subjects have each variable (non-missing)
 > summary(modelsum(bmi ~ ast + age, data=mockstudy,
-+                 control=modelsum.control(gaussian.stats=c("N","estimate"))))
++                 control=modelsum.control(gaussian.stats=c( N , estimate ))))
 estimate	N
 (Intercept)	27.331	1233
 ast	-0.005	
@@ -2653,7 +2656,7 @@ Age, yrs	0.013
 > 
 > ## Always list the number of missing values
 > summary(modelsum(bmi ~ ast + age, data=mockstudy,
-+                 control=modelsum.control(gaussian.stats=c("Nmiss2","estimate"))))
++                 control=modelsum.control(gaussian.stats=c( Nmiss2 , estimate ))))
 estimate	Nmiss2
 (Intercept)	27.331	266
 ast	-0.005	
@@ -2662,7 +2665,7 @@ Age, yrs	0.013
 > 
 > ## Only show the missing values if there are some (default)
 > summary(modelsum(bmi ~ ast + age, data=mockstudy, 
-+                 control=modelsum.control(gaussian.stats=c("Nmiss","estimate"))))
++                 control=modelsum.control(gaussian.stats=c( Nmiss , estimate ))))
 estimate	Nmiss
 (Intercept)	27.331	266
 ast	-0.005	
@@ -2671,7 +2674,7 @@ Age, yrs	0.013
 > 
 > ## Don't show N at all
 > summary(modelsum(bmi ~ ast + age, data=mockstudy, 
-+                 control=modelsum.control(gaussian.stats=c("estimate"))))
++                 control=modelsum.control(gaussian.stats=c( estimate ))))
 estimate
 (Intercept)	27.331
 ast	-0.005
@@ -2777,10 +2780,10 @@ tab1 <- modelsum(bmi~sex+age, data=mockstudy)
 
 \section{Convert Summary.modelsum to LaTeX}
 <<echo=TRUE, results='hide', message=FALSE>>=
-capture.output(summary(tab1), file="Test.md")
+capture.output(summary(tab1), file= Test.md )
 
 ## Convert R Markdown Table to LaTeX
-render("Test.md", pdf_document(keep_tex=TRUE))
+render( Test.md , pdf_document(keep_tex=TRUE))
 @ 
 
 \includepdf{Test.pdf}
@@ -2793,7 +2796,7 @@ When looking at multiple variables it is sometimes useful to export the results 
 
 
 |                         |OR    |CI.lower.OR |CI.upper.OR |p.value |concordance |Nmiss |
-|:------------------------|:-----|:-----------|:-----------|:-------|:-----------|:-----|
+|:|:--|:--|:--|:-|:--|:--|
 |(Intercept)              |0.956 |0.837       |1.091       |0.504   |0.550       |210   |
 |ast                      |1.003 |1.000       |1.006       |0.068   |            |      |
 |(Intercept)              |0.957 |0.658       |1.393       |0.820   |0.500       |29    |
@@ -2819,10 +2822,10 @@ When looking at multiple variables it is sometimes useful to export the results 
 > # write.csv(tmp, '/my/path/here/mymodel.csv')
 17. Write modelsum object to a separate Word or HTML file
 > ## write to an HTML document
-> write2html(tab2, "~/ibm/trash.html")
+> write2html(tab2,  ~/ibm/trash.html )
 > 
 > ## write to a Word document
-> write2word(tab2, "~/ibm/trash.doc", title="My table in Word")
+> write2word(tab2,  ~/ibm/trash.doc , title= My table in Word )
 18. Use modelsum in R Shiny
 The easiest way to output a modelsum() object in an R Shiny app is to use the tableOutput() UI in combination with the renderTable() server function and as.data.frame(summary(modelsum())):
 
@@ -2832,10 +2835,10 @@ The easiest way to output a modelsum() object in an R Shiny app is to use the ta
 > data(mockstudy)
 > 
 > shinyApp(
-+   ui = fluidPage(tableOutput("table")),
++   ui = fluidPage(tableOutput( table )),
 +   server = function(input, output) {
 +     output$table <- renderTable({
-+       as.data.frame(summary(modelsum(age ~ sex, data = mockstudy), text = "html"))
++       as.data.frame(summary(modelsum(age ~ sex, data = mockstudy), text =  html ))
 +     }, sanitize.text.function = function(x) x)
 +   }
 + )
@@ -2844,7 +2847,7 @@ This can be especially powerful if you feed the selections from a selectInput(mu
 23. Use modelsum in bookdown
 Since the backbone of modelsum() is knitr::kable(), tables still render well in bookdown. However, print.summary.modelsum() doesn’t use the caption= argument of kable(), so some tables may not have a properly numbered caption. To fix this, use the method described on the bookdown site to give the table a tag/ID.
 
-> summary(modelsum(age ~ sex, data = mockstudy), title="(\\#tab:mytableby) Caption here")
+> summary(modelsum(age ~ sex, data = mockstudy), title= (\\#tab:mytableby) Caption here )
 Available Function Options
 Summary statistics
 The available summary statistics, by varible type, are:
@@ -2912,25 +2915,25 @@ A quick way to see what arguments are possible to utilize in a function is to us
 > args(modelsum.control)
 function (digits = 3L, digits.ratio = 3L, digits.p = 3L, format.p = TRUE, 
     show.adjust = TRUE, show.intercept = TRUE, conf.level = 0.95, 
-    ordinal.stats = c("OR", "CI.lower.OR", "CI.upper.OR", "p.value", 
-        "Nmiss"), binomial.stats = c("OR", "CI.lower.OR", "CI.upper.OR", 
-        "p.value", "concordance", "Nmiss"), gaussian.stats = c("estimate", 
-        "std.error", "p.value", "adj.r.squared", "Nmiss"), poisson.stats = c("RR", 
-        "CI.lower.RR", "CI.upper.RR", "p.value", "Nmiss"), negbin.stats = c("RR", 
-        "CI.lower.RR", "CI.upper.RR", "p.value", "Nmiss"), survival.stats = c("HR", 
-        "CI.lower.HR", "CI.upper.HR", "p.value", "concordance", 
-        "Nmiss"), stat.labels = list(), ...) 
+    ordinal.stats = c( OR ,  CI.lower.OR ,  CI.upper.OR ,  p.value , 
+         Nmiss ), binomial.stats = c( OR ,  CI.lower.OR ,  CI.upper.OR , 
+         p.value ,  concordance ,  Nmiss ), gaussian.stats = c( estimate , 
+         std.error ,  p.value ,  adj.r.squared ,  Nmiss ), poisson.stats = c( RR , 
+         CI.lower.RR ,  CI.upper.RR ,  p.value ,  Nmiss ), negbin.stats = c( RR , 
+         CI.lower.RR ,  CI.upper.RR ,  p.value ,  Nmiss ), survival.stats = c( HR , 
+         CI.lower.HR ,  CI.upper.HR ,  p.value ,  concordance , 
+         Nmiss ), stat.labels = list(), ...) 
 NULL
 summary.modelsum settings
 The summary.modelsum function has options that modify how the table appears (such as adding a title or modifying labels).
 
 > args(arsenal:::summary.modelsum)
 function (object, ..., labelTranslations = NULL, text = FALSE, 
-    title = NULL, term.name = "") 
+    title = NULL, term.name =   ) 
 NULL
 
 
----
+
 
 ## The paired function
 
@@ -2957,14 +2960,14 @@ The first step when using the paired() function is to load the arsenal package. 
 
 library(arsenal)
 dat <- data.frame(
-  tp = paste0("Time Point ", c(1, 2, 1, 2, 1, 2, 1, 2, 1, 2)),
+  tp = paste0( Time Point  , c(1, 2, 1, 2, 1, 2, 1, 2, 1, 2)),
   id = c(1, 1, 2, 2, 3, 3, 4, 4, 5, 6),
-  Cat = c("A", "A", "A", "B", "B", "B", "B", "A", NA, "B"),
-  Fac = factor(c("A", "B", "C", "A", "B", "C", "A", "B", "C", "A")),
+  Cat = c( A ,  A ,  A ,  B ,  B ,  B ,  B ,  A , NA,  B ),
+  Fac = factor(c( A ,  B ,  C ,  A ,  B ,  C ,  A ,  B ,  C ,  A )),
   Num = c(1, 2, 3, 4, 4, 3, 3, 4, 0, NA),
-  Ord = ordered(c("I", "II", "II", "III", "III", "III", "I", "III", "II", "I")),
+  Ord = ordered(c( I ,  II ,  II ,  III ,  III ,  III ,  I ,  III ,  II ,  I )),
   Lgl = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE),
-  Dat = as.Date("2018-05-01") + c(1, 1, 2, 2, 3, 4, 5, 6, 3, 4),
+  Dat = as.Date( 2018-05-01 ) + c(1, 1, 2, 2, 3, 4, 5, 6, 3, 4),
   stringsAsFactors = FALSE
 )
 To create a simple table stratified by time point, use a formula= statement to specify the variables that you want summarized and the id= argument to specify the paired observations.
@@ -2995,10 +2998,10 @@ Dat				0.182
 The third column shows the difference between time point 1 and time point 2. For categorical variables, it reports the percent of observations from time point 1 which changed in time point 2.
 
 NAs
-Note that by default, observations which do not have both timepoints are removed. This is easily changed using the na.action = na.paired("<arg>") argument. For example:
+Note that by default, observations which do not have both timepoints are removed. This is easily changed using the na.action = na.paired( <arg> ) argument. For example:
 
 p <- paired(tp ~ Cat + Fac + Num + Ord + Lgl + Dat, data = dat, id = id,
-            signed.rank.exact = FALSE, na.action = na.paired("fill"))
+            signed.rank.exact = FALSE, na.action = na.paired( fill ))
 summary(p)
 Time Point 1 (N=6)	Time Point 2 (N=6)	Difference (N=6)	p value
 Cat				1.000
@@ -3049,13 +3052,13 @@ paired.control settings
 A quick way to see what arguments are possible to utilize in a function is to use the args() command. Settings involving the number of digits can be set in paired.control or in summary.tableby.
 
 args(paired.control)
-## function (test = TRUE, diff = TRUE, test.pname = NULL, numeric.test = "paired.t", 
-##     cat.test = "mcnemar", ordered.test = "signed.rank", date.test = "paired.t", 
-##     numeric.stats = c("Nmiss", "meansd", "range"), cat.stats = c("Nmiss", 
-##         "countpct"), ordered.stats = c("Nmiss", "countpct"), 
-##     date.stats = c("Nmiss", "median", "range"), stats.labels = list(Nmiss = "N-Miss", 
-##         Nmiss2 = "N-Miss", meansd = "Mean (SD)", medianq1q3 = "Median (Q1, Q3)", 
-##         q1q3 = "Q1, Q3", range = "Range", countpct = "Count (Pct)"), 
+## function (test = TRUE, diff = TRUE, test.pname = NULL, numeric.test =  paired.t , 
+##     cat.test =  mcnemar , ordered.test =  signed.rank , date.test =  paired.t , 
+##     numeric.stats = c( Nmiss ,  meansd ,  range ), cat.stats = c( Nmiss , 
+##          countpct ), ordered.stats = c( Nmiss ,  countpct ), 
+##     date.stats = c( Nmiss ,  median ,  range ), stats.labels = list(Nmiss =  N-Miss , 
+##         Nmiss2 =  N-Miss , meansd =  Mean (SD) , medianq1q3 =  Median (Q1, Q3) , 
+##         q1q3 =  Q1, Q3 , range =  Range , countpct =  Count (Pct) ), 
 ##     digits = 3L, digits.count = 0L, digits.p = 3L, format.p = TRUE, 
 ##     conf.level = 0.95, mcnemar.correct = TRUE, signed.rank.exact = NULL, 
 ##     signed.rank.correct = TRUE, ...) 
@@ -3065,11 +3068,11 @@ Since the “paired” object inherits “tableby”, the summary.tableby functi
 
 args(arsenal:::summary.tableby)
 ## function (object, ..., labelTranslations = NULL, text = FALSE, 
-##     title = NULL, pfootnote = FALSE, term.name = "") 
+##     title = NULL, pfootnote = FALSE, term.name =   ) 
 ## NULL
 
 
----
+
 
 ## The tableby function
 
@@ -3142,22 +3145,22 @@ str(mockstudy) ##quick look at the data
 ## 'data.frame':    1499 obs. of  14 variables:
 ##  $ case       : int  110754 99706 105271 105001 112263 86205 99508 90158 88989 90515 ...
 ##  $ age        : atomic  67 74 50 71 69 56 50 57 51 63 ...
-##   ..- attr(*, "label")= chr "Age in Years"
+##   ..- attr(*,  label )= chr  Age in Years 
 ##  $ arm        : atomic  F: FOLFOX A: IFL A: IFL G: IROX ...
-##   ..- attr(*, "label")= chr "Treatment Arm"
-##  $ sex        : Factor w/ 2 levels "Male","Female": 1 2 2 2 2 1 1 1 2 1 ...
+##   ..- attr(*,  label )= chr  Treatment Arm 
+##  $ sex        : Factor w/ 2 levels  Male , Female : 1 2 2 2 2 1 1 1 2 1 ...
 ##  $ race       : atomic  Caucasian Caucasian Caucasian Caucasian ...
-##   ..- attr(*, "label")= chr "Race"
+##   ..- attr(*,  label )= chr  Race 
 ##  $ fu.time    : int  922 270 175 128 233 120 369 421 387 363 ...
 ##  $ fu.stat    : int  2 2 2 2 2 2 2 2 2 2 ...
 ##  $ ps         : int  0 1 1 1 0 0 0 0 1 1 ...
 ##  $ hgb        : num  11.5 10.7 11.1 12.6 13 10.2 13.3 12.1 13.8 12.1 ...
 ##  $ bmi        : atomic  25.1 19.5 NA 29.4 26.4 ...
-##   ..- attr(*, "label")= chr "Body Mass Index (kg/m^2)"
+##   ..- attr(*,  label )= chr  Body Mass Index (kg/m^2) 
 ##  $ alk.phos   : int  160 290 700 771 350 569 162 152 231 492 ...
 ##  $ ast        : int  35 52 100 68 35 27 16 12 25 18 ...
 ##  $ mdquality.s: int  NA 1 1 1 NA 1 1 1 1 1 ...
-##  $ age.ord    : Ord.factor w/ 8 levels "10-19"<"20-29"<..: 6 7 4 7 6 5 4 5 5 6 ...
+##  $ age.ord    : Ord.factor w/ 8 levels  10-19 < 20-29 <..: 6 7 4 7 6 5 4 5 5 6 ...
 To create a simple table stratified by treament arm, use a formula statement to specify the variables that you want summarized. The example below uses age (a continuous variable) and sex (a factor).
 
 tab1 <- tableby(arm ~ sex + age, data=mockstudy)
@@ -3170,7 +3173,7 @@ summary(tab1, text=TRUE)
 ## 
 ## 
 ## |             | A: IFL (N=428)  | F: FOLFOX (N=691) | G: IROX (N=380) | Total (N=1499)  | p value|
-## |:------------|:---------------:|:-----------------:|:---------------:|:---------------:|-------:|
+## |:|::|:--:|::|::|-:|
 ## |sex          |                 |                   |                 |                 |   0.190|
 ## |-  Male      |   277 (64.7%)   |    411 (59.5%)    |   228 (60.0%)   |   916 (61.1%)   |        |
 ## |-  Female    |   151 (35.3%)   |    280 (40.5%)    |   152 (40.0%)   |   583 (38.9%)   |        |
@@ -3178,7 +3181,7 @@ summary(tab1, text=TRUE)
 ## |-  Mean (SD) | 59.673 (11.365) |  60.301 (11.632)  | 59.763 (11.499) | 59.985 (11.519) |        |
 ## |-  Range     | 27.000 - 88.000 |  19.000 - 88.000  | 26.000 - 85.000 | 19.000 - 88.000 |        |
 Pretty Rmarkdown version of table
-In order for the report to look nice within an R markdown (knitr) report, you just need to specify results="asis" when creating the r chunk. This changes the layout slightly (compresses it) and bolds the variable names.
+In order for the report to look nice within an R markdown (knitr) report, you just need to specify results= asis  when creating the r chunk. This changes the layout slightly (compresses it) and bolds the variable names.
 
 summary(tab1)
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
@@ -3208,7 +3211,7 @@ as.data.frame(tab1)
 ## 6             26, 85             19, 88         Linear Model ANOVA 0.6143859
 Summaries using standard R code
 ## base R frequency example
-tmp <- table(Gender=mockstudy$sex, "Study Arm"=mockstudy$arm)
+tmp <- table(Gender=mockstudy$sex,  Study Arm =mockstudy$arm)
 tmp
 ##         Study Arm
 ## Gender   A: IFL F: FOLFOX G: IROX
@@ -3244,13 +3247,13 @@ In the above example, age is shown with a label (Age in Years), but sex is liste
 
 ## Look at one variable's label
 attr(mockstudy$age,'label')
-## [1] "Age in Years"
+## [1]  Age in Years 
 ## See all the variables with a label
 unlist(lapply(mockstudy,'attr','label'))
 ##                        age                        arm                       race 
-##             "Age in Years"            "Treatment Arm"                     "Race" 
+##              Age in Years              Treatment Arm                       Race  
 ##                        bmi 
-## "Body Mass Index (kg/m^2)"
+##  Body Mass Index (kg/m^2) 
 # Can also use labels(mockstudy)
 If you want to add labels to other variables, there are a couple of options. First, you could add labels to the variables in your dataset.
 
@@ -3267,7 +3270,7 @@ Age in Years					0.614
    Range	27.000 - 88.000	19.000 - 88.000	26.000 - 85.000	19.000 - 88.000	
 You can also use the built-in data.frame method for labels<-:
 
-labels(mockstudy)  <- c(age = 'Age, yrs', sex = "Gender")
+labels(mockstudy)  <- c(age = 'Age, yrs', sex =  Gender )
 
 tab1 <- tableby(arm ~ sex + age, data=mockstudy)
 summary(tab1)
@@ -3280,7 +3283,7 @@ Age, yrs					0.614
    Range	27.000 - 88.000	19.000 - 88.000	26.000 - 85.000	19.000 - 88.000	
 Another option is to add labels after you have created the table
 
-mylabels <- list(sex = "SEX", age = "Age, yrs")
+mylabels <- list(sex =  SEX , age =  Age, yrs )
 summary(tab1, labelTranslations = mylabels)
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 SEX					0.190
@@ -3293,11 +3296,11 @@ Alternatively, you can check the variable labels and manipulate them with a func
 
 labels(tab1)
 ##        arm        sex        age 
-##      "arm"   "Gender" "Age, yrs"
-labels(tab1) <- c(arm="Treatment Assignment", age="Baseline Age (yrs)")
+##       arm     Gender   Age, yrs 
+labels(tab1) <- c(arm= Treatment Assignment , age= Baseline Age (yrs) )
 labels(tab1)
 ##                    arm                    sex                    age 
-## "Treatment Assignment"               "Gender"   "Baseline Age (yrs)"
+##  Treatment Assignment                 Gender     Baseline Age (yrs) 
 summary(tab1)
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 Gender					0.190
@@ -3310,9 +3313,9 @@ Change summary statistics globally
 Currently the default behavior is to summarize continuous variables with: Number of missing values, Mean (SD), 25th - 75th quantiles, and Minimum-Maximum values with an ANOVA (t-test with equal variances) p-value. For categorical variables the default is to show: Number of missing values and count (column percent) with a chi-square p-value. This behavior can be modified using the tableby.control function. In fact, you can save your standard settings and use that for future tables. Note that test=FALSE and total=FALSE results in the total column and p-value column not being printed.
 
 mycontrols  <- tableby.control(test=FALSE, total=FALSE,
-                               numeric.test="kwt", cat.test="chisq",
-                               numeric.stats=c("N", "median", "q1q3"),
-                               cat.stats=c("countpct"),
+                               numeric.test= kwt , cat.test= chisq ,
+                               numeric.stats=c( N ,  median ,  q1q3 ),
+                               cat.stats=c( countpct ),
                                stats.labels=list(N='Count', median='Median', q1q3='Q1,Q3'))
 tab2 <- tableby(arm ~ sex + age, data=mockstudy, control=mycontrols)
 summary(tab2)
@@ -3327,7 +3330,7 @@ Age, yrs
 You can also change these settings directly in the tableby call.
 
 tab3 <- tableby(arm ~ sex + age, data=mockstudy, test=FALSE, total=FALSE, 
-                numeric.stats=c("median","q1q3"), numeric.test="kwt")
+                numeric.stats=c( median , q1q3 ), numeric.test= kwt )
 summary(tab3)
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)
 Gender			
@@ -3362,8 +3365,8 @@ ast
    Range	10.000 - 205.000	7.000 - 174.000	5.000 - 176.000	5.000 - 205.000	
 Summary statistics for any individual variable can also be modified, but it must be done as secondary arguments to the test function. The function names must be strings that are functions already written for tableby, built-in R functions like mean and range, or user-defined functions.
 
-tab.test <- tableby(arm ~ kwt(ast, "Nmiss2","median") + anova(age, "N","mean") +
-                    notest(bmi, "Nmiss","median"), data=mockstudy)
+tab.test <- tableby(arm ~ kwt(ast,  Nmiss2 , median ) + anova(age,  N , mean ) +
+                    notest(bmi,  Nmiss , median ), data=mockstudy)
 summary(tab.test)
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 ast					0.039
@@ -3379,19 +3382,19 @@ Controlling Options for Categorical Tests (Chisq and Fisher’s)
 The formal tests for categorical variables against the levels of the by variable, chisq and fe, have options to simulate p-values. We show how to turn on the simulations for these with 500 replicates for the Fisher’s test (fe).
 
 set.seed(100)
-tab.catsim <- tableby(arm ~ sex + race, cat.test="fe", simulate.p.value=TRUE, B=500, data=mockstudy)
+tab.catsim <- tableby(arm ~ sex + race, cat.test= fe , simulate.p.value=TRUE, B=500, data=mockstudy)
 tests(tab.catsim)
  Variable   p.value
 sex Gender 0.2195609 race Race 0.3093812 Method sex Fisher’s Exact Test for Count Data with simulated p-value(based on 500 replicates) race Fisher’s Exact Test for Count Data with simulated p-value(based on 500 replicates)
 
 The chis-square test on 2x2 tables applies Yates’ continuity correction by default, so we provide an option to turn off the correction. We show the results with and without the correction that is applied to treatment arm by sex, if we use subset to ignore one of the three treatment arms.
 
-cat.correct <- tableby(arm ~ sex + race, cat.test="chisq", subset = !grepl("^F", arm), data=mockstudy)
+cat.correct <- tableby(arm ~ sex + race, cat.test= chisq , subset = !grepl( ^F , arm), data=mockstudy)
 tests(cat.correct)
  Variable   p.value                     Method
 sex Gender 0.1666280 Pearson’s Chi-squared test race Race 0.8108543 Pearson’s Chi-squared test
 
-cat.nocorrect <- tableby(arm ~ sex + race, cat.test="chisq", subset = !grepl("^F", arm),
+cat.nocorrect <- tableby(arm ~ sex + race, cat.test= chisq , subset = !grepl( ^F , arm),
      chisq.correct=FALSE, data=mockstudy)
 tests(cat.nocorrect)
  Variable   p.value                     Method
@@ -3438,7 +3441,7 @@ Body Mass Index (kg/m^2)
 3. Summarize an ordered factor
 When comparing groups of ordered data there are a couple of options. The default uses a general independence test available from the coin package. For two-group comparisons, this is essentially the Armitage trend test. The other option is to specify the Kruskal Wallis test. The example below shows both options.
 
-mockstudy$age.ordnew <- ordered(c("a",NA,as.character(mockstudy$age.ord[-(1:2)])))
+mockstudy$age.ordnew <- ordered(c( a ,NA,as.character(mockstudy$age.ord[-(1:2)])))
 table(mockstudy$age.ord, mockstudy$sex)
 ##        
 ##         Male Female
@@ -3463,7 +3466,7 @@ table(mockstudy$age.ordnew, mockstudy$sex)
 ##   80-89   20      9
 ##   a        1      0
 class(mockstudy$age.ord)
-## [1] "ordered" "factor"
+## [1]  ordered   factor 
 summary(tableby(sex ~ age.ordnew, data = mockstudy)) #, pfootnote = TRUE)
 Male (N=916)	Female (N=583)	Total (N=1499)	p value
 age.ordnew				0.040
@@ -3531,7 +3534,7 @@ summary(survfit(Surv(fu.time/365.25, fu.stat)~sex, data=mockstudy), times=1:5)
 ##     3     95      90   0.1701  0.0157       0.1420        0.204
 ##     4     51      32   0.1093  0.0133       0.0861        0.139
 ##     5     18      12   0.0745  0.0126       0.0534        0.104
-summary(tableby(sex ~ Surv(fu.time/365.25, fu.stat), data=mockstudy, times=1:5, surv.stats=c("NeventsSurv","NriskSurv")))
+summary(tableby(sex ~ Surv(fu.time/365.25, fu.stat), data=mockstudy, times=1:5, surv.stats=c( NeventsSurv , NriskSurv )))
 Male (N=916)	Female (N=583)	Total (N=1499)	p value
 Surv(fu.time/365.25, fu.stat)				0.975
    time = 1	286 (68.7)	202 (65.3)	488 (67.4)	
@@ -3558,14 +3561,14 @@ dtentry				0.554
    Median	2007-06-16	2007-06-15	2007-06-15	
    Range	2005-01-03 - 2009-12-27	2005-01-01 - 2009-12-28	2005-01-01 - 2009-12-28	
 6. Summarize multiple variables without typing them out
-Often one wants to summarize a number of variables. Instead of typing by hand each individual variable, an alternative approach is to create a formula using the paste command with the collapse="+" option.
+Often one wants to summarize a number of variables. Instead of typing by hand each individual variable, an alternative approach is to create a formula using the paste command with the collapse= +  option.
 
 ## create a vector specifying the variable names
 myvars <- names(mockstudy)
 
 ## select the 8th through the last variables
 ## paste them together, separated by the + sign
-RHS <- paste(myvars[8:10], collapse="+")
+RHS <- paste(myvars[8:10], collapse= + )
 RHS
 [1] “ps+hgb+bmi”
 
@@ -3627,7 +3630,7 @@ table(mockstudy$arm)
 dim(newdata)
 ## [1] 557   4
 names(newdata)
-## [1] "sex" "ps"  "hgb" "bmi"
+## [1]  sex   ps    hgb   bmi 
 summary(tableby(sex ~ ., data=newdata))
 Male (N=333)	Female (N=224)	Total (N=557)	p value
 ps				0.652
@@ -3643,7 +3646,7 @@ bmi				0.650
    Mean (SD)	27.539 (4.780)	27.337 (5.508)	27.458 (5.081)	
    Range	17.927 - 47.458	16.649 - 49.130	16.649 - 49.130	
 The second approach does the same analysis but uses the subset argument within tableby to subset the data.
-summary(tableby(sex ~ ps + hgb + bmi, subset=age>50 & arm=="F: FOLFOX", data=mockstudy))
+summary(tableby(sex ~ ps + hgb + bmi, subset=age>50 & arm== F: FOLFOX , data=mockstudy))
 Male (N=333)	Female (N=224)	Total (N=557)	p value
 ps				0.652
    N-Miss	64	44	108	
@@ -3672,7 +3675,7 @@ interaction(mdquality.s, sex)					0.493
    0.Female	12 (3.2%)	21 (3.9%)	14 (4.1%)	47 (3.8%)	
    1.Female	118 (31.6%)	198 (37.0%)	121 (35.7%)	437 (35.0%)	
 ## create a new grouping variable with combined levels of arm and sex
-summary(tableby(interaction(mdquality.s, sex) ~  age + bmi, data=mockstudy, subset=arm=="F: FOLFOX"))
+summary(tableby(interaction(mdquality.s, sex) ~  age + bmi, data=mockstudy, subset=arm== F: FOLFOX ))
 0.Male (N=31)	1.Male (N=285)	0.Female (N=21)	1.Female (N=198)	Total (N=535)	p value
 Age, yrs						0.190
    Mean (SD)	63.065 (11.702)	60.653 (11.833)	60.810 (10.103)	58.924 (11.366)	60.159 (11.612)	
@@ -3703,23 +3706,23 @@ The labels for these variables isn’t exactly what we’d like so we can change
 
 labels(trans)
 ##                                                           arm 
-##                                                         "arm" 
+##                                                          arm  
 ##                                                     I(age/10) 
-##                                                    "Age, yrs" 
+##                                                     Age, yrs  
 ##                                                      log(bmi) 
-##                                    "Body Mass Index (kg/m^2)" 
-##       factor(mdquality.s, levels = 0:1, labels = c("N", "Y")) 
-## "factor(mdquality.s, levels = 0:1, labels = c(\"N\", \"Y\"))"
+##                                     Body Mass Index (kg/m^2)  
+##       factor(mdquality.s, levels = 0:1, labels = c( N ,  Y )) 
+##  factor(mdquality.s, levels = 0:1, labels = c(\ N\ , \ Y\ )) 
 labels(trans)[2:4] <- c('Age per 10 yrs', 'log(BMI)', 'MD Quality')
 labels(trans)
 ##                                                     arm 
-##                                                   "arm" 
+##                                                    arm  
 ##                                               I(age/10) 
-##                                        "Age per 10 yrs" 
+##                                         Age per 10 yrs  
 ##                                                log(bmi) 
-##                                              "log(BMI)" 
-## factor(mdquality.s, levels = 0:1, labels = c("N", "Y")) 
-##                                            "MD Quality"
+##                                               log(BMI)  
+## factor(mdquality.s, levels = 0:1, labels = c( N ,  Y )) 
+##                                             MD Quality 
 summary(trans)
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 Age per 10 yrs					0.614
@@ -3746,7 +3749,7 @@ mdquality.s					0.695
    Range	0.000 - 1.000	0.000 - 1.000	0.000 - 1.000	0.000 - 1.000	
 Another option would be to specify the test and summary statistics. In fact, if I had a set of variables coded 0/1 and that was all I was summarizing, then I could change the global option for continuous variables to use the chi-square test and show countpct.
 
-summary(tableby(arm ~ chisq(mdquality.s, "Nmiss","countpct"), data=mockstudy))
+summary(tableby(arm ~ chisq(mdquality.s,  Nmiss , countpct ), data=mockstudy))
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 mdquality.s					0.694
    N-Miss	55	156	41	252	
@@ -3816,11 +3819,11 @@ It is possible to combine two tableby objects so that they print out together.
 
 ## demographics
 tab1 <- tableby(arm ~ sex + age, data=mockstudy,
-                control=tableby.control(numeric.stats=c("Nmiss","meansd"), total=FALSE))
+                control=tableby.control(numeric.stats=c( Nmiss , meansd ), total=FALSE))
 ## lab data
 tab2 <- tableby(arm ~ hgb + alk.phos, data=mockstudy,
-                control=tableby.control(numeric.stats=c("Nmiss","median","q1q3"),
-                                        numeric.test="kwt", total=FALSE))
+                control=tableby.control(numeric.stats=c( Nmiss , median , q1q3 ),
+                                        numeric.test= kwt , total=FALSE))
 names(tab1$x)
 [1] “sex” “age”
 
@@ -3881,7 +3884,7 @@ apply(is.na(mockstudy),2,sum)
 ##         266          33         266         266         252           0           1           5
 ## Show how many subjects have each variable (non-missing)
 summary(tableby(sex ~ ast + age, data=mockstudy,
-                control=tableby.control(numeric.stats=c("N","median"), total=FALSE)))
+                control=tableby.control(numeric.stats=c( N , median ), total=FALSE)))
 Male (N=916)	Female (N=583)	p value
 ast			0.921
    N	754	479	
@@ -3891,7 +3894,7 @@ Age, yrs			0.048
    Median	61.000	60.000	
 ## Always list the number of missing values
 summary(tableby(sex ~ ast + age, data=mockstudy,
-                control=tableby.control(numeric.stats=c("Nmiss2","median"), total=FALSE)))
+                control=tableby.control(numeric.stats=c( Nmiss2 , median ), total=FALSE)))
 Male (N=916)	Female (N=583)	p value
 ast			0.921
    N-Miss	162	104	
@@ -3901,7 +3904,7 @@ Age, yrs			0.048
    Median	61.000	60.000	
 ## Only show the missing values if there are some (default)
 summary(tableby(sex ~ ast + age, data=mockstudy, 
-                control=tableby.control(numeric.stats=c("Nmiss","mean"),total=FALSE)))
+                control=tableby.control(numeric.stats=c( Nmiss , mean ),total=FALSE)))
 Male (N=916)	Female (N=583)	p value
 ast			0.921
    N-Miss	162	104	
@@ -3910,7 +3913,7 @@ Age, yrs			0.048
    mean	60.5	59.2	
 ## Don't show N at all
 summary(tableby(sex ~ ast + age, data=mockstudy, 
-                control=tableby.control(numeric.stats=c("mean"),total=FALSE)))
+                control=tableby.control(numeric.stats=c( mean ),total=FALSE)))
 Male (N=916)	Female (N=583)	p value
 ast			0.921
    mean	35.9	36	
@@ -3919,8 +3922,8 @@ Age, yrs			0.048
 One might also consider the use of includeNA() to include NAs in the counts and percents for categorical variables.
 
 mockstudy$ps.cat <- factor(mockstudy$ps)
-attr(mockstudy$ps.cat, "label") <- "ps"
-summary(tableby(sex ~ includeNA(ps.cat), data = mockstudy, cat.stats = "countpct"))
+attr(mockstudy$ps.cat,  label ) <-  ps 
+summary(tableby(sex ~ includeNA(ps.cat), data = mockstudy, cat.stats =  countpct ))
 Male (N=916)	Female (N=583)	Total (N=1499)	p value
 ps				0.354
    0	391 (42.7%)	244 (41.9%)	635 (42.4%)	
@@ -3971,8 +3974,8 @@ myfunc <- function(x, weights=rep(1,length(x)), ...){
 }
 
 summary(tableby(sex ~ hgb, data=mockstudy, 
-                control=tableby.control(numeric.stats=c("Nmiss","myfunc"), numeric.test="kwt",
-                    stats.labels=list(Nmiss='Missing values', myfunc="Trimmed Mean, 10%"))))
+                control=tableby.control(numeric.stats=c( Nmiss , myfunc ), numeric.test= kwt ,
+                    stats.labels=list(Nmiss='Missing values', myfunc= Trimmed Mean, 10% ))))
 Male (N=916)	Female (N=583)	Total (N=1499)	p value
 hgb				< 0.001
    Missing values	162	104	266	
@@ -4075,7 +4078,7 @@ Surv(fu.time/365, fu.stat)				0.010
 If the cat.simplify option is set to TRUE, then only the second level of two-level categorical varialbes is shown. In the example below, sex has two levels, and “Female” is the second level, hence only the counts and percents for Female are shown. Similarly, “mdquality.s” was turned to a factor, and “1” is the second level, but since there are missings, the table ignores cat.simplify and displays all levels (since the output can no longer be displayed on one line).
 
 table2 <- tableby(arm~sex + factor(mdquality.s), data=mockstudy, cat.simplify=TRUE)
-summary(table2, labelTranslations=c(sex="Female", "factor(mdquality.s)"="MD Quality"))
+summary(table2, labelTranslations=c(sex= Female ,  factor(mdquality.s) = MD Quality ))
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 Female	151 (35.3%)	280 (40.5%)	152 (40.0%)	583 (38.9%)	0.190
 MD Quality					0.694
@@ -4085,7 +4088,7 @@ MD Quality					0.694
 Similarly, if numeric.simplify is set to TRUE, then any numerics which only have one row of summary statistics are simplified into a single row. Note again that ast has missing values and so is not simplified to a single row.
 
 summary(tableby(arm ~ age + ast, data = mockstudy,
-                numeric.simplify=TRUE, numeric.stats=c("Nmiss", "meansd")))
+                numeric.simplify=TRUE, numeric.stats=c( Nmiss ,  meansd )))
 A: IFL (N=428)	F: FOLFOX (N=691)	G: IROX (N=380)	Total (N=1499)	p value
 Age, yrs	59.673 (11.365)	60.301 (11.632)	59.763 (11.499)	59.985 (11.519)	0.614
 ast					0.507
@@ -4093,12 +4096,12 @@ ast					0.507
    Mean (SD)	37.292 (28.036)	35.202 (26.659)	35.670 (25.807)	35.933 (26.843)	
 The in-formula functions to change which tests are run can also be used to specify these options for each variable at a time.
 
-summary(tableby(arm ~ anova(age, "meansd", numeric.simplify=TRUE) +
+summary(tableby(arm ~ anova(age,  meansd , numeric.simplify=TRUE) +
                   chisq(sex, cat.simplify=TRUE), data = mockstudy))
 ## 
 ## 
 ## |             | A: IFL (N=428)  | F: FOLFOX (N=691) | G: IROX (N=380) | Total (N=1499)  | p value|
-## |:------------|:---------------:|:-----------------:|:---------------:|:---------------:|-------:|
+## |:|::|:--:|::|::|-:|
 ## |**Age, yrs** | 59.673 (11.365) |  60.301 (11.632)  | 59.763 (11.499) | 59.985 (11.519) |   0.614|
 ## |**Gender**   |   151 (35.3%)   |    280 (40.5%)    |   152 (40.0%)   |   583 (38.9%)   |   0.190|
 19. Use tableby within an Sweave document
@@ -4123,10 +4126,10 @@ tab1 <- tableby(arm~sex+age, data=mockstudy)
 
 \section{Convert Summary.Tableby to LaTeX}
 <<echo=TRUE, results='hide', message=FALSE>>=
-capture.output(summary(tab1), file="Test.md")
+capture.output(summary(tab1), file= Test.md )
 
 ## Convert R Markdown Table to LaTeX
-render("Test.md", pdf_document(keep_tex=TRUE))
+render( Test.md , pdf_document(keep_tex=TRUE))
 @ 
 
 \includepdf{Test.pdf}
@@ -4155,10 +4158,10 @@ as.data.frame(tab1)
 21. Write tableby object to a separate Word or HTML file
 ## write to an HTML document
 tab1 <- tableby(arm ~ sex + age, data=mockstudy)
-write2html(tab1, "~/trash.html")
+write2html(tab1,  ~/trash.html )
 
 ## write to a Word document
-write2word(tab1, "~/trash.doc", title="My table in Word")
+write2word(tab1,  ~/trash.doc , title= My table in Word )
 22. Use tableby in R Shiny
 The easiest way to output a tableby() object in an R Shiny app is to use the tableOutput() UI in combination with the renderTable() server function and as.data.frame(summary(tableby())):
 
@@ -4168,10 +4171,10 @@ library(arsenal)
 data(mockstudy)
 
 shinyApp(
-  ui = fluidPage(tableOutput("table")),
+  ui = fluidPage(tableOutput( table )),
   server = function(input, output) {
     output$table <- renderTable({
-      as.data.frame(summary(tableby(sex ~ age, data = mockstudy), text = "html"))
+      as.data.frame(summary(tableby(sex ~ age, data = mockstudy), text =  html ))
     }, sanitize.text.function = function(x) x)
   }
 )
@@ -4180,7 +4183,7 @@ This can be especially powerful if you feed the selections from a selectInput(mu
 23. Use tableby in bookdown
 Since the backbone of tableby() is knitr::kable(), tables still render well in bookdown. However, print.summary.tableby() doesn’t use the caption= argument of kable(), so some tables may not have a properly numbered caption. To fix this, use the method described on the bookdown site to give the table a tag/ID.
 
-summary(tableby(sex ~ age, data = mockstudy), title="(\\#tab:mytableby) Caption here")
+summary(tableby(sex ~ age, data = mockstudy), title= (\\#tab:mytableby) Caption here )
 24. Adjust tableby for multiple p-values
 The padjust() function is a new S3 generic piggybacking off of p.adjust(). It works on both tableby and summary.tableby objects:
 
@@ -4189,7 +4192,7 @@ tab
 ## 
 ## 
 ## |                             |   Male (N=916)    |  Female (N=583)   |  Total (N=1499)   | p value|
-## |:----------------------------|:-----------------:|:-----------------:|:-----------------:|-------:|
+## |:-|:--:|:--:|:--:|-:|
 ## |**Age, yrs**                 |                   |                   |                   |   0.048|
 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |  60.455 (11.369)  |  59.247 (11.722)  |  59.985 (11.519)  |        |
 ## |&nbsp;&nbsp;&nbsp;Range      |  19.000 - 88.000  |  22.000 - 88.000  |  19.000 - 88.000  |        |
@@ -4204,11 +4207,11 @@ tab
 ## |&nbsp;&nbsp;&nbsp;N-Miss     |        153        |        99         |        252        |        |
 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |   0.899 (0.301)   |   0.903 (0.296)   |   0.901 (0.299)   |        |
 ## |&nbsp;&nbsp;&nbsp;Range      |   0.000 - 1.000   |   0.000 - 1.000   |   0.000 - 1.000   |        |
-padjust(tab, method = "bonferroni")
+padjust(tab, method =  bonferroni )
 ## 
 ## 
 ## |                             |   Male (N=916)    |  Female (N=583)   |  Total (N=1499)   | p value|
-## |:----------------------------|:-----------------:|:-----------------:|:-----------------:|-------:|
+## |:-|:--:|:--:|:--:|-:|
 ## |**Age, yrs**                 |                   |                   |                   |   0.191|
 ## |&nbsp;&nbsp;&nbsp;Mean (SD)  |  60.455 (11.369)  |  59.247 (11.722)  |  59.985 (11.519)  |        |
 ## |&nbsp;&nbsp;&nbsp;Range      |  19.000 - 88.000  |  22.000 - 88.000  |  19.000 - 88.000  |        |
@@ -4276,16 +4279,16 @@ A quick way to see what arguments are possible to utilize in a function is to us
 
 args(tableby.control)
 ## function (test = TRUE, total = TRUE, test.pname = NULL, cat.simplify = FALSE, 
-##     numeric.simplify = FALSE, numeric.test = "anova", cat.test = "chisq", 
-##     ordered.test = "trend", surv.test = "logrank", date.test = "kwt", 
-##     numeric.stats = c("Nmiss", "meansd", "range"), cat.stats = c("Nmiss", 
-##         "countpct"), ordered.stats = c("Nmiss", "countpct"), 
-##     surv.stats = c("Nevents", "medSurv"), date.stats = c("Nmiss", 
-##         "median", "range"), stats.labels = list(Nmiss = "N-Miss", 
-##         Nmiss2 = "N-Miss", meansd = "Mean (SD)", medianrange = "Median (Range)", 
-##         median = "Median", medianq1q3 = "Median (Q1, Q3)", q1q3 = "Q1, Q3", 
-##         iqr = "IQR", range = "Range", countpct = "Count (Pct)", 
-##         Nevents = "Events", medSurv = "Median Survival", medTime = "Median Follow-Up"), 
+##     numeric.simplify = FALSE, numeric.test =  anova , cat.test =  chisq , 
+##     ordered.test =  trend , surv.test =  logrank , date.test =  kwt , 
+##     numeric.stats = c( Nmiss ,  meansd ,  range ), cat.stats = c( Nmiss , 
+##          countpct ), ordered.stats = c( Nmiss ,  countpct ), 
+##     surv.stats = c( Nevents ,  medSurv ), date.stats = c( Nmiss , 
+##          median ,  range ), stats.labels = list(Nmiss =  N-Miss , 
+##         Nmiss2 =  N-Miss , meansd =  Mean (SD) , medianrange =  Median (Range) , 
+##         median =  Median , medianq1q3 =  Median (Q1, Q3) , q1q3 =  Q1, Q3 , 
+##         iqr =  IQR , range =  Range , countpct =  Count (Pct) , 
+##         Nevents =  Events , medSurv =  Median Survival , medTime =  Median Follow-Up ), 
 ##     digits = 3L, digits.count = 0L, digits.pct = 1L, digits.p = 3L, 
 ##     format.p = TRUE, conf.level = 0.95, chisq.correct = FALSE, 
 ##     simulate.p.value = FALSE, B = 2000, ...) 
@@ -4295,11 +4298,11 @@ The summary.tableby function has options that modify how the table appears (such
 
 args(arsenal:::summary.tableby)
 ## function (object, ..., labelTranslations = NULL, text = FALSE, 
-##     title = NULL, pfootnote = FALSE, term.name = "") 
+##     title = NULL, pfootnote = FALSE, term.name =   ) 
 ## NULL
 
 
----
+
 
 
 ## The write2 function
@@ -4358,36 +4361,36 @@ tmpdir <- tempdir()
 tableby
 For tableby objects, the output function in write2() is summary(). For summary.tableby objects, the output function is print(). For available arguments, see the help pages for summary.tableby(). Don’t use the option text = TRUE with the write2 functions.
 
-mylabels <- list(sex = "SEX", age ="Age, yrs")
+mylabels <- list(sex =  SEX , age = Age, yrs )
 tab1 <- tableby(arm ~ sex + age, data=mockstudy)
 
 write2html(
-  tab1, paste0(tmpdir, "/test.tableby.html"), quiet = TRUE,
-  title = "My test table",      # passed to summary.tableby
+  tab1, paste0(tmpdir,  /test.tableby.html ), quiet = TRUE,
+  title =  My test table ,      # passed to summary.tableby
   labelTranslations = mylabels, # passed to summary.tableby
   total = FALSE                 # passed to summary.tableby
 )
 modelsum
 For modelsum objects, the output function in write2() is summary(). For summary.modelsum objects, the output function is print(). For available arguments, see the help pages for summary.modelsum(). Don’t use the option text = TRUE with the write2 functions.
 
-tab2 <- modelsum(alk.phos ~ arm + ps + hgb, adjust= ~ age + sex, family = "gaussian", data = mockstudy)
+tab2 <- modelsum(alk.phos ~ arm + ps + hgb, adjust= ~ age + sex, family =  gaussian , data = mockstudy)
 
 write2pdf(
-  tab2, paste0(tmpdir, "/test.modelsum.pdf"), quiet = TRUE,
-  title = "My test table", # passed to summary.modelsum
+  tab2, paste0(tmpdir,  /test.modelsum.pdf ), quiet = TRUE,
+  title =  My test table , # passed to summary.modelsum
   show.intercept = FALSE,  # passed to summary.modelsum
   digits = 5               # passed to summary.modelsum
 )
 freqlist
 For freqlist objects, the output function in write2() is summary(). For summary.freqlist objects, the output function is print(). For available arguments, see the help pages for summary.freqlist().
 
-mockstudy[, c("arm", "sex", "mdquality.s")] %>% 
-  table(useNA = "ifany") %>% 
-  freqlist(groupBy = c("arm", "sex")) %>% 
+mockstudy[, c( arm ,  sex ,  mdquality.s )] %>% 
+  table(useNA =  ifany ) %>% 
+  freqlist(groupBy = c( arm ,  sex )) %>% 
   write2word(
-    paste0(tmpdir, "/test.freqlist.doc"), quiet = TRUE,
+    paste0(tmpdir,  /test.freqlist.doc ), quiet = TRUE,
     single = FALSE,         # passed to summary.freqlist
-    title = "My cool title" # passed to summary.freqlist
+    title =  My cool title  # passed to summary.freqlist
   )
 compare
 For compare.data.frame objects, the output function in write2() is summary(). For summary.compare.data.frame objects, the output function is print().
@@ -4399,110 +4402,110 @@ For objects resulting from a call to kable(), the output function in write2() is
 mockstudy %>% 
   head() %>% 
   knitr::kable() %>% 
-  write2html(paste0(tmpdir, "/test.kable.html"), quiet = TRUE)
+  write2html(paste0(tmpdir,  /test.kable.html ), quiet = TRUE)
 xtable::xtable()
 For xtable objects, the output function in write2() is print(). For available arguments, see the help pages for print.xtable().
 
 mockstudy %>% 
   head() %>% 
-  xtable::xtable(caption = "My xtable") %>% 
+  xtable::xtable(caption =  My xtable ) %>% 
   write2pdf(
-    paste0(tmpdir, "/test.xtable.pdf"), quiet = TRUE,
+    paste0(tmpdir,  /test.xtable.pdf ), quiet = TRUE,
     comment = FALSE, # passed to print.xtable to turn off the default message about xtable version
     include.rownames = FALSE, # passed to print.xtable
-    caption.placement = "top" # passed to print.xtable
+    caption.placement =  top  # passed to print.xtable
   )
-To make an HTML document, use the print.xtable() option type = "html".
+To make an HTML document, use the print.xtable() option type =  html .
 
 mockstudy %>% 
   head() %>% 
-  xtable::xtable(caption = "My xtable") %>% 
+  xtable::xtable(caption =  My xtable ) %>% 
   write2html(
-    paste0(tmpdir, "/test.xtable.html"), quiet = TRUE,
-    type = "html",            # passed to print.xtable
+    paste0(tmpdir,  /test.xtable.html ), quiet = TRUE,
+    type =  html ,            # passed to print.xtable
     comment = FALSE, # passed to print.xtable to turn off the default message about xtable version
     include.rownames = FALSE, # passed to print.xtable
-    caption.placement = "top" # passed to print.xtable
+    caption.placement =  top  # passed to print.xtable
   )
 User beware! xtable() is not compatible with write2word().
 
 pander::pander_return()
 Pander is a little bit more tricky. Since pander::pander() doesn’t return an object, the useR should instead use pander::pander_return(). For this (and for all character vectors), the the output function in write2() is cat(sep = '\n').
 
-write2word(pander::pander_return(head(mockstudy)), file = paste0(tmpdir, "/test.pander.doc"), quiet = TRUE)
+write2word(pander::pander_return(head(mockstudy)), file = paste0(tmpdir,  /test.pander.doc ), quiet = TRUE)
 Output Multiple Tables to One Document
 To output multiple tables into a document, simply make a list of them and call the same function as before.
 
 mylist <- list(
   tableby(sex ~ age, data = mockstudy),
-  freqlist(table(mockstudy[, c("sex", "arm")])),
+  freqlist(table(mockstudy[, c( sex ,  arm )])),
   knitr::kable(head(mockstudy))
 )
 
-write2pdf(mylist, paste0(tmpdir, "/test.mylist.pdf"), quiet = TRUE)
+write2pdf(mylist, paste0(tmpdir,  /test.mylist.pdf ), quiet = TRUE)
 One neat side-effect of this function is that you can output text and headers, etc. The possibilities are endless!
 
 mylist2 <- list(
-  "# Header 1",
-  "This is a small paragraph introducing tableby.",
+   # Header 1 ,
+   This is a small paragraph introducing tableby. ,
   tableby(sex ~ age, data = mockstudy),
-  "<hr>",
-  "# Header 2",
-  "<font color='red'>I can change color of my text!</font>"
+   <hr> ,
+   # Header 2 ,
+   <font color='red'>I can change color of my text!</font> 
 )
-write2html(mylist2, paste0(tmpdir, "/test.mylist2.html"), quiet = TRUE)
+write2html(mylist2, paste0(tmpdir,  /test.mylist2.html ), quiet = TRUE)
 In fact, you can even recurse on the lists!
 
-write2pdf(list(mylist2, mylist), paste0(tmpdir, "/test.mylists.pdf"), quiet = TRUE)
+write2pdf(list(mylist2, mylist), paste0(tmpdir,  /test.mylists.pdf ), quiet = TRUE)
 Output Other Objects Monospaced (as if in a terminal)
 It may be useful at times to write output that would normally be copied from the terminal. The default method for write2() does this automatically. To output the results of summary.lm(), for example:
 
 lm(age ~ sex, data = mockstudy) %>% 
   summary() %>% 
-  write2pdf(paste0(tmpdir, "/test.lm.pdf"), quiet = TRUE)
+  write2pdf(paste0(tmpdir,  /test.lm.pdf ), quiet = TRUE)
 The verbatim() function is another option to explicitly alert write2() to do this. This becomes particularly helpful to overrule existing S3 methods.
 
 For example, suppose you wanted to just print a tableby object (as if it were to print in the terminal):
 
 tab4 <- tableby(arm ~ sex + age, data=mockstudy)
-write2html(verbatim(tab4), paste0(tmpdir, "/test.print.tableby.html"), quiet = TRUE)
+write2html(verbatim(tab4), paste0(tmpdir,  /test.print.tableby.html ), quiet = TRUE)
 Or suppose you wanted to print a character vector (as if it were to print in the terminal):
 
-chr <- paste0("MyVector", 1:10)
-write2pdf(verbatim(chr), paste0(tmpdir, "/test.character.pdf"), quiet = TRUE)
+chr <- paste0( MyVector , 1:10)
+write2pdf(verbatim(chr), paste0(tmpdir,  /test.character.pdf ), quiet = TRUE)
 Add a YAML Header to the Output
 You can add a YAML header to write2() output using the yaml() function.
 
 mylist3 <- list(
-  yaml(title = "Test YAML Title", author = "My cool author name"),
-  "# Header 1",
-  "This is a small paragraph introducing tableby.",
+  yaml(title =  Test YAML Title , author =  My cool author name ),
+   # Header 1 ,
+   This is a small paragraph introducing tableby. ,
   tableby(sex ~ age, data = mockstudy)
 )
-write2html(mylist3, paste0(tmpdir, "/test.yaml.html"), quiet = TRUE)
+write2html(mylist3, paste0(tmpdir,  /test.yaml.html ), quiet = TRUE)
 In fact, all detected YAML pieces will be moved as the first output, so that the above code chunk gives the same output as this one:
 
 mylist4 <- list(
-  "# Header 1",
-  "This is a small paragraph introducing tableby.",
-  yaml(title = "Test YAML Title"),
+   # Header 1 ,
+   This is a small paragraph introducing tableby. ,
+  yaml(title =  Test YAML Title ),
   tableby(sex ~ age, data = mockstudy),
-  yaml(author = "My cool author name")
+  yaml(author =  My cool author name )
 )
-write2html(mylist3, paste0(tmpdir, "/test.yaml2.html"), quiet = TRUE)
+write2html(mylist3, paste0(tmpdir,  /test.yaml2.html ), quiet = TRUE)
 FAQs
 How do I suppress the note about my document getting rendered?
 This is easily accomplished by using the argument quiet = TRUE (passed to the rmarkdown::render() function).
 
 write2html(
-  knitr::kable(head(mockstudy)), paste0(tmpdir, "/test.kable.quiet.html"),
+  knitr::kable(head(mockstudy)), paste0(tmpdir,  /test.kable.quiet.html ),
   quiet = TRUE # passed to rmarkdown::render
 )
 How do I look at the temporary .md file?
 This is easily accomplished by using the option keep.md = TRUE.
 
 write2html(
-  knitr::kable(head(mockstudy)), paste0(tmpdir, "/test.kable.keep.md.html"),
+  knitr::kable(head(mockstudy)), paste0(tmpdir,  /test.kable.keep.md.html ),
   quiet = TRUE, # passed to rmarkdown::render
   keep.md = TRUE
 )
@@ -4510,28 +4513,28 @@ How do I prevent my document from being rendered?
 This is easily accomplished by using the option render. = FALSE. Note that this will then default to keep.md = TRUE.
 
 write2html(
-  knitr::kable(head(mockstudy)), paste0(tmpdir, "/test.kable.dont.render.html"),
+  knitr::kable(head(mockstudy)), paste0(tmpdir,  /test.kable.dont.render.html ),
   render. = FALSE
 )
 How do I output headers, raw HTML/LaTeX, paragraphs, etc.?
 One can simply abuse the list S3 method for write2()!
 
 mylist2 <- list(
-  "# Header 1",
-  "This is a small paragraph introducing tableby.",
+   # Header 1 ,
+   This is a small paragraph introducing tableby. ,
   tableby(sex ~ age, data = mockstudy),
-  "<hr>",
-  "# Header 2",
-  "<font color='red'>I can change color of my text!</font>"
+   <hr> ,
+   # Header 2 ,
+   <font color='red'>I can change color of my text!</font> 
 )
-write2html(mylist2, paste0(tmpdir, "/test.mylist2.html"), quiet = TRUE)
+write2html(mylist2, paste0(tmpdir,  /test.mylist2.html ), quiet = TRUE)
 How do I tweak the default format from write2word(), write2html(), or write2pdf()?
 You can pass arguments to the format functions used behind the scenes.
 
 write2html(
-  knitr::kable(head(mockstudy)), paste0(tmpdir, "/test.kable.theme.html"),
+  knitr::kable(head(mockstudy)), paste0(tmpdir,  /test.kable.theme.html ),
   quiet = TRUE,  # passed to rmarkdown::render
-  theme = "yeti" # passed to rmarkdown::html_document
+  theme =  yeti  # passed to rmarkdown::html_document
 )
 See the help pages for rmarkdown::word_document(), rmarkdown::html_document(), and rmarkdown::pdf_document().
 
@@ -4539,7 +4542,7 @@ How do I output to a file format other than word, HTML, and PDF?
 This can be done using the generic write2() function. The last argument in the function can be another format specification. For details on the acceptable inputs, see the help page for write2().
 
 write2(
-  knitr::kable(head(mockstudy[, 1:4])), paste0(tmpdir, "/test.kable.rtf"),
+  knitr::kable(head(mockstudy[, 1:4])), paste0(tmpdir,  /test.kable.rtf ),
   quiet = TRUE,  # passed to rmarkdown::render
   output_format = rmarkdown::rtf_document
 )
@@ -4547,21 +4550,21 @@ How do I avoid prefixes on my table captions in PDF?
 You can do this pretty easily with the yaml() function:
 
 mylist5 <- list(
-  yaml("header-includes" = list("\\usepackage[labelformat=empty]{caption}")),
-  "# Header 1",
-  "This is a small paragraph introducing tableby.",
+  yaml( header-includes  = list( \\usepackage[labelformat=empty]{caption} )),
+   # Header 1 ,
+   This is a small paragraph introducing tableby. ,
   tableby(sex ~ age, data = mockstudy)
 )
-write2pdf(mylist5, paste0(tmpdir, "/test.noprefixes.pdf"), title = "My tableby")
+write2pdf(mylist5, paste0(tmpdir,  /test.noprefixes.pdf ), title =  My tableby )
 How do I output multiple tables with different titles?
 There are now write2() methods for the summary objects of arsenal functions. This allows you to specify a title for each table:
 
 mylist6 <- list(
-  summary(tableby(sex ~ age, data = mockstudy), title = "A Title for tableby"),
-  summary(modelsum(age ~ sex, data = mockstudy), title = "A Title for modelsum"),
-  summary(freqlist(~ sex, data = mockstudy), title = "A Title for freqlist")
+  summary(tableby(sex ~ age, data = mockstudy), title =  A Title for tableby ),
+  summary(modelsum(age ~ sex, data = mockstudy), title =  A Title for modelsum ),
+  summary(freqlist(~ sex, data = mockstudy), title =  A Title for freqlist )
 )
-write2pdf(mylist6, paste0(tmpdir, "/test.multiple.titles.pdf"))
+write2pdf(mylist6, paste0(tmpdir,  /test.multiple.titles.pdf ))
 ```
 
 

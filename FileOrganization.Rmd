@@ -1,6 +1,6 @@
----
-title: "My R Codes For Data Analysis"
----
+
+# My R Codes For Data Analysis 
+
 
 
 ## File organization best practices
@@ -16,31 +16,36 @@ Basically they suggest:
 
 
 
----
+
 
 - **Why should I use the here package when I'm already using projects?**
 
 https://malco.io/2018/11/05/why-should-i-use-the-here-package/
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(here)
 here()
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 dr_here()
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-here("figure", "figure.png")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+here( figure ,  figure.png )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-file.path("figure", "figure.png")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+file.path( figure ,  figure.png )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-read_csv(here("data", "mtcars.csv"))
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+read_csv(here( data ,  mtcars.csv ))
 ```
 

@@ -1,72 +1,78 @@
----
-title: "My R Codes For Data Analysis"
-subtitle: "Decision Tree / Karar Ağacı"
-author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
-date: '`{r #  format(Sys.Date())`'
----
+
+# My R Codes For Data Analysis 
 
 
 # Decision Trees
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("ISLR")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( ISLR )
 library(ISLR)
-data(package = "ISLR")
+data(package =  ISLR )
 carseats <- Carseats
 carseats
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# install.packages("tree")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( tree )
 library(tree)
 require(tree)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 names(carseats)
 
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 hist(carseats$Sales)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-High <- ifelse(carseats$Sales <= 8, "No", "Yes")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+High <- ifelse(carseats$Sales <= 8,  No ,  Yes )
 carseats <- data.frame(carseats, High)
 carseats
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 tree.carseats <- tree::tree(High~.-Sales, data = carseats)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 tree.carseats
 
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 set.seed(101)
 train <- sample(1:nrow(carseats), 250)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 train
 ```
 
 
-```{r eval=FALSE, fig.height=6, fig.width=12, include=FALSE}
+```
+{r eval=FALSE, fig.height=6, fig.width=12, include=FALSE}
 tree.carseats <- tree(High~.-Sales, carseats, subset=train)
 plot(tree.carseats)
 text(tree.carseats, pretty=0)
@@ -74,32 +80,37 @@ text(tree.carseats, pretty=0)
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-tree.pred <- predict(tree.carseats, carseats[-train,], type = "class")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+tree.pred <- predict(tree.carseats, carseats[-train,], type =  class )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 tree.pred
 ```
 
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 with(carseats[-train,], table(tree.pred, High))
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 cv.carseats <- cv.tree(tree.carseats, FUN = prune.misclass)
 cv.carseats
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 plot(cv.carseats)
 ```
 
@@ -112,7 +123,7 @@ plot(prune.carseats)
 text(prune.carseats, pretty=0)
 It's a bit shallower than previous trees, and you can actually read the labels. Let's evaluate it on the test dataset again.
 
-tree.pred = predict(prune.carseats, carseats[-train,], type="class")
+tree.pred = predict(prune.carseats, carseats[-train,], type= class )
 with(carseats[-train,], table(tree.pred, High))
 (74 + 39) / 150
 Seems like the correct classifications dropped a little bit. It has done about the same as your original tree, so pruning did not hurt much with respect to misclassification errors, and gave a simpler tree.
@@ -123,7 +134,7 @@ Random Forests
 For this part, you will use the Boston housing data to explore random forests and boosting. The dataset is located in the MASS package. It gives housing values and other statistics in each of 506 suburbs of Boston based on a 1970 census.
 
 library(MASS)
-data(package="MASS")
+data(package= MASS )
 boston<-Boston
 dim(boston)
 names(boston)
@@ -166,8 +177,8 @@ for(mtry in 1:13){
 }
 Basically you just grew 4550 trees (13 times 350). Now let's make a plot using the matplot command. The test error and the out-of-bag error are binded together to make a 2-column matrix. There are a few other arguments in the matrix, including the plotting character values (pch = 23 means filled diamond), colors (red and blue), type equals both (plotting both points and connecting them with the lines), and name of y-axis (Mean Squared Error). You can also put a legend at the top right corner of the plot.
 
-matplot(1:mtry, cbind(test.err, oob.err), pch = 23, col = c("red", "blue"), type = "b", ylab="Mean Squared Error")
-legend("topright", legend = c("OOB", "Test"), pch = 23, col = c("red", "blue"))
+matplot(1:mtry, cbind(test.err, oob.err), pch = 23, col = c( red ,  blue ), type =  b , ylab= Mean Squared Error )
+legend( topright , legend = c( OOB ,  Test ), pch = 23, col = c( red ,  blue ))
 Ideally, these 2 curves should line up, but it seems like the test error is a bit lower. However, there's a lot of variability in these test error estimates. Since the out-of-bag error estimate was computed on one dataset and the test error estimate was computed on another dataset, these differences are pretty much well within the standard errors.
 
 Notice that the red curve is smoothly above the blue curve? These error estimates are very correlated, because the randomForest with mtry = 4 is very similar to the one with mtry = 5. That's why each of the curves is quite smooth. What you see is that mtry around 4 seems to be the most optimal choice, at least for the test error. This value of mtry for the out-of-bag error equals 9.
@@ -180,12 +191,12 @@ Compared to random forests, boosting grows smaller and stubbier trees and goes a
 require(gbm)
 GBM asks for the distribution, which is Gaussian, because you'll be doing squared error loss. You're going to ask GBM for 10,000 trees, which sounds like a lot, but these are going to be shallow trees. Interaction depth is the number of splits, so you want 4 splits in each tree. Shrinkage is 0.01, which is how much you're going to shrink the tree step back.
 
-boost.boston = gbm(medv~., data = boston[train,], distribution = "gaussian", n.trees = 10000, shrinkage = 0.01, interaction.depth = 4)
+boost.boston = gbm(medv~., data = boston[train,], distribution =  gaussian , n.trees = 10000, shrinkage = 0.01, interaction.depth = 4)
 summary(boost.boston)
 The summary function gives a variable importance plot. It seems like there are 2 variables that have high relative importance: rm (number of rooms) and lstat (percentage of lower economic status people in the community). Let's plot these 2 variables:
 
-plot(boost.boston,i="lstat")
-plot(boost.boston,i="rm")
+plot(boost.boston,i= lstat )
+plot(boost.boston,i= rm )
 The 1st plot shows that the higher the proportion of lower status people in the suburb, the lower the value of the housing prices. The 2nd plot shows the reversed relationship with the number of rooms: the average number of rooms in the house increases as the price increases.
 
 It's time to predict a boosted model on the test dataset. Let's look at the test performance as a function of the number of trees:
@@ -206,8 +217,8 @@ predmat is a matrix, medv is a vector, thus (predmat - medv) is a matrix of diff
 Then you make a plot using similar parameters to that one used for Random Forest. It would show a boosting error plot.
 
 boost.err = with(boston[-train,], apply( (predmat - medv)^2, 2, mean) )
-plot(n.trees, boost.err, pch = 23, ylab = "Mean Squared Error", xlab = "# Trees", main = "Boosting Test Error")
-abline(h = min(test.err), col = "red")
+plot(n.trees, boost.err, pch = 23, ylab =  Mean Squared Error , xlab =  # Trees , main =  Boosting Test Error )
+abline(h = min(test.err), col =  red )
 The boosting error pretty much drops down as the number of trees increases. This is an evidence showing that boosting is reluctant to overfit. Let's also include the best test error from the randomForest into the plot. Boosting actually gets a reasonable amount below the test error for randomForest.
 
 Conclusion
@@ -227,7 +238,7 @@ https://analytics4all.org/2016/11/23/r-decision-trees-regression/
 
 # DECISION TREE CLASSIFIER IMPLEMENTATION IN R
 
----
+
 
 https://dataaspirant.com/2017/01/30/how-decision-tree-algorithm-works/
 
@@ -235,7 +246,7 @@ https://dataaspirant.com/2017/01/30/how-decision-tree-algorithm-works/
 
 
 
----
+
 
 https://dataaspirant.com/2017/02/03/decision-tree-classifier-implementation-in-r/
 
@@ -246,21 +257,24 @@ Classification And REgression Training
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(caret)
 library(rpart.plot)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-data_url <- c("https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data")
-download.file(url = data_url, destfile = "data/car.data")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+data_url <- c( https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data )
+download.file(url = data_url, destfile =  data/car.data )
 
-car_df <- read.csv("data/car.data", sep = ',', header = FALSE)
+car_df <- read.csv( data/car.data , sep = ',', header = FALSE)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 set.seed(3033)
 intrain <- createDataPartition(y = car_df$V7, p= 0.7, list = FALSE)
 training <- car_df[intrain,]
@@ -268,23 +282,27 @@ testing <- car_df[-intrain,]
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 #check dimensions of train & test set
 dim(training); dim(testing);
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 anyNA(car_df)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(car_df)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+trctrl <- trainControl(method =  repeatedcv , number = 10, repeats = 3)
 
 # The “method” parameter holds the details about resampling method. We can set “method” with many values like  “boot”, “boot632”, “cv”, “repeatedcv”, “LOOCV”, “LGOCV” etc. For this tutorial, let’s try to use repeatedcv i.e, repeated cross-validation.
 # 
@@ -293,8 +311,8 @@ trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
 
 set.seed(3333)
 
-dtree_fit <- train(V7 ~., data = training, method = "rpart",
-                   parms = list(split = "information"),
+dtree_fit <- train(V7 ~., data = training, method =  rpart ,
+                   parms = list(split =  information ),
                    trControl=trctrl,
                    tuneLength = 10)
 
@@ -311,55 +329,65 @@ dtree_fit <- train(V7 ~., data = training, method = "rpart",
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 ?rpart
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 dtree_fit
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-prp(dtree_fit$finalModel, box.palette = "Reds", tweak = 1.2)
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+prp(dtree_fit$finalModel, box.palette =  Reds , tweak = 1.2)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 testing[1,]
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 predict(dtree_fit, newdata = testing[1,])
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 test_pred <- predict(dtree_fit, newdata = testing)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 confusionMatrix(test_pred, testing$V7 )  #check accuracy
 ```
 
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 set.seed(3333)
-dtree_fit_gini <- train(V7 ~., data = training, method = "rpart",
-                   parms = list(split = "gini"),
+dtree_fit_gini <- train(V7 ~., data = training, method =  rpart ,
+                   parms = list(split =  gini ),
                    trControl=trctrl,
                    tuneLength = 10)
 dtree_fit_gini
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-prp(dtree_fit_gini$finalModel, box.palette = "Blues", tweak = 1.2)
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+prp(dtree_fit_gini$finalModel, box.palette =  Blues , tweak = 1.2)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 test_pred_gini <- predict(dtree_fit_gini, newdata = testing)
 confusionMatrix(test_pred_gini, testing$V7 )  #check accuracy
 ```

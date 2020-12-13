@@ -1,12 +1,13 @@
----
-title: "snahelper"
-output: html_notebook
----
+
+# snahelper 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# devtools::install_github("schochastics/snahelper")
-# devtools::install_github("schochastics/smglr")
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github( schochastics/snahelper )
+# devtools::install_github( schochastics/smglr )
 ```
 
 

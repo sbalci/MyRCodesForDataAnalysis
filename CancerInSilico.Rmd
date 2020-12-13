@@ -1,6 +1,4 @@
----
-title: "CancerInSilico"
----
+# CancerInSilico
 
 An R interface for computational modeling of tumor progression
 
@@ -8,21 +6,23 @@ https://bioconductor.org/packages/release/bioc/html/CancerInSilico.html
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-if (!requireNamespace("BiocManager"))
-    install.packages("BiocManager")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+if (!requireNamespace( BiocManager ))
+    install.packages( BiocManager )
 BiocManager::install()
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("CancerInSilico", version = "3.8")
+if (!requireNamespace( BiocManager , quietly = TRUE))
+    install.packages( BiocManager )
+BiocManager::install( CancerInSilico , version =  3.8 )
 library(CancerInSilico)
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-browseVignettes("CancerInSilico")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+browseVignettes( CancerInSilico )
 ```
 
 
@@ -34,7 +34,8 @@ https://bioconductor.org/packages/release/bioc/vignettes/CancerInSilico/inst/doc
 
 ## Run Simple Simulation
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 simple_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
     density=0.1, outputIncrement=24, randSeed=123))
 ```
@@ -43,15 +44,18 @@ simple_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 plotCells(simple_mod, time=0)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 plotCells(simple_mod, time=36)
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 plotCells(simple_mod, time=72)
 ```
 
@@ -61,25 +65,28 @@ plotCells(simple_mod, time=72)
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # hours in simulation
 times <- 0:simple_mod@runTime
 
 # plot number of cells over time
 nCells <- sapply(times, getNumberOfCells, model=simple_mod)
-plot(times, nCells, type="l", xlab="hour", ylab="number of cells")
+plot(times, nCells, type= l , xlab= hour , ylab= number of cells )
 ```
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # plot population density over time
 den <- sapply(times, getDensity, model=simple_mod)
-plot(times, den, type="l", xlab="hour", ylab="population density")
+plot(times, den, type= l , xlab= hour , ylab= population density )
 ```
 
 # Drugs
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-drug <- new("Drug", name="Drug_A", timeAdded=24,
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+drug <- new( Drug , name= Drug_A , timeAdded=24,
     cycleLengthEffect=function(type, length) length * 2)
 drug_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
     density=0.1, drugs=c(drug), outputIncrement=24, randSeed=123))
@@ -87,16 +94,17 @@ drug_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # hours in simulation
 times <- 0:simple_mod@runTime
 
 # plot number of cells over time
 nCells <- sapply(times, getNumberOfCells, model=simple_mod)
 nCells_drug <- sapply(times, getNumberOfCells, model=drug_mod)
-plot(times, nCells, type="l", xlab="hour", ylab="number of cells")
-lines(times, nCells_drug, type="l", xlab="hour", ylab="number of cells",
-    col="red")
+plot(times, nCells, type= l , xlab= hour , ylab= number of cells )
+lines(times, nCells_drug, type= l , xlab= hour , ylab= number of cells ,
+    col= red )
 ```
 
 
@@ -106,23 +114,25 @@ lines(times, nCells_drug, type="l", xlab="hour", ylab="number of cells",
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-type_A <- new("CellType", name="A", minCycle=16, cycleLength=function() 16)
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+type_A <- new( CellType , name= A , minCycle=16, cycleLength=function() 16)
 fast_cells_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
     density=0.1, cellTypes=c(type_A), outputIncrement=24, randSeed=123))
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # hours in simulation
 times <- 0:fast_cells_mod@runTime
 
 # plot number of cells over time
 nCells <- sapply(times, getNumberOfCells, model=simple_mod)
 nCells_fast <- sapply(times, getNumberOfCells, model=fast_cells_mod)
-plot(times, nCells, type="l", xlab="hour", ylab="number of cells")
-lines(times, nCells_fast, type="l", xlab="hour", ylab="number of cells",
-    col="red")
+plot(times, nCells, type= l , xlab= hour , ylab= number of cells )
+lines(times, nCells_fast, type= l , xlab= hour , ylab= number of cells ,
+    col= red )
 ```
 
 
@@ -130,10 +140,11 @@ lines(times, nCells_fast, type="l", xlab="hour", ylab="number of cells",
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-type_B <- new("CellType", name="B", size=1, minCycle=16,
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+type_B <- new( CellType , name= B , size=1, minCycle=16,
     cycleLength=function() 16 + rexp(1,1/4))
-type_C <- new("CellType", name="C", size=1, minCycle=32,
+type_C <- new( CellType , name= C , size=1, minCycle=32,
     cycleLength=function() 32 + rexp(1,1/4))
 two_types_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
     density=0.1, cellTypes=c(type_B, type_C), cellTypeInitFreq=c(0.4,0.6),
@@ -145,7 +156,8 @@ two_types_mod <- suppressMessages(inSilicoCellModel(initialNum=30, runTime=72,
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 getTypeBProportion <- function(time)
 {
     N <- getNumberOfCells(two_types_mod, time)
@@ -153,40 +165,43 @@ getTypeBProportion <- function(time)
 }
 times <- 0:two_types_mod@runTime
 Bprop <- sapply(times, getTypeBProportion)
-plot(times, Bprop, type="l", xlab="hour", ylab="type B proportion")
+plot(times, Bprop, type= l , xlab= hour , ylab= type B proportion )
 ```
 
 
 # Pathways
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-mitosisGeneNames <- paste("m_", letters[1:20], sep="")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+mitosisGeneNames <- paste( m_ , letters[1:20], sep=  )
 mitosisExpression <- function(model, cell, time)
 {
-    ifelse(getCellPhase(model, time, cell) == "M", 1, 0)
+    ifelse(getCellPhase(model, time, cell) ==  M , 1, 0)
 }
 
-pwyMitosis <- new("Pathway", genes=mitosisGeneNames,
+pwyMitosis <- new( Pathway , genes=mitosisGeneNames,
     expressionScale=mitosisExpression)
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-contactInhibitionGeneNames <- paste("ci_", letters[1:15], sep="")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+contactInhibitionGeneNames <- paste( ci_ , letters[1:15], sep=  )
 contactInhibitionExpression <- function(model, cell, time)
 {
     getLocalDensity(model, time, cell, 3.3)
 }
-pwyContactInhibition <- new("Pathway", genes=contactInhibitionGeneNames,
+pwyContactInhibition <- new( Pathway , genes=contactInhibitionGeneNames,
     expressionScale=contactInhibitionExpression)
 ```
 
 
 ## Calibrate Gene Expression Range
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # create simulated data set
 allGenes <- c(mitosisGeneNames, contactInhibitionGeneNames)
 geneMeans <- 2 + rexp(length(allGenes), 1/20)
@@ -201,8 +216,9 @@ pwyContactInhibition <- calibratePathway(pwyContactInhibition, data)
 
 ## Generate Pathway Activity
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-params <- new("GeneExpressionParams")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+params <- new( GeneExpressionParams )
 params@randSeed <- 123 # control this for reporducibility
 params@nCells <- 30 # sample 30 cells at each time point to measure activity
 params@sampleFreq <- 6 # measure activity every 6 hours
@@ -214,11 +230,12 @@ pwyActivity <- inSilicoGeneExpression(simple_mod, pwys, params)$pathways
 
 ## Visualize Pathway Activity
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # mitosis
-plot(seq(0,72,6), pwyActivity[[1]], type="l", col="orange", ylim=c(0,1))
+plot(seq(0,72,6), pwyActivity[[1]], type= l , col= orange , ylim=c(0,1))
 # contact inhibition
-lines(seq(0,72,6), pwyActivity[[2]], col="blue")
+lines(seq(0,72,6), pwyActivity[[2]], col= blue )
 ```
 
 
@@ -227,7 +244,8 @@ lines(seq(0,72,6), pwyActivity[[2]], col="blue")
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 pwyMitosis@expressionScale = function(model, cell, time)
 {
     window <- c(max(time - 2, 0), min(time + 2, model@runTime))
@@ -239,9 +257,9 @@ pwyMitosis@expressionScale = function(model, cell, time)
 pwys <- c(pwyMitosis, pwyContactInhibition)
 pwyActivity <- inSilicoGeneExpression(simple_mod, pwys, params)$pathways
 # mitosis
-plot(seq(0,72,6), pwyActivity[[1]], type="l", col="orange", ylim=c(0,1))
+plot(seq(0,72,6), pwyActivity[[1]], type= l , col= orange , ylim=c(0,1))
 # contact inhibition
-lines(seq(0,72,6), pwyActivity[[2]], col="blue")
+lines(seq(0,72,6), pwyActivity[[2]], col= blue )
 ```
 
 
@@ -249,15 +267,16 @@ lines(seq(0,72,6), pwyActivity[[2]], col="blue")
 ## Normalize Pathway Activity
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 pwyMitosis@transformMidpoint = 0.1  
 pwyMitosis@transformSlope = 5 / 0.1
 pwys <- c(pwyMitosis, pwyContactInhibition)
 pwyActivity <- inSilicoGeneExpression(simple_mod, pwys, params)$pathways
 # mitosis
-plot(seq(0,72,6), pwyActivity[[1]], type="l", col="orange", ylim=c(0,1))
+plot(seq(0,72,6), pwyActivity[[1]], type= l , col= orange , ylim=c(0,1))
 # contact inhibition
-lines(seq(0,72,6), pwyActivity[[2]], col="blue")
+lines(seq(0,72,6), pwyActivity[[2]], col= blue )
 ```
 
 
@@ -265,7 +284,8 @@ lines(seq(0,72,6), pwyActivity[[2]], col="blue")
 
 ## Simulating Microarray Data
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 params@RNAseq <- FALSE # generate microarray data
 params@singleCell <- FALSE # generate bulk data
 params@perError <- 0.1 # parameter for simulated noise
@@ -276,17 +296,18 @@ ge <- inSilicoGeneExpression(simple_mod, pwys, params)$expression
 
 ## Visualize Bulk Gene Expression Data
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 ndx <- apply(ge, 1, var) == 0 # remove zero variance rows
 gplots::heatmap.2(ge[!ndx,], 
-    col = "greenred", scale="row",
-    trace="none", hclust=function(x) hclust(x,method = "complete"),
+    col =  greenred , scale= row ,
+    trace= none , hclust=function(x) hclust(x,method =  complete ),
     distfun=function(x) as.dist((1-cor(t(x)))/2), 
-    Colv=FALSE, dendrogram="row",
+    Colv=FALSE, dendrogram= row ,
     RowSideColors = ifelse(rownames(ge[!ndx,]) %in%
-        mitosisGeneNames, "orange", "blue"),
+        mitosisGeneNames,  orange ,  blue ),
     labRow = FALSE, labCol = seq(0,72,6),
-    main="Bulk Gene Expression from Simple Cell Simulation")
+    main= Bulk Gene Expression from Simple Cell Simulation )
 ```
 
 # Simulating Single Cell Gene Expression Data
@@ -294,15 +315,16 @@ gplots::heatmap.2(ge[!ndx,],
 ## Cell Type Pathways
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # gene names
-B_genes <- paste("b.", letters[1:20], sep="")
-C_genes <- paste("c.", letters[1:20], sep="")
+B_genes <- paste( b. , letters[1:20], sep=  )
+C_genes <- paste( c. , letters[1:20], sep=  )
 
 # pathway behavior
-pwy_B <- new("Pathway", genes=B_genes, expressionScale=
+pwy_B <- new( Pathway , genes=B_genes, expressionScale=
     function(model, cell, time) ifelse(getCellType(model, time, cell)==1, 1, 0))
-pwy_C <- new("Pathway", genes=C_genes, expressionScale=
+pwy_C <- new( Pathway , genes=C_genes, expressionScale=
     function(model, cell, time) ifelse(getCellType(model, time, cell)==2, 1, 0))
 
 # calibrate pathways
@@ -316,7 +338,8 @@ pwy_C <- calibratePathway(pwy_C, data)
 
 ## Simulating Single Cell RNA-seq
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 params@RNAseq <- TRUE
 params@singleCell <- TRUE
 params@dropoutPresent <- TRUE
@@ -326,13 +349,14 @@ ge <- inSilicoGeneExpression(two_types_mod, c(pwy_B, pwy_C), params)$expression
 
 ## Visualize Single Cell Data
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-cells <- unname(sapply(colnames(ge), function(x) strsplit(x,"_")[[1]][1]))
-cells <- as.numeric(gsub("c", "", cells))
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+cells <- unname(sapply(colnames(ge), function(x) strsplit(x, _ )[[1]][1]))
+cells <- as.numeric(gsub( c ,   , cells))
 type <- sapply(cells, getCellType, model=two_types_mod,
     time=two_types_mod@runTime)
-type[type==1] <- "red"
-type[type==2] <- "blue"
+type[type==1] <-  red 
+type[type==2] <-  blue 
 
 pca <- prcomp(ge, center=FALSE, scale.=FALSE)
 plot(pca$rotation[,c(1,2)], col=type)

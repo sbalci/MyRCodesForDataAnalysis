@@ -1,29 +1,31 @@
----
-title: "Survival Analysis in R"
+
+# Survival Analysis in R 
 output: 
     html_document:
         toc: TRUE
         toc_float: TRUE
----
+
 
 This tutorial provides an introduction to survival analysis, and to conducting a survival analysis in R.
 
 This tutorial was originally presented at the Memorial Sloan Kettering Cancer Center R-Presenters series on August 30, 2018.
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # load packages
 library(knitr)
 library(tidyverse)
 library(broom)
 
 # load my package to access msk_palette with MSK brand colors
-devtools::install_github("zabore/ezfun")
+devtools::install_github( zabore/ezfun )
 ```
 
 
-```{r loaddata 2, echo = TRUE}
-# load(here::here("data", "survival_data_example.RData"))
+```
+{r loaddata 2, echo = TRUE}
+# load(here::here( data ,  survival_data_example.RData ))
 ```
 
 
@@ -91,27 +93,28 @@ Specifically these are examples of **right** censoring. Other common types of ce
 
 When the exact event time is unknown then some patients are censored, and survival analysis methods are required.
 
-```{r swimmer 2, eval=FALSE, include=FALSE}
+```
+{r swimmer 2, eval=FALSE, include=FALSE}
 # make fake data
 set.seed(20180809)
 fkdt <- data_frame(Subject = as.factor(1:10), 
                    Years = sample(4:20, 10, replace = T),
-                   censor = sample(c("Censor", rep("Event", 2)), 10, 
+                   censor = sample(c( Censor , rep( Event , 2)), 10, 
                                    replace = T)) 
 # %>% mutate(Subject = fct_reorder(Subject, Years, desc = TRUE))
 
 # plot with shapes to indicate censoring or event
 ggplot(fkdt, aes(Subject, Years)) + 
-    geom_bar(stat = "identity", width = 0.5, 
-             fill = ezfun::msk_palette("main")[3]) + 
+    geom_bar(stat =  identity , width = 0.5, 
+             fill = ezfun::msk_palette( main )[3]) + 
     geom_point(data = fkdt, 
                aes(Subject, Years, color = censor, shape = censor), 
                size = 6) +
-    scale_color_manual(values = ezfun::msk_palette("contrast")[2:3]) +
+    scale_color_manual(values = ezfun::msk_palette( contrast )[2:3]) +
     coord_flip() +
     theme_minimal() + 
     theme(legend.title = element_blank(),
-          legend.position = "bottom")
+          legend.position =  bottom )
 ```
 
 In this example, how would we compute the proportion who are event-free at 10 years?
@@ -125,11 +128,12 @@ In this example, how would we compute the proportion who are event-free at 10 ye
 
 Toy example of a Kaplan-Meier curve for this simple data (details to follow):
 
-```{r eval=FALSE, include=FALSE}
+```
+{r eval=FALSE, include=FALSE}
 library(survival)
-plot(survfit(Surv(Years, ifelse(censor == "Event", 1, 0)) ~ 1, data = fkdt), 
-     xlab = "Years", 
-     ylab = "Survival probability", 
+plot(survfit(Surv(Years, ifelse(censor ==  Event , 1, 0)) ~ 1, data = fkdt), 
+     xlab =  Years , 
+     ylab =  Survival probability , 
      mark.time = T, 
      conf.int = FALSE)
 ```
@@ -148,8 +152,9 @@ Conclusion: Musical genre is associated with early death among musicians.
 
 Problem: this graph does not account for the right-censored nature of the data.
 
-```{r include=FALSE, eval=FALSE, echo = TRUE}
-# include_graphics("./img/musician_death_graph.jpg")
+```
+{r include=FALSE, eval=FALSE, echo = TRUE}
+# include_graphics( ./img/musician_death_graph.jpg )
 ```
 
 
@@ -172,7 +177,7 @@ For subject $i$:
 
 ## Research question of interest
 
-Investigating the "obesity paradox" in kidney cancer patients.
+Investigating the  obesity paradox  in kidney cancer patients.
 
 - Increased BMI associated with risk of kidney cancer
 - Is increased BMI also associated with worse prognosis among kidney cancer patients?
@@ -184,16 +189,17 @@ Investigating the "obesity paradox" in kidney cancer patients.
 - Outcome: overall survival
 - Predictor: BMI
 
-```{r peekdata 2, eval=FALSE, include=FALSE}
-df[, c("os_yrs", "os", "bmi_cat")] %>% 
+```
+{r peekdata 2, eval=FALSE, include=FALSE}
+df[, c( os_yrs ,  os ,  bmi_cat )] %>% 
     head
 ```
 
 Variables:
 
-- "os_yrs": the observed time $Y_i = min(T_i, C_i)$
-- "os": the event indicator $\delta_i$
-- "bmi_cat": 1 = Normal BMI < 25, 2 = Overweight BMI 25-30, 3 = Obese BMI > 30 
+-  os_yrs : the observed time $Y_i = min(T_i, C_i)$
+-  os : the event indicator $\delta_i$
+-  bmi_cat : 1 = Normal BMI < 25, 2 = Overweight BMI 25-30, 3 = Obese BMI > 30 
 
 
 # Preparing data for analysis {.center}
@@ -203,9 +209,9 @@ Variables:
 
 Data will often come with start and end dates rather than pre-calculated survival times. Our data example includes the following variables:
 
-1. "proc_date": Date of surgery
-2. "last_status_date": Date of death or last follow-up
-3. "last_status": Character variable denoting whether the patient is alive, and the cause of death if dead
+1.  proc_date : Date of surgery
+2.  last_status_date : Date of death or last follow-up
+3.  last_status : Character variable denoting whether the patient is alive, and the cause of death if dead
 
 The first step is to make sure these are formatted as dates in R. 
 
@@ -214,25 +220,28 @@ The first step is to make sure these are formatted as dates in R.
 
 First let's look at the current format of our surgery date:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 str(df$proc_date)
 ```
 
 We see this is a character variable in a certain format, but we need it to be formatted as a Date.
 
-```{r format_date1 2, eval=FALSE, include=FALSE}
+```
+{r format_date1 2, eval=FALSE, include=FALSE}
 df <- df %>% 
-    mutate(proc_date_format1 = as.Date(proc_date, format = "%d%b%Y"))
+    mutate(proc_date_format1 = as.Date(proc_date, format =  %d%b%Y ))
 ```
 
 And after formatting we see that surgery date has Date format now:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 str(df$proc_date_format1)
 ```
 
 
-- Note that in base R the format must include the separator as well as the symbol. e.g. if your date is in format m/d/Y then you would need `format = "%m/%d/%Y"`
+- Note that in base R the format must include the separator as well as the symbol. e.g. if your date is in format m/d/Y then you would need `format =  %m/%d/%Y `
 
 - See a full list of date format symbols at [https://www.statmethods.net/input/dates.html](https://www.statmethods.net/input/dates.html)
 
@@ -241,7 +250,8 @@ str(df$proc_date_format1)
 
 We can also use the `lubridate` package to format dates. Again we look at our original surgery date variable:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 str(df$proc_date)
 ```
 
@@ -255,7 +265,8 @@ df <- df %>%
 
 And again we see that `R` now recognizes surgery date as a Date format:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 str(df$proc_date_format2)
 ```
 
@@ -273,11 +284,12 @@ Most functions used in survival analysis will also require a binary indicator of
 
 Currently our data example contains a character variable indicating whehter the patient is alive, and if not indicating the cause of death, so we must create a binary indicator.
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 table(df$last_status, useNA = 'ifany')
 
 df <- df %>% 
-    mutate(os_event = ifelse(last_status == "Alive", 0, 1))
+    mutate(os_event = ifelse(last_status ==  Alive , 0, 1))
 
 table(df$os_event)
 ```
@@ -289,11 +301,12 @@ Now that we have our dates formatted, we need to calculate the difference betwee
 
 A base `R` solution to calculate the number of years from surgery to death:
 
-```{r include=FALSE, eval=FALSE, echo = TRUE}
+```
+{r include=FALSE, eval=FALSE, echo = TRUE}
 # need to actually properly format the real dates for use
 df <- df %>% 
-    mutate(proc_date = as.Date(proc_date, format = "%d%b%Y"),
-           last_status_date = as.Date(last_status_date, format = "%d%b%Y"))
+    mutate(proc_date = as.Date(proc_date, format =  %d%b%Y ),
+           last_status_date = as.Date(last_status_date, format =  %d%b%Y ))
 ```
 
 
@@ -301,11 +314,12 @@ df <- df %>%
 {r difftime_ex1 2}
 df <- df %>% 
     mutate(os_yrs_opt1 = as.numeric(difftime(last_status_date, proc_date, 
-                                             units = "days")) / 365.25)
+                                             units =  days )) / 365.25)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(df$os_yrs_opt1)
 ```
 
@@ -330,7 +344,8 @@ df <- df %>%
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(df$os_yrs_opt2)
 ```
 
@@ -357,7 +372,8 @@ The Kaplan-Meier method is the most common way to estimate survival times and pr
 
 - The `Surv` function from the `survival` package creates a survival object for use as the response in a model formula. There will be one entry for each subject that is the survival time, which is followed by a `+` if the subject was censored. Let's look at the first 10 observations:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 survival::Surv(df$os_yrs, df$os)[1:10]
 ```
 
@@ -366,7 +382,8 @@ survival::Surv(df$os_yrs, df$os)[1:10]
 
 - The `survival::survfit` function creates survival curves based on a formula. Let's generate the overall survival curve for the entire cohort, assign it to object `f1`, and look at the `names` of that object:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 f1 <- survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df)
 names(f1)
 ```
@@ -381,10 +398,11 @@ Some key components of this `survfit` object that will be used to create surviva
 
 Now we plot the `survfit` object in base `R` to get the Kaplan-Meier plot:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 plot(survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df), 
-     xlab = "Years", 
-     ylab = "Overall survival probability")
+     xlab =  Years , 
+     ylab =  Overall survival probability )
 ```
 
 - The default plot in base `R` shows the step function (solid line) with associated confidence intervals (dotted lines). Note that the tick marks for censored patients are not shown by default, but could be added using `mark.time = TRUE`
@@ -398,8 +416,8 @@ Alternatively, the `ggsurvplot` function from the `survminer` package is built o
 {r, message = FALSE, warning = FALSE}
 survminer::ggsurvplot(
     fit = survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df), 
-    xlab = "Years", 
-    ylab = "Overall survival probability")
+    xlab =  Years , 
+    ylab =  Overall survival probability )
 ```
 
 - The default plot using `survminer::ggsurvplot` shows the step function (solid line) with associated confidence bands (shaded area). The tick marks for censored patients are shown by default, somewhat obscuring the line itself in this example, and could be supressed using `censor = FALSE`
@@ -410,7 +428,8 @@ One quantity often of interest in a survival analysis is the probability of surv
 
 For example, to estimate the probability of survivng to 5 years, use `summary` with the `times` argument:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df), 
         times = 5)
 ```
@@ -426,17 +445,17 @@ The 5-year survival probability is the point on the y-axis that corresponds to 5
 {r, message = FALSE, echo = TRUE}
 survplot1 <- survminer::ggsurvplot(survival::survfit(
     survival::Surv(os_yrs, os) ~ 1, data = df), 
-           xlab = "Years",
-           ylab = "Overall survival probability",
+           xlab =  Years ,
+           ylab =  Overall survival probability ,
            break.x.by = 5, 
-           palette = ezfun::msk_palette("main")) +
+           palette = ezfun::msk_palette( main )) +
     geom_segment(x = 5, xend = 5, y = -1, yend = 0.808, col = 2, lwd = 2) +
     geom_segment(x = 5, xend = -0.7, y = 0.808, yend = 0.808, 
-                 arrow = arrow(length = unit(0.3, "inches")), col = 2, 
+                 arrow = arrow(length = unit(0.3,  inches )), col = 2, 
                  lwd = 2)
 
 survplot1$plot <- survplot1$plot +
-    annotate("text", x = 0.2, y = 0.7, label = "81%", size = 6, col = 2)
+    annotate( text , x = 0.2, y = 0.7, label =  81% , size = 6, col = 2)
 
 survplot1
 ```
@@ -444,7 +463,7 @@ survplot1
 
 ## $x$-year survival is often estimated incorrectly 
 
-What happens if you use a "naive" estimate? 
+What happens if you use a  naive  estimate? 
 
 `{r #  table(df$os[df$os_yrs <= 5])[2]` of the `{r #  nrow(df)` patients died by 5 years so:
 
@@ -461,11 +480,12 @@ Another quantity often of interest in a survival analysis is the average surviva
 
 We can obtain this directly from our `survfit` object:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 survival::survfit(survival::Surv(os_yrs, os) ~ 1, data = df)
 ```
 
-We see the median survival time is `{r #  round(summary(f1)$table["median"], 1)` years. The lower and upper bounds of the 95\% confidence interval are also displayed.
+We see the median survival time is `{r #  round(summary(f1)$table[ median ], 1)` years. The lower and upper bounds of the 95\% confidence interval are also displayed.
 
 
 ## Median survival time and the survival curve
@@ -476,18 +496,18 @@ Median survival is the time corresponding to a survival probability of 0.5:
 {r, message = FALSE, echo = TRUE}
 survplot2 <- survminer::ggsurvplot(survival::survfit(
     survival::Surv(os_yrs, os) ~ 1, data = df), 
-           xlab = "Years",
-           ylab = "Overall survival probability",
+           xlab =  Years ,
+           ylab =  Overall survival probability ,
            break.x.by = 5, 
-           palette = ezfun::msk_palette("main")) +
+           palette = ezfun::msk_palette( main )) +
     geom_segment(x = -1, xend = 12.6794, y = 0.5, yend = 0.5, 
                  col = 2, lwd = 2) +
     geom_segment(x = 12.6794, xend = 12.6794, y = 0.5, yend = -0.02, 
-                 arrow = arrow(length = unit(0.3, "inches")), col = 2, 
+                 arrow = arrow(length = unit(0.3,  inches )), col = 2, 
                  lwd = 2)
 
 survplot2$plot <- survplot2$plot +
-    annotate("text", x = 9.5, y = 0.02, label = "12.7 years", size = 6, col = 2)
+    annotate( text , x = 9.5, y = 0.02, label =  12.7 years , size = 6, col = 2)
 
 survplot2
 ```
@@ -495,18 +515,19 @@ survplot2
 
 ## Median survival is often estimated incorrectly
 
-What happens if you use a "naive" estimate? 
+What happens if you use a  naive  estimate? 
 
 Summarize the median survival time among the `{r #  table(df$os)[2]` patients who died:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 df$os_yrs[df$os == 1] %>% 
     median
 ```
 
 - You get an **incorrect** estimate of median survival time of `{r #  round(median(df$os_yrs[df$os == 1]), 1)` years when you ignore the fact that censored patients also contribute follow-up time.
 
-- Recall the **correct** estimate of median survival time is `{r #  round(summary(f1)$table["median"], 1)` years.
+- Recall the **correct** estimate of median survival time is `{r #  round(summary(f1)$table[ median ], 1)` years.
 
 
 # Comparing survival times between groups {.center}
@@ -529,12 +550,12 @@ Let's also look at some other customization we can do with `survminer::ggsurvplo
 {r fig.height = 6}
 survminer::ggsurvplot(
     fit = survival::survfit(survival::Surv(os_yrs, os) ~ bmi_cat, data = df), 
-    xlab = "Years",
-    ylab = "Overall survival probability",
-    legend.title = "BMI",
-    legend.labs = c("Normal", "Overweight", "Obese"),
+    xlab =  Years ,
+    ylab =  Overall survival probability ,
+    legend.title =  BMI ,
+    legend.labs = c( Normal ,  Overweight ,  Obese ),
     break.x.by = 5, 
-    palette = ezfun::msk_palette("contrast"), 
+    palette = ezfun::msk_palette( contrast ), 
     censor = FALSE,
     risk.table = TRUE,
     risk.table.y.text = FALSE)
@@ -548,18 +569,20 @@ survminer::ggsurvplot(
 
 As before, we can get an estimate of, for example, 5-year survival by using `summary` with the `times` argument in our `survival::survfit` object:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 summary(survival::survfit(survival::Surv(os_yrs, os) ~ bmi_cat, data = df), 
         times = 5)
 ```
 
 To summarize:
 
-```{r eval=FALSE, include=FALSE}
+```
+{r eval=FALSE, include=FALSE}
 library(survival)
-tab <- ezfun::uvsurv(NULL, "bmi_cat", "os", "os_yrs", 5, df)[-1, c(1, 3)]
-colnames(tab) <- c("BMI", "5-year estimate (95% CI)")
-tab[, 1] <- c("Normal", "Overweight", "Obese")
+tab <- ezfun::uvsurv(NULL,  bmi_cat ,  os ,  os_yrs , 5, df)[-1, c(1, 3)]
+colnames(tab) <- c( BMI ,  5-year estimate (95% CI) )
+tab[, 1] <- c( Normal ,  Overweight ,  Obese )
 kable(tab, row.names = FALSE)
 ```
 
@@ -572,7 +595,8 @@ kable(tab, row.names = FALSE)
 
 We get the log-rank p-value using the `survival::survdiff` function:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 survival::survdiff(survival::Surv(df$os_yrs, df$os) ~ df$bmi_cat)
 ```
 
@@ -607,7 +631,8 @@ survival::coxph(survival::Surv(os_yrs, os) ~ factor(bmi_cat), data = df)
 
 We can see a tidy version of the output using the `tidy` function from the `broom` package:
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 broom::tidy(survival::coxph(survival::Surv(os_yrs, os) ~ factor(bmi_cat), 
                             data = df))
 ```

@@ -1,7 +1,7 @@
----
-title: "tidycells"
-output: html_notebook
----
+
+# tidycells 
+
+
 
 # tidyxl
 
@@ -12,23 +12,26 @@ https://github.com/nacnudus/tidyxl
 
 # tidycells
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-# remotes::install_github("nacnudus/tidyxl")
-# remotes::install_github("r-rudra/tidycells")
-# install.packages("tidycells")
-# install.packages("tidyxl")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# remotes::install_github( nacnudus/tidyxl )
+# remotes::install_github( r-rudra/tidycells )
+# install.packages( tidycells )
+# install.packages( tidyxl )
 library(tidycells)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-system.file("extdata", "marks.xlsx", package = "tidycells", mustWork = TRUE)
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+system.file( extdata ,  marks.xlsx , package =  tidycells , mustWork = TRUE)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 # you should have tidyxl installed
-system.file("extdata", "marks.xlsx", package = "tidycells", mustWork = TRUE) %>% 
+system.file( extdata ,  marks.xlsx , package =  tidycells , mustWork = TRUE) %>% 
   read_cells()
 ```
 

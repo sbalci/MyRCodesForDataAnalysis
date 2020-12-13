@@ -1,6 +1,6 @@
----
-title: "The Lesser Known Stars of the Tidyverse"
----
+
+# The Lesser Known Stars of the Tidyverse 
+
 
 ```
 slug: the-lesser-known-stars-of-the-tidyverse
@@ -9,7 +9,7 @@ tags:
 - R
 - Code
 categories: []
-output: html_notebook
+
 ```
 
 
@@ -18,14 +18,14 @@ output: html_notebook
 
 # Webinar: Tidyverse Exploratory Analysis (Emily Robinson)
 
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F726282547396228%2Fvideos%2F584417861986887%2F&show_text=1&width=560" width="560" height="529" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>  
+<iframe src= https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F726282547396228%2Fvideos%2F584417861986887%2F&show_text=1&width=560  width= 560  height= 529  style= border:none;overflow:hidden  scrolling= no  frameborder= 0  allowTransparency= true  allow= encrypted-media  allowFullScreen= true ></iframe>  
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uG3igAGX7UE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+<iframe width= 560  height= 315  src= https://www.youtube.com/embed/uG3igAGX7UE  frameborder= 0  allow= accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture  allowfullscreen></iframe>  
 
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ax4LXQ5t38k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+<iframe width= 560  height= 315  src= https://www.youtube.com/embed/ax4LXQ5t38k  frameborder= 0  allow= accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture  allowfullscreen></iframe>  
 
 
 https://hookedondata.org/the-lesser-known-stars-of-the-tidyverse/  
@@ -53,7 +53,7 @@ theme_set(theme_bw())
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
-multiple_choice_responses_base <- read.csv("data/multipleChoiceResponses.csv")
+multiple_choice_responses_base <- read.csv( data/multipleChoiceResponses.csv )
 ```
 
 
@@ -89,17 +89,17 @@ multiple_choice_responses_base %>%
   count(StudentStatus) 
 ```
 
-Yep. We see here we have a lot of `""` entries instead of NAs. We can correct this with `na_if` from `dplyr`, which takes as an argument what we want to turn into NAs. We can also use `%<>%`, which is a reassignment pipe. While this is nice to save some typing, it can make it confusing when reading a script, so use with caution. 
+Yep. We see here we have a lot of `  ` entries instead of NAs. We can correct this with `na_if` from `dplyr`, which takes as an argument what we want to turn into NAs. We can also use `%<>%`, which is a reassignment pipe. While this is nice to save some typing, it can make it confusing when reading a script, so use with caution. 
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
 multiple_choice_responses_base %<>%
-  na_if("")
+  na_if(  )
 
 ## is the same as: 
 
 multiple_choice_responses_base <- multiple_choice_responses_base %>%
-  na_if("")
+  na_if(  )
 ```
 
 Now let's count the NAs again. 
@@ -122,7 +122,7 @@ If you're not familiar with `::`, it's for explicitly setting what package you'r
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
-multiple_choice_responses <- readr::read_csv("multipleChoiceResponses.csv")
+multiple_choice_responses <- readr::read_csv( multipleChoiceResponses.csv )
 ```
 
 
@@ -137,7 +137,7 @@ We see each row and column where a problem occurs. What's happening is that `{r 
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
-multiple_choice_responses <- readr::read_csv("multipleChoiceResponses.csv", 
+multiple_choice_responses <- readr::read_csv( multipleChoiceResponses.csv , 
                                              guess_max = nrow(multiple_choice_responses))
 ```
 
@@ -153,7 +153,7 @@ colnames(multiple_choice_responses) %>%
   head(20)
 ```
 
-We can see that there were categories of questions, like "LearningPlatform," with each platform having its own column.
+We can see that there were categories of questions, like  LearningPlatform,  with each platform having its own column.
 
 Now let's take a look at our numeric columns with [skimr](https://github.com/ropensci/skimr). Skimr is a package from [rOpenSci](https://ropensci.org/) that allows you to quickly view summaries of your data. We  can use `select_if`  to select only columns where a certain condition, in this case whether it's a numeric column, is true.  
 
@@ -175,7 +175,7 @@ multiple_choice_responses %>%
   select(1:10)
 ```
 
-This data would be more helpful if it was tidy and had two columns, `question` and `num_distinct_answers`. We can use `tidyr::gather` to change our data from "wide" to "long" format and then `arrange` it so we can see the columns with the most distinct answers first. If you've used (or are still using!) reshape2, check out tidyr; reshape2 is retired and is only updated with changes necessary for it to remain on CRAN. While not exactly equivalent, `tidyr::spread` replaces `{r # eshape2::dcast`, `tidyr::separate` `{r # eshape2::colsplit`, and `tidyr::gather` `{r # eshape2::melt`. 
+This data would be more helpful if it was tidy and had two columns, `question` and `num_distinct_answers`. We can use `tidyr::gather` to change our data from  wide  to  long  format and then `arrange` it so we can see the columns with the most distinct answers first. If you've used (or are still using!) reshape2, check out tidyr; reshape2 is retired and is only updated with changes necessary for it to remain on CRAN. While not exactly equivalent, `tidyr::spread` replaces `{r # eshape2::dcast`, `tidyr::separate` `{r # eshape2::colsplit`, and `tidyr::gather` `{r # eshape2::melt`. 
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
@@ -195,14 +195,14 @@ multiple_choice_responses %>%
 
 We can see this is a multiple select question, where if a person selected multiple answers they're listed as one entry, separated by commas. Let's tidy it up. 
 
-First, let's get rid of the NAs. We can use `!is.na(WorkMethodsSelect)`, short for `is.na(WorkMethodsSelect) == FALSE`, to filter out NAs. We then use `str_split`, from stringr, to divide the entries up. `str_split(WorkMethodsSelect, ",")`  says "Take this string and split it into a list by dividing it where there are `,`s." 
+First, let's get rid of the NAs. We can use `!is.na(WorkMethodsSelect)`, short for `is.na(WorkMethodsSelect) == FALSE`, to filter out NAs. We then use `str_split`, from stringr, to divide the entries up. `str_split(WorkMethodsSelect,  , )`  says  Take this string and split it into a list by dividing it where there are `,`s.  
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
 nested_workmethods <- multiple_choice_responses %>%
   select(WorkMethodsSelect) %>%
   filter(!is.na(WorkMethodsSelect)) %>%
-  mutate(work_method = str_split(WorkMethodsSelect, ",")) 
+  mutate(work_method = str_split(WorkMethodsSelect,  , )) 
 
 nested_workmethods %>%
   select(work_method)
@@ -231,17 +231,17 @@ We see the classic methods of data visualization, logistic regression, and cross
 
 ### Graphing Frequency of Different Work Challenges 
 
-Now let's move on to understanding what challenges people face at work. This was one of those categories where there were multiple questions asked, all having names starting with `WorkChallengeFrequency` and ending with the challenge (e.g "DirtyData"). 
+Now let's move on to understanding what challenges people face at work. This was one of those categories where there were multiple questions asked, all having names starting with `WorkChallengeFrequency` and ending with the challenge (e.g  DirtyData ). 
 
 We can find the relevant columns by using the dplyr `select` helper `contains`. We then use `gather` to tidy the data for analysis, filter for only the non-NAs, and remove the `WorkChallengeFrequency` from each question using `stringr::str_remove`. 
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
 WorkChallenges <- multiple_choice_responses %>%
-  select(contains("WorkChallengeFrequency")) %>%
+  select(contains( WorkChallengeFrequency )) %>%
   gather(question, response) %>%
   filter(!is.na(response)) %>%
-  mutate(question = stringr::str_remove(question, "WorkChallengeFrequency")) 
+  mutate(question = stringr::str_remove(question,  WorkChallengeFrequency )) 
 
 WorkChallenges
 ```
@@ -261,22 +261,22 @@ This graph has two main problems. First, there are too many histograms for it to
 ```
 {r WorkChallenges_graph2, fig.width = 9, fig.height = 6}
 WorkChallenges %>%
-  mutate(response = fct_relevel(response, "Rarely", "Sometimes", 
-                                "Often", "Most of the time")) %>%
+  mutate(response = fct_relevel(response,  Rarely ,  Sometimes , 
+                                 Often ,  Most of the time )) %>%
   ggplot(aes(x = response)) + 
   geom_bar() + 
   facet_wrap(~question) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-Now we've got the x-axis in the order we want it. Let's try dichotomizing the variable by grouping "most of the time" and "often" together as the person considering something a challenge. We can use `if_else` and `%in%`. `%in%` is equivalent to `{r # esponse == "Most of the time" | response == "Often"` and can save you a lot of typing if you have a bunch of variables to match. 
+Now we've got the x-axis in the order we want it. Let's try dichotomizing the variable by grouping  most of the time  and  often  together as the person considering something a challenge. We can use `if_else` and `%in%`. `%in%` is equivalent to `{r # esponse ==  Most of the time  | response ==  Often ` and can save you a lot of typing if you have a bunch of variables to match. 
 
 Grouping by the question, we can use `summarise` to reduce the dataset to one row per question, adding the variable `perc_problem` for the percentage of responses that thought something was a challenge often or most of the time. This way, we can make one graph with data for all the questions and easily compare them. 
 
 ```
 {r eval=FALSE, include=FALSE, echo=TRUE}
 perc_problem_work_challenge <- WorkChallenges %>%
-  mutate(response = if_else(response %in% c("Most of the time", "Often"), 1, 0)) %>%
+  mutate(response = if_else(response %in% c( Most of the time ,  Often ), 1, 0)) %>%
   group_by(question) %>%
   summarise(perc_problem = mean(response)) 
 ```
@@ -299,15 +299,15 @@ ggplot(perc_problem_work_challenge,
            y = fct_reorder(question, perc_problem))) + 
   geom_point() +
   scale_x_continuous(labels = scales::percent) + 
-  labs(y = "Work Challenge", 
-       x = "Percentage of people encountering challenge frequently")
+  labs(y =  Work Challenge , 
+       x =  Percentage of people encountering challenge frequently )
 ```
 
 Much better! You can now easily tell which work challenges are encountered most frequently. 
 
 ### Conclusion
 
-I'm a big advocate of using and teaching the tidyverse for data analysis and visualization in R (it runs [in the family](http://varianceexplained.org/r/teach-tidyverse/)). In addition to doing these talks, I've released a DataCamp course on [Categorical Data in the Tidyverse](https://www.datacamp.com/courses/categorical-data-in-the-tidyverse). I walk through some of the functions in this course and more from forcats. It's part of the new [Tidyverse Fundamentals skill track](https://www.datacamp.com/tracks/tidyverse-fundamentals), which is suitable for people are new to R or those looking to switch to the tidyverse. Check it out and let us know what you think. 
+I'm a big advocate of using and teaching the tidyverse for data analysis and visualization in R (it runs [in the family](http://varianceexplained.org/r/teach-tidyverse/)). In addition to doing these talks, I've released a  course on [Categorical Data in the Tidyverse](https://www..com/courses/categorical-data-in-the-tidyverse). I walk through some of the functions in this course and more from forcats. It's part of the new [Tidyverse Fundamentals skill track](https://www..com/tracks/tidyverse-fundamentals), which is suitable for people are new to R or those looking to switch to the tidyverse. Check it out and let us know what you think. 
 
 Some other good resources for learning the tidyverse are Hadley Wickham and Garrett Grolemund's free [R for Data Science book](http://r4ds.had.co.nz/) and [RStudio's cheat sheets](https://www.rstudio.com/resources/cheatsheets/). If you have questions, I recommend using the [tidyverse section of RStudio community](https://community.rstudio.com/c/tidyverse) and/or the #rstats hashtag on Twitter. If you do, make sure you include a reproducible example (see best practices [here](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)) with the [reprex package](https://reprex.tidyverse.org/articles/articles/magic-reprex.html)!
 

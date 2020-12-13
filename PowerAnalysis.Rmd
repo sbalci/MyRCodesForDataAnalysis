@@ -1,6 +1,6 @@
----
-title: "Power Analysis"
----
+
+# Power Analysis 
+
 
 
 - A Practical Primer To Power Analysis for Simple Experimental Designs. 

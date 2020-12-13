@@ -2508,9 +2508,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>To make slides work offline, you need to download a copy of remark.js in advance, because <strong>xaringan</strong> uses the online version by default (see the help page <code>?xaringan::moon_reader</code>).</p></li>
 <li><p>You can use <code>xaringan::summon_remark()</code> to download the latest or a specified version of remark.js. By default, it is downloaded to <code>libs/remark-latest.min.js</code>.</p></li>
 <li><p>Then change the <code>chakra</code> option in YAML to point to this file, e.g.</p>
-<div class="sourceCode" id="cb391"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb391-1"><a href="some-tips-15.html#cb391-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb391-2"><a href="some-tips-15.html#cb391-2"></a><span class="at">  xaringan:</span><span class="fu">:moon_reader</span><span class="kw">:</span></span>
-<span id="cb391-3"><a href="some-tips-15.html#cb391-3"></a><span class="at">    </span><span class="fu">chakra</span><span class="kw">:</span><span class="at"> libs/remark-latest.min.js</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb390"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb390-1"><a href="some-tips-15.html#cb390-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb390-2"><a href="some-tips-15.html#cb390-2"></a><span class="at">  xaringan:</span><span class="fu">:moon_reader</span><span class="kw">:</span></span>
+<span id="cb390-3"><a href="some-tips-15.html#cb390-3"></a><span class="at">    </span><span class="fu">chakra</span><span class="kw">:</span><span class="at"> libs/remark-latest.min.js</span></span></code></pre></div></li>
 <li><p>If you used Google fonts in slides (the default theme uses <em>Yanone Kaffeesatz</em>, <em>Droid Serif</em>, and <em>Source Code Pro</em>), they won’t work offline unless you download or install them locally. The Heroku app <a href="https://google-webfonts-helper.herokuapp.com/fonts">google-webfonts-helper</a> can help you download fonts and generate the necessary CSS.</p></li>
 </ul>
 <hr />

@@ -1,7 +1,7 @@
----
-title: "Reproducible Research"
-output: html_notebook
----
+
+# Reproducible Research 
+
+
 
 - karthik/binder-test
 
@@ -71,23 +71,23 @@ https://noamross.github.io/redoc/
 
 
 ```
----
+
 output:
   redoc::rdocx_reversible:
     keep_md: TRUE
     highlight_outputs: TRUE
----
+
 ```
 
 
 ```
-redoc::undoc("reversible2.docx")
+redoc::undoc( reversible2.docx )
 redoc::undoc(file.choose())
 ```
 
 
 ```
-redoc::redoc_extract_rmd("reversible.docx")
+redoc::redoc_extract_rmd( reversible.docx )
 ```
 
 
@@ -137,16 +137,16 @@ https://github.com/ColinFay/ronline
 
 ```
 Sys.setenv(
-  DSN = "database_name",
-  UID = "User ID",
-  PASS = "Password"
+  DSN =  database_name ,
+  UID =  User ID ,
+  PASS =  Password 
 )
 
 db <- DBI::dbConnect(
   drv = odbc::odbc(),
-  dsn = Sys.getenv("DSN"),
-  uid = Sys.getenv("UID"),
-  pwd = Sys.getenv("PASS")
+  dsn = Sys.getenv( DSN ),
+  uid = Sys.getenv( UID ),
+  pwd = Sys.getenv( PASS )
 )
 ```
 

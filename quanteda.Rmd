@@ -1,6 +1,6 @@
----
-title: "Text Data"
----
+
+# Text Data 
+
 
 # quanteda: Quantitative Analysis of Textual Data
 
@@ -19,11 +19,12 @@ https://quanteda.io/articles/pkgdown/quickstart.html
 
 
 
-```{r download package}
+```
+{r download package}
 # devtools package required to install quanteda from Github 
-# devtools::install_github("quanteda/quanteda") 
-# install.packages("quanteda")
-# install.packages("readtext")
+# devtools::install_github( quanteda/quanteda ) 
+# install.packages( quanteda )
+# install.packages( readtext )
 ```
 
 
@@ -77,8 +78,9 @@ https://github.com/quanteda/readtext
 
 # footer
 
-```{r citation 2}
-citation(package = "quanteda")
+```
+{r citation 2}
+citation(package =  quanteda )
 ```
 
 

@@ -1,18 +1,19 @@
----
+
 title: R ile analize başlarken^[Bu bir derlemedir, mümkün mertebe alıntılara referans
   vermeye çalıştım.]
----
+
 
 <!-- Open all links in new tab-->  
-<base target="_blank"/>   
+<base target= _blank />   
 
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b">  
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type= text/javascript  src= //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc36900a405090b >  
 </script>
 
-<!-- [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www.datacamp.com/community/tutorials/data-science-pitfalls) -->
+<!-- [![](http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1530113077/Image_2_vfy48b.png)](https://www..com/community/tutorials/data-science-pitfalls) -->
 
 
-```{r setup global chunk settings, include=FALSE}
+```
+{r setup global chunk settings, include=FALSE}
 knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE,
@@ -47,7 +48,7 @@ https://rpubs.com/sbalci/CV
 
 
 
----
+
 
 # R generation
 
@@ -60,12 +61,13 @@ https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x
 ![:scale 30%](https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg)
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-knitr::include_graphics(path = "https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+knitr::include_graphics(path =  https://wol-prod-cdn.literatumonline.com/cms/attachment/1a49c07b-b56f-4327-8e92-7827ef51a7bb/sign1169-gra-0002-m.jpg )
 ```
 
 
----
+
 
 # R yükleme
 
@@ -75,21 +77,21 @@ http://www.youtube.com/watch?v=XcBLEVknqvY
 ![What is R?](http://img.youtube.com/vi/XcBLEVknqvY/0.jpg)
 
 
----
+
 
 
 ## R-project
 
 https://cran.r-project.org/
 
----
+
 
 ## RStudio
 
 
 ![](https://ismayc.github.io/talks/ness-infer/img/engine.png)
 
----
+
 
 ### RStudio
 
@@ -99,7 +101,7 @@ https://cran.r-project.org/
 
 [https://moderndive.com/2-getting-started.html](https://moderndive.com/2-getting-started.html)
 
----
+
 
 ### RStudio
 
@@ -108,7 +110,7 @@ https://cran.r-project.org/
 
 
 
----
+
 
 ### RStudio eklentileri
 
@@ -120,11 +122,11 @@ https://rstudio.github.io/rstudioaddins/
 
 
 ```
-devtools::install_github("rstudio/addinexamples", type = "source")
+devtools::install_github( rstudio/addinexamples , type =  source )
 ```
 
 
----
+
 
 ## MacOS için
 
@@ -136,7 +138,7 @@ https://www.xquartz.org/
 
 https://support.apple.com/kb/dl1572
 
----
+
 
 
 # R zor şeyler için kolay, kolay şeyler için zor
@@ -152,13 +154,13 @@ R Syntax Comparison::CHEAT SHEET
 https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 
----
 
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a> — There are always several ways to do the same thing... nice example on with the identity matrix by <a href="https://twitter.com/TeaStats?ref_src=twsrc%5Etfw">@TeaStats</a> <a href="https://t.co/O3GXdPiM32">https://t.co/O3GXdPiM32</a></p>&mdash; Colin Fay 🤘 (@_ColinFay) <a href="https://twitter.com/_ColinFay/status/1112746633467518977?ref_src=twsrc%5Etfw">April 1, 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
----
+<blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr ><a href= https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw >#RStats</a> — There are always several ways to do the same thing... nice example on with the identity matrix by <a href= https://twitter.com/TeaStats?ref_src=twsrc%5Etfw >@TeaStats</a> <a href= https://t.co/O3GXdPiM32 >https://t.co/O3GXdPiM32</a></p>&mdash; Colin Fay 🤘 (@_ColinFay) <a href= https://twitter.com/_ColinFay/status/1112746633467518977?ref_src=twsrc%5Etfw >April 1, 2019</a></blockquote>
+<script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script>
+
+
 
 
 # R paketleri
@@ -168,19 +170,19 @@ https://www.amelia.mn/Syntax-cheatsheet.pdf
 
 [![](https://ismayc.github.io/talks/ness-infer/img/appstore.png)](https://ismayc.github.io/talks/ness-infer/slide_deck.html#7)
 
----
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I love the <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> community.<br>Someone is like, &quot;oh hey peeps, I saw a big need for this mundane but difficult task that I infrequently do, so I created a package that will literally scrape the last bits of peanut butter out of the jar for you. It&#39;s called pbplyr.&quot;<br>What a tribe.</p>&mdash; Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly_Data) <a href="https://twitter.com/Frankly_Data/status/1014189095294291968?ref_src=twsrc%5Etfw">July 3, 2018</a></blockquote>
 
-<!-- --- -->
+<script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script><blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr >I love the <a href= https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw >#rstats</a> community.<br>Someone is like, &quot;oh hey peeps, I saw a big need for this mundane but difficult task that I infrequently do, so I created a package that will literally scrape the last bits of peanut butter out of the jar for you. It&#39;s called pbplyr.&quot;<br>What a tribe.</p>&mdash; Frank Elavsky ᴰᵃᵗᵃ ᵂᶦᶻᵃʳᵈ (@Frankly_Data) <a href= https://twitter.com/Frankly_Data/status/1014189095294291968?ref_src=twsrc%5Etfw >July 3, 2018</a></blockquote>
+
+<!--  -->
 
 <!-- https://blog.mitchelloharawild.com/blog/user-2018-feature-wall/ -->
 
----
+
 
 ![](https://blog.mitchelloharawild.com/blog/2018-07-11-user-2018-feature-wall_files/final.jpg)
 
----
+
 
 ## Paketleri nereden bulabiliriz
 
@@ -206,7 +208,7 @@ https://github.com/RhoInc/CRANsearcher
 - Awesome R  
 https://awesome-r.com/  
 
----
+
 
 ## Kendi paket evrenini oluştur
 
@@ -214,20 +216,20 @@ https://awesome-r.com/
 https://cran.r-project.org/web/packages/pkgverse/index.html
 
 
----
+
 
 ## R paket yükleme
 
 ```
 {r # 
-install.packages("tidyverse", dependencies = TRUE)
-install.packages("jmv", dependencies = TRUE)
-install.packages("questionr", dependencies = TRUE)
-install.packages("Rcmdr", dependencies = TRUE)
-install.packages("summarytools")
+install.packages( tidyverse , dependencies = TRUE)
+install.packages( jmv , dependencies = TRUE)
+install.packages( questionr , dependencies = TRUE)
+install.packages( Rcmdr , dependencies = TRUE)
+install.packages( summarytools )
 ```
 
----
+
 
 ## Paket çağırma
 
@@ -242,7 +244,7 @@ library(gganimate)
 
 
 
----
+
 
 # R için yardım bulma
 
@@ -253,16 +255,16 @@ library(gganimate)
 ??efetch
 help(merge)
 example(merge)
-RSiteSearch("shiny")
+RSiteSearch( shiny )
 ```
 
----
+
 
 - Vignette
 
 ![:scale 80%](figures/vignette.png)
 
----
+
 
 - RDocumentation
 https://www.rdocumentation.org
@@ -278,17 +280,17 @@ https://stackoverflow.com/
 
 - Google uygun anahtar kelime
 
----
-
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">How I use <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <br>h/t <a href="https://twitter.com/ThePracticalDev?ref_src=twsrc%5Etfw">@ThePracticalDev</a> <a href="https://t.co/erRnTG0Ujr">pic.twitter.com/erRnTG0Ujr</a></p>&mdash; Emily Bovee (@ebovee09) <a href="https://twitter.com/ebovee09/status/1028037594947485696?ref_src=twsrc%5Etfw">August 10, 2018</a></blockquote>
 
 
----
+<script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script><blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr >How I use <a href= https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw >#rstats</a> <br>h/t <a href= https://twitter.com/ThePracticalDev?ref_src=twsrc%5Etfw >@ThePracticalDev</a> <a href= https://t.co/erRnTG0Ujr >pic.twitter.com/erRnTG0Ujr</a></p>&mdash; Emily Bovee (@ebovee09) <a href= https://twitter.com/ebovee09/status/1028037594947485696?ref_src=twsrc%5Etfw >August 10, 2018</a></blockquote>
+
+
+
 
 
 ![](figures/Google-package-name.png)
 
----
+
 
 
 
@@ -298,7 +300,7 @@ https://stackoverflow.com/
 - Google'da ararken `[R]` yazmak da işe yarayabiliyor.
 
 
----
+
 
 - searcher package 📦
 
@@ -307,7 +309,7 @@ https://stackoverflow.com/
 
 
 
----
+
 
 - Awesome Cheatsheet
 https://github.com/detailyang/awesome-cheatsheet
@@ -328,18 +330,18 @@ https://awesome-r.com/
 
 https://twitter.com/hashtag/rstats?src=hash
 
----
+
 
 
 - Use Reproducible Examples When Asking  
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Got a question to ask on <a href="https://twitter.com/SlackHQ?ref_src=twsrc%5Etfw">@SlackHQ</a> or post on <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@github</a>? No time to read the long post on how to use reprex? Here is a 20-second gif for you to format your R codes nicely and for others to reproduce your problem. (An example from a talk given by <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a>) <a href="https://twitter.com/hashtag/rstat?src=hash&amp;ref_src=twsrc%5Etfw">#rstat</a> <a href="https://t.co/gpuGXpFIsX">pic.twitter.com/gpuGXpFIsX</a></p>&mdash; ZhiYang (@zhiiiyang) <a href="https://twitter.com/zhiiiyang/status/1053006003711569920?ref_src=twsrc%5Etfw">October 18, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr >Got a question to ask on <a href= https://twitter.com/SlackHQ?ref_src=twsrc%5Etfw >@SlackHQ</a> or post on <a href= https://twitter.com/github?ref_src=twsrc%5Etfw >@github</a>? No time to read the long post on how to use reprex? Here is a 20-second gif for you to format your R codes nicely and for others to reproduce your problem. (An example from a talk given by <a href= https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw >@JennyBryan</a>) <a href= https://twitter.com/hashtag/rstat?src=hash&amp;ref_src=twsrc%5Etfw >#rstat</a> <a href= https://t.co/gpuGXpFIsX >pic.twitter.com/gpuGXpFIsX</a></p>&mdash; ZhiYang (@zhiiiyang) <a href= https://twitter.com/zhiiiyang/status/1053006003711569920?ref_src=twsrc%5Etfw >October 18, 2018</a></blockquote><script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script>
 
 
 - Keeping up to date with R news  
 https://masalmon.eu/2019/01/25/uptodate/  
 
----
+
 
 # Rstudio ile proje oluşturma
 
@@ -347,7 +349,7 @@ https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 
 ![](http://www.rstudio.com/images/docs/projects_new.png)
 
----
+
 
 # RStudio ile veri yükleme
 
@@ -355,7 +357,7 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 
 ![](https://support.rstudio.com/hc/en-us/article_attachments/206277618/data-import-overview.gif)
 
----
+
 
 ## Excel
 
@@ -364,13 +366,13 @@ https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStu
 ## CSV
 
 
----
+
 
 # Veriyi görüntüleme
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Spreadsheet users using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>:  where&#39;s the data?<a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> users using spreadsheets:  where&#39;s the code?</p>&mdash; Leonard Kiefer (@lenkiefer) <a href="https://twitter.com/lenkiefer/status/1015587475580956672?ref_src=twsrc%5Etfw">July 7, 2018</a></blockquote>
+<script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script><blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr >Spreadsheet users using <a href= https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw >#rstats</a>:  where&#39;s the data?<a href= https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw >#rstats</a> users using spreadsheets:  where&#39;s the code?</p>&mdash; Leonard Kiefer (@lenkiefer) <a href= https://twitter.com/lenkiefer/status/1015587475580956672?ref_src=twsrc%5Etfw >July 7, 2018</a></blockquote>
 
----
+
 
 # Veriyi görüntüleme
 
@@ -418,7 +420,7 @@ str(data)
 skimr::skim()
 ```
 
----
+
 
 
 # Veriyi değiştirme
@@ -430,7 +432,7 @@ skimr::skim()
 ![:scale 30%](figures/change_data.png)
 
 
----
+
 
 
 ## RStudio aracılığıyla recode
@@ -440,7 +442,7 @@ skimr::skim()
 ![:scale 30%](figures/level_recode.png)
 
 
----
+
 
 
 
@@ -450,17 +452,17 @@ https://juba.github.io/questionr/articles/recoding_addins.html
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_1.png)
 
 
----
+
 
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_2.png)
 
 
----
+
 
 ![](https://raw.githubusercontent.com/juba/questionr/master/resources/screenshots/irec_3.png)
 
 
----
+
 
 # Basit tanımlayıcı istatistikler
 
@@ -492,17 +494,18 @@ sd
 table()
 ```
 
----
 
 
-```{r, echo=TRUE, include = TRUE}
+
+```
+{r, echo=TRUE, include = TRUE}
 library(readr)
-irisdata <- read_csv("data/iris.csv")
+irisdata <- read_csv( data/iris.csv )
 
 jmv::descriptives(
     data = irisdata,
-    vars = "Sepal.Length",
-    splitBy = "Species",
+    vars =  Sepal.Length ,
+    splitBy =  Species ,
     freq = TRUE,
     hist = TRUE,
     dens = TRUE,
@@ -522,75 +525,83 @@ jmv::descriptives(
     pcEqGr = TRUE)
 ```
 
----
 
-```{r, echo=TRUE, include=FALSE}
-# install.packages("scatr")
+
+```
+{r, echo=TRUE, include=FALSE}
+# install.packages( scatr )
 scatr::scat(
     data = irisdata,
-    x = "Sepal.Length",
-    y = "Sepal.Width",
-    group = "Species",
-    marg = "dens",
-    line = "linear",
+    x =  Sepal.Length ,
+    y =  Sepal.Width ,
+    group =  Species ,
+    marg =  dens ,
+    line =  linear ,
     se = TRUE)
 ```
 
----
+
 
 ## summarytools
 
 https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 library(summarytools)
-summarytools::freq(iris$Species, style = "rmarkdown")
+summarytools::freq(iris$Species, style =  rmarkdown )
 ```
 
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-summarytools::freq(iris$Species, report.nas = FALSE, style = "rmarkdown", headings = FALSE)
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+summarytools::freq(iris$Species, report.nas = FALSE, style =  rmarkdown , headings = FALSE)
 ```
 
 
----
 
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 with(tobacco, print(ctable(smoker, diseased), method = 'render'))
 ```
 
 
----
 
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 with(tobacco,
      print(ctable(smoker, diseased, prop = 'n', totals = FALSE),
-           headings = TRUE, method = "render"))
+           headings = TRUE, method =  render ))
 ```
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
-summarytools::descr(iris, style = "rmarkdown")
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+summarytools::descr(iris, style =  rmarkdown )
 ```
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 descr(iris,
-      stats = c("mean", "sd", "min", "med", "max"),
+      stats = c( mean ,  sd ,  min ,  med ,  max ),
       transpose = TRUE,
       headings = FALSE,
-      style = "rmarkdown")
+      style =  rmarkdown )
 ```
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # view(dfSummary(iris))
 
 ```
@@ -598,85 +609,94 @@ descr(iris,
 
 <!-- ![](figures/dfsummary.png) -->
 
-<!-- --- -->
+<!--  -->
 
-<!-- ```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
+<!-- ```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
 <!-- dfSummary(tobacco, -->
 <!--           plain.ascii = FALSE, -->
-<!--           style = "grid") -->
+<!--           style =  grid ) -->
 <!-- ``` -->
 
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # First save the results
 iris_stats_by_species <- by(data = iris,
                             INDICES = iris$Species,
-                            FUN = descr, stats = c("mean", "sd", "min", "med", "max"),
+                            FUN = descr, stats = c( mean ,  sd ,  min ,  med ,  max ),
                             transpose = TRUE)
 # Then use view(), like so:
-view(iris_stats_by_species, method = "pander", style = "rmarkdown")
+view(iris_stats_by_species, method =  pander , style =  rmarkdown )
 ```
 
 
----
 
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 # view(iris_stats_by_species)
 ```
 
 ![](figures/DescriptiveStatistics.png)
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 data(tobacco) # tobacco is an example dataframe included in the package
 BMI_by_age <- with(tobacco,
                    by(BMI, age.gr, descr,
-                      stats = c("mean", "sd", "min", "med", "max")))
-view(BMI_by_age, "pander", style = "rmarkdown")
+                      stats = c( mean ,  sd ,  min ,  med ,  max )))
+view(BMI_by_age,  pander , style =  rmarkdown )
 ```
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 BMI_by_age <- with(tobacco,
                    by(BMI, age.gr, descr,  transpose = TRUE,
-                      stats = c("mean", "sd", "min", "med", "max")))
+                      stats = c( mean ,  sd ,  min ,  med ,  max )))
 
-view(BMI_by_age, "pander", style = "rmarkdown", headings = TRUE)
+view(BMI_by_age,  pander , style =  rmarkdown , headings = TRUE)
 ```
 
-<!-- --- -->
+<!--  -->
 
-<!-- ```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
-<!-- tobacco_subset <- tobacco[ ,c("gender", "age.gr", "smoker")] -->
+<!-- ```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'} -->
+<!-- tobacco_subset <- tobacco[ ,c( gender ,  age.gr ,  smoker )] -->
 <!-- freq_tables <- lapply(tobacco_subset, freq) -->
 
 <!-- # view(freq_tables, footnote = NA, file = 'freq-tables.html') -->
 <!-- ``` -->
 
----
 
-```{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
+
+```
+{r, include=FALSE, comment=NA, prompt=FALSE, cache=FALSE, echo=TRUE, results='asis'}
 what.is(iris)
 ```
 
-<!-- --- -->
+<!--  -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- freq(tobacco$gender, style = 'rmarkdown') -->
 <!-- ``` -->
 
-<!-- --- -->
+<!--  -->
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- print(freq(tobacco$gender), method = 'render') -->
 <!-- ``` -->
 
-<!-- --- -->
+<!--  -->
 
 <!-- ## skimr -->
 
@@ -685,7 +705,7 @@ what.is(iris)
 <!-- skim(df) -->
 <!-- ``` -->
 
----
+
 
 ## DataExplorer
 
@@ -699,39 +719,42 @@ DataExplorer::create_report(df)
 
 
 
----
+
 
 ## inspectdf
 
 https://github.com/alastairrushworth/inspectdf
 
 
----
+
 
 ## Grafikler
 
-```{r echo=TRUE}
+```
+{r echo=TRUE}
 # library(ggplot2)
 # library(mosaic)
 # mPlot(irisdata)
 ```
 
-<!-- --- -->
+<!--  -->
 
 
-<!-- ```{r, results="asis"} -->
+<!-- ```
+{r, results= asis } -->
 <!-- ctable(tobacco$gender, tobacco$smoker, style = 'rmarkdown') -->
 <!-- ``` -->
 
-<!-- --- -->
+<!--  -->
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- print(ctable(tobacco$gender, tobacco$smoker), method = 'render') -->
 <!-- ``` -->
 
 
-<!-- --- -->
+<!--  -->
 
 ```
 descr(tobacco, style = 'rmarkdown')
@@ -743,7 +766,7 @@ dfSummary(tobacco, style = 'grid', plain.ascii = FALSE)
 print(dfSummary(tobacco, graph.magnif = 0.75), method = 'render')
 ```
 
----
+
 
 A beginner kit for #rstats
 The Landscape of R Packages for Automated Exploratory Data Analysis
@@ -762,28 +785,28 @@ https://journal.r-project.org/archive/2019/RJ-2019-033/
 
 
 
----
 
 
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here, building up a <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> as slowly as possible, <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>.  Incremental adjustments.  <a href="https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;ref_src=twsrc%5Etfw">#rstatsteachingideas</a> <a href="https://t.co/nUulQl8bPh">pic.twitter.com/nUulQl8bPh</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw">August 13, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr >Here, building up a <a href= https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw >#ggplot2</a> as slowly as possible, <a href= https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw >#rstats</a>.  Incremental adjustments.  <a href= https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;ref_src=twsrc%5Etfw >#rstatsteachingideas</a> <a href= https://t.co/nUulQl8bPh >pic.twitter.com/nUulQl8bPh</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href= https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw >August 13, 2018</a></blockquote><script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script>
 
 
----
+
 
 
 [![](https://raw.githubusercontent.com/dreamRs/esquisse/master/man/figures/esquisse.gif)](https://github.com/dreamRs/esquisse)
 
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Dreaming of a fancy <a href="https://twitter.com/hashtag/Rstats?src=hash&amp;ref_src=twsrc%5Etfw">#Rstats</a> <a href="https://twitter.com/hashtag/ggplot?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> but still scared of typing <a href="https://twitter.com/hashtag/code?src=hash&amp;ref_src=twsrc%5Etfw">#code</a>? <a href="https://twitter.com/_pvictorr?ref_src=twsrc%5Etfw">@_pvictorr</a> esquisse package has you covered <a href="https://t.co/1vIDXcVAAF">https://t.co/1vIDXcVAAF</a> <a href="https://t.co/RlTkptnrNv">pic.twitter.com/RlTkptnrNv</a></p>&mdash; Radoslaw Panczak (@RPanczak) <a href="https://twitter.com/RPanczak/status/1047019588658040832?ref_src=twsrc%5Etfw">October 2, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class= twitter-tweet  data-lang= en ><p lang= en  dir= ltr >Dreaming of a fancy <a href= https://twitter.com/hashtag/Rstats?src=hash&amp;ref_src=twsrc%5Etfw >#Rstats</a> <a href= https://twitter.com/hashtag/ggplot?src=hash&amp;ref_src=twsrc%5Etfw >#ggplot</a> <a href= https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw >#dataviz</a> but still scared of typing <a href= https://twitter.com/hashtag/code?src=hash&amp;ref_src=twsrc%5Etfw >#code</a>? <a href= https://twitter.com/_pvictorr?ref_src=twsrc%5Etfw >@_pvictorr</a> esquisse package has you covered <a href= https://t.co/1vIDXcVAAF >https://t.co/1vIDXcVAAF</a> <a href= https://t.co/RlTkptnrNv >pic.twitter.com/RlTkptnrNv</a></p>&mdash; Radoslaw Panczak (@RPanczak) <a href= https://twitter.com/RPanczak/status/1047019588658040832?ref_src=twsrc%5Etfw >October 2, 2018</a></blockquote>
+<script async src= https://platform.twitter.com/widgets.js  charset= utf-8 ></script>
 
 
 
 <!-- ## Tablolar -->
 
 
----
+
 
 
 # Bazı arayüzler
@@ -791,7 +814,7 @@ https://journal.r-project.org/archive/2019/RJ-2019-033/
 https://sbalci.github.io/MyRCodesForDataAnalysis/R-Arayuzler.nb.html
 
 
----
+
 
 
 ## Rcmdr
@@ -809,7 +832,7 @@ Rcmdr::Commander()
 http://r4stats.com/articles/software-reviews/r-commander/
 
 
----
+
 
 ## jamovi
 
@@ -822,13 +845,13 @@ https://blog.jamovi.org/2018/07/30/rj.html
 
 <!-- ![![](https://blog.jamovi.org/assets/images/rj.png)](https://blog.jamovi.org/2018/07/30/rj.html) -->
 
----
+
 
 # R nereden öğrenilir
 
 https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 
----
+
 
 # Sonraki Konular
 
@@ -838,7 +861,7 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 
 
 
------
+--
 
 
 # Geri Bildirim
@@ -846,12 +869,12 @@ https://sbalci.github.io/MyRCodesForDataAnalysis/WhereToLearnR.nb.html
 - Geri bildirim için tıklayınız: _[Geri bildirim formu](https://goo.gl/forms/YjGZ5DHgtPlR1RnB3)_
 
 
----
 
 
-<script id="dsq-count-scr" src="//https-sbalci-github-io.disqus.com/count.js" async></script>
 
-<div id="disqus_thread"></div>
+<script id= dsq-count-scr  src= //https-sbalci-github-io.disqus.com/count.js  async></script>
+
+<div id= disqus_thread ></div>
 <script>
 
 /**
@@ -870,10 +893,10 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href= https://disqus.com/?ref_noscript >comments powered by Disqus.</a></noscript>
 
 
----
+
 
 
 <!-- ``` -->
@@ -881,66 +904,70 @@ s.setAttribute('data-timestamp', +new Date());
 
 <!-- saved data after analysis to `Data-After-Analysis.xlsx`. -->
 
-<!-- saveRDS(mydata, "Data-After-Analysis.rds") -->
+<!-- saveRDS(mydata,  Data-After-Analysis.rds ) -->
 
-<!-- writexl::write_xlsx(mydata, "Data-After-Analysis.xlsx") -->
+<!-- writexl::write_xlsx(mydata,  Data-After-Analysis.xlsx ) -->
 
-<!-- file.info("Data-After-Analysis.xlsx")$ctime -->
+<!-- file.info( Data-After-Analysis.xlsx )$ctime -->
 
 <!-- ``` -->
 
-<!-- --- -->
+<!--  -->
 
 
 # Libraries Used
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 citation()
 ```
 
 ```
-citation("tidyverse")
-citation("foreign")
-citation("tidylog")
-citation("janitor")
-citation("jmv")
-citation("tangram")
-citation("finalfit")
-citation("summarytools")
-citation("ggstatplot")
-citation("readxl")
+citation( tidyverse )
+citation( foreign )
+citation( tidylog )
+citation( janitor )
+citation( jmv )
+citation( tangram )
+citation( finalfit )
+citation( summarytools )
+citation( ggstatplot )
+citation( readxl )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-citation("tidyverse")
-citation("foreign")
-citation("tidylog")
-citation("janitor")
-citation("jmv")
-citation("tangram")
-citation("finalfit")
-citation("summarytools")
-citation("ggstatplot")
-citation("readxl")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+citation( tidyverse )
+citation( foreign )
+citation( tidylog )
+citation( janitor )
+citation( jmv )
+citation( tangram )
+citation( finalfit )
+citation( summarytools )
+citation( ggstatplot )
+citation( readxl )
 ```
 
 
-<!-- --- -->
+<!--  -->
 
 
-<!-- ```{r, results='asis'} -->
+<!-- ```
+{r, results='asis'} -->
 <!-- report::cite_packages(session = sessionInfo()) -->
 <!-- ``` -->
 
 
-<!-- --- -->
+<!--  -->
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 sessionInfo()
 ```
 
----
+
 
 
 # İletişim  
@@ -955,14 +982,15 @@ https://sbalci.github.io/
 https://github.com/sbalci  
 https://twitter.com/serdarbalci
 
----
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-CommitMessage <- paste("updated on ", Sys.time(), sep = "")
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+CommitMessage <- paste( updated on  , Sys.time(), sep =   )
 
 wd <- getwd()
 
-gitCommand <- paste("cd ", wd, " \n git add . \n git commit --message '", CommitMessage, "' \n git push origin master \n", sep = "")
+gitCommand <- paste( cd  , wd,   \n git add . \n git commit --message ' , CommitMessage,  ' \n git push origin master \n , sep =   )
 
 system(command = gitCommand, intern = TRUE
 )

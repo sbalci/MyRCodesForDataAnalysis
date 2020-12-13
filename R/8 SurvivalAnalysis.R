@@ -1,4 +1,4 @@
-# Based on https://www.datacamp.com/community/tutorials/survival-analysis-R
+# Based on https://www..com/community/tutorials/survival-analysis-R
 
 
 library(survival)

@@ -1,6 +1,4 @@
----
-title: "Using Cloud for Research"
----
+# Using Cloud for Research
 
 # rclone
 

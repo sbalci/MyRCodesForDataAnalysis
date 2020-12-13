@@ -1,6 +1,4 @@
----
-title: "Table options"
----
+# Table options
 
 Several packages support making beautiful tables with R, such as
 
@@ -14,45 +12,52 @@ Several packages support making beautiful tables with R, such as
 It is also very easy to make tables with knitr's `kable` function:
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
-knitr::kable(head(iris), caption = "Title of the table")
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+knitr::kable(head(iris), caption =  Title of the table )
 
 ```
 
 
-<!-- ```{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
 <!-- tables::knit_print.tabular(mtcars) -->
 <!-- ``` -->
 
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 pander::pander(mtcars)
 ```
 
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 stargazer::stargazer(mtcars)
 ```
 
 
 
 
-```{r echo = TRUE, results = 'asis'}
+```
+{r echo = TRUE, results = 'asis'}
 library(knitr)
-kable(mtcars[1:5, ], caption = "A knitr kable.")
+kable(mtcars[1:5, ], caption =  A knitr kable. )
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 library(rhandsontable)
 rhandsontable(mtcars)
 ```
 
 
-```{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
 xtable::xtable(mtcars)
 ```
 
