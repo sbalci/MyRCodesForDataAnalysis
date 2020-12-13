@@ -1,8 +1,0 @@
-
-# Regression 
-
-
-
-- Logistic Regression in R Tutorial
-
-https://www..com/community/tutorials/logistic-regression-R

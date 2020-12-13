@@ -3,4 +3,6 @@
 .RData
 .Ruserdata
 docs/
-
+willadd
+.DS_Store
+_book
