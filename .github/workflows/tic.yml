@@ -103,6 +103,43 @@ jobs:
           echo -e 'options(Ncpus = 4, pkgType = "source", repos = structure(c(CRAN = "https://cloud.r-project.org/")))' > $HOME/.Rprofile
           Rscript -e "remotes::install_github('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
 
+
+
+# added by Serdar
+
+      - name: "Add Libraries"
+        run: |
+          Rscript -e "if (!requireNamespace('dplyr')) install.packages('dplyr', type = 'source')"
+          Rscript -e "if (!requireNamespace('magrittr')) install.packages('magrittr', type = 'source')"
+          Rscript -e "if (!requireNamespace('tidyr')) install.packages('tidyr', type = 'source')"
+          Rscript -e "if (!requireNamespace('rentrez')) install.packages('rentrez', type = 'source')"
+          Rscript -e "if (!requireNamespace('RISmed')) install.packages('RISmed', type = 'source')"
+          Rscript -e "if (!requireNamespace('readr')) install.packages('readr', type = 'source')"
+          Rscript -e "if (!requireNamespace('RefManageR')) install.packages('RefManageR', type = 'source')"
+          Rscript -e "if (!requireNamespace('rmarkdown')) install.packages('rmarkdown', type = 'source')"
+          Rscript -e "if (!requireNamespace('distill')) install.packages('distill', type = 'source')"
+
+#      - name: "search PubMed"
+#        run: Rscript -e "source(file = './R/searchPubMed.R')"
+
+
+      - name: Commit files
+        run: |
+          git config --local user.email "drserdarbalci@gmail.com"
+          git config --local user.name "sbalci"
+          git add .
+          git commit -m "CI added changes `date +'%Y-%m-%d %H:%M:%S'`"
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          # branch: B77 #ignore if your branch is master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
+
+
+
+
       - name: "[Stage] Script"
         run: Rscript -e 'tic::script()'
 
