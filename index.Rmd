@@ -1,7 +1,7 @@
 ---
 title: 'My R Codes for Data Analysis'
 author: 'Serdar Balcı'
-date: '`r Sys.Date()`'
+date: '`r # Sys.Date()`'
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: ['bib/book.bib', 'bib/packages.bib']

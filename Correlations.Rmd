@@ -1,0 +1,16 @@
+# Correlations
+
+# comparisons between correlations
+
+http://comparingcorrelations.org/
+
+# Exploring correlations in R with corrr
+ 
+ 
+ https://drsimonj.svbtle.com/exploring-correlations-in-r-with-corrr
+
+
+
+
+
+

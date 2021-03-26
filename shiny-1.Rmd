@@ -1,0 +1,9 @@
+
+# Shiny 
+
+
+
+- Some notes on my first shiny app
+
+https://ggvy.cl/post/some-notes-on-my-first-shiny-app/
+

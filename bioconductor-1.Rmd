@@ -1,0 +1,437 @@
+---
+title: "R Bioconductor"
+output: html_notebook
+---
+
+
+- https://www.bioconductor.org/
+
+```
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+```
+
+- The Bioconductor 2018 Workshop Compilation
+https://bioconductor.github.io/BiocWorkshops/index.html
+
+https://github.com/Bioconductor/BiocWorkshops
+
+
+```r
+fname <- file.choose()
+fname
+```
+
+
+```r
+file.exists(fname)
+```
+
+
+https://raw.githubusercontent.com/Bioconductor/BiocWorkshops/master/100_Morgan_RBiocForAll/ALL-phenoData.csv
+
+```r
+pdata <- read.csv(fname)
+```
+
+
+```r
+pdata
+```
+
+
+
+```r
+dim(pdata)
+```
+
+
+```r
+head(pdata)
+```
+
+
+```r
+tail(pdata)
+```
+
+
+
+```r
+summary(pdata)
+```
+
+
+
+```r
+class(fname)
+class(pdata)
+```
+
+
+```r
+pdata <- read.csv(
+    fname,
+    colClasses = c("character", "factor", "integer", "factor")
+)
+summary(pdata)
+```
+
+
+```r
+pdata[1:5, c("sex", "mol.biol")]
+```
+
+```r
+pdata[1:5, c(2, 3)]
+```
+
+
+```r
+pdata[1:5, ]
+```
+
+
+```r
+pdata$age
+```
+
+
+```r
+pdata[["age"]]
+```
+
+
+```r
+class(pdata$age)
+```
+
+
+
+```r
+table(pdata$mol.biol)
+```
+
+
+```r
+table(is.na(pdata$age))
+
+```
+
+
+```r
+levels(pdata$sex)
+
+```
+
+```r
+pdata$sex == "F"
+
+```
+
+```r
+(pdata$sex == "F") & (pdata$age > 50)
+
+```
+
+
+```r
+table( pdata$mol.biol )
+
+```
+
+
+```r
+pdata$mol.biol %in% c("BCR/ABL", "NEG")
+
+```
+
+
+```r
+subset(pdata, sex == "F" & age > 50)
+```
+
+
+```r
+bcrabl <- subset(pdata, mol.biol %in% c("BCR/ABL", "NEG"))
+dim( bcrabl )
+```
+
+
+```r
+table(bcrabl$mol.biol)
+```
+
+```r
+str(bcrabl$mol.biol)
+```
+
+
+```r
+factor(bcrabl$mol.biol)
+```
+
+
+```r
+bcrabl$mol.biol <- factor(bcrabl$mol.biol)
+table(bcrabl$mol.biol)
+```
+
+
+```r
+str(bcrabl$mol.biol)
+```
+
+```r
+boxplot(age ~ mol.biol, bcrabl)
+```
+
+
+```r
+t.test(age ~ mol.biol, bcrabl)
+```
+
+
+
+```r
+library(ggplot2)
+ggplot(bcrabl, aes(x = mol.biol, y = age))
+```
+
+
+```r
+ggplot(bcrabl, aes(x = mol.biol, y = age)) + geom_boxplot()
+```
+
+
+
+
+
+```r
+if (!"BiocManager" %in% rownames(installed.packages()))
+    install.packages("BiocManager", repos="https://cran.r-project.org")
+```
+
+
+```r
+BiocManager::install(c("rtracklayer", "GenomicRanges"))
+```
+
+
+
+```r
+BiocManager::valid()
+```
+
+
+```r
+BiocManager::available("TxDb.Hsapiens")
+```
+
+
+```r
+browseVignettes("simpleSingleCell")
+```
+
+
+https://support.bioconductor.org/
+
+
+https://bioconductor.org/help/course-materials/
+
+
+```r
+library("rtracklayer")
+library("GenomicRanges")
+```
+
+
+https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=578954849_wF1QP81SIHdfr8b0kmZUOcsZcHYr&clade=mammal&org=Human&db=hg38&hgta_group=regulation&hgta_track=knownGene&hgta_table=0&hgta_regionType=genome&position=chr9%3A133252000-133280861&hgta_outputType=primaryTable&hgta_outFileName=
+
+```r
+fname <- file.choose()
+```
+
+
+```r
+cpg <- rtracklayer::import(fname)
+```
+
+
+```r
+file.exists(fname)
+```
+
+
+```r
+cpg
+```
+
+
+
+https://bioconductor.github.io/BiocWorkshops/r-and-bioconductor-for-everyone-an-introduction.html
+
+
+---
+
+- **Introduction to Bioconductor**
+
+https://www.datacamp.com/community/tutorials/intro-bioconductor
+
+
+
+```r
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+```
+
+
+```r
+source("https://bioconductor.org/biocLite.R")
+biocLite(c( "Biostrings", "GenomicRanges", "IMMAN"))
+```
+
+```r
+library(Biostrings)
+
+dnaSequence <- DNAStringSet( c("AAACTG", "CCCAACCA") )
+dnaSequence
+
+```
+
+
+```r
+complement(dnaSequence)
+
+```
+
+
+Important packages:  
+- DNAStringSet  
+- Biostrings  
+- GenomicRanges  
+
+```r
+library(GenomicRanges)
+
+grangeObj <-
+  GRanges(seqnames =
+            Rle(c("chr1", "chr2", "chr1", "chr3"), c(1, 3, 2, 4)),
+          ranges =
+            IRanges(1:10, end = 7:16, names = head(letters, 10)),
+          strand =
+            Rle(strand(c("-", "+", "*", "+", "-")),
+                c(1, 2, 2, 3, 2)),
+          score = 1:10,
+          GC = seq(1, 0, length=10))
+
+
+grangeObj
+```
+
+
+```r
+seqnames(grangeObj)
+
+```
+
+
+```r
+ranges(grangeObj)
+
+```
+
+
+
+```r
+strand(grangeObj)
+
+```
+
+
+```r
+library("clusterProfiler")
+
+```
+
+
+```r
+library("DOSE")
+
+```
+
+
+```r
+library("org.Hs.eg.db")
+
+```
+
+
+
+```r
+data(geneList, package="DOSE")
+
+gene <- names(geneList)[abs(geneList) > 2]
+```
+
+
+
+```r
+ego <- enrichGO(gene          = gene,
+                universe      = names(geneList),
+                OrgDb         = org.Hs.eg.db,
+                ont           = "CC",
+                pAdjustMethod = "BH",
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05,
+                readable      = TRUE)
+
+head(ego)
+```
+
+
+```r
+emapplot(ego)
+
+```
+
+
+
+```r
+class(dnaSequence)
+```
+
+
+
+```r
+methods(class = "DNAStringSet")
+
+```
+
+
+
+---
+
+https://bioconductor.org/packages
+
+
+https://support.bioconductor.org/
+
+
+http://bioconductor.org/help/course-materials/
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+

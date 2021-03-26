@@ -1,0 +1,64 @@
+---
+title: "MyGIST"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+https://gist.github.com/sbalci
+
+
+https://docs.ropensci.org/gistr/
+
+https://docs.ropensci.org/gistr/articles/gistr.html
+
+
+```r
+# install.packages("gistr")
+# devtools::install_github("ropensci/gistr")
+# renv::install("gistr")
+# library("gistr")
+```
+
+
+
+```{r eval=FALSE, include=FALSE, echo=TRUE}
+# (mygists <- gistr::gists('minepublic'))
+```
+
+
+
+```r
+# gistembedcodes <- purrr::map(.x = mygists, .f = gistr::embed)
+
+# gistembedcodes <- unlist(gistembedcodes)
+# 
+# gistembedcodes <- cat(gistembedcodes, sep = '\n\n\n')
+
+```
+
+
+
+
+<!--```-->
+<!-- `r # # gistembedcodes` -->
+<!--```-->
+
+
+
+<!-- `r # # gistembedcodes` -->
+
+
+
+
+
+
+
+
+```r
+# citation(package = 'gistr')
+```
+
+
+

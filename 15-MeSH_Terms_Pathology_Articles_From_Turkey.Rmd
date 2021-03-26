@@ -1,0 +1,216 @@
+# Bibliographic Studies
+
+
+
+```
+output: 
+  html_notebook: 
+    code_folding: hide
+    fig_caption: yes
+    highlight: kate
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+```
+
+If you want to see the code used in the analysis please click the code button on the right upper corner or throughout the page.
+
+
+
+# Analysis
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(
+	eval = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	include = FALSE,
+	tidy = TRUE
+)
+```
+
+## MeSH Terms In Pathology Articles From Turkey
+
+**Background**
+
+PubMed collection from [National Library of Medicine](https://www.ncbi.nlm.nih.gov/pubmed/), has the most comprehensive information about peer reviewed articles in medicine.
+
+[MeSH Terms](https://www.nlm.nih.gov/pubs/factsheets/mesh.html) is a controlled vocabulary that is used to label PubMed articles according to their content. It is done by experts in National Library of Medicine. Keywords are lables that are given by authors of the article. Both are included in a PubMed record of an article.
+
+**Aim:**
+
+In this analysis we aimed to identify the common research topics Turkish pathologists are interested. We extracted most common MeSH terms and keywords from PubMed articles using [EDirect](https://dataguide.nlm.nih.gov/edirect/overview.html):
+[MeSH Terms Pathology Articles From Turkey](https://sbalci.github.io/pubmed/MeSH_Terms_Pathology_Articles_From_Turkey.html)
+
+**Methods:**
+
+Packages used for analysis. Tidyverse is used for data manipulation, and [rstudioapi to run e-utilities commands from RStudio](https://github.com/rstudio/rstudio/issues/2193).
+
+```
+{r load -if not present install- required packages 3, eval=FALSE, include=FALSE, echo=TRUE}
+usePackage <- function(p) 
+{
+    if (!is.element(p, installed.packages()[,1]))
+        install.packages(p, dep = TRUE)
+    require(p, character.only = TRUE)
+}
+
+usePackage( tidyverse )
+usePackage( rstudioapi )
+```
+
+
+Pathology Journal ISSN List was retrieved from [In Cites Clarivate](https://jcr.incites.thomsonreuters.com/), and Journal Data Filtered as follows: 
+
+    JCR Year: 2016 Selected Editions: SCIE,SSCI Selected Categories: 'PATHOLOGY' Selected Category Scheme: WoS
+
+```
+{r Get ISSN List from data downloaded from WoS 3, eval=FALSE, include=FALSE, echo=TRUE}
+# Get ISSN List from data downloaded from WoS
+ISSNList <- JournalHomeGrid <- read_csv( data/JournalHomeGrid.csv , 
+                                        skip = 1) %>% 
+    select(ISSN) %>% 
+    filter(!is.na(ISSN)) %>% 
+    t() %>% 
+    paste( OR  , collapse =   ) # add OR between ISSN List
+
+ISSNList <- gsub(  OR $ ,   ,ISSNList) # to remove last OR
+```
+
+Data is retrieved from PubMed via [e-Utilities](https://dataguide.nlm.nih.gov/).
+
+The search formula for PubMed is generated as  ISSN List AND Country[Affiliation]  like done in [advanced search of PubMed](https://www.ncbi.nlm.nih.gov/pubmed/advanced).
+
+```
+{r Generate Search Formula For Pathology Journals AND Countries 3, eval=FALSE, include=FALSE, echo=TRUE}
+# Generate Search Formula For Pathology Journals AND Countries
+searchformula <- paste( ' ,ISSNList, ' ,   AND  ,  Turkey[Affiliation] )
+write(searchformula,  data/searchformula.txt )
+```
+
+Articles are downloaded as xml.
+
+```
+{r Search PubMed 3, eval=FALSE, include=FALSE, echo=TRUE}
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(myTerm,  esearch -db pubmed -query \ $(cat data/searchformula.txt)\  -datetype PDAT -mindate 1900 -maxdate 3000 | efetch -format xml > data/PathologyTurkey.xml \n )
+Sys.sleep(1)
+repeat{
+    Sys.sleep(0.1)
+    if(rstudioapi::terminalBusy(myTerm) == FALSE){
+        print( Code Executed )
+        break
+    }
+}
+```
+
+MeSH terms are extracted from xml. [Common terms](https://www.nlm.nih.gov/bsd/indexing/training/CHK_010.html) are excluded and [major topics](https://www.nlm.nih.gov/bsd/disted/meshtutorial/principlesofmedlinesubjectindexing/majortopics/) are selected.
+
+```
+{r extract major MeSH topics -excluding common tags- from xml 3, eval=FALSE, include=FALSE, echo=TRUE}
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(myTerm,  xtract -input data/PathologyTurkey.xml
+-pattern MeshHeading -if DescriptorName@MajorTopicYN -equals Y
+-or QualifierName@MajorTopicYN -equals Y -element DescriptorName| 
+grep -vxf data/checktags.txt | sort-uniq-count-rank > data/PathologyTurkeyMeSH.txt \n )
+Sys.sleep(1)
+repeat{
+    Sys.sleep(0.1)
+    if(rstudioapi::terminalBusy(myTerm) == FALSE){
+        print( Code Executed )
+        break
+    }
+}
+```
+
+Keywords are extracted from xml.
+
+```
+{r extract author keywords from xml 3, eval=FALSE, include=FALSE, echo=TRUE}
+myTerm <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(myTerm,  xtract -input data/PathologyTurkey.xml -pattern Keyword -element Keyword | sort-uniq-count-rank > authorkeywords.txt \n )
+Sys.sleep(1)
+repeat{
+    Sys.sleep(0.1)
+    if(rstudioapi::terminalBusy(myTerm) == FALSE){
+        print( Code Executed )
+        break
+    }
+}
+```
+
+
+
+**Result:**
+
+The retrieved information was compiled in a table.
+
+```
+{r display results as table 3, eval=FALSE, include=FALSE, echo=TRUE}
+
+my_tbl <- tibble::tribble(
+  ~Col_1, ~Col_2, ~Col_3,
+      NA,     NA,     NA,
+      NA,     NA,     NA,
+      NA,     NA,     NA,
+      NA,     NA,     NA
+  )
+
+require(rhandsontable)
+rhandsontable(my_tbl, rowHeaders = NULL,
+               digits = 3, useTypes = FALSE, search = FALSE,
+               width = NULL, height = NULL)
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Comment:**
+
+
+
+
+**Future Work:**
+
+
+
+
+
+
+
+
+# Feedback
+
+[Serdar Balcı, MD, Pathologist](https://github.com/sbalci) would like to hear your feedback: https://goo.gl/forms/YjGZ5DHgtPlR1RnB3
+
+This document will be continiously updated and the last update was on .
+
+
+
+# Back to Main Menu
+
+[Main Page for Bibliographic Analysis](https://sbalci.github.io/pubmed/BibliographicStudies.html)

@@ -1,0 +1,159 @@
+
+# Reproducible Research 
+
+
+
+- karthik/binder-test
+
+Example repo for testing holepunch
+
+https://github.com/karthik/binder-test
+
+- Hole punch
+
+https://karthik.github.io/holepunch/
+
+- How to set up a My Binder for your R project
+
+rstudio2019/binder-notes.md
+
+https://github.com/karthik/rstudio2019/blob/master/binder-notes.md
+
+    
+- reproducibility guidelines
+
+https://kbroman.org/blog/2019/04/01/reproducibility-guidelines/
+
+
+
+- Disease risk modelling and visualization using R
+
+http://manio.org/2015/06/22/my-approach-to-reproducible-research.html
+
+- initial steps toward reproducible research
+
+https://kbroman.org/steps2rr/
+
+
+- Comments on reproducibility
+
+https://kbroman.org/knitr_knutshell/pages/reproducible.html
+
+- Reproducible science in R
+
+https://grunwaldlab.github.io/Reproducible-science-in-R/index.html
+
+- The Practice of Reproducible Research Case Studies and Lessons from the Data-Intensive Sciences
+
+https://www.practicereproducibleresearch.org/
+
+
+- papaja
+
+papaja (Preparing APA Journal Articles) is an R package that provides document formats and helper functions to produce complete APA manscripts from RMarkdown-files (PDF and Word documents).
+
+https://crsh.github.io/papaja/
+
+
+
+-  Stencila
+
+An open source office suite for reproducible research
+
+http://stenci.la/
+
+
+- redoc - reversible R Markdown/MS Word documents.
+
+https://noamross.github.io/redoc/
+
+
+
+
+```
+
+output:
+  redoc::rdocx_reversible:
+    keep_md: TRUE
+    highlight_outputs: TRUE
+
+```
+
+
+```
+redoc::undoc( reversible2.docx )
+redoc::undoc(file.choose())
+```
+
+
+```
+redoc::redoc_extract_rmd( reversible.docx )
+```
+
+
+
+# docker
+
+- An Introduction to Docker for R Users 
+
+https://colinfay.me/docker-r-reproducibility/
+
+
+# Naming Files
+
+- How to name files  
+https://speakerdeck.com/jennybc/how-to-name-files
+
+
+# Example Articles
+
+- Increasing the Transparency of Research Papers withExplorable Multiverse Analyses
+
+https://hal.inria.fr/hal-01976951/document
+
+
+- Replication Study: Transcriptional amplification in tumor cells with elevated c-Myc
+
+https://repro.elifesciences.org/example.html
+
+- Introducing eLife’s first computationally reproducible article
+
+https://elifesciences.org/labs/ad58f08d/introducing-elife-s-first-computationally-reproducible-article
+
+- Re-Evaluating the Efficiency of Physical Visualizations: A Simple Multiverse Analysis
+
+https://explorablemultiverse.github.io/examples/frequentist/
+
+
+- R Online
+
+Try R
+Run a piece of code against a specific version of R, from 3.6.0 to 3.1.0.
+
+https://srv.colinfay.me:1001/#about
+
+https://github.com/ColinFay/ronline
+
+
+```
+Sys.setenv(
+  DSN =  database_name ,
+  UID =  User ID ,
+  PASS =  Password 
+)
+
+db <- DBI::dbConnect(
+  drv = odbc::odbc(),
+  dsn = Sys.getenv( DSN ),
+  uid = Sys.getenv( UID ),
+  pwd = Sys.getenv( PASS )
+)
+```
+
+
+
+
+
+
+
+

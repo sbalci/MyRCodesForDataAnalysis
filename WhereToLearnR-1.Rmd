@@ -1,0 +1,173 @@
+# Where to learn R
+
+# Introduction to Data Science
+
+https://rafalab.github.io/dsbook/
+
+# RStudio Education  
+
+https://education.rstudio.com/  
+
+# Statistics in Action with R  
+
+http://sia.webpopix.org/index.html
+
+# swirlstats  
+
+https://swirlstats.com/
+
+
+# Data Skills for Reproducible Science  
+
+
+https://gupsych.github.io/data_skills/index.html
+
+
+# rstats-ed
+
+
+https://github.com/rstudio-education/rstats-ed
+
+
+# new online courses psu
+
+https://newonlinecourses.science.psu.edu/statprogram/
+
+
+# Think Stats
+
+https://greenteapress.com/wp/think-stats-2e/
+
+
+# statsthinking21
+
+http://statsthinking21.org/index.html
+
+
+# RStudio  
+
+https://www.rstudio.com/online-learning/
+
+
+# r-statistics
+
+http://r-statistics.co/R-Tutorial.html
+
+
+# Advanced Data Science
+
+https://jhu-advdatasci.github.io/2018/
+
+# How Do I? …
+
+https://smach.github.io/R4JournalismBook/HowDoI.html
+
+# Data management and manipulation using R 
+
+https://ozanj.github.io/rclass/resources/
+
+# Teaching Reproducible Data Analysis in R
+
+https://gupsych.github.io/trdair_workshop/
+
+# Academic Websites
+
+https://gupsych.github.io/acadweb/
+
+# Data Skills for Reproducible Science
+
+https://gupsych.github.io/data_skills/
+
+# Methodology & Metascience 
+
+https://gupsych.github.io/mms/
+
+# Causal Inference Book
+
+https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/
+
+# IntroToR
+
+https://github.com/sbalci/IntroToR.git
+
+
+# YouTube Collections
+
+
+
+<iframe width= 560  height= 315  src= https://www.youtube.com/embed/videoseries?list=PLxRBOaoEoP4KUSgmcNjSGBFu7PYipGVrX  frameborder= 0  allow= accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture  allowfullscreen></iframe>
+
+
+
+
+- Jamovi  
+https://www.youtube.com/playlist?list=PLkk92zzyru5OAtc_ItUubaSSq6S_TGfRn
+
+- Do More with R  
+
+https://www.youtube.com/playlist?list=PL7D2RMSmRO9JOvPC1gbA8Mc3azvSfm8Vv
+
+https://www.youtube.com/playlist?list=PLYaGSokOr0MPz1tgwTW4JKcelhdJyUIrb
+
+- Neat proofs/perspectives
+
+https://www.youtube.com/playlist?list=PLZHQObOWTQDPSKntUcMArGheySM4gL7wS
+
+- Learning medical statistics with python and Jupyter notebooks
+
+https://www.youtube.com/playlist?list=PLsu0TcgLDUiIueDMfTX3322AZhdGb0_zm
+
+- Data Visualization and R
+
+https://www.youtube.com/playlist?list=PLCj1LhGni3hPGy6Kj1AFxHYkKklxenO9D
+
+
+# What They Forgot to Teach You About R  
+  
+https://whattheyforgot.org/
+
+
+
+
+
+
+# Keeping up to date with R news  
+https://masalmon.eu/2019/01/25/uptodate/
+
+
+
+# Advanced R Markdown Workshop  
+https://arm.rbind.io/days/day1/learnr/
+
+
+# CRAN Task Views
+
+https://cran.r-project.org/web/views/
+
+# WikiBook R Programming
+
+https://en.wikibooks.org/wiki/R_Programming
+
+
+
+
+# Happy Git and GitHub for the useR
+
+https://happygitwithr.com
+
+
+
+
+https://r-bootcamp.netlify.com/
+
+
+# How I Use R
+
+https://howiuser.com
+
+
+
+
+
+
+

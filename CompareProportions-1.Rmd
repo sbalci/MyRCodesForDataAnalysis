@@ -1,0 +1,62 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "In this repository I am going to collect `R codes` for data analysis. Codes are from various resources and I try to give original link as much as possible."
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r # format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+
+### Compare Proportions
+
+```r
+prop.test(numerator,denominator)
+```
+
+
+```r
+table(impetigo = scabies$impetigo_active, scabies = scabies$scabies_infestation)
+# dependent ~ independent
+```
+
+```r
+#See that because 'no' is the 'base' level the table is laid out
+#               No Disease      Has Disease
+
+# Not-exposed
+
+# Exposed
+
+#This is dependent on how your data is coded so you need to check this before using epi.2by2
+#If the table is laid out correctly then you can input straight into epi.2by2, otherwise you #need to recode or re-order the variables so that the table will be laid out correctly
+
+#epi.2by2 wants the data with the exposed/disease group in top right corner
+#So we just tell R to order the variables differently when we draw the table
+
+epiR::epi.2by2(table(relevel(scabies$scabies_infestation,"yes"), relevel(scabies$impetigo_active,"yes")))
+```
+
+
+
+
+
+
+

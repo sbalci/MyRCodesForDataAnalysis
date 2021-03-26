@@ -1,0 +1,36 @@
+---
+title: "tidycells"
+output: html_notebook
+---
+
+# tidyxl
+
+https://github.com/nacnudus/tidyxl
+
+
+
+
+# tidycells
+
+```r
+# remotes::install_github("nacnudus/tidyxl")
+# remotes::install_github("r-rudra/tidycells")
+# install.packages("tidycells")
+# install.packages("tidyxl")
+library(tidycells)
+```
+
+
+```r
+system.file("extdata", "marks.xlsx", package = "tidycells", mustWork = TRUE)
+```
+
+
+```r
+# you should have tidyxl installed
+system.file("extdata", "marks.xlsx", package = "tidycells", mustWork = TRUE) %>% 
+  read_cells()
+```
+
+
+

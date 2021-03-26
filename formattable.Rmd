@@ -1,0 +1,36 @@
+
+# formattable 
+
+
+https://www.littlemissdata.com/blog/prettytables
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(data.table)
+library(dplyr)
+library(formattable)
+library(tidyr)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+#Set a few color variables to make our table more visually appealing
+customGreen0 =  #DeF7E9 
+customGreen =  #71CA97 
+customRed =  #ff7f7f 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+
+# Tutorials 
+
+
+
+
+- Exploratory Data Analysis & Data Preparation with 'funModeling'
+
+https://blog.datascienceheroes.com/exploratory-data-analysis-data-preparation-with-funmodeling/
+
+
+- Content for  Wrangling data in the Tidyverse  - a tutorial given at useR! 2018
+
+https://github.com/drsimonj/tidyverse_tutorial-useR2018
+
+
+- Teaching R to New Users - From tapply to the Tidyverse
+
+https://simplystatistics.org/2018/07/12/use-r-keynote-2018/
+
+
+- jstor
+
+An R Package for Analysing Scientific Articles 
+
+https://speakerdeck.com/tklebel/jstor-an-r-package-for-analysing-scientific-articles?slide=25
+
+- workshop in survival analysis using R
+
+https://github.com/dave-harrington/survival_workshop
+
+https://github.com/dave-harrington/eventtimedata
+
+- Teaching R to New Users - From tapply to the Tidyverse
+
+https://simplystatistics.org/2018/07/12/use-r-keynote-2018/
+
+- Data Driven Decision Making (D3M)
+
+http://www.vishalsingh.org/teaching/#content
+
+- Tidymodeling Titanic Tragedy
+
+https://cdn.rawgit.com/ClaytonJY/tidymodels-talk/145e6574/slides.html#1
+
+- Disease risk modelling and visualization using R
+
+https://paula-moraga.github.io/teaching/
+
+- Creating a Geodemographic Classification Using K-means Clustering in R 
+
+https://data.cdrc.ac.uk/tutorial/creating-a-geodemographic-classification-using-k-means-clustering-in-r
+
+
+- Advanced R
+
+http://adv-r.had.co.nz/
+
+
+- How to use R for matching samples (propensity score)
+
+https://datascienceplus.com/how-to-use-r-for-matching-samples-propensity-score/
+
+
+
+
+

@@ -1,0 +1,27 @@
+
+# Sensitivity Specificity 
+
+
+
+
+# Classification And REgression Training
+
+http://topepo.github.io/caret/index.html
+
+## Calculate Sensitivity, Specificity And Predictive Values
+
+https://www.rdocumentation.org/packages/caret/versions/3.51/topics/sensitivity
+
+```
+sensitivity(data, reference, positive = levels(reference)[1])
+specificity(data, reference, negative = levels(reference)[2])
+posPredValue(data, reference, positive = levels(reference)[1])
+negPredValue(data, reference, negative = levels(reference)[2])
+```
+
+
+
+
+
+
+

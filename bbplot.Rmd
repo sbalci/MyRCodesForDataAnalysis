@@ -1,0 +1,29 @@
+# bbplot
+
+
+## BBC Visual and Data Journalism cookbook for R graphics
+
+https://bbc.github.io/rcookbook/
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github('bbc/bbplot')
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+#This line of code installs the pacman page if you do not have it installed - if you do, it simply loads the package
+if(!require(pacman))install.packages( pacman )
+
+pacman::p_load('dplyr', 'tidyr', 'gapminder',
+               'ggplot2',  'ggalt',
+               'forcats', 'R.utils', 'png', 
+               'grid', 'ggpubr', 'scales',
+               'bbplot')
+```
+
+
+

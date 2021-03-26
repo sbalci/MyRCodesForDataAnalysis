@@ -1,0 +1,133 @@
+---
+title: "finalfit"
+output: html_notebook
+---
+
+```
+devtools::install_github("ewenharrison/finalfit")
+```
+
+```r
+library(finalfit)
+library(dplyr)
+```
+
+```r
+colon_s
+```
+
+
+
+
+```r
+dependent <- "differ.factor"
+
+# Specify explanatory variables of interest
+explanatory <- c("age", "sex.factor", 
+  "extent.factor", "obstruct.factor", 
+  "nodes")
+```
+
+```r
+# colon_s %>%
+#   select(age, sex.factor, 
+#   extent.factor, obstruct.factor, nodes) %>% 
+#   names() -> explanatory
+```
+
+
+```r
+colon_s %>% 
+  summary_factorlist(dependent, explanatory, 
+  p=TRUE, na_include=TRUE)
+```
+
+```r
+Hmisc::label(colon_s$nodes) <- "Lymph nodes involved"
+explanatory = c("age", "sex.factor", 
+  "extent.factor", "nodes")
+
+colon_s %>% 
+  summary_factorlist(dependent, explanatory, 
+  p=TRUE, na_include=TRUE, 
+  add_dependent_label=TRUE) -> table1
+
+table1
+```
+
+```r
+explanatory <- c("age", "sex.factor", 
+  "extent.factor", "nodes", 
+  "differ.factor")
+dependent <- "mort_5yr"
+
+colon_s %>% 
+  finalfit(dependent = dependent, explanatory = explanatory, fit_id=TRUE, 
+  dependent_label_prefix = "") -> table2
+
+kableExtra::kable(table2)
+
+```
+
+
+
+```r
+colon_s %>% 
+  or_plot(dependent, explanatory, 
+  breaks = c(0.5, 1, 5, 10, 20, 30))
+```
+
+
+```r
+# Save objects for knitr/markdown
+save(table1, table2, dependent, explanatory, file = "out.rda")
+```
+
+
+---
+
+
+```{r setup, include=FALSE}
+# Load data into global environment. 
+library(finalfit)
+library(dplyr)
+library(knitr)
+load("out.rda")
+```
+
+## Table 1 - Demographics
+```{r table1, echo = FALSE, results='asis'}
+kable(table1, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r"))
+```
+
+## Table 2 - Association between tumour factors and 5 year mortality
+```{r table2, echo = FALSE, results='asis'}
+kable(table2, row.names=FALSE, align=c("l", "l", "r", "r", "r", "r"))
+```
+
+## Figure 1 - Association between tumour factors and 5 year mortality
+```{r figure1, echo = FALSE}
+colon_s %>% 
+  or_plot(dependent, explanatory)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

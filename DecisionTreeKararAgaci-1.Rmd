@@ -1,0 +1,395 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "Decision Tree / Karar Ağacı"
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r # format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    fig_height: 6
+    fig_width: 10
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+# Decision Trees
+
+
+
+
+https://www.datacamp.com/community/tutorials/decision-trees-R
+
+
+```r
+# install.packages("ISLR")
+library(ISLR)
+data(package = "ISLR")
+carseats <- Carseats
+carseats
+```
+
+
+```r
+# install.packages("tree")
+library(tree)
+require(tree)
+```
+
+
+```r
+names(carseats)
+
+```
+
+
+```r
+hist(carseats$Sales)
+```
+
+```r
+High <- ifelse(carseats$Sales <= 8, "No", "Yes")
+carseats <- data.frame(carseats, High)
+carseats
+```
+
+
+```r
+tree.carseats <- tree(High~.-Sales, data = carseats)
+```
+
+
+```r
+tree.carseats
+
+```
+
+
+
+```r
+set.seed(101)
+train <- sample(1:nrow(carseats), 250)
+```
+
+
+```r
+train
+```
+
+
+```{r fig.height=6, fig.width=12}
+tree.carseats <- tree(High~.-Sales, carseats, subset=train)
+plot(tree.carseats)
+text(tree.carseats, pretty=0)
+```
+
+
+
+```r
+tree.pred <- predict(tree.carseats, carseats[-train,], type = "class")
+```
+
+
+```r
+tree.pred
+```
+
+
+
+
+```r
+with(carseats[-train,], table(tree.pred, High))
+```
+
+
+
+```r
+cv.carseats <- cv.tree(tree.carseats, FUN = prune.misclass)
+cv.carseats
+```
+
+
+
+```r
+plot(cv.carseats)
+```
+
+
+
+
+
+prune.carseats = prune.misclass(tree.carseats, best = 12)
+plot(prune.carseats)
+text(prune.carseats, pretty=0)
+It's a bit shallower than previous trees, and you can actually read the labels. Let's evaluate it on the test dataset again.
+
+tree.pred = predict(prune.carseats, carseats[-train,], type="class")
+with(carseats[-train,], table(tree.pred, High))
+(74 + 39) / 150
+Seems like the correct classifications dropped a little bit. It has done about the same as your original tree, so pruning did not hurt much with respect to misclassification errors, and gave a simpler tree.
+
+Often case, trees don't give very good prediction errors, so let's go ahead take a look at random forests and boosting, which tend to outperform trees as far as prediction and misclassification are concerned.
+
+Random Forests
+For this part, you will use the Boston housing data to explore random forests and boosting. The dataset is located in the MASS package. It gives housing values and other statistics in each of 506 suburbs of Boston based on a 1970 census.
+
+library(MASS)
+data(package="MASS")
+boston<-Boston
+dim(boston)
+names(boston)
+Let's also load the randomForest package.
+
+require(randomForest)
+To prepare data for random forest, let's set the seed and create a sample training set of 300 observations.
+
+set.seed(101)
+train = sample(1:nrow(boston), 300)
+In this dataset, there are 506 surburbs of Boston. For each surburb, you have variables such as crime per capita, types of industry, average # of rooms per dwelling, average proportion of age of the houses etc. Let's use medv - the median value of owner-occupied homes for each of these surburbs, as the response variable.
+
+Let's fit a random forest and see how well it performs. As being said, you use the response medv, the median housing value (in $1K dollars), and the training sample set.
+
+rf.boston = randomForest(medv~., data = boston, subset = train)
+rf.boston
+Printing out the random forest gives its summary: the # of trees (500 were grown), the mean squared residuals (MSR), and the percentage of variance explained. The MSR and % variance explained are based on the out-of-bag estimates, a very clever device in random forests to get honest error estimates.
+
+The only tuning parameter in a random Forests is the argument called mtry, which is the number of variables that are selected at each split of each tree when you make a split. As seen here, mtry is 4 of the 13 exploratory variables (excluding medv) in the Boston Housing data - meaning that each time the tree comes to split a node, 4 variables would be selected at random, then the split would be confined to 1 of those 4 variables. That's how randomForests de-correlates the trees.
+
+You're going to fit a series of random forests. There are 13 variables, so let's have mtry range from 1 to 13:
+
+In order to record the errors, you set up 2 variables oob.err and test.err.
+
+In a loop of mtry from 1 to 13, you first fit the randomForest with that value of mtry on the train dataset, restricting the number of trees to be 350.
+
+Then you extract the mean-squared-error on the object (the out-of-bag error).
+
+Then you predict on the test dataset (boston[-train]) using fit (the fit of randomForest).
+
+Lastly, you compute the test error: mean-squared error, which is equals to mean( (medv - pred) ^ 2 ).
+
+oob.err = double(13)
+test.err = double(13)
+for(mtry in 1:13){
+  fit = randomForest(medv~., data = boston, subset=train, mtry=mtry, ntree = 350)
+  oob.err[mtry] = fit$mse[350]
+  pred = predict(fit, boston[-train,])
+  test.err[mtry] = with(boston[-train,], mean( (medv-pred)^2 ))
+}
+Basically you just grew 4550 trees (13 times 350). Now let's make a plot using the matplot command. The test error and the out-of-bag error are binded together to make a 2-column matrix. There are a few other arguments in the matrix, including the plotting character values (pch = 23 means filled diamond), colors (red and blue), type equals both (plotting both points and connecting them with the lines), and name of y-axis (Mean Squared Error). You can also put a legend at the top right corner of the plot.
+
+matplot(1:mtry, cbind(test.err, oob.err), pch = 23, col = c("red", "blue"), type = "b", ylab="Mean Squared Error")
+legend("topright", legend = c("OOB", "Test"), pch = 23, col = c("red", "blue"))
+Ideally, these 2 curves should line up, but it seems like the test error is a bit lower. However, there's a lot of variability in these test error estimates. Since the out-of-bag error estimate was computed on one dataset and the test error estimate was computed on another dataset, these differences are pretty much well within the standard errors.
+
+Notice that the red curve is smoothly above the blue curve? These error estimates are very correlated, because the randomForest with mtry = 4 is very similar to the one with mtry = 5. That's why each of the curves is quite smooth. What you see is that mtry around 4 seems to be the most optimal choice, at least for the test error. This value of mtry for the out-of-bag error equals 9.
+
+So with very few tiers, you have fitted a very powerful prediction model using random forests. How so? The left-hand side shows the performance of a single tree. The mean squared error on out-of-bag is 26, and you've dropped down to about 15 (just a bit above half). This means you reduced the error by half. Likewise for the test error, you reduced the error from 20 to 12.
+
+Boosting
+Compared to random forests, boosting grows smaller and stubbier trees and goes at the bias. You will use the package GBM (Gradient Boosted Modeling), in R.
+
+require(gbm)
+GBM asks for the distribution, which is Gaussian, because you'll be doing squared error loss. You're going to ask GBM for 10,000 trees, which sounds like a lot, but these are going to be shallow trees. Interaction depth is the number of splits, so you want 4 splits in each tree. Shrinkage is 0.01, which is how much you're going to shrink the tree step back.
+
+boost.boston = gbm(medv~., data = boston[train,], distribution = "gaussian", n.trees = 10000, shrinkage = 0.01, interaction.depth = 4)
+summary(boost.boston)
+The summary function gives a variable importance plot. It seems like there are 2 variables that have high relative importance: rm (number of rooms) and lstat (percentage of lower economic status people in the community). Let's plot these 2 variables:
+
+plot(boost.boston,i="lstat")
+plot(boost.boston,i="rm")
+The 1st plot shows that the higher the proportion of lower status people in the suburb, the lower the value of the housing prices. The 2nd plot shows the reversed relationship with the number of rooms: the average number of rooms in the house increases as the price increases.
+
+It's time to predict a boosted model on the test dataset. Let's look at the test performance as a function of the number of trees:
+
+First, you make a grid of number of trees in steps of 100 from 100 to 10,000.
+
+Then, you run the predict function on the boosted model. It takes n.trees as an argument, and produces a matrix of predictions on the test data.
+
+The dimensions of the matrix are 206 test observations and 100 different predict vectors at the 100 different values of tree.
+
+n.trees = seq(from = 100, to = 10000, by = 100)
+predmat = predict(boost.boston, newdata = boston[-train,], n.trees = n.trees)
+dim(predmat)
+It's time to compute the test error for each of the predict vectors:
+
+predmat is a matrix, medv is a vector, thus (predmat - medv) is a matrix of differences. You can use the apply function to the columns of these square differences (the mean). That would compute the column-wise mean squared error for the predict vectors.
+
+Then you make a plot using similar parameters to that one used for Random Forest. It would show a boosting error plot.
+
+boost.err = with(boston[-train,], apply( (predmat - medv)^2, 2, mean) )
+plot(n.trees, boost.err, pch = 23, ylab = "Mean Squared Error", xlab = "# Trees", main = "Boosting Test Error")
+abline(h = min(test.err), col = "red")
+The boosting error pretty much drops down as the number of trees increases. This is an evidence showing that boosting is reluctant to overfit. Let's also include the best test error from the randomForest into the plot. Boosting actually gets a reasonable amount below the test error for randomForest.
+
+Conclusion
+So that's the end of this R tutorial on building decision tree models: classification trees, random forests, and boosted trees. The latter 2 are powerful methods that you can use anytime as needed. In my experience, boosting usually outperforms RandomForest, but RandomForest is easier to implement. In RandomForest, the only tuning parameter is the number of trees; while in boosting, more tuning parameters are required besides the number of trees, including the shrinkage and the interaction depth.
+
+If you would like to learn more, be sure to take a look at our Machine Learning Toolbox course for R.
+
+
+
+
+
+
+# decision tree
+https://analytics4all.org/2016/11/23/r-decision-trees-regression/
+
+
+
+# DECISION TREE CLASSIFIER IMPLEMENTATION IN R
+
+---
+
+https://dataaspirant.com/2017/01/30/how-decision-tree-algorithm-works/
+
+
+
+
+
+---
+
+https://dataaspirant.com/2017/02/03/decision-tree-classifier-implementation-in-r/
+
+
+# caret
+
+Classification And REgression Training
+
+
+
+```r
+library(caret)
+library(rpart.plot)
+```
+
+
+```r
+data_url <- c("https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data")
+download.file(url = data_url, destfile = "data/car.data")
+
+car_df <- read.csv("data/car.data", sep = ',', header = FALSE)
+```
+
+
+```r
+set.seed(3033)
+intrain <- createDataPartition(y = car_df$V7, p= 0.7, list = FALSE)
+training <- car_df[intrain,]
+testing <- car_df[-intrain,]
+```
+
+
+```r
+#check dimensions of train & test set
+dim(training); dim(testing);
+```
+
+
+
+```r
+anyNA(car_df)
+```
+
+```r
+summary(car_df)
+```
+
+```r
+trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
+
+# The “method” parameter holds the details about resampling method. We can set “method” with many values like  “boot”, “boot632”, “cv”, “repeatedcv”, “LOOCV”, “LGOCV” etc. For this tutorial, let’s try to use repeatedcv i.e, repeated cross-validation.
+# 
+# The “number” parameter holds the number of resampling iterations. The “repeats ” parameter contains the complete sets of folds to compute for our repeated cross-validation. We are using setting number =10 and repeats =3. This trainControl() methods returns a list. We are going to pass this on our train() method.
+
+
+set.seed(3333)
+
+dtree_fit <- train(V7 ~., data = training, method = "rpart",
+                   parms = list(split = "information"),
+                   trControl=trctrl,
+                   tuneLength = 10)
+
+
+# train() method should be passed with “method” parameter as “rpart”. There is another package “rpart”, it is specifically available for decision tree implementation. Caret links its train function with others to make our work simple.
+# 
+# We are passing our target variable V7. The “V7~.” denotes a formula for using all attributes in our classifier and V7 as the target variable. The “trControl” parameter should be passed with results from our trianControl() method.
+
+
+
+
+
+```
+
+
+
+```r
+?rpart
+```
+
+
+```r
+dtree_fit
+```
+
+```r
+prp(dtree_fit$finalModel, box.palette = "Reds", tweak = 1.2)
+```
+
+
+```r
+testing[1,]
+```
+
+```r
+predict(dtree_fit, newdata = testing[1,])
+```
+
+```r
+test_pred <- predict(dtree_fit, newdata = testing)
+```
+
+
+```r
+confusionMatrix(test_pred, testing$V7 )  #check accuracy
+```
+
+
+
+
+```r
+set.seed(3333)
+dtree_fit_gini <- train(V7 ~., data = training, method = "rpart",
+                   parms = list(split = "gini"),
+                   trControl=trctrl,
+                   tuneLength = 10)
+dtree_fit_gini
+```
+
+```r
+prp(dtree_fit_gini$finalModel, box.palette = "Blues", tweak = 1.2)
+```
+
+
+```r
+test_pred_gini <- predict(dtree_fit_gini, newdata = testing)
+confusionMatrix(test_pred_gini, testing$V7 )  #check accuracy
+```
+
+
+
+
+
+

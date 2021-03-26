@@ -1,0 +1,21 @@
+
+# OpenCPU 
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# Install OpenCPU
+# install.packages( opencpu )
+
+# Run Apps directly from Github
+library(opencpu)
+ocpu_start_app( rwebapps/nabel )
+ocpu_start_app( rwebapps/markdownapp )
+ocpu_start_app( rwebapps/stockapp )
+
+# Install / remove apps
+# remove_apps( rwebapps/stockapp )
+
+```
+
+

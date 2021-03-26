@@ -1,0 +1,142 @@
+---
+title: "U.S. Census Counts Data"
+output: html_notebook
+---
+
+
+# U.S. Census Counts Data
+
+
+https://kieranhealy.org/blog/archives/2020/03/15/u.s.-census-counts-data/
+
+
+https://github.com/kjhealy/uscenpops
+
+
+https://kjhealy.github.io/uscenpops/
+
+
+```r
+# devtools::install_github("kjhealy/uscenpops")
+```
+
+
+
+```r
+if (!require("drat")) {
+    install.packages("drat")
+    library("drat")
+}
+
+
+drat::addRepo("kjhealy")
+
+# install.packages("uscenpops")
+
+
+# To ensure that the uscenpops repository is always available, you can add the following line to your .Rprofile or .Rprofile.site file:
+# drat::addRepo("kjhealy")
+# With that in place you’ll be able to do install.packages("uscenpops") or update.packages("uscenpops")
+
+```
+
+
+
+
+```r
+library(tidyverse)
+library(uscenpops)
+```
+
+
+```r
+uscenpops
+```
+
+
+
+```r
+library(dplyr)
+library(ggplot2)
+
+pop_pyr <- uscenpops %>%
+    select(year, age, male, female) %>%
+  tidyr::pivot_longer(male:female, names_to = "group", values_to = "count") %>%
+  group_by(year, group) %>%
+  mutate(total = sum(count), 
+         pct = (count/total)*100, 
+         base = 0) 
+
+pop_pyr
+
+```
+
+
+
+
+
+```r
+## Axis labels
+mbreaks <- c("1M", "2M", "3M")
+
+## colors
+pop_colors <- c("#E69F00", "#0072B2")
+
+## In-plot year labels
+dat_text <- data.frame(
+  label =  c(seq(1900, 2015, 5), 2019),
+  year  =  c(seq(1900, 2015, 5), 2019),
+  age = rep(95, 25), 
+  count = rep(-2.75e6, 25)
+)
+
+pop_pyr$count[pop_pyr$group == "male"] <- -pop_pyr$count[pop_pyr$group == "male"]
+```
+
+
+```r
+p <- pop_pyr %>% 
+  filter(year %in% c(seq(1900, 2015, 5), 2019)) %>%
+  ggplot(mapping = aes(x = age, ymin = base,
+                       ymax = count, fill = group))
+
+p + geom_ribbon(alpha = 0.9, color = "black", size = 0.1) +
+  geom_label(data = dat_text, 
+             mapping = aes(x = age, y = count, 
+                           label = label), inherit.aes = FALSE, 
+             vjust = "inward", hjust = "inward",
+             fontface = "bold", 
+             color = "gray40", 
+             fill = "gray95") + 
+  scale_y_continuous(labels = c(rev(mbreaks), "0", mbreaks), 
+                     breaks = seq(-3e6, 3e6, 1e6), 
+                     limits = c(-3e6, 3e6)) + 
+  scale_x_continuous(breaks = seq(10, 100, 10)) +
+  scale_fill_manual(values = pop_colors, labels = c("Females", "Males")) + 
+  guides(fill = guide_legend(reverse = TRUE)) +
+  labs(x = "Age", y = "Population in Millions",
+       title = "Age Distribution of the U.S. Population, 1900-2019",
+       subtitle = "Age is top-coded at 75 until 1939, at 85 until 1979, and at 100 since then",
+       caption = "Kieran Healy / kieranhealy.org / Data: US Census Bureau.",
+       fill = "") +
+  theme(legend.position = "bottom",
+        plot.title = element_text(size = rel(2), face = "bold"),
+        strip.background = element_blank(),  
+        strip.text.x = element_blank()) +
+  coord_flip() + 
+  facet_wrap(~ year, ncol = 5)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

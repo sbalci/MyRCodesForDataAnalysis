@@ -1,0 +1,28 @@
+---
+title: "d3rain"
+output: html_notebook
+---
+
+
+```r
+library(dplyr)
+library(d3rain)
+
+armed_levels <- rev(c('Unarmed', 'Knife', 'Non-lethal firearm', 'Firearm'))
+pk <- fivethirtyeight::police_killings %>% 
+  mutate(armed = recode(armed, No = "Unarmed")) %>% 
+  mutate(armed = factor(armed, levels = armed_levels)) %>% 
+  filter(armed %in% armed_levels,
+         !is.na(age))
+pk %>% 
+  arrange(age) %>% 
+  d3rain(age, armed, toolTip = age, title = "2015 Police Killings by Age, Armed Status") %>% 
+  drip_settings(dripSequence = 'iterate',
+                ease = 'linear',
+                jitterWidth = 25,
+                dripSpeed = 500,
+                dripFill = 'firebrick',
+                iterationSpeedX = 20) %>% 
+  chart_settings(fontFamily = 'times',
+                 yAxisTickLocation = 'left')  
+```

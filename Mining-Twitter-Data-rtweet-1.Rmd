@@ -1,0 +1,578 @@
+
+# 21 Recipes for Mining Twitter Data with rtweet 
+
+
+# 21 Recipes for Mining Twitter Data with rtweet
+
+https://rud.is/books/21-recipes/
+
+http://rtweet.info/index.html
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# devtools::install_github( mkearney/rtweet )
+library(rtweet)
+library(tidyverse)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+(trends_avail <- trends_available())
+
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+(us <- get_trends( united states ))
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+(tr <- get_trends( turkey ))
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(DBI)
+library(RSQLite)
+library(rtweet) # mkearney/rtweet
+
+repeat {
+  message( Retrieveing trends... ) # optional
+  us <- get_trends( united states )
+  db_con <- dbConnect(RSQLite::SQLite(),  data/us-trends.db )
+  dbWriteTable(db_con,  us_trends , us, append=TRUE) # append=TRUE will update the table vs overwrite and also create it on first run if it does not exist
+  dbDisconnect(db_con)
+  Sys.sleep(10 * 60) # sleep for 10 minutes
+}
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(dplyr)
+
+trends_db <- src_sqlite( data/us-trends.db )
+us <- tbl(trends_db,  us_trends )
+select(us, trend)
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+(rstats <- search_tweets( #rstats , n=300)) # pull 300 tweets that used the  #rstats  hashtag
+
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+glimpse(rstats)
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+rstats %>% 
+select(hashtags) %>% 
+  unnest() %>% 
+  mutate(hashtags = tolower(hashtags)) %>% 
+  count(hashtags, sort=TRUE) %>% 
+  filter(hashtags !=  rstats ) %>% 
+  top_n(10)
+
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+rstats <- search_tweets( #rstats -filter:retweets ) %>%
+  select(text)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+rstats <- search_tweets( to:kearneymw ) %>%
+  select(text)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+rstats <- search_tweets( #rstats url:github -#python ) %>% 
+  select(text)
+
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(tidyverse)
+rstats <- search_tweets( #rstats , n=500)
+
+glimpse(rstats)
+
+filter(rstats, retweet_count > 0) %>% 
+  select(text, mentions_screen_name, retweet_count) %>% 
+  mutate(text = substr(text, 1, 30)) %>% 
+  unnest()
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# regex mod from https://stackoverflow.com/questions/655903/python-regular-expression-for-retweets
+filter(rstats, str_detect(text,  (RT|via)((?:[[:blank:]:]\\W*@\\w+)+) )) %>% 
+  select(text, mentions_screen_name, retweet_count) %>% 
+  mutate(extracted = str_match(text,  (RT|via)((?:[[:blank:]:]\\W*@\\w+)+) )[,3]) %>% 
+  mutate(text = substr(text, 1, 30)) %>% 
+  unnest()  
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(igraph)
+library(hrbrthemes)
+library(tidyverse)
+rstats <- search_tweets( #rstats , n=1500)
+
+filter(rstats, retweet_count > 0) %>% 
+  select(screen_name, mentions_screen_name) %>%
+  unnest(mentions_screen_name) %>% 
+  filter(!is.na(mentions_screen_name)) %>% 
+  graph_from_data_frame() -> rt_g
+  
+summary(rt_g)
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+ggplot(data_frame(y=degree_distribution(rt_g), x=1:length(y))) +
+  geom_segment(aes(x, y, xend=x, yend=0), color= slateblue ) +
+  scale_y_continuous(expand=c(0,0), trans= sqrt ) +
+  labs(x= Degree , y= Density (sqrt scale) , title= #rstats Retweet Degree Distribution ) +
+  theme_ipsum_rc(grid= Y , axis= x )
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+V(rt_g)$node_label <- unname(ifelse(degree(rt_g)[V(rt_g)] > 20, names(V(rt_g)),   )) 
+V(rt_g)$node_size <- unname(ifelse(degree(rt_g)[V(rt_g)] > 20, degree(rt_g), 0)) 
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(ggraph)
+
+ggraph(rt_g, layout = 'linear', circular = TRUE) + 
+  geom_edge_arc(edge_width=0.125, aes(alpha=..index..)) +
+  geom_node_label(aes(label=node_label, size=node_size),
+                  label.size=0, fill= #ffffff66 , segment.colour= springgreen ,
+                  color= slateblue , repel=TRUE, family=font_rc, fontface= bold ) +
+  coord_fixed() +
+  scale_size_area(trans= sqrt ) +
+  labs(title= Retweet Relationships , subtitle= Most retweeted screen names labeled. Darkers edges == more retweets. Node size == larger degree ) +
+  theme_graph(base_family=font_rc) +
+  theme(legend.position= none )
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+stream_tweets(
+  lookup_coords( usa ), # handy helper function in rtweet
+  verbose = FALSE,
+  timeout = (60 * 1),
+) -> usa
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+count(usa, place_full_name, sort=TRUE)
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+unnest(usa, hashtags) %>% 
+  count(hashtags, sort=TRUE) %>% 
+  filter(!is.na(hashtags))
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+count(usa, source, sort=TRUE)
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+rtweet::write_as_csv()
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(tidytext)
+library(magick)
+library(kumojars) # hrbrmstr/kumojars
+library(kumo) # hrbrmstr/kumo
+library(tidyverse)
+```
+
+
+
+scifi <- search_tweets( #NationalScienceFictionDay , n=1500)
+
+data_frame(txt=str_replace_all(scifi$text,  #NationalScienceFictionDay ,   )) %>% 
+  unnest_tokens(word, txt) %>% 
+  anti_join(stop_words,  word ) %>% 
+  anti_join(rtweet::stopwordslangs,  word ) %>% 
+  anti_join(data_frame(word=c( https ,  t.co )),  word ) %>% # need to make a more technical stopwords list or clean up the text better
+  filter(nchar(word)>3) %>% 
+  pull(word) %>% 
+  paste0(collapse=   ) -> txt
+
+cloud_img <- word_cloud(txt, width=800, height=500,  min_font_size=10, max_font_size=60, scale= log )
+
+image_write(cloud_img,  data/wordcloud.png )
+
+
+
+
+
+
+
+
+library(rtweet)
+library(LSAfun)
+library(jerichojars) # hrbrmstr/jerichojars
+library(jericho) # hrbrmstr/jericho
+library(tidyverse)
+stiles <- get_timeline( stiles )
+
+filter(stiles, str_detect(urls_expanded_url,  nyti|reut|wapo|lat\\.ms|53ei )) %>%  # only get tweets with news links
+  pull(urls_expanded_url) %>% # extract the links
+  flatten_chr() %>% # mush them into a nice character vector
+  head(3) %>% # get the first 3
+  map_chr(~{
+    httr::GET(.x) %>% # get the URL (I'm lazily calling  fair use  here vs check robots.txt since I'm suggesting you do this for your benefit vs profit)
+      httr::content(as= text ) %>%  # extract the HTML
+      jericho::html_to_text() %>% # strip away extraneous HTML tags
+      LSAfun::genericSummary(k=3) %>% # summarise!
+      paste0(collapse= \n\n ) # easier to see
+  }) %>%
+  walk(cat)
+  
+  
+
+
+
+
+library(rtweet)
+library(tidyverse)
+(brooke_followers <- rtweet::get_followers( gbwanderson ))
+
+
+(brooke_friends <- rtweet::get_friends( gbwanderson ))
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(tidyverse)
+my_followers <- rtweet::get_followers( serdarbalci )
+my_friends <- rtweet::get_friends( serdarbalci )
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+length(intersect(my_followers$user_id, my_friends$user_id))
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+length(setdiff(my_followers$user_id, my_friends$user_id))
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+length(setdiff(my_friends$user_id, my_followers$user_id))
+```
+
+
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+rtweet::lookup_users(my_friends$user_id)
+```
+
+
+
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(hrbrthemes)
+library(tidyverse)
+influence_snapshot <- function(user, trans=c( log10 ,  identity )) {
+  
+  user <- user[1]
+  trans <- match.arg(tolower(trimws(trans[1])), c( log10 ,  identity ))
+  
+  user_info <- lookup_users(user)
+  
+  user_followers <- get_followers(user_info$user_id)
+  uf_details <- lookup_users(user_followers$user_id)
+  
+  primary_influence <- scales::comma(sum(c(uf_details$followers_count, user_info$followers_count)))
+  
+  filter(uf_details, followers_count > 0) %>% 
+    ggplot(aes(followers_count)) +
+    geom_density(aes(y=..count..), color= lightslategray , fill= lightslategray ,
+                 alpha=2/3, size=1) +
+    scale_x_continuous(expand=c(0,0), trans= log10 , labels=scales::comma) +
+    scale_y_comma() +
+    labs(
+      x= Number of Followers of Followers (log scale) , 
+      y= Number of Followers ,
+      title=sprintf( Follower chain distribution of %s (@%s) , user_info$name, user_info$screen_name),
+      subtitle=sprintf( Follower count: %s; Primary influence/reach: %s , 
+                       scales::comma(user_info$followers_count),
+                       scales::comma(primary_influence))
+    ) +
+    theme_ipsum_rc(grid= XY ) -> gg
+  
+  print(gg)
+  
+  return(invisible(list(user_info=user_info, follower_details=uf_details)))
+  
+}
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+juliasilge <- influence_snapshot( juliasilge )
+```
+
+
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(broom)
+library(eechidna)
+library(cartogram) # chxy/cartogram
+library(hrbrthemes)
+library(tidyverse)
+# search twitter for tweets
+rstats_us <- search_tweets( #rstats , 3000, geocode =  2.877742,-97.380979,3000mi ) # geocode request isn't perfect but helps narrow down
+
+# lookup each user (uniquely) so we can grab location information
+user_info <- lookup_users(unique(rstats_us$user_id)) 
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+discard(user_info$location, `==`,   ) %>% # ignore blank data
+  str_match(sprintf( (%s) , paste0(state.abb, collapse= | ))) %>%  # try to match U.S. state abbreviations
+  .[,2] %>% # the previous step creates a matrix with column 2 being the extracted information (if any)
+  discard(is.na) %>%  # if no state match was found the value is NA so discard this one
+  table() %>% # some habits are hard to break
+  broom::tidy() %>% # but we can tidy them!
+  set_names(c( state ,  n )) %>% # these are more representative names
+  tbl_df() %>% # not really necessary but I was printing this when testing
+  arrange(desc(n)) %>% # same as ^^
+  left_join(
+    as_tibble(maps::state.carto.center) %>% # join state cartographic center data
+      mutate(state=state.abb)
+  ) -> for_dor 
+# %>% 
+  # the GitHub-only cartogram package nas a data structure which holds state adjacency information
+  # by specifying that here, it will help make the force-directed cartogram circle positioning more precise (and pretty)
+  # filter(state %in% names(cartogram::statenbrs)) -> for_dor 
+
+glimpse(for_dor)
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+par(family=font_rc, col= white )
+
+eechidna:::dorling(
+  for_dor$state, for_dor$x, for_dor$y, sqrt(for_dor$n),
+  # nbr=cartogram::statenbrs,
+  animation = FALSE, nbredge = TRUE, iteration=100, name.text=TRUE, dist.ratio=1.2,
+  main= Dorling Cartogram of U.S. #rstats , xlab='', ylab='', col= lightslategray ,
+  frame=FALSE, asp=1, family=font_rc, cex.main=1.75, adj=0
+) -> dor
+
+par(family=font_rc, col= black )
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(ggmap)
+library(tidyverse)
+rstats_us <- search_tweets( #rstats , 300)
+
+user_info <- lookup_users(unique(rstats_us$user_id))
+
+discard(user_info$location, `==`,   ) %>% 
+  ggmap::geocode() -> coded
+
+coded$location <- discard(user_info$location, `==`,   )
+
+user_info <- left_join(user_info, coded,  location )
+```
+
+
+
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(rtweet)
+library(tidyverse)
+library(UpSetR)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# get a list of twitter handles you want to compare
+rstaters <- c( dataandme , 
+               serdarbalci ,
+               JennyBryan ,
+               hrbrmstr ,
+               xieyihui 
+              #  drob , 
+              #  juliasilge , 
+              #  thomasp85 
+              )
+
+# scrape the user_id of all followers for each handle in the list and bind into 1 dataframe
+followers <- rstaters %>%
+  map_df(~ get_followers(.x, n = 200, retryonratelimit = TRUE) %>% 
+           mutate(account = .x))
+
+head(followers)
+
+tail(followers)
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# get a de-duplicated list of all followers
+aRdent_followers <- unique(followers$user_id)
+
+# for each follower, get a binary indicator of whether they follow each tweeter or not and bind to one dataframe
+binaries <- rstaters %>% 
+  map_dfc(~ ifelse(aRdent_followers %in% filter(followers, account == .x)$user_id, 1, 0) %>% 
+            as.data.frame) # UpSetR doesn't like tibbles
+
+# set column names
+names(binaries) <- rstaters
+
+# have a look at the data
+glimpse(binaries)
+```
+
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# plot the sets with UpSetR
+upset(binaries, nsets = 7, main.bar.color =  SteelBlue , sets.bar.color =  DarkCyan , 
+      sets.x.label =  Follower Count , text.scale = c(rep(1.4, 5), 1), order.by =  freq )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

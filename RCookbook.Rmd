@@ -1,0 +1,62 @@
+---
+title: "RCookbook"
+output: html_notebook
+---
+
+
+https://rc2e.com/index.html
+
+
+```r
+data(cars)
+library(purrr)
+map_dbl(cars, mean)
+```
+
+
+```r
+map_dbl(cars, sd)
+```
+
+
+```r
+map_dbl(cars, median)
+```
+
+
+```r
+var(cars)
+```
+
+
+```r
+cor(cars)
+```
+
+
+```r
+cov(cars)
+
+```
+
+
+
+```r
+v <- c(3, pi, 4)
+any(v == pi) # Return TRUE if any element of v equals pi
+all(v == 0) # Return TRUE if all elements of v are zero
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

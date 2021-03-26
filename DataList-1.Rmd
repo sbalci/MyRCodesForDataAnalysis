@@ -1,0 +1,87 @@
+---
+title: "My R Codes For Data Analysis"
+subtitle: "Open Data that can be used for projects"
+author: "[Serdar Balcı, MD, Pathologist](https://www.serdarbalci.com/)"
+date: '`r # format(Sys.Date())`'
+output: 
+  html_notebook: 
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: paper
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+  html_document: 
+    code_folding: hide
+    df_print: kable
+    keep_md: yes
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    highlight: kate
+---
+
+
+# Data List
+
+- Learning Clinical Epidemiology with R
+
+http://datacompass.lshtm.ac.uk/599/
+
+- ISLR
+
+```r
+data(package = "ISLR")
+```
+
+- acs
+
+Download, Manipulate, and Present American Community Survey and Decennial 
+
+Data from the US Census
+
+https://cran.r-project.org/web/packages/acs/index.html
+
+- eurostat
+
+Tools for Eurostat Open Data
+
+https://cran.r-project.org/web/packages/eurostat/index.html
+
+- Rilostat
+
+https://github.com/ilostat/Rilostat
+
+- OECD
+
+https://cran.r-project.org/web/packages/OECD/vignettes/oecd_vignette_main.pdf
+
+- gapminder
+
+Factfulness: Building Gapminder Income Mountains
+
+http://staff.math.su.se/hoehle/blog/2018/07/02/factfulness.html
+
+- nycflights13
+
+- fivethirtyeight
+
+- projects
+
+https://www.analyticsvidhya.com/blog/2014/11/data-science-projects-learn/
+
+- Miscellaneous Datasets
+
+http://users.stat.ufl.edu/~winner/datasets.html
+
+
+- datasets
+
+https://www.rdocumentation.org/packages/datasets/versions/3.5.1
+
+
+
+
+

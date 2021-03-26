@@ -1,0 +1,51 @@
+
+# My R Codes For Data Analysis 
+
+
+
+## File organization best practices
+
+This page summarises how to organize files and analysis before everything gets jumbled up:
+[Setting up a reproducible data analysis workflow in R](https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html)
+
+Basically they suggest:
+- using a project and project folder in RStudio for each analysis
+- using `packrat` as much as possible
+
+`setwd()` and `getwd()` is not necesary when you use projects.
+
+
+
+
+
+- **Why should I use the here package when I'm already using projects?**
+
+https://malco.io/2018/11/05/why-should-i-use-the-here-package/
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(here)
+here()
+```
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+dr_here()
+```
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+here( figure ,  figure.png )
+```
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+file.path( figure ,  figure.png )
+```
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+read_csv(here( data ,  mtcars.csv ))
+```
+

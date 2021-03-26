@@ -1,0 +1,81 @@
+digraph vtree {
+graph [layout = dot, compound=true, nodesep=0.1, ranksep=0.5, fontsize=12]
+node [fontname = Helvetica, fontcolor = black,shape = rectangle, color = black,margin=0.1]
+rankdir=LR;
+Node_L0[style=invisible]
+Node_L1[label=<<FONT POINT-SIZE="18"><FONT COLOR="#DE2D26"><B>StudyPopulation  </B></FONT></FONT><BR/>> shape=none margin=0]
+Node_L2[label=<<FONT POINT-SIZE="18"><FONT COLOR="#3182BD"><B>Tubular  </B></FONT></FONT><BR/>> shape=none margin=0]
+Node_L3[label=<<FONT POINT-SIZE="18"><FONT COLOR="#31A354"><B>Histotype  </B></FONT></FONT><BR/>> shape=none margin=0]
+Node_L4[label=<<FONT POINT-SIZE="18"><FONT COLOR="#E6550D"><B>MMR  </B></FONT></FONT><BR/>> shape=none margin=0]
+Node_L5[label=<<FONT POINT-SIZE="18"><FONT COLOR="#756BB1"><B>PDL1  </B></FONT></FONT><BR/>> shape=none margin=0]
+
+edge[style=invis];
+Node_L0->Node_L1->Node_L2->Node_L3->Node_L4->Node_L5
+
+edge[style=solid]
+Node_1->Node_2 Node_1->Node_3
+Node_3->Node_4 Node_3->Node_5
+Node_4->Node_6 Node_4->Node_7 Node_4->Node_8 Node_4->Node_9 Node_4->Node_10 Node_4->Node_11
+Node_6->Node_12
+Node_12->Node_13
+Node_7->Node_14 Node_7->Node_15
+Node_14->Node_16
+Node_15->Node_17
+Node_8->Node_18 Node_8->Node_19
+Node_18->Node_20
+Node_19->Node_21
+Node_9->Node_22
+Node_22->Node_23
+Node_10->Node_24
+Node_24->Node_25
+Node_11->Node_26
+Node_26->Node_27
+Node_5->Node_28 Node_5->Node_29
+Node_28->Node_30 Node_28->Node_31
+Node_30->Node_32
+Node_31->Node_33
+Node_29->Node_34 Node_29->Node_35
+Node_34->Node_36
+Node_35->Node_37
+
+Node_1[label=<376> color=black style="rounded,filled" fillcolor=<#EFF3FF>]
+Node_2[label=<exclude, 232 (62%)> color=black style="rounded,filled" fillcolor=<#FEE0D2>  ]
+Node_1[label=<376> color=black style="rounded,filled" fillcolor=<#EFF3FF>]
+Node_3[label=<include, 144 (38%)> color=black style="rounded,filled" fillcolor=<#DE2D26>  ]
+Node_4[label=<nontubular, 55 (38%)> color=black style="rounded,filled" fillcolor=<#DEEBF7>  ]
+Node_5[label=<tubular, 89 (62%)> color=black style="rounded,filled" fillcolor=<#3182BD>  ]
+Node_6[label=<AdenoSq, 2 (4%)> color=black style="rounded,filled" fillcolor=<#F7FCF5>  ]
+Node_7[label=<Focal Mucinous, 17 (31%)> color=black style="rounded,filled" fillcolor=<#E5F5E0>  ]
+Node_8[label=<Medullary, 8 (15%)> color=black style="rounded,filled" fillcolor=<#A1D99B>  ]
+Node_9[label=<Mucinous &gt;50%, 17 (31%)> color=black style="rounded,filled" fillcolor=<#74C476>  ]
+Node_10[label=<PCC, 2 (4%)> color=black style="rounded,filled" fillcolor=<#238B45>  ]
+Node_11[label=<Poorly Diff <BR/> Sarcomatoid, 9 (16%)> color=black style="rounded,filled" fillcolor=<#005A32>  ]
+Node_12[label=<pMMR, 2 (100%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_13[label=<2 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_14[label=<dMMR, 6 (35%)> color=black style="rounded,filled" fillcolor=<#FEE6CE>  ]
+Node_15[label=<pMMR, 11 (65%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_16[label=<6 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_17[label=<11 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_18[label=<dMMR, 7 (88%)> color=black style="rounded,filled" fillcolor=<#FEE6CE>  ]
+Node_19[label=<pMMR, 1 (12%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_20[label=<7 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_21[label=<1 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_22[label=<pMMR, 17 (100%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_23[label=<17 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_24[label=<pMMR, 2 (100%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_25[label=<2 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_26[label=<pMMR, 9 (100%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_27[label=<9 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_28[label=<Int, 35 (39%)> color=black style="rounded,filled" fillcolor=<#C7E9C0>  ]
+Node_29[label=<PB, 54 (61%)> color=black style="rounded,filled" fillcolor=<#41AB5D>  ]
+Node_30[label=<dMMR, 8 (23%)> color=black style="rounded,filled" fillcolor=<#FEE6CE>  ]
+Node_31[label=<pMMR, 27 (77%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_32[label=<8 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_33[label=<27 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_34[label=<dMMR, 8 (15%)> color=black style="rounded,filled" fillcolor=<#FEE6CE>  ]
+Node_35[label=<pMMR, 46 (85%)> color=black style="rounded,filled" fillcolor=<#E6550D>  ]
+Node_36[label=<8 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+Node_37[label=<46 (100%)> color=black style="rounded,filled" fillcolor=<#BCBDDC>  ]
+
+}
+

@@ -1,0 +1,16 @@
+---
+title: "q-value"
+output: html_notebook
+---
+
+
+```{r eval=FALSE, include=FALSE}
+# devtools::install_github("jdstorey/qvalue")
+library(qvalue)
+data(hedenfalk)
+pvalues <- hedenfalk$p
+qobj <- qvalue(p = pvalues)
+
+```
+
+

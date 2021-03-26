@@ -1,0 +1,578 @@
+
+# My R Codes For Data Analysis 
+
+
+# Getting Data into R / Veriyi R'a yükleme
+
+## Import Data
+
+### Import using RStudio
+
+### Import CSV File
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+scabies <- read.csv(file =  http://datacompass.lshtm.ac.uk/607/2/S1-Dataset_CSV.csv , header = TRUE, sep =  , )
+scabies
+```
+
+
+#### How to import multiple .csv files at once?
+
+https://stackoverflow.com/questions/11433432/how-to-import-multiple-csv-files-at-once
+
+
+```
+temp = list.files(pattern= *.csv )
+myfiles = lapply(temp, read.delim)
+
+temp = list.files(pattern= *.csv )
+for (i in 1:length(temp)) assign(temp[i], read.csv(temp[i]))
+
+temp = list.files(pattern= *.csv )
+list2env(
+  lapply(setNames(temp, make.names(gsub( *.csv$ ,   , temp))), 
+         read.csv), envir = .GlobalEnv)
+
+```
+
+
+```
+# Get the files names
+files = list.files(pattern= *.csv )
+# First apply read.csv, then rbind
+myfiles = do.call(rbind, lapply(files, function(x) read.csv(x, stringsAsFactors = FALSE)))
+```
+
+```
+library(data.table)
+DT = do.call(rbind, lapply(files, fread))
+# The same using `{r # bindlist`
+DT = rbindlist(lapply(files, fread))
+```
+
+```
+library(readr)
+library(dplyr)
+tbl = lapply(files, read_csv) %>% bind_rows()
+```
+
+```
+data <- read.csv(
+  switch(animal, 
+          dog  =  dogdata.csv , 
+          cat  =  catdata.csv ,
+          rabbit  =  rabbitdata.csv )
+)
+```
+
+
+### Import TXT File
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+ebola <- read.csv(file =  http://datacompass.lshtm.ac.uk/608/1/mmc1.txt , header = TRUE, sep =  , )
+ebola
+```
+
+
+### Import Excel File
+
+```
+my_data <- read_excel(file.choose())
+
+
+files <- list.files(pattern =  .xlsx )
+
+data_xlsx_df <- map_df(set_names(files), function(file) {
+  file %>% 
+    excel_sheets() %>% 
+    set_names() %>% 
+    map_df(
+      ~ read_xlsx(path = file, sheet = .x, range =  H3 ),
+      .id =  sheet )
+}, .id =  file )
+```
+
+#### Import Sheets
+
+ # Sheets 
+
+ library(tidyverse) 
+ library(readxl) 
+
+
+ path <-  ICPN_RAW.xls  
+ sheetlist <- path %>%  
+     excel_sheets() %>%  
+     set_names() %>%  
+     map(read_excel, skip = 1, path = path) 
+
+ sheetlist <- sheetlist[-29] 
+
+
+ sheetlist <- sheetlist %>% 
+     reduce(left_join, by =  Respondant , .id =  id , suffix = c( 1 , 2 )) 
+
+ names(sheetlist) 
+
+ columnNames <- c( 
+      ID , 
+      DX , 
+      y/n , 
+      ~plastic , 
+      WHO- 2010 classification , 
+      GRADE , 
+      INVASIVE CA , 
+      CELL LINEAGE , 
+      IPMN Lineage (PRE/MIN) , 
+      experience with this invasion , 
+      COMMENTS  
+ ) 
+
+ columnNumbers <- rep(c(1:28), each = 11) 
+
+ columnNames2 <- paste(columnNames, columnNumbers, sep =   ) 
+
+ columnNames2 <- c( Respondant , columnNames2) 
+
+ names(sheetlist) <- columnNames2 
+
+
+
+ #  Respondant 	 ID 	 y/n 	 WHO- 2010 classification 	 GRADE 	 INVASIVE CA 	 CELL LINEAGE 	 IPMN Lineage (PRE/MIN)  
+
+ deneme <- sheetlist %>%  
+     select(starts_with( Respondant ), starts_with( GRADE )) 
+
+
+
+
+
+
+
+ # deneme[deneme== HIGH ] <- 3 
+ # deneme[deneme== HIGH (focal) ] <- 3 
+ # deneme[deneme== MODERATE ] <- 2 
+ # deneme[deneme== LOW ] <- 1 
+ #  
+ # deneme <- as.data.frame(deneme) 
+ #  
+ # row.names(deneme) <- deneme$Respondant 
+ #  
+ # deneme <- deneme[-1] 
+ #  
+ # deneme[is.na(deneme)] <- 1 
+ #  
+ # deneme <- map_df(deneme, as.matrix) 
+ #  
+ # glimpse(deneme) 
+ #  
+ # heatmap(deneme) 
+
+ write_csv(deneme,  deneme.csv ) 
+
+
+
+
+
+
+### Import SPSS File
+
+### Keep SPSS labels
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(foreign) # foreign paketi yükleniyor
+```
+
+read.spss komutu ile değer etiketlerini almasını ve bunu liste olarak değil de data.frame olarak kaydetmesini istiyoruz
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+mydata <- read.spss( mydata.sav , use.value.labels = TRUE, to.data.frame = TRUE)
+```
+
+aktardığımız data.frame'in özellikleri (attr) içinde değişkenlerin etiketleri var, bunları dışarı çıkartıyoruz
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+VariableLabels <- as.data.frame(attr(mydata,  variable.labels ))
+```
+
+
+elde ettiğimiz data.frame'deki satır isimleri değişkenlerin isimleri oluyor, karşılarında da değişken etiketleri var
+satır isimlerini de dışarı çıkartıyoruz
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+VariableLabels$original <- rownames(VariableLabels)
+```
+
+Değişken etiketi olanları etiketleri ile diğerlerini olduğu gibi saklıyoruz  
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+VariableLabels$label[VariableLabels$label ==  ] <- NA 
+VariableLabels$colname <- VariableLabels$original
+VariableLabels$colname[!is.na(VariableLabels$label)] <- as.vector(VariableLabels$label[!is.na(VariableLabels$label)])
+```
+
+son olarak da data.frame'deki sütun isimlerini değiştiriyoruz
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+names(mydata) <- VariableLabels$colname
+```
+
+
+
+
+
+# Export Data
+
+### Export to SPSS, while keeping labels
+
+R'da `factor` olan label verdiğiniz değişkenleri `SPSS` ya da diğer istatistik programlarına aktardığınızda bu tanımlamaları korumak işimize yarar. Bunun için `foreign` paketi ile bir `txt` dosyası ve bir `sps` dosyası oluşturuyoruz. SPSS'te `sps` dosyasını açıp kodu çalıştırarak tekrar atanan değerler geri yükleniyor.
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(foreign)
+write.foreign(mydata,  mydata.txt ,  mydata.sps ,   package =  SPSS )
+```
+
+
+
+
+https://twitter.com/WeAreRLadies/status/1034817323922804737
+
+```
+f <- list.files(  my_folder , pattern =  *.csv , full.names = TRUE)
+d <- purrr::map_df(f, readr::read_csv, .id =  id )
+```
+
+
+
+```
+m <- lm(mpg ~ qsec + wt, data = mtcars)
+broom::tidy(m)
+```
+
+
+
+Import a Directory of CSV Files at Once Using {purrr} and {readr}
+
+https://www.gerkelab.com/blog/2018/09/import-directory-csv-purrr-readr/
+
+```
+data_dir %>% 
+  dir_ls(regexp =  \\.csv$ ) %>% 
+  map_dfr(read_csv, .id =  source ) %>% 
+  mutate(Month_Year = myd(Month_Year, truncated = 1))
+```  
+
+
+
+
+https://suatatan.wordpress.com/2017/10/07/bulk-replacing-turkish-characters-in-r/
+
+Turkish character sometimes became the menace for the data scientist. To avoid the risks you may want to change it with safe characters. To do that you can use this code:
+
+```
+#turkce karakter donusumu
+to.plain <- function(s) {
+
+# 1 character substitutions
+old1 <- “çğşıüöÇĞŞİÖÜ”
+new1 <- “cgsiuocgsiou”
+s1 <- chartr(old1, new1, s)
+
+# 2 character substitutions
+old2 <- c(“œ”, “ß”, “æ”, “ø”)
+new2 <- c(“oe”, “ss”, “ae”, “oe”)
+s2 <- s1
+for(i in seq_along(old2)) s2 <- gsub(old2[i], new2[i], s2, fixed = TRUE)
+
+s2
+}
+df$source=as.vector(sapply(df$source,to.plain))
+
+
+to.plain(make.names(tolower(names(df))))
+```
+
+
+- Remove all special characters from a string in R?
+
+https://stackoverflow.com/questions/10294284/remove-all-special-characters-from-a-string-in-r
+
+```
+x <-  a1~!@#$%^&*(){}_+:\ <>?,./;'[]-= 
+stringr::str_replace_all(x,  [[:punct:]] ,    )
+stringr::str_replace_all(x,  [^[:alnum:]] ,    )
+```
+
+```
+astr <-  Ábcdêãçoàúü 
+iconv(astr, from = 'UTF-8', to = 'ASCII//TRANSLIT')
+```
+
+```
+Data  <- gsub( [^0-9A-Za-z///' ] , '  , Data ,ignore.case = TRUE)
+
+Data <- gsub( '' ,   , Data ,ignore.case = TRUE)
+```
+
+
+
+
+
+# pdftables
+
+https://cran.r-project.org/web/packages/pdftables/vignettes/convert_pdf_tables.html
+
+
+# tabulizer
+
+Extract Tables from PDFs
+
+
+https://github.com/ropensci/tabulizer
+
+
+
+# rio
+
+Import, Export, and Convert Data Files
+
+https://thomasleeper.com/rio/index.html
+
+https://cran.r-project.org/web/packages/rio/vignettes/rio.html
+
+
+# read with purrr
+
+
+R tip: Iterate with purrr's map_df function
+
+
+https://www.infoworld.com/video/89075/r-tip-iterate-with-purrrs-map-df-function
+
+
+
+# The janitor package
+
+https://garthtarr.github.io/meatR/janitor.html
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# install.packages( janitor )
+```
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+library(tidyverse)
+library(janitor)
+library(xlsx)
+```
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# mymsa <-  data.table::fread( https://garthtarr.com/data/mymsa.xlsx , fill = TRUE)
+mymsa <-  read_excel( data/mymsa.xlsx )
+mymsa$çğşüö <- 2
+x <-  janitor::clean_names(mymsa)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+data.frame(mymsa = colnames(mymsa), x = colnames(x))
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+tabyl(x, meat_colour) %>%
+  knitr::kable()
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+table(x$meat_colour)
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# Load dplyr for the %>% pipe 
+library(dplyr)
+x %>% tabyl(meat_colour) %>%
+  knitr::kable()
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x %>% 
+  tabyl(meat_colour) %>% 
+  adorn_pct_formatting(digits = 0, affix_sign = TRUE) %>%
+  knitr::kable()
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x %>% tabyl(spare)
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x = remove_empty(x, which = c( rows , cols ))
+```
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x = read_excel( data/mymsa.xlsx ) %>% 
+  clean_names() %>% remove_empty()
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x %>% tabyl(meat_colour, plant) %>%
+  knitr::kable()
+
+# can also make 3 way tables
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# row totals
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where =  row ) %>%
+  knitr::kable()
+```
+
+  
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# column totals
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where =  col ) %>%
+  knitr::kable()
+```
+
+
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+# row and column totals
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = c( row , col ))
+```
+  
+  
+  
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = c( row , col )) %>% 
+  adorn_percentages(denominator =  col ) %>% 
+  adorn_pct_formatting(digits = 0) 
+```
+
+  
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x %>% 
+  tabyl(meat_colour, plant) %>% 
+  adorn_totals(where = c( row , col )) %>% 
+  adorn_percentages(denominator =  col ) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  adorn_ns(position =  front )
+```
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+adorn_cumulative <- function(dat, colname, dir =  down ){
+
+  if(!missing(colname)){
+    colname <- rlang::enquo(colname)
+  } else if( valid_percent  %in% names(dat)) {
+  colname <- rlang::sym( valid_percent )
+  } else if( percent  %in% names(dat)){
+    colname <- rlang::sym( percent )
+  } else {
+    stop( \ colname\  not specified and default columns valid_percent and percent are not present in data.frame dat )
+  }
+
+  target <- dplyr::pull(dat, !! colname)
+
+  if(dir ==  up ){
+    target <- rev(target)
+  }
+  dat$cumulative <- cumsum(ifelse(is.na(target), 0, target)) + target*0 # an na.rm version of cumsum, from https://stackoverflow.com/a/25576972
+  if(dir ==  up ){
+    dat$cumulative <- rev(dat$cumulative)
+    names(dat)[names(dat) %in%  cumulative ] <-  cumulative_up 
+  }
+  dat
+}
+```
+
+
+
+
+
+  
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x %>% get_dupes(rfid)
+```
+  
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+x1 = x %>% slice(1:3)
+x2 = bind_rows(x1,x)
+x2 %>% get_dupes(rfid)
+```
+
+  
+
+## convert excel number into date
+
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+janitor::excel_numeric_to_date(41103)
+```
+
+
+
+
+
+
+
+
+

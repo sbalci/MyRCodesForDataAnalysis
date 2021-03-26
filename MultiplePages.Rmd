@@ -1,0 +1,62 @@
+
+# Multiple Pages 
+
+
+```
+output: flexdashboard::flex_dashboard
+```
+
+
+Page 1
+=====================================  
+    
+Column {data-width=600}
+-
+    
+### Chart 1
+    
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+   
+Column {data-width=400}
+-
+   
+### Chart 2
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+```   
+ 
+### Chart 3
+    
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+
+Page 2 {data-orientation=rows}
+=====================================     
+   
+Row {data-height=600}
+-
+
+### Chart 1
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+```
+
+Row {data-height=400}
+-
+   
+### Chart 2
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+```   
+    
+### Chart 3
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+```

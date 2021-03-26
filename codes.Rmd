@@ -1,0 +1,1594 @@
+# My R Codes For Data Analysis
+
+rstudioapi::selectDirectory()
+
+xaringan:::inf_mr()
+
+
+**Load required packages**
+
+
+`Load required packages`
+
+
+- Load required packages
+
+
+> Gerekli paketleri yükle
+
+
+
+```
+{r  1, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+
+
+ ```
+{r eval=FALSE, include=FALSE, echo=TRUE} 
+ library(tidyverse) 
+ library(readxl) 
+```
+
+
+ ```
+{r eval=FALSE, include=FALSE, echo=TRUE} 
+ path <-  ICPN_RAW.xls  
+ icpn <- path %>%  
+     excel_sheets() %>%  
+     set_names() %>% 
+     map(read_excel, skip = 1, path = path) 
+
+ icpn <- icpn[-29] 
+
+ icpn <- icpn %>%  
+     reduce(left_join, by =  Respondant ) 
+
+ # names(icpn) 
+
+ namesColumn <- make.names(names(read_excel(path, skip = 1))) 
+
+ namesColumn <- namesColumn[-1] 
+
+ # length(names(icpn)) 
+ # length(namesColumn) 
+
+ names(icpn) <- c( Respondant , paste(namesColumn, rep(1:28, each = 11), sep =   )) 
+
+
+```
+
+
+
+
+
+
+
+ ```
+{r eval=FALSE, include=FALSE, echo=TRUE} 
+ # glimpse(icpn) 
+
+ icpn$country <- icpn$ID1 
+
+ icpn <- icpn %>%  
+     select(-starts_with( X.plastic )) %>%  
+     select(-starts_with( COMMENTS )) %>%  
+     select(-starts_with( ID )) 
+
+ # glimpse(icpn) 
+
+```
+
+  
+ ```
+{r eval=FALSE, include=FALSE, echo=TRUE} 
+ jmv::descriptives(vars = names(select(icpn, starts_with( DX )) 
+                                ), data = icpn, freq = TRUE, n = FALSE, missing = FALSE, mean = FALSE, median = FALSE, min = FALSE, max = FALSE) 
+
+```
+ 
+
+
+ ```
+{r eval=FALSE, include=FALSE, echo=TRUE} 
+ icpn %>%  
+<!--     select(starts_with( y.n )) %>%  -->
+<!--     gather() %>%  -->
+<!--     select(value) %>%  -->
+<!--     unique() -->
+
+
+<!--```-->
+
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+
+<!-- # recode invasion N = 0, Y = 1 -->
+<!-- namesYN <- icpn %>%  -->
+<!--     select(starts_with( y.n )) %>%  -->
+<!--     names() -->
+
+
+
+<!-- icpn <- icpn %>%  -->
+<!--      mutate_at(namesYN, funs(recode(., `N` = 0, `Y` = 1, .default = 999))) %>%  -->
+<!--      mutate_at(.vars = namesYN,  -->
+<!--             .funs = funs(ifelse(. == 999, NA, .))) -->
+
+<!-- icpn <- icpn %>%  -->
+<!--      mutate_at(namesYN, funs(as.character)) %>%  -->
+<!--     mutate_at(namesYN, funs(factor(., -->
+<!--                                     levels = c(0,1),  -->
+<!--                                     labels = c( no ,  invasion ) -->
+<!--                                     ))) -->
+
+<!--```-->
+
+
+<!-- WHOclass <- icpn %>%  -->
+<!--     select(starts_with( WHO..2010.classification )) %>%  -->
+<!--     gather() %>%  -->
+<!--     select(value) %>%  -->
+<!--     unique() -->
+
+
+
+<!-- write(lineage$value,  lineage.txt , sep =  \n ) -->
+
+<!-- write(paste( ' , readLines( lineage.txt ),  ' ,   =   , , sep =   ),  lineage2.txt ) -->
+
+
+<!-- icpn <- icpn %>% -->
+<!--     select(-starts_with( DX )) -->
+
+
+<!-- file.choose() -->
+
+
+
+
+
+
+
+
+
+<!-- Stratified MH Odds Ratios for Confounding -->
+<!-- We can also stratify our odds ratio by a third variable to look for confounding -->
+
+<!-- epi.2by2(table(datadepvar,dataindep_var, data$stratificationvariable)) #As above make sure the levels of dep_var and indep_var are set such that the table is ordered in the way that epi.2by2 wants the data -->
+
+<!-- The output gives us the crude odds ratio (identical to the one we got without the stratification variable) and then an adjusted odds ratio. We can look at these two for evidence of confounding. -->
+
+<!-- We can get (if we desire) the stratum specific odds ratios out -->
+
+<!-- stratum <- epi.2by2(table(relevel(scabies$scabies_infestation, yes ), relevel(scabies$impetigo_active, yes ),scabies$gender)) -->
+
+
+<!--  #Note this time I'm saving the 2*2 table -->
+<!-- stratum -->
+<!-- ##              Outcome +    Outcome -      Total        Inc risk * -->
+<!-- ## Exposed +          179          187        366              48.9 -->
+<!-- ## Exposed -          444         1098       1542              28.8 -->
+<!-- ## Total              623         1285       1908              32.7 -->
+<!-- ##                  Odds -->
+<!-- ## Exposed +       0.957 -->
+<!-- ## Exposed -       0.404 -->
+<!-- ## Total           0.485 -->
+<!-- ##  -->
+<!-- ##  -->
+<!-- ## Point estimates and 95 % CIs: -->
+<!-- ## - -->
+<!-- ## Inc risk ratio (crude)                       1.70 (1.49, 1.94) -->
+<!-- ## Inc risk ratio (M-H)                         1.58 (1.39, 1.79) -->
+<!-- ## Inc risk ratio (crude:M-H)                   1.08 -->
+<!-- ## Odds ratio (crude)                           2.37 (1.88, 2.99) -->
+<!-- ## Odds ratio (M-H)                             2.18 (1.72, 2.76) -->
+<!-- ## Odds ratio (crude:M-H)                       1.09 -->
+<!-- ## Attrib risk (crude) *                        20.11 (14.52, 25.71) -->
+<!-- ## Attrib risk (M-H) *                          17.75 (5.52, 29.99) -->
+<!-- ## Attrib risk (crude:M-H)                      1.13 -->
+<!-- ## - -->
+<!-- ##  Test of homogeneity of IRR: X2 test statistic: 8.011 p-value: 0.005 -->
+<!-- ##  Test of homogeneity of  OR: X2 test statistic: 0.629 p-value: 0.428 -->
+<!-- ##  Wald confidence limits -->
+<!-- ##  M-H: Mantel-Haenszel -->
+<!-- ##  * Outcomes per 100 population units -->
+
+
+<!-- summary(stratum)$OR.strata.wald -->
+
+
+<!-- ##        est    lower   upper -->
+<!-- ## 1 2.417620 1.716620 3.40488 -->
+<!-- ## 2 1.996753 1.439806 2.76914 -->
+
+
+
+<!-- # Plots -->
+
+
+<!-- ## Histogram -->
+
+<!-- ```
+{r eval=FALSE, include=FALSE, echo=TRUE} -->
+<!-- hist(scabies$age) -->
+
+<!--```-->
+
+
+
+
+<!-- Scatterplot -->
+<!-- We could do a basic scatter plot of house size vs number of people in a room -->
+
+<!-- plot(scabies$house_inhabitants,scabies$room_cohabitation) -->
+
+
+<!-- Colour Scatter -->
+<!-- We might make this look nicer by adding some colours representing key variables -->
+
+<!-- scabies$scatter_colour[scabies$scabies_infestation ==  yes ] <-  red   -->
+<!-- #If scabies_infestation is 0 then the colour is red -->
+
+<!-- scabies$scatter_colour[scabies$scabies_infestation ==  no ] <-  blue  -->
+<!-- #If scabies_infestation is 0 then the colour is blue -->
+
+<!-- plot(scabies$house_inhabitants,scabies$room_cohabitation, col = scabies$scatter_colour) -->
+
+
+<!-- #For each value look in the variable scatter_colours and work out what colour to make each person -->
+<!-- Lots of the points overlap so we can always make jitter them -->
+
+<!-- plot(jitter(scabies$house_inhabitants),scabies$room_cohabitation, col = scabies$scatter_colour) -->
+
+
+<!-- Later we will come back to GGPLOT2 which makes much nicer graphs! -->
+
+<!-- Logistic Regression -->
+<!-- Sample Dataset 3 -->
+<!-- The examples here use the “scabies dataset” again. For ease I quickly repeat below the code needed to implement the data-cleaning steps demonstrated above on the dataset -->
+
+<!-- scabies <- read.csv(file =  S1-Dataset_CSV.csv , header = TRUE, sep =  , ) -->
+<!-- #Load dataset -->
+<!-- scabies$agegroups <- as.factor(cut(scabies$age, c(0,10,20,Inf), labels = c( 0-10 , 11-20 , 21+ ), include.lowest = TRUE))  -->
+<!-- scabies$agegroups <-relevel(scabies$agegroups, ref =  21+ ) -->
+<!-- #Categorise age and set a baseline -->
+
+<!-- scabies$house_cat <- as.factor(cut(scabies$house_inhabitants, c(0,5,10,Inf), labels = c( 0-5 , 6-10 , 10+ ), include.lowest = TRUE)) -->
+<!-- scabies$house_cat <- relevel(scabies$house_cat, ref =  0-5 ) -->
+<!-- #Categorise housesize and set a baseline -->
+<!-- We can perform logistic regression in a straightforward fashion in. The formula for any logistic regression is -->
+
+<!-- logistic_model <- glm(dependent_variable~indepdent_variable+independent_variable, data = dataframe, family = binomial) -->
+
+<!-- If we want to include a variable as a Factor then we state that by saying > factor(independent_variable) -->
+
+<!-- logistic_model <- glm(dependent_variable~factor(indepdent_variable), data = dataframe, family = binomial) -->
+
+<!-- Unlike in STATA this does not automatically generate an output. As a clinical epidemiologist we want a table with the odds ratio, co-efficients, standard errors, confidence interval and the Wald-test P-Value. -->
+
+<!-- We get the Odds ratios and Confidence intervals by taking the exponential of the output from the logistic regression model -->
+
+<!-- logistic_model_OR <- cbind(OR = exp(coef(logistic_model)), exp(confint(logistic_model))) -->
+
+<!-- Then we need to combine the Odds ratios and CI values with the raw coefficients and p-values into a single table -->
+
+<!-- logistic_model_summary <- summary(logistic_model) logistic_model_summary <- cbind(logistic_model_OR, logistic_model_summary) -->
+
+<!-- We can display then display the complte table of the output -->
+
+<!-- logistic_model_summary -->
+
+<!-- An example of logistic regression -->
+<!-- Here we will see if the size of the household is associated with risk of scabies (variable = house_cat), after controlling for age (categorised) and gender. -->
+
+<!-- scabiesrisk <- glm(scabies_infestation~factor(agegroups)+factor(gender)+factor(house_cat),data=scabies,family=binomial()) -->
+<!-- scabiesrisk_OR <- exp(cbind(OR= coef(scabiesrisk), confint(scabiesrisk))) -->
+<!-- ## Waiting for profiling to be done... -->
+<!-- scabiesrisk_summary <- summary(scabiesrisk) -->
+<!-- scabiesrisk_summary <- cbind(scabiesrisk_OR, scabiesrisk_summary$coefficients) -->
+<!-- scabiesrisk_summary -->
+<!-- ##                                OR      2.5 %    97.5 %   Estimate -->
+<!-- ## (Intercept)            0.09357141 0.06925691 0.1243857 -2.3690303 -->
+<!-- ## factor(agegroups)0-10  2.20016940 1.61679635 3.0237474  0.7885344 -->
+<!-- ## factor(agegroups)11-20 2.53291768 1.80434783 3.5769136  0.9293719 -->
+<!-- ## factor(gender)male     1.44749159 1.13940858 1.8399368  0.3698321 -->
+<!-- ## factor(house_cat)6-10  1.30521927 1.02664372 1.6624397  0.2663710 -->
+<!-- ## factor(house_cat)10+   1.17003712 0.65654905 1.9900581  0.1570355 -->
+<!-- ##                        Std. Error     z value     Pr(>|z|) -->
+<!-- ## (Intercept)             0.1492092 -15.8772359 9.110557e-57 -->
+<!-- ## factor(agegroups)0-10   0.1594864   4.9442116 7.645264e-07 -->
+<!-- ## factor(agegroups)11-20  0.1743214   5.3313714 9.747386e-08 -->
+<!-- ## factor(gender)male      0.1221866   3.0267824 2.471718e-03 -->
+<!-- ## factor(house_cat)6-10   0.1228792   2.1677478 3.017788e-02 -->
+<!-- ## factor(house_cat)10+    0.2813713   0.5581076 5.767709e-01 -->
+<!-- The output gives us the OR associated with each variable, the 95% CI of that OR, and a Wald-Test P-Value for each variable -->
+
+<!-- Trying a logistic regression for yourself -->
+<!-- Investigate using logistic regression whether having impetigo (impetigo_odds) is associated with scabies (scabies_infestation) after controlling for age (agegroups) and sex (gender). -->
+
+<!-- ## Waiting for profiling to be done... -->
+<!-- ##                               OR     2.5 %    97.5 %   Estimate Std. Error -->
+<!-- ## (Intercept)            0.1379817 0.1064948 0.1768205 -1.9806341  0.1292414 -->
+<!-- ## scabies_infestationyes 1.9380091 1.5180396 2.4740877  0.6616612  0.1245435 -->
+<!-- ## agegroups0-10          3.7264517 2.8550721 4.8992194  1.3154565  0.1376324 -->
+<!-- ## agegroups11-20         2.7487745 2.0310065 3.7353394  1.0111552  0.1553069 -->
+<!-- ## gendermale             1.7509457 1.4225953 2.1557118  0.5601561  0.1060015 -->
+<!-- ## house_cat6-10          0.9548564 0.7741093 1.1776160 -0.0461943  0.1069907 -->
+<!-- ## house_cat10+           0.8941528 0.5449317 1.4384328 -0.1118786  0.2468512 -->
+<!-- ##                            z value     Pr(>|z|) -->
+<!-- ## (Intercept)            -15.3250751 5.199446e-53 -->
+<!-- ## scabies_infestationyes   5.3126904 1.080185e-07 -->
+<!-- ## agegroups0-10            9.5577530 1.203411e-21 -->
+<!-- ## agegroups11-20           6.5106924 7.480520e-11 -->
+<!-- ## gendermale               5.2844143 1.261076e-07 -->
+<!-- ## house_cat6-10           -0.4317601 6.659158e-01 -->
+<!-- ## house_cat10+            -0.4532228 6.503883e-01 -->
+<!-- You should get a table showing an Odds Ration of 2 - i.e the odds of impetigo are twice as high in people with scabies. The p-value suggests this is a highly significant finding. -->
+
+<!-- Comparing two models via a Likelihood Ratio Test -->
+<!-- We might want to compare two models to see if overall the factor variable house_cat (size of the house) is significant after controlling for other variables (as opposed to the individual Wald tests for specific values of house_cat). -->
+
+<!-- As in STATA we simply run the model without the Variable we are interested in and do a Likelihood Ratio test -->
+
+<!-- scabiesrisk2 <- glm(scabies_infestation~factor(agegroups)+factor(gender),data=scabies,family=binomial()) -->
+<!-- #We could have got out all the results of this new model just like we did for the initial Logistic Regression but for the purpose of this demonstration we don't need to -->
+<!-- lrtest(scabiesrisk,scabiesrisk2) -->
+<!-- ## Likelihood ratio test -->
+<!-- ##  -->
+<!-- ## Model 1: scabies_infestation ~ factor(agegroups) + factor(gender) + factor(house_cat) -->
+<!-- ## Model 2: scabies_infestation ~ factor(agegroups) + factor(gender) -->
+<!-- ##   #Df  LogLik Df  Chisq Pr(>Chisq)   -->
+<!-- ## 1   6 -900.44                        -->
+<!-- ## 2   4 -902.80 -2 4.7328    0.09382 . -->
+<!-- ##  -->
+<!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
+<!-- We se that overall there is borderline significance between household size and scabies risk. This makes sense if we look at the Wald-Test for each category as one house size category was associated and one was not. -->
+
+<!-- Fiting an interaction term -->
+<!-- We can easily fit an interaction term to our model. The general syntax is -->
+
+<!-- interaction_model <- glm(dependent_variable~indepdent_variable*independent_variable, data = dataframe family = binomial) -->
+
+<!-- scabiesrisk3 <- glm(scabies_infestation~factor(agegroups)*factor(gender),data=scabies,family=binomial()) -->
+<!-- scabiesrisk3_OR <- exp(cbind(OR= coef(scabiesrisk3), confint(scabiesrisk3))) -->
+<!-- ## Waiting for profiling to be done... -->
+<!-- scabiesrisk3_summary <- summary(scabiesrisk3) -->
+<!-- scabiesrisk3_summary <- cbind(scabiesrisk3_OR, scabiesrisk3_summary$coefficients) -->
+<!-- scabiesrisk3_summary -->
+<!-- ##                                                  OR      2.5 %    97.5 % -->
+<!-- ## (Intercept)                               0.1018100 0.07391201 0.1366901 -->
+<!-- ## factor(agegroups)0-10                     2.6697985 1.81088534 3.9801955 -->
+<!-- ## factor(agegroups)11-20                    2.3655612 1.51556214 3.6962701 -->
+<!-- ## factor(gender)male                        1.6634407 0.93937388 2.8651848 -->
+<!-- ## factor(agegroups)0-10:factor(gender)male  0.7017255 0.37220313 1.3517237 -->
+<!-- ## factor(agegroups)11-20:factor(gender)male 1.1363006 0.56352873 2.3357191 -->
+<!-- ##                                             Estimate Std. Error -->
+<!-- ## (Intercept)                               -2.2846473  0.1564481 -->
+<!-- ## factor(agegroups)0-10                      0.9820030  0.2004429 -->
+<!-- ## factor(agegroups)11-20                     0.8610153  0.2268275 -->
+<!-- ## factor(gender)male                         0.5088882  0.2831246 -->
+<!-- ## factor(agegroups)0-10:factor(gender)male  -0.3542130  0.3280584 -->
+<!-- ## factor(agegroups)11-20:factor(gender)male  0.1277779  0.3619259 -->
+<!-- ##                                               z value     Pr(>|z|) -->
+<!-- ## (Intercept)                               -14.6032328 2.678375e-48 -->
+<!-- ## factor(agegroups)0-10                       4.8991654 9.624460e-07 -->
+<!-- ## factor(agegroups)11-20                      3.7959034 1.471068e-04 -->
+<!-- ## factor(gender)male                          1.7974000 7.227214e-02 -->
+<!-- ## factor(agegroups)0-10:factor(gender)male   -1.0797255 2.802644e-01 -->
+<!-- ## factor(agegroups)11-20:factor(gender)male   0.3530499 7.240510e-01 -->
+<!-- The output givs us 1) The Odds Ratio of each factor in the interaction in the baseline group of the other factor: i.e odds ratio for scabies, amongst people aged 0-10 compared to those aged 21+ (the reference group for age) in the baseline group of gender (female) 2) The interaction terms -->
+
+<!-- As in STATA we can then compare the model with and without the interaction term using a likelihood ratio test to see if the interaction is statistically significant. -->
+
+<!-- #Compare our model containing age & gender (scabiesrisk2) without an interaction term to our third model (scabiesrisk3) which does have an interaction term between age and gender -->
+<!-- lrtest(scabiesrisk2,scabiesrisk3) -->
+<!-- ## Likelihood ratio test -->
+<!-- ##  -->
+<!-- ## Model 1: scabies_infestation ~ factor(agegroups) + factor(gender) -->
+<!-- ## Model 2: scabies_infestation ~ factor(agegroups) * factor(gender) -->
+<!-- ##   #Df  LogLik Df  Chisq Pr(>Chisq) -->
+<!-- ## 1   4 -902.80                      -->
+<!-- ## 2   6 -901.15  2 3.3131     0.1908 -->
+<!-- Remember the null-hypothesis = No interaction. So here the P-value suggests no evidence against the null; so we should not fit this interaction term. -->
+
+<!-- Matched Case-Control Data -->
+<!-- Conditional Logistic Regression -->
+<!-- For individually matched case control studies we use Conditional Logistic Regression not normal logistic regression -->
+
+<!-- The syntax for this is: -->
+
+<!-- conditional_model <- clogit(variable_denoting)or_control~indepdent_variable+independent_variable+strata(matching_var), data = dataframe) -->
+
+<!-- Where ‘matching_var’ is a variable saying which Case is matched to which Control -->
+
+<!-- We get the ORs, 95% CIs and everything else exactly the same as for logistic regression. -->
+
+<!-- > conditional <- clogit(case~independent_variable+strata(matching_var), data = dataframe) -->
+<!-- > conditional_OR <- exp(cbind(OR= coef(conditional), confint(conditional))) -->
+<!-- > conditional_summary <- summary(conditional) -->
+<!-- > conditional_summary <- cbind(conditional_OR, conditional_summary$coefficients) -->
+<!-- > conditional_summary -->
+<!-- Equally everything else is just like normal logistic regression i.e we can fit multiple models, run Likelihood-Ratio Tests etc -->
+
+<!-- Poisson and Cox Regression -->
+<!-- Sample Dataset 4 -->
+<!-- For the purpose of Poisson and cox regression we will initially go back to a clean version of our “Ebola dataset”. For ease I quickly repeat below the code needed to implement the data-cleaning steps demonstrated above on the dataset -->
+
+<!-- ##This is the ebola dataset again -->
+<!-- ebola <- read.csv(file =  mmc1.txt , header = TRUE, sep =  , ) -->
+
+<!-- #Lets set 'person_to_person' route of transmission as baseline -->
+<!-- ebola$transmission <- relevel(ebola$transmission,  person_to_person ) -->
+
+<!-- #Replace blank values of sex as missing -->
+<!-- ebola$sex[ebola$sex ==  ] <- is.null(ebola$sex)  -->
+<!-- ## Warning in `[<-.factor`(`*tmp*`, ebola$sex ==   , value = structure(c(3L, : -->
+<!-- ## invalid factor level, NA generated -->
+<!-- Setting up our time variables -->
+<!-- The package we are using for the Poisson and Cox Regression needs the dates in a particular format to work. -->
+
+<!-- Specifically it needs them in a ‘decimal year’ i.e 1982.145 If our data isn’t already like this then we set it up using the ‘cal.yr’ command. The cal.yr command wants a date as an input - so remember if your dates are stored as strings and not dates in the raw data then you need to convert them to a date and then to a decimal date. You can do this in one step. -->
+
+<!-- class(ebola$disease_onset) -->
+<!-- ## [1]  factor  -->
+<!-- #We see that the timein variable is currently a factor (i.e just recognisd as a bunch of characters), so we need to convert factor>data>decimal date.  -->
+<!-- ebola$disease_onset <- cal.yr(as.Date(ebola$disease_onset, format =  %Y-%m-%d )) -->
+<!-- ebola$disease_ended <- cal.yr(as.Date(ebola$disease_ended, format =  %Y-%m-%d )) -->
+<!-- Declaring our periods of follow-up: Making a lexis model -->
+<!-- We need to declare the way time is modelled when doing this kind of analysis. This is like STSET in STATA. -->
+
+<!-- That is we need to specify 1) Entry point 2) Exit point -->
+
+<!-- We may have multiple time scales - for example both Calendar Time and Chronological age. The general syntax is: -->
+
+<!-- lexis_object <- Lexis(  -->
+<!--   entry = list ( name_first_time_scale = variable_setting_that, -->
+<!--                  name_second_time_scale = variable_setting_that), -->
+<!--   exit = list (name_of_time_scale_we calculate_exit_against = variable_for exit), -->
+<!--   exit.status = (where_we_define_the_outcome), -->
+<!--   data = data_frame) -->
+<!-- For example if we might be interested in time in follow-up and chronological age as time scales. So we might do: -->
+
+<!-- ebola_lexis_model <- Lexis(entry = list( calendar_time =disease_onset), exit = list( calendar_time  = disease_ended), exit.status = status == died , data = ebola) -->
+<!-- ## NOTE: entry.status has been set to FALSE for all. -->
+<!-- ## Warning in Lexis(entry = list(calendar_time = disease_onset), exit = list(calendar_time = disease_ended), : Dropping NA rows with duration of follow up < tol -->
+<!-- #We define the beginning of calendar time in the study as the date in the 'disease_onset' variable -->
+<!-- #We call time on this scale  calendar_time  -->
+<!-- #Time out is on the same timescale as time in - i.e calendar_time -->
+<!-- #If people are missing either a time in or time-out so they get dropped -->
+<!-- R is also happy if we just have a duration of follow-up as opposed to a Date of Entry and a Date of Exit. In that case we can just say: -->
+
+<!-- lexis_model <- Lexis(exit = list( calendar_time  = duration), exit.status = died, data = dataset) -->
+<!-- ##Here we specify the exit time as being the duration of follow-up -->
+<!-- ##We haven't stated an entry time so R assumes it to be 0 - i.e people were followed up from time 0 for the duration of time specified as the exit time -->
+<!-- Key variables in the Lexis model -->
+<!-- When we make this model it creates several key variable we need to reference when running our Cox and Poisson models. -->
+
+<!-- ‘lex.dur’ = duration of follow-up ‘lex.Xst’ = Status of the individual at the end of each time block. For example in the above lexis model this is whether or not the event CHD occured in the any given time period. -->
+
+<!-- We will reference these variables when we run our poisson and cox regression models. -->
+
+<!-- Making a rate table -->
+<!-- Once we have a lexis model it is easy to see crude rates and rates stratified by a variable -->
+
+<!-- The general syntax is: > rate_table <- rate(lexis_model, obs = lex.Xst, pyrs = lex.dur, print = stratifying_var) -->
+
+<!-- If we want we can give per 100 or 1,000 years by simply adjusting ‘pyrs’ > rate_table <- rate(lexis_model, obs = lex.Xst, pyrs = lex.dur/1000, print = stratifying_var) -->
+
+<!-- average_rate <- rate(ebola_lexis_model, obs = lex.Xst, pyrs = lex.dur) -->
+<!-- #Show the overall rate of cardiovascular outcomes per 1 person years (because people die fast of ebola and follow-up is short) -->
+<!-- rate_by_transmission <- rate(ebola_lexis_model, obs = lex.Xst, pyrs = lex.dur, print = transmission) -->
+<!-- #Show the rates of cardiovascular outcome by sex per 1 person years (because people die fast of ebola and follow-up is short) -->
+<!-- average_rate -->
+<!-- ##  -->
+<!-- ## Crude rates and 95% confidence intervals: -->
+<!-- ##  -->
+<!-- ##    lex.Xst  lex.dur     rate  SE.rate  rate.lo  rate.hi -->
+<!-- ## 1:     245 5.303217 46.19837 2.951506 40.76096 52.36112 -->
+<!-- rate_by_transmission -->
+<!-- ##  -->
+<!-- ## Crude rates and 95% confidence intervals: -->
+<!-- ##  -->
+<!-- ##        transmission lex.Xst   lex.dur     rate   SE.rate  rate.lo -->
+<!-- ## 1: person_to_person     129 2.8993840 44.49221  3.917321 37.44023 -->
+<!-- ## 2:             both       8 0.2491444 32.10989 11.352561 16.05788 -->
+<!-- ## 3:            other      10 0.1341547 74.54082 23.571876 40.10658 -->
+<!-- ## 4:          syringe      86 1.7686516 48.62461  5.243327 39.36108 -->
+<!-- ## 5:          unknown      12 0.2518823 47.64130 13.752860 27.05568 -->
+<!-- ##      rate.hi -->
+<!-- ## 1:  52.87245 -->
+<!-- ## 2:  64.20806 -->
+<!-- ## 3: 138.53919 -->
+<!-- ## 4:  60.06829 -->
+<!-- ## 5:  83.88975 -->
+<!-- Running a simple Poisson Regression -->
+<!-- We run a poisson regression essentially the same as a logistic regression. We use the same GLM command as before. -->
+
+<!-- Instead of setting ‘family = binomial’ we need to set ‘family = poisson’ -->
+
+<!-- We include an additional variable called offset. This represents the fact that follow-up time is different for each person in the study (i.e it gives you a rate against person-time rather than a number of events / people). This variable is the log of the follow-up time in the lexis-model: ‘log(lex.dur)’ -->
+
+<!-- We set the outcome as whether lex.Xst occured (i.e did the event occur) -->
+
+<!-- The generic formula is > poisson_model <- glm(lex.Xst~offset(log(lex.dur))+indepdent_variable+independent_variable, data = lexis_dataframe, family = poisson) -->
+
+<!-- #Fit a model for HR of death from CHD against grade -->
+<!-- ebola_model <- glm(lex.Xst~factor(transmission)+sex+offset(log(lex.dur)), data = ebola_lexis_model, family = poisson) -->
+<!-- #The outcome is lex.Xst - whatever we set as the outcome when we made our lexis dataset  -->
+<!-- #The offset is the log(lex.dur) - the log of duration of follow-up -->
+<!-- #We fit a poisson model  -->
+
+<!-- ebola_ratios <- cbind(HR = exp(coef(ebola_model)), exp(confint(ebola_model))) -->
+<!-- ## Waiting for profiling to be done... -->
+<!-- #Just like in the Logistic model we take exponentials of the coefficients to get our Hazard Rations -->
+<!-- ebola_model_out <- summary(ebola_model)  -->
+<!-- ebola_model_out <-cbind (ebola_ratios, ebola_model_out$coefficients) -->
+<!-- #We combine this all in to a nice table -->
+<!-- ebola_model_out -->
+<!-- ##                                     HR      2.5 %    97.5 %     Estimate -->
+<!-- ## (Intercept)                 44.5963777 36.2674133 54.231421  3.797652638 -->
+<!-- ## factor(transmission)both     0.7230170  0.3237964  1.389407 -0.324322562 -->
+<!-- ## factor(transmission)other    1.6052597  0.7574323  2.976279  0.473285546 -->
+<!-- ## factor(transmission)syringe  1.0928077  0.8294145  1.432693  0.088750226 -->
+<!-- ## factor(transmission)unknown  1.0722117  0.5607743  1.861057  0.069723525 -->
+<!-- ## sexmale                      0.9941797  0.7663835  1.284689 -0.005837258 -->
+<!-- ##                             Std. Error     z value      Pr(>|z|) -->
+<!-- ## (Intercept)                  0.1025784 37.02195634 5.077767e-300 -->
+<!-- ## factor(transmission)both     0.3666753 -0.88449514  3.764290e-01 -->
+<!-- ## factor(transmission)other    0.3450006  1.37183997  1.701133e-01 -->
+<!-- ## factor(transmission)syringe  0.1392193  0.63748492  5.238090e-01 -->
+<!-- ## factor(transmission)unknown  0.3033065  0.22987807  8.181865e-01 -->
+<!-- ## sexmale                      0.1316124 -0.04435188  9.646239e-01 -->
+<!-- Lexis Expansions and time as a confounder. -->
+<!-- Time (for example age) is a key confounder so we need to be able to control for this. In STATA we would use STSPLIT to do this. We can do the same in R. -->
+
+<!-- We do this using: > expanded_lexis_model <- splitLexis(lexis_model, “time_scale_to_split_on”, breaks = c(break1,break2,break3)) -->
+
+<!-- Sample Dataset 5 -->
+<!-- We need a different dataset for this example. Again the dataset is freely available on the LSHTM Data Repository: “Alcohol outcomes” This is a simulated dataset (a fully-anoynmised, tweaked dataset based on a real-one) looking at the association between age, alcohol and death. -->
+
+<!-- #Load in our new dataset -->
+<!-- alcohol <- read.csv(file =  alcohol_outcomes.csv , header = TRUE, sep= , ) -->
+
+<!-- #Check how dates are saved -->
+<!-- class(alcohol$timein) -->
+<!-- ## [1]  factor  -->
+<!-- #time is saved as a factor so we need to convert it -->
+<!-- alcohol$timein <- cal.yr(as.Date(alcohol$timein, format =  %d/%m/%Y )) -->
+<!-- alcohol$timeout <- cal.yr(as.Date(alcohol$timeout, format =  %d/%m/%Y )) -->
+<!-- alcohol$timebth <- cal.yr(as.Date(alcohol$timebth, format =  %d/%m/%Y )) -->
+<!-- #Setup our lexis model -->
+<!-- alcohol_lexis <- Lexis(entry = list( calendar_time =timein,  age  = timein - timebth), exit = list( calendar_time  = timeout), exit.status = death ==1, data = alcohol) -->
+<!-- ## NOTE: entry.status has been set to FALSE for all. -->
+<!-- #We define the beginning of calendar time in the study as the date in the 'timein' variable -->
+<!-- #We call time on this scale  calendar_time  -->
+<!-- #We define the beginning of the age-time scale as the difference between when you joined the study and your date of birth. We call this time scale  age  -->
+<!-- #Time out is on the same timescale as time in - i.e calendar_time -->
+
+<!-- #Perform a lexis expansion -->
+<!-- split_alcohol_lexis <- splitLexis(alcohol_lexis, breaks = c(50,60,70,80), time.scale =  age ) -->
+<!-- #We say we want to split our lexis_model -->
+<!-- #We want to do this on our defined  age  time scale -->
+<!-- #We want the breaks to be at the listed points -->
+<!-- Now we need to tell R we want to use those Time-Blocks as a variable in our regression. NB Compare to STATA - In stata we cut the time and make it a new variable in one go with -->
+
+<!-- stplit newvariable, at(timepoint,timepoint,timepoint) -->
+
+<!-- But each time we want to split on a new timescale in STATA we need to stset the data again and do a new ‘stplit’ command. -->
+
+<!-- In R we declare all the timescales initially (in the lexis command), then we split each timeperiod and then make a new variable reflecting each split. The generic syntax is -->
+
+<!-- expanded_model$block_name <- timeBand(expanded_model, “name_of_split”, type = “factor”) -->
+
+<!-- split_alcohol_lexis$age_blocks <- timeBand(split_alcohol_lexis,  age , type =  factor ) -->
+<!-- #We make a new variable called age_blocks. -->
+<!-- #We used the splits we defined on the  age  time-scale for this -->
+<!-- #Make each segment of this time-scale an element of a categorical variable -->
+<!-- #We then remove any blank 'time-blocks' i.e segments with no observations -->
+<!-- #This is done by re-factoring the variable -->
+<!-- split_alcohol_lexis$age_blocks <- factor(split_alcohol_lexis$age_blocks) -->
+<!-- Running a poisson regression including a time-varying variable -->
+<!-- Now we can run the poisson regression with age (in blocks) as a variable just like in STATA. -->
+
+<!-- age_alcohol_model <- glm(lex.Xst~factor(alcohol)+factor(age_blocks)+offset(log(lex.dur)), data = split_alcohol_lexis, family = poisson) -->
+<!-- age_alcohol_ratios <- cbind(HR = exp(coef(age_alcohol_model)), exp(confint(age_alcohol_model))) -->
+<!-- ## Waiting for profiling to be done... -->
+<!-- age_alcohol_out <- summary(age_alcohol_model)  -->
+<!-- age_alcohol_out <-cbind (age_alcohol_ratios, age_alcohol_out$coefficients) -->
+<!-- age_alcohol_out -->
+<!-- ##                                      HR        2.5 %       97.5 % -->
+<!-- ## (Intercept)                 0.001758427  0.000698216 3.568313e-03 -->
+<!-- ## factor(alcohol)2            1.583354946  1.287840186 1.943563e+00 -->
+<!-- ## factor(age_blocks)(50,60]   2.788198316  1.304756320 7.235037e+00 -->
+<!-- ## factor(age_blocks)(60,70]   8.358271714  4.051253875 2.125521e+01 -->
+<!-- ## factor(age_blocks)(70,80]  18.434422669  8.856542929 4.712319e+01 -->
+<!-- ## factor(age_blocks)(80,Inf] 49.721819767 18.829170021 1.449072e+02 -->
+<!-- ##                             Estimate Std. Error    z value     Pr(>|z|) -->
+<!-- ## (Intercept)                -6.343336  0.4088553 -15.514867 2.752023e-54 -->
+<!-- ## factor(alcohol)2            0.459546  0.1049087   4.380437 1.184415e-05 -->
+<!-- ## factor(age_blocks)(50,60]   1.025396  0.4292502   2.388806 1.690321e-02 -->
+<!-- ## factor(age_blocks)(60,70]   2.123252  0.4154268   5.111013 3.204365e-07 -->
+<!-- ## factor(age_blocks)(70,80]   2.914220  0.4189527   6.955964 3.501584e-12 -->
+<!-- ## factor(age_blocks)(80,Inf]  3.906444  0.5098479   7.661979 1.830903e-14 -->
+<!-- #Now fit a model adjusting for the effect of changing age through follow-up time -->
+<!-- Comparing Models -->
+<!-- Just like in logistic regression we can compare our two poisson models using ‘lrtest’. Remember the two models need to be fittd on the same number of observations. This means both models need to be fitted AFTER the lexis expansion - so in the current example we would compare: Lexis Expanded Dataset - controlling for Age & Grade Lexis Expanded Dataset - controlling for Age Only The LRTEST would be whether Grade was associated having controlled for Age -->
+
+<!-- age_model <- glm(lex.Xst~age_blocks+offset(log(lex.dur)), data = split_alcohol_lexis, family = poisson) -->
+<!-- #Fit a model on the expanded dataset where only Age is an independent variable -->
+<!-- age_model_ratios <- cbind(HR = exp(coef(age_model)), exp(confint(age_model))) -->
+<!-- ## Waiting for profiling to be done... -->
+<!-- age_model_out <- summary(age_model)  -->
+<!-- age_model_out <-cbind (age_model_ratios, age_model_out$coefficients) -->
+<!-- age_model_out -->
+<!-- ##                              HR        2.5 %       97.5 %  Estimate -->
+<!-- ## (Intercept)         0.001908232 7.583858e-04   0.00386644 -6.261578 -->
+<!-- ## age_blocks(50,60]   2.864554178 1.340670e+00   7.43252992  1.052413 -->
+<!-- ## age_blocks(60,70]   9.040064110 4.386843e+00  22.97293591  2.201666 -->
+<!-- ## age_blocks(70,80]  21.271550431 1.025650e+01  54.25717095  3.057371 -->
+<!-- ## age_blocks(80,Inf] 61.056794442 2.323188e+01 177.24621063  4.111804 -->
+<!-- ##                    Std. Error    z value     Pr(>|z|) -->
+<!-- ## (Intercept)         0.4082441 -15.337829 4.272431e-53 -->
+<!-- ## age_blocks(50,60]   0.4291935   2.452070 1.420369e-02 -->
+<!-- ## age_blocks(60,70]   0.4149555   5.305789 1.121869e-07 -->
+<!-- ## age_blocks(70,80]   0.4174887   7.323242 2.420515e-13 -->
+<!-- ## age_blocks(80,Inf]  0.5075158   8.101825 5.414068e-16 -->
+<!-- lrtest(age_model,age_alcohol_model) -->
+<!-- ## Likelihood ratio test -->
+<!-- ##  -->
+<!-- ## Model 1: lex.Xst ~ age_blocks + offset(log(lex.dur)) -->
+<!-- ## Model 2: lex.Xst ~ factor(alcohol) + factor(age_blocks) + offset(log(lex.dur)) -->
+<!-- ##   #Df  LogLik Df Chisq Pr(>Chisq)     -->
+<!-- ## 1   5 -1487.5                         -->
+<!-- ## 2   6 -1478.1  1 18.72  1.514e-05 *** -->
+<!-- ##  -->
+<!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
+<!-- #Perform a likelihood test of the model with Age&Alcohol compared to the model with only Age -->
+<!-- If we wanted to test if age was associated we would compare: Lexis Expanded Dataset - controlling for Age & Alcohol Lexis Expanded Dataset - controlling for Alcohol Only Note even though strictly we don’t need to expand the dataset for the Alcohol model (as its not a time varying factor) we need the two models to have the same number of observations so it does need to be run against the Lexis Expanded dataset -->
+
+<!-- Cox Regression -->
+<!-- Cox Regression is done in a very similar fashion to all other models. We declare the outcome and follow-up time slightly differently than from in the poisson but otherwise things look very similar! -->
+
+<!-- The generic formula is: -->
+
+<!-- cox_model <- coxph(Surv(lex.dur,lex.Xst)+indepdent_variable+independent_variable, data = lexis_dataframe) -->
+
+<!-- cox_lexis_model <- coxph(Surv(lex.dur,lex.Xst)~factor(alcohol),data = split_alcohol_lexis) -->
+<!-- ##Fit a cox model.  -->
+<!-- ##The initial statement Surv(lex.dur,lex.Xst) says that the duration of follow-up is in lex.dur and the outcome variable in lex.Xst (as outlined above) -->
+
+<!-- cox_lexis_ratios <- cbind(HR = exp(coef(cox_lexis_model)), exp(confint(cox_lexis_model))) -->
+<!-- #As every other time we exponentiat the coefficients to get hazard ratios -->
+<!-- cox_lexis_out <- summary(cox_lexis_model) -->
+<!-- cox_lexis_out <- cbind(cox_lexis_ratios,cox_lexis_out$coefficients) -->
+<!-- #And we put everything in a nice table -->
+<!-- cox_lexis_out -->
+<!-- ##                        HR    2.5 %   97.5 %      coef exp(coef)  se(coef) -->
+<!-- ## factor(alcohol)2 2.237758 1.830073 2.736263 0.8054745  2.237758 0.1026134 -->
+<!-- ##                         z     Pr(>|z|) -->
+<!-- ## factor(alcohol)2 7.849601 4.218847e-15 -->
+<!-- Note that the poisson and the cox give very similar estimates of the impact of alcohol on the outcome. -->
+
+<!-- As in Poisson Regression we can compare two cox-models using ‘lrtest’ if we need to. Remember as always that both models must be performed on a dataset with the same number of observations - i.e after any lexis-expansion has been performed. -->
+
+<!-- ##Kaplan Meier Plots -->
+
+<!-- We can plot very nice KM plots. As before we have declared out data as a Lexis Model. We input the dataset in a similar fashion to our cox-regression but use the survfit command rather than coxph > km <- survfit(Surv(lex.dur, lex.Xst) ~ var_to_stratify_on, data = dataset) -->
+
+<!-- Then we plot the KM Plot > ggsurvplot(km, data = dataset, risk.table = TRUE / FALSE) -->
+
+<!-- km <- survfit(Surv(lex.dur,lex.Xst)~factor(alcohol),data = alcohol_lexis) -->
+<!-- ##Fit the data -->
+<!-- ##The initial statement Surv(lex.dur,lex.Xst) says that the duration of follow-up is in lex.dur and the outcome variable in lex.Xst (as outlined above).  -->
+<!-- #We want to stratify by alcohol -->
+
+<!-- ggsurvplot(km,data=alcohol_lexis) -->
+
+
+<!-- #Plot the Kaplan Meier Plot -->
+<!-- Correlated Outcomes -->
+<!-- We often have data that is correlated. For example 1) Multiple episods of flu in a single individual 2) Clustered-survey data - i.e individuals within households -->
+
+<!-- Commonly we use a random-effects model to adjust for this correlation. -->
+
+<!-- We do this using a very similar model to all previous ones. The general syntax for a clustered Logistic Regression is: -->
+
+<!-- correlated_logistic <- glmer(DEPVAR~INDEPVAR + (1|CLUSTER_VAR),family = “binomial”, data = data) #For example if we have individuals within households then CLUSTER_VAR would be the variable specifying which house they were in -->
+
+<!-- The general syntax for a clustered Poisson Regression (after Lexis setup as before is): -->
+
+<!-- correlated_poisson <- glmer(lex.Xst~INDEPVAR + offset(log(lex.dur))+ (1|CLUSTER_VAR),family = “poisson”, data = data) #For example if we have individuals followed over time with multiple episodes of infection, with one line in our dataframe per period of follow-up, then CLUSTER_VAR would be the variable identifying that person across each block of follow-up -->
+
+<!-- Specifying the Clustering and getting the data out -->
+<!-- In both cases the key point in setting up the formula is the addition of: > +(1|CLUSTER_VAR) -->
+
+<!-- If we have nested levels of clustering we can specify this easily: -->
+
+<!-- +(1|first_clustering_level/nested_clustering_level) #For example +(1|province/village) where villages are nested within provinces -->
+
+<!-- When we want to get out our odds ratios and confidence intervbals we have to specify that slightly diffrently than in a non-random-effects model -->
+
+<!-- OR <- cbind(OR = exp(fixef(re_model)),exp(confint(re_model,parm=“beta_”))) ##Rather than the co-efficients we want the Fixed-Effects for our Odds Ratios ##And we want the confidence intervals specifcally for those rather than all the other variables a RE-Model makes -->
+
+<!-- Otherwise everything is the same as all our other models -->
+
+<!-- Saying how many integration points to use -->
+<!-- R-Defaults to 1 integration point for RE-Models. We can if needed change this (more accurate vs more time) > model_name <- glmer(DEPVAR~INDEPVAR +(1|CLUSTERVAR), family = “binomial”, nAGQ = X, data = DATA) #Currently you can only set integration points >1 for models with a single level of clustering -->
+
+<!-- Random Effects Logistic Regression -->
+<!-- Sample Dataset 6 -->
+<!-- To look at a random effects logistic regression we are using a (simulated) dataset about trachoma. This is a clustered dataset with many individuals per household. Again the dataset is freely available on the LSHTM Data Repository: “Trachoma Household Survey” We want to find out if a latrine is protective from getting trachoma. -->
+
+<!-- hh_tf <- read.csv (file =  hh_tf.csv , header = TRUE, sep =  , ) -->
+<!-- #Read in data -->
+
+<!-- re_hh_tf <- glmer(trachoma~factor(latrine)+ (1 | household),family =  binomial , data = hh_tf) -->
+<!-- summary(re_hh_tf) -->
+<!-- ## Generalized linear mixed model fit by maximum likelihood (Laplace -->
+<!-- ##   Approximation) [glmerMod] -->
+<!-- ##  Family: binomial  ( logit ) -->
+<!-- ## Formula: trachoma ~ factor(latrine) + (1 | household) -->
+<!-- ##    Data: hh_tf -->
+<!-- ##  -->
+<!-- ##      AIC      BIC   logLik deviance df.resid  -->
+<!-- ##   1922.3   1940.9   -958.1   1916.3     3676  -->
+<!-- ##  -->
+<!-- ## Scaled residuals:  -->
+<!-- ##      Min       1Q   Median       3Q      Max  -->
+<!-- ## -2.27997 -0.01801 -0.01775 -0.01742  3.06478  -->
+<!-- ##  -->
+<!-- ## Random effects: -->
+<!-- ##  Groups    Name        Variance Std.Dev. -->
+<!-- ##  household (Intercept) 74.66    8.641    -->
+<!-- ## Number of obs: 3679, groups:  household, 1761 -->
+<!-- ##  -->
+<!-- ## Fixed effects: -->
+<!-- ##                  Estimate Std. Error z value Pr(>|z|)     -->
+<!-- ## (Intercept)       -8.0091     0.3434 -23.321   <2e-16 *** -->
+<!-- ## factor(latrine)1  -1.2450     0.5981  -2.082   0.0374 *   -->
+<!-- ##  -->
+<!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
+<!-- ##  -->
+<!-- ## Correlation of Fixed Effects: -->
+<!-- ##             (Intr) -->
+<!-- ## fctr(ltrn)1 0.017 -->
+<!-- #Run a Random Effects model -->
+<!-- #Individuals share a household which is designated by the 'household' variable -->
+<!-- #This therefore is the unit of clustering -->
+
+<!-- re_hh_tf_OR <- cbind(OR = exp(fixef(re_hh_tf)),exp(confint(re_hh_tf,parm= beta_ ))) -->
+<!-- ## Computing profile confidence intervals ... -->
+<!-- re_hh_tf_out <- summary(re_hh_tf) -->
+<!-- #We still want our P-Values and raw data just like before -->
+
+<!-- re_hh_tf_out <- cbind (re_hh_tf_OR, re_hh_tf_out$coefficients) -->
+<!-- #Combine it all together -->
+<!-- re_hh_tf_out -->
+<!-- ##                            OR        2.5 %       97.5 %  Estimate -->
+<!-- ## (Intercept)      0.0003324303 0.0001656782 0.0006394189 -8.009080 -->
+<!-- ## factor(latrine)1 0.2879269306 0.0828465249 0.8755127240 -1.245049 -->
+<!-- ##                  Std. Error    z value      Pr(>|z|) -->
+<!-- ## (Intercept)       0.3434317 -23.320735 2.731632e-120 -->
+<!-- ## factor(latrine)1  0.5981090  -2.081642  3.737522e-02 -->
+<!-- Random Effects Poisson Regression -->
+<!-- Sample Dataset 7 -->
+<!-- We are using a dataset about trachoma and PCR results - this is taken from a series of surveys in the Gambia. -->
+
+<!-- Again the dataset is freely available on the LSHTM Data Repository: “Trachoma Cohort Study” -->
+
+<!-- For your information: PCR is coded 2 for positive and 1 for negative. Clinical evidence of active trachoma is recorded as RE.Grade == TF -->
+
+<!-- tf_pcr <- read.csv (file =  TF_PCR.csv , header = TRUE, sep =  , ) -->
+<!-- #Read in data -->
+
+<!-- tf_pcr$timein <- cal.yr(as.Date(tf_pcr$timein, format =  %d-%b-%y )) -->
+<!-- tf_pcr$timeout <- cal.yr(as.Date(tf_pcr$timeout, format =  %d-%b-%y )) -->
+<!-- #Convert dates in to decimal dates -->
+
+<!-- tf_pcr$RE.Grade <- relevel(tf_pcr$RE.Grade, N ) -->
+<!-- #Make a normal clinical examination of the eye the baseline level -->
+
+<!-- tf_pcr_lexis <- Lexis(entry = list( calendar  = timein), exit = list( calendar  = timeout), exit.status = PCR==2, data = tf_pcr) -->
+<!-- ## NOTE: entry.status has been set to FALSE for all. -->
+<!-- #Setup a lexis model -->
+
+<!-- re_tf_pcr <- glmer(lex.Xst~factor(RE.Grade)+offset(log(lex.dur))+(1|ID), family =  poisson , data = tf_pcr_lexis) -->
+<!-- #Multiple readings from the same invdividual -->
+<!-- #The ID for the individuals is in the 'ID' variable -->
+<!-- #This therefore is the unit of clustering -->
+
+<!-- re_tf_OR <- cbind(HR = exp(fixef(re_tf_pcr)),exp(confint(re_tf_pcr,parm= beta_ ))) -->
+<!-- ## Computing profile confidence intervals ... -->
+<!-- ##Rather than the co-efficients we want the Fixed-Effects for our Odds Ratios -->
+<!-- ##And we want the confidence intervals specifcally for those rather than all the other variabls a RE-Model makes -->
+
+<!-- re_tf_pcr_out <- summary(re_tf_pcr) -->
+<!-- #We still want our P-Values and raw data just like before -->
+
+<!-- re_tf_pcr_out <- cbind (re_tf_OR, re_tf_pcr_out$coefficients) -->
+<!-- #Combine it all together -->
+<!-- re_tf_pcr_out -->
+<!-- ##                           HR     2.5 %   97.5 %   Estimate Std. Error -->
+<!-- ## (Intercept)        1.5609469 1.1207591 2.080427  0.4452926  0.1563783 -->
+<!-- ## factor(RE.Grade)TF 2.0846403 1.4417488 2.975819  0.7345963  0.1845991 -->
+<!-- ## factor(RE.Grade)TS 0.5650381 0.1418873 1.824576 -0.5708621  0.6397415 -->
+<!-- ##                       z value     Pr(>|z|) -->
+<!-- ## (Intercept)         2.8475347 4.405929e-03 -->
+<!-- ## factor(RE.Grade)TF  3.9794144 6.908522e-05 -->
+<!-- ## factor(RE.Grade)TS -0.8923325 3.722148e-01 -->
+<!-- #Individuals with clinical evidence of trachoma (TF) are twice as likely to have a positive PCR result. -->
+<!-- Confirming there is clustering -->
+<!-- When we run a Random-Effects model we also want to see if whether there is or is not evidence of clustering. -->
+
+<!-- STATA does this by looking to see if rho (logistic regression, measure of within cluster variation) or alpha (poisson, measure of within cluster variation) = zero. -->
+
+<!-- It does this STATA runs a likelihood ratio test comparing the model with and without random-effects (where ro/alpha = 0). -->
+
+<!-- We can do the same by fitting a model without clustering and running an LRT comparing it to our RE-model. We can also get the equivalent estimate of rho. -->
+
+<!-- no_re_hh_tf <- glm(trachoma~factor(latrine),family =  binomial , data = hh_tf) -->
+
+<!-- re_hh_tf <- glmer(trachoma~factor(latrine)+ (1 | household),family =  binomial , data = hh_tf) -->
+
+<!-- icc(re_hh_tf) -->
+<!-- ##  -->
+<!-- ## Generalized linear mixed model -->
+<!-- ##  Family: binomial (logit) -->
+<!-- ## Formula: trachoma ~ factor(latrine) + (1 | household) -->
+<!-- ##  -->
+<!-- ##   ICC (household): 0.957795 -->
+<!-- #Give estimate of the intra-cluster correlation == rho -->
+
+<!-- lrtest(re_hh_tf,no_re_hh_tf) -->
+<!-- ## Warning in modelUpdate(objects[[i - 1]], objects[[i]]): original model was -->
+<!-- ## of class  glmerMod , updated model is of class  glm  -->
+<!-- ## Likelihood ratio test -->
+<!-- ##  -->
+<!-- ## Model 1: trachoma ~ factor(latrine) + (1 | household) -->
+<!-- ## Model 2: trachoma ~ factor(latrine) -->
+<!-- ##   #Df   LogLik Df  Chisq Pr(>Chisq)     -->
+<!-- ## 1   3  -958.15                          -->
+<!-- ## 2   2 -1188.67 -1 461.05  < 2.2e-16 *** -->
+<!-- ##  -->
+<!-- ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 -->
+<!-- #Test the null hypothesis that rho = 0 and that there is therefore no evidence of clustering -->
+<!-- The difference between the two models is not Zero and the p-value is highly suggestive that there is evidence of clustering -->
+
+<!-- Introduction to Sample Size Calculations -->
+<!-- Suggested by “Chrissy h Roberts” -->
+
+<!-- Below the basics of a few types of sample size calculations - for example comparing proportions, means or to detect an effect size of a certain magnitude are shown. -->
+
+<!-- Comparing proportions -->
+<!-- The general syntax is -->
+
+<!-- epi.propsize(treat = X, control = Y, power = Z, n = Z) #Specify either n - to compute power OR power to compute sample size #Specify the other as NA -->
+
+<!-- epi.propsize(treat = 0.1, control = 0.2, power = 0.8, n = NA) -->
+<!-- ## $n.total -->
+<!-- ## [1] 398 -->
+<!-- ##  -->
+<!-- ## $n.treat -->
+<!-- ## [1] 199 -->
+<!-- ##  -->
+<!-- ## $n.control -->
+<!-- ## [1] 199 -->
+<!-- ##  -->
+<!-- ## $power -->
+<!-- ## [1] 0.8 -->
+<!-- ##  -->
+<!-- ## $lambda -->
+<!-- ## [1] 0.5 -->
+<!-- #Calculate sample size needed to have 80% power to show difference of 10% assuming group 1 has proportion of 10% -->
+
+<!-- epi.propsize(treat = 0.1, control = 0.2, power = 0.8, n = NA, sided.test = 1) -->
+<!-- ## $n.total -->
+<!-- ## [1] 314 -->
+<!-- ##  -->
+<!-- ## $n.treat -->
+<!-- ## [1] 157 -->
+<!-- ##  -->
+<!-- ## $n.control -->
+<!-- ## [1] 157 -->
+<!-- ##  -->
+<!-- ## $power -->
+<!-- ## [1] 0.8 -->
+<!-- ##  -->
+<!-- ## $lambda -->
+<!-- ## [1] 0.5 -->
+<!-- #As above but a 1-sided test -->
+
+<!-- epi.propsize(treat = 0.1, control = 0.2, power = NA, n = 300) -->
+<!-- ## $n.total -->
+<!-- ## [1] 300 -->
+<!-- ##  -->
+<!-- ## $n.treat -->
+<!-- ## [1] 150 -->
+<!-- ##  -->
+<!-- ## $n.control -->
+<!-- ## [1] 150 -->
+<!-- ##  -->
+<!-- ## $power -->
+<!-- ## [1] 0.6808308 -->
+<!-- ##  -->
+<!-- ## $lambda -->
+<!-- ## [1] 0.5 -->
+<!-- #Calculate the power to detect a difference between arms given a sample size of 300 -->
+<!-- Sample size to detect a difference in proportions -->
+<!-- We need to know the 1) Proportion in control group 2) Odds ratio we wish to detect -->
+
+<!-- The general syntax when giving an Odds Ratio to detect is -->
+
+<!-- epi.ccsize(OR = X, p0 = Y, n = Z, power = Z) #Specify either n - to compute power OR power to compute sample size #Specify the other as NA epi.ccsize(OR = X, p0 = Y, n = Z, power = Z, r = ) #Where R is the ratio of controls to cases -->
+
+<!-- epi.ccsize(OR = 2, p0 = 0.2, n = NA, power = 0.8) -->
+<!-- ## $n.total -->
+<!-- ## [1] 344 -->
+<!-- ##  -->
+<!-- ## $n.case -->
+<!-- ## [1] 172 -->
+<!-- ##  -->
+<!-- ## $n.control -->
+<!-- ## [1] 172 -->
+<!-- ##  -->
+<!-- ## $power -->
+<!-- ## [1] 0.8 -->
+<!-- ##  -->
+<!-- ## $OR -->
+<!-- ## [1] 2 -->
+<!-- help( epi.ccsize ) -->
+<!-- #Calculate sample size required to detect an Odds Ratio of 2 given an expected prevalence of 20% in the control group -->
+
+<!-- epi.ccsize(OR = 4, p0 = 0.3, n = NA, power = 0.8, r =4) -->
+<!-- ## $n.total -->
+<!-- ## [1] 110 -->
+<!-- ##  -->
+<!-- ## $n.case -->
+<!-- ## [1] 22 -->
+<!-- ##  -->
+<!-- ## $n.control -->
+<!-- ## [1] 88 -->
+<!-- ##  -->
+<!-- ## $power -->
+<!-- ## [1] 0.8 -->
+<!-- ##  -->
+<!-- ## $OR -->
+<!-- ## [1] 4 -->
+<!-- #Calculate sample size required to detect an Odds Ratio of 4 given an expected prevalence of 30% in the control group and 4 controls for every case -->
+<!-- Sample size for detecting a specific prevalence -->
+<!-- The general syntax is > epi.simplesize(Py = prevalence_to_find, epsilon.R = variation_around_prevalence, method = “proportion”) #epsilon.R is specified as a proportion of Py #So if we want to find 10% +/- 2% we would set epsion.R as 0.2 -->
+
+<!-- epi.simplesize(Py = 0.2, epsilon.r = 0.3, method =  proportion ) -->
+<!-- ## [1] 171 -->
+<!-- #Calculate sample size required to detect a true prevalence of 10% +/- 3% -->
+
+<!-- #We can specify a fixed population calculation by adding in 'n ='  -->
+<!-- Sample size for comparing means -->
+<!-- The general syntax is -->
+
+<!-- power.t.test(delta = DIFF_BETWEEN_MEANS, power = Z, type =“SAMPLE_TYPE”) #Type may be “two.sample”, “one.sample”, “paired” #We can additionally specify the anticiapted standard deviation for example power.t.test(delta = DIFF_BETWEEN_MEANS, power = Z, type =“SAMPLE_TYPE”, sd = 1) -->
+
+<!-- OR alternatively (using same package as other sample size calculations) >epi.meansize(treat = X, control = Y, n = Z, power = Z, sigma = A) #Specify either n - to compute power OR power to compute sample size #Specify the other as NA #Sigma is the anticipated Standard Deviation -->
+
+<!-- power.t.test(delta = 2, power = 0.8, type = two.sample , sd = 1) -->
+<!-- ##  -->
+<!-- ##      Two-sample t test power calculation  -->
+<!-- ##  -->
+<!-- ##               n = 5.090008 -->
+<!-- ##           delta = 2 -->
+<!-- ##              sd = 1 -->
+<!-- ##       sig.level = 0.05 -->
+<!-- ##           power = 0.8 -->
+<!-- ##     alternative = two.sided -->
+<!-- ##  -->
+<!-- ## NOTE: n is number in *each* group -->
+<!-- #Calculate sample size needed to have 80% power to show difference of 2 in the mean value between two groups -->
+
+<!-- power.t.test(delta = 2, power = 0.8, type = paired , sd = 1) -->
+<!-- ##  -->
+<!-- ##      Paired t test power calculation  -->
+<!-- ##  -->
+<!-- ##               n = 4.220731 -->
+<!-- ##           delta = 2 -->
+<!-- ##              sd = 1 -->
+<!-- ##       sig.level = 0.05 -->
+<!-- ##           power = 0.8 -->
+<!-- ##     alternative = two.sided -->
+<!-- ##  -->
+<!-- ## NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs -->
+<!-- #Calculate sample size needed to have 80% power to show difference of 0.5 in the mean of two paired values - assuming a standard deviation of 1 -->
+
+<!-- epi.meansize(treat = 14 , control = 12, n = NA, power = 0.8, sigma = 1) -->
+<!-- ## $n.total -->
+<!-- ## [1] 8 -->
+<!-- ##  -->
+<!-- ## $n.treat -->
+<!-- ## [1] 4 -->
+<!-- ##  -->
+<!-- ## $n.control -->
+<!-- ## [1] 4 -->
+<!-- ##  -->
+<!-- ## $power -->
+<!-- ## [1] 0.8 -->
+<!-- ##  -->
+<!-- ## $delta -->
+<!-- ## [1] 2 -->
+<!-- #Calculate sample size needed to have 80% power to show difference of 2 between mean assuming a standard deviation of 1 -->
+<!-- #Capture Recapture Population Estimates We can calculate the predicted true population based on results of a capture-recapture survey The general syntax is > epi.popsize(people_seen_firs_time,people_seen_second_time,people_seen_both_times) -->
+
+<!-- epi.popsize(1104,1112,920) -->
+<!-- ##  -->
+<!-- ##  Estimated population size: 1334 (95% CI 1319 - 1350) -->
+<!-- ##  Estimated number of untested subjects: 38 (95% CI 23 - 54) -->
+<!-- #We saw a 1104 people in our first survey -->
+<!-- #We saw 1112 people in our second survey -->
+<!-- #920 people were seen both times -->
+<!-- #Calculate estimated true population and proportion of individuals missed both times -->
+<!-- Multiple Imputation -->
+<!-- Suggested by “Tom Yates” -->
+
+<!-- I presume as always that you understand the caveats of multiple imputation. The MICE package uses Multivariate Imputation via Chained Equations which is a common approach to multiple imputation. -->
+
+<!-- Sample Dataset 8 -->
+<!-- I deleted some data from our earlier scabies dataset so we can look at how multiple imputation works. -->
+
+<!-- Again the dataset with missing data is available on the LSHTM Data-Repository: “Scabies Missing Data” -->
+
+<!-- scabies_missing <- read.csv(file =  scabies_results_missing.csv , header = TRUE, sep =  , ) -->
+<!-- Looking at what data is missing -->
+<!-- We can see what data is missing using the ‘md.pattern’ command. The general syntax is: -->
+
+<!-- md.pattern(dataset) -->
+
+<!-- md.pattern(scabies_missing) -->
+<!-- ##      village impetigo_inactive other_lesions room_cohabitation age -->
+<!-- ## 1439       1                 1             1                 1   1 -->
+<!-- ##   63       1                 1             1                 1   0 -->
+<!-- ##   81       1                 1             1                 1   1 -->
+<!-- ##   52       1                 1             1                 1   1 -->
+<!-- ##   54       1                 1             1                 0   1 -->
+<!-- ##   70       1                 1             1                 1   1 -->
+<!-- ##  103       1                 1             1                 1   1 -->
+<!-- ##    4       1                 1             1                 1   0 -->
+<!-- ##    7       1                 1             1                 1   1 -->
+<!-- ##    2       1                 1             1                 0   0 -->
+<!-- ##    2       1                 1             1                 0   1 -->
+<!-- ##    4       1                 1             1                 0   1 -->
+<!-- ##    1       1                 1             1                 1   0 -->
+<!-- ##    3       1                 1             1                 1   1 -->
+<!-- ##    2       1                 1             1                 1   1 -->
+<!-- ##    3       1                 1             1                 0   1 -->
+<!-- ##    3       1                 1             1                 1   0 -->
+<!-- ##    2       1                 1             1                 1   1 -->
+<!-- ##    4       1                 1             1                 1   1 -->
+<!-- ##    4       1                 1             1                 0   1 -->
+<!-- ##    3       1                 1             1                 1   1 -->
+<!-- ##    1       1                 1             1                 0   0 -->
+<!-- ##    1       1                 1             1                 0   1 -->
+<!-- ##            0                 0             0                71  74 -->
+<!-- ##      house_inhabitants scabies_infestation gender impetigo_active     -->
+<!-- ## 1439                 1                   1      1               1   0 -->
+<!-- ##   63                 1                   1      1               1   1 -->
+<!-- ##   81                 1                   1      0               1   1 -->
+<!-- ##   52                 0                   1      1               1   1 -->
+<!-- ##   54                 1                   1      1               1   1 -->
+<!-- ##   70                 1                   0      1               1   1 -->
+<!-- ##  103                 1                   1      1               0   1 -->
+<!-- ##    4                 0                   1      1               1   2 -->
+<!-- ##    7                 0                   1      0               1   2 -->
+<!-- ##    2                 1                   1      1               1   2 -->
+<!-- ##    2                 1                   1      0               1   2 -->
+<!-- ##    4                 0                   1      1               1   2 -->
+<!-- ##    1                 1                   0      1               1   2 -->
+<!-- ##    3                 1                   0      0               1   2 -->
+<!-- ##    2                 0                   0      1               1   2 -->
+<!-- ##    3                 1                   0      1               1   2 -->
+<!-- ##    3                 1                   1      1               0   2 -->
+<!-- ##    2                 1                   1      0               0   2 -->
+<!-- ##    4                 0                   1      1               0   2 -->
+<!-- ##    4                 1                   1      1               0   2 -->
+<!-- ##    3                 1                   0      1               0   2 -->
+<!-- ##    1                 1                   1      0               1   3 -->
+<!-- ##    1                 0                   0      1               1   3 -->
+<!-- ##                     74                  83     96             119 517 -->
+<!-- Imputing data using Multivariate Imputation via Chained Equations -->
+<!-- We can impute our data using the ‘mice’ command. The general syntax is: -->
+
+<!-- imputed_data <- mice(data = datasets, m = number_imputet_sets_to_make, defaultMethod = “method_for_imputing_values”, maxit = number_iterations_to_impute_values, seed = 500) -->
+
+<!-- This generates ‘m’ datasets each with slightly different imputed data. -->
+
+<!-- NB Seed is just a number which kicks off the random-number generator. So if you alter the seed number the imputed dataset is going to change. -->
+
+<!-- Specifying which imputation method to use -->
+<!-- We don’t actually need to specify defaultMethod unless we want to change how R imputes values. -->
+
+<!-- By default ‘mice’ will use the following methods: * Numeric values: pmm, predictive mean matching * Binary data: logreg, logistic regression imputation * Unordered categorical data with >2 levels: polyreg, polytomous regression * Ordered categorical data with >2 levels: polr, proportional odds model -->
+
+<!-- We can specify alternative methods * norm = Bayesian linear regression -->
+
+<!-- For example we could use Bayesian linear regression for Numeric imputation by stating -->
+
+<!-- defaultMethod = c(“norm”,“logreg”, “polyreg”, “polr”), -->
+
+<!-- imputed_scabies_data <- mice(data = scabies_missing, m = 5, maxit = 10, seed = 500) -->
+<!-- By default MICE uses all values to impute from and imputes all missing values. These settings can be changed if needed -->
+
+<!-- Checking our imputation -->
+<!-- MICE includes a specific graphics package which is set up to work well with imputed data. We can use this to see how reasonable our imputations are. -->
+
+<!-- We can show box and whisker plots to see if our nurmerical imputed data looks reasonable with -->
+
+<!-- bwplot(imputed_dataset, variable) #R automatically colour codes the raw and imputed datasets differently -->
+
+<!-- bwplot(imputed_scabies_data, age) -->
+
+
+<!-- We can see distributions also with a density plot -->
+
+<!-- densityplot(imputed_dataset) #R automatically colour codes the raw and imputed datasets differently -->
+
+<!-- We can see if association still look reasonable -->
+
+<!-- xyplot(imputer_dataset,variable_a~variable_b) #R automatically colour codes the raw and imputed datasets differently -->
+
+<!-- Seeing an imputed dataset -->
+<!-- We can see an individual imputed dataset with -->
+
+<!-- imputed_set_1 <- complete(imputed_data,1) -->
+
+<!-- We can merge the datasets together - for example into a long dataset -->
+
+<!-- imputed_long <- complete(imputed_data, “long”) -->
+
+<!-- If we want to include the original dataset we can do that too -->
+
+<!-- imputed_long <- complete(imputed_data, “long”, include = TRUE) -->
+
+<!-- Manipulating an imputed dataset -->
+<!-- If we want to apply a data-manipulation such as converting a continuous to a categorical variable or making a new variable we can do this across our datasets. -->
+
+<!-- First of all we convert the imputed data into a standard-dataset that we can work with: -->
+
+<!-- imputed_long <- mice::complete(imputed_data, “long”, include = TRUE) #We have to specify mice::complete as ‘tidyr’ also has function called complete, so this lets R know which version to use. #Its important we include the Raw data as this lets us put the data back in to an ‘imputed’ dataset for the purposes of analysis #Now we can perform whatever manipulations we want #Then we convert the manipulated dataset back to an ‘imputed’ dataset using “as.mids” -->
+
+<!-- coded_imputed_data <- as.mids(imputed_long) -->
+
+<!-- complete_scabies_data <- mice::complete(imputed_scabies_data, long , include = TRUE) -->
+<!-- #Take out imputed data and make a long data-table. Include the original dataset with missing values. -->
+
+
+<!-- complete_scabies_data$agegroups <- as.factor(cut(complete_scabies_data$age, c(0,10,20,Inf), include.lowest = TRUE, labels = FALSE))  -->
+<!-- #Categorise age into groups across all our imputed datasets -->
+<!-- #Labels == False asigns a numeric value to each category (i.e 1,2,3) -->
+
+<!-- complete_scabies_data$agegroups <-relevel(complete_scabies_data$agegroups, ref = 3) -->
+<!-- #Set the baseline value -->
+
+<!-- coded_imputed_scabies <- as.mids(complete_scabies_data) -->
+<!-- #Convert back to  Imputed  format -->
+<!-- Fitting a model across all the imputed datasets -->
+<!-- If we want to fit a model across all the different imputed datasets then we can do that! The general syntax is very similar to a normal logistic regression but with a few changes as we are working with multiple imputed datasets and then pooling the results. -->
+
+<!-- imputed_model <- with(imputed_data,glm(attack~ smokes+female+hsgrad, family = binomial())) #We specify the ‘with’ command to say we are modelling across each of our imputed datasets -->
+
+<!-- imputed_model_summary <- (summary(pool(imputed_model))) #We specify the ’pool’command to now pool the estimates across each of our imputed datasets -->
+
+<!-- imputed_model_OR <- exp(cbind(imputed_model_summary[,“est”],imputed_model_summary[,“lo 95”],imputed_model_summary[,“hi 95”])) #exponentiate the coefficient and the lower and upper 95% CI -->
+
+<!-- imputed_model_summary <- (cbind(imputed_model_OR,imputed_model_summary)) #Combine into a single table -->
+
+<!-- imputed_model_summary Show the summary -->
+
+<!-- #Imputed Data -->
+<!-- imputed_scabies_model <- with(coded_imputed_scabies,glm(impetigo_active~ factor(scabies_infestation)+factor(gender)+factor(agegroups), family = binomial())) -->
+<!-- imputed_scabies_model_summary <- (summary(pool(imputed_scabies_model))) -->
+<!-- imputed_scabies_model_OR <- exp(cbind(imputed_scabies_model_summary[, est ],imputed_scabies_model_summary[, lo 95 ],imputed_scabies_model_summary[, hi 95 ])) -->
+<!-- imputed_scabies_model_summary <- (cbind(imputed_scabies_model_OR,imputed_scabies_model_summary)) -->
+
+<!-- #Let us also fit this same model to the full-original dataset -->
+<!-- impetigorisk <- glm(impetigo_active~factor(scabies_infestation)+factor(gender)+factor(agegroups),data=scabies,family=binomial()) -->
+<!-- impetigorisk_OR <- exp(cbind(OR= coef(impetigorisk), confint(impetigorisk))) -->
+<!-- ## Waiting for profiling to be done... -->
+<!-- impetigorisk_summary <- summary(impetigorisk) -->
+<!-- impetigorisk_summary <- cbind(impetigorisk_OR, impetigorisk_summary$coefficients) -->
+<!-- You can see we get very similar estimates of risk factors for impetigo from both our imputed dataset and our original dataset -->
+
+<!-- imputed_scabies_model_summary -->
+<!-- ##                                                                    est -->
+<!-- ## (Intercept)                  0.1276546 0.09976431 0.1633419 -2.0584271 -->
+<!-- ## factor(scabies_infestation)1 1.8930284 1.45590022 2.4614026  0.6381779 -->
+<!-- ## factor(gender)male           1.7632437 1.40651386 2.2104499  0.5671551 -->
+<!-- ## factor(agegroups)1           3.9041378 2.96900602 5.1338031  1.3620370 -->
+<!-- ## factor(agegroups)2           2.9657803 2.16356394 4.0654461  1.0871402 -->
+<!-- ##                                     se          t        df     Pr(>|t|) -->
+<!-- ## (Intercept)                  0.1255421 -16.396309  649.1702 0.000000e+00 -->
+<!-- ## factor(scabies_infestation)1 0.1333104   4.787156  250.2391 2.896359e-06 -->
+<!-- ## factor(gender)male           0.1145406   4.951566  176.9970 1.708353e-06 -->
+<!-- ## factor(agegroups)1           0.1396040   9.756431 1736.0393 0.000000e+00 -->
+<!-- ## factor(agegroups)2           0.1606484   6.767200  736.6786 2.679634e-11 -->
+<!-- ##                                   lo 95      hi 95 nmis        fmi -->
+<!-- ## (Intercept)                  -2.3049448 -1.8119095   NA 0.06546130 -->
+<!-- ## factor(scabies_infestation)1  0.3756244  0.9007314   NA 0.12360737 -->
+<!-- ## factor(gender)male            0.3411142  0.7931961   NA 0.15147441 -->
+<!-- ## factor(agegroups)1            1.0882272  1.6358467   NA 0.01424917 -->
+<!-- ## factor(agegroups)2            0.7717568  1.4025235   NA 0.05911479 -->
+<!-- ##                                  lambda -->
+<!-- ## (Intercept)                  0.06258655 -->
+<!-- ## factor(scabies_infestation)1 0.11663081 -->
+<!-- ## factor(gender)male           0.14194025 -->
+<!-- ## factor(agegroups)1           0.01311419 -->
+<!-- ## factor(agegroups)2           0.05656385 -->
+<!-- #Show the result of logistic regression on the imputed dataset -->
+<!-- impetigorisk_summary -->
+<!-- ##                                       OR     2.5 %    97.5 %   Estimate -->
+<!-- ## (Intercept)                    0.1345342 0.1057763 0.1691508 -2.0059369 -->
+<!-- ## factor(scabies_infestation)yes 1.9325497 1.5143192 2.4661511  0.6588402 -->
+<!-- ## factor(gender)male             1.7577258 1.4287526 2.1630912  0.5640208 -->
+<!-- ## factor(agegroups)0-10          3.7025777 2.8401712 4.8620068  1.3090292 -->
+<!-- ## factor(agegroups)11-20         2.7347978 2.0226139 3.7127619  1.0060575 -->
+<!-- ##                                Std. Error    z value     Pr(>|z|) -->
+<!-- ## (Intercept)                     0.1196454 -16.765690 4.349338e-63 -->
+<!-- ## factor(scabies_infestation)yes  0.1243502   5.298267 1.169072e-07 -->
+<!-- ## factor(gender)male              0.1057719   5.332426 9.690930e-08 -->
+<!-- ## factor(agegroups)0-10           0.1370214   9.553466 1.254279e-21 -->
+<!-- ## factor(agegroups)11-20          0.1548162   6.498398 8.117993e-11 -->
+<!-- #Show the result of logistic regression on the original dataset -->
+<!-- Comparing two imputed datasets -->
+<!-- When we want to compate two nested models derived from imputed datasets we can do so using ‘pool.compare’ -->
+
+<!-- pool.compare(model_1, model_2, data = NULL, method = “Wald”) #This is similar to performing an LRT on two normal models - but in the circumstance of pooled data this approach should be used. -->
+
+<!-- Intra-class-correlation Co-efficients and Design Effects -->
+<!-- Suggested and with help from “Peter MacPherson” and “Daniel Parker” -->
+
+<!-- Statisitcally there are lots of different ways to calculate an Intra-Class-Correlation coefficient. -->
+
+<!-- Below I provide an outline of a few otions. Which one is appropriate may depend on why you need an ICC. -->
+
+<!-- Survey Data and Design Effects -->
+<!-- If we have used a complex survey design then we can declare the survey design and then calculate the design effect. -->
+
+<!-- We declare the survey design using > survey_dataset <- svydesign(id=~cluster_var,data=dataset) -->
+
+<!-- We can then calculate the frequency of our outcome (say presence of Trachoma) adjusting for clustering and then get out the design effect of our data compared to SRS with replacement. >svymean(~outcome,survey_dataset,proportion = TRUE, deff = “replace”) -->
+
+<!-- #Lets look at our scabies survey again -->
+<!-- scabies <- read.csv(file =  S1-Dataset_CSV.csv , header = TRUE, sep =  , ) -->
+
+<!-- #Declare the survey design -->
+<!-- survey_scabies <- svydesign(id=~Village, data = scabies) -->
+<!-- ## Warning in svydesign.default(id = ~Village, data = scabies): No weights or -->
+<!-- ## probabilities supplied, assuming equal probability -->
+<!-- svymean(~scabies_infestation,survey_scabies,proportion = TRUE, deff =  replace ) -->
+<!-- ##                            mean       SE   DEff -->
+<!-- ## scabies_infestationno  0.808176 0.010242 1.2903 -->
+<!-- ## scabies_infestationyes 0.191824 0.010242 1.2903 -->
+<!-- #Work out the DF of scabies adjusting for clustering at the village level -->
+<!-- Survey Data and ICC -->
+<!-- If we have used a complex survey design then we can also get out an ICC and then given the cluster size calculate the design effect. -->
+
+<!-- The general syntax is > ICCest(group_var,outcome_var,data=dataset) -->
+
+<!-- It expects outcome_var to be coded numerically -->
+
+<!-- scabies$hasscabies <- 0 -->
+<!-- scabies$hasscabies[scabies$scabies_infestation ==  yes ] <- 1 -->
+<!-- #Convert our yes/no variable to 0 / 1 variable as expected by ICCest -->
+
+<!-- ICCest(Village,hasscabies, data = scabies) -->
+<!-- ## Warning in ICCest(Village, hasscabies, data = scabies): 'x' has been -->
+<!-- ## coerced to a factor -->
+<!-- ## $ICC -->
+<!-- ## [1] 0.004087404 -->
+<!-- ##  -->
+<!-- ## $LowerCI -->
+<!-- ## [1] -0.0009097985 -->
+<!-- ##  -->
+<!-- ## $UpperCI -->
+<!-- ## [1] 0.02560099 -->
+<!-- ##  -->
+<!-- ## $N -->
+<!-- ## [1] 10 -->
+<!-- ##  -->
+<!-- ## $k -->
+<!-- ## [1] 185.7484 -->
+<!-- ##  -->
+<!-- ## $varw -->
+<!-- ## [1] 0.1545527 -->
+<!-- ##  -->
+<!-- ## $vara -->
+<!-- ## [1] 0.0006343122 -->
+<!-- #Gives the ICC for scabies and the mean village size. -->
+<!-- #ICC of 0.004087404 -->
+<!-- #K (average cluster size) 185 -->
+<!-- #So DF = 1 + (185-1)*0.004087404 -->
+<!-- 1 + (185-1)*0.004087404 -->
+<!-- ## [1] 1.752082 -->
+<!-- #Which is broadly similar to the output of the previous estimate -->
+<!-- Getting an ICC from a Random-Effects Model -->
+<!-- Alternatively in some situations you might want to fit a random-effects model and then calculate the ICC from the model. -->
+
+<!-- The command for this is just: > icc (re_model) -->
+
+<!-- re_village_scabies <- glmer(scabies_infestation~ + (1 | Village),family =  binomial , data = scabies, nAGQ = 10) -->
+<!-- #Run a model clustered at household level. Ten intgration points. -->
+<!-- icc(re_village_scabies) -->
+<!-- ##  -->
+<!-- ## Generalized linear mixed model -->
+<!-- ##  Family: binomial (logit) -->
+<!-- ## Formula: scabies_infestation ~ +(1 | Village) -->
+<!-- ##  -->
+<!-- ##   ICC (Village): 0.003350 -->
+<!-- #Get out our ICC -->
+<!-- #You can then use the ICC to calculate the design effect using standard formulas -->
+<!-- Meta-analysis -->
+<!-- ##Meta-analysis of proportions -->
+
+<!-- The general syntax is > metaprop(Number_Events, Number_Observations) -->
+
+<!-- metaprop(c(267,175,219,117),c(406,329,223,137),method= GLMM ) -->
+<!-- ##   proportion           95%-CI %W(fixed) %W(random) -->
+<!-- ## 1     0.6576 [0.6092; 0.7037]        --         -- -->
+<!-- ## 2     0.5319 [0.4764; 0.5869]        --         -- -->
+<!-- ## 3     0.9821 [0.9547; 0.9951]        --         -- -->
+<!-- ## 4     0.8540 [0.7836; 0.9085]        --         -- -->
+<!-- ##  -->
+<!-- ## Number of studies combined: k = 4 -->
+<!-- ##  -->
+<!-- ##                      proportion           95%-CI  z p-value -->
+<!-- ## Fixed effect model       0.7105 [0.6829; 0.7366] --      -- -->
+<!-- ## Random effects model     0.8330 [0.5400; 0.9550] --      -- -->
+<!-- ##  -->
+<!-- ## Quantifying heterogeneity: -->
+<!-- ## tau^2 = 2.1010; H = 9.04; I^2 = 98.8% -->
+<!-- ##  -->
+<!-- ## Test of heterogeneity: -->
+<!-- ##       Q d.f.  p-value             Test -->
+<!-- ##   87.24    3 < 0.0001        Wald-type -->
+<!-- ##  187.20    3 < 0.0001 Likelihood-Ratio -->
+<!-- ##  -->
+<!-- ## Details on meta-analytical method: -->
+<!-- ## - Random intercept logistic regression model -->
+<!-- ## - Maximum-likelihood estimator for tau^2 -->
+<!-- ## - Logit transformation -->
+<!-- ## - Clopper-Pearson confidence interval for individual studies -->
+<!-- #Calculate the weighted proportion of events across four studies -->
+<!-- #Method = GLMM specifies that a random-intercept should be used -->
+<!-- meta_data <- metaprop(c(267,175,219,117),c(406,329,223,137),method= GLMM , comb.fixed = FALSE) -->
+<!-- #As above but don't give a fixed-effec estimate and store the results so we can use them in our plot -->
+
+<!-- meta_forest <- forest(meta_data) -->
+
+
+<!-- #Calculate the weighted proportion of events across four studies -->
+<!-- #Method = GLMM specifies that a random-intercept should be used -->
+<!-- GGPLOT2 -->
+<!-- Basic elements of a GGPLOT -->
+<!-- The GGPLOT package makes much better graphs than the basic R package. This is a very brief introduction to the syntax of GGPLOT2. -->
+
+<!-- Everything in ggplot combines a similar group of elements to make its graphs. In any plot we specify 1) Dataset 2) A Co-ordinate system 3) How to show the data points (ggplot calls these ‘geoms’) -->
+
+<!-- We add elements on top of one another to build up the plot. The first two elements are given together via the syntax > plot <- ggplot2 (dataset, aes(co-ordinate system)) #Make something called plot. Take data from ‘dataset’ and define the way to show the data as statd by the co-ordinate system. -->
+
+<!-- There are a variety of co-ordinate systems. When our plot involves a single variable (i.e age as a histograme) then we need to specify X = -->
+
+<!-- plot <- ggplot2 (scabies, aes(x = age)) #Look in the scabies dataframe - we are plotting age along the X-Axis -->
+
+<!-- If we want to stratify our plots by a factor we can do so by telling GGPLOT with ‘fill’ -->
+
+<!-- plot <- ggplot2 (scabies, aes(x = age, fill = gender)) #Stratify by Gender - i.e draw two histograms with different colours based on the variable gender -->
+
+<!-- When our plot involves two variables (i.e a scatter plot or a box-plot) then we specify X= and y = -->
+
+<!-- plot <- ggplot2 (scabies, aes(x = house_inhabitants, y = room_cohabitation)) #Look in the scabies dataframe - we are plotting number people in the house along the X-Axis and number of people sharing a room on the Y-Axis -->
+
+<!-- Specifcying the type of graph - ‘geoms’ -->
+<!-- We then tell GGPLOT how to render the data - this is the geom. -->
+
+<!-- Some common geoms are: geom_point = scatterplot geom_histogram = histogram geom_boxplot -->
+
+<!-- We can specify specific values for the data-points (“geom”) like colour: > + geom_point(aes(colour = factor(gender))) #Add to our plot by drawing each value as a point i.e make a scatter-plot #Set the colour of each datapoint based on the factor variable gender -->
+
+<!-- Labels, Legends etc -->
+<!-- We can add labels using: > + labs (title = “Graph Title”, x = “X-Axis Label”, y = “Y-Axis Label”) #Add to our plot by adding labels for axis etc -->
+
+<!-- Splitting GGPLOT code across multiple lines -->
+<!-- Sometimes to make the code easier to follow we split it across several lines. For example -->
+
+<!-- plot <- ggplot2 (scabies, aes(x = house_inhabitants, y = room_cohabitation))+ geom_point(aes(colour = factor(gender))) + labs (title = “House size and Room Cohabitation”, x = “House size”, y = “Room size”) #Note we put a PLUS sign at the end of each line to tell R that the code is continuing -->
+
+<!-- Example Plots with GGPLOT -->
+<!-- Here are some examples similar to the graphs we drew with basic R earlier. The aim is just to give a feel for how the plots are constructed. -->
+
+<!-- GGPLOT Scatterplot -->
+<!-- gg_scatter <- ggplot (scabies, aes(x = house_inhabitants, y = room_cohabitation)) + -->
+<!-- #Two variable House size and room cohabitation -->
+
+<!-- #NB I'm saving the plot under the name gg_scatter by saying gg_scatter <- X,Y,Z -->
+<!--   geom_point(aes(colour = factor(gender))) + -->
+
+<!-- #I'm drawing a scatter plot and colouring dots based on gender   -->
+<!--   labs(title =  House size vs Number people sharing a room , x = House Size , y =  People sharing a room ) -->
+
+<!-- #I'm giving some labels to the graph -->
+
+<!-- gg_scatter -->
+
+
+<!-- #Show the gg_scatter graph -->
+<!-- GGPLOT Histogram -->
+<!-- gg_histo <- ggplot (scabies, aes(x = age)) + -->
+
+<!-- #I have a single variable age -->
+<!-- geom_histogram() + -->
+
+<!-- #With which I will draw a scatterplot   -->
+<!-- labs(title =  Distribution of age in study , y =  No. participants , x =  Age (yrs) ) -->
+
+<!-- #I will give some axis and graph labels -->
+<!-- gg_histo -->
+<!-- ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`. -->
+
+
+<!-- GGPLOT Boxplot -->
+<!-- gg_boxplot <- ggplot (scabies, aes(x = gender, y = age)) + -->
+
+<!-- #I have two variable Gender and Age -->
+<!--   geom_boxplot(aes(colour = factor(gender))) + -->
+
+<!-- #I am drawing a box plot and colouring them in by age -->
+<!--   labs(title =  Distribution of age by gender , y =  Age , x =  Gender ) -->
+
+<!-- #I have some axis labels -->
+<!-- gg_boxplot -->
+
+
+<!-- Examples of powerful plotting with GGPLOT -->
+<!-- We can do really fancy things with GGPLOT like make multiple graphs in a single panel. We declare these using one of the “facet” options. For example we could draw age distribution histograms by village. -->
+
+<!-- library(ggplot2) -->
+<!-- gg_histo_by_village <- ggplot (scabies, aes(x = age, fill = gender)) + -->
+
+<!-- #I have only one co-ordinate x = age -->
+<!-- #Stratifying on = gender; i.e fill in  colour based on  value in gender -->
+<!--   geom_histogram(breaks = seq(0,80, by = 2)) + -->
+
+<!-- #I'm plotting a histogram. I've divided the data between 0 to 80 it to blocks 5 years wide. -->
+<!--   labs(title =  Distribution of age in study , y =  No. participants , x =  Age (yrs) )+ -->
+
+<!-- #I've given some labels -->
+<!--   facet_wrap( Village ) -->
+
+<!-- #I've broken the data down in to several facets based on the village -->
+<!-- gg_histo_by_village -->
+
+
+# tips
+
+```
+{r eval=FALSE, include=FALSE, echo=TRUE}
+my_string1 <-  3+4 
+my_string2 <-  plot(cars) 
+eval(parse(text = my_string1))
+eval(parse(text = my_string2))
+
+```
+
+
+# environment memory
+
+http://r-statistics.co/R-Tutorial.html
+
+As you create new variables, by default they get store in what is called a global environment.
+
+a <- 10
+b <- 20
+ls()  # list objects in global env
+rm(a)  # delete the object 'a'
+rm(list = ls())  # caution: delete all objects in .GlobalEnv
+gc()  # free system memory
+
+However if you choose, you can create a new environment and store them there.
+
+rm(list=ls())  # remove all objects in work space
+env1 <- new.env()  # create a new environment
+assign( a , 3, envir = env1)  # store a=3 inside env1
+ls()  # returns objects in .GlobalEnv
+ls(env1)  # returns objects in env1
+get('a', envir=env1)  # retrieve value from env1
+
+
+
+sort(vec1)  # ascending sort
+sort(vec1, decreasing = TRUE)  # Descending sort 
+Sorting can also be achieved using the order() function which returns the indices of elements in ascending order.
+
+vec1[order(vec1)]  # ascending sort
+vec1[rev(order(vec1))]  # descending sort
+
+
+
+seq(1, 10, by = 2)  # diff between adj elements is 2
+seq(1, 10, length=25)  # length of the vector is 25
+rep(1, 5)  # repeat 1, five times.
+rep(1:3, 5)  # repeat 1:3, 5 times
+rep(1:3, each=5)  # repeat 1 to 3, each 5 times.
+
+
+
+
+subset(airquality, Day == 1, select = -Temp)  # select Day=1 and exclude 'Temp'
+airquality[which(airquality$Day==1), -c(4)]  # same as above
+
+
+
+set.seed(100)
+trainIndex <- sample(c(1:nrow(airquality)), size=nrow(airquality)*0.7, replace=F)  # get test sample indices
+airquality[trainIndex, ]  # training data
+airquality[-trainIndex, ]  # test data
+
+
+
+if(checkConditionIfTrue) {
+  ....statements..
+  ....statements..
+} else {   # place the 'else' in same line as '}'
+  ....statements..
+  ....statements..
+} 
+
+
+
+
+
+for(counterVar in c(1:n)){
+  .... statements..
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

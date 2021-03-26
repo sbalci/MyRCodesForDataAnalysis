@@ -1,0 +1,109 @@
+---
+title: "list2df"
+output: html_notebook
+---
+
+
+```r
+# https://henrywang.nl/transform-list-into-dataframe-with-tidyr-and-purrr/
+library(tidyr) # for hoist() and unnest_longer()
+library(magrittr) # for extract()
+library(purrr) # for map()
+library(listviewer) # for jsonedit()
+library(repurrrsive) # for gh_repos dataset
+```
+
+
+```r
+jsonedit(gh_repos)
+```
+
+
+```r
+gh_repos %>% 
+  map_df(~map(.x, `[`, c("name", "full_name")))
+```
+
+
+
+
+```r
+# replace `[` with magrittr::extract() 
+gh_repos %>% 
+  map_df(~map(.x, magrittr::extract, c("name", "full_name")))
+
+```
+
+
+
+```r
+tibble(repo = gh_repos) %>% 
+  unnest_longer(repo) %>% 
+  hoist(repo, "name", "full_name")
+```
+
+
+```r
+name <- gh_repos %>% 
+  map(~map_chr(.x, "name")) %>% 
+  flatten_chr()
+
+full_name <- gh_repos %>% 
+  map(~map_chr(.x, "full_name")) %>% 
+  flatten_chr()
+
+username <- gh_repos %>% 
+  map(~map_chr(.x, c("owner", "login"))) %>% 
+  flatten_chr()
+
+tibble(name, full_name, username)
+
+```
+
+
+```r
+tibble(repo = gh_repos) %>% 
+  unnest_longer(repo) %>% 
+  hoist(repo, "name", "full_name",
+        username = c("owner", "login"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

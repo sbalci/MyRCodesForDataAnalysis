@@ -1,0 +1,835 @@
+---
+title: "tweetbook1"
+output:
+  html_notebook:
+  html_document:
+    df_print: paged
+---
+
+
+https://rtweet.info/
+
+
+
+```{r library}
+library(tidyverse)
+library(rtweet)
+```
+
+# get data
+
+```{r get data}
+gipath <- rtweet::search_tweets(q = "#gipath",
+                                n = 18000,
+                                include_rts = FALSE,
+                                # retryonratelimit = TRUE
+                                )
+
+# gipath %>% 
+#   select(user_id,status_id, contains("url")) %>%
+#   filter(!is.na(ext_media_url)) %>% 
+# View()
+
+```
+
+
+# filter tweet
+
+```{r filter tweet}
+
+for (i in 1:dim(gipath)[1]) {
+  nam <- paste0("gitweetid", i)
+  assign(nam, gipath$status_id[i])
+  nam2 <- paste0("gitweet", i)
+  assign(nam2, gipath[gipath$status_id==gitweetid1, ])
+}
+
+```
+
+
+# tweet owner
+
+```r
+gitweet1$screen_name
+```
+
+# tweet time
+
+
+```r
+gitweet1$created_at
+```
+
+
+# tweet text
+
+```r
+gitweet1$text
+```
+
+
+# tweet media
+
+
+```{r tweet media}
+unlist(gitweet2$ext_media_url)
+```
+
+
+```{r tweet media length}
+length(unlist(gitweet2$ext_media_url))
+```
+
+```r
+
+```
+
+
+# download image, read image
+
+```{r download image read image, error=FALSE, comment=FALSE}
+for (i in 1:length(unlist(gitweet2$ext_media_url))) {
+    urls <- unlist(gitweet2$ext_media_url)[i]
+    dest <- paste0("twfigure/jpeg",i,".jpg", collapse = "")
+    download.file(url = urls, destfile = dest, mode = 'wb')
+}
+
+images <- capture.output(
+    cat(
+        for (i in 1:length(unlist(gitweet2$ext_media_url))) {
+            cat(
+                paste0("![](twfigure/jpeg",
+                       i,
+                       ".jpg){width=30%}", 
+                       collapse = ""
+                ),
+                "\n"
+            )
+        }
+        , 
+        sep = "\n")
+)
+```
+
+---
+    
+# Auto Output
+
+Tweet by: **`r # gitweet2$screen_name`**
+
+Tweet Time: **`r # gitweet2$created_at`**
+
+*`r # gitweet2$text`*
+
+`r # unlist(gitweet2$hashtags)`
+
+`r # unlist(gitweet2$symbols)`
+
+`r # unlist(gitweet2$urls_expanded_url)`
+
+`r # images`
+
+---
+    
+    
+```r
+tweetbody1 <- "gitweet1$screen_name; gitweet1$created_at; gitweet1$text; unlist(gitweet1$hashtags); unlist(gitweet1$symbols); unlist(gitweet1$urls_expanded_url)"
+
+evaluate::replay(evaluate::evaluate(tweetbody1))
+
+
+```
+
+```r
+library(evaluate)
+s <-  paste(capture.output(replay(evaluate::evaluate(tweetbody1))), collapse="\n")
+cat(s)
+```
+
+
+```r
+dont_print_source = function(x){
+    if (class(x)!="source"){
+        cat(x)
+    }
+}
+
+L <-  evaluate::evaluate(tweetbody1)
+
+# library(R.utils)
+# s3 <-  paste(captureOutput(
+# for(i in 1:length(L)) dont_print_source(L[[i]])  
+# ), collapse="\n")
+
+s3 <- gsub("\\[1]|\"", "", paste(capture.output(
+for(i in 1:length(L)) dont_print_source(L[[i]])
+), collapse="\n"))
+
+```
+
+
+
+
+`r # s3`
+
+---
+
+https://community.rstudio.com/t/how-to-use-an-object-rather-than-a-file-as-source-for-knitting-resolved/3057/6
+
+---
+
+```r
+tweetAutoOutput <- function(x) {
+  
+  
+  
+}
+```
+
+
+Tweet by: **`r # gitweet2$screen_name`**
+
+Tweet Time: **`r # gitweet2$created_at`**
+
+*`r # gitweet2$text`*
+
+`r # unlist(gitweet2$hashtags)`
+
+`r # unlist(gitweet2$symbols)`
+
+`r # unlist(gitweet2$urls_expanded_url)`
+
+`r # images`
+
+
+
+
+
+---
+
+---
+
+---
+
+---
+
+---
+
+
+
+
+
+# olders
+
+
+rtweet::get_collections("serdarbalci")
+
+
+
+
+
+
+---
+
+```r
+gitweet1 <- gipath %>%
+  filter(user_id == 3011337389)
+```
+
+
+```r
+gitweet1$user_id
+```
+
+```r
+gitweet1$status_id
+```
+
+```r
+gitweet1$created_at
+```
+
+
+```r
+gitweet1$screen_name
+```
+
+```r
+gitweet1$ext_media_url
+```
+
+```r
+length(gitweet1$ext_media_url)
+```
+
+---
+
+```r
+imageurl1 <- gitweet1$ext_media_url[[1]][1]
+```
+
+
+```r
+imageurl1
+```
+
+```r
+imageurl2 <- gitweet1$ext_media_url[[1]][2]
+```
+
+
+```r
+imageurl2
+```
+
+
+
+---
+
+
+![](http://pbs.twimg.com/media/DzjHIuEXgAEqNL3.jpg)
+
+
+![](http://pbs.twimg.com/media/DzjHIuFXgAER5Op.jpg)
+
+---
+
+
+```r
+gitweet1$text
+```
+
+```r
+gitweet1$source
+```
+
+
+
+```r
+gitweet1$display_text_width
+```
+
+```r
+gitweet1$reply_to_status_id
+```
+
+```r
+gitweet1$reply_to_status_id
+```
+
+---
+
+```r
+gitweet1$reply_to_user_id
+```
+
+```r
+gitweet1$reply_to_screen_name
+```
+
+---
+
+```r
+gitweet1$is_quote
+```
+
+```r
+gitweet1$is_retweet
+```
+
+---
+
+```r
+gitweet1$favorite_count
+```
+
+
+```r
+gitweet1$retweet_count
+```
+
+
+```r
+gitweet1$hashtags
+```
+
+
+```r
+gitweet1$symbols
+```
+
+---
+
+```r
+gitweet1$urls_url
+```
+
+```r
+gitweet1$urls_t.co
+```
+
+
+```r
+gitweet1$urls_expanded_url
+```
+
+
+
+```r
+gitweet1$media_url
+```
+
+
+```r
+gitweet1$media_t.co
+```
+
+
+```r
+gitweet1$media_expanded_url
+```
+
+---
+
+```r
+gitweet1$media_type
+```
+
+
+
+```r
+gitweet1$ext_media_url
+```
+
+
+```r
+gitweet1$ext_media_t.co
+```
+
+
+```r
+gitweet1$ext_media_expanded_url
+```
+
+
+```r
+gitweet1$ext_media_type
+```
+
+---
+
+```r
+gitweet1$mentions_user_id
+```
+
+
+```r
+gitweet1$mentions_screen_name
+```
+
+
+```r
+gitweet1$lang
+```
+
+
+```r
+gitweet1$quoted_status_id
+```
+
+
+```r
+gitweet1$quoted_text
+```
+
+
+```r
+gitweet1$quoted_created_at
+```
+
+
+```r
+gitweet1$quoted_source
+```
+
+
+```r
+gitweet1$quoted_favorite_count
+```
+
+
+```r
+gitweet1$quoted_retweet_count
+```
+
+
+```r
+gitweet1$quoted_user_id
+```
+
+
+```r
+gitweet1$quoted_screen_name
+```
+
+
+```r
+gitweet1$quoted_name
+```
+
+
+```r
+gitweet1$quoted_followers_count
+```
+
+
+```r
+gitweet1$quoted_friends_count
+```
+
+
+```r
+gitweet1$quoted_statuses_count
+```
+
+
+```r
+gitweet1$quoted_location
+```
+
+
+```r
+gitweet1$quoted_description
+```
+
+
+```r
+gitweet1$quoted_verified
+```
+
+
+```r
+gitweet1$retweet_status_id
+```
+
+
+```r
+gitweet1$retweet_text
+```
+
+
+```r
+gitweet1$retweet_created_at
+```
+
+
+```r
+gitweet1$retweet_source
+```
+
+
+```r
+gitweet1$retweet_favorite_count
+```
+
+
+```r
+gitweet1$retweet_retweet_count
+```
+
+
+```r
+gitweet1$retweet_user_id
+```
+
+
+```r
+gitweet1$retweet_screen_name
+```
+
+
+```r
+gitweet1$retweet_name
+```
+
+
+```r
+gitweet1$retweet_followers_count
+```
+
+
+```r
+gitweet1$retweet_friends_count
+```
+
+
+```r
+gitweet1$retweet_statuses_count
+```
+
+
+```r
+gitweet1$retweet_location
+```
+
+
+```r
+gitweet1$retweet_description
+```
+
+
+```r
+gitweet1$retweet_verified
+```
+
+
+```r
+gitweet1$place_url
+```
+
+
+```r
+gitweet1$place_name
+```
+
+
+```r
+gitweet1$place_full_name
+```
+
+
+```r
+gitweet1$place_type
+```
+
+
+```r
+gitweet1$country
+```
+
+
+```r
+gitweet1$country_code
+```
+
+
+```r
+gitweet1$geo_coords
+```
+
+
+```r
+gitweet1$coords_coords
+```
+
+
+```r
+gitweet1$bbox_coords
+```
+
+
+```r
+gitweet1$status_url
+```
+
+
+```r
+gitweet1$name
+```
+
+
+```r
+gitweet1$location
+```
+
+
+```r
+gitweet1$description
+```
+
+
+```r
+gitweet1$url
+```
+
+
+```r
+gitweet1$protected
+```
+
+
+```r
+gitweet1$followers_count
+```
+
+
+```r
+gitweet1$friends_count
+```
+
+
+```r
+gitweet1$listed_count
+```
+
+
+```r
+gitweet1$statuses_count
+```
+
+
+```r
+gitweet1$favourites_count
+```
+
+
+```r
+gitweet1$account_created_at
+```
+
+
+```r
+gitweet1$verified
+```
+
+
+```r
+gitweet1$profile_url
+```
+
+
+```r
+gitweet1$profile_expanded_url
+```
+
+
+```r
+gitweet1$account_lang
+```
+
+
+```r
+gitweet1$profile_banner_url
+```
+
+
+```r
+gitweet1$profile_background_url
+```
+
+
+```r
+gitweet1$profile_image_url
+```
+
+---
+
+```r
+# gipath %>%
+#   select(user_id,status_id, contains("url")) %>%
+#   filter(!is.na(ext_media_url)) %>%
+#   select(status_id, contains("media_url")) %>%
+# View()
+```
+
+---
+
+```r
+gitweet2 <- gipath %>% 
+  filter(status_id ==1096465400848699392)
+```
+
+```r
+gitweet2$ext_media_url
+```
+
+---
+
+```r
+unlist(gitweet2$ext_media_url)
+```
+
+
+```r
+length(unlist(gitweet2$ext_media_url))
+```
+
+
+```r
+# jpeg1 <- paste0("\"", unlist(gitweet2$ext_media_url)[1], "\"")
+
+# jpeg1 <- unlist(gitweet2$ext_media_url)[1]
+# jpeg2 <- unlist(gitweet2$ext_media_url)[2]
+# jpeg3 <- unlist(gitweet2$ext_media_url)[3]
+# jpeg4 <- unlist(gitweet2$ext_media_url)[4]
+
+# <center><img src="`r # jpeg1`"><img src="`r # jpeg2`"></center>
+```
+
+
+
+---
+
+```r
+for (i in 1:length(unlist(gitweet2$ext_media_url))) {
+  nam <- paste0("jpeg", i)
+  assign(nam, unlist(gitweet2$ext_media_url)[i])
+}
+```
+
+```r
+download.file(url = jpeg1, destfile = 'twfigure/jpeg1.jpg', mode = 'wb')
+```
+
+
+
+
+
+dene1
+
+
+---
+
+dene2
+
+![](twfigure/jpeg1.jpg)
+
+
+
+
+
+---
+
+image 0
+
+![](`r # jpeg1`)  ![](`r # jpeg2`)  ![](`r # jpeg3`) 
+
+
+
+---
+
+image 1
+
+
+<img src="`r # jpeg1`">
+
+
+
+---
+
+image 2
+
+
+<img src="`r # jpeg1`"><img src="`r # jpeg2`"><img src="`r # jpeg3`">
+
+
+---
+
+image 3
+
+<center><img src="`r # jpeg1`"><img src="`r # jpeg2`"><img src="`r # jpeg3`"></center>
+
+---
+
+
+
