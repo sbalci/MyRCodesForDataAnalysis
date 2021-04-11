@@ -1,15 +1,21 @@
 ---
 title: 'My R Codes for Data Analysis'
 author: 'Serdar Balcı'
-date: '`r # Sys.Date()`'
+date: '`r Sys.Date()`'
+# knit: "bookdown::render_book"
 site: bookdown::bookdown_site
+# output: bookdown::gitbook
 documentclass: book
 bibliography: ['bib/book.bib', 'bib/packages.bib']
 biblio-style: apalike
 link-citations: yes
 description: 'This is a collection of R codes I use for data analysis'
 always_allow_html: true
+links-as-notes: true
+colorlinks: true
+github-repo: sbalci/MyRCodesForDataAnalysis
 ---
+
 
 # Preface
 

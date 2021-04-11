@@ -1,0 +1,30 @@
+Package: MyRCodesForDataAnalysis
+Title: My R Codes For Data Analysis
+Version: 0.0.0.9000
+    person(given = "Serdar",
+           family = "Balci",
+           role = c("aut", "cre"),
+           email = "drserdarbalci@gmail.com",
+           comment = c(ORCID = "0000-0002-7852-3851"))
+Maintainer: Serdar Balci <serdar.balci@memorial.com.tr>
+Depends: R (>= 4.1.0)
+Imports:
+  bookdown,
+  tidytext,
+  dplyr,
+  tidyr,
+  forcats,
+  ggplot2,
+  jsonlite,
+  readr,
+  lubridate,
+  stringr,
+  ggforce,
+  sessioninfo,
+  tidyverse
+Suggests:
+  bslib,
+  downlit
+Remotes:
+  rstudio/bookdown,
+  rstudio/bslib
