@@ -1,3 +1,5 @@
 ^\.ccache$
 ^\.github$
 ^tic\.R$
+^.*\.Rproj$
+^\.Rproj\.user$

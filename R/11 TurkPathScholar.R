@@ -483,22 +483,22 @@ publications <- map(ids[1:3], get_publications)
 # **E- direct affiliation pathology & Turkey**
 
 
-myTerm <- rstudioapi::terminalCreate(show = FALSE)
-rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query 'Turkey' -datetype PDAT -mindate 2018 -maxdate 2019 | \
-efetch -format xml | \
-xtract -pattern Author -if Affiliation -contains Turkey -and Affiliation -contains pathology -sep " " -element LastName,Initials Affiliation &> TurkeyPathologistsPublished.txt")
-Sys.sleep(1)
-repeat{
-    Sys.sleep(0.1)
-    if(rstudioapi::terminalBusy(myTerm) == FALSE){
-        print("Code Executed")
-        break
-    }
-}
-
-
-rstudioapi::terminalKill(myTerm)
-readLines("TurkeyPathologistsPublished.txt")
+# myTerm <- rstudioapi::terminalCreate(show = FALSE)
+# rstudioapi::terminalSend(myTerm, "esearch -db pubmed -query 'Turkey' -datetype PDAT -mindate 2018 -maxdate 2019 | \
+# efetch -format xml | \
+# xtract -pattern Author -if Affiliation -contains Turkey -and Affiliation -contains pathology -sep " " -element LastName,Initials Affiliation &> TurkeyPathologistsPublished.txt")
+# Sys.sleep(1)
+# repeat{
+#     Sys.sleep(0.1)
+#     if(rstudioapi::terminalBusy(myTerm) == FALSE){
+#         print("Code Executed")
+#         break
+#     }
+# }
+# 
+# 
+# rstudioapi::terminalKill(myTerm)
+# readLines("TurkeyPathologistsPublished.txt")
 
 
 
