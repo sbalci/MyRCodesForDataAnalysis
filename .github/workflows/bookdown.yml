@@ -24,8 +24,6 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-renv@v1
-
       - name: Install pandoc
         uses: r-lib/actions/setup-pandoc@v1
 
